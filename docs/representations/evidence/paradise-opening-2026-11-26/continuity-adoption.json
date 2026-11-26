@@ -1,0 +1,26 @@
+{
+  "schema": "paradise-opening-continuity-adoption/1",
+  "date": "2026-11-26",
+  "primaryBundleSha256": "12d9760f32ceb47f1c15e040587350b892192baad778bb4112eea664913b2cc3",
+  "desktopCandidateBundleSha256": "12d9760f32ceb47f1c15e040587350b892192baad778bb4112eea664913b2cc3",
+  "bundleExactMatch": true,
+  "indexExactMatch": true,
+  "sourceSha256": "f1e41ba1e883ee48f4f77a0489cad360d66c54371bf1a934570b281ebcb4100b",
+  "oldDefinitionFixtureSha256": "d36c089f1f8986001282b35b3e599dfd1214d1d84027825522297477c4a262a2",
+  "adopted": "Five retrospective prose changes, pure title-scoped display projection of held records, exact content/start aliases, two scoped shared runtime replacements and compatibility regressions.",
+  "preserved": "Saved body, wounds, clock/deadline, original observations, stock and other title editions unchanged.",
+  "checks": {
+    "focused": "68/68 PASS",
+    "arch": "PASS",
+    "rules": "PASS with existing unrelated warnings",
+    "build": "normal primary npm run build PASS with existing duplicate-key warnings",
+    "whitespace": "PASS"
+  },
+  "fullSuite": "Previous coordinator suite ended with an unrelated world_calendar test harness ReferenceError; pr_intake confirmed no runtime input drift and released primary. No full rerun by this lane.",
+  "desktop": "Coordinator PASS on literal genuine pre-fix post-trial export; same exact bundle now primary.",
+  "server": {
+    "ownedPid": 102736,
+    "stopped": true
+  },
+  "commit": "none"
+}

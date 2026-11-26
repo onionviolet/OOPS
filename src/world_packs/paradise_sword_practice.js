@@ -22,6 +22,8 @@ const lessonXP = 100, sparXP = 25, studyXP = 75;
 const cutTicks = [12, 7, 6];
 const BOUTS = 'paradise.practice_bouts';
 const LESSON = 'intermediate_lesson';
+const COUNTER_IMAGE = 'guarding_image';
+const COUNTER_BOUTS = 'paradise.counter_drills';
 const FEE = 1000;
 const MINUTES = 60;
 const ROLES = {student: 'body', teacher: 'paradise.tutor'};
@@ -58,6 +60,42 @@ const spar = defineContestLaw({id: 'c.paradise_opening', revision: 1, moves: {
     practiced_cut: {resolver: 'strike', steps: [cutTicks[2]], power: 8},
     return_cut: {resolver: 'strike', steps: [9], power: 8},
 }});
+// Authored second image, not a sourced bout or a new Paradise reward.
+// It holds a short guard, then counters. A blocked committed cut needs recovery.
+const counterDrill = defineContestLaw({id: 'c.paradise_guarded_opening', revision: 1, moves: {
+    opening: {resolver: 'strike', steps: [6], power: 8},
+    recovering_cut: {resolver: 'strike', steps: [12], power: 8},
+    patient_cut: {resolver: 'strike', steps: [10], power: 8},
+    short_guard: {kind: 'guard', target: 'self', steps: [8], block: {vitality: 100}},
+    counter: {resolver: 'strike', steps: [8], power: 8},
+}});
+const counterBouts = engine => student(engine).state[COUNTER_BOUTS] ?? [];
+function secondDrill(engine, method) {
+    let ready = engine;
+    // Older Test Hall saves gain the new physical practice image on first use.
+    if (!ready.world.holders[COUNTER_IMAGE]) ready = applyEngineOps(ready,
+        [{op: 'holder_add', value: contestBody(COUNTER_IMAGE, HALL, {vitality: fullVitality})}], 'paradise:add_counter_image');
+    ready = advanceEngineWorld(ready, ready.world.clock + 5).engine;
+    ready = applyEngineOps(ready, [SU_XIAO, COUNTER_IMAGE].map(holder =>
+        ({op: 'set', holder, quantity: 'vitality', amount: fullVitality})), 'paradise:prepare_counter_drill');
+    const bout = beginContest(counterDrill, {id: 'guarded_opening', seed: 2, place: HALL, limits: {landed: 1}, entrants: [
+        {id: SU_XIAO, body: SU_XIAO, side: 'student', profile: {attack: 28, evasion: 5}, moves: ['opening', 'recovering_cut', 'patient_cut']},
+        {id: COUNTER_IMAGE, body: COUNTER_IMAGE, side: 'opponent', profile: {attack: 28, evasion: 5}, moves: ['short_guard', 'counter']},
+    ]}, ready.world);
+    const choose = (_law, record, _world, id) => {
+        const first = record.entrants[id].moveCount === 0;
+        if (id === COUNTER_IMAGE) return {move: first ? 'short_guard' : 'counter', target: first ? id : SU_XIAO};
+        return {move: method === 'wait' ? 'patient_cut' : first ? 'opening' : 'recovering_cut', target: COUNTER_IMAGE};
+    };
+    const {record, world} = runContest(counterDrill, bout, ready.rules, ready.world, {choose});
+    const hit = record.log.find(row => row.outcome === 'hit');
+    const result = {method, first: hit?.actor ?? null, seconds: hit ? hit.at / TICKS_PER_SECOND : null,
+        blocked: record.log.some(row => row.actor === SU_XIAO && row.outcome === 'blocked')};
+    return applyEngineOps({...ready, world}, [{op: 'state', holder: SU_XIAO, pack: COUNTER_BOUTS,
+        value: [...counterBouts(engine), result]}], 'paradise:counter_drill_result');
+}
+const counterReport = bout => `${bout.method === 'wait' ? 'Waited for the guard' : 'Committed to the opening'} · ${bout.blocked ? 'Your first cut was blocked. ' : ''}${bout.first === SU_XIAO ? 'Su Xiao' : 'Guarding image'} landed the first cut in ${bout.seconds?.toFixed(1)} seconds.`;
+
 const lessonRecord = engine => engine.records.workings[LESSON]?.record;
 const student = engine => engine.world.holders[SU_XIAO];
 const trainedBouts = engine => bouts(engine).filter(bout => bout.trained);
@@ -108,7 +146,12 @@ function actions(engine) {
     const bookingReason = record ? 'You have already paid for this lesson.'
         : !tutorReady ? 'Meet Koshiro’s image in the Test Hall.'
             : balance < FEE ? 'You need 1,000 Paradise Coins.' : undefined;
+    const counterReason = pending ? 'Finish the lesson first.' : !tutorReady ? 'Meet Koshiro’s image in the Test Hall.' :
+        !studied(engine) || !bouts(engine).some(b => b.skillLevel === 2) ? 'Test your studied opening in the first drill.' : undefined;
     return [
+        ...['commit', 'wait'].map(method => ({id: `counter_${method}`, label: method === 'wait' ? 'Wait for the guard to open' : 'Commit to your familiar opening',
+            detail: 'Authored second drill · a different image guards briefly, then counters. Five minutes; no fee or XP. A blocked cut takes time to recover.',
+            reason: counterReason ?? (counterBouts(engine).some(b => b.method === method) ? 'You recorded this approach. Try the other approach or review both results.' : undefined)})),
         {id: 'spar', label: skillLevel === 2 ? 'Test your practiced opening' : trained ? 'Spar again' : 'Spar before the lesson', detail: 'Face the same image in a first-touch sword drill.',
             reason: pending ? 'Finish the lesson first.' : alreadySparred ? 'You have recorded this drill.' : undefined},
         {id: 'enroll', label: 'Pay for the lesson', detail: 'Spend 1,000 Paradise Coins for one hour with Koshiro’s image.',
@@ -132,7 +175,7 @@ function view(engine) {
     const record = lessonRecord(engine), latest = bouts(engine).at(-1);
     const skillLevel = level(engine), xp = experience(engine);
     const practice = skillLevel ? 'Read the opening before cutting' : record?.status === 'running' ? 'Lesson in progress' : 'Unpracticed';
-    const result = record?.status === 'running' ? 'You paid for the hour. Koshiro’s image is ready.'
+    const result = counterBouts(engine).length ? counterReport(counterBouts(engine).at(-1)) : record?.status === 'running' ? 'You paid for the hour. Koshiro’s image is ready.'
         : record?.status === 'interrupted' ? 'The lesson ended early. You did not finish the drill.'
             : studied(engine) && latest?.skillLevel !== 2 ? studied(engine)
                 : skillLevel && !latest?.trained ? 'You learned to read the opening. Try the same drill again.'
@@ -144,12 +187,13 @@ function view(engine) {
         ['Sword Practice level', skillLevel < trackMax(practiceTrack) ? `Level ${skillLevel} · ${xp} / ${trackThreshold(practiceTrack, skillLevel + 1)} XP` : `Level ${skillLevel} · ${xp} XP`],
         ['Opening cut', `${cutTicks[skillLevel] / TICKS_PER_SECOND} seconds to release`],
         ...(studied(engine) ? [['Observation', studied(engine)]] : []),
-    ], actions: actions(engine), result, history: bouts(engine).map(report)};
+    ], actions: actions(engine), result, history: [...bouts(engine).map(report), ...counterBouts(engine).map(counterReport)]};
 }
 
 function act(engine, id) {
     const action = actions(engine).find(action => action.id === id);
     if (!action || action.reason) return engine;
+    if (id.startsWith('counter_')) return secondDrill(engine, id.slice(8));
     if (id === 'spar') return fight(engine);
     if (id === 'study') {
         const advanced = advanceEngineWorld(engine, engine.world.clock + 10).engine;

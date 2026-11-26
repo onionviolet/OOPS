@@ -1,0 +1,44 @@
+{
+  "schema": "paradise-second-drill-native/1",
+  "runtime": "native Node DOM, not desktop browser",
+  "route": [
+    "fresh Village",
+    "Capability runs",
+    "Su Xiao Test Hall",
+    "Begin",
+    "spar",
+    "pay1000",
+    "finish60min",
+    "spar",
+    "study10min",
+    "spar",
+    "commit5min",
+    "wait5min",
+    "Save",
+    "Export",
+    "Import"
+  ],
+  "bundle": "C:\\Users\\wayba\\AppData\\Local\\Temp\\yairpg-headless\\game-a68f98ba805d2861.mjs",
+  "clock": 80,
+  "balance": 1000,
+  "xp": 200,
+  "outcomes": [
+    {
+      "method": "commit",
+      "first": "guarding_image",
+      "seconds": 1.6,
+      "blocked": true
+    },
+    {
+      "method": "wait",
+      "first": "su_xiao",
+      "seconds": 1,
+      "blocked": false
+    }
+  ],
+  "persistence": {
+    "save": true,
+    "exportImport": true
+  },
+  "desktop": "pending coordinator"
+}

@@ -1,0 +1,211 @@
+{
+  "schema": "engine.world@1",
+  "packs": [
+    "c.contest"
+  ],
+  "world": {
+    "schema": "oops.world-substrate",
+    "revision": 1,
+    "clock": 7,
+    "decidedAt": 7,
+    "seq": 4,
+    "holders": {
+      "new_rome.street": {
+        "id": "new_rome.street",
+        "kind": "place",
+        "place": null,
+        "tags": [],
+        "as": [],
+        "refs": {},
+        "quantities": {},
+        "properties": {},
+        "ledger": {},
+        "state": {}
+      },
+      "new_rome.jolie_wrangler": {
+        "id": "new_rome.jolie_wrangler",
+        "kind": "place",
+        "place": null,
+        "tags": [],
+        "as": [],
+        "refs": {},
+        "quantities": {},
+        "properties": {},
+        "ledger": {},
+        "state": {}
+      },
+      "ryan": {
+        "id": "ryan",
+        "kind": "body",
+        "place": "new_rome.street",
+        "tags": [],
+        "as": [],
+        "refs": {},
+        "quantities": {
+          "vitality": 30,
+          "stock:repairs_euro": 50000
+        },
+        "properties": {},
+        "ledger": {
+          "stock:repairs_euro": {
+            "perfect_run:settle": 50000
+          }
+        },
+        "state": {
+          "perfect_run.memory": {
+            "loops": 4,
+            "ambush": true,
+            "tech": true,
+            "history": [
+              "Renesco takes the case. You stay to ask about Len.",
+              "Renesco points you toward Rust Town and the Junkyard. An attacker arrives, speaking for Adam, and fires an ice spear.",
+              "Too late. The spear freezes you before you can stop time. The world starts slipping away.",
+              "The attacker killed you at the Jolie Wrangler. You remember the ambush; the delivery and injury are undone.",
+              "You wait outside in the Plymouth. This time, you know who to look for.",
+              "You steer clear of the bystanders and smash the attacker through the pub entrance. He gets up and sends ice flying. Your bat is in the trunk.",
+              "You stop time, move around the ice and bring the bat down. The attacker is on the street, unable to resist. Renesco surveys the hole in his pub.",
+              "Renesco accepts €50,000 for repairs. The security captain demands your weapon license; his men keep their rifles on you.",
+              "The captain refuses your first offer. The rifles stay raised.",
+              "The captain accepts the larger bribe. His men lower their rifles and carry the attacker away.",
+              "Renesco takes the briefcase and identifies the attacker as Ghoul, from the Meta-Gang. You leave with a lead on Rust Town and the Junkyard."
+            ],
+            "name": true
+          },
+          "perfect_run.attempt": {
+            "phase": "complete",
+            "delivered": true,
+            "wallDamage": true,
+            "result": "Renesco takes the briefcase and identifies the attacker as Ghoul, from the Meta-Gang. You leave with a lead on Rust Town and the Junkyard.",
+            "securityPaid": true
+          }
+        }
+      },
+      "ghoul": {
+        "id": "ghoul",
+        "kind": "body",
+        "place": "new_rome.street",
+        "tags": [],
+        "as": [],
+        "refs": {},
+        "quantities": {
+          "vitality": 0
+        },
+        "properties": {},
+        "ledger": {
+          "vitality": {
+            "perfect_run:ram": -10,
+            "contest:ghoul_loop_4:1": -28,
+            "bound": 8
+          }
+        },
+        "state": {}
+      },
+      "briefcase": {
+        "id": "briefcase",
+        "kind": "thing",
+        "place": "new_rome.jolie_wrangler",
+        "tags": [],
+        "as": [],
+        "refs": {},
+        "quantities": {},
+        "properties": {},
+        "ledger": {},
+        "state": {}
+      },
+      "plymouth": {
+        "id": "plymouth",
+        "kind": "thing",
+        "place": "new_rome.street",
+        "tags": [],
+        "as": [],
+        "refs": {},
+        "quantities": {},
+        "properties": {},
+        "ledger": {},
+        "state": {}
+      }
+    },
+    "laws": [],
+    "chain": [
+      {
+        "seq": 1,
+        "at": 2,
+        "kind": "contest.blow",
+        "place": "new_rome.street",
+        "by": "contest:ghoul_loop_4:1",
+        "depth": 0,
+        "cause": "contest:ghoul_loop_4:1",
+        "detail": {
+          "actor": "ryan",
+          "target": "ghoul",
+          "move": "stopped_time_bat",
+          "landed": [
+            {
+              "verb": "remove",
+              "object": "vitality",
+              "amount": 28
+            }
+          ]
+        },
+        "quantity": null,
+        "amount": 0,
+        "landed": 0,
+        "reactions": []
+      },
+      {
+        "seq": 2,
+        "at": 2,
+        "kind": "contest.down",
+        "place": "new_rome.street",
+        "by": "contest:ghoul_loop_4:ends",
+        "depth": 0,
+        "cause": "contest:ghoul_loop_4:ends",
+        "detail": {
+          "entrant": "ghoul",
+          "outcome": "knocked_out",
+          "by": {
+            "actor": "ryan",
+            "move": "stopped_time_bat",
+            "share": 1.4
+          }
+        },
+        "quantity": null,
+        "amount": 0,
+        "landed": 0,
+        "reactions": []
+      },
+      {
+        "seq": 3,
+        "at": 7,
+        "kind": "departed",
+        "place": "new_rome.street",
+        "by": "briefcase",
+        "depth": 0,
+        "cause": "perfect_run:deliver",
+        "detail": {
+          "to": "new_rome.jolie_wrangler"
+        },
+        "quantity": null,
+        "amount": 0,
+        "landed": 0,
+        "reactions": []
+      },
+      {
+        "seq": 4,
+        "at": 7,
+        "kind": "arrived",
+        "place": "new_rome.jolie_wrangler",
+        "by": "briefcase",
+        "depth": 0,
+        "cause": "perfect_run:deliver",
+        "detail": {
+          "from": "new_rome.street"
+        },
+        "quantity": null,
+        "amount": 0,
+        "landed": 0,
+        "reactions": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,1266 @@
+{
+  "schema": 2,
+  "id": "book.su.lead",
+  "revision": 1,
+  "title": "Reincarnation Paradise · Su Xiao",
+  "description": "You are Su Xiao, alive with grave chest and leg wounds. A message offers a contract while the time keeping you alive runs down.",
+  "compatibility": {
+    "legacy": "preserve-dormant",
+    "origin": "mandatory"
+  },
+  "capabilities": [
+    "jobs"
+  ],
+  "world": {
+    "id": "book.su.lead.world",
+    "label": "Reincarnation Paradise · Su Xiao’s trial"
+  },
+  "locations": [
+    {
+      "id": "book.su.lead.recruitment",
+      "label": "Dark recruitment space",
+      "underRoof": true,
+      "description": "Pale text hangs in the darkness. Your injuries have not been treated. The offer is a contract or death, not a free invitation."
+    },
+    {
+      "id": "book.su.lead.house",
+      "label": "Ruined house in the Gray Terminal",
+      "underRoof": false,
+      "description": "Dusty cobwebs hang overhead. Debris blocks the door and windows; the half-collapsed roof offers a way out."
+    }
+  ],
+  "starts": [
+    {
+      "id": "book.su.lead.start",
+      "locationId": "book.su.lead.recruitment",
+      "description": "You are Su Xiao. Your heart is still beating despite the wounds in your chest and calf. A message says you will die without a contract. Your family knife is missing.",
+      "body": {
+        "id": "book.su.lead.body",
+        "ownerId": "player",
+        "controllerId": "player",
+        "form": "human",
+        "lifeStage": "adult",
+        "hands": 2,
+        "mobile": true,
+        "chestWounded": true,
+        "calfWounded": true
+      },
+      "effects": [
+        {
+          "type": "situation",
+          "situationId": "book.su.lead.recruitment_time",
+          "operation": "begin"
+        },
+        {
+          "type": "fact",
+          "actor": "player",
+          "scope": "actor",
+          "key": "book.su.lead.stage",
+          "value": "offer"
+        },
+        {
+          "type": "fact",
+          "actor": "player",
+          "scope": "actor",
+          "key": "book.su.lead.name",
+          "value": "Su Xiao"
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "book.su.lead.opening",
+          "stage": "understood",
+          "value": "You are alive, not resurrected. Your wounds remain. The message gives you about an hour and thirty-five minutes to make a contract before you die."
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "book.su.lead.means",
+          "stage": "understood",
+          "value": "Your family knife is missing. You have received no weapon, money, office or trial reward."
+        },
+        {
+          "type": "fact",
+          "actor": "player",
+          "scope": "actor",
+          "key": "book.su.lead.trial_received",
+          "value": false
+        },
+        {
+          "type": "fact",
+          "actor": "player",
+          "scope": "actor",
+          "key": "book.su.lead.personal_read",
+          "value": false
+        }
+      ]
+    }
+  ],
+  "simulation": {
+    "people": [],
+    "energies": [],
+    "situations": [
+      {
+        "id": "book.su.lead.recruitment_time",
+        "revision": 1,
+        "label": "Time before treatment",
+        "context": {
+          "worldId": "book.su.lead.world",
+          "instanceId": "book.su.lead.opening",
+          "continuityId": "book.su.lead.opening",
+          "eraId": "book.su.lead.first_trial",
+          "regionId": "book.su.lead.goa"
+        },
+        "participants": [
+          "player"
+        ],
+        "initialPhase": "open",
+        "phases": [
+          "open"
+        ],
+        "privateTruth": {
+          "scope": "opening"
+        },
+        "responseWindow": 95
+      },
+      {
+        "id": "book.su.lead.trial_time",
+        "revision": 1,
+        "label": "The issued Hunter trial",
+        "context": {
+          "worldId": "book.su.lead.world",
+          "instanceId": "book.su.lead.opening",
+          "continuityId": "book.su.lead.opening",
+          "eraId": "book.su.lead.first_trial",
+          "regionId": "book.su.lead.goa"
+        },
+        "participants": [
+          "player"
+        ],
+        "initialPhase": "open",
+        "phases": [
+          "open"
+        ],
+        "privateTruth": {
+          "scope": "opening"
+        },
+        "responseWindow": 4320
+      }
+    ],
+    "commands": [
+      {
+        "id": "book.su.lead.inspect_wounds",
+        "revision": 1,
+        "label": "Check your wounds and heartbeat",
+        "description": "Check your own body before answering. This does not treat the injuries.",
+        "group": "structured_local",
+        "worldId": "book.su.lead.world",
+        "actorId": "player",
+        "location": "book.su.lead.recruitment",
+        "audience": [
+          "$actor"
+        ],
+        "once": true,
+        "duration": 0,
+        "costs": [],
+        "requires": {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "actor.life",
+                  "op": "eq",
+                  "value": "alive"
+                },
+                {
+                  "fact": "native.ready",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "native.alive",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "body.ownerId",
+                  "op": "eq",
+                  "value": "player"
+                },
+                {
+                  "fact": "body.controllerId",
+                  "op": "eq",
+                  "value": "player"
+                }
+              ]
+            },
+            {
+              "fact": "actor.book.su.lead.stage",
+              "op": "eq",
+              "value": "offer"
+            },
+            {
+              "fact": "situation.book.su.lead.recruitment_time.responseOpen",
+              "op": "eq",
+              "value": true,
+              "reason": "The time offered before treatment has run out."
+            }
+          ]
+        },
+        "visibleWhen": {
+          "fact": "actor.book.su.lead.stage",
+          "op": "eq",
+          "value": "offer"
+        },
+        "source": {
+          "kind": "source-paraphrase",
+          "locator": "MTL ch1 p45–61",
+          "timing": "Dialogue and notices are instant; one-minute panel readings are authored and use the running trial clock."
+        },
+        "effects": [
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "book.su.lead.wounds",
+            "stage": "understood",
+            "value": "Your heart is beating. Your chest and calf are badly wounded, though they are not bleeding here. The countdown is keeping you alive for now."
+          }
+        ]
+      },
+      {
+        "id": "book.su.lead.ask_knife",
+        "revision": 1,
+        "label": "Ask where your family knife is",
+        "description": "Ask about the keepsake you were carrying. Do not assume it came with you.",
+        "group": "structured_local",
+        "worldId": "book.su.lead.world",
+        "actorId": "player",
+        "location": "book.su.lead.recruitment",
+        "audience": [
+          "$actor"
+        ],
+        "once": true,
+        "duration": 0,
+        "costs": [],
+        "requires": {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "actor.life",
+                  "op": "eq",
+                  "value": "alive"
+                },
+                {
+                  "fact": "native.ready",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "native.alive",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "body.ownerId",
+                  "op": "eq",
+                  "value": "player"
+                },
+                {
+                  "fact": "body.controllerId",
+                  "op": "eq",
+                  "value": "player"
+                }
+              ]
+            },
+            {
+              "fact": "actor.book.su.lead.stage",
+              "op": "eq",
+              "value": "offer"
+            },
+            {
+              "fact": "situation.book.su.lead.recruitment_time.responseOpen",
+              "op": "eq",
+              "value": true,
+              "reason": "The time offered before treatment has run out."
+            }
+          ]
+        },
+        "visibleWhen": {
+          "fact": "actor.book.su.lead.stage",
+          "op": "eq",
+          "value": "offer"
+        },
+        "source": {
+          "kind": "source-paraphrase",
+          "locator": "MTL ch1 p62–65",
+          "timing": "Dialogue and notices are instant; one-minute panel readings are authored and use the running trial clock."
+        },
+        "effects": [
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "book.su.lead.knife_answer",
+            "stage": "understood",
+            "value": "The message says objects from your world cannot be brought here. Your family knife has not been returned to you."
+          }
+        ]
+      },
+      {
+        "id": "book.su.lead.ask_terms",
+        "revision": 1,
+        "label": "Ask what a Hunter must do",
+        "description": "Ask about the work and the Hunter role before you sign. The answer ends the questions.",
+        "group": "structured_local",
+        "worldId": "book.su.lead.world",
+        "actorId": "player",
+        "location": "book.su.lead.recruitment",
+        "audience": [
+          "$actor"
+        ],
+        "once": true,
+        "duration": 0,
+        "costs": [],
+        "requires": {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "actor.life",
+                  "op": "eq",
+                  "value": "alive"
+                },
+                {
+                  "fact": "native.ready",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "native.alive",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "body.ownerId",
+                  "op": "eq",
+                  "value": "player"
+                },
+                {
+                  "fact": "body.controllerId",
+                  "op": "eq",
+                  "value": "player"
+                }
+              ]
+            },
+            {
+              "fact": "actor.book.su.lead.stage",
+              "op": "eq",
+              "value": "offer"
+            },
+            {
+              "fact": "situation.book.su.lead.recruitment_time.responseOpen",
+              "op": "eq",
+              "value": true,
+              "reason": "The time offered before treatment has run out."
+            }
+          ]
+        },
+        "visibleWhen": {
+          "fact": "actor.book.su.lead.stage",
+          "op": "eq",
+          "value": "offer"
+        },
+        "source": {
+          "kind": "source-paraphrase",
+          "locator": "NS01-C01; MTL ch2 p3–7",
+          "timing": "Dialogue and notices are instant; one-minute panel readings are authored and use the running trial clock."
+        },
+        "effects": [
+          {
+            "type": "fact",
+            "actor": "player",
+            "scope": "actor",
+            "key": "book.su.lead.stage",
+            "value": "answered"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "book.su.lead.terms",
+            "stage": "understood",
+            "value": "Contractors perform tasks for rewards. Hunters have additional assignments against designated offenders. The message says it will answer no more questions: sign, or wait for death."
+          }
+        ]
+      },
+      {
+        "id": "book.su.lead.sign_now",
+        "revision": 1,
+        "label": "Sign before asking more",
+        "description": "Take the contract under the threat of death. You will not receive the unanswered explanations first.",
+        "group": "structured_local",
+        "worldId": "book.su.lead.world",
+        "actorId": "player",
+        "location": "book.su.lead.recruitment",
+        "audience": [
+          "$actor"
+        ],
+        "once": true,
+        "duration": 0,
+        "costs": [],
+        "requires": {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "actor.life",
+                  "op": "eq",
+                  "value": "alive"
+                },
+                {
+                  "fact": "native.ready",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "native.alive",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "body.ownerId",
+                  "op": "eq",
+                  "value": "player"
+                },
+                {
+                  "fact": "body.controllerId",
+                  "op": "eq",
+                  "value": "player"
+                }
+              ]
+            },
+            {
+              "fact": "actor.book.su.lead.stage",
+              "op": "eq",
+              "value": "offer"
+            },
+            {
+              "fact": "situation.book.su.lead.recruitment_time.responseOpen",
+              "op": "eq",
+              "value": true,
+              "reason": "The time offered before treatment has run out."
+            }
+          ]
+        },
+        "visibleWhen": {
+          "fact": "actor.book.su.lead.stage",
+          "op": "eq",
+          "value": "offer"
+        },
+        "source": {
+          "kind": "source-paraphrase",
+          "locator": "Authored untaken response at NS01-C01 / MTL ch2 p7–17",
+          "timing": "Dialogue and notices are instant; one-minute panel readings are authored and use the running trial clock."
+        },
+        "effects": [
+          {
+            "type": "fact",
+            "actor": "player",
+            "scope": "actor",
+            "key": "book.su.lead.stage",
+            "value": "signed"
+          },
+          {
+            "type": "fact",
+            "actor": "player",
+            "scope": "actor",
+            "key": "book.su.lead.signed_without_terms",
+            "value": true
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "book.su.lead.agreement",
+            "stage": "understood",
+            "value": "You signed before asking about the Hunter’s duties. Your wounds have not yet been treated. This was a choice under threat of death, not a free offer."
+          }
+        ]
+      },
+      {
+        "id": "book.su.lead.sign",
+        "revision": 1,
+        "label": "Sign the contract",
+        "description": "Press your thumb to the parchment. The alternative given to you is death.",
+        "group": "structured_local",
+        "worldId": "book.su.lead.world",
+        "actorId": "player",
+        "location": "book.su.lead.recruitment",
+        "audience": [
+          "$actor"
+        ],
+        "once": true,
+        "duration": 0,
+        "costs": [],
+        "requires": {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "actor.life",
+                  "op": "eq",
+                  "value": "alive"
+                },
+                {
+                  "fact": "native.ready",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "native.alive",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "body.ownerId",
+                  "op": "eq",
+                  "value": "player"
+                },
+                {
+                  "fact": "body.controllerId",
+                  "op": "eq",
+                  "value": "player"
+                }
+              ]
+            },
+            {
+              "fact": "actor.book.su.lead.stage",
+              "op": "eq",
+              "value": "answered"
+            },
+            {
+              "fact": "situation.book.su.lead.recruitment_time.responseOpen",
+              "op": "eq",
+              "value": true,
+              "reason": "The time offered before treatment has run out."
+            }
+          ]
+        },
+        "visibleWhen": {
+          "fact": "actor.book.su.lead.stage",
+          "op": "eq",
+          "value": "answered"
+        },
+        "source": {
+          "kind": "source-paraphrase",
+          "locator": "NS01-C01; MTL ch2 p9–17",
+          "timing": "Dialogue and notices are instant; one-minute panel readings are authored and use the running trial clock."
+        },
+        "effects": [
+          {
+            "type": "fact",
+            "actor": "player",
+            "scope": "actor",
+            "key": "book.su.lead.stage",
+            "value": "signed"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "book.su.lead.agreement",
+            "stage": "understood",
+            "value": "You pressed your thumb to the contract. It is signed. Your wounds have not yet been treated."
+          }
+        ]
+      },
+      {
+        "id": "book.su.lead.treatment",
+        "revision": 1,
+        "label": "Let the treatment finish",
+        "description": "The green light closes around your existing body. This is treatment, not a replacement body.",
+        "group": "structured_local",
+        "worldId": "book.su.lead.world",
+        "actorId": "player",
+        "location": "book.su.lead.recruitment",
+        "audience": [
+          "$actor"
+        ],
+        "once": true,
+        "duration": 0,
+        "costs": [],
+        "requires": {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "actor.life",
+                  "op": "eq",
+                  "value": "alive"
+                },
+                {
+                  "fact": "native.ready",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "native.alive",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "body.ownerId",
+                  "op": "eq",
+                  "value": "player"
+                },
+                {
+                  "fact": "body.controllerId",
+                  "op": "eq",
+                  "value": "player"
+                }
+              ]
+            },
+            {
+              "fact": "actor.book.su.lead.stage",
+              "op": "eq",
+              "value": "signed"
+            }
+          ]
+        },
+        "visibleWhen": {
+          "fact": "actor.book.su.lead.stage",
+          "op": "eq",
+          "value": "signed"
+        },
+        "source": {
+          "kind": "source-paraphrase",
+          "locator": "MTL ch2 p17–19",
+          "timing": "Dialogue and notices are instant; one-minute panel readings are authored and use the running trial clock."
+        },
+        "effects": [
+          {
+            "type": "body",
+            "actor": "player",
+            "key": "chestWounded",
+            "value": false
+          },
+          {
+            "type": "body",
+            "actor": "player",
+            "key": "calfWounded",
+            "value": false
+          },
+          {
+            "type": "fact",
+            "actor": "player",
+            "scope": "actor",
+            "key": "book.su.lead.stage",
+            "value": "treated"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "book.su.lead.treatment",
+            "stage": "understood",
+            "value": "The treatment has closed the wounds in your chest and calf. You remain in the same body."
+          }
+        ]
+      },
+      {
+        "id": "book.su.lead.awakening",
+        "revision": 1,
+        "label": "Endure the forced awakening",
+        "description": "A sudden pain follows the treatment. You were not offered a separate choice about awakening.",
+        "group": "structured_local",
+        "worldId": "book.su.lead.world",
+        "actorId": "player",
+        "location": "book.su.lead.recruitment",
+        "audience": [
+          "$actor"
+        ],
+        "once": true,
+        "duration": 0,
+        "costs": [],
+        "requires": {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "actor.life",
+                  "op": "eq",
+                  "value": "alive"
+                },
+                {
+                  "fact": "native.ready",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "native.alive",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "body.ownerId",
+                  "op": "eq",
+                  "value": "player"
+                },
+                {
+                  "fact": "body.controllerId",
+                  "op": "eq",
+                  "value": "player"
+                }
+              ]
+            },
+            {
+              "fact": "actor.book.su.lead.stage",
+              "op": "eq",
+              "value": "treated"
+            }
+          ]
+        },
+        "visibleWhen": {
+          "fact": "actor.book.su.lead.stage",
+          "op": "eq",
+          "value": "treated"
+        },
+        "source": {
+          "kind": "source-paraphrase",
+          "locator": "MTL ch2 p19–26",
+          "timing": "Dialogue and notices are instant; one-minute panel readings are authored and use the running trial clock."
+        },
+        "effects": [
+          {
+            "type": "fact",
+            "actor": "player",
+            "scope": "actor",
+            "key": "book.su.lead.stage",
+            "value": "awakened"
+          },
+          {
+            "type": "fact",
+            "actor": "player",
+            "scope": "actor",
+            "key": "book.su.lead.talent_awakened",
+            "value": true
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "book.su.lead.awakening",
+            "stage": "understood",
+            "value": "The pain passes. Something already within your body has awakened. The displayed information is an aid; a fatal injury to an organ can still kill you."
+          }
+        ]
+      },
+      {
+        "id": "book.su.lead.transfer",
+        "revision": 1,
+        "label": "Open your eyes after the transfer",
+        "description": "The transfer takes you to the trial world. This does not complete any part of the mission.",
+        "group": "structured_local",
+        "worldId": "book.su.lead.world",
+        "actorId": "player",
+        "location": "book.su.lead.recruitment",
+        "audience": [
+          "$actor"
+        ],
+        "once": true,
+        "duration": 0,
+        "costs": [],
+        "requires": {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "actor.life",
+                  "op": "eq",
+                  "value": "alive"
+                },
+                {
+                  "fact": "native.ready",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "native.alive",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "body.ownerId",
+                  "op": "eq",
+                  "value": "player"
+                },
+                {
+                  "fact": "body.controllerId",
+                  "op": "eq",
+                  "value": "player"
+                }
+              ]
+            },
+            {
+              "fact": "actor.book.su.lead.stage",
+              "op": "eq",
+              "value": "awakened"
+            }
+          ]
+        },
+        "visibleWhen": {
+          "fact": "actor.book.su.lead.stage",
+          "op": "eq",
+          "value": "awakened"
+        },
+        "source": {
+          "kind": "source-paraphrase",
+          "locator": "MTL ch2 p29–39",
+          "timing": "Dialogue and notices are instant; one-minute panel readings are authored and use the running trial clock."
+        },
+        "effects": [
+          {
+            "type": "relocate",
+            "actor": "player",
+            "location": "book.su.lead.house"
+          },
+          {
+            "type": "situation",
+            "situationId": "book.su.lead.trial_time",
+            "operation": "begin"
+          },
+          {
+            "type": "fact",
+            "actor": "player",
+            "scope": "actor",
+            "key": "book.su.lead.stage",
+            "value": "arrival"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "book.su.lead.arrival",
+            "stage": "understood",
+            "value": "You wake in a small ruined house buried in rubbish. The door and windows are blocked. A black sword-shaped mark has appeared on your arm."
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "book.su.lead.issued",
+            "stage": "understood",
+            "value": "The world notice has appeared. Your trial has begun; reading its details later does not restart its time limit."
+          }
+        ]
+      },
+      {
+        "id": "book.su.lead.read_arrival",
+        "revision": 1,
+        "label": "Read the world notice",
+        "description": "Read the task, regional warning and language notice that appeared in your sight.",
+        "group": "structured_local",
+        "worldId": "book.su.lead.world",
+        "actorId": "player",
+        "location": "book.su.lead.house",
+        "audience": [
+          "$actor"
+        ],
+        "once": true,
+        "duration": 0,
+        "costs": [],
+        "requires": {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "actor.life",
+                  "op": "eq",
+                  "value": "alive"
+                },
+                {
+                  "fact": "native.ready",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "native.alive",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "body.ownerId",
+                  "op": "eq",
+                  "value": "player"
+                },
+                {
+                  "fact": "body.controllerId",
+                  "op": "eq",
+                  "value": "player"
+                }
+              ]
+            },
+            {
+              "fact": "actor.book.su.lead.stage",
+              "op": "eq",
+              "value": "arrival"
+            }
+          ]
+        },
+        "visibleWhen": {
+          "fact": "actor.book.su.lead.stage",
+          "op": "eq",
+          "value": "arrival"
+        },
+        "source": {
+          "kind": "source-paraphrase",
+          "locator": "NS01-C02; MTL ch2 p40–50",
+          "timing": "Dialogue and notices are instant; one-minute panel readings are authored and use the running trial clock."
+        },
+        "effects": [
+          {
+            "type": "fact",
+            "actor": "player",
+            "scope": "actor",
+            "key": "book.su.lead.stage",
+            "value": "brand"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "book.su.lead.world_notice",
+            "stage": "understood",
+            "value": "The notice names the Kingdom of Goa and a task to kill its king. It warns against revealing Paradise or leaving the kingdom, and grants three days of understanding the local language. The trial countdown has begun."
+          }
+        ]
+      },
+      {
+        "id": "book.su.lead.open_brand",
+        "revision": 1,
+        "label": "Open the mark’s menu",
+        "description": "Call up the mark with a thought. Personal information and tasks are available; inventory, skills and equipment are locked.",
+        "group": "structured_local",
+        "worldId": "book.su.lead.world",
+        "actorId": "player",
+        "location": "book.su.lead.house",
+        "audience": [
+          "$actor"
+        ],
+        "once": true,
+        "duration": 0,
+        "costs": [],
+        "requires": {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "actor.life",
+                  "op": "eq",
+                  "value": "alive"
+                },
+                {
+                  "fact": "native.ready",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "native.alive",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "body.ownerId",
+                  "op": "eq",
+                  "value": "player"
+                },
+                {
+                  "fact": "body.controllerId",
+                  "op": "eq",
+                  "value": "player"
+                }
+              ]
+            },
+            {
+              "fact": "actor.book.su.lead.stage",
+              "op": "eq",
+              "value": "brand"
+            }
+          ]
+        },
+        "visibleWhen": {
+          "fact": "actor.book.su.lead.stage",
+          "op": "eq",
+          "value": "brand"
+        },
+        "source": {
+          "kind": "source-paraphrase",
+          "locator": "MTL ch2 p60–69",
+          "timing": "Dialogue and notices are instant; one-minute panel readings are authored and use the running trial clock."
+        },
+        "effects": [
+          {
+            "type": "fact",
+            "actor": "player",
+            "scope": "actor",
+            "key": "book.su.lead.stage",
+            "value": "panels"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "book.su.lead.brand",
+            "stage": "understood",
+            "value": "You can open Personal Information and Tasks. Inventory, Skills and Equipment are unavailable. The mark has not supplied a weapon."
+          }
+        ]
+      },
+      {
+        "id": "book.su.lead.read_trial",
+        "revision": 1,
+        "label": "Read the 72-hour trial",
+        "description": "Spend one minute reading the actual target and time limit before planning a route.",
+        "group": "structured_local",
+        "worldId": "book.su.lead.world",
+        "actorId": "player",
+        "location": "book.su.lead.house",
+        "audience": [
+          "$actor"
+        ],
+        "once": true,
+        "duration": 1,
+        "costs": [],
+        "requires": {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "actor.life",
+                  "op": "eq",
+                  "value": "alive"
+                },
+                {
+                  "fact": "native.ready",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "native.alive",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "body.ownerId",
+                  "op": "eq",
+                  "value": "player"
+                },
+                {
+                  "fact": "body.controllerId",
+                  "op": "eq",
+                  "value": "player"
+                }
+              ]
+            },
+            {
+              "fact": "actor.book.su.lead.stage",
+              "op": "eq",
+              "value": "panels"
+            },
+            {
+              "fact": "actor.book.su.lead.trial_received",
+              "op": "eq",
+              "value": false
+            }
+          ]
+        },
+        "visibleWhen": {
+          "all": [
+            {
+              "fact": "actor.book.su.lead.stage",
+              "op": "eq",
+              "value": "panels"
+            },
+            {
+              "fact": "actor.book.su.lead.trial_received",
+              "op": "eq",
+              "value": false
+            }
+          ]
+        },
+        "source": {
+          "kind": "source-paraphrase",
+          "locator": "NS01-C02; MTL ch2 p70–83",
+          "timing": "Dialogue and notices are instant; one-minute panel readings are authored and use the running trial clock."
+        },
+        "effects": [
+          {
+            "type": "fact",
+            "actor": "player",
+            "scope": "actor",
+            "key": "book.su.lead.trial_received",
+            "value": true
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "book.su.lead.trial",
+            "stage": "understood",
+            "value": "Kill Philip Herbert, king of Goa, within 72 hours. The notice places him in the palace. Completion earns the Hunter identity. You have not completed the trial or learned a route into the palace."
+          }
+        ],
+        "completionCoLocated": true,
+        "cancellation": "refund",
+        "completionFailure": "refund"
+      },
+      {
+        "id": "book.su.lead.read_personal",
+        "revision": 1,
+        "label": "Read your personal information",
+        "description": "Spend one minute checking the mark’s account of your body and awakened talent. You can read this before or after the task.",
+        "group": "structured_local",
+        "worldId": "book.su.lead.world",
+        "actorId": "player",
+        "location": "book.su.lead.house",
+        "audience": [
+          "$actor"
+        ],
+        "once": true,
+        "duration": 1,
+        "costs": [],
+        "requires": {
+          "all": [
+            {
+              "all": [
+                {
+                  "fact": "actor.life",
+                  "op": "eq",
+                  "value": "alive"
+                },
+                {
+                  "fact": "native.ready",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "native.alive",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "body.ownerId",
+                  "op": "eq",
+                  "value": "player"
+                },
+                {
+                  "fact": "body.controllerId",
+                  "op": "eq",
+                  "value": "player"
+                }
+              ]
+            },
+            {
+              "fact": "actor.book.su.lead.stage",
+              "op": "eq",
+              "value": "panels"
+            },
+            {
+              "fact": "actor.book.su.lead.personal_read",
+              "op": "eq",
+              "value": false
+            }
+          ]
+        },
+        "visibleWhen": {
+          "all": [
+            {
+              "fact": "actor.book.su.lead.stage",
+              "op": "eq",
+              "value": "panels"
+            },
+            {
+              "fact": "actor.book.su.lead.personal_read",
+              "op": "eq",
+              "value": false
+            }
+          ]
+        },
+        "source": {
+          "kind": "source-paraphrase",
+          "locator": "NS01-C03; MTL ch3 p1–17",
+          "timing": "Dialogue and notices are instant; one-minute panel readings are authored and use the running trial clock."
+        },
+        "effects": [
+          {
+            "type": "fact",
+            "actor": "player",
+            "scope": "actor",
+            "key": "book.su.lead.personal_read",
+            "value": true
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "book.su.lead.personal",
+            "stage": "understood",
+            "value": "Your mark names Su Xiao and shows a healthy body. It describes Soul Eater as gaining mana from defeated enemies, with a stated limit for each world. Reading it has not granted a kill, mana, coins or sword training."
+          }
+        ],
+        "completionCoLocated": true,
+        "cancellation": "refund",
+        "completionFailure": "refund"
+      }
+    ]
+  },
+  "presentation": {
+    "people": {},
+    "status": [
+      {
+        "id": "book.su.lead.opening_status",
+        "label": "Your situation",
+        "knowledgeKey": "book.su.lead.opening"
+      },
+      {
+        "id": "book.su.lead.knife_answer_status",
+        "label": "Your missing knife",
+        "knowledgeKey": "book.su.lead.knife_answer"
+      },
+      {
+        "id": "book.su.lead.terms_status",
+        "label": "Hunter duties",
+        "knowledgeKey": "book.su.lead.terms"
+      },
+      {
+        "id": "book.su.lead.agreement_status",
+        "label": "Contract",
+        "knowledgeKey": "book.su.lead.agreement"
+      },
+      {
+        "id": "book.su.lead.treatment_status",
+        "label": "Your wounds",
+        "knowledgeKey": "book.su.lead.treatment"
+      },
+      {
+        "id": "book.su.lead.awakening_status",
+        "label": "Awakening",
+        "knowledgeKey": "book.su.lead.awakening"
+      },
+      {
+        "id": "book.su.lead.arrival_status",
+        "label": "Arrival",
+        "knowledgeKey": "book.su.lead.arrival"
+      },
+      {
+        "id": "book.su.lead.world_notice_status",
+        "label": "World notice",
+        "knowledgeKey": "book.su.lead.world_notice"
+      },
+      {
+        "id": "book.su.lead.brand_status",
+        "label": "The mark",
+        "knowledgeKey": "book.su.lead.brand"
+      },
+      {
+        "id": "book.su.lead.trial_status",
+        "label": "Issued trial",
+        "knowledgeKey": "book.su.lead.trial"
+      },
+      {
+        "id": "book.su.lead.personal_status",
+        "label": "Personal information",
+        "knowledgeKey": "book.su.lead.personal"
+      }
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "paradise-opening-native/1",
+  "date": "2026-11-26",
+  "runtime": "Native Node DOM; not desktop browser",
+  "bundleSha256": "7bfb24cde35027e515ea30a019f975ef5bd4e78bc1fe3b8c96709011a6894cec",
+  "setup": "Fresh ordinary Village, Beginning picker, Su Xiao, Confirm arrival. No supplied save or time/skill grant.",
+  "route": [
+    "inspect wounds",
+    "ask knife",
+    "ask Hunter duties",
+    "sign",
+    "treatment",
+    "Save/reload",
+    "forced awakening",
+    "transfer",
+    "world notice",
+    "mark menu",
+    "personal panel one minute",
+    "trial panel one minute"
+  ],
+  "observed": {
+    "sameBody": true,
+    "woundsClosedAfterTreatment": true,
+    "trialIssuedAt": 0,
+    "clock": 2,
+    "deadline": 4320,
+    "remainingMinutes": 4318,
+    "trialRead": true,
+    "personalRead": true,
+    "separateContractorState": true,
+    "noCompletedMissionClaim": true
+  },
+  "persistence": {
+    "saveReloadDuringRecruitment": true,
+    "saveReloadAfterPanels": true,
+    "literalExportImport": true
+  },
+  "scope": "Source-qualified opening, authored optional early signature and one-minute readings. Frontier possessions remain separate. No campaign completion, extraction, source currency conversion or desktop claim."
+}
