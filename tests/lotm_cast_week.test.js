@@ -32,6 +32,14 @@ const baseline={
  machinery:'951e88f3cbdf16e41beb7f5fe10dff8d703c07ca0585e392c3aec01ba6152f07',
  storm:'2e43563bd021d7fce8ceb2724353e5edf3ba34ff56db3fcd5e136b72b142e6c4',
  civil:'7c515d30cf2948ec05ad1b218e183f235c2327836872f9fd89b8a8082789af6f'};
+// The authorized ordinary-probationer watch route adds this fresh, locked
+// directory choice. Preserve every prior action byte instead of refreshing hashes.
+function priorActions(actions,profile,place){
+ const id='book.lotm.directory_storm_contact',added=actions.filter(a=>a.id===id);
+ assert.equal(added.length,profile==='probationer'&&place===L.university?1:0,'directory choice stays at the probationer university');
+ if(added.length)assert.equal(added[0].eligible,false,'fresh life still needs interpreted city-papers notes');
+ return actions.filter(a=>a.id!==id);
+}
 const entryBaseline={
   "probationer": [
     [
@@ -346,10 +354,10 @@ const entryBaseline={
     ]
   ]
 };
-test('original profiles retain byte-identical entry answers, people and complete action/move lists',()=>{
+test('original profiles retain prior entry, people and action bytes around the scoped public-work addition',()=>{
  for(const key of Object.keys(baseline)){
   const {host,box}=begin(key),views=[];
-  for(const place of Object.values(L)){box.p.state.simulation.people.player.location=place;views.push(host.view().actions);assert.deepEqual(host.view().moves.map(m=>m.id),Object.entries(L).filter(([,to])=>to!==place).map(([key])=>'lotm.move.'+key));}
+  for(const place of Object.values(L)){box.p.state.simulation.people.player.location=place;views.push(priorActions(host.view().actions,key,place));assert.deepEqual(host.view().moves.map(m=>m.id),Object.entries(L).filter(([,to])=>to!==place).map(([key])=>'lotm.move.'+key));}
   assert.equal(hash(views),baseline[key],key+' actions');
   assert.equal(hash(Object.keys(box.p.state.simulation.people).sort()),'523afc8618c9d3b180c45beef4ff61961c139be14b259f006c4f6991a36509ff');
   assert.equal(JSON.stringify([entryAnswers(key),entryAnswers(key,{returnable:true})]),JSON.stringify(entryBaseline[key]));
@@ -398,11 +406,12 @@ test('pack-absent reader hides new entry but retains invented bodies, a role and
  import {validateLotmState} from './src/book_world_lotm_state.js';
  import {validateSimulationState} from './src/simulation_contracts.js';
  import assert from 'node:assert/strict';
+ const priorActions=${priorActions.toString()};
  const host=hostOver(bare()).host;assert.equal(host.view().profiles.length,4);assert.throws(()=>host.enroll('beside'),/available/);
  const expected=${JSON.stringify({baseline,entryBaseline,panels:Object.fromEntries(Object.keys(baseline).map(key=>{const o=begin(key);return [key,hash(Object.values(L).map(place=>{o.box.p.state.simulation.people.player.location=place;return o.host.view();}))];}))})};
  for(const key of Object.keys(expected.baseline)){
   const o=hostOver(bare());o.host.enroll(key);const views=[];
-  for(const place of Object.values(L)){o.box.p.state.simulation.people.player.location=place;views.push(o.host.view().actions);
+  for(const place of Object.values(L)){o.box.p.state.simulation.people.player.location=place;views.push(priorActions(o.host.view().actions,key,place));
    assert.deepEqual(o.host.view().moves.map(m=>m.id),Object.entries(L).filter(([,to])=>to!==place).map(([key])=>'lotm.move.'+key));}
   assert.equal(createHash('sha256').update(JSON.stringify(views)).digest('hex'),expected.baseline[key]);
   assert.equal(JSON.stringify([entryAnswers(key),entryAnswers(key,{returnable:true})]),JSON.stringify(expected.entryBaseline[key]));

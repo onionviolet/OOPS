@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "kind": "source-freeze-not-browser-proof",
+  "at": "2026-11-26T06:09:06.018022+00:00",
+  "files": {
+    "src/lotm_tent_refusal.js": "448c55d00c0251a0e6b2dcbe48a5810c32912f255800abc8eab5f2a394c2afcd",
+    "src/book_world_lotm_host.js": "4ba360ded9cc870d4b92c963da5e7c00ad9cb1c3d4f0aab08d5155f7a7f630ba",
+    "src/ui/lotm_task_summary.js": "01c3505188fd5f78a67a06e17f69be68d0881d3bb2212ca1c3388101768129c7",
+    "tests/lotm_task_summary.test.js": "52d5b97269c1dea8cb5e9709abb5da796962608df821d4ce4893a16d3ba7d20d",
+    "tests/lotm_tent_refusal.test.js": "bd515833d70e84d8f6a283f709d66fba85e2ad65212fa8a33d02e2d326879394",
+    "tests/lotm_tent_native_completion.test.js": "7ee0e5a1f52f5e930d2c7c9277ba5c7daf4e2cf6aa253ced88e56ccaa2a74c99"
+  },
+  "checks": {
+    "focused": "18/18 passed in39.0s: node --test tests/lotm_task_summary.test.js tests/lotm_tent_refusal.test.js tests/lotm_tent_native_completion.test.js",
+    "architecture": "passed",
+    "rules": "passed with existing warning-only lints and stale private-pack glob",
+    "whitespace": "passed",
+    "browser": "not run; coordinator owns rebuilt desktop replay"
+  },
+  "control": "[data-lotm-task-alternative] [data-lotm-task-link]",
+  "behavior": "Retain canonical recommendation; show actual eligible known market walk quote and how to buy there; button focuses existing walk without starting it. Hide on unavailable, settled, other-seat, terminal or running views.",
+  "route": "Earned post-bread426 -> current task alternative -> Show walk to the market -> existing native walk -> existing direct grocery control."
+}

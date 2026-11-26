@@ -1,0 +1,76 @@
+{
+  "schema": "lotm-handbill-source-freeze/1",
+  "status": "focused-agent-verified-browser-proof-owned-by-coordinator",
+  "files": [
+    {
+      "path": "src/lotm_circus_notice.js",
+      "sha256": "15fc32ddb20bdee920627d1ba8ec96335381338fd2c673283ccbdd253a8c669f"
+    },
+    {
+      "path": "src/lotm_tent_incident.js",
+      "sha256": "c0a38e0f216e39289956c60ab7ddae4fa9fd788c758ff84f9b6dfc3f6c9288f4"
+    },
+    {
+      "path": "src/ui/lotm_circus_handbill.js",
+      "sha256": "66d64df1400912e9b06bf9f3827bb18bff64fe6de875632a0b0a046687fa6614"
+    },
+    {
+      "path": "src/book_world_lotm_ui.js",
+      "sha256": "cab63818e53e5930d2b6f9b1e6d14ca68a99457a7b1c77aea311b3868f03880f"
+    },
+    {
+      "path": "src/perspective_controls.js",
+      "sha256": "6fedf0234251d329e32af1abe2032edcd0bfd87937bb66f932f0d0bedff141e1"
+    },
+    {
+      "path": "styles/workroom_tabs.css",
+      "sha256": "0348cf595bb7bd4a15b7cfd2d544bc5adcaa0e7eb5cfe7bebf9d27ae0c01898b"
+    },
+    {
+      "path": "tests/lotm_circus_notice.test.js",
+      "sha256": "fa1f652b43b3d7e6544355f16c1e2bdd1dc1379bf209a3a8789ef86cae79aa47"
+    },
+    {
+      "path": "tests/lotm_circus_handbill_ui.test.js",
+      "sha256": "b30e500878e0e21e0d486354b31cb1ede3df7cda37dcae767833e806c3fc486c"
+    },
+    {
+      "path": "tests/perspective_controls.test.js",
+      "sha256": "23779755c257a2c780aaa821af18d59022ef3edc8af476de5f9d2ec762948f55"
+    }
+  ],
+  "copy": {
+    "authored": true,
+    "title": "The circus",
+    "lines": [
+      "Step out of the everyday.",
+      "Ask at the tent for performance details."
+    ],
+    "basis": "Original short public copy grounded in early circus references; no canon printed wording, price, date or programme asserted.",
+    "voiceSample": "If a shop wants it, ask first. They needn’t put it up."
+  },
+  "access": "Actual player paper stock, or actual posted stock at Wendy’s bakery window. Pending reservation is not carried stock; posted copy is not remote access. Window remains readable after service hours.",
+  "checks": [
+    {
+      "command": "node --test tests/lotm_circus_notice.test.js tests/lotm_circus_handbill_ui.test.js tests/lotm_walk_map_disclosure.test.js tests/lotm_panel_gaps.test.js tests/perspective_controls.test.js",
+      "result": "16/16 pass"
+    },
+    {
+      "command": "node --test tests/lotm_tent_incident.test.js tests/lotm_tent_native_completion.test.js",
+      "result": "7/7 pass as part of focused batch"
+    },
+    {
+      "command": "node --test tests/lotm_circus_handbill_ui.test.js tests/ui_style_ratchet.test.js",
+      "result": "3/3 pass after using kitElement; no ratchet baseline change"
+    },
+    {
+      "command": "node scripts/check_player_text.mjs",
+      "result": "PASS,0 new engine vocabulary or raw duration strings"
+    },
+    {
+      "command": "git diff --check -- <owned files>",
+      "result": "PASS"
+    }
+  ],
+  "remaining": "Coordinator rebuild + native desktop keyboard/custody/no-time/pending-job proof. No browser/default build launched by this lane."
+}

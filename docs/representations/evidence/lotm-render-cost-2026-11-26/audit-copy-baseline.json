@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "inputSha256": "a780076e9371703d04b959a05e659422b84af3eaa68cd6198d699063cbc49c44",
+  "sources": {
+    "src/audit_remainder_facts.js": "44713a1ae346719378cd748581e71bec53973f96fd826d299ba2c25105c2d516",
+    "src/book_world_lotm_host.js": "4ba360ded9cc870d4b92c963da5e7c00ad9cb1c3d4f0aab08d5155f7a7f630ba",
+    "src/book_world_lotm_ui.js": "e22802df5e3f307e681387763a98492a7d4d3d70fbcd4d5b9d2d50b4087b20e2",
+    "private_packs/manifest.json": "de0d85adcc6a59340df57e3fbeec32dce66ba3d927e530cf47f090924f501fe9",
+    "private_packs/lotm-cast/cast.json": "4e1b1e4be8d9420553259132ad02ceef7b41fb6fa0f9241aa63bcb619eea5c0e"
+  },
+  "times": [
+    2801.367399999999,
+    2544.1324999999997,
+    2521.847099999999,
+    2253.0632000000005,
+    2454.870899999998
+  ],
+  "views": [
+    {
+      "raw": "4fa964c0d292c2b02988cb1155bad9664d53063f1fe85f99ffed566c0740f11e",
+      "canonical": "81b696fd102ba47ae24646092d8aa67cc716c3158c0308e390ed4c335833458d"
+    },
+    {
+      "raw": "4fa964c0d292c2b02988cb1155bad9664d53063f1fe85f99ffed566c0740f11e",
+      "canonical": "81b696fd102ba47ae24646092d8aa67cc716c3158c0308e390ed4c335833458d"
+    },
+    {
+      "raw": "4fa964c0d292c2b02988cb1155bad9664d53063f1fe85f99ffed566c0740f11e",
+      "canonical": "81b696fd102ba47ae24646092d8aa67cc716c3158c0308e390ed4c335833458d"
+    },
+    {
+      "raw": "4fa964c0d292c2b02988cb1155bad9664d53063f1fe85f99ffed566c0740f11e",
+      "canonical": "81b696fd102ba47ae24646092d8aa67cc716c3158c0308e390ed4c335833458d"
+    },
+    {
+      "raw": "4fa964c0d292c2b02988cb1155bad9664d53063f1fe85f99ffed566c0740f11e",
+      "canonical": "81b696fd102ba47ae24646092d8aa67cc716c3158c0308e390ed4c335833458d"
+    }
+  ],
+  "gatedActions": [
+    {
+      "count": 405,
+      "sha256": "9087866bb0e3527f821183be8a59e06e13e1a1dcb6bb4cfaa31c5a0e59726669"
+    },
+    {
+      "count": 405,
+      "sha256": "9087866bb0e3527f821183be8a59e06e13e1a1dcb6bb4cfaa31c5a0e59726669"
+    },
+    {
+      "count": 405,
+      "sha256": "9087866bb0e3527f821183be8a59e06e13e1a1dcb6bb4cfaa31c5a0e59726669"
+    },
+    {
+      "count": 405,
+      "sha256": "9087866bb0e3527f821183be8a59e06e13e1a1dcb6bb4cfaa31c5a0e59726669"
+    },
+    {
+      "count": 405,
+      "sha256": "9087866bb0e3527f821183be8a59e06e13e1a1dcb6bb4cfaa31c5a0e59726669"
+    }
+  ],
+  "stateReadOnly": true,
+  "nativeCandidateSha256": "914ddb0c92b445f65fee7670a3c4e8272aad2c98deea5a8354033364e4631101",
+  "stateBefore": "e33a8b92d69c781d842c84f92d9fb1e016eca1ed7d720a9aba1b93481ac126b0",
+  "stateAfter": "e33a8b92d69c781d842c84f92d9fb1e016eca1ed7d720a9aba1b93481ac126b0",
+  "errors": [],
+  "sourcesUnchanged": true
+}

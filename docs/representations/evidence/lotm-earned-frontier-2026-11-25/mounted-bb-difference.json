@@ -1,0 +1,13 @@
+{
+  "schema": "lotm-bb-mounted-difference/1",
+  "candidatePackSha256": "4e1b1e4be8d9420553259132ad02ceef7b41fb6fa0f9241aa63bcb619eea5c0e",
+  "historicalReviewSha256": "969413dc1ecf4f678f98b7854303c98f4452f0cd5fd6c98012f88e0756d87006",
+  "reviewedActions": 21,
+  "currentActions": 21,
+  "soleChangedAction": "book.lotm.kj3bb.read-elizabeth",
+  "soleChangedField": "requires.all[condition.book.lotm.be_spirit_vision].reason",
+  "addedReason": "Your Spirit Vision is already open.",
+  "equalAfterRemovingThisReason": true,
+  "eligibilityPredicatesUnchanged": true,
+  "otherEpisodeDifferencesNotClassified": true
+}

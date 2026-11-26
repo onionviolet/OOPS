@@ -1,0 +1,31 @@
+{
+  "schema": "lotm-circus-notice-browser/1",
+  "date": "2026-11-26",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "bundleSha256": "efcf175d46efe11d641dfa8025dffd86bb271a0e2e7238090663f98b0266df54",
+  "paidStartSha256": "89bd5ac6708a9cc691d2c4cef853bf0c28975c2e52c2d9563c066180927ef58d",
+  "independentStartSha256": "32f8ff953ab080ef2dabdd75e2a8fb16650cbbfcb683ffb37b30a657cf5ee6cc",
+  "exportSha256": "0f9918519924a6531f1a0d4f222251ced3cdd4cbd5e42dd1d6eb2c56602e3b94",
+  "paidRoute": {
+    "spareMinute": 1982,
+    "bakeryMinute": 1984,
+    "stoppedBeforePosting": true,
+    "postedMinute": 1987,
+    "sparesCollected": 1,
+    "displayed": 1,
+    "loosePaper": 0,
+    "purseBefore": 482,
+    "purseAfter": 482
+  },
+  "independentRoute": {
+    "startMinute": 520,
+    "arriveMinute": 522,
+    "visitCompletedMinute": 524,
+    "postingOffered": false
+  },
+  "windowAfterReload": true,
+  "windowAfterNativeImport": true
+}

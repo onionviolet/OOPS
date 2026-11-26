@@ -1,0 +1,14 @@
+{
+  "schema": "lotm-bc-mounted-difference/1",
+  "candidatePackSha256": "4e1b1e4be8d9420553259132ad02ceef7b41fb6fa0f9241aa63bcb619eea5c0e",
+  "historicalReviewSha256": "d470db1944b7b77801670c2d1356e708f511af1fb3e81e64cca86d83925bcb8a",
+  "reviewedActions": 12,
+  "currentActions": 12,
+  "changedActions": [
+    "book.lotm.kj3bc.press-owner",
+    "book.lotm.kj3bc.open-exchange"
+  ],
+  "changedField": "requires.all[condition.book.lotm.be_spirit_vision].reason",
+  "equalAfterRemovingTheseReasons": true,
+  "eligibilityPredicatesUnchanged": true
+}

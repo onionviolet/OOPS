@@ -1,0 +1,34 @@
+{
+  "schema": "native-wait-profile-build/1",
+  "candidate": ".lane-builds/tingen-wait-profile-frame-20261125",
+  "bundleSha256": "003fbaff996cf6ec70a1cce54bb056f630d81c54ddebf6f37c7dbefb119fae09",
+  "defaultBundleBefore": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634",
+  "defaultBundleAfter": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634",
+  "defaultBundleUnchanged": true,
+  "trackedSourcesUnchanged": true,
+  "patched": [
+    "src/main.js",
+    "src/book_world_lotm_ui.js",
+    "src/book_world_lotm_host.js",
+    "src/wait_until.js",
+    "src/clock_owner.js"
+  ],
+  "sourceHashes": {
+    "src/book_world_lotm_host.js": "243c171be6b7e484ef1757a2471f05842d7024429b07b23f879e126f095b9ea7",
+    "src/facts_frame.js": "752105a307b564975ee2404361133e62f5bcea710c22501712ee643e3d37bd7f",
+    "src/simulation_render.js": "d9685235a6b62f820348ff6c9c81bca0c06b6e3e6f4e7fe3fb27b412f8b629ca"
+  },
+  "domOutput": "pre#native_wait_profile",
+  "automaticSnapshotAfterWaitSteps": 2,
+  "newActualBuilderCounters": [
+    "buildSimulationNativeContexts",
+    "buildCampaignContext",
+    "buildExpeditionContext"
+  ],
+  "note": "Same first profile wrappers plus actual builder counters. Inclusive nested timings; no automatic stop, native state/clock edits or browser launch.",
+  "candidateSourceHashes": {
+    "src/book_world_lotm_host.js": "4be65b9e139df5486319cdbd2c72117e14f0a5d433a186bbdc2f226aee04c259",
+    "src/facts_frame.js": "752105a307b564975ee2404361133e62f5bcea710c22501712ee643e3d37bd7f",
+    "src/simulation_render.js": "d9685235a6b62f820348ff6c9c81bca0c06b6e3e6f4e7fe3fb27b412f8b629ca"
+  }
+}

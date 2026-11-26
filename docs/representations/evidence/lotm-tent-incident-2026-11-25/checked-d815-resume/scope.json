@@ -1,0 +1,74 @@
+{
+  "schema": "lotm-tent-browser-partial/1",
+  "status": "local-passed-klein-ui-blocked",
+  "browserExit": 1,
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "d8152afb60928749285da28f088c1750ac0ef2c2ba7e4efd7a13ab1100bb3b89",
+  "sourceFreeze": "../source-freeze-d815.json",
+  "local": {
+    "route": "Actual ordinary beside crossing, native walk, long setup by test ticks to offered native Wait target; no outcome edits",
+    "checks": [
+      "Native Watch5 completes with public witness; Klein-only reading absent",
+      "Clarify3 gives actual reader trust1",
+      "Response Save/reload and literal native Export/Import pass",
+      "Referral5 then flyer15 pays actual2p from finite purse",
+      "Pending job and final paid outcome Save/reload and literal native Export/Import pass",
+      "At-tent idle60 grants no witness/trust; independent inquiry20 then flyer15 completes",
+      "Leave1 resolves response without trust"
+    ],
+    "screenshots": [
+      "local-calm-response.png",
+      "local-paid-round.png",
+      "missed-window.png",
+      "local-leave-choice.png"
+    ]
+  },
+  "klein": {
+    "route": "Actual visible developer start; all16 household opening actions, native walks, shopping departure and bread purchase, offered time targets reached by test ticks; native free reading completes",
+    "blockedAt": "clock525 after reading; leaf visible.clarify=true but no native clarify control; original decline visible",
+    "earnedEntryCheckpoint": "be-arrival",
+    "diagnostic": "failure-state.json"
+  },
+  "scopeCorrection": "The running older driver labels its missed window an hour elsewhere. Its actual native route remains at the tent without choosing Watch. This receipt corrects that label; an actual elsewhere supplement is separate and not claimed here.",
+  "timing": {
+    "nativeWait520": "Separate checked-d815 attempt exceeded30000ms click deadline, then reached exact520; not a day2 native Wait measurement",
+    "testTickSetup": "Current failing process did not durably write its in-memory per-step wallMs. No exact setup duration claimed.",
+    "responseCheckpointToPendingJobUpperBoundMs": 503434.4375,
+    "upperBoundIncludes": "response persistence, testticksetup to day2, referral and native pending save"
+  },
+  "checkpoints": [
+    {
+      "name": "beside-arrival",
+      "sha256": "32f8ff953ab080ef2dabdd75e2a8fb16650cbbfcb683ffb37b30a657cf5ee6cc",
+      "earnedOnBundleSha256": "d8152afb60928749285da28f088c1750ac0ef2c2ba7e4efd7a13ab1100bb3b89"
+    },
+    {
+      "name": "local-witnessed",
+      "sha256": "cbc91f912d5ad3491b27251a6c57873bef47efc2774d9196cd8b16d05307f607",
+      "earnedOnBundleSha256": "d8152afb60928749285da28f088c1750ac0ef2c2ba7e4efd7a13ab1100bb3b89"
+    },
+    {
+      "name": "local-response",
+      "sha256": "4c651c387b1071c2dbe8e76fe095b889b32e9354d6e5c78cf39cbda598f51ab7",
+      "earnedOnBundleSha256": "d8152afb60928749285da28f088c1750ac0ef2c2ba7e4efd7a13ab1100bb3b89"
+    },
+    {
+      "name": "local-flyers-pending",
+      "sha256": "cb79e31ae703445c024d15db2c3af494517ab74a62a35dc39b65be367397ff6c",
+      "earnedOnBundleSha256": "d8152afb60928749285da28f088c1750ac0ef2c2ba7e4efd7a13ab1100bb3b89"
+    },
+    {
+      "name": "local-paid",
+      "sha256": "89bd5ac6708a9cc691d2c4cef853bf0c28975c2e52c2d9563c066180927ef58d",
+      "earnedOnBundleSha256": "d8152afb60928749285da28f088c1750ac0ef2c2ba7e4efd7a13ab1100bb3b89"
+    },
+    {
+      "name": "be-arrival",
+      "sha256": "927d86ec6f72ad04fad024a0663ea03d1eb13131bd2ba925126a0d917ecd4f5a",
+      "earnedOnBundleSha256": "d8152afb60928749285da28f088c1750ac0ef2c2ba7e4efd7a13ab1100bb3b89"
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import {linkFixtureInput} from './helpers/fixture_fs.mjs';
 // R5/U3 live floor: the real bundle in a disposable build, a fixture BE life, one altar rite performed through the
 // Live tests use wall-clock limits; YAIRPG_TIMEOUT_SCALE (default 1) stretches them on a loaded machine.
 const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
@@ -6,7 +7,7 @@ const TS=Number(process.env.YAIRPG_TIMEOUT_SCALE)||1;
 import test from 'node:test';
 import assert from 'node:assert/strict';
 test('R5/U3: the altar rite is performed from the panel, survives reload and import mid-run, and charges backlash once', {timeout:300000*TS}, async t=>{
- const {mkdtemp,cp,readdir,symlink,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
+ const {mkdtemp,cp,readdir,mkdir,writeFile,readFile,rm}=await import('node:fs/promises');
  const {join}=await import('node:path');const {tmpdir}=await import('node:os');
  const {execFile}=await import('node:child_process');const {promisify}=await import('node:util');
  const exec=promisify(execFile),root=process.cwd(),dir=await mkdtemp(join(tmpdir(),'yairpg-r5-'));
@@ -14,7 +15,7 @@ test('R5/U3: the altar rite is performed from the panel, survives reload and imp
  for(const name of ['src','scripts'])await cp(join(root,name),join(dir,name),{recursive:true});
  for(const entry of await readdir(root,{withFileTypes:true})){
   if(['.git','src','scripts','tests','private_packs'].includes(entry.name))continue;
-  await symlink(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
+  await linkFixtureInput(join(root,entry.name),join(dir,entry.name),entry.isDirectory()?'dir':'file');
  }
  const mainFile=join(dir,'src/main.js');
  await writeFile(mainFile,(await readFile(mainFile,'utf8'))+`

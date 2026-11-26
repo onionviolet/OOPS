@@ -12,6 +12,10 @@ export function lotmTaskSummary(view) {
     const reason = !running && target && !target.eligible ? [...new Set(target.reasons || [])].join(' ') : '';
     const flavour = action?.eligible && !running ? action.flavour || '' : '';
     return {
+        alternatives: next&&!view.jobs?.length?(arc.alternatives||[]).flatMap(option=>{
+            const walk=view.moves?.find(m=>m.id===option.walkId&&m.eligible);
+            return walk?[{...option,walkLabel:walk.label}]:[];
+        }):[],
         title: arc.title,
         state: running ? 'Work under way' : target && !target.eligible ? 'Not ready yet' : walk ? 'Walk first' : target ? 'Ready' : next ? 'Next task' : 'Situation complete',
         next: running ? `In progress: ${running.label}` : next ? `Next: ${next.label}` : 'This arc is complete.',
@@ -54,6 +58,14 @@ export function renderLotmTaskSummary(view, {findControl, findWork, renderAction
         const link = el('button', model.link); link.type = 'button'; link.dataset.lotmTaskLink = model.targetId;
         link.title = 'Find the existing control. This does not spend anything or begin work.';
         link.onclick = () => findControl(model.targetId, {focusAction: true}); section.append(link);
+    }
+    for(const option of model.alternatives){
+        const route=el('div');route.className='lotm-task-action';route.dataset.lotmTaskAlternative=option.walkId;
+        route.append(el('p',option.label),el('p',`${option.walkLabel}. Then choose “${option.actionLabel}” there.`));
+        const link=el('button','Show walk to the market');link.type='button';
+        link.dataset.lotmTaskLink=option.walkId;
+        link.title='Find the existing walk control. This does not spend anything or begin walking.';
+        link.onclick=()=>findControl(option.walkId,{focusAction:true});route.append(link);section.append(route);
     }
     if (model.workId) {
         const link = el('button', 'Show current work'); link.type = 'button'; link.dataset.lotmTaskWorkLink = model.workId;

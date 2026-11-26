@@ -1,0 +1,36 @@
+{
+  "bundle": "400612fe063c933984f423bf3da42f78bdf1d555fd5d7bd3bd083b4ef4b279b4",
+  "checkpoint": "cf5f39ec93ad66a6a332a2a542ebbeea2a6c2a7d4d0812a21e3e9f061e89b861",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "exports": [
+    {
+      "kind": "refusal",
+      "sha256": "19167c67c9d364882689c10223fce6d76072f7f9975e3e718ab5505a0345d319",
+      "clock": 521,
+      "purse": 16,
+      "refusal": 1,
+      "market": 0,
+      "mutton": 0,
+      "vegetables": 0,
+      "originalReading": 0,
+      "originalDecline": 0,
+      "readingBeatKeys": []
+    },
+    {
+      "kind": "market",
+      "sha256": "605157a93a3cf5857c2b5107d5e746602880a28a71c5464142555bc6fa882d2e",
+      "clock": 528,
+      "purse": 0,
+      "refusal": 1,
+      "market": 1,
+      "mutton": 1,
+      "vegetables": 1,
+      "originalReading": 0,
+      "originalDecline": 0,
+      "readingBeatKeys": []
+    }
+  ]
+}

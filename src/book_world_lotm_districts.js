@@ -37,7 +37,21 @@ const OWN=[
  {alias:'docks',id:'storm',label:'Tingen docks (east and south)',church:'Storm',team:'the Mandated Punishers',officerId:I.stormOfficer,officerLabel:'the Punishers\' duty officer',places:[L.docks],endorsementPence:2*P.soli,errandPence:18,errand:'Tally a sealed crate against the harbour manifest for the duty officer'},
  {alias:'university',id:'machinery',label:'Tingen university quarter',church:'Steam and Machinery',team:'the Machinery team',officerId:I.machineryOfficer,officerLabel:'the Machinery team\'s records officer',places:[L.university],endorsementPence:5*P.soli,errandPence:15,errand:'Copy a gear schedule for the records officer'}];
 export const LOTM_DISTRICTS=Object.freeze(OWN.map(d=>{const q=Q2_ROWS[d.alias];return {...d,q2team:q.team,qlabel:q.label,doseHere:q.doseHere,shift:q.shift,vouch:q.vouch,claim:q.claim,here:q.here,why:q.why};}));
-export const districtOfPlace=place=>LOTM_DISTRICTS.find(d=>d.places.includes(place))||LOTM_DISTRICTS.find(d=>d.id===getPrivateLotmCast()?.places.find(p=>p.id===place)?.travel?.district)||null;
+// The loaded pack is frozen. Its identity owns this derived index, so a later
+// pack gets its own map and a pre-load miss is not retained. No host dependency.
+const packedDistricts=new WeakMap();
+function packedDistrictOfPlace(place){
+ const pack=getPrivateLotmCast();if(!pack)return null;
+ let byPlace=packedDistricts.get(pack);
+ if(!byPlace){
+  byPlace=new Map();const byId=new Map(LOTM_DISTRICTS.map(d=>[d.id,d]));
+  // Preserve Array.find's first-row behavior, including an unknown district.
+  for(const row of pack.places)if(!byPlace.has(row.id))byPlace.set(row.id,byId.get(row.travel?.district)||null);
+  packedDistricts.set(pack,byPlace);
+ }
+ return byPlace.get(place)||null;
+}
+export const districtOfPlace=place=>LOTM_DISTRICTS.find(d=>d.places.includes(place))||packedDistrictOfPlace(place);
 export const districtById=id=>LOTM_DISTRICTS.find(d=>d.id===id)||null;
 export const homeDistrict=LOTM_DISTRICTS[0];
 export const LOTM_PLACE_KEYS=Object.freeze(Object.fromEntries(Object.entries(L).map(([k,v])=>[v,k])));

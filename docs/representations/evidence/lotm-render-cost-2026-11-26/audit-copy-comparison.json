@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "claim": "One paired five-view native measurement on one unchanged saved input; not desktop input/paint latency.",
+  "inputSha256": "a780076e9371703d04b959a05e659422b84af3eaa68cd6198d699063cbc49c44",
+  "baselineCandidateSha256": "914ddb0c92b445f65fee7670a3c4e8272aad2c98deea5a8354033364e4631101",
+  "optimizedCandidateSha256": "df6cfe6cfb58ba0ce6d598910f98cf906d1c8f476ceaf3c5913c724d52c1709f",
+  "baselineMs": [
+    2801.367399999999,
+    2544.1324999999997,
+    2521.847099999999,
+    2253.0632000000005,
+    2454.870899999998
+  ],
+  "optimizedMs": [
+    1682.5115000000005,
+    1743.8895000000011,
+    1546.708300000002,
+    1660.0378000000019,
+    1616.743599999998
+  ],
+  "medianBaselineMs": 2521.847099999999,
+  "medianOptimizedMs": 1660.0378000000019,
+  "medianReductionPercent": 34.17373321324665,
+  "fullRawViewsEqual": true,
+  "fullCanonicalViewsEqual": true,
+  "gatedRecordsEqual": true,
+  "gatedRecords": 405,
+  "serializedStatesEqual": true,
+  "saveNormalization": "Exclude saved_at wall-clock stamp only; all other serialized fields compared.",
+  "changedMonitoredSources": [
+    "src/audit_remainder_facts.js"
+  ],
+  "sources": {
+    "src/audit_remainder_facts.js": "bcc2b5ac5c414ef7996aa329a111f2defc3c0f091269d21f4b544ad72ef47563",
+    "src/book_world_lotm_host.js": "4ba360ded9cc870d4b92c963da5e7c00ad9cb1c3d4f0aab08d5155f7a7f630ba",
+    "src/book_world_lotm_ui.js": "e22802df5e3f307e681387763a98492a7d4d3d70fbcd4d5b9d2d50b4087b20e2",
+    "private_packs/manifest.json": "de0d85adcc6a59340df57e3fbeec32dce66ba3d927e530cf47f090924f501fe9",
+    "private_packs/lotm-cast/cast.json": "4e1b1e4be8d9420553259132ad02ceef7b41fb6fa0f9241aa63bcb619eea5c0e"
+  },
+  "measurementHarnessSha256": "7d46c5fece27d6671353374afb2e696df8c037870b97a2691d5319058a65cf7c",
+  "focusedTests": "3/3 passed",
+  "architectureAndRules": "passed with existing warning-only lints and stale private-pack glob",
+  "whitespace": "passed",
+  "browser": "not run; default bundle unchanged by this lane"
+}

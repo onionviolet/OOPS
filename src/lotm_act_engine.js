@@ -21,11 +21,12 @@ const all=(...rules)=>({all:rules.filter(Boolean)});
 //  requires?, risk?:{carrier, source, weight, protections?:[{rule, reduces}]}}.
 // null input = at hand, not spent (apparatus, a bottle). Inputs are charged at
 // `costStep` (default: the first step). Output lands on the last step.
+// `support` is rechecked at settlement, unlike means spent to start the work.
 const stepsOf=row=>row.steps||row.method||[];
 function problems(row,b){
  const out=[];
  if(!b)return ['No binding: authored place, minutes and stock are missing.'];
- if(!id(b.place))out.push('Binding needs a place.');
+ if(b.place!==null&&!id(b.place))out.push('Binding needs a place or an explicit carried use.');
  for(const s of stepsOf(row))if(!pos(b.steps?.[s.id]?.minutes))out.push(`Step ${s.id} needs authored minutes.`);
  for(const i of row.inputs||row.ingredients||[]){
   const x=b.inputs?.[i.name];
@@ -60,7 +61,7 @@ export function defineLotmActs(rows,bindings,{worldId,actorId='player',group,sit
   const costStep=b.costStep&&rowSteps.some(s=>s.id===b.costStep)?b.costStep:rowSteps[0].id;
   const spend=Object.values(b.inputs||{}).map((x,i)=>x).filter(Boolean);
   for(const x of spend)validateItemKey(x.key);
-  const support=all(requires,row.eligibility,...(row.condition?[row.condition]:[]));
+  const support=all(requires,b.support,row.eligibility,row.condition);
   // Eligibility (the row's means) and binding.requires gate the start only: the kit they name is spent by the step's own
   // costs, so it cannot hold at completion. Completion keeps the lead's circumstances and the step order.
   const startOnly=b.requires;
@@ -78,10 +79,12 @@ export function defineLotmActs(rows,bindings,{worldId,actorId='player',group,sit
    if(ids.has(cmd))throw Error('Duplicate act step.');ids.add(cmd);
    const sb=s.station?{minutes:s.station.minutes??1,costs:s.station.stock?[{type:'item',key:s.station.stock.key,amount:-s.station.stock.qty}]:[]}:b.steps[s.id],costs=structuredClone(sb.costs||[]).map(c=>c.actor?c:{...c,actor:actorId});
    if(s.id===costStep)for(const x of spend)costs.push({type:'item',actor:actorId,key:x.key,amount:-x.qty});
-   if(costs.some(c=>!['resource','item','vital'].includes(c.type)||!(c.amount<0)))throw Error('Declare spent stock through a native cost.');
+   if(costs.some(c=>c.type==='energy'?c.operation!=='use':!['resource','item','vital'].includes(c.type)||!(c.amount<0)))throw Error('Declare spent stock or energy through a native cost.');
+   costs.forEach(validateSimulationEffect);
    const effects=[{type:'fact',scope:'actor',actor:actorId,key:phaseKey,value:s.id},
-    {type:'knowledge',actor:actorId,key:`lotm.act.${cmd}`,stage:'seen',value:sb.report||s.text,
-     basis:{kind:'observation',attributedTo:actorId,situationId,actId:row.id,at:row.locators?.[0]}}];
+    {type:'knowledge',actor:actorId,key:sb.reportKey||`lotm.act.${cmd}`,stage:'seen',value:sb.report||s.text,
+     basis:{kind:'observation',attributedTo:actorId,situationId,actId:row.id,...(row.locators?.length?{at:row.locators[0]}:{})}},
+    ...(sb.effects||[]).map(e=>({...e,actor:e.actor??actorId}))];
    if(i===last){
     if(b.output){validateItemKey(b.output.key);if(!pos(b.output.qty))throw Error('Output needs a quantity.');
      effects.push({type:'item',actor:actorId,key:b.output.key,amount:b.output.qty});}
@@ -90,11 +93,12 @@ export function defineLotmActs(rows,bindings,{worldId,actorId='player',group,sit
    effects.forEach(validateSimulationEffect);
    // Step one starts a fresh run only when none is under way (idle); a paused run resumes at its next step.
    const phase=previous?eq(`actor.${phaseKey}`,previous,'Complete the preceding step first.'):eq(`actor.${idleKey}`,true,'This rite is already under way: carry on with its next step.');
-   commands.push({id:cmd,revision:1,label:`${row.label}: ${s.id}`,description:s.text,worldId,actorId,group,
-    location:resolvePlace(b.place),once:false,duration:sb.minutes,cancellation:'refund',
-    visibleWhen:requires||eq('actor.life','alive'),requires:all(support,phase,startOnly),completionRequires:all(requires,phase),
+   commands.push({id:cmd,revision:1,label:sb.label||`${row.label}: ${s.id}`,description:sb.description||s.text,worldId,actorId,group,
+    location:b.place===null?null:resolvePlace(b.place),once:sb.once??false,duration:sb.minutes,cancellation:'refund',
+    visibleWhen:b.visibleWhen?all(requires,b.visibleWhen):requires||eq('actor.life','alive'),
+    requires:{...all(support,phase,startOnly),...(b.reason?{reason:b.reason}:{})},completionRequires:all(requires,b.support,phase),
     completionCoLocated:true,completionFailure:'refund',costs,effects,
-    lotmAct:{rowId:row.id,rowLabel:row.label,stepId:s.id,index:i,total:steps.length,kind:s.kind||'step',final:i===last,doneKey,phaseKey,idleKey,
+    lotmAct:{rowId:row.id,rowLabel:row.label,stepId:s.id,...(sb.label?{stepLabel:sb.label}:{}),...(sb.costText?{costText:sb.costText}:{}),index:i,total:steps.length,kind:s.kind||'step',final:i===last,doneKey,phaseKey,idleKey,
      layout:b.layout?{order:'fixed',stations:b.layout.stations.map(x=>({id:`set-${x.id}`,label:x.label}))}:null,unresolved:i===last?unresolved:[],
      risk:i===last&&b.risk?structuredClone(b.risk):null}});
    previous=s.id;
@@ -145,9 +149,9 @@ export function quoteLotmActs(commands,preview,{blocked='',decide=()=>({allowed:
   const q=preview(d);if(!q.visible)return [];
   const m=d.lotmAct,decision=decide(d),reasons=[...(q.reasons||[]),...(blocked?[blocked]:[]),...(!decision.allowed?[decision.reason]:[])];
   const ids=byRow.get(m.rowId).map(c=>c.id),at=idle[`actor.${m.idleKey}`]?-1:ids.indexOf(`${m.rowId}.${actorFacts[m.phaseKey]}`);
-  return [{id:d.id,rowId:m.rowId,rowLabel:m.rowLabel,label:`${d.label} · ${q.duration??d.duration} min`,step:d.label.slice(m.rowLabel.length+2),description:d.description,
+  return [{id:d.id,rowId:m.rowId,rowLabel:m.rowLabel,label:`${d.label} · ${q.duration??d.duration} min`,step:m.stepLabel||m.stepId,description:d.description,
    index:m.index,total:m.total,status:m.index<=at?'done':m.index===at+1?'next':'later',layout:m.layout,
-   duration:q.duration??d.duration,costText:d.costs.map(c=>`${c.key||c.type}: ${c.amount}`).join('; ')||'No stock spent.',
+   duration:q.duration??d.duration,costText:m.costText||(d.costs.map(c=>`${c.key||c.type}: ${c.amount}`).join('; ')||'No stock spent.'),
    ...(m.unresolved.length?{unresolved:m.unresolved}:{}),
    eligible:!!q.eligible&&!blocked&&decision.allowed,reasons}];
  });

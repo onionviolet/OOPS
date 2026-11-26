@@ -1,0 +1,59 @@
+{
+  "schema": "lotm-tent-native-proof-index/1",
+  "status": "agent-verified-not-human-reviewed",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "scope": "Two separate native lives. Ordinary local source crossing and developer Klein opening were actually played; final Klein recovery uses byte-verified earned checkpoints across the named builds. This does not prove a whole current-build campaign from its opening, or a live POV-switch feature.",
+  "ordinaryLocal": {
+    "testedBundleSha256": "d8152afb60928749285da28f088c1750ac0ef2c2ba7e4efd7a13ab1100bb3b89",
+    "receipt": {
+      "path": "checked-d815-resume/scope.json",
+      "sha256": "078b63274eaf86bfec5fc5b938a40de6f13aeea57533ebd9436315ce9ebbaaa0"
+    },
+    "overallCombinedProcessExit": 1,
+    "qualification": "Local action, payoff, pending/final persistence and alternative assertions passed before later Klein missing-control failure. Idle-at-tent branch is not an elsewhere branch."
+  },
+  "kleinEntry": {
+    "earnedOnBundleSha256": "d8152afb60928749285da28f088c1750ac0ef2c2ba7e4efd7a13ab1100bb3b89",
+    "checkpointSha256": "927d86ec6f72ad04fad024a0663ea03d1eb13131bd2ba925126a0d917ecd4f5a",
+    "kind": "Actual developer start,16 household controls, shopping departure, bread and native tent walk; test ticks for long offered time targets",
+    "recoveryBundleSha256": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634",
+    "responseCheckpointSha256": "7ed9d6fc3887d4f12de569065f14a2190d65b880db0f923846f3c84d517497a5",
+    "recoveryImage": "klein-final-0675/klein-own-reading.png",
+    "qualification": "Reading, new response and original decline completed on final build. That earlier process later exited1 from navigation-capture instrumentation; clean closure is separate below."
+  },
+  "kleinCleanClosure": {
+    "receipt": {
+      "path": "klein-paid-closure-0675/result.json",
+      "sha256": "9f9e302aa54793ad3c10561342c15a5f0b50a0fa8e86697082bdc0e9a9e37a38"
+    },
+    "exit": 0,
+    "entryCheckpointSha256": "7ed9d6fc3887d4f12de569065f14a2190d65b880db0f923846f3c84d517497a5",
+    "paidCheckpointSha256": "537fadfc8a77e90664eaee6a30e313defa56e9af3a4bbe2391ce5592f4e65e89",
+    "testedBundleSha256": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634",
+    "actualPaymentPence": 2,
+    "nativeReferralMinutes": 5,
+    "nativeWorkMinutes": 15,
+    "kept": "Save/reload and literal native Export/Import",
+    "sourceFreeze": {
+      "path": "source-freeze-0675.json",
+      "sha256": "2d8d30a41430ac963ee2ef4f5ae38fa9679795be0437f4482370592489d8fcc1"
+    }
+  },
+  "finalLocalBoundaries": {
+    "receipt": {
+      "path": "final-boundaries/result.json",
+      "sha256": "a3ae2c9b01475781919c6c749339a7621c9f60906deb7d7c917db7f60af2d7a2"
+    },
+    "exit": 0,
+    "qualification": "Independent actual walk away for an hour and exact09:00 refusal on final build from unchanged earned local checkpoint."
+  },
+  "latency": {
+    "testTickSetup530To1960WallMs": 216635,
+    "testTickQualification": "Measured clock-only test setup; no incident outcome edits. This is not native Wait latency.",
+    "nativeWait": "Separate checked-d815 attempt exceeded30000ms synchronous-click deadline, then reached exact520. Full native day2 Wait was not timed."
+  },
+  "cleanup": "Owned final browser/server closed normally. Private generated earned checkpoints are ignored under work/ and retained because receipts cite their hashes. Earlier named Windows-locked profiles BUpUIf and CrmJ7u remain recorded; other agents own their own profiles."
+}

@@ -1,0 +1,129 @@
+{
+  "schema": "lotm-bakery-customer-observations/1",
+  "date": "2026-11-26",
+  "status": "coordinator-observed-not-human-reviewed",
+  "method": "built-in-desktop",
+  "bundleSha256": "5b3851783584e7e701ad867d680b9337868bb8dbba01de6499ce39b79f2fa6b0",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "ownerRecordSha256": "9e088aaacc6ad2735b4e44fd3d4dbde34ab38386ceb6c13faadce210788487cd",
+  "inputMetadataSha256": {
+    "earned": "fd97bf39bcd811a90f1dc13ab1ca6dfc4e52d92d537140bdc0e5d037f3f713c1",
+    "square": "81a06a1003e5bc31f0af19b81fb8bf45df0f039dde8bfa9839615f9f95b7d66a"
+  },
+  "present": {
+    "inputSha256": "5c335c381a55c70223c6a49fd9fa43517ae927163b15e965748694ba3ebc9377",
+    "preparationItinerary": [
+      {
+        "kind": "native-ticks",
+        "fromElapsed": 1987,
+        "toElapsed": 1994,
+        "minutes": 7
+      }
+    ],
+    "day": 2,
+    "startMinute": 554,
+    "arrivalMinute": 555,
+    "arrivalWithoutDialogueSelection": true,
+    "shownDepartureMinute": 565,
+    "answerMinute": 556,
+    "changedScene": true,
+    "directionsActionsAfterAnswer": 0,
+    "saveReload": {
+      "clock": true,
+      "changedScene": true,
+      "spentActionAbsent": true
+    }
+  },
+  "away": {
+    "comparison": "separate-earned-lives-with-different-prior-jobs",
+    "playerAbsentAtReading": true,
+    "posted": {
+      "inputSha256": "eb34fba9216d4887569baae27f80cd5d18434708fded9b8286dc4e3c9030c176",
+      "preparationItinerary": [
+        {
+          "kind": "native-walk",
+          "fromElapsed": 1987,
+          "toElapsed": 1989,
+          "minutes": 2
+        },
+        {
+          "kind": "native-ticks",
+          "fromElapsed": 1989,
+          "toElapsed": 1994,
+          "minutes": 5
+        },
+        {
+          "kind": "ordinary-native-ticks",
+          "fromElapsed": 1994,
+          "toElapsed": 2004,
+          "minutes": 10
+        },
+        {
+          "kind": "native-walk",
+          "fromElapsed": 2004,
+          "toElapsed": 2005,
+          "minutes": 1,
+          "remaining": 1
+        }
+      ],
+      "startMinute": 565,
+      "remainingWalkMinutes": 1,
+      "customerReportedNotice": true,
+      "walkCompletedMinute": 566,
+      "answerMinute": 567,
+      "changedScene": true,
+      "directionsActionsAfterAnswer": 0
+    },
+    "unposted": {
+      "inputSha256": "0d32bf8b7e31c18b7b4a175e9354f2b378f0f7ea41d7c5a0dcedd399157dc05a",
+      "preparationItinerary": [
+        {
+          "kind": "native-ticks",
+          "fromElapsed": 1982,
+          "toElapsed": 1994,
+          "minutes": 12
+        },
+        {
+          "kind": "native-walk",
+          "fromElapsed": 1994,
+          "toElapsed": 1996,
+          "minutes": 2,
+          "remaining": 0
+        },
+        {
+          "kind": "ordinary-native-ticks",
+          "fromElapsed": 1996,
+          "toElapsed": 2004,
+          "minutes": 8
+        },
+        {
+          "kind": "native-walk",
+          "fromElapsed": 2004,
+          "toElapsed": 2005,
+          "minutes": 1,
+          "remaining": 1
+        }
+      ],
+      "startMinute": 565,
+      "remainingWalkMinutes": 1,
+      "breadErrandPresent": true,
+      "shownDepartureMinute": 600,
+      "circusQuestion": false,
+      "directionsAction": false
+    }
+  },
+  "controlledRegression": {
+    "kind": "same-state-native-regression",
+    "separateFromBrowserLives": true,
+    "physicalPaperCondition": true,
+    "noInventedPastWitness": true
+  },
+  "limitations": {
+    "preArrivalOfferTimingVerified": false,
+    "customerNativeImportVerified": false,
+    "wholeCampaignReplay": false
+  }
+}

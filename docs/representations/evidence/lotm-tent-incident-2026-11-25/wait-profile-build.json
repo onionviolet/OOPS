@@ -1,0 +1,27 @@
+{
+  "schema": "lotm-wait-instrumented-build/1",
+  "candidate": ".lane-builds/tingen-wait-profile-20261125",
+  "bundleSha256": "1da89483b2fface71dd1598854025c31c60df2cf26100843df9293f90e34aeb4",
+  "defaultBundleBefore": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634",
+  "defaultBundleAfter": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634",
+  "defaultBundleUnchanged": true,
+  "trackedSourcesUnchanged": true,
+  "inputHashes": {
+    "src/main.js": "00e182ae2aa5905e1190816808c68b9c811fdc96c5187e3cfef74bebb8fbc531",
+    "src/book_world_lotm_ui.js": "6f3828ad8a18ccae8721137c14be6b5bfd80f9d343558d066184f411d62ee904",
+    "src/book_world_lotm_host.js": "206ce8b51a0256da5e554731afa8355de76d9e68cf66e3ed35bba8cf492e54dd",
+    "src/wait_until.js": "3ab0b41dd833ff5dd9d18da57bc7441774cfd79b73f3f14e3df9ab9d37e7bf6e",
+    "src/clock_owner.js": "6aa3a6e7749c853b00d25e233cc19822236320c1adbd8f418a89c0cdab458e64"
+  },
+  "patched": [
+    "src/main.js",
+    "src/book_world_lotm_ui.js",
+    "src/book_world_lotm_host.js",
+    "src/wait_until.js",
+    "src/clock_owner.js"
+  ],
+  "diagnosticOnly": true,
+  "domOutput": "pre#native_wait_profile",
+  "automaticSnapshotAfterWaitSteps": 2,
+  "note": "Inclusive nested synchronous times; no automatic stopping, save/state/clock edits or browser launched by preparing lane."
+}

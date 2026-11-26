@@ -1,0 +1,47 @@
+{
+  "schema": "lotm-earned-readiness-proof/1",
+  "status": "bounded-ordinary-checkpoint-verified",
+  "qualification": "Raw harness retains its terminal default-disk-stability guard failure. Coordinator rebuilt default from4d14cb to85eaa during run; actual served candidate byte hashes equal final combined default. The prior admission/action/save/reload assertions passed before this terminal guard. No full episode/end-point claim.",
+  "rawProof": {
+    "path": "docs/representations/evidence/lotm-earned-frontier-2026-11-25/readiness-candidate.json",
+    "sha256": "b1a41a3d67b7819fc20d6541127c4a15b6e77bf1cf497a643a8042e7ab597ba9"
+  },
+  "testedBundleSha256": "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623",
+  "currentDefaultBundleSha256": "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623",
+  "actualServedBundleSha256": [
+    "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623",
+    "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623"
+  ],
+  "sourceSha256": "87523a6d4438e9b6e93b9f41c17236b66b9e5c12e1d3d738f74e79a104382580",
+  "testSha256": "67c72907fcf4578a48ad61b5daf8e984cbd7662b9cdcf98bf305c1f2f6b7d8fe",
+  "originalInputSha256": "ebd217413f215f9413845932c942a15ba9140ec1d5f93a191f0b97fc34e4d3c0",
+  "originalInputUnchanged": true,
+  "castSha256": "4e1b1e4be8d9420553259132ad02ceef7b41fb6fa0f9241aa63bcb619eea5c0e",
+  "admittedClock": 79256,
+  "steps": [
+    {
+      "id": "book.lotm.kj3bb.recover-cane",
+      "clock": 79258,
+      "source": "v1 ch130 P001–P018"
+    },
+    {
+      "id": "book.lotm.kj3bb.go-home",
+      "clock": 79277,
+      "source": "v1 ch130 P019–P029"
+    },
+    {
+      "id": "book.lotm.kj3bb.household-plan",
+      "clock": 79283,
+      "source": "v1 ch130 P030–P050"
+    }
+  ],
+  "terminalClock": 79283,
+  "saveReload": true,
+  "import": false,
+  "applicationErrors": [],
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "historicalFrontierNotRetested": "v1ch163P082 / lotm-kjw49"
+}

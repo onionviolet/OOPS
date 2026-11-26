@@ -1,0 +1,29 @@
+{
+  "schema": "lotm-market-direct-browser/1",
+  "date": "2026-11-26",
+  "bundleSha256": "c3b5b3dbdb71ab16e9d6577d997aef43343be902b3a0f32a087c513f83d5733e",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "postBreadSha256": "816cafec0ad62c54bf26af2b1a69352b29d2634cffa8f2dc100cc0f01b94f2b3",
+  "exportSha256": "940b5fe32c8774859774a105161a5fcfc92f95bab5d6f818934752688a472239",
+  "marketMinute": 428,
+  "purchaseMinute": 433,
+  "unpackMinute": 437,
+  "moneyBefore": 16,
+  "moneyReserved": 16,
+  "moneyRefunded": 16,
+  "moneyAfter": 0,
+  "stock": {
+    "loaves": 16,
+    "muttonLb": 1,
+    "vegetableBundles": 1
+  },
+  "directPurchases": 1,
+  "readingCompletions": 0,
+  "newCastKnowledge": [],
+  "saveReload": true,
+  "fileExportImport": true,
+  "afterUnpacking": "Prepare the invocations"
+}

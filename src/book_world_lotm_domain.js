@@ -3,11 +3,15 @@ import {amuletWorkshopRecords} from './lotm_amulet_crafting.js';
 import {tingenMishapRecords} from './lotm_amulet_protection.js';
 import {configureConstables} from './book_world_lotm_constables.js';
 import {remotePresenceFacts} from './place_remote_presence.js';
+import {tentIncidentFacts} from './lotm_tent_incident.js';
+import {castTentData} from './book_world_lotm_cast_host.js';
 import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
+import {retainLenderStockJob} from './lotm_charm_lender_stock.js';
+import {normalizeResponseLoanEnvelope,retainResponseChoiceJobs} from './lotm_charm_response.js';
 // Tingen Seer slice native domain (LIP3/LIP4). Registers through the domain registry (AR2): the
 // save envelope is validated by book_world_lotm_envelope.js, native sleep joins through wake/tick,
 // and the panel mounts with the other domains. main.js makes one configureLotm call.
-import {castNeedsFullContext,CAST_EAGER_PEOPLE_LIMIT,castPlaces,installCast,restoreUnavailableCast,castAvailable,lotmCastLife,dormantCastPlace,castLocalClock,lotmBe} from './book_world_lotm_cast_host.js';
+import {castNeedsFullContext,castCharmUpkeepFacts,CAST_EAGER_PEOPLE_LIMIT,castPlaces,installCast,restoreUnavailableCast,castAvailable,lotmCastLife,dormantCastPlace,castLocalClock,lotmBe} from './book_world_lotm_cast_host.js';
 import {registerDomain,domainRegistry} from './domain_registry.js';
 import {registerDutySet} from './duties_domain.js';
 import {LOTM_DUTIES,LOTM_RENT,lotmRentDefs,LOTM_CIVIL_DUTIES,LOTM_CIVIL_DUTY_ID,LOTM_GUARD_DUTIES,LOTM_GUARD_DUTY_ID} from './book_world_lotm_duties.js';
@@ -15,6 +19,8 @@ import {lotmDutyHeld} from './book_world_lotm_positions.js';
 import {registerUpcomingSource} from './upcoming_strip_ui.js';
 import {registerReady} from './ready_rows.js';
 import {readPort} from './ui_ports.js';
+import {registerWorkAttention} from './work_attention.js';
+import {copyFileAttention} from './lotm_copy_routine.js';
 import {expandWorkspaceModule} from './workspace_layout.js';
 import {lotmWorkRows,mountPayLedgerTab,mountLotmBio} from './lotm_work_day.js';
 import {registerBoxTab} from './ui/box_tabs.js';
@@ -33,6 +39,10 @@ import {lotmStreetLine} from './book_world_lotm_events.js';
 import {LOTM_STREET_PLACES} from './lotm_street_events.js';
 import {configureHeatPurse} from './heat.js';
 let host=null,panel=null,ports=null,castLocationRestore=null;
+registerWorkAttention({worldId:I.world,read:()=>copyFileAttention(ports?.state()),open:()=>{
+ if(!copyFileAttention(ports?.state()))return false;
+ return expandWorkspaceModule('lotm')?panel?.openCopyQuestion()===true:false;
+}});
 registerLocalClockSource(()=>{const state=ports?.state(),place=ports?.location();
  return place&&place===state?.simulation?.people?.player?.location?castLocalClock(state):null;});
 registerOwnedWorkPanel((_work,definition)=>definition?.group==='book_lotm'?'lotm_panel':null);
@@ -75,6 +85,9 @@ function restoreMissingCast(envelope){
  if(!ports||!lotmCastLife(envelope.expansion))return;
  const place=id=>castLocationRestore.retain(id);
  restoreUnavailableCast(envelope.expansion,ports.registry,place);
+ retainLenderStockJob(envelope.expansion,ports.registry);
+ retainResponseChoiceJobs(envelope.expansion,ports.registry);
+ normalizeResponseLoanEnvelope(envelope);
  if(castAvailable){ensureCastLocation(envelope.expansion.simulation?.people?.player?.location);for(const id of Object.keys(envelope.locations||{}))ensureCastLocation(id);return;}
  for(const id of Object.keys(envelope.locations||{}))if(dormantCastPlace(id))place(id);
 }
@@ -87,8 +100,11 @@ registerUpcomingSource(()=>host?.upcoming()||[]);
 // D1: Klein's pay under the Find work verb in Ready now; the row draws the pay as the panel's own button does (book_world_lotm_wage.js owns the facts).
 mountPayLedgerTab({registerBoxTab,read:()=>readPort('expansion')});
 mountLotmBio({registerBoxTab,read:()=>readPort('expansion'),duties:()=>domainRegistry.project('duties')});
-registerReady({id:'lotm-work',label:'Your work',verb:'work',rows:()=>lotmWorkRows(readPort('expansion'),{collect:()=>{host.collectWage();panel?.render();},open:()=>expandWorkspaceModule('lotm')})});
+registerReady({id:'lotm-work',label:'Your work',verb:'work',rows:()=>lotmWorkRows(readPort('expansion'),{
+ collect:()=>{host.collectWage();panel?.render();},open:()=>{if(expandWorkspaceModule('lotm'))panel?.openWage();},
+ shift:host?.shiftRead(),openShift:id=>{if(expandWorkspaceModule('lotm'))panel?.openShift(id);}
+})});
 registerDomain({id:'lotm',deps:[],validate:(_slice,envelope)=>restoreMissingCast(envelope),tick:minutes=>host?.tick(minutes),refresh:()=>panel?.render(),
- commands:{restoreSleep:()=>host?.restoreSleep(),wake:()=>host?.wake(),enrollBeFresh:()=>host.enroll('be',{independent:true})},
- projection:(kind,...args)=>kind==='castContext'?castNeedsFullContext(...args):kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?{...lotmFacts(...args),...lotmDivinationFacts(...args),...lotmActFacts(...args),...itemSafetyFacts(args[0],getPrivateLotmCast()?.itemSafety),...remotePresenceFacts(args[0],getPrivateLotmCast()?.householdActs)}:host?.view(),
- panels:[()=>{panel=createLotmPanel({read:workshopPanelView,discovered:()=>host.discovered(),observer:()=>host.observer(),act:id=>host.act(id),cancel:id=>host.cancel(id),move:id=>host.move(id),enroll:profile=>host.cross(profile),home:ports.home(),duties:()=>domainRegistry.project('duties'),tieAsk:id=>host.tieAsk(id),homeAct:request=>domainRegistry.command('homes','execute')(domainRegistry.command('homes','quote')(request)),attend:dutyId=>dutyId===LOTM_GUARD_DUTY_ID?host.standWatch():dutyId==='lotm.expense_claim'?host.fileExpense():domainRegistry.command('duties','attend')({dutyId}),resign:id=>host.resign(id),signGuard:()=>host.signGuard(),lawRoute:(id,route)=>host.lawRoute(id,route),collectGuard:()=>host.collectGuardPay(),startWage:()=>host.startWage(),collectWage:()=>host.collectWage(),shiftRead:()=>host.shiftRead(),workShift:kind=>host.workShift(kind),setOrder:(dutyId,policy)=>domainRegistry.command('duties','setOrder')({dutyId,policy})});}]});
+ commands:{reviseCommissionEarmark:amount=>host.reviseCommissionEarmark(amount),restoreSleep:()=>host?.restoreSleep(),wake:()=>host?.wake(),enrollBeFresh:()=>host.enroll('be',{independent:true})},
+ projection:(kind,...args)=>kind==='castContext'?castNeedsFullContext(...args):kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?{...lotmFacts(...args),...lotmDivinationFacts(...args),...lotmActFacts(...args),...castCharmUpkeepFacts(...args),...itemSafetyFacts(args[0],getPrivateLotmCast()?.itemSafety),...remotePresenceFacts(args[0],getPrivateLotmCast()?.householdActs),...tentIncidentFacts(args[0],castTentData)}:host?.view(),
+ panels:[()=>{panel=createLotmPanel({read:workshopPanelView,reviseCommissionEarmark:amount=>host.reviseCommissionEarmark(amount),discovered:()=>host.discovered(),observer:()=>host.observer(),beginWait:id=>host.beginWait(id),act:id=>host.act(id),cancel:id=>host.cancel(id),move:id=>host.move(id),enroll:profile=>host.cross(profile),home:ports.home(),duties:()=>domainRegistry.project('duties'),tieAsk:id=>host.tieAsk(id),homeAct:request=>domainRegistry.command('homes','execute')(domainRegistry.command('homes','quote')(request)),attend:dutyId=>dutyId===LOTM_GUARD_DUTY_ID?host.standWatch():dutyId==='lotm.expense_claim'?host.fileExpense():domainRegistry.command('duties','attend')({dutyId}),resign:id=>host.resign(id),signGuard:()=>host.signGuard(),lawRoute:(id,route)=>host.lawRoute(id,route),collectGuard:()=>host.collectGuardPay(),startWage:()=>host.startWage(),collectWage:()=>host.collectWage(),shiftRead:()=>host.shiftRead(),workShift:kind=>host.workShift(kind),setOrder:(dutyId,policy)=>domainRegistry.command('duties','setOrder')({dutyId,policy})});}]});

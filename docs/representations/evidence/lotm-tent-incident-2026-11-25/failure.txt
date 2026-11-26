@@ -1,0 +1,2166 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+undefined !== 1
+
+    at finish (file:///C:/Users/wayba/dev/OOPS/tests/lotm_tent_incident_browser.mjs:45:38)
+    at async file:///C:/Users/wayba/dev/OOPS/tests/lotm_tent_incident_browser.mjs:88:2
+Fortune-telling tent
+Day 1, morning
+No work running
+Saving available.
+Pin
+You
+Lv 0
+60/60 hp
+0/10 xp
+40/40 stamina
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5%
+Crit
+×1.3
+AP
+32
+EP
+25
+Attributes ›
+Gear · 0
+Condition
+
+No active effects
+
+Body · Human
+All
+2
+Gear
+1
+Use
+1
+Other
+0
+★
+0
+Inventory
+480 pence
+Find / filter:
+Name ↑
+▾
+Stale bread
+×5
+20 pence
+[legs]
+Cheap leather pants
+[40%]
+46 pence
+Fortune-telling tent
+▾
+Tingen
+Here
+Notebook · 4
+
+Your path, clearance, merit and the brewing bench now sit under their own tabs.
+Got it
+
+Fortune-telling tent · Day 1, morning · 08:45
+
+A fight · tempo
+
+Face the knifeman in the back lane A robbery, until the knife comes out. Then whether he lives is your choice. If he drops you, you wake hurt.
+
+Stance 
+Normal Stance
+Pulled Blows
+
+If they go down:
+Finish
+Spare
+Ask me
+Default: A person down is worth a look: a death brings witnesses, kin and the law.
+
+If I am losing:
+Fight on
+Yield
+Break off at a third
+
+If you go down: He goes through your pockets and takes about half of what you carry. You wake hurt.
+
+At the circus tent
+
+The circus offers a free reading here on the first morning. You can come out of curiosity; no invitation is needed.
+
+First life is paused where you left it. Your continuing connection is the way back.Open Continuing connection
+Things at hand
+2 entries
+
+Stay by the entrance. The reader calls the stand-in an animal trainer and offers the customer a paid interpretation. You hear the dispute, not the customer’s private thoughts or a card reading of your own.
+
+Watch the exchange at the tent · 5 min · no fee
+
+Ask the circus staff about available work and go through the ordinary inquiry. You need no prior encounter or introduction. The flyer round pays two pence for fifteen minutes after this inquiry.
+
+Ask about the ordinary flyer round · 20 min · no fee
+The circus takes work inquiries on the following day, from 8:40 until 17:00.
+The circus takes work inquiries on the following day, from 8:40 until 17:00.
+Talk to Klein Moretti · brief greeting, no time cost
+Talk to Dunn Smith · brief greeting, no time cost
+Away; usually back by night at Apartment corridor
+Talk to Melissa · brief greeting, no time cost
+Away; usually back by evening at Moretti flat
+Talk to Rozanne · brief greeting, no time cost
+Away; usually back by afternoon at Blackthorn Security Company office
+Talk to Benson · brief greeting, no time cost
+Away; return time and place are not known.
+Talk to Bichi Montbatten · brief greeting, no time cost
+Away; usually back by afternoon at Moretti flat
+Talk to Daly · brief greeting, no time cost
+Away; usually back by night at Welch residence
+What do the Tingen papers say about how… · 60 min
+The papers are kept in the reading room at the university area.
+Common actions
+
+Wait here while the day continues. A local decision can interrupt the wait.
+
+Wait until noon · 195 min
+Wait until Ask the circus about tomorrow’s work · 1435 min
+Places and walks
+
+You are at Fortune-telling tent, North quarter
+
+126 New Year Road
+2 min
+North quarter · Nighthawks
+15 Xiangshu Avenue
+2 min
+North quarter · Nighthawks
+19 Hope Road
+2 min
+North quarter · Nighthawks
+19 White Whale Street
+2 min
+North quarter · Nighthawks
+20 Fragrant Tree Avenue
+2 min
+North quarter · Nighthawks
+22 Pesfier Street
+2 min
+North quarter · Nighthawks
+32 Verdi Street
+2 min
+North quarter · Nighthawks
+48 River Bend Avenue
+2 min
+North quarter · Nighthawks
+7 Pinster Street
+2 min
+North quarter · Nighthawks
+9 Belotto Street
+2 min
+North quarter · Nighthawks
+Abandoned Chapel
+2 min
+North quarter · Nighthawks
+Abandoned graveyard
+2 min
+North quarter · Nighthawks
+Abyss Vortex
+2 min
+North quarter · Nighthawks
+Accounts office
+2 min
+North quarter · Nighthawks
+Afternoon Town
+2 min
+North quarter · Nighthawks
+Amon Family Tomb
+2 min
+North quarter · Nighthawks
+Amon's Mausoleum
+2 min
+North quarter · Nighthawks
+Apartment
+2 min
+North quarter · Nighthawks
+Apartment 6
+2 min
+North quarter · Nighthawks
+Apartment building
+2 min
+North quarter · Nighthawks
+Apartment corridor
+2 min
+North quarter · Nighthawks
+Armory anteroom
+2 min
+North quarter · Nighthawks
+Arrowfish Bar
+2 min
+North quarter · Nighthawks
+Azure Wind Inn
+2 min
+North quarter · Nighthawks
+Bacardi Street
+2 min
+North quarter · Nighthawks
+Backlund
+2 min
+North quarter · Nighthawks
+Backlund Bridge
+2 min
+North quarter · Nighthawks
+Backlund Hospital
+2 min
+North quarter · Nighthawks
+Backlund Medical College
+2 min
+North quarter · Nighthawks
+Backlund Medical College Hospital
+2 min
+North quarter · Nighthawks
+Backlund Southwest Suburbs
+2 min
+North quarter · Nighthawks
+Backlund Station
+2 min
+North quarter · Nighthawks
+Backlund Subway
+2 min
+North quarter · Nighthawks
+Backlund Technical University
+2 min
+North quarter · Nighthawks
+Backlund University
+2 min
+North quarter · Nighthawks
+Backlund jewelry market
+2 min
+North quarter · Nighthawks
+Backlund northwest suburbs
+2 min
+North quarter · Nighthawks
+Baiyam
+2 min
+North quarter · Nighthawks
+Baiyam Private Port
+2 min
+North quarter · Nighthawks
+Balcony
+2 min
+North quarter · Nighthawks
+Banquet Hall
+2 min
+North quarter · Nighthawks
+Barren Wilds
+2 min
+North quarter · Nighthawks
+Belotto Street
+2 min
+North quarter · Nighthawks
+Berens Port
+2 min
+North quarter · Nighthawks
+Berninghan Road 3
+2 min
+North quarter · Nighthawks
+Bessik Street
+2 min
+North quarter · Nighthawks
+Billiard Room 3
+2 min
+North quarter · Nighthawks
+Billiard Room Three
+2 min
+North quarter · Nighthawks
+Black Market
+2 min
+North quarter · Nighthawks
+Black Monastery
+2 min
+North quarter · Nighthawks
+Black Palm Street
+2 min
+North quarter · Nighthawks
+Black Pepper Avenue
+2 min
+North quarter · Nighthawks
+Blackthorn Security Company office
+2 min
+North quarter · Nighthawks
+Blue Mountain Island
+2 min
+North quarter · Nighthawks
+Blue Mountain Island Private Port
+2 min
+North quarter · Nighthawks
+Boduo Port
+2 min
+North quarter · Nighthawks
+Bokelunde Street
+2 min
+North quarter · Nighthawks
+Bone Cathedral
+2 min
+North quarter · Nighthawks
+Brave Bar
+2 min
+North quarter · Nighthawks
+Bridge Entrance
+2 min
+North quarter · Nighthawks
+Bridge area
+2 min
+North quarter · Nighthawks
+Brown Hound tavern
+2 min
+North quarter · Nighthawks
+Card Room No. 1
+2 min
+North quarter · Nighthawks
+Card room
+2 min
+North quarter · Nighthawks
+Carriage
+2 min
+North quarter · Nighthawks
+Celebration Square
+2 min
+North quarter · Nighthawks
+Cemetery
+2 min
+North quarter · Nighthawks
+Central Sunia Sea
+2 min
+North quarter · Nighthawks
+Chanis Gate
+2 min
+North quarter · Nighthawks
+Cheap inn
+2 min
+North quarter · Nighthawks
+Chemistry lab
+2 min
+North quarter · Nighthawks
+Chernobyl
+2 min
+North quarter · Nighthawks
+Church beside school
+2 min
+North quarter · Nighthawks
+Clergy Rest Room
+2 min
+North quarter · Nighthawks
+Coffee House
+2 min
+North quarter · Nighthawks
+Collection Room
+2 min
+North quarter · Nighthawks
+Confessional
+2 min
+North quarter · Nighthawks
+Crown racecourse
+2 min
+North quarter · Nighthawks
+Dainos Island
+2 min
+North quarter · Nighthawks
+Dalavi Street
+2 min
+North quarter · Nighthawks
+Damir Port
+2 min
+North quarter · Nighthawks
+Dark Night church
+2 min
+North quarter · Nighthawks
+Decayed Forest
+2 min
+North quarter · Nighthawks
+Deep sea well
+2 min
+North quarter · Nighthawks
+Delahire Street
+2 min
+North quarter · Nighthawks
+Delaisen Forest
+2 min
+North quarter · Nighthawks
+Derrick Berg's home
+2 min
+North quarter · Nighthawks
+Dilinius
+2 min
+North quarter · Nighthawks
+Director's office
+2 min
+North quarter · Nighthawks
+Dream junk hall
+2 min
+North quarter · Nighthawks
+Duty room near Chanis Gate
+2 min
+North quarter · Nighthawks
+Earth
+2 min
+North quarter · Nighthawks
+East Bailang Veterans Club
+2 min
+North quarter · Nighthawks
+East Bairang restaurant
+2 min
+North quarter · Nighthawks
+Elf Ruins
+2 min
+North quarter · Nighthawks
+Elk Manor
+2 min
+North quarter · Nighthawks
+First-class cabin
+2 min
+North quarter · Nighthawks
+First-class lounge
+2 min
+North quarter · Nighthawks
+First-class restaurant
+2 min
+North quarter · Nighthawks
+Floor One
+2 min
+North quarter · Nighthawks
+Floor Three
+2 min
+North quarter · Nighthawks
+Flying Fish & Wine
+2 min
+North quarter · Nighthawks
+Former Chief's Mausoleum
+2 min
+North quarter · Nighthawks
+Former chief's tomb
+2 min
+North quarter · Nighthawks
+Fragrant Leaf Bar
+2 min
+North quarter · Nighthawks
+Fragrant Tree Avenue
+2 min
+North quarter · Nighthawks
+Furniture Factory
+2 min
+North quarter · Nighthawks
+Gadelie Department Store
+2 min
+North quarter · Nighthawks
+Gald Street
+2 min
+North quarter · Nighthawks
+Gard Street 126
+2 min
+North quarter · Nighthawks
+Garden
+2 min
+North quarter · Nighthawks
+Garment factory
+2 min
+North quarter · Nighthawks
+Gate corridor
+2 min
+North quarter · Nighthawks
+Gate of Sacrifice and Bestowal
+2 min
+North quarter · Nighthawks
+Gathering house
+2 min
+North quarter · Nighthawks
+General's residence
+2 min
+North quarter · Nighthawks
+Giant Court
+2 min
+North quarter · Nighthawks
+Giant King's Palace
+2 min
+North quarter · Nighthawks
+Giant King's Residence
+2 min
+North quarter · Nighthawks
+Glaint home
+2 min
+North quarter · Nighthawks
+Glaint house
+2 min
+North quarter · Nighthawks
+Glaint residence
+2 min
+North quarter · Nighthawks
+Glaint study
+2 min
+North quarter · Nighthawks
+Glaint villa
+2 min
+North quarter · Nighthawks
+Glass Greenhouse
+2 min
+North quarter · Nighthawks
+God War Ruins
+2 min
+North quarter · Nighthawks
+Gold Coin Casino
+2 min
+North quarter · Nighthawks
+Golden Spring
+2 min
+North quarter · Nighthawks
+Gothic bell tower
+2 min
+North quarter · Nighthawks
+Grammar school
+2 min
+North quarter · Nighthawks
+Grand Prayer Hall
+2 min
+North quarter · Nighthawks
+Grey Amber Street
+2 min
+North quarter · Nighthawks
+Grey Rock Street
+2 min
+North quarter · Nighthawks
+Haifang Street
+2 min
+North quarter · Nighthawks
+Hall Residence
+2 min
+North quarter · Nighthawks
+Hall family villa
+2 min
+North quarter · Nighthawks
+Harvest Church
+2 min
+North quarter · Nighthawks
+Hat Trick Inn
+2 min
+North quarter · Nighthawks
+Henry detective office
+2 min
+North quarter · Nighthawks
+Herb Shop
+2 min
+North quarter · Nighthawks
+Hisak Bureau
+2 min
+North quarter · Nighthawks
+Holy Wind Cathedral
+2 min
+North quarter · Nighthawks
+Holy Wind Church
+2 min
+North quarter · Nighthawks
+Hope Road 22
+2 min
+North quarter · Nighthawks
+Hound Tavern
+2 min
+North quarter · Nighthawks
+House Number 29
+2 min
+North quarter · Nighthawks
+Hoy River
+2 min
+North quarter · Nighthawks
+Import export company
+2 min
+North quarter · Nighthawks
+Inn
+2 min
+North quarter · Nighthawks
+Intis Embassy
+2 min
+North quarter · Nighthawks
+Iris Street
+2 min
+North quarter · Nighthawks
+Iron Cross Street
+2 min
+North quarter · Nighthawks
+Iron Gate Street
+2 min
+North quarter · Nighthawks
+Jalgas Islands
+2 min
+North quarter · Nighthawks
+Kanarowell Street 9
+2 min
+North quarter · Nighthawks
+Karpensa Inn
+2 min
+North quarter · Nighthawks
+Karpin's villa
+2 min
+North quarter · Nighthawks
+King's Avenue
+2 min
+North quarter · Nighthawks
+King's Avenue No. 2
+2 min
+North quarter · Nighthawks
+Kinst Street 26
+2 min
+North quarter · Nighthawks
+Klein flat
+2 min
+North quarter · Nighthawks
+Lettuce and Meat market
+2 min
+North quarter · Nighthawks
+Loen quarter
+2 min
+North quarter · Nighthawks
+Lower Iron Cross Street
+2 min
+North quarter · Nighthawks
+Lucky Bar
+2 min
+North quarter · Nighthawks
+Luxury hotel
+2 min
+North quarter · Nighthawks
+Main house
+2 min
+North quarter · Nighthawks
+Materials Warehouse
+2 min
+North quarter · Nighthawks
+Mausoleum
+2 min
+North quarter · Nighthawks
+Mechanical Lab
+2 min
+North quarter · Nighthawks
+Medical College Building
+2 min
+North quarter · Nighthawks
+Medical school
+2 min
+North quarter · Nighthawks
+Memorial Day Square
+2 min
+North quarter · Nighthawks
+Merit Exchange Point
+2 min
+North quarter · Nighthawks
+Mesayes Residence
+2 min
+North quarter · Nighthawks
+Minsk Street
+2 min
+North quarter · Nighthawks
+Minsk Street 13
+2 min
+North quarter · Nighthawks
+Minsk Street 15
+2 min
+North quarter · Nighthawks
+Minsk Street 58
+2 min
+North quarter · Nighthawks
+Monin Street
+2 min
+North quarter · Nighthawks
+Moretti flat
+2 min
+North quarter · Nighthawks
+Morgue
+2 min
+North quarter · Nighthawks
+Morgue Hall
+2 min
+North quarter · Nighthawks
+Municipal garden
+2 min
+North quarter · Nighthawks
+Municipal square
+2 min
+North quarter · Nighthawks
+Mural hall
+2 min
+North quarter · Nighthawks
+Music room
+2 min
+North quarter · Nighthawks
+Nas
+2 min
+North quarter · Nighthawks
+Neighbourhood lodging
+2 min
+North quarter · Nighthawks
+Nigen Mansion
+2 min
+North quarter · Nighthawks
+Night School
+2 min
+North quarter · Nighthawks
+No. 15 Minsk Street
+2 min
+North quarter · Nighthawks
+No. 29 Xiweilasi Street
+2 min
+North quarter · Nighthawks
+No. 8 Williams Street
+2 min
+North quarter · Nighthawks
+North Bailang State
+2 min
+North quarter · Nighthawks
+North Outskirts
+2 min
+North quarter · Nighthawks
+North Sunia Sea
+2 min
+North quarter · Nighthawks
+Northwest Mountain Forest
+2 min
+North quarter · Nighthawks
+Odora family villa
+2 min
+North quarter · Nighthawks
+Odora family villa
+2 min
+North quarter · Nighthawks
+Odra's Home
+2 min
+North quarter · Nighthawks
+Old Apartment
+2 min
+North quarter · Nighthawks
+Old John Restaurant
+2 min
+North quarter · Nighthawks
+Outer Mountains
+2 min
+North quarter · Nighthawks
+Passenger liner
+2 min
+North quarter · Nighthawks
+Pasu Island
+2 min
+North quarter · Nighthawks
+Pea Vine Forest Road
+2 min
+North quarter · Nighthawks
+Pelican Street
+2 min
+North quarter · Nighthawks
+Pesfier Street
+2 min
+North quarter · Nighthawks
+Phillips Street
+2 min
+North quarter · Nighthawks
+Pier Six
+2 min
+North quarter · Nighthawks
+Pinster Street
+2 min
+North quarter · Nighthawks
+Pirate paradise
+2 min
+North quarter · Nighthawks
+Platform 2
+2 min
+North quarter · Nighthawks
+Platform 3
+2 min
+North quarter · Nighthawks
+Potion Room
+2 min
+North quarter · Nighthawks
+Practice ground
+2 min
+North quarter · Nighthawks
+Prayer Hall
+2 min
+North quarter · Nighthawks
+Primeval Jungle
+2 min
+North quarter · Nighthawks
+Prizzle Outskirts Cemetery
+2 min
+North quarter · Nighthawks
+Prizzle Port
+2 min
+North quarter · Nighthawks
+Public Primary School
+2 min
+North quarter · Nighthawks
+Racecourse
+2 min
+North quarter · Nighthawks
+Raging Sea
+2 min
+North quarter · Nighthawks
+Rake Bookshop
+2 min
+North quarter · Nighthawks
+Rebel Private Port
+2 min
+North quarter · Nighthawks
+Rebel private harbor
+2 min
+North quarter · Nighthawks
+Red Moon Street
+2 min
+North quarter · Nighthawks
+Red Rose Manor
+2 min
+North quarter · Nighthawks
+Red Theatre
+2 min
+North quarter · Nighthawks
+Reef Island
+2 min
+North quarter · Nighthawks
+Research Institute
+2 min
+North quarter · Nighthawks
+Rest area
+2 min
+North quarter · Nighthawks
+Rest room
+2 min
+North quarter · Nighthawks
+Restored Study
+2 min
+North quarter · Nighthawks
+Resurrection Square
+2 min
+North quarter · Nighthawks
+River valley
+2 min
+North quarter · Nighthawks
+Riverbend Avenue
+2 min
+North quarter · Nighthawks
+Riverbend Avenue 48
+2 min
+North quarter · Nighthawks
+Room 2012
+2 min
+North quarter · Nighthawks
+Room 2016
+2 min
+North quarter · Nighthawks
+Room 305
+2 min
+North quarter · Nighthawks
+Room 312
+2 min
+North quarter · Nighthawks
+Room 32
+2 min
+North quarter · Nighthawks
+Rosd Diocese
+2 min
+North quarter · Nighthawks
+Rosd Islands
+2 min
+North quarter · Nighthawks
+Rose Flower Street
+2 min
+North quarter · Nighthawks
+Rose Long Street
+2 min
+North quarter · Nighthawks
+Rose Long Street 138
+2 min
+North quarter · Nighthawks
+Rose Manor
+2 min
+North quarter · Nighthawks
+Round Tower
+2 min
+North quarter · Nighthawks
+Round tower top
+2 min
+North quarter · Nighthawks
+Royal Museum
+2 min
+North quarter · Nighthawks
+Royal naval base
+2 min
+North quarter · Nighthawks
+Ruin No. 1
+2 min
+North quarter · Nighthawks
+Ruined Church
+2 min
+North quarter · Nighthawks
+Sachi Street
+2 min
+North quarter · Nighthawks
+Saint Hilan Cathedral
+2 min
+North quarter · Nighthawks
+Saint Hilan Square
+2 min
+North quarter · Nighthawks
+Saint Selena Church
+2 min
+North quarter · Nighthawks
+Sammer Home
+2 min
+North quarter · Nighthawks
+School
+2 min
+North quarter · Nighthawks
+Sea Dyke Avenue
+2 min
+North quarter · Nighthawks
+Sealed Room
+2 min
+North quarter · Nighthawks
+Seaweed Bar
+2 min
+North quarter · Nighthawks
+Second floor of building
+2 min
+North quarter · Nighthawks
+Sefirah Castle
+2 min
+North quarter · Nighthawks
+Seros Island
+2 min
+North quarter · Nighthawks
+Seventh Avenue
+2 min
+North quarter · Nighthawks
+Sewer entrance
+2 min
+North quarter · Nighthawks
+Shadow Palace
+2 min
+North quarter · Nighthawks
+Shared washroom
+2 min
+North quarter · Nighthawks
+Shared washroom in the building
+2 min
+North quarter · Nighthawks
+Simm Island
+2 min
+North quarter · Nighthawks
+Sivilas
+2 min
+North quarter · Nighthawks
+Sleeping Place
+2 min
+North quarter · Nighthawks
+Sline Bakery
+2 min
+North quarter · Nighthawks
+Slumber Chapel
+2 min
+North quarter · Nighthawks
+Small Prayer Room
+2 min
+North quarter · Nighthawks
+Smoking room
+2 min
+North quarter · Nighthawks
+Soderac Palace
+2 min
+North quarter · Nighthawks
+Sphere Street 6
+2 min
+North quarter · Nighthawks
+Spice Islands
+2 min
+North quarter · Nighthawks
+Spire library
+2 min
+North quarter · Nighthawks
+St Astin Hospital
+2 min
+North quarter · Nighthawks
+St Hilan Church
+2 min
+North quarter · Nighthawks
+St Samuel Church
+2 min
+North quarter · Nighthawks
+Stairs below the office
+2 min
+North quarter · Nighthawks
+Starlight Church
+2 min
+North quarter · Nighthawks
+Steam Church
+2 min
+North quarter · Nighthawks
+Storeroom
+2 min
+North quarter · Nighthawks
+Storm Abyss
+2 min
+North quarter · Nighthawks
+Storm Abyss Church
+2 min
+North quarter · Nighthawks
+Stratford River Bend
+2 min
+North quarter · Nighthawks
+Stratford residence
+2 min
+North quarter · Nighthawks
+Suburban manor
+2 min
+North quarter · Nighthawks
+Subway
+2 min
+North quarter · Nighthawks
+Sunia Sea
+2 min
+North quarter · Nighthawks
+Sunia Sea island
+2 min
+North quarter · Nighthawks
+Suonia Island
+2 min
+North quarter · Nighthawks
+Temple hall built in mist
+2 min
+North quarter · Nighthawks
+Temporary jail
+2 min
+North quarter · Nighthawks
+Three-story grey stone building
+2 min
+North quarter · Nighthawks
+Tingen districts used for jurisdiction
+2 min
+North quarter · Nighthawks
+Tingen probationer lodging
+2 min
+North quarter · Nighthawks
+Walk to Tingen probationer lodging · 2 min
+Tingen street market
+2 min
+North quarter · Nighthawks
+Tingen supervised workroom
+2 min
+North quarter · Nighthawks
+Walk to Tingen supervised workroom · 2 min
+Tinis Church
+2 min
+North quarter · Nighthawks
+Townsend Street
+2 min
+North quarter · Nighthawks
+Training Ground
+2 min
+North quarter · Nighthawks
+Tram stop
+2 min
+North quarter · Nighthawks
+Tudor Ruins
+2 min
+North quarter · Nighthawks
+Tutwa Street
+2 min
+North quarter · Nighthawks
+Twin Towers
+2 min
+North quarter · Nighthawks
+Underground Floor Two
+2 min
+North quarter · Nighthawks
+Underground Palace
+2 min
+North quarter · Nighthawks
+Underground Prison
+2 min
+North quarter · Nighthawks
+Underground Ruins
+2 min
+North quarter · Nighthawks
+Underground area
+2 min
+North quarter · Nighthawks
+Underground area entrance
+2 min
+North quarter · Nighthawks
+Underground shooting range
+2 min
+North quarter · Nighthawks
+Uninhabited island
+2 min
+North quarter · Nighthawks
+VIP lounge
+2 min
+North quarter · Nighthawks
+Villa attic
+2 min
+North quarter · Nighthawks
+Wardrobe room six
+2 min
+North quarter · Nighthawks
+Wasteland Tunnel
+2 min
+North quarter · Nighthawks
+Wave Church
+2 min
+North quarter · Nighthawks
+Welch residence
+2 min
+North quarter · Nighthawks
+Welker clothing shop
+2 min
+North quarter · Nighthawks
+West Bailang
+2 min
+North quarter · Nighthawks
+Whaling route
+2 min
+North quarter · Nighthawks
+White Cliff Town
+2 min
+North quarter · Nighthawks
+White Feather Square
+2 min
+North quarter · Nighthawks
+White Oak Avenue
+2 min
+North quarter · Nighthawks
+White Whale Street
+2 min
+North quarter · Nighthawks
+White household
+2 min
+North quarter · Nighthawks
+Wild Heart bar
+2 min
+North quarter · Nighthawks
+Wild Whale Dance
+2 min
+North quarter · Nighthawks
+Williams Street
+2 min
+North quarter · Nighthawks
+Williams Street Ruins
+2 min
+North quarter · Nighthawks
+Xibailang Shipyard
+2 min
+North quarter · Nighthawks
+Ximu Harbor
+2 min
+North quarter · Nighthawks
+Xiweilasi Street
+2 min
+North quarter · Nighthawks
+Xiweilasi ground
+2 min
+North quarter · Nighthawks
+Zhongcheng Island
+2 min
+North quarter · Nighthawks
+Zhotelan Avenue
+2 min
+North quarter · Nighthawks
+Zotran Street 3
+2 min
+North quarter · Nighthawks
+Tingen docks
+20 min
+Docks · Mandated Punishers
+Walk to Tingen docks · 20 min
+Tingen Technical School
+25 min
+University area · Machinery team
+Tingen University office
+25 min
+University area · Machinery team
+Tingen university area
+25 min
+University area · Machinery team
+Walk to Tingen university area · 25 min
+Hide the walking map
+Walking map · minutes from here
+2 entries
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+2 min
+20 min
+25 min
+25 min
+25 min
+▶
+Fortune-tellingtent
+Tingensupervisedworkroom
+Tingenprobationerlodging
+Moretti flat
+Sharedwashroom
+Apartmentcorridor
+Sline Bakery
+Tingen streetmarket
+Municipalsquare
+Lettuce andMeat market
+Welchresidence
+Iron CrossStreet
+Brown Houndtavern
+BlackthornSecurityCompany office
+Duty room nearChanis Gate
+Chanis Gate
+Accountsoffice
+Armoryanteroom
+Stairs belowthe office
+Welkerclothing shop
+Neighbourhoodlodging
+Apartmentbuilding
+Bessik Street
+Cemetery
+Damir Port
+Prizzle Port
+Sefirah Castle
+Temple hallbuilt in mist
+West Bailang
+ZhotelanAvenue
+Import exportcompany
+Apartment
+Sharedwashroom inthe building
+Backlund
+BacklundUniversity
+Carriage
+Earth
+Uninhabitedisland
+Hoy River
+Klein flat
+Pelican Street
+Undergroundshooting range
+Red MoonStreet
+Royal navalbase
+Saint SelenaChurch
+School
+Second floorof building
+Sunia Sea
+Tingendistricts usedforjurisdiction
+Wardrobe roomsix
+Wild Heart bar
+Zotran Street3
+AbandonedChapel
+Abandonedgraveyard
+Abyss Vortex
+Afternoon Town
+Amon'sMausoleum
+Amon FamilyTomb
+Arrowfish Bar
+Azure Wind Inn
+BacklundBridge
+BacklundHospital
+Backlundjewelry market
+BacklundMedicalCollege
+BacklundMedicalCollegeHospital
+Backlundnorthwestsuburbs
+BacklundSouthwestSuburbs
+BacklundStation
+BokelundeStreet
+BacklundSubway
+BacklundTechnicalUniversity
+Bacardi Street
+East BailangVeterans Club
+Baiyam
+Loen quarter
+Baiyam PrivatePort
+Balcony
+Banquet Hall
+Barren Wilds
+Belotto Street
+9 BelottoStreet
+Berens Port
+Derrick Berg'shome
+BerninghanRoad 3
+Billiard Room3
+Billiard RoomThree
+Black Market
+BlackMonastery
+Black PalmStreet
+Black PepperAvenue
+Blue MountainIsland
+Blue MountainIsland PrivatePort
+Boduo Port
+Bone Cathedral
+Brave Bar
+Bridge area
+BridgeEntrance
+Card room
+Card Room No.1
+CelebrationSquare
+Central SuniaSea
+Cheap inn
+Chemistry lab
+Chernobyl
+Former Chief'sMausoleum
+Clergy RestRoom
+Coffee House
+CollectionRoom
+Confessional
+Crownracecourse
+Dainos Island
+Dalavi Street
+Dark Nightchurch
+Decayed Forest
+Deep sea well
+DelahireStreet
+DelaisenForest
+Dilinius
+Director'soffice
+Dream junkhall
+East Bairangrestaurant
+Elf Ruins
+Elk Manor
+First-classcabin
+First-classlounge
+First-classrestaurant
+Floor One
+Floor Three
+Flying Fish &Wine
+Former chief'stomb
+Fragrant LeafBar
+Fragrant TreeAvenue
+20 FragrantTree Avenue
+FurnitureFactory
+GadelieDepartmentStore
+Gald Street
+Gard Street126
+Garden
+Garmentfactory
+Gate corridor
+Gate ofSacrifice andBestowal
+Gatheringhouse
+General'sresidence
+Giant Court
+Giant King'sPalace
+Giant King'sResidence
+Glaint home
+Glaint house
+Glaintresidence
+Glaint study
+Glaint villa
+GlassGreenhouse
+God War Ruins
+Gold CoinCasino
+Golden Spring
+Gothic belltower
+Grammar school
+Grand PrayerHall
+Grey AmberStreet
+Apartment 6
+Grey RockStreet
+Three-storygrey stonebuilding
+Haifang Street
+Hall Residence
+Hall familyvilla
+Harvest Church
+Hat Trick Inn
+Henrydetectiveoffice
+Herb Shop
+Hisak Bureau
+Holy WindCathedral
+Holy WindChurch
+19 Hope Road
+Hope Road 22
+Hound Tavern
+Inn
+Intis Embassy
+Iris Street
+Lower IronCross Street
+Iron GateStreet
+Jalgas Islands
+KanarowellStreet 9
+Karpensa Inn
+Karpin's villa
+King's Avenue
+King's AvenueNo. 2
+Kinst Street26
+Lucky Bar
+Luxury hotel
+Main house
+MaterialsWarehouse
+Mausoleum
+Mechanical Lab
+MedicalCollegeBuilding
+Medical school
+Memorial DaySquare
+Merit ExchangePoint
+MesayesResidence
+ZhongchengIsland
+No. 15 MinskStreet
+Minsk Street
+Minsk Street13
+Minsk Street15
+Minsk Street58
+Monin Street
+Morgue
+Morgue Hall
+Municipalgarden
+Mural hall
+Music room
+Nas
+126 New YearRoad
+Nigen Mansion
+Night School
+North BailangState
+NorthOutskirts
+North SuniaSea
+NorthwestMountainForest
+House Number29
+Odora familyvilla
+Odra's Home
+Odora familyvilla
+Old Apartment
+Old JohnRestaurant
+OuterMountains
+Passengerliner
+Pasu Island
+Pea VineForest Road
+Pesfier Street
+22 PesfierStreet
+PhillipsStreet
+Pier Six
+Pinster Street
+7 PinsterStreet
+Pirateparadise
+Platform 3
+Platform 2
+Potion Room
+Practiceground
+Prayer Hall
+PrimevalJungle
+PrizzleOutskirtsCemetery
+Public PrimarySchool
+Racecourse
+Raging Sea
+Rake Bookshop
+Rebel privateharbor
+Rebel PrivatePort
+Red Rose Manor
+Red Theatre
+Reef Island
+ResearchInstitute
+Rest area
+Rest room
+Restored Study
+ResurrectionSquare
+RiverbendAvenue
+48 River BendAvenue
+River valley
+RiverbendAvenue 48
+Room 2012
+Room 2016
+Room 305
+Room 312
+Room 32
+Rosd Diocese
+Rosd Islands
+Rose FlowerStreet
+Rose LongStreet
+Rose Manor
+Rose LongStreet 138
+Round Tower
+Round towertop
+Royal Museum
+Ruin No. 1
+Ruined Church
+Sachi Street
+Sammer Home
+Church besideschool
+Sea DykeAvenue
+Sealed Room
+Seaweed Bar
+Seros Island
+Seventh Avenue
+Sewer entrance
+Shadow Palace
+Simm Island
+Sivilas
+Sleeping Place
+Slumber Chapel
+Small PrayerRoom
+Smoking room
+Soderac Palace
+Sphere Street6
+Spice Islands
+Spire library
+St AstinHospital
+Saint HilanCathedral
+St HilanChurch
+Saint HilanSquare
+St SamuelChurch
+StarlightChurch
+Steam Church
+Storeroom
+Storm Abyss
+Storm AbyssChurch
+StratfordRiver Bend
+Stratfordresidence
+Suburban manor
+Subway
+Suonia Island
+Temporary jail
+Tinis Church
+TownsendStreet
+TrainingGround
+Tram stop
+Tudor Ruins
+Tutwa Street
+Twin Towers
+Undergroundarea
+Undergroundarea entrance
+UndergroundFloor Two
+UndergroundPalace
+UndergroundPrison
+UndergroundRuins
+Sunia Seaisland
+Villa attic
+VIP lounge
+WastelandTunnel
+Wave Church
+Whaling route
+White CliffTown
+White FeatherSquare
+Whitehousehold
+White OakAvenue
+19 White WhaleStreet
+White WhaleStreet
+Wild WhaleDance
+32 VerdiStreet
+WilliamsStreet Ruins
+WilliamsStreet
+No. 8 WilliamsStreet
+15 XiangshuAvenue
+XibailangShipyard
+Ximu Harbor
+No. 29XiweilasiStreet
+Xiweilasiground
+XiweilasiStreet
+Tingen docks
+Tingenuniversityarea
+TingenTechnicalSchool
+TingenUniversityoffice
+Districts: North quarter (Tingen supervised workroom, Tingen
+probationer lodging, Moretti flat, Shared washroom,
+Apartment corridor, Sline Bakery, Tingen street market,
+Municipal square, Fortune-telling tent, Lettuce and Meat
+market, Welch residence, Iron Cross Street, Brown Hound
+tavern, Blackthorn Security Company office, Duty room near
+Chanis Gate, Chanis Gate, Accounts office, Armory anteroom,
+Stairs below the office, Welker clothing shop, Neighbourhood
+lodging, Apartment building, Bessik Street, Cemetery, Damir
+Port, Prizzle Port, Sefirah Castle, Temple hall built in
+mist, West Bailang, Zhotelan Avenue, Import export company,
+Apartment, Shared washroom in the building, Backlund,
+Backlund University, Carriage, Earth, Uninhabited island,
+Hoy River, Klein flat, Pelican Street, Underground shooting
+range, Red Moon Street, Royal naval base, Saint Selena
+Church, School, Second floor of building, Sunia Sea, Tingen
+districts used for jurisdiction, Wardrobe room six, Wild
+Heart bar, Zotran Street 3, Abandoned Chapel, Abandoned
+graveyard, Abyss Vortex, Afternoon Town, Amon's Mausoleum,
+Amon Family Tomb, Arrowfish Bar, Azure Wind Inn, Backlund
+Bridge, Backlund Hospital, Backlund jewelry market, Backlund
+Medical College, Backlund Medical College Hospital, Backlund
+northwest suburbs, Backlund Southwest Suburbs, Backlund
+Station, Bokelunde Street, Backlund Subway, Backlund
+Technical University, Bacardi Street, East Bailang Veterans
+Club, Baiyam, Loen quarter, Baiyam Private Port, Balcony,
+Banquet Hall, Barren Wilds, Belotto Street, 9 Belotto
+Street, Berens Port, Derrick Berg's home, Berninghan Road 3,
+Billiard Room 3, Billiard Room Three, Black Market, Black
+Monastery, Black Palm Street, Black Pepper Avenue, Blue
+Mountain Island, Blue Mountain Island Private Port, Boduo
+Port, Bone Cathedral, Brave Bar, Bridge area, Bridge
+Entrance, Card room, Card Room No. 1, Celebration Square,
+Central Sunia Sea, Cheap inn, Chemistry lab, Chernobyl,
+Former Chief's Mausoleum, Clergy Rest Room, Coffee House,
+Collection Room, Confessional, Crown racecourse, Dainos
+Island, Dalavi Street, Dark Night church, Decayed Forest,
+Deep sea well, Delahire Street, Delaisen Forest, Dilinius,
+Director's office, Dream junk hall, East Bairang restaurant,
+Elf Ruins, Elk Manor, First-class cabin, First-class lounge,
+First-class restaurant, Floor One, Floor Three, Flying Fish
+& Wine, Former chief's tomb, Fragrant Leaf Bar, Fragrant
+Tree Avenue, 20 Fragrant Tree Avenue, Furniture Factory,
+Gadelie Department Store, Gald Street, Gard Street 126,
+Garden, Garment factory, Gate corridor, Gate of Sacrifice
+and Bestowal, Gathering house, General's residence, Giant
+Court, Giant King's Palace, Giant King's Residence, Glaint
+home, Glaint house, Glaint residence, Glaint study, Glaint
+villa, Glass Greenhouse, God War Ruins, Gold Coin Casino,
+Golden Spring, Gothic bell tower, Grammar school, Grand
+Prayer Hall, Grey Amber Street, Apartment 6, Grey Rock
+Street, Three-story grey stone building, Haifang Street,
+Hall Residence, Hall family villa, Harvest Church, Hat Trick
+Inn, Henry detective office, Herb Shop, Hisak Bureau, Holy
+Wind Cathedral, Holy Wind Church, 19 Hope Road, Hope Road
+22, Hound Tavern, Inn, Intis Embassy, Iris Street, Lower
+Iron Cross Street, Iron Gate Street, Jalgas Islands,
+Kanarowell Street 9, Karpensa Inn, Karpin's villa, King's
+Avenue, King's Avenue No. 2, Kinst Street 26, Lucky Bar,
+Luxury hotel, Main house, Materials Warehouse, Mausoleum,
+Mechanical Lab, Medical College Building, Medical school,
+Memorial Day Square, Merit Exchange Point, Mesayes
+Residence, Zhongcheng Island, No. 15 Minsk Street, Minsk
+Street, Minsk Street 13, Minsk Street 15, Minsk Street 58,
+Monin Street, Morgue, Morgue Hall, Municipal garden, Mural
+hall, Music room, Nas, 126 New Year Road, Nigen Mansion,
+Night School, North Bailang State, North Outskirts, North
+Sunia Sea, Northwest Mountain Forest, House Number 29, Odora
+family villa, Odra's Home, Odora family villa, Old
+Apartment, Old John Restaurant, Outer Mountains, Passenger
+liner, Pasu Island, Pea Vine Forest Road, Pesfier Street, 22
+Pesfier Street, Phillips Street, Pier Six, Pinster Street, 7
+Pinster Street, Pirate paradise, Platform 3, Platform 2,
+Potion Room, Practice ground, Prayer Hall, Primeval Jungle,
+Prizzle Outskirts Cemetery, Public Primary School,
+Racecourse, Raging Sea, Rake Bookshop, Rebel private harbor,
+Rebel Private Port, Red Rose Manor, Red Theatre, Reef
+Island, Research Institute, Rest area, Rest room, Restored
+Study, Resurrection Square, Riverbend Avenue, 48 River Bend
+Avenue, River valley, Riverbend Avenue 48, Room 2012, Room
+2016, Room 305, Room 312, Room 32, Rosd Diocese, Rosd
+Islands, Rose Flower Street, Rose Long Street, Rose Manor,
+Rose Long Street 138, Round Tower, Round tower top, Royal
+Museum, Ruin No. 1, Ruined Church, Sachi Street, Sammer
+Home, Church beside school, Sea Dyke Avenue, Sealed Room,
+Seaweed Bar, Seros Island, Seventh Avenue, Sewer entrance,
+Shadow Palace, Simm Island, Sivilas, Sleeping Place, Slumber
+Chapel, Small Prayer Room, Smoking room, Soderac Palace,
+Sphere Street 6, Spice Islands, Spire library, St Astin
+Hospital, Saint Hilan Cathedral, St Hilan Church, Saint
+Hilan Square, St Samuel Church, Starlight Church, Steam
+Church, Storeroom, Storm Abyss, Storm Abyss Church,
+Stratford River Bend, Stratford residence, Suburban manor,
+Subway, Suonia Island, Temporary jail, Tinis Church,
+Townsend Street, Training Ground, Tram stop, Tudor Ruins,
+Tutwa Street, Twin Towers, Underground area, Underground
+area entrance, Underground Floor Two, Underground Palace,
+Underground Prison, Underground Ruins, Sunia Sea island,
+Villa attic, VIP lounge, Wasteland Tunnel, Wave Church,
+Whaling route, White Cliff Town, White Feather Square, White
+household, White Oak Avenue, 19 White Whale Street, White
+Whale Street, Wild Whale Dance, 32 Verdi Street, Williams
+Street Ruins, Williams Street, No. 8 Williams Street, 15
+Xiangshu Avenue, Xibailang Shipyard, Ximu Harbor, No. 29
+Xiweilasi Street, Xiweilasi ground, Xiweilasi Street); Docks
+(Tingen docks); University area (Tingen university area,
+Tingen Technical School, Tingen University office).
+▶
+you are here
+walk, minutes quoted
+The map in words
+Walk to Moretti flat · 2 min · North quarter: Nighthawks
+Walk to Shared washroom · 2 min · North quarter: Nighthawks
+Walk to Apartment corridor · 2 min · North quarter: Nighthawks
+Walk to Sline Bakery · 2 min · North quarter: Nighthawks
+Walk to Tingen street market · 2 min · North quarter: Nighthawks
+Walk to Municipal square · 2 min · North quarter: Nighthawks
+Walk to Lettuce and Meat market · 2 min · North quarter: Nighthawks
+Walk to Welch residence · 2 min · North quarter: Nighthawks
+More places you know (339)
+
+Started: Watch the exchange at the tent. See In progress for time and stopping terms.
+
+← Back to Neighbourhood lodging
+Actions
+Crafting
+Mixing
+Keys
+Journal
+Filter:
+All quests
+▾
+Quests
+???????
+???????
+Data
+Knows
+Notebook
+
+Nothing begun in this life yet.
+
+Earlier lives · 1 quest
+Reports
+View:
+All reports
+▾
+Latest
+[ Home · 01/04/999, Summer, Mon ]Started a new quest: Lost memoryYour name is set in the You panel header. Click it to rename.[ Entering Neighbourhood lodging ]
+Coal smoke and river damp. Places and walks shows where you can go from here.
+Related panel ›
+Deed done: Across the Threshold. Cross from one world into another.Time & weather is now available in navigation.
+Related panel ›
+Current location is now available in navigation.
+Related panel ›
+Journal is now available in navigation.
+Journal ›
+Notebook is now available in navigation.
+Related panel ›
+World events is now available in navigation.
+Related panel ›
+Leads is now available in navigation.
+Related panel ›
+[ Entering Fortune-telling tent ]
+Cab wheels on wet cobbles. Places and walks shows where you can go from here.
+Related panel ›
+Statistics is now available in navigation.
+Related panel ›
+Saved the game manually
+Growth
+Events
+Crafting
+Combat
+Loot
+Ready
+Story
+World
+Stats
+Condition
+Inventory
+Journal
+Data
+Knows
+Notebook
+Travelers
+Projects
+Ledger
+Organizations
+Worlds
+Beginning
+Capability runs
+Connection
+Settings
+All panels… •
+Family qualities
+Projects
+Study · Ask around for someone to teach you
+Continuing insight
+Vitals
+Stats
+Condition
+Tools
+Gear workshop · Visit a native forging station to work on…
+Inventory
+Equipment comparison
+Item details · Select an item in Inventory
+Phandalin
+Your journal
+Dev pins
+Return to the mark
+Stories and history
+Vows and tempering
+Rune bench
+Known things (1 new)
+Naming and achievements
+Deeds
+Statistics •
+Lives and inheritance
+Your beginning
+Notebook •
+Leads •
+Remembered years
+World events •
+Reports
+Ledger · Take a commission to start one
+Homes and belongings
+Home at a glance
+Village experiments · Return to the frontier world first
+Gathering at a glance · Go back to the Village to use this
+Standing and ledger
+Potioneering
+Riverside exploration · Go back to the Village to use this
+Capability runs
+Spills and smoke
+Where I am
+Fortune-telling tent
+Spellbook · not here
+Other worlds · No added world is open yet. A crossing fr…
+Organizations · Market courtyard · Return to the Village to use the market c…
+Patrol & custody · not here
+Travelers · Go back to the Village to use this
+Neighbors · Go back to the Village to use this
+Time & weather •
+Current location •
+Journal •
+Local actions
+Around you
+Scene
+Appearance
+Effects & sound
+Your own rules
+Preview of your changes
+Your own places
+Continuing connection
+Find
+Save
+Export
+Import
+Menu
+▾

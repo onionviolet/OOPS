@@ -1,0 +1,47 @@
+{
+  "status": "agent-verified-not-human-reviewed",
+  "inputSha256": "a780076e9371703d04b959a05e659422b84af3eaa68cd6198d699063cbc49c44",
+  "sourceUiSha256": "e22802df5e3f307e681387763a98492a7d4d3d70fbcd4d5b9d2d50b4087b20e2",
+  "noBrowserOrDefaultBuildByThisLane": true,
+  "large": {
+    "places": 352,
+    "walks": 351,
+    "openElements": 7812,
+    "defaultClosedElements": 3593,
+    "reductionPercent": 54.006656426011254,
+    "commandsRetained": 363,
+    "buttonsRetained": 369,
+    "pairedMedianClosedMs": 14.631999999997788,
+    "pairedMedianOpenMs": 254.74749999999767,
+    "snapshotUnchanged": true
+  },
+  "smallProjectionControl": {
+    "scope": "Eight existing place rows from the same native view, not another played life",
+    "mountMs": 2.8498000000035972,
+    "mapInitiallyVisible": true,
+    "noChangeMedianMs": 0.09549999999580905
+  },
+  "coordinatorReportedDesktop": {
+    "viewport": "1920x1080",
+    "bundleSha256": "db58757be1df194ac5193c357d176c71eec4f235ff831065038d8913342b57a1",
+    "bundleReportedPrefix": "db58757b",
+    "dense": {
+      "closedDescendants": 3627,
+      "openDescendants": 7847,
+      "closedAgainDescendants": 3627,
+      "commandsAllStates": 363,
+      "wendyRequestAvailableAllStates": true
+    },
+    "small": {
+      "route": "Earned early Klein post-bread at Sline Bakery",
+      "initialControl": "Hide the walking map",
+      "marketReviewAndTentWalkRetained": true
+    },
+    "scope": "Reported by coordinator from built-in browser, separate from this lane in-process measurement"
+  },
+  "limits": [
+    "No claim that browser action/state delays are solved",
+    "Repeated native fact projection remains dominant; CPU sample and inter-run load variation are separate from paired DOM measurements",
+    "No layout/paint/AX timing is modeled by in-process DOM"
+  ]
+}

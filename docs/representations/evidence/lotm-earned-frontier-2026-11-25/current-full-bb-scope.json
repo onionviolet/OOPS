@@ -1,0 +1,52 @@
+{
+  "schema": "lotm-earned-segment-proof/1",
+  "status": "agent-verified-not-human-reviewed",
+  "testedSegment": {
+    "episode": "KJ3BB",
+    "officialEnglishVolume": 1,
+    "fromChapter": 130,
+    "fromParagraph": 1,
+    "toChapter": 135,
+    "toParagraph": 74,
+    "actions": 21
+  },
+  "entry": {
+    "kind": "original immutable historical earned save; isolated pack; normal checkout route",
+    "scenario": "lotm-kjw42",
+    "sourceCheckpointChapter": 129,
+    "sourceCheckpointParagraph": 78,
+    "clock": 79256,
+    "sha256": "ebd217413f215f9413845932c942a15ba9140ec1d5f93a191f0b97fc34e4d3c0"
+  },
+  "terminal": {
+    "clock": 79983,
+    "lastAction": "book.lotm.kj3bb.inspect-portrait",
+    "newCurrentCheckpointSha256": "b688f03d49435303c0d4ed2bbfd6e67176894da275109050e012136eff482f0f"
+  },
+  "proof": {
+    "path": "docs/representations/evidence/lotm-earned-frontier-2026-11-25/current-full-bb.json",
+    "sha256": "f410a90ad0d904ccb1f1e54506e660ad098be3e3cadea87cb6464962a43c6dbe",
+    "driverPath": "work/lotm-earned-replay-20261125/probe-full-bb.mjs",
+    "driverSha256": "a7f56ba7bfa8e11efc2bd8d2c9f9631523f70196c2cd7868452ab56836bdc899"
+  },
+  "testedBundleSha256": "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623",
+  "actualServedHashes": [
+    "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623",
+    "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623",
+    "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623",
+    "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623",
+    "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623"
+  ],
+  "candidatePackSha256": "4e1b1e4be8d9420553259132ad02ceef7b41fb6fa0f9241aa63bcb619eea5c0e",
+  "sourceReviewSha256": "969413dc1ecf4f678f98b7854303c98f4452f0cd5fd6c98012f88e0756d87006",
+  "pendingSaveReload": true,
+  "finalSaveReload": true,
+  "nativeExportImport": true,
+  "literalFilePickerImport": false,
+  "viewport": "1920x1080",
+  "pageErrors": 0,
+  "defaultDiskGuardPassed": true,
+  "originalInputUnchanged": true,
+  "broaderCurrentFrontierNotClaimed": "No BC–BH replay; historical ch163P082 remains separate. This is not a current-from-start run.",
+  "priorThreeStepGuardFailure": "Preserved separately; superseded for current BB compatibility by this clean full invocation."
+}

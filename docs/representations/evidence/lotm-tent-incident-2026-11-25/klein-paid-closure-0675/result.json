@@ -1,0 +1,42 @@
+{
+  "status": "agent-verified-not-human-reviewed",
+  "mode": "klein",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634",
+  "servedBundleSha256": [
+    "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634"
+  ],
+  "setup": "Ordinary beside crossing and visible developer Klein playthrough; native walks/actions and short Wait; long offered Wait targets reached by normal test tick advancement, no incident outcome edits",
+  "setupClockSteps": [
+    {
+      "from": 530,
+      "to": 1960,
+      "wallStartedAt": "2026-11-26T03:36:04.413Z",
+      "method": "test tick advancement to an offered native Wait target",
+      "status": "completed",
+      "wallMs": 216635
+    }
+  ],
+  "checkpoints": [
+    {
+      "name": "klein-response",
+      "sha256": "7ed9d6fc3887d4f12de569065f14a2190d65b880db0f923846f3c84d517497a5",
+      "earnedOnBundleSha256": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634",
+      "restoredOnBundleSha256": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634",
+      "mode": "restored unchanged native UI-earned checkpoint from earlier attempt"
+    },
+    {
+      "name": "klein-paid",
+      "sha256": "537fadfc8a77e90664eaee6a30e313defa56e9af3a4bbe2391ce5592f4e65e89",
+      "mode": "earned in this run"
+    }
+  ],
+  "checks": [
+    "Klein paid round Save/reload and literal native Export/Import",
+    "Klein retains his own earned reading and trust; native referral and finite-purse paid continuation complete or resume from the exact earned paid checkpoint"
+  ],
+  "pageErrors": []
+}

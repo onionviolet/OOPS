@@ -1,0 +1,37 @@
+{
+  "proposalId": "4d1614c2ed8e24b134ba0e637d417faac6a01bd8f9875aa061af46501479cc03",
+  "reportId": "d404810e0d2a7d8b033548db260e2696df498192030af3688347d8ef8bf6c368",
+  "consumer": {
+    "name": "Old Neil’s response-charm choices and voluntary release",
+    "path": "src/lotm_charm_response.js",
+    "resolvedPath": "src/lotm_charm_response.js",
+    "sha256": "2ef7f79d9d58d6d0072d4b57b23df017521c0c50c494b31c9ff571ce143de7ba"
+  },
+  "receipt": {
+    "path": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_LENDER_RELEASE_2026-11-25.md",
+    "resolvedPath": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_LENDER_RELEASE_2026-11-25.md",
+    "sha256": "fdc6455473a5443d8edf1df4860e447581fa32b47039708bdca7a5a260142c13"
+  },
+  "playerRoute": "Native Klein entry with genuine restored LOTM cast; late response and Seer prerequisites are a disclosed setup fixture. Follow Swain → borrow from actual Neil → return unused or consume during the response → meet awake Neil after the emergency → keep the replacement promise or receive his voluntary release. Future Swain compensation stays intention without agreement or collection. The full earned journey is not claimed.",
+  "priorReportIds": [
+    "d404810e0d2a7d8b033548db260e2696df498192030af3688347d8ef8bf6c368"
+  ],
+  "preservedProposal": true,
+  "preservedPriorReports": true,
+  "reloaded": true,
+  "viewport": "1920x1080",
+  "currentFilesMatch": true,
+  "proofPath": "docs/representations/evidence/lotm-lender-release-reviewed-2026-11-25/proof.json",
+  "checkoutBuildSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+  "route": "#workbench/handoffs/4d1614c2ed8e24b134ba0e637d417faac6a01bd8f9875aa061af46501479cc03",
+  "state": "actual persistent queue, normal form, agent-verified",
+  "nativePlaytest": {
+    "attachmentId": "fa9606820312d575fc512bb69350347af14c8918a8b4c407882356f802577f91",
+    "proofSha256": "d1b26c2c97cefe0f239b72a071fdde6c25863fbff4f9630dedb8b4f02d42a31c",
+    "status": "exact-match",
+    "reloaded": true,
+    "idempotent": true,
+    "reportBytesUnchanged": true,
+    "testedBundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1"
+  }
+}

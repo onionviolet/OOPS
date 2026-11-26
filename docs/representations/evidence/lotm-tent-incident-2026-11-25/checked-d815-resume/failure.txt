@@ -1,0 +1,343 @@
+AssertionError [ERR_ASSERTION]: native control exists: book.lotm.tent.clarify
+
+0 !== 1
+
+    at reveal (file:///C:/Users/wayba/dev/OOPS/tests/lotm_tent_incident_browser.mjs:33:28)
+    at async finish (file:///C:/Users/wayba/dev/OOPS/tests/lotm_tent_incident_browser.mjs:42:15)
+    at async file:///C:/Users/wayba/dev/OOPS/tests/lotm_tent_incident_browser.mjs:121:73
+Fortune-telling tent
+Day 1, morning
+No work running
+Saving available.
+Pin
+You
+60/60 hp
+40/40 stamina
+STR
+12.0
+AGL
+8.0
+DEX
+10.0
+INT
+10.0
+Defense
+1.0
+Magic
+0.0
+Attack
+1.2
+Speed
+1.0 /s
+Crit %
+5%
+Crit
+×1.3
+AP
+32
+EP
+25
+Attributes ›
+Gear · 0
+Condition
+
+No active effects
+
+Body · Human
+All
+0
+Gear
+0
+Use
+0
+Other
+0
+★
+0
+Inventory
+16 pence
+Find / filter:
+Name ↑
+▾
+
+No items in this inventory. Gather, loot or buy items to add them here.
+
+Fortune-telling tent
+▾
+Tingen
+Here
+Work & merit
+Notebook · 38
+
+Your path, clearance, merit and the brewing bench now sit under their own tabs.
+Got it
+
+Fortune-telling tent · Day 1, morning · 08:45 · canon run
+
+A fight · tempo
+
+Face the knifeman in the back lane A robbery, until the knife comes out. Then whether he lives is your choice. If he drops you, you wake hurt.
+
+Stance 
+Normal Stance
+Pulled Blows
+
+If they go down:
+Finish
+Spare
+Ask me
+Default: A person down is worth a look: a death brings witnesses, kin and the law.
+
+If I am losing:
+Fight on
+Yield
+Break off at a third
+
+If you go down: He goes through your pockets and takes about half of what you carry. You wake hurt.
+
+At the circus tent
+
+You heard the exchange. No paid interpretation or proven prediction followed.
+
+Shopping, a ritual and the first gathering
+
+Ready
+
+Next: Decline the paid interpretation
+
+Decline the paid interpretation and leave with your bread. No fee changes hands.
+
+Decline the paid interpretation · 2 min · no stock spent
+
+Last result: The card was The Fool. The fortune-teller exposed the stand-in as an animal trainer; the reading established no reliable prophecy.
+
+Home
+Moretti flat
+
+rented · comfort not assessed ·
+
+Pay the rent when you can.
+Upkeep and space
+Rent
+This week's rent of 5 soli 6 pence is due in 7 days.
+Storage
+Nothing is kept here that you know of.
+
+Weather not recorded here.
+
+Household
+
+Benson (your elder brother) and Melissa (your younger sister) live here with you.
+
+Thoughts and intentions · Your thoughts
+56 entries
+Powers
+Open your Spirit Vision
+This needs the Seer potion in you, your Spirit Vision closed and a rested mind.
+
+This needs the Seer potion in you, your Spirit Vision closed and a rested mind.
+
+Cogitate quietly · 10 min
+Learn Cogitation from Neil first.
+
+Learn Cogitation from Neil first.
+
+Encounters · Your encounter
+2 entries
+Rites and questions · Your rite
+36 entries
+Old Neil’s Slumber loan
+
+No workshop Slumber charm is currently owed to Old Neil.
+
+A loan needs an actual charm in Old Neil’s keeping.
+
+There is no cash fee or fixed due date on this arrangement. Meet him here and awake for a handover.
+
+Commission money and shopping
+
+Cash in your purse: 16 pence. Intended commission remainder: 0 pence. Available after that intention: 16 pence.
+
+The money stays in your purse. You can change your intention or spend into it; the unpaid commission does not settle itself.
+
+Keep for the commission, in pence Revise intended remainderSet aside four poundsClear the intention
+Talk to Benson · Your conversation
+3 entries
+Talk to Melissa · Your conversation
+4 entries
+Rest and meals · Your body
+31 entries
+What do the Tingen papers say about how… · 60 min
+The papers are kept in the reading room at the university area.
+Common actions
+
+Wait here while the day continues. A local decision can interrupt the wait.
+
+Wait until noon · 195 min
+Wait until the day of your interview · 2355 min
+Wait until Ask the circus about tomorrow’s work · 1435 min
+Journeys · Your journey
+1 entry
+Places and walks
+
+You are at Fortune-telling tent, North quarter
+
+Lettuce and Meat market
+2 min
+North quarter · Nighthawks
+Moretti flat
+2 min
+North quarter · Nighthawks
+Shared washroom
+2 min
+North quarter · Nighthawks
+Sline Bakery
+2 min
+North quarter · Nighthawks
+Hide the walking map
+Walking map · minutes from here
+2 entries
+2 min
+2 min
+2 min
+2 min
+▶
+Fortune-tellingtent
+Moretti flat
+Sharedwashroom
+Sline Bakery
+Lettuce andMeat market
+▶
+you are here
+walk, minutes quoted
+The map in words
+Walk to Moretti flat · 2 min · North quarter: nearby
+Walk to Shared washroom · 2 min · North quarter: nearby
+Walk to Sline Bakery · 2 min · North quarter: nearby
+Walk to Lettuce and Meat market · 2 min · North quarter: nearby
+
+Started: Try the free reading. See In progress for time and stopping terms.
+
+← Back to Sline Bakery
+Actions
+Crafting
+Mixing
+Keys
+Here
+Things here · 1
+Paid interpretation
+Decline
+Journal
+Filter:
+All quests
+▾
+Quests
+???????
+???????
+Data
+Knows
+Notebook
+People
+
+Nothing begun in this life yet.
+
+Earlier lives · 1 quest
+Reports
+View:
+All reports
+▾
+Latest
+Deed done: Across the Threshold. Cross from one world into another.You look over the desk: an open notebook, books, ink, a pen and a revolver lie.
+Related panel ›
+The unfamiliar writing becomes readable as Hermes. Its ominous sentence leaves questions; reading it grants no supernatural faculty.
+Related panel ›
+In the cracked mirror you see a grievous wound. Your heartbeat and warm skin tell you that you are alive; its cause remains uncertain.
+Related panel ›
+You put a copper penny into the household gas meter; its gears turn.
+Related panel ›
+You turn the switch; the wall lamp lights the room.
+Related panel ›
+The wound has stopped bleeding and its flesh is closing. You suspect a connection with transmigration, but have not established the cause.
+Related panel ›
+[ Entering Shared washroom ]
+Cab wheels on wet cobbles. Places and walks shows where you can go from here.
+Related panel ›
+You wash the blood from your face and linen shirt with water, soap and the towel.
+Related panel ›
+[ Entering Moretti flat ]
+Newsboys calling the morning papers. Places and walks shows where you can go from here.
+Related panel ›
+You wipe the desk, find and remove the other blood traces, and keep the recovered bullet before checking the revolver.
+Related panel ›
+Fear has not let go of you.You unload the revolver: five live rounds and one empty case. You reload the live rounds and retain the empty case.
+Related panel ›
+You remember four staple-food portions, four counter-clockwise steps and the invocations. You intend to try the method here; whether it can return you home is unknown.
+Related panel ›
+You close the valve and the lamp goes out. The room returns to moonlight; the things you have already observed remain in memory.
+Related panel ›
+Your memories leave gaps around the gun and notebook. You recall an interview in two days and recommendations from your tutor; remembered history is not complete recall.
+Related panel ›
+You put the revolver in the desk drawer, out of ordinary view.
+Related panel ›
+Melissa gets the pocket watch ticking and sets it by the six cathedral chimes. Your attempt to wind it had not shown that it was broken.
+Related panel ›
+Talking with Melissa about the watch eased the wound you saw in the mirror.
+Related panel ›
+You eat your share of the household rye bread.
+Related panel ›
+Melissa asks for eight pounds of fresh bread, some mutton and peas. She repeats the request before leaving for school; you retain it while returning to your ritual plan.
+Related panel ›
+You took the two one-soli notes and pocket penny, key, bag and revolver. The cylinder was set for carrying. The remaining savings stayed hidden.
+Related panel ›
+[ Entering Sline Bakery ]
+Cab wheels on wet cobbles. Places and walks shows where you can go from here.
+Related panel ›
+Sixteen rye loaves filled your bag. You paid a one-soli note and received three pence in change: nine pence spent.
+Related panel ›
+[ Entering Fortune-telling tent ]
+Cab wheels on wet cobbles. Places and walks shows where you can go from here.
+Related panel ›
+Saved the game manuallyThe card was The Fool. The fortune-teller exposed the stand-in as an animal trainer; the reading established no reliable prophecy.
+Related panel ›
+Growth
+Events
+Crafting
+Combat
+Loot
+Ready
+Story
+World
+Stats
+Condition
+Inventory
+Journal
+Data
+Knows
+Notebook
+People
+Settings
+All panels…
+Vitals
+Stats
+Condition
+Inventory
+Equipment comparison
+Item details · Select an item in Inventory
+The story
+Notebook
+People you know
+Reports
+Fortune-telling tent
+Time & weather
+Current location
+Journal
+Local actions
+Around you
+Scene
+Appearance
+Find
+Save
+Export
+Import
+Menu
+▾

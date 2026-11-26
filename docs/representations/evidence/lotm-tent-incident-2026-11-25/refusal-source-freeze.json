@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "kind": "source-freeze-not-browser-proof",
+  "at": "2026-11-26T05:27:18.119890+00:00",
+  "files": {
+    "src/lotm_tent_refusal.js": "97994d1410eb3f797636d048fc5d374d8883d6cdb20a16c879830fe8d3cb9926",
+    "src/lotm_tent_incident.js": "53fd189da09d27f0e756c32357856a64f8e94117e876f1848e82078195d91e1b",
+    "src/place_act_sequence.js": "9972cee0f68395f7ffcadd36ecf992359e6559d9a3fa39ef45b3ef80ef447a92",
+    "src/book_world_lotm_cast_host.js": "42882d5bdab4d2324f677b4b342d45e85187749bbb959c46f123dd11f5e74edf",
+    "src/book_world_lotm_host.js": "591af8ca3ec5ee582f8e3119723a69e71b0c2cc26fea9330035df80c2cccd983",
+    "src/book_world_lotm_ui.js": "d24f60e031fef83f7f56ae490eea1bdaa3046c5dee97e7c2bb3d122ba4f49cfd",
+    "tests/lotm_tent_refusal.test.js": "c4babe57de9d8681a1f7e86106393f67512cd6d15a58188712ab94892049dfee",
+    "tests/lotm_tent_native_completion.test.js": "2f96de04b768d6f443d5f6776de4ce25a435780841fe9b4bb13a2175a4d4d95b"
+  },
+  "checks": {
+    "focusedGroup": "29/29 before final report text and finite-purchase assertions",
+    "finalFocused": "4/4 after final changes",
+    "architecture": "passed",
+    "rules": "passed with existing warnings",
+    "browser": "not run; coordinator owns built-in replay"
+  },
+  "commandId": "book.lotm.excursion.decline_free"
+}

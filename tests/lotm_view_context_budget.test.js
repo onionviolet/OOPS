@@ -5,7 +5,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {withFactsFrame,readFactsFrame} from '../src/facts_frame.js';
+import {withFactsFrame,withDisplayFactsFrame,readFactsFrame} from '../src/facts_frame.js';
 
 test('offers whose contexts share their field identities build facts once; a fresh clone per offer builds N times', () => {
     const state = {clock: 5, sequence: 1}, registry = {}, gameplay = {player: {inventory: {}}}, harm = {schema: 1}, native = {bound: true};
@@ -16,8 +16,10 @@ test('offers whose contexts share their field identities build facts once; a fre
         harm: parts.harm, harmSave: parts.harmSave, harmActionClass: 'talk', structuredNative: parts.native});
     // The shape the host builds now: one shared copy per view.
     const shared = {harm, harmSave: {expansion: state, harm}, native};
-    withFactsFrame(state, () => {for(let i = 0; i < OFFERS; i++) read(context(i, shared));});
-    assert.equal(builds, 1, 'shared identities reuse one build');
+    withDisplayFactsFrame(state, () => {for(let i = 0; i < OFFERS; i++) withDisplayFactsFrame(state, () => read(context(i, shared)));});
+    assert.equal(builds, 1, 'nested offer display wrappers join the outer view and reuse one build');
+    withDisplayFactsFrame(state, () => read(context(0, shared)));
+    assert.equal(builds, 2, 'a later view rebuilds instead of reusing a closed display frame');
     // The shape the host had: a clone per offer.
     builds = 0;
     withFactsFrame(state, () => {for(let i = 0; i < OFFERS; i++) read(context(i, {harm: structuredClone(harm), harmSave: {expansion: state, harm: structuredClone(harm)}, native: {...native}}));});
@@ -32,5 +34,5 @@ test('the Be view builds every offer context through the shared per-build parts'
     const calls = body.match(/\bctx\(s,[^)]*\)/g) || [];
     assert.ok(calls.length >= 6);
     for(const call of calls) assert.match(call, /shared\)$/, `${call} must pass the shared parts`);
-    assert.match(body, /withFactsFrame\(s,\(\)=>castTopicOffers\(/, 'topic talks are priced inside the view frame like their neighbours');
+    assert.match(body, /withDisplayFactsFrame\(s,\(\)=>castTopicOffers\(/, 'topic talks are priced inside the view frame like their neighbours');
 });

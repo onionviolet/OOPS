@@ -1,0 +1,41 @@
+{
+  "schema": "lotm-bakery-customer-arrival/1",
+  "date": "2026-11-26",
+  "status": "coordinator-observed-not-human-reviewed",
+  "method": "built-in-desktop",
+  "bundleSha256": "5880e9e702fd5392eac9b7a80cd4f592d13d273efcb920cad21c510addd02617",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "inputSha256": "eb34fba9216d4887569baae27f80cd5d18434708fded9b8286dc4e3c9030c176",
+  "before": {
+    "day": 2,
+    "minute": 565,
+    "remainingWalkMinutes": 1,
+    "edwinDialogue": false,
+    "directionsActions": 0
+  },
+  "advance": {
+    "kind": "native-tick",
+    "minutes": 1
+  },
+  "after": {
+    "day": 2,
+    "minute": 566,
+    "remainingWalkMinutes": 0,
+    "customerReportsBakeryNotice": true,
+    "shownDepartureMinute": 600,
+    "directionsActions": 1
+  },
+  "controlledRegression": {
+    "coordinatorReportedPassed": 13,
+    "suites": "customer-and-notice",
+    "witnessWithheldDuringWalk": true,
+    "independentCustomerReadingContinues": true
+  },
+  "limitations": {
+    "answerReplayed": false,
+    "persistenceReplayed": false
+  }
+}

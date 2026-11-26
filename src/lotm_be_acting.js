@@ -16,11 +16,11 @@ import {digestionFacts,digestionFelt} from './book_world_lotm_digestion.js';
 import {LOTM_DIGEST_ACTS} from './book_world_lotm_ids.js';
 import {BE_PROFILE_ID} from './seat_profiles.js';
 
-export const LOTM_BE_ACTING_ROWS=Object.freeze(['lotm.div.astrological-chart','lotm.div.tarot-divination','lotm.div.numerology','lotm.div.tarot-lost-object']);
+export const LOTM_BE_ACTING_ROWS=Object.freeze(['lotm.div.astrological-chart','lotm.div.tarot-divination','lotm.div.numerology','lotm.div.tarot-lost-object','lotm.div.office-letter','lotm.div.office-delivery']);
 // A row that is the same reading as a pack client session counts as that session (one reading, one act): the Bogda
 // operation spread is Bogda's paid session (kj3ao) and Joyce's date numbers are Anna's (kj3aa). The chart row is
 // Glacis's later chart (zh 第115章 p54), a reading of its own, so it keeps its own key.
-export const ROW_CLIENT=Object.freeze({'tarot-divination':'bogda','numerology':'anna'});
+export const ROW_CLIENT=Object.freeze({'tarot-divination':'bogda','numerology':'anna','office-delivery':'officecourier'});
 export const COUNT_UNCLEAR=false,COUNT_CLIENT_SESSIONS=true;
 export const BE_ACTING_PREFIX='book.lotm.be.acting.';
 const CLIENT=/^book\.lotm\.be\.client\.[a-z0-9-]+$/;
@@ -38,7 +38,7 @@ export function beActingCount(state){
  for(const [k,v] of Object.entries(f)){
   if(!v)continue;
   if(k.startsWith(BE_ACTING_PREFIX)){const row=k.slice(BE_ACTING_PREFIX.length);acts.add(ROW_CLIENT[row]?`client:${ROW_CLIENT[row]}`:`row:${row}`);}
-  else if(COUNT_CLIENT_SESSIONS&&CLIENT.test(k))acts.add(`client:${k.slice('book.lotm.be.client.'.length)}`);
+  else if(COUNT_CLIENT_SESSIONS&&CLIENT.test(k)&&['paid','served_unpaid'].includes(v))acts.add(`client:${k.slice('book.lotm.be.client.'.length)}`);
  }
  return acts.size;
 }
