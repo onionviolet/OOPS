@@ -1,6 +1,9 @@
 // Library views: reading pipeline (O4), library shelves (O5) and mechanic readiness (O6).
 // Read-only over counts; the one write is a reading request overlay sent to the dev server.
 import {boxCanvas, element as el} from '/canvas.mjs';
+import {appendTrackedReadings} from '/tracked-readings.mjs';
+import {appendReadingReadiness} from '/reading-readiness-view.mjs';
+import {registeredTravel} from '/registered-travel.mjs';
 
 // Shelf membership follows the library build atlas table (LIBRARY_BUILD_ATLAS_2026-11-20.md).
 // A world may sit on more than one shelf; shelves with no reading keys still show.
@@ -33,7 +36,7 @@ export const ASPECT_LABELS = {procedures: 'Procedures and crafts', generation: '
     institutions: 'Institutions and law', economy: 'Money and trade', knowledge: 'Knowledge and secrets', life: 'Daily life and travel', conflict: 'Harm, combat and healing'};
 export const STAGES = [
     {key: 'held', label: 'Held'}, {key: 'prepared', label: 'Prepared'}, {key: 'read', label: 'Read, all five passes'},
-    {key: 'consumer', label: 'Used by the game'}, {key: 'inGame', label: 'In the game'}, {key: 'walkable', label: 'Walkable'},
+    {key: 'consumer', label: 'Used by the game'}, {key: 'inGame', label: 'In the game'}, {key: 'walkable', label: 'Registered travel'},
 ];
 // O1: the progress atlas's proof and delivery columns continue the lane. They come from the latest dated
 // docs/reports/progress-atlas-*.json, so they are only as fresh as that run; a world it never covered is unknown, not failed.
@@ -59,23 +62,26 @@ export function libraryWorlds(data) {
     const groupCounts = Map.groupBy(data.others || [], r => r.group);
     return [...keys].map(([id, rows]) => {
         const shards = rows.reduce((s, k) => s + k.shards, 0);
+        const observedOutputFiles = rows.reduce((s,k)=>s+(k.observedOutputFiles||0),0);
         const passTotal = rows.reduce((s, k) => s + Object.values(k.passes).reduce((a, b) => a + b, 0), 0);
         const aspects = {};
         for (const k of rows) for (const [a, n] of Object.entries(k.aspects)) aspects[a] = (aspects[a] || 0) + n;
         const consumer = CONSUMERS[id] || null, cast = consumer?.cast && data.books?.[consumer.cast];
         const located = (groupCounts.get(consumer?.group) || []).length;
         const castPlaces = cast ? cast.places.length : 0;
-        const onWalk = cast ? (cast.places.some(p => p.district) ? cast.places.filter(p => p.district).length : castPlaces) : 0;
+        const measured=data.registeredTravel?.status==='measured'&&data.registeredTravel.worlds.find(row=>row.group===consumer?.group);
+        const hostRoutes=id==='lotm'?(data.places||[]).map(p=>({id:p.name,group:consumer.group,routes:p.routes})):[];
+        const travel=measured||registeredTravel([...(data.others||[]),...hostRoutes],[]).find(row=>row.group===consumer?.group)||{directedEdges:0,nativeEdges:0,relocationEdges:0,commands:0,places:0};
         const reached = {
             held: rows.some(k => k.held), prepared: shards > 0, read: rows.length > 0 && rows.every(k => k.complete),
-            consumer: Boolean(consumer), inGame: castPlaces + located > 0, walkable: onWalk > 0,
+            consumer: Boolean(consumer), inGame: castPlaces + located > 0, walkable: travel.directedEdges > 0,
         };
         const stop = STAGES.find(s => !reached[s.key])?.key || 'done';
         const readState = reached.read ? 'complete' : passTotal ? 'partial' : 'none';
         return {id, label: worldTitle(id), keys: rows.map(k => k.key), held: rows.filter(k => k.held).length, shards,
             complete: rows.filter(k => k.complete).length, coverage: shards ? passTotal / (shards * 5) : 0, rows: rows.reduce((s, k) => s + k.rows, 0),
-            aspects, consumer, castPlaces, located, onWalk, walkVia: cast && !cast.places.some(p => p.district) ? 'host' : 'districts',
-            reached, stop, readState};
+            aspects, consumer, castPlaces, located,travel,
+            reached, stop, readState,observedOutputFiles};
     }).sort((a, b) => a.label.localeCompare(b.label));
 }
 
@@ -86,23 +92,103 @@ const askedMark = {key: 'asked', icon: 'bookmark_added', label: 'Reading request
 
 function worldFacts(w, side, list, data) {
     side.append(list([
-        `Reading keys: ${w.keys.length} (${w.held} held, ${w.complete} through all five passes)`,
+        `Reading keys: ${w.keys.length} (${w.held} locally held, ${w.complete} through all five passes)`,
         `Prepared shards: ${w.shards} · pass coverage ${pct(w.coverage)}`,
-        `Extracted rows: ${w.rows}`,
+        `Observed output files: ${w.observedOutputFiles} · file presence does not establish reading coverage`,
+        `Prepared-shard pointer rows: ${w.rows}`,
         batchLine(data, w.keys),
         w.consumer ? `In the game: ${w.castPlaces ? w.castPlaces + ' cast-pack places' : ''}${w.castPlaces && w.located ? ' · ' : ''}${w.located ? w.located + ' registered locations' : ''}` : 'No game consumer yet',
-        w.castPlaces ? (w.walkVia === 'host' ? 'Walked by its own host' : `${w.onWalk} places on a walk`) : null,
+        travelSummary(w),
+        w.castPlaces ? `${w.castPlaces} cast-place projections; place presence does not establish travel.` : null,
     ].filter(Boolean)));
+    const observed = data.reading.keys.find(key=>key.world===w.id&&key.observedOutputFiles);
+    if(observed){const inspect=el('a','Inspect available batch outputs');inspect.href='#library/outputs/'+encodeURIComponent(observed.key);side.append(inspect);}
+    if(w.observedOutputFiles&&!w.shards)side.append(el('p','Outputs are present without local prepared text. Chapter-range and aspect coverage are not inferred from file presence.'));
+}
+
+function travelSummary(w){
+    return w.travel.directedEdges ? `${w.travel.directedEdges} registered directed movement edges across ${w.travel.places} native locations · ${w.travel.nativeEdges} native connections · ${w.travel.relocationEdges} explicit relocation paths`
+        : 'No registered travel edges in the available projection; this does not establish that travel is absent.';
+}
+
+function readingRanges(side, data, world) {
+    appendReadingReadiness(side,world,el);
+    const books = data.reading.keys.filter(book => book.world === world);
+    const select = el('select');
+    const label = el('label', 'Reading pass ');
+    const summary = el('div');
+    const findings = data.findings?.worlds?.find(row => row.world === world && row.read);
+    for (const pass of data.reading.passes) select.append(new Option(pass, pass));
+    label.append(select);
+    side.append(label, summary);
+    function show() {
+        summary.replaceChildren();
+        const pass = select.value;
+        for (const book of books) {
+            const inventory = el('a', 'Inspect batch outputs');
+            inventory.href = '#library/outputs/' + encodeURIComponent(book.key);
+            if (!book.shards) {
+                const empty = el('p', book.key + ' · ' + (book.observedOutputFiles ? book.observedOutputFiles + ' output files observed · ' : '') + 'No prepared ranges · ');
+                empty.append(inventory);
+                summary.append(empty);
+                continue;
+            }
+            const detail = el('details');
+            detail.append(el('summary', book.key + ' · ' + book.passes[pass] + '/' + book.shards + ' ranges collected'));
+            if (book.ranges?.length) {
+                for (const complete of [false, true]) {
+                    const ranges = book.ranges.filter(range => range.complete.includes(pass) === complete);
+                    if (!ranges.length) continue;
+                    const group = el('p', (complete ? 'Collected' : 'Awaiting output') + ' · chapters ');
+                    ranges.forEach((range, index) => {
+                        if (index) group.append(', ');
+                        if (pass === 'scenes' && complete && findings?.sceneRanges?.includes(range.prefix)) {
+                            const link = el('a', range.chapters);
+                            link.href = '#world/' + world + '/reader-scenes/' + encodeURIComponent('shard:' + range.prefix);
+                            group.append(link);
+                        } else group.append(range.chapters);
+                    });
+                    detail.append(group);
+                }
+            } else detail.append(el('p', 'Refresh reading data for chapter ranges.'));
+            detail.append(inventory);
+            summary.append(detail);
+        }
+        if (findings) {
+            let view = 'things', title = 'Explore collected records';
+            if (pass === 'scenes' && findings.sceneIndex) {
+                view = 'reader-scenes';
+                title = 'Open collected scenes';
+            } else if (pass === 'people' && findings.counts.people?.distinct) {
+                view = 'people';
+                title = 'Open people records';
+            }
+            const link = el('a', title);
+            link.href = '#world/' + world + '/' + view;
+            summary.append(link);
+        }
+    }
+    select.addEventListener('change', show);
+    show();
 }
 
 // O4: columns are the stage where each world's lane stops.
 // fixed: shown inside a world page, so there is no way back to the all-worlds view here.
-export function readingPipeline({main, data, controls, finder, list, button, closeCanvas, worldId, fixed = false}) {
+export function readingPipeline({main, data, controls, finder, list, button, closeCanvas, worldId, focus, fixed = false}) {
     main.replaceChildren();
     const worlds = libraryWorlds(data), byId = new Map(worlds.map(w => [w.id, w]));
     const bar = controls();
-    const funnel = STAGES.map(s => `${worlds.filter(w => w.reached[s.key]).length} ${s.label.toLowerCase()}`).join(' → ');
-    bar.append(el('small', `${worlds.length} reading worlds: ${funnel}`));
+    const funnel = STAGES.map(s => `${worlds.filter(w => w.reached[s.key]).length} ${s.label.toLowerCase()}`).join(' · ');
+    const findings = data.findings?.worlds;
+    if (Array.isArray(findings)) {
+        const indexed = findings.filter(row => row.read > 0);
+        const total = indexed.reduce((n,row) => n + row.read,0);
+        const selected = worldId && findings.find(row => row.world === worldId);
+        const local = selected ? ` · ${worldTitle(worldId)}: ${selected.read.toLocaleString('en-US')}` : '';
+        bar.append(el('p', `Indexed reading slices: ${total.toLocaleString('en-US')} across ${indexed.length} of ${worlds.length} worlds${local}`));
+    }
+    bar.append(el('small', `World counts by stage · ${funnel}`));
+    if (worldId) appendTrackedReadings({parent: main, world: worldId, focus, element: el});
     const open = id => readingPipeline({main, data, controls, finder, list, button, closeCanvas, worldId: id, fixed});
     if (!fixed) finder(bar, worlds, w => open(w.id));
     if (worldId && byId.has(worldId)) {
@@ -110,7 +196,7 @@ export function readingPipeline({main, data, controls, finder, list, button, clo
         const w = byId.get(worldId);
         const prog = progressRow(data, w.id), lane = [...STAGES, ...PROGRESS_STAGES];
         const nodes = lane.map((s, i) => ({id: s.key, label: s.label, x: (i % 4) * 190, y: Math.floor(i / 4) * 110, w: 160, h: 50,
-            group: prog[s.key] ? PROGRESS_GROUP[prog[s.key].state] : w.reached[s.key] ? 'reached' : 'missing', marks: s.key === w.stop ? [{key: 'stop', icon: 'block', label: 'Lane stops here'}] : []}));
+            group: prog[s.key] ? PROGRESS_GROUP[prog[s.key].state] : s.key === 'read' && w.readState === 'partial' ? 'partial' : w.reached[s.key] ? 'reached' : 'missing', marks: s.key === w.stop ? [{key: 'stop', icon: 'block', label: 'Lane stops here'}] : []}));
         const edges = lane.slice(1).map((s, i) => ({from: lane[i].key, to: s.key, kind: 'feeds'}));
         boxCanvas({parent: main, title: w.label, nodes, edges, kind: 'library', close: closeCanvas, initial: STAGES.some(s => s.key === w.stop) ? w.stop : 'walkable',
             marks: [{key: 'stop', icon: 'block', label: 'Lane stops here'}, {key: 'feeds', label: 'Feeds'}, {key: 'selected', label: 'Selected'}],
@@ -122,19 +208,26 @@ export function readingPipeline({main, data, controls, finder, list, button, clo
                     if (prog.row?.findings?.length) side.append(el('p', 'Findings: ' + prog.row.findings.join(', ')));
                     return;
                 }
-                side.append(el('small', w.reached[id] ? 'Reached' : 'Not reached'), el('h2', s.label));
+                const partial = id === 'read' && w.readState === 'partial';
+                side.append(el('small', id==='walkable'?(w.reached.walkable?'Definitions available':'Not projected'):w.reached[id] ? 'Reached' : partial ? 'Partly read' : 'Not reached'), el('h2', s.label));
                 const facts = {
                     held: `${w.held} of ${w.keys.length} source files present`,
                     prepared: `${w.shards} prepared shards`,
                     read: `${w.complete} of ${w.keys.length} keys through census, scenes, rules, people and texture · coverage ${pct(w.coverage)} · ${batchLine(data, w.keys)}`,
                     consumer: w.consumer ? `Feeds ${w.consumer.cast ? 'the ' + w.consumer.cast.toUpperCase() + ' cast pack and ' : ''}${w.consumer.group} locations` : 'No game system reads this world yet',
-                    inGame: w.inGame ? `${w.castPlaces} cast-pack places, ${w.located} registered locations` : `${w.castPlaces + w.located} places in the game`,
-                    walkable: w.walkVia === 'host' && w.castPlaces ? 'Walked by its own host' : `${w.onWalk} places on a walk`,
+                    inGame: `${w.castPlaces} cast-place projections, ${w.located} registered native locations`,
+                    walkable: travelSummary(w),
                 }[id];
                 side.append(el('p', facts));
+                if (id === 'read') readingRanges(side, data, w.id);
                 if (id === 'inGame' && w.consumer?.cast) side.append(button('Open places', () => {location.hash = `world/${w.id}/places`;}));
                 if (id === 'inGame' && w.located) side.append(button('Open registered locations', () => {location.hash = `world/${w.id}/locations`;}));
-                if (id === 'walkable' && !w.reached.walkable && w.consumer && !w.consumer.cast) side.append(el('p', 'Not established: these locations have no walk projection in the atlas yet.'));
+                if (id === 'walkable') {
+                    side.append(el('p','Registered definitions may be conditional, gated by the story, or use travel methods beyond walking. They do not establish current access or a played travel proof.'));
+                    if(w.castPlaces)side.append(el('p',`${w.castPlaces} cast-place projections are listed separately; a district or host label is not an edge.`));
+                    if(data.registeredTravel?.measuredAt)side.append(el('small','Definition projection: '+data.registeredTravel.measuredAt+' · '+data.registeredTravel.status));
+                    if(w.located)side.append(button('Open registered locations',()=>{location.hash=`world/${w.id}/locations`;}));
+                }
             }});
         return;
     }
@@ -186,12 +279,13 @@ export function libraryShelves({main, data, controls, finder, list, button, clos
             select(id, side) {
                 if (id.startsWith('shelf:')) {
                     side.append(el('small', 'Shelf'), el('h2', shelf.label), el('p', rows.length
-                        ? `${rows.filter(w => w.readState === 'complete').length} read through, ${rows.filter(w => w.readState === 'partial').length} partly, ${rows.filter(w => w.readState === 'none').length} not read · ${rows.filter(w => w.consumer).length} used by the game`
+                        ? `${rows.filter(w => w.readState === 'complete').length} complete prepared-range coverage, ${rows.filter(w => w.readState === 'partial').length} partial, ${rows.filter(w => w.readState === 'none').length} without confirmed range coverage · ${rows.filter(w => w.consumer).length} used by the game`
                         : 'No reading keys yet. Holdings for this shelf are tracked in the library index.'));
                     return;
                 }
                 const w = byId.get(id);
-                side.append(el('small', {complete: 'Read through', partial: 'Partly read', none: 'Prepared, not read'}[w.readState]), el('h2', w.label));
+                side.append(el('small', {complete: 'Prepared-range passes complete', partial: 'Partial prepared-range coverage',
+                    none:w.shards?'Prepared, output coverage unconfirmed':w.observedOutputFiles?'Outputs present without prepared ranges':'No local prepared ranges'}[w.readState]), el('h2', w.label));
                 worldFacts(w, side, list, data);
                 const others = SHELVES.filter(s => s.id !== shelf.id && s.worlds.includes(id));
                 if (others.length) side.append(el('p', 'Also on: ' + others.map(s => s.label).join(' · ')));

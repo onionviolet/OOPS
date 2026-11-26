@@ -1,0 +1,381 @@
+{
+  "schema": "atlas-manual-routes/1",
+  "bundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+  "boundary": "Read-only handoff snapshot. A matching receipt does not establish current source identity, earned prerequisites or a launch command. No gameplay is started.",
+  "unreadable": 0,
+  "counts": {
+    "handoffsCompared": 9,
+    "handoffsLoaded": 9,
+    "exact": 3,
+    "other": 10,
+    "unverified": 0
+  },
+  "handoffs": [
+    {
+      "id": "221e0889c81cd9655cfd425fb1688bd1d853032c8d1e1e4e2ea5a5ba6af05715",
+      "comparison": {
+        "exact": 0,
+        "other": 1,
+        "unverified": 0
+      },
+      "reports": [
+        {
+          "id": "08dbd9d46ed006a4f34eb8a0d708c9f85cd71019bd3de7ac80906308ec410b95",
+          "playerRoute": "After the amulet workshop commission, visit Blackthorn reception, request a Slumber practice packet, collect the office materials against its signed order, then take them to the silver workshop for inscription. Once the local allocation is spent, the supplier still sells the same materials for eight soli. Verified with eligible workshop history in a native fixture.",
+          "routeStatus": "Reported manual route; prerequisites and current playability are not checked by this export.",
+          "sourceStatus": "unchanged",
+          "consumer": {
+            "path": "src/lotm_charm_materials.js",
+            "sha256": "b94ee42211a3b793a7201e21f4c041a0a07ce70c3531f6bd5bc09ca51b902034"
+          },
+          "implementationReceipt": {
+            "path": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_CHARM_MATERIAL_HANDOFF_2026-11-25.md",
+            "sha256": "808fefe2f0fe67ae7a851d9a2135fdd9d7dac21e8f0775f3d31dc9f595fdc68e"
+          },
+          "playtests": [
+            {
+              "id": "3347a8fdb894f593ee54468c38e661a8b93bf19b946273a4e0b250b03dea27cc",
+              "proof": {
+                "path": "docs/representations/evidence/lotm-charm-materials-2026-11-25/proof.json",
+                "sha256": "91e552f9400386c41fea6c2b656d8124b408168a7acfe4775943960a6ae61b60"
+              },
+              "testedBundleSha256": "6f67513266a4b52f3ed99036aa745e1c59ccab82adabb3674291884deecb568d",
+              "comparison": "different-build"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4d1614c2ed8e24b134ba0e637d417faac6a01bd8f9875aa061af46501479cc03",
+      "comparison": {
+        "exact": 1,
+        "other": 0,
+        "unverified": 0
+      },
+      "reports": [
+        {
+          "id": "d404810e0d2a7d8b033548db260e2696df498192030af3688347d8ef8bf6c368",
+          "playerRoute": "Native Klein entry with genuine restored LOTM cast; late response and Seer prerequisites are a disclosed setup fixture. Follow Swain → borrow from actual Neil → return unused or consume during the response → meet awake Neil after the emergency → keep the replacement promise or receive his voluntary release. Future Swain compensation stays intention without agreement or collection. The full earned journey is not claimed.",
+          "routeStatus": "Reported manual route; prerequisites and current playability are not checked by this export.",
+          "sourceStatus": "unchanged",
+          "consumer": {
+            "path": "src/lotm_charm_response.js",
+            "sha256": "2ef7f79d9d58d6d0072d4b57b23df017521c0c50c494b31c9ff571ce143de7ba"
+          },
+          "implementationReceipt": {
+            "path": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_LENDER_RELEASE_2026-11-25.md",
+            "sha256": "fdc6455473a5443d8edf1df4860e447581fa32b47039708bdca7a5a260142c13"
+          },
+          "playtests": [
+            {
+              "id": "fa9606820312d575fc512bb69350347af14c8918a8b4c407882356f802577f91",
+              "proof": {
+                "path": "docs/representations/evidence/lotm-lender-release-reviewed-2026-11-25/proof.json",
+                "sha256": "d1b26c2c97cefe0f239b72a071fdde6c25863fbff4f9630dedb8b4f02d42a31c"
+              },
+              "testedBundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+              "comparison": "exact-match"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5f0c07c35f376c6433a9967abc683ba9044ea752881f5a93cf23592ae7813f9c",
+      "comparison": {
+        "exact": 1,
+        "other": 2,
+        "unverified": 0
+      },
+      "reports": [
+        {
+          "id": "5a7c2d8333dd67df6f1ef9dac6d2d605397b454b80bf5bbb0e04b0a1be31bb25",
+          "playerRoute": "At Hogwarts (book.hp.lead.school_hall), use the prepared school-day route after real Charms/wand actions: retrieve the chart-book by ladder or Levitation, copy/return it and use notes for Astronomy homework. Fixture persistence passed; normal fresh entry stops at the day-32 gate and missing private supplement, so an earned opening-to-library route remains unverified.",
+          "routeStatus": "Reported manual route; prerequisites and current playability are not checked by this export.",
+          "sourceStatus": "unchanged",
+          "consumer": {
+            "path": "src/hp_library_work.js",
+            "sha256": "f26cdff0ad281b72d1ca349e5e7dab6e54da3fd9b1e17a1470d3c373d944e375"
+          },
+          "implementationReceipt": {
+            "path": "docs/gm/dispatch/play-surface-2026-11-14/HARRY_LIBRARY_WORK_2026-11-25.md",
+            "sha256": "3b821d732abffad3155867dc73004ca5c8d0951b8defa66d598523a2e57647b1"
+          },
+          "playtests": [
+            {
+              "id": "b5acd1dcd32eb2e7e9dc0562cffcc66dac922de1f311d9140a49d246eef38e51",
+              "proof": {
+                "path": "docs/representations/evidence/atlas-workbench-2026-11-25/harry-library-native-proof.json",
+                "sha256": "edf62f179f827adc266115bf85581056c0ab4dca50c4ebcfab10354530874f6a"
+              },
+              "testedBundleSha256": "d803bcd7105c173bf64e4e2153c71f79c67312dd9e1bc05490ce062c7d49827f",
+              "comparison": "different-build"
+            },
+            {
+              "id": "bb342cc938f7337a26a78854fd00ea5596253a997357899741eef89fcedb697d",
+              "proof": {
+                "path": "docs/representations/evidence/harry-summer-2026-11-25/proof.json",
+                "sha256": "f19c2577417c058280e26394cd6945956be2208dbfd840e8b7cd6095d5044edd"
+              },
+              "testedBundleSha256": "c869f0d2c060a81af5ed0c04c75f9bdbca4d0f1bff2ff0147fd1a8489f44b408",
+              "comparison": "different-build"
+            },
+            {
+              "id": "d89266495fa727ee6d07630ed7c2d69a12ca589e371e8808318c14b68cf530ca",
+              "proof": {
+                "path": "docs/representations/evidence/harry-library-current-pack-2026-11-25/proof.json",
+                "sha256": "fb8a984b6f41a4ca1940f03fa981f05e217f711675c52eeaa2a5897142ba35c7"
+              },
+              "testedBundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+              "comparison": "exact-match"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "69772c5a2df1f201e9299ef2b923eb24fbe1093a99b4d79ad5ad8f4e27320724",
+      "comparison": {
+        "exact": 0,
+        "other": 0,
+        "unverified": 0
+      },
+      "reports": [
+        {
+          "id": "04931f697003fbcb3ff98ef4727eec33a6df681fcf8ccf9643af7a5cc07ae418",
+          "playerRoute": "Acquire a leaf through existing cash, tally or herb-work terms; take a patrol cut and treat it instead of six-hour rest. Consumption and one-hour efficacy interval are source-supported. Local costs and wound calibration are authored. Earlier composed native proof retains its documented setup/build scope; this attachment is not a new native replay.",
+          "routeStatus": "Reported manual route; prerequisites and current playability are not checked by this export.",
+          "sourceStatus": "unchanged",
+          "consumer": {
+            "path": "src/ri_leaf_treatment.js",
+            "sha256": "9e0e7380cded71081e4ac337f9b4562ae7323febc8448773b714725f0a0be552"
+          },
+          "implementationReceipt": {
+            "path": "docs/gm/dispatch/play-surface-2026-11-14/FANG_LEAF_TREATMENT_2026-11-25.md",
+            "sha256": "550919c72322525e8aa6affeabc9d0aaebd3d3e744017729bd8d1ec3f7d27e6d"
+          },
+          "playtests": []
+        }
+      ]
+    },
+    {
+      "id": "7f5b831dd993bdc625dbfce2afb8532b13de4a797897a24ecb899a50a4989c1f",
+      "comparison": {
+        "exact": 1,
+        "other": 0,
+        "unverified": 0
+      },
+      "reports": [
+        {
+          "id": "16e35564706bceaefc0827ad5d8408c7a01408634d9c3c114df24d6d25c06002",
+          "playerRoute": "Retained normal Village life: starter sale and natural fieldwork fund the actual 113% uncommon cape; visible Full item → Equip. Hover clears arrival while rarity halo remains. Item glow off and reduced Effects keep quality color. Initial-day and final purchase/control builds are distinguished in the frozen receipt. No earned rare+ or favourite-mark run is claimed.",
+          "routeStatus": "Reported manual route; prerequisites and current playability are not checked by this export.",
+          "sourceStatus": "unchanged",
+          "consumer": {
+            "path": "src/ui/feel_finish.js",
+            "sha256": "5e193246000a4b3be7f4a8de32b52e1383ead3409a15656921405e95c8852916"
+          },
+          "implementationReceipt": {
+            "path": "docs/gm/dispatch/play-surface-2026-11-14/GLOW_EARNED_RARITY_2026-11-25.md",
+            "sha256": "d190e568585340bd223b5c42071d86badcd41e8293285efc3dd8727639c227bc"
+          },
+          "playtests": [
+            {
+              "id": "7d6dfdf73af262ab0071500a351bb50f4a23265a416dee6a033ea94056f9d98f",
+              "proof": {
+                "path": "docs/representations/evidence/glow-earned-rarity-2026-11-25/proof.json",
+                "sha256": "a82b72b1436df98a416ca7cae8266ca0b7c43582bab69f4ef97ae44e9523947e"
+              },
+              "testedBundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+              "comparison": "exact-match"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "977a42730945b0ba79250e106e71c8f2c0518411248ee9067218820fc86d7715",
+      "comparison": {
+        "exact": 0,
+        "other": 1,
+        "unverified": 0
+      },
+      "reports": [
+        {
+          "id": "d42a8b1af3a00c6a113e134a25d0729eac6e32748addb98695ad391fe6503baa",
+          "playerRoute": "In the Tingen workroom, enter the amount you intend to keep for a commission, then compare the personal material order with your purse and intended reserve. Revise it or buy into the intended reserve. Carry the purchased materials to the workshop for Slumber inscription. Tested with the eligible workshop fixture.",
+          "routeStatus": "Reported manual route; prerequisites and current playability are not checked by this export.",
+          "sourceStatus": "unchanged",
+          "consumer": {
+            "path": "src/lotm_personal_earmark.js",
+            "sha256": "063f15afd156ff6e2e4b56d41157fd8da90f7d7e0a115cb0fd7a5e4896592e79"
+          },
+          "implementationReceipt": {
+            "path": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_PERSONAL_EARMARK_HANDOFF_2026-11-25.md",
+            "sha256": "45bdfe6394aedfeea49ec9124ec0b40085cede2601675cbd4aa8781603f5d934"
+          },
+          "playtests": [
+            {
+              "id": "406e5e0094295549a03dccde4d28030f85538aa3c1e4e5a8dbb03f5a7dcb0c35",
+              "proof": {
+                "path": "docs/representations/evidence/lotm-personal-earmark-2026-11-25/proof.json",
+                "sha256": "a91a9a4a0fec8dd17a520338620425133392cc9fb99b4b84d494b5e7dfea4f3d"
+              },
+              "testedBundleSha256": "d8fd161dbe7773c6cf4722e43bb343366a2780fcfe3335fb2171abc664706689",
+              "comparison": "different-build"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b5b2c1d4625a15be468aadf746f18fc54276e1d8d43e27d32abefdee6eaeb464",
+      "comparison": {
+        "exact": 0,
+        "other": 3,
+        "unverified": 0
+      },
+      "reports": [
+        {
+          "id": "222e45e2988cda12eb51c4f3253d5ccfda581893af13fc120d7144a946e77b89",
+          "playerRoute": "Earn Torch and the worked correction through the native Zorian route, draft the oblique invocation, cast it, then read the shallow incisions. Direct shaping is a separate learned alternative. The recorded earned route test-steps time; its ordinary shaping comparison is separately native-fixture verified. Timings, stamina and reserve budgets are authored.",
+          "routeStatus": "Reported manual route; prerequisites and current playability are not checked by this export.",
+          "sourceStatus": "unchanged",
+          "consumer": {
+            "path": "src/mol_light_research.js",
+            "sha256": "c7d9bfa2ff17b95325193557f39871aa8a5d7dabcef71cfa44b5aa6280c0e425"
+          },
+          "implementationReceipt": {
+            "path": "docs/worlds/mother-of-learning/LIGHT_FORMULA_CORRECTION_2026-11-25.md",
+            "sha256": "7945f82cc6bb37032ad4ad3894397c22b9cd4a1a965fc4f094fa6e3c737a7859"
+          },
+          "playtests": [
+            {
+              "id": "3d2d76f52455dfc82cc12a2c61b0519d7e30ff229937d58f378e23d9fbeac90a",
+              "proof": {
+                "path": "docs/representations/evidence/default-web-2026-11-25/zorian/receipt.json",
+                "sha256": "f34bc9d9755ee1e6c9b42959412855a3f2e839e0b632f2f1e4cf6415765d5ff2"
+              },
+              "testedBundleSha256": "58a6029b2fa7ad2ed84897b8a939de4e667238d434b06f7e5311d9c6670b0bbd",
+              "comparison": "different-build"
+            },
+            {
+              "id": "882a8cb36393e3fefdc66a6bbcb6f683c97e0deae14db920bef29f238003c77c",
+              "proof": {
+                "path": "docs/representations/evidence/default-web-2026-11-25/integrated/zorian/receipt.json",
+                "sha256": "8c2c827c6532844c59c213540277de7502b2f443c1ecb8d7189d5d77f60817d1"
+              },
+              "testedBundleSha256": "63d1fe9f73f08495158a2cb7169cfef2cb44e1ea185040ce3773780f982885f6",
+              "comparison": "different-build"
+            },
+            {
+              "id": "eba34c81d9aca15cfd49988d09bdff1f1d9178f0613708cc10e7cdd777422b5e",
+              "proof": {
+                "path": "docs/representations/evidence/mol-correction-use-2026-11-25/receipt.json",
+                "sha256": "8e10a651f67ffe2d1b5768e5e10124e4718a1975de3e43695eb7a8d3691521d1"
+              },
+              "testedBundleSha256": "a5be4f5c093b7e2d68ce7d9dfda01191c5187dbe3121337439b60027a65051c2",
+              "comparison": "different-build"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d36ab6955de9976f57e6204e1cecd183e12acdc64f322f694b686582aecdb773",
+      "comparison": {
+        "exact": 0,
+        "other": 2,
+        "unverified": 0
+      },
+      "reports": [
+        {
+          "id": "1e824cf32a6d1d77b8fde809367912c1f8fcb7bb366ebb73a7ad87576b207b17",
+          "playerRoute": "With Old Neil present and holding a lendable Slumber charm, borrow the physical charm. Return it unused, or activate it and later give him a crafted replacement. The native fixture supplied his starting stock and tested custody, sleep and settlement across save and import.",
+          "routeStatus": "Reported manual route; prerequisites and current playability are not checked by this export.",
+          "sourceStatus": "changed",
+          "consumer": {
+            "path": "src/lotm_charm_loan.js",
+            "sha256": "8872eb6c7409c17f8fcc075aeed98ba218d99148ff9241699f30573faf73f8da"
+          },
+          "implementationReceipt": {
+            "path": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_BORROWED_CHARM_HANDOFF_2026-11-25.md",
+            "sha256": "93234f035036d1075354262044cb725d1f12222a9b736aebef80d9a99436765c"
+          },
+          "playtests": [
+            {
+              "id": "10d5d45d7f386d132db2e99a347dfb8b7ba7e48e3505f66c2050ffc3f2dc09dd",
+              "proof": {
+                "path": "docs/representations/evidence/lotm-charm-loan-2026-11-25/proof.json",
+                "sha256": "caf72912cec71e5962b19ce57f76ed1ccf8205c3ed7e4cab31a7a4b9fbe9b017"
+              },
+              "testedBundleSha256": "027e28270ce0a49f2165716fea2164622695e6404005d191a379b4a13ad0de6c",
+              "comparison": "different-build"
+            }
+          ]
+        },
+        {
+          "id": "eec20e674e6f538d2fe0c267324a60cac350943801c75371cd41d34c6818798e",
+          "playerRoute": "Klein in Tingen: finish the workshop amulet commission → order Slumber supplies at the silver workshop → awake Old Neil in the Blackthorn armory → supply him to make a lendable Slumber charm → borrow. Return unused, or later craft and return a replacement. The native proof starts with zero charms in a prerequisite actor fixture; naturally reached cast entry remains unverified.",
+          "routeStatus": "Reported manual route; prerequisites and current playability are not checked by this export.",
+          "sourceStatus": "unchanged",
+          "consumer": {
+            "path": "src/lotm_charm_lender_stock.js",
+            "sha256": "9dbab6fe966a815d964e4d43a00310383809aa9de0bd0674cf861c649b0846d6"
+          },
+          "implementationReceipt": {
+            "path": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_LENDER_STOCK_2026-11-25.md",
+            "sha256": "60344bdf90dd85f94b0f9893206e4a661d1fd0b0e066c0fe5a1dc6670638afe7"
+          },
+          "playtests": [
+            {
+              "id": "8cd18ee6b4d1c8539374502e058db765bcdaf5c4065ef8bf5a3333dbc175cc31",
+              "proof": {
+                "path": "docs/representations/evidence/lotm-lender-stock-2026-11-25/proof.json",
+                "sha256": "535b2e35be411b6baeed548b42a57a025deb380aa2ea1ebff011c16f4702a4b9"
+              },
+              "testedBundleSha256": "58a6029b2fa7ad2ed84897b8a939de4e667238d434b06f7e5311d9c6670b0bbd",
+              "comparison": "different-build"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e9d91f20f0d853fff601abafa85e8be05c5d28c52fb9ac5be3d19ada168183db",
+      "comparison": {
+        "exact": 0,
+        "other": 1,
+        "unverified": 0
+      },
+      "reports": [
+        {
+          "id": "1e466bfbc4798e786c3fbcd24dffb60f96977b594b0460f5e9301812d6e5d006",
+          "playerRoute": "Native Slumber fixture: carry a faded charm to awake Old Neil, spend one spirituality and ten minutes on upkeep, then activate the returned charm. The fixture verifies two versus five minutes of sleep. Earned Klein entry remains open.",
+          "routeStatus": "Reported manual route; prerequisites and current playability are not checked by this export.",
+          "sourceStatus": "unchanged",
+          "consumer": {
+            "path": "src/lotm_charm_upkeep.js",
+            "sha256": "0c6d9a233aaa1a580cda6319606367a37897c3fb3a981e13f95910e44eb87ae8"
+          },
+          "implementationReceipt": {
+            "path": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_CHARM_UPKEEP_2026-11-25.md",
+            "sha256": "bb0664d0adc8b412879c8ae9611a1b9603094b6cd25f0f67b3d300b8ae8d33f1"
+          },
+          "playtests": [
+            {
+              "id": "a613edb6df4591164d007e0e53df68af05a077302c49834c49eba7c067c9335f",
+              "proof": {
+                "path": "docs/representations/evidence/lotm-charm-upkeep-2026-11-25/proof.json",
+                "sha256": "82a117835f105037bbfd17eabb1e2ddec21b813d80f1f35f6d530111320ec63c"
+              },
+              "testedBundleSha256": "d2ba7f143317736ecc2e49deb200c0949c81bc945583ce78be5047bd82fa28cd",
+              "comparison": "different-build"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

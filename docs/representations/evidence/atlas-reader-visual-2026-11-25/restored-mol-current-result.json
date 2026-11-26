@@ -1,0 +1,927 @@
+{
+  "mode": "Fresh normal default Atlas registry/snapshot/queue after adoption; no staging override",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "proposalId": "b5b2c1d4625a15be468aadf746f18fc54276e1d8d43e27d32abefdee6eaeb464",
+  "source": {
+    "record": {
+      "type": "rule",
+      "key": "rule:mol.other.bounded-spells:entry:531",
+      "label": "Structured magic (bounded spells)",
+      "locator": "en b1 c2 p139",
+      "locators": [
+        "en b1 c2 p139"
+      ],
+      "view": "things",
+      "focus": "mol.other.bounded-spells",
+      "href": "#world/mol/things/mol.other.bounded-spells",
+      "fileLines": [
+        [
+          9,
+          9
+        ]
+      ],
+      "fileLocators": [
+        "en b1 c2 p139"
+      ]
+    },
+    "counts": {
+      "fileRows": 19,
+      "matchedRows": 19,
+      "noPublicMatch": 0,
+      "ambiguous": 0,
+      "unindexed": 0,
+      "parseFailures": 0,
+      "readFailures": 0
+    },
+    "contentHash": "sha256:b69f8296f2deaeff9c11052d7be6174d25db92f9d185f8658144efcaf291cc20",
+    "method": {
+      "status": "unknown",
+      "method": "unknown",
+      "label": "Reading method not attested",
+      "provider": "unknown",
+      "locatorScope": null,
+      "reason": "receipt-unavailable"
+    }
+  },
+  "proofComparisons": [
+    {
+      "hash": "63d1fe9f73f08495158a2cb7169cfef2cb44e1ea185040ce3773780f982885f6",
+      "text": "Tested on this exact checkout build."
+    },
+    {
+      "hash": "58a6029b2fa7ad2ed84897b8a939de4e667238d434b06f7e5311d9c6670b0bbd",
+      "text": "Tested on another build."
+    },
+    {
+      "hash": "a5be4f5c093b7e2d68ce7d9dfda01191c5187dbe3121337439b60027a65051c2",
+      "text": "Tested on another build."
+    }
+  ],
+  "readiness": {
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "outputs": [
+      {
+        "pass": "census",
+        "kind": "census",
+        "label": "Census",
+        "expected": 106,
+        "selected": 106,
+        "inspected": 106,
+        "missing": 0,
+        "partial": 0,
+        "unattested": 0,
+        "parsedRows": 7282,
+        "matchedRows": 7137,
+        "withheldRows": 0,
+        "ambiguousRows": 0,
+        "unindexedRows": 145,
+        "parseErrors": 0,
+        "readErrors": 0,
+        "fieldRows": 7137,
+        "fields": [
+          {
+            "id": "original-name",
+            "label": "Original-language name",
+            "rows": 7137
+          },
+          {
+            "id": "name-source",
+            "label": "Naming provenance",
+            "rows": 7137
+          },
+          {
+            "id": "mention-rung",
+            "label": "Mention depth",
+            "rows": 7137
+          },
+          {
+            "id": "aliases",
+            "label": "Alternative names",
+            "rows": 826
+          },
+          {
+            "id": "whereabouts",
+            "label": "Recorded whereabouts",
+            "rows": 789
+          },
+          {
+            "id": "whereabouts-era",
+            "label": "Whereabouts dates or eras",
+            "rows": 797
+          },
+          {
+            "id": "whereabouts-status",
+            "label": "Whereabouts qualifications",
+            "rows": 797
+          },
+          {
+            "id": "claimant",
+            "label": "Attributed claimant",
+            "rows": 4789
+          },
+          {
+            "id": "amount",
+            "label": "Numeric amount",
+            "rows": 1094
+          },
+          {
+            "id": "amount-unit",
+            "label": "Amount unit",
+            "rows": 1094
+          },
+          {
+            "id": "amount-per",
+            "label": "Amount frequency",
+            "rows": 43
+          },
+          {
+            "id": "amount-cap",
+            "label": "Amount ceiling",
+            "rows": 19
+          },
+          {
+            "id": "lead-contact",
+            "label": "Whether the lead encounters it",
+            "rows": 7137
+          }
+        ]
+      },
+      {
+        "pass": "scenes",
+        "kind": "scenes",
+        "label": "Scenes",
+        "expected": 106,
+        "selected": 106,
+        "inspected": 106,
+        "missing": 0,
+        "partial": 0,
+        "unattested": 0,
+        "parsedRows": 780,
+        "matchedRows": 687,
+        "withheldRows": 93,
+        "ambiguousRows": 0,
+        "unindexedRows": 0,
+        "parseErrors": 0,
+        "readErrors": 0,
+        "fieldRows": 687,
+        "fields": [
+          {
+            "id": "time-precision",
+            "label": "Recorded time granularity",
+            "rows": 687
+          },
+          {
+            "id": "date-anchor",
+            "label": "Date anchor",
+            "rows": 356
+          },
+          {
+            "id": "date-offset",
+            "label": "Date offset",
+            "rows": 230
+          },
+          {
+            "id": "step-actor",
+            "label": "Step actors",
+            "rows": 0
+          },
+          {
+            "id": "step-locator",
+            "label": "Step locators",
+            "rows": 0
+          },
+          {
+            "id": "step-kind",
+            "label": "Kinds of step",
+            "rows": 0
+          },
+          {
+            "id": "step-class",
+            "label": "Step action classes",
+            "rows": 687
+          },
+          {
+            "id": "step-target",
+            "label": "Step targets",
+            "rows": 0
+          },
+          {
+            "id": "step-tools",
+            "label": "Items used in steps",
+            "rows": 0
+          },
+          {
+            "id": "step-habit",
+            "label": "Repeated or habitual steps",
+            "rows": 0
+          },
+          {
+            "id": "step-results",
+            "label": "Step result links",
+            "rows": 0
+          },
+          {
+            "id": "step-witnesses",
+            "label": "Step witnesses",
+            "rows": 0
+          },
+          {
+            "id": "step-time",
+            "label": "Step timing",
+            "rows": 222
+          },
+          {
+            "id": "step-inputs",
+            "label": "Step inputs",
+            "rows": 207
+          },
+          {
+            "id": "step-outputs",
+            "label": "Step outputs",
+            "rows": 238
+          },
+          {
+            "id": "step-gains",
+            "label": "Step gains",
+            "rows": 32
+          },
+          {
+            "id": "step-needs",
+            "label": "Step prerequisites",
+            "rows": 71
+          },
+          {
+            "id": "footprint-places",
+            "label": "Broader affected places",
+            "rows": 214
+          },
+          {
+            "id": "footprint-window",
+            "label": "Broader affected time window",
+            "rows": 129
+          },
+          {
+            "id": "footprint-hazards",
+            "label": "Broader hazards",
+            "rows": 204
+          },
+          {
+            "id": "footprint-roles",
+            "label": "Broader roles",
+            "rows": 214
+          },
+          {
+            "id": "mechanism",
+            "label": "Mechanism account",
+            "rows": 36
+          }
+        ]
+      },
+      {
+        "pass": "scenes",
+        "kind": "fills",
+        "label": "Authored fills",
+        "expected": 106,
+        "selected": 106,
+        "inspected": 106,
+        "missing": 0,
+        "partial": 0,
+        "unattested": 0,
+        "parsedRows": 351,
+        "matchedRows": 302,
+        "withheldRows": 0,
+        "ambiguousRows": 0,
+        "unindexedRows": 49,
+        "parseErrors": 0,
+        "readErrors": 0,
+        "fieldRows": 302,
+        "fields": [
+          {
+            "id": "basis",
+            "label": "Evidence for the proposal",
+            "rows": 302
+          },
+          {
+            "id": "respects",
+            "label": "Rules the proposal respects",
+            "rows": 282
+          },
+          {
+            "id": "replacement",
+            "label": "What could replace the proposal",
+            "rows": 302
+          },
+          {
+            "id": "layer",
+            "label": "Proposal layer",
+            "rows": 302
+          },
+          {
+            "id": "confidence",
+            "label": "Proposal confidence",
+            "rows": 302
+          }
+        ]
+      },
+      {
+        "pass": "rules",
+        "kind": "rules",
+        "label": "Rules",
+        "expected": 106,
+        "selected": 106,
+        "inspected": 106,
+        "missing": 0,
+        "partial": 0,
+        "unattested": 0,
+        "parsedRows": 1553,
+        "matchedRows": 1553,
+        "withheldRows": 0,
+        "ambiguousRows": 0,
+        "unindexedRows": 0,
+        "parseErrors": 0,
+        "readErrors": 0,
+        "fieldRows": 1553,
+        "fields": [
+          {
+            "id": "world-kind",
+            "label": "World-specific kind",
+            "rows": 1516
+          },
+          {
+            "id": "conditions",
+            "label": "Conditions",
+            "rows": 1029
+          },
+          {
+            "id": "steps",
+            "label": "Ordered working steps",
+            "rows": 1066
+          },
+          {
+            "id": "step-minutes",
+            "label": "Step durations",
+            "rows": 60
+          },
+          {
+            "id": "inputs",
+            "label": "Input items",
+            "rows": 269
+          },
+          {
+            "id": "input-quantity",
+            "label": "Input quantities",
+            "rows": 76
+          },
+          {
+            "id": "input-unit",
+            "label": "Input units",
+            "rows": 72
+          },
+          {
+            "id": "input-role",
+            "label": "Input roles",
+            "rows": 269
+          },
+          {
+            "id": "products",
+            "label": "Products",
+            "rows": 197
+          },
+          {
+            "id": "product-quantity",
+            "label": "Product quantities",
+            "rows": 28
+          },
+          {
+            "id": "product-unit",
+            "label": "Product units",
+            "rows": 21
+          },
+          {
+            "id": "minutes",
+            "label": "Total duration",
+            "rows": 30
+          },
+          {
+            "id": "place",
+            "label": "Working place",
+            "rows": 132
+          },
+          {
+            "id": "costs",
+            "label": "Costs",
+            "rows": 179
+          },
+          {
+            "id": "cost-amount",
+            "label": "Cost amounts",
+            "rows": 15
+          },
+          {
+            "id": "cost-unit",
+            "label": "Cost units",
+            "rows": 18
+          },
+          {
+            "id": "ritual-needed",
+            "label": "Whether a ritual is needed",
+            "rows": 56
+          },
+          {
+            "id": "ritual-scale",
+            "label": "Ritual scale",
+            "rows": 26
+          },
+          {
+            "id": "ritual-steps",
+            "label": "Ritual steps",
+            "rows": 37
+          },
+          {
+            "id": "results",
+            "label": "Success, failure or partial results",
+            "rows": 1005
+          },
+          {
+            "id": "limits",
+            "label": "Limits",
+            "rows": 896
+          },
+          {
+            "id": "consequences",
+            "label": "Consequences",
+            "rows": 353
+          },
+          {
+            "id": "consequence-trigger",
+            "label": "Consequence triggers",
+            "rows": 353
+          },
+          {
+            "id": "consequence-actor",
+            "label": "Actors imposing consequences",
+            "rows": 348
+          },
+          {
+            "id": "who",
+            "label": "Who can use the rule",
+            "rows": 1491
+          },
+          {
+            "id": "cost-stated",
+            "label": "Whether costs are stated",
+            "rows": 1364
+          },
+          {
+            "id": "teacher",
+            "label": "Acquisition teacher",
+            "rows": 128
+          },
+          {
+            "id": "acquire-needs",
+            "label": "Acquisition prerequisites",
+            "rows": 62
+          },
+          {
+            "id": "acquire-time",
+            "label": "Acquisition time",
+            "rows": 94
+          },
+          {
+            "id": "practice",
+            "label": "Practice",
+            "rows": 134
+          },
+          {
+            "id": "progress",
+            "label": "Signs of progress",
+            "rows": 85
+          },
+          {
+            "id": "failure",
+            "label": "Learning failure",
+            "rows": 45
+          },
+          {
+            "id": "ceiling",
+            "label": "Learning ceiling",
+            "rows": 35
+          },
+          {
+            "id": "reset-trigger",
+            "label": "Reset trigger",
+            "rows": 105
+          },
+          {
+            "id": "reset-span",
+            "label": "Reset span",
+            "rows": 91
+          },
+          {
+            "id": "resets",
+            "label": "What resets",
+            "rows": 85
+          },
+          {
+            "id": "keeps",
+            "label": "What survives a reset",
+            "rows": 96
+          },
+          {
+            "id": "reset-end",
+            "label": "How a reset ends",
+            "rows": 54
+          },
+          {
+            "id": "penalty",
+            "label": "Enforcement penalty",
+            "rows": 66
+          },
+          {
+            "id": "enforcer",
+            "label": "Enforcing actor",
+            "rows": 81
+          },
+          {
+            "id": "detection",
+            "label": "How breaches are detected",
+            "rows": 53
+          }
+        ]
+      },
+      {
+        "pass": "rules",
+        "kind": "other",
+        "label": "Other observations",
+        "expected": 106,
+        "selected": 106,
+        "inspected": 106,
+        "missing": 0,
+        "partial": 0,
+        "unattested": 0,
+        "parsedRows": 4313,
+        "matchedRows": 4313,
+        "withheldRows": 0,
+        "ambiguousRows": 0,
+        "unindexedRows": 0,
+        "parseErrors": 0,
+        "readErrors": 0,
+        "fieldRows": 4313,
+        "fields": [
+          {
+            "id": "about",
+            "label": "Subjects linked to the observation",
+            "rows": 4226
+          }
+        ]
+      },
+      {
+        "pass": "people",
+        "kind": "people",
+        "label": "People",
+        "expected": 106,
+        "selected": 106,
+        "inspected": 106,
+        "missing": 0,
+        "partial": 0,
+        "unattested": 0,
+        "parsedRows": 1703,
+        "matchedRows": 1598,
+        "withheldRows": 0,
+        "ambiguousRows": 0,
+        "unindexedRows": 105,
+        "parseErrors": 0,
+        "readErrors": 0,
+        "fieldRows": 1598,
+        "fields": [
+          {
+            "id": "routine",
+            "label": "Routine activity",
+            "rows": 942
+          },
+          {
+            "id": "routine-place",
+            "label": "Routine place",
+            "rows": 882
+          },
+          {
+            "id": "routine-days",
+            "label": "Routine days",
+            "rows": 844
+          },
+          {
+            "id": "routine-clock",
+            "label": "Routine start or end",
+            "rows": 66
+          },
+          {
+            "id": "routine-recurrence",
+            "label": "Routine recurrence",
+            "rows": 13
+          },
+          {
+            "id": "routine-until",
+            "label": "When a routine ends",
+            "rows": 4
+          },
+          {
+            "id": "relations",
+            "label": "Relations",
+            "rows": 1510
+          },
+          {
+            "id": "relation-attitude",
+            "label": "Relation attitudes",
+            "rows": 1422
+          },
+          {
+            "id": "relation-basis",
+            "label": "Basis for relations",
+            "rows": 1510
+          },
+          {
+            "id": "relation-since",
+            "label": "Dated relations",
+            "rows": 5
+          },
+          {
+            "id": "reactions",
+            "label": "Reactions",
+            "rows": 967
+          },
+          {
+            "id": "reaction-class",
+            "label": "Action class reacted to",
+            "rows": 26
+          },
+          {
+            "id": "reaction-actor",
+            "label": "Actor reacted to",
+            "rows": 26
+          },
+          {
+            "id": "response-class",
+            "label": "Response action class",
+            "rows": 27
+          },
+          {
+            "id": "goals",
+            "label": "Goals",
+            "rows": 750
+          }
+        ]
+      },
+      {
+        "pass": "people",
+        "kind": "other",
+        "label": "Other observations",
+        "expected": 106,
+        "selected": 106,
+        "inspected": 106,
+        "missing": 0,
+        "partial": 0,
+        "unattested": 0,
+        "parsedRows": 4772,
+        "matchedRows": 4772,
+        "withheldRows": 0,
+        "ambiguousRows": 0,
+        "unindexedRows": 0,
+        "parseErrors": 0,
+        "readErrors": 0,
+        "fieldRows": 4772,
+        "fields": [
+          {
+            "id": "about",
+            "label": "Subjects linked to the observation",
+            "rows": 4735
+          }
+        ]
+      },
+      {
+        "pass": "texture",
+        "kind": "places",
+        "label": "Places",
+        "expected": 106,
+        "selected": 106,
+        "inspected": 106,
+        "missing": 0,
+        "partial": 0,
+        "unattested": 0,
+        "parsedRows": 1206,
+        "matchedRows": 1181,
+        "withheldRows": 0,
+        "ambiguousRows": 0,
+        "unindexedRows": 25,
+        "parseErrors": 0,
+        "readErrors": 0,
+        "fieldRows": 1181,
+        "fields": [
+          {
+            "id": "within",
+            "label": "Containing place",
+            "rows": 624
+          },
+          {
+            "id": "hours",
+            "label": "Opening hours",
+            "rows": 57
+          },
+          {
+            "id": "access",
+            "label": "Access conditions",
+            "rows": 739
+          },
+          {
+            "id": "crowd",
+            "label": "Crowding",
+            "rows": 570
+          },
+          {
+            "id": "affordances",
+            "label": "Available actions",
+            "rows": 771
+          },
+          {
+            "id": "affordance-needs",
+            "label": "Action prerequisites",
+            "rows": 403
+          },
+          {
+            "id": "routes",
+            "label": "Route destinations",
+            "rows": 12
+          },
+          {
+            "id": "route-minutes",
+            "label": "Route durations",
+            "rows": 12
+          },
+          {
+            "id": "route-mode",
+            "label": "Route transport modes",
+            "rows": 12
+          }
+        ]
+      },
+      {
+        "pass": "texture",
+        "kind": "services",
+        "label": "Services and prices",
+        "expected": 106,
+        "selected": 106,
+        "inspected": 106,
+        "missing": 0,
+        "partial": 0,
+        "unattested": 0,
+        "parsedRows": 422,
+        "matchedRows": 422,
+        "withheldRows": 0,
+        "ambiguousRows": 0,
+        "unindexedRows": 0,
+        "parseErrors": 0,
+        "readErrors": 0,
+        "fieldRows": 422,
+        "fields": [
+          {
+            "id": "place",
+            "label": "Service place",
+            "rows": 370
+          },
+          {
+            "id": "hours",
+            "label": "Service hours",
+            "rows": 26
+          },
+          {
+            "id": "price",
+            "label": "Price description",
+            "rows": 77
+          },
+          {
+            "id": "price-kind",
+            "label": "Kind of price or payment",
+            "rows": 418
+          },
+          {
+            "id": "price-stated",
+            "label": "Whether a price is stated",
+            "rows": 422
+          },
+          {
+            "id": "amount",
+            "label": "Numeric price",
+            "rows": 11
+          },
+          {
+            "id": "unit",
+            "label": "Price unit",
+            "rows": 10
+          },
+          {
+            "id": "per",
+            "label": "Price frequency",
+            "rows": 12
+          },
+          {
+            "id": "price-id",
+            "label": "Linked price record",
+            "rows": 12
+          }
+        ]
+      },
+      {
+        "pass": "texture",
+        "kind": "news",
+        "label": "News",
+        "expected": 106,
+        "selected": 106,
+        "inspected": 106,
+        "missing": 0,
+        "partial": 0,
+        "unattested": 0,
+        "parsedRows": 890,
+        "matchedRows": 328,
+        "withheldRows": 562,
+        "ambiguousRows": 0,
+        "unindexedRows": 0,
+        "parseErrors": 0,
+        "readErrors": 0,
+        "fieldRows": 328,
+        "fields": [
+          {
+            "id": "date",
+            "label": "News date",
+            "rows": 288
+          },
+          {
+            "id": "carrier",
+            "label": "News carrier",
+            "rows": 290
+          }
+        ]
+      },
+      {
+        "pass": "texture",
+        "kind": "customs",
+        "label": "Customs",
+        "expected": 106,
+        "selected": 106,
+        "inspected": 106,
+        "missing": 0,
+        "partial": 0,
+        "unattested": 0,
+        "parsedRows": 874,
+        "matchedRows": 874,
+        "withheldRows": 0,
+        "ambiguousRows": 0,
+        "unindexedRows": 0,
+        "parseErrors": 0,
+        "readErrors": 0,
+        "fieldRows": 874,
+        "fields": [
+          {
+            "id": "applies",
+            "label": "Where the custom applies",
+            "rows": 874
+          }
+        ]
+      },
+      {
+        "pass": "texture",
+        "kind": "other",
+        "label": "Other observations",
+        "expected": 106,
+        "selected": 106,
+        "inspected": 106,
+        "missing": 0,
+        "partial": 0,
+        "unattested": 0,
+        "parsedRows": 5426,
+        "matchedRows": 5426,
+        "withheldRows": 0,
+        "ambiguousRows": 0,
+        "unindexedRows": 0,
+        "parseErrors": 0,
+        "readErrors": 0,
+        "fieldRows": 5426,
+        "fields": [
+          {
+            "id": "about",
+            "label": "Subjects linked to the observation",
+            "rows": 5257
+          }
+        ]
+      }
+    ]
+  },
+  "refreshPreserved": true,
+  "openBatchAfterRefresh": true,
+  "snapshotSha256": "1a6bb2199238025ab26cddae81269a585646ae80fa5130f7a7ee78a29e9f49a1",
+  "digestSha256": "0103a11b1b33570792c0cafc72ade286059138dbcff094b85bb27a9fc2854b88",
+  "immutablePacketVerified": true,
+  "errors": []
+}

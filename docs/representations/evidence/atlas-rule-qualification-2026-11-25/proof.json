@@ -1,0 +1,55 @@
+{
+  "viewport": "1920x1080",
+  "snapshotSha256": "3f4911704b5540a521a1dac161daa92a884e881e3f0c8bd3a7be1c1243092821",
+  "source": "actual registry and local chapter-127 reading outputs; no synthetic rows",
+  "rules": [
+    {
+      "id": "lotm.craft.charm-making",
+      "label": "T",
+      "sources": [
+        {
+          "label": "T",
+          "locator": "zh 第127章 p27"
+        }
+      ]
+    },
+    {
+      "id": "lotm.craft.charm-recharge",
+      "label": "T",
+      "sources": [
+        {
+          "label": "T",
+          "locator": "zh 第127章 p28"
+        }
+      ]
+    },
+    {
+      "id": "lotm.ability.spirit-vision-trigger",
+      "label": "S",
+      "sources": [
+        {
+          "label": "S",
+          "locator": "zh 第127章 p3"
+        }
+      ]
+    },
+    {
+      "id": "lotm.rule.seer-acting-hypothesis",
+      "label": "I",
+      "sources": [
+        {
+          "label": "I",
+          "locator": "zh 第127章 p54"
+        }
+      ]
+    }
+  ],
+  "visible": [
+    "making limits",
+    "teacher reference",
+    "learning progress",
+    "source evidence",
+    "inference distinction"
+  ],
+  "errors": []
+}

@@ -1,0 +1,56 @@
+{
+  "viewport": "1920x1080",
+  "readyMs": 7667.557499999999,
+  "checks": [
+    {
+      "world": "hp",
+      "key": "hp1",
+      "scope": "orphan",
+      "prepared": 0,
+      "complete": false,
+      "observedOutputFiles": 135,
+      "records": 62,
+      "contentHash": "sha256:9f98981fdc6caa4722aae003133b8d168c4c68a0e36ffda73773a39d5cb9a02a",
+      "recordRoute": "#world/hp/things/hp.person.harry-potter",
+      "requestMs": 1709.3145999999979
+    },
+    {
+      "world": "mol",
+      "key": "mol",
+      "scope": "orphan",
+      "prepared": 0,
+      "complete": false,
+      "observedOutputFiles": 1590,
+      "records": 61,
+      "contentHash": "sha256:95add41a631bd44d388cff67e994332fb5dc2074ad88a4b86b4f3c8a8222e46b",
+      "recordRoute": "#world/mol/things/mol.person.zorian-kazinski",
+      "requestMs": 671.077400000002
+    },
+    {
+      "world": "lotm",
+      "key": "lotm2",
+      "scope": "legacy",
+      "prepared": 0,
+      "complete": false,
+      "observedOutputFiles": 3131,
+      "records": 113,
+      "contentHash": "sha256:a2ddfff00fdb5ba3f64ce010aa12fc37bc905279f7769807d9f0cda8b49cc6d4",
+      "recordRoute": "#world/lotm/things/lotm.person.klein-moretti",
+      "requestMs": 6031.054800000002
+    },
+    {
+      "world": "ri",
+      "key": "ri1",
+      "scope": "orphan",
+      "prepared": 0,
+      "complete": false,
+      "observedOutputFiles": 420,
+      "records": 46,
+      "contentHash": "sha256:b708513c98be7645f833517d8be736f6bb0b5f1550f217a7c7d4262faf0cfc4f",
+      "recordRoute": "#world/ri/things/ri.person.fang-yuan",
+      "requestMs": 1377.1006999999954
+    }
+  ],
+  "errors": [],
+  "scope": "normal read-only Atlas routes over staged verified output-only restore; no fake prepared/source files, no canonical snapshot write"
+}

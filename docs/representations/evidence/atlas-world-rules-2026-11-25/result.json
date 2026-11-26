@@ -1,0 +1,59 @@
+{
+  "viewport": "1920x1080 and1366x768",
+  "directRuleRoute": "library/rules/dnd_srd/ZG5kX3NyZF9ydWxlcy5qc29uIy9ydWxlcy8w",
+  "record": {
+    "key": "ZG5kX3NyZF9ydWxlcy5qc29uIy9ydWxlcy8w",
+    "id": "dnd_srd.rule.0001",
+    "world": "dnd_srd",
+    "name": "A D20 test succeeds when the d20 roll plus relevant modifiers meets or exceeds its target. Abilit…",
+    "statement": "A D20 test succeeds when the d20 roll plus relevant modifiers meets or exceeds its target. Ability checks and saves use a Difficulty Class; attacks use Armor Class.",
+    "kind": null,
+    "sourceKind": "source-paraphrase",
+    "sources": {
+      "file": "docs/coverage/dnd_srd_rules.json",
+      "pointer": "/rules/0",
+      "sha256": "f832a1fad698a4fad995bdbf9d92e26672e4379d9a792649e2b193989030b464",
+      "books": [
+        "D&D 5.2.1 SRD"
+      ],
+      "locators": [
+        "D&D 5.2.1 SRD: Playing the Game — D20 Tests (pp. 6–7) (dnd-srd-5.2.1#000)"
+      ],
+      "licence": [
+        "CC-BY-4.0"
+      ],
+      "note": "Rule rows (PWC25 shape): id, world, statement (paraphrased), locators, speaker, mechanism, seam (AB code), derives (blocked slugs a playable model exists for), default_dial_reason, licence. Proposals: a batched reader (gpt-6-luna) read the books in shards of about 8,000 words; nothing here was human-checked, and no source text is kept.",
+      "date": "2026-11-17",
+      "speaker": "rulebook",
+      "detail": null
+    },
+    "interpretation": {
+      "mechanism": "law: meet target",
+      "seam": "none",
+      "derives": [],
+      "defaultDialReason": "Default to a single roll against a fixed target; a world can adjust target-setting to make challenges more or less demanding, reflecting their circumstances."
+    },
+    "particulars": {},
+    "implementation": {
+      "state": null,
+      "test": null,
+      "mechanisms": [],
+      "status": "unverified",
+      "note": "Recorded coverage claim; no current playable proof was checked by this view."
+    }
+  },
+  "checks": [
+    "normal Worlds navigation",
+    "40-row pagination",
+    "edition and search",
+    "exact record refresh",
+    "public evidence hash/pointer",
+    "nested Warhammer source sheet",
+    "interpretation separate from source",
+    "world-specific Rules tab",
+    "cheat catalogue integration",
+    "invalid queries",
+    "zero page errors"
+  ],
+  "pageErrors": []
+}

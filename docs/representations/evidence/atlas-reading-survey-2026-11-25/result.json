@@ -1,0 +1,20 @@
+{
+  "worlds": 44,
+  "verifiedTotals": {
+    "parsedRows": 1004384,
+    "matchedRows": 943739,
+    "withheldRows": 16061,
+    "unindexedRows": 44584,
+    "missing": 1690,
+    "unattested": 75
+  },
+  "rankings": {
+    "unindexedRows": "Lord of the Mysteries",
+    "missing": "Lord of the Mysteries",
+    "unattested": "Lord of the Mysteries",
+    "parsedRows": "Lord of the Mysteries"
+  },
+  "checks": 1,
+  "viewport": "1366x768",
+  "errors": []
+}

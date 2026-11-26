@@ -1,0 +1,35 @@
+{
+  "scope": "normal default Atlas; actual restored HP4 census and rules; Next page then exact public rule click; no fixture or digest rebuild",
+  "viewport": "1920x1080",
+  "snapshotSha256": "1a6bb2199238025ab26cddae81269a585646ae80fa5130f7a7ee78a29e9f49a1",
+  "matcherSha256": "0370fb5b4287c696d9d8cdfb172829e6b6e451b917ff4e8c5923af0576cd1b61",
+  "contentHash": "sha256:5d3af62dbbdd2c1477e4c9d233da793c260ba42484b54448706a2ee3ff2823b4",
+  "before": {
+    "fileRows": 94,
+    "matchedRows": 93,
+    "noPublicMatch": 0,
+    "ambiguous": 0,
+    "unindexed": 1,
+    "parseFailures": 0,
+    "readFailures": 0
+  },
+  "after": {
+    "fileRows": 94,
+    "matchedRows": 94,
+    "noPublicMatch": 0,
+    "ambiguous": 0,
+    "unindexed": 0,
+    "parseFailures": 0,
+    "readFailures": 0
+  },
+  "sourceKind": "census",
+  "origin": {
+    "pass": "rules",
+    "kind": "rules",
+    "prefix": "hp4c007",
+    "contentHash": "sha256:21b02cdba251f4a0c94a2ffe1a8fc78f5c7f92821cf7e89078eb0a2e39012873"
+  },
+  "clickedHref": "#world/hp/things/hp.law.carpet-embargo",
+  "collisionPreservedAsEntity": true,
+  "errors": []
+}

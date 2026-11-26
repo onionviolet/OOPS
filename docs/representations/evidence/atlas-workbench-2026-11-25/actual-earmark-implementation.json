@@ -1,0 +1,57 @@
+{
+  "stage": "proposed",
+  "source": {
+    "book": "lotm1",
+    "world": "lotm",
+    "prefix": "lotm1c128",
+    "pass": "rules",
+    "kind": "rules",
+    "contentHash": "sha256:25174469c0858b062e2f588914c29f05e82e033e4cbc20f030f8f8adbe841166",
+    "method": "manual-structured-reading",
+    "fileLines": [
+      [
+        6,
+        6
+      ]
+    ],
+    "locators": [
+      "zh 第128章 p41"
+    ],
+    "offset": 0
+  },
+  "record": {
+    "label": "Separate committed funds from shopping money",
+    "type": "rule",
+    "route": "#world/lotm/things/lotm.rule.earmarked-commission-funds"
+  },
+  "id": "977a42730945b0ba79250e106e71c8f2c0518411248ee9067218820fc86d7715",
+  "implementationReports": [
+    {
+      "id": "d42a8b1af3a00c6a113e134a25d0729eac6e32748addb98695ad391fe6503baa",
+      "schema": "atlas-reading-implementation/1",
+      "proposalId": "977a42730945b0ba79250e106e71c8f2c0518411248ee9067218820fc86d7715",
+      "consumer": {
+        "name": "Personal commission intention beside native Slumber material shopping",
+        "path": "src/lotm_personal_earmark.js",
+        "resolvedPath": "src/lotm_personal_earmark.js",
+        "sha256": "063f15afd156ff6e2e4b56d41157fd8da90f7d7e0a115cb0fd7a5e4896592e79"
+      },
+      "playerRoute": "In the Tingen workroom, enter the amount you intend to keep for a commission, then compare the personal material order with your purse and intended reserve. Revise it or buy into the intended reserve. Carry the purchased materials to the workshop for Slumber inscription. Tested with the eligible workshop fixture.",
+      "receipt": {
+        "path": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_PERSONAL_EARMARK_HANDOFF_2026-11-25.md",
+        "resolvedPath": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_PERSONAL_EARMARK_HANDOFF_2026-11-25.md",
+        "sha256": "45bdfe6394aedfeea49ec9124ec0b40085cede2601675cbd4aa8781603f5d934"
+      },
+      "status": "implementation-report-attached",
+      "files": {
+        "consumer": {
+          "status": "unchanged"
+        },
+        "receipt": {
+          "status": "unchanged"
+        }
+      }
+    }
+  ],
+  "errors": []
+}

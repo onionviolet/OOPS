@@ -1,0 +1,14 @@
+[
+  {
+    "name": "controls",
+    "route": "#world/lotm/reading"
+  },
+  {
+    "name": "find",
+    "route": "#find?q=magic"
+  },
+  {
+    "name": "record",
+    "route": "#world/lotm/things/lotm.person.klein-moretti"
+  }
+]

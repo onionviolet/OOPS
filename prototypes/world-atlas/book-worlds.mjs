@@ -3,6 +3,7 @@
 import {boxCanvas, element as el} from '/canvas.mjs';
 import {sceneList} from '/atlas-views.mjs';
 import {pickControl} from '/transfer-view.mjs';
+import {readerDigest, inspectReaderPlace} from '/things-views.mjs';
 
 const WORLD_NAMES = {lotm: 'Lord of the Mysteries', mol: 'Mother of Learning'};
 const EVIDENCE = {T: 'Stated in text', S: 'Shown in a scene', I: 'Inferred', U: 'Unresolved'};
@@ -139,28 +140,31 @@ export function bookWorlds({main, data, controls, finder, routeButtons, button, 
             }
             const p = ix.byId.get(id);
             const state = placeState(p, ix);
-            side.append(el('small', [p.kind || 'Place', {walk: 'Walkable · district from the book', fill: 'Walkable · provisional district', authored: 'Walkable · placed in the atlas', unplaced: 'In the game · not yet on a walk', host: 'In the game · walked by its own host'}[state]].join(' · ')), el('h2', p.name));
-            const facts = el('div', null, 'canvas-facts');
+            const record = el('div');
+            side.append(record);
+            const render = digest => {
+                if (!record.isConnected) return;
+                const reader = digest?.entities.find(e => e.col === 'places' && (e.id === p.indexId || e.id === p.id));
+                record.replaceChildren();
+                inspectReaderPlace(record, {...reader, id: reader?.id ?? p.id, label: p.name}, digest, wid, data, p);
+            };
+            render(null);
+            readerDigest(wid).then(digest => {if (digest) render(digest);});
+            const facts = el('details', null, 'canvas-facts');
             const rows = [
+                ['Walk status', {walk: 'District from the book', fill: 'Provisional district', authored: 'Placed in the atlas', unplaced: 'No walk route yet', host: 'Handled by the world host'}[state]],
                 ['Source evidence', p.evidence ? `${EVIDENCE[p.evidence] || p.evidence} (${p.evidence})` : null],
                 ['First located', p.locator],
                 ['Book id', p.indexId],
                 ['Walk district', p.district ? p.district + (p.provenance ? ' · ' + p.provenance : '') : null],
                 ['Lead knows it', p.known ? 'Yes, at the start' : null],
             ].filter(([, v]) => v);
-            facts.append(list(rows.map(([k, v]) => k + ': ' + v)));
+            facts.append(el('summary', 'Map and source details'), list(rows.map(([k, v]) => k + ': ' + v)));
             side.append(facts);
             const parentPlace = p.parent && ix.byId.get(p.parent);
             if (parentPlace) side.append(el('h3', 'Inside'), routeButtons([{id: parentPlace.id, label: parentPlace.name, detail: parentPlace.kind || ''}], dest => open(ix.byId.get(dest).parent || undefined)));
             const inside = ix.kids.get(p.id) || [];
             if (inside.length && id !== focus) side.append(button(`Open inside · ${inside.length} places`, () => open(p.id)));
-            if (p.people.length) {
-                const group = el('details');
-                group.open = true;
-                group.append(el('summary', 'People seen here · ' + p.people.length),
-                    list(p.people.map(({id: who, how}) => (ix.people.get(who)?.name || who) + ' · ' + how)));
-                side.append(group);
-            }
             if (p.scenes?.length) side.append(sceneList(p, list));
             if (ix.usesDistricts && state !== 'walk') side.append(pickControl(p, data));
         },

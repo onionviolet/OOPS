@@ -1,0 +1,97 @@
+{
+  "mode": "Normal default server, GET only",
+  "readiness": [
+    {
+      "world": "hp",
+      "status": "measured",
+      "fileState": "metadata-matches",
+      "stale": [],
+      "binding": {
+        "snapshotSha256": "1a6bb2199238025ab26cddae81269a585646ae80fa5130f7a7ee78a29e9f49a1",
+        "digestSha256": "b863a666b898648a4b4b464cf62edf7a7dc8560c4b4916ca00327bf4e392fda9",
+        "selectedBytesSha256": "2cd224df73aa7b0b1d62e5e02fbc09a7508dc33ed28891251e08555cee808309",
+        "inputStampSha256": "dbebd191c3aba2ab171d0c248498707c931500b7fdc12c1be29c1854c25a52f8",
+        "calculationSha256": "635784d5986da88aa392a27fdfc43bbd5ec5a1ec3a27e5c7157a17ca4c23b6c3"
+      }
+    },
+    {
+      "world": "mol",
+      "status": "measured",
+      "fileState": "metadata-matches",
+      "stale": [],
+      "binding": {
+        "snapshotSha256": "1a6bb2199238025ab26cddae81269a585646ae80fa5130f7a7ee78a29e9f49a1",
+        "digestSha256": "0103a11b1b33570792c0cafc72ade286059138dbcff094b85bb27a9fc2854b88",
+        "selectedBytesSha256": "b614ee92b6a23453b14bda42de833fb7e82c062ce3cd6e64ec3173a5298b8349",
+        "inputStampSha256": "d62b2c1c414a099c54b70cc8afeec8bc9a23541670ed152427fe940414c30b21",
+        "calculationSha256": "635784d5986da88aa392a27fdfc43bbd5ec5a1ec3a27e5c7157a17ca4c23b6c3"
+      }
+    },
+    {
+      "world": "ri",
+      "status": "measured",
+      "fileState": "metadata-matches",
+      "stale": [],
+      "binding": {
+        "snapshotSha256": "1a6bb2199238025ab26cddae81269a585646ae80fa5130f7a7ee78a29e9f49a1",
+        "digestSha256": "b53acad587111165d7b4a8fd4e2943684333fcf5557bc804c872710836f5216c",
+        "selectedBytesSha256": "64a960c1feb75fb5ce9d8757144c498f4c66c017aaa2411977ca378be835ffff",
+        "inputStampSha256": "9aca0700817faf57328d9b14b8929ec30a35696beff879e9634b929f57b08fdd",
+        "calculationSha256": "635784d5986da88aa392a27fdfc43bbd5ec5a1ec3a27e5c7157a17ca4c23b6c3"
+      }
+    },
+    {
+      "world": "lotm",
+      "status": "measured",
+      "fileState": "metadata-matches",
+      "stale": [],
+      "binding": {
+        "snapshotSha256": "1a6bb2199238025ab26cddae81269a585646ae80fa5130f7a7ee78a29e9f49a1",
+        "digestSha256": "142cb5240f47420e87df5b31239575de39060815692111ce3405a563336addd6",
+        "selectedBytesSha256": "453038b180a4cc91f82428ba7434496fce7cfc642e67373de74fac31a8075ce3",
+        "inputStampSha256": "36676309891ed4ebd9c49f503dd20c8fb7aa825f1829bb98e87ae904732c107f",
+        "calculationSha256": "635784d5986da88aa392a27fdfc43bbd5ec5a1ec3a27e5c7157a17ca4c23b6c3"
+      }
+    }
+  ],
+  "source": {
+    "contentHash": "sha256:5d3af62dbbdd2c1477e4c9d233da793c260ba42484b54448706a2ee3ff2823b4",
+    "counts": {
+      "fileRows": 94,
+      "matchedRows": 94,
+      "noPublicMatch": 0,
+      "ambiguous": 0,
+      "unindexed": 0,
+      "parseFailures": 0,
+      "readFailures": 0
+    },
+    "target": {
+      "type": "rule",
+      "key": "rule:hp.law.carpet-embargo:entry:882",
+      "label": "Flying carpet embargo",
+      "locator": "en b4 c7 p123",
+      "locators": [
+        "en b4 c7 p123"
+      ],
+      "view": "things",
+      "focus": "hp.law.carpet-embargo",
+      "href": "#world/hp/things/hp.law.carpet-embargo",
+      "sourceKind": "census",
+      "origin": {
+        "pass": "rules",
+        "kind": "rules",
+        "prefix": "hp4c007",
+        "contentHash": "sha256:21b02cdba251f4a0c94a2ffe1a8fc78f5c7f92821cf7e89078eb0a2e39012873"
+      },
+      "fileLines": [
+        [
+          72,
+          72
+        ]
+      ],
+      "fileLocators": [
+        "en b4 c7 p123"
+      ]
+    }
+  }
+}

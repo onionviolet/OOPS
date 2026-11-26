@@ -1,0 +1,60 @@
+{
+  "proposalId": "5f0c07c35f376c6433a9967abc683ba9044ea752881f5a93cf23592ae7813f9c",
+  "reportId": "5a7c2d8333dd67df6f1ef9dac6d2d605397b454b80bf5bbb0e04b0a1be31bb25",
+  "currentBundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+  "implementationReportSha256": "5a7c2d8333dd67df6f1ef9dac6d2d605397b454b80bf5bbb0e04b0a1be31bb25",
+  "implementationReportUnchanged": true,
+  "viewport": "1920x1080",
+  "route": "Normal Workbench existing Harry report -> attached archival library proof and later summer proof through normal forms -> reopened and reloaded -> Compare checkout build for both",
+  "newGameplayRun": false,
+  "results": [
+    {
+      "attachmentId": "b5acd1dcd32eb2e7e9dc0562cffcc66dac922de1f311d9140a49d246eef38e51",
+      "proofPath": "docs/representations/evidence/atlas-workbench-2026-11-25/harry-library-native-proof.json",
+      "proofSha256": "edf62f179f827adc266115bf85581056c0ab4dca50c4ebcfab10354530874f6a",
+      "testedBundleSha256": "d803bcd7105c173bf64e4e2153c71f79c67312dd9e1bc05490ce062c7d49827f",
+      "comparison": {
+        "id": "b5acd1dcd32eb2e7e9dc0562cffcc66dac922de1f311d9140a49d246eef38e51",
+        "testedBundleSha256": "d803bcd7105c173bf64e4e2153c71f79c67312dd9e1bc05490ce062c7d49827f",
+        "entry": {
+          "route": "hp-library-astronomy composed after real Charms/wand commands; real Astronomy class and homework; both retrieval methods; Save/reload/Export/file Import",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "setup": "Archival metadata normalization of the original successful run, not a new playtest. Exact tested bundle and viewport are recorded in the unchanged frozen receipt. Normal opening-to-library was not claimed in this earlier run.",
+          "fixture": "Composed hp-library-astronomy fixture after real Charms lesson and practice-wand commands. Clock-only setup reached Wednesday 22:59 before the tested Astronomy/library route."
+        },
+        "proof": {
+          "status": "unchanged"
+        },
+        "status": "different-build",
+        "currentBundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1"
+      }
+    },
+    {
+      "attachmentId": "bb342cc938f7337a26a78854fd00ea5596253a997357899741eef89fcedb697d",
+      "proofPath": "docs/representations/evidence/harry-summer-2026-11-25/proof.json",
+      "proofSha256": "f19c2577417c058280e26394cd6945956be2208dbfd840e8b7cd6095d5044edd",
+      "testedBundleSha256": "c869f0d2c060a81af5ed0c04c75f9bdbca4d0f1bff2ff0147fd1a8489f44b408",
+      "comparison": {
+        "id": "bb342cc938f7337a26a78854fd00ea5596253a997357899741eef89fcedb697d",
+        "testedBundleSha256": "c869f0d2c060a81af5ed0c04c75f9bdbca4d0f1bff2ff0147fd1a8489f44b408",
+        "entry": {
+          "route": "Fresh Village -> normal Harry entry -> all 56 real household actions -> optional natural paced routine -> Stop/restart, Save/reload and fresh literal file Import -> actual train -> Sorting -> original first school week -> ladder/chart notes",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "setup": "No supplied save, clock/date/skill grants or source events inserted. Existing accepted household/train/school jobs dev-stepped at original durations. Summer routine ran on ordinary wall timer, including after Import."
+        },
+        "proof": {
+          "status": "unchanged"
+        },
+        "status": "different-build",
+        "currentBundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1"
+      }
+    }
+  ],
+  "pageErrors": []
+}

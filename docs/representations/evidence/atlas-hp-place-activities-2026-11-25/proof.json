@@ -1,0 +1,28 @@
+{
+  "snapshot": "work/atlas-snapshot/snapshot.json",
+  "snapshotSha256": "b6bbd9a4891b0f783110a02fbe645dfb826abddfddb020b281816a564d19c549",
+  "viewport": "1366x768",
+  "hpReaderStatus": 200,
+  "location": "book.hp.lead.school_hall",
+  "locationLabel": "Hogwarts, the Great Hall",
+  "activityIds": [
+    "book.hp.lead.library_work.move_ladder",
+    "book.hp.lead.library_work.levitate_book",
+    "book.hp.lead.library_work.copy_chart",
+    "book.hp.lead.library_work.write_astronomy"
+  ],
+  "source": "adopted registered map and current native structured definitions; no source rows, game mutations or Workbench packet created",
+  "verified": [
+    "shared LOTM/HP projection",
+    "activity search",
+    "four native actions and real conditions/costs",
+    "registered hall without invented library node",
+    "absent-reading boundary",
+    "optional Workbench packet",
+    "exact public receipt links",
+    "unknown receipt rejected",
+    "direct route refresh",
+    "no overflow or page errors"
+  ],
+  "errors": []
+}

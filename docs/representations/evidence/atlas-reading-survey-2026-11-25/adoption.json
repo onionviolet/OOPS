@@ -1,0 +1,39 @@
+{
+  "previous": "1a6bb2199238025ab26cddae81269a585646ae80fa5130f7a7ee78a29e9f49a1",
+  "current": "d7e6e675649d2b334d1a3ad9af681d21b504cfa55a67a0473e72df5d0c72dffa",
+  "worlds": 44,
+  "changedWorldDigests": [
+    "wus"
+  ],
+  "delta": {
+    "expected": 0,
+    "selected": 2,
+    "inspected": 2,
+    "missing": -2,
+    "partial": 0,
+    "unattested": 0,
+    "parsedRows": 9,
+    "matchedRows": 9,
+    "withheldRows": 0,
+    "ambiguousRows": 0,
+    "unindexedRows": 0,
+    "parseErrors": 0,
+    "readErrors": 0
+  },
+  "totals": {
+    "expected": 53652,
+    "selected": 51960,
+    "inspected": 51885,
+    "missing": 1692,
+    "partial": 3,
+    "unattested": 75,
+    "parsedRows": 1004339,
+    "matchedRows": 943700,
+    "withheldRows": 16061,
+    "ambiguousRows": 0,
+    "unindexedRows": 44578,
+    "parseErrors": 0,
+    "readErrors": 0
+  },
+  "rollback": "work/atlas-snapshot/history/pre-wus4c003-range-20261125/"
+}

@@ -1,0 +1,38 @@
+{
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "route": "http://127.0.0.1:4187/#world/lotm/reader-scenes/lr.lotm.klein.12801",
+  "selectedActualRecord": {
+    "type": "scene",
+    "key": "scene:lr.lotm.klein.12801:entry:3",
+    "label": "zh 第128章 p1",
+    "locator": "zh 第128章 p1",
+    "locators": [
+      "zh 第128章 p1",
+      "zh 第128章 p2",
+      "zh 第128章 p3"
+    ],
+    "view": "reader-scenes",
+    "focus": "lr.lotm.klein.12801",
+    "href": "#world/lotm/reader-scenes/lr.lotm.klein.12801",
+    "fileLines": [
+      [
+        1,
+        1
+      ]
+    ],
+    "fileLocators": [
+      "zh 第128章 p1",
+      "zh 第128章 p2",
+      "zh 第128章 p3"
+    ]
+  },
+  "time": "After lunch",
+  "timePrecision": "band",
+  "display": "After lunch · Broad part of day",
+  "snapshotSha256": "8a30f74679c0298744a058d1c8637daf87bd8dbc4cc54fb71241c927ad7f9c99",
+  "digestSha256": "e673a1b75aa733d6a768b11afc9d0f597525ad63cacfcff7bdb4e8a699deb74f",
+  "errors": []
+}

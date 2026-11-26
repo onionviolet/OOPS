@@ -1,0 +1,56 @@
+{
+  "mode": "Normal adopted default Atlas and registry; actual new manual9scenes+emptyfill",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "sourceCounts": {
+    "fileRows": 9,
+    "matchedRows": 9,
+    "noPublicMatch": 0,
+    "ambiguous": 0,
+    "unindexed": 0,
+    "parseFailures": 0,
+    "readFailures": 0
+  },
+  "sceneMethod": {
+    "status": "verified",
+    "method": "manual-structured-reading",
+    "label": "Manual structured reading",
+    "provider": "unknown",
+    "locatorScope": {
+      "from": "en b4 c3 p1",
+      "through": "en b4 c4 p27"
+    }
+  },
+  "fillCounts": {
+    "fileRows": 0,
+    "matchedRows": 0,
+    "noPublicMatch": 0,
+    "ambiguous": 0,
+    "unindexed": 0,
+    "parseFailures": 0,
+    "readFailures": 0
+  },
+  "fillStatus": "empty",
+  "fillMethod": {
+    "status": "verified",
+    "method": "manual-structured-reading",
+    "label": "Manual structured reading",
+    "provider": "unknown",
+    "locatorScope": {
+      "from": "en b4 c3 p1",
+      "through": "en b4 c4 p27"
+    }
+  },
+  "permitChoiceOpened": true,
+  "readiness": {
+    "status": "not queried; coordinated measurement owned by parent",
+    "stale": []
+  },
+  "defaultInputsUnchanged": {
+    "snapshot": "d7e6e675649d2b334d1a3ad9af681d21b504cfa55a67a0473e72df5d0c72dffa",
+    "wusDigest": "93e0d911d5791d1c6f271b2a837f3727d156e2cb8a4bf83f2420b51f3b39c42f"
+  },
+  "errors": []
+}

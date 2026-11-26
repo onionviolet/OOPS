@@ -1,0 +1,1078 @@
+{
+  "phase": "zoom",
+  "captures": [
+    {
+      "name": "controls-1366-125pct",
+      "route": "#world/lotm/reading",
+      "viewport": {
+        "width": 1366,
+        "height": 768,
+        "zoom": 1.25
+      },
+      "pngDimensions": {
+        "width": 1366,
+        "height": 768
+      },
+      "textSha256": "5f3440bd0641a2ff237d528df26dca30a7214ecc8191abded40dfa4525771e59",
+      "samples": {
+        "brand": {
+          "selector": "body > header h1",
+          "fontFamily": "\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "fontSize": "32px",
+          "fontWeight": "700",
+          "lineHeight": "35.84px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "menu": {
+          "selector": "body > header nav button",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "500",
+          "lineHeight": "21px",
+          "color": "rgb(237, 255, 232)"
+        },
+        "searchLabel": {
+          "selector": ".atlas-find-global label",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "650",
+          "lineHeight": "21px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "searchInput": {
+          "selector": ".atlas-find-global input",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "22.4px",
+          "color": "rgb(239, 247, 239)"
+        },
+        "searchButton": {
+          "selector": ".atlas-find-global button",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "650",
+          "lineHeight": "21px",
+          "color": "rgb(23, 43, 32)"
+        },
+        "heading": {
+          "selector": "main h2",
+          "fontFamily": "Georgia, \"Times New Roman\", serif",
+          "fontSize": "26.4px",
+          "fontWeight": "500",
+          "lineHeight": "33px",
+          "color": "rgb(237, 242, 232)"
+        },
+        "paragraph": {
+          "selector": "main p",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "24.8px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "recordHeading": {
+          "selector": ".canvas-inspector h2",
+          "fontFamily": "Georgia, \"Times New Roman\", serif",
+          "fontSize": "24px",
+          "fontWeight": "700",
+          "lineHeight": "30px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "recordBody": {
+          "selector": ".canvas-record .tree-fact,.canvas-inspector p",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "24.8px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "diagram": {
+          "selector": ".canvas-box",
+          "fontFamily": "\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "fontSize": "12px",
+          "fontWeight": "600",
+          "lineHeight": "12.6px",
+          "color": "rgb(227, 229, 223)"
+        }
+      },
+      "body": {
+        "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+        "fontSize": "16px"
+      },
+      "cssViewport": {
+        "width": 1093,
+        "height": 614,
+        "devicePixelRatio": 1.25
+      },
+      "overflow": 0,
+      "typographySheetDisabled": false,
+      "stylesheet": [
+        "/cheat-catalogue.css",
+        "/styles/ui_tokens.css",
+        "/styles/material_icons.css",
+        "/canvas.css",
+        "/atlas-type.css"
+      ],
+      "fontFaces": [
+        {
+          "family": "OOPS MS Gothic",
+          "status": "loaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 10",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 11",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 12",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 13",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 14",
+          "status": "loaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 15",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 16",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 17",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 18",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 19",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 20",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 21",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 22",
+          "status": "unloaded"
+        },
+        {
+          "family": "Material Icons",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "name": "find-1366-125pct",
+      "route": "#find?q=magic",
+      "viewport": {
+        "width": 1366,
+        "height": 768,
+        "zoom": 1.25
+      },
+      "pngDimensions": {
+        "width": 1366,
+        "height": 768
+      },
+      "textSha256": "d0f963989615888522ff942068f5aff3b4abaf0781e70f99db9f331ce3be4828",
+      "samples": {
+        "brand": {
+          "selector": "body > header h1",
+          "fontFamily": "\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "fontSize": "32px",
+          "fontWeight": "700",
+          "lineHeight": "35.84px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "menu": {
+          "selector": "body > header nav button",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "500",
+          "lineHeight": "21px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "searchLabel": {
+          "selector": ".atlas-find-global label",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "650",
+          "lineHeight": "21px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "searchInput": {
+          "selector": ".atlas-find-global input",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "22.4px",
+          "color": "rgb(239, 247, 239)"
+        },
+        "searchButton": {
+          "selector": ".atlas-find-global button",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "650",
+          "lineHeight": "21px",
+          "color": "rgb(23, 43, 32)"
+        },
+        "heading": {
+          "selector": "main h2",
+          "fontFamily": "system-ui, sans-serif",
+          "fontSize": "17.6px",
+          "fontWeight": "650",
+          "lineHeight": "22.88px",
+          "color": "rgb(228, 238, 232)"
+        },
+        "paragraph": {
+          "selector": "main p",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "600",
+          "lineHeight": "24px",
+          "color": "rgb(228, 238, 232)"
+        },
+        "status": {
+          "selector": ".atlas-find-status,main [role=\"status\"]",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "600",
+          "lineHeight": "24px",
+          "color": "rgb(228, 238, 232)"
+        },
+        "findHeading": {
+          "selector": ".atlas-find-result h3",
+          "fontFamily": "system-ui, sans-serif",
+          "fontSize": "16.8px",
+          "fontWeight": "650",
+          "lineHeight": "23.52px",
+          "color": "rgb(228, 238, 232)"
+        },
+        "findBody": {
+          "selector": ".atlas-find-result p:not(.atlas-find-meta):not(.atlas-find-status-note)",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "24.8px",
+          "color": "rgb(228, 238, 232)"
+        },
+        "findMeta": {
+          "selector": ".atlas-find-meta",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "color": "rgb(190, 210, 203)"
+        }
+      },
+      "body": {
+        "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+        "fontSize": "16px"
+      },
+      "cssViewport": {
+        "width": 1093,
+        "height": 614,
+        "devicePixelRatio": 1.25
+      },
+      "overflow": 0,
+      "typographySheetDisabled": false,
+      "stylesheet": [
+        "/cheat-catalogue.css",
+        "/styles/ui_tokens.css",
+        "/styles/material_icons.css",
+        "/canvas.css",
+        "/atlas-type.css"
+      ],
+      "fontFaces": [
+        {
+          "family": "OOPS MS Gothic",
+          "status": "loaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 10",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 11",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 12",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 13",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 14",
+          "status": "loaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 15",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 16",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 17",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 18",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 19",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 20",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 21",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 22",
+          "status": "unloaded"
+        },
+        {
+          "family": "Material Icons",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "name": "record-1366-125pct",
+      "route": "#world/lotm/things/lotm.person.klein-moretti",
+      "viewport": {
+        "width": 1366,
+        "height": 768,
+        "zoom": 1.25
+      },
+      "pngDimensions": {
+        "width": 1366,
+        "height": 768
+      },
+      "textSha256": "2902b067f2fc50c3852031a233ae4324f45cd889492e87232b3031dd4f5c32a4",
+      "samples": {
+        "brand": {
+          "selector": "body > header h1",
+          "fontFamily": "\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "fontSize": "32px",
+          "fontWeight": "700",
+          "lineHeight": "35.84px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "menu": {
+          "selector": "body > header nav button",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "500",
+          "lineHeight": "21px",
+          "color": "rgb(237, 255, 232)"
+        },
+        "searchLabel": {
+          "selector": ".atlas-find-global label",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "650",
+          "lineHeight": "21px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "searchInput": {
+          "selector": ".atlas-find-global input",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "22.4px",
+          "color": "rgb(239, 247, 239)"
+        },
+        "searchButton": {
+          "selector": ".atlas-find-global button",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "650",
+          "lineHeight": "21px",
+          "color": "rgb(23, 43, 32)"
+        },
+        "heading": {
+          "selector": "main h2",
+          "fontFamily": "system-ui, sans-serif",
+          "fontSize": "12.8px",
+          "fontWeight": "600",
+          "lineHeight": "15.36px",
+          "color": "rgb(190, 208, 197)"
+        },
+        "paragraph": {
+          "selector": "main p",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "24.8px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "recordHeading": {
+          "selector": ".canvas-inspector h2",
+          "fontFamily": "Georgia, \"Times New Roman\", serif",
+          "fontSize": "24px",
+          "fontWeight": "700",
+          "lineHeight": "30px",
+          "color": "rgb(240, 242, 233)"
+        },
+        "recordBody": {
+          "selector": ".canvas-record .tree-fact,.canvas-inspector p",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "24.8px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "diagram": {
+          "selector": ".canvas-box",
+          "fontFamily": "\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "fontSize": "12px",
+          "fontWeight": "600",
+          "lineHeight": "12.6px",
+          "color": "rgb(237, 255, 232)"
+        }
+      },
+      "body": {
+        "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+        "fontSize": "16px"
+      },
+      "cssViewport": {
+        "width": 1093,
+        "height": 614,
+        "devicePixelRatio": 1.25
+      },
+      "overflow": 0,
+      "typographySheetDisabled": false,
+      "stylesheet": [
+        "/cheat-catalogue.css",
+        "/styles/ui_tokens.css",
+        "/styles/material_icons.css",
+        "/canvas.css",
+        "/atlas-type.css"
+      ],
+      "fontFaces": [
+        {
+          "family": "OOPS MS Gothic",
+          "status": "loaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 10",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 11",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 12",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 13",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 14",
+          "status": "loaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 15",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 16",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 17",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 18",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 19",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 20",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 21",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 22",
+          "status": "unloaded"
+        },
+        {
+          "family": "Material Icons",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "name": "controls-1920-125pct",
+      "route": "#world/lotm/reading",
+      "viewport": {
+        "width": 1920,
+        "height": 1080,
+        "zoom": 1.25
+      },
+      "pngDimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "textSha256": "5f3440bd0641a2ff237d528df26dca30a7214ecc8191abded40dfa4525771e59",
+      "samples": {
+        "brand": {
+          "selector": "body > header h1",
+          "fontFamily": "\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "fontSize": "32px",
+          "fontWeight": "700",
+          "lineHeight": "35.84px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "menu": {
+          "selector": "body > header nav button",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "500",
+          "lineHeight": "21px",
+          "color": "rgb(237, 255, 232)"
+        },
+        "searchLabel": {
+          "selector": ".atlas-find-global label",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "650",
+          "lineHeight": "21px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "searchInput": {
+          "selector": ".atlas-find-global input",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "22.4px",
+          "color": "rgb(239, 247, 239)"
+        },
+        "searchButton": {
+          "selector": ".atlas-find-global button",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "650",
+          "lineHeight": "21px",
+          "color": "rgb(23, 43, 32)"
+        },
+        "heading": {
+          "selector": "main h2",
+          "fontFamily": "Georgia, \"Times New Roman\", serif",
+          "fontSize": "26.4px",
+          "fontWeight": "500",
+          "lineHeight": "33px",
+          "color": "rgb(237, 242, 232)"
+        },
+        "paragraph": {
+          "selector": "main p",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "24.8px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "recordHeading": {
+          "selector": ".canvas-inspector h2",
+          "fontFamily": "Georgia, \"Times New Roman\", serif",
+          "fontSize": "24px",
+          "fontWeight": "700",
+          "lineHeight": "30px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "recordBody": {
+          "selector": ".canvas-record .tree-fact,.canvas-inspector p",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "24.8px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "diagram": {
+          "selector": ".canvas-box",
+          "fontFamily": "\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "fontSize": "12px",
+          "fontWeight": "600",
+          "lineHeight": "12.6px",
+          "color": "rgb(227, 229, 223)"
+        }
+      },
+      "body": {
+        "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+        "fontSize": "16px"
+      },
+      "cssViewport": {
+        "width": 1536,
+        "height": 864,
+        "devicePixelRatio": 1.25
+      },
+      "overflow": 0,
+      "typographySheetDisabled": false,
+      "stylesheet": [
+        "/cheat-catalogue.css",
+        "/styles/ui_tokens.css",
+        "/styles/material_icons.css",
+        "/canvas.css",
+        "/atlas-type.css"
+      ],
+      "fontFaces": [
+        {
+          "family": "OOPS MS Gothic",
+          "status": "loaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 10",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 11",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 12",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 13",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 14",
+          "status": "loaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 15",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 16",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 17",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 18",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 19",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 20",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 21",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 22",
+          "status": "unloaded"
+        },
+        {
+          "family": "Material Icons",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "name": "find-1920-125pct",
+      "route": "#find?q=magic",
+      "viewport": {
+        "width": 1920,
+        "height": 1080,
+        "zoom": 1.25
+      },
+      "pngDimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "textSha256": "d0f963989615888522ff942068f5aff3b4abaf0781e70f99db9f331ce3be4828",
+      "samples": {
+        "brand": {
+          "selector": "body > header h1",
+          "fontFamily": "\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "fontSize": "32px",
+          "fontWeight": "700",
+          "lineHeight": "35.84px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "menu": {
+          "selector": "body > header nav button",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "500",
+          "lineHeight": "21px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "searchLabel": {
+          "selector": ".atlas-find-global label",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "650",
+          "lineHeight": "21px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "searchInput": {
+          "selector": ".atlas-find-global input",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "22.4px",
+          "color": "rgb(239, 247, 239)"
+        },
+        "searchButton": {
+          "selector": ".atlas-find-global button",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "650",
+          "lineHeight": "21px",
+          "color": "rgb(23, 43, 32)"
+        },
+        "heading": {
+          "selector": "main h2",
+          "fontFamily": "system-ui, sans-serif",
+          "fontSize": "17.6px",
+          "fontWeight": "650",
+          "lineHeight": "22.88px",
+          "color": "rgb(228, 238, 232)"
+        },
+        "paragraph": {
+          "selector": "main p",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "600",
+          "lineHeight": "24px",
+          "color": "rgb(228, 238, 232)"
+        },
+        "status": {
+          "selector": ".atlas-find-status,main [role=\"status\"]",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "600",
+          "lineHeight": "24px",
+          "color": "rgb(228, 238, 232)"
+        },
+        "findHeading": {
+          "selector": ".atlas-find-result h3",
+          "fontFamily": "system-ui, sans-serif",
+          "fontSize": "16.8px",
+          "fontWeight": "650",
+          "lineHeight": "23.52px",
+          "color": "rgb(228, 238, 232)"
+        },
+        "findBody": {
+          "selector": ".atlas-find-result p:not(.atlas-find-meta):not(.atlas-find-status-note)",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "24.8px",
+          "color": "rgb(228, 238, 232)"
+        },
+        "findMeta": {
+          "selector": ".atlas-find-meta",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "21px",
+          "color": "rgb(190, 210, 203)"
+        }
+      },
+      "body": {
+        "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+        "fontSize": "16px"
+      },
+      "cssViewport": {
+        "width": 1536,
+        "height": 864,
+        "devicePixelRatio": 1.25
+      },
+      "overflow": 0,
+      "typographySheetDisabled": false,
+      "stylesheet": [
+        "/cheat-catalogue.css",
+        "/styles/ui_tokens.css",
+        "/styles/material_icons.css",
+        "/canvas.css",
+        "/atlas-type.css"
+      ],
+      "fontFaces": [
+        {
+          "family": "OOPS MS Gothic",
+          "status": "loaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 10",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 11",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 12",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 13",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 14",
+          "status": "loaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 15",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 16",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 17",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 18",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 19",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 20",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 21",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 22",
+          "status": "unloaded"
+        },
+        {
+          "family": "Material Icons",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "name": "record-1920-125pct",
+      "route": "#world/lotm/things/lotm.person.klein-moretti",
+      "viewport": {
+        "width": 1920,
+        "height": 1080,
+        "zoom": 1.25
+      },
+      "pngDimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "textSha256": "2902b067f2fc50c3852031a233ae4324f45cd889492e87232b3031dd4f5c32a4",
+      "samples": {
+        "brand": {
+          "selector": "body > header h1",
+          "fontFamily": "\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "fontSize": "32px",
+          "fontWeight": "700",
+          "lineHeight": "35.84px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "menu": {
+          "selector": "body > header nav button",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "500",
+          "lineHeight": "21px",
+          "color": "rgb(237, 255, 232)"
+        },
+        "searchLabel": {
+          "selector": ".atlas-find-global label",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "650",
+          "lineHeight": "21px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "searchInput": {
+          "selector": ".atlas-find-global input",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "22.4px",
+          "color": "rgb(239, 247, 239)"
+        },
+        "searchButton": {
+          "selector": ".atlas-find-global button",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "15px",
+          "fontWeight": "650",
+          "lineHeight": "21px",
+          "color": "rgb(23, 43, 32)"
+        },
+        "heading": {
+          "selector": "main h2",
+          "fontFamily": "system-ui, sans-serif",
+          "fontSize": "12.8px",
+          "fontWeight": "600",
+          "lineHeight": "15.36px",
+          "color": "rgb(190, 208, 197)"
+        },
+        "paragraph": {
+          "selector": "main p",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "24.8px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "recordHeading": {
+          "selector": ".canvas-inspector h2",
+          "fontFamily": "Georgia, \"Times New Roman\", serif",
+          "fontSize": "24px",
+          "fontWeight": "700",
+          "lineHeight": "30px",
+          "color": "rgb(240, 242, 233)"
+        },
+        "recordBody": {
+          "selector": ".canvas-record .tree-fact,.canvas-inspector p",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "24.8px",
+          "color": "rgb(227, 233, 227)"
+        },
+        "diagram": {
+          "selector": ".canvas-box",
+          "fontFamily": "\"OOPS Gothic Bitmap 14\", \"OOPS MS Gothic\", \"MS Gothic\", Menlo, AppleGothic, monospace",
+          "fontSize": "12px",
+          "fontWeight": "600",
+          "lineHeight": "12.6px",
+          "color": "rgb(237, 255, 232)"
+        }
+      },
+      "body": {
+        "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", sans-serif",
+        "fontSize": "16px"
+      },
+      "cssViewport": {
+        "width": 1536,
+        "height": 864,
+        "devicePixelRatio": 1.25
+      },
+      "overflow": 0,
+      "typographySheetDisabled": false,
+      "stylesheet": [
+        "/cheat-catalogue.css",
+        "/styles/ui_tokens.css",
+        "/styles/material_icons.css",
+        "/canvas.css",
+        "/atlas-type.css"
+      ],
+      "fontFaces": [
+        {
+          "family": "OOPS MS Gothic",
+          "status": "loaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 10",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 11",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 12",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 13",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 14",
+          "status": "loaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 15",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 16",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 17",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 18",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 19",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 20",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 21",
+          "status": "unloaded"
+        },
+        {
+          "family": "OOPS Gothic Bitmap 22",
+          "status": "unloaded"
+        },
+        {
+          "family": "Material Icons",
+          "status": "loaded"
+        }
+      ]
+    }
+  ],
+  "pageErrors": []
+}

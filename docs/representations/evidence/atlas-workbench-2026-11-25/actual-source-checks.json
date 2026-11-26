@@ -1,0 +1,38 @@
+{
+  "viewport": "1366x850",
+  "entries": [
+    {
+      "id": "221e0889c81cd9655cfd425fb1688bd1d853032c8d1e1e4e2ea5a5ba6af05715",
+      "source": "lotm1c127",
+      "locators": [
+        "zh 第127章 p32"
+      ],
+      "status": "matched"
+    },
+    {
+      "id": "977a42730945b0ba79250e106e71c8f2c0518411248ee9067218820fc86d7715",
+      "source": "lotm1c128",
+      "locators": [
+        "zh 第128章 p41"
+      ],
+      "status": "matched"
+    },
+    {
+      "id": "d36ab6955de9976f57e6204e1cecd183e12acdc64f322f694b686582aecdb773",
+      "source": "lotm1c129",
+      "locators": [
+        "zh 第129章 p31"
+      ],
+      "status": "matched"
+    },
+    {
+      "id": "e9d91f20f0d853fff601abafa85e8be05c5d28c52fb9ac5be3d19ada168183db",
+      "source": "lotm1c127",
+      "locators": [
+        "zh 第127章 p28"
+      ],
+      "status": "matched"
+    }
+  ],
+  "errors": []
+}

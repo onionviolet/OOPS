@@ -135,9 +135,18 @@ try {
         await t.waitFor({timeout: 90000});
         const read = await t.locator('tbody tr[data-state=read]').count(), none = await t.locator('tbody tr[data-state=none]').count();
         assert.ok(read >= 15 && none >= 10, `read ${read}, none ${none}`);
-        assert.ok(await t.locator('td[data-state=rows]').count() >= 1, 'scenes without a cast pack show as rows not drawn');
+        const sourceScene = t.locator('a[href$="/reader-scenes"]:not([href*="/lotm/"]):not([href*="/mol/"])').first();
+        assert.ok(await sourceScene.count(), 'reader scenes are accessible without a cast pack');
         console.log('findings rows', read, 'read ·', none, 'planned only');
         await shot('reader-findings.png');
+        await sourceScene.click();
+        const index = page.locator('.reader-scenes');
+        await index.getByRole('heading', {name: /Reader scenes/}).waitFor();
+        assert.match(await index.innerText(), /Source records/);
+        await index.locator('tbody th a').first().click();
+        const record = index.locator('.reader-scene-record');
+        await record.getByRole('heading', {name: 'What happened', exact: true}).waitFor();
+        await record.getByText(/In OOPS/).waitFor();
     });
     check('LOTM things: items with workings marked', async () => {
         const c = await canvas('world/lotm/things', 'library');
@@ -149,14 +158,48 @@ try {
         assert.match(await inspector(c2), /Low-grade charm crafting/);
         await shot('things-lotm-items.png');
     });
+    check('LOTM Places opens a place record without losing the map', async () => {
+        const c = await canvas('world/lotm/places', 'book');
+        await page.getByRole('searchbox').fill('Klein');
+        await page.locator('nav.atlas-tools').getByRole('button', {name: /apartment/i}).first().click();
+        const place = c.locator('.reader-place-record');
+        for (const heading of ['What you can do here', 'Who’s around', 'Hours and access', 'Services', 'Prices', 'Linked scenes']) {
+            await place.getByRole('heading', {name: heading, exact: true}).waitFor();
+        }
+        await place.getByText(/In OOPS/).waitFor();
+    });
+    check('creatures from the readers: browse a world and open a creature', async () => {
+        await page.goto(base + '/#creatures/reader-creatures');
+        const link = page.locator('.reader-creature-worlds a').first();
+        await link.click();
+        const board = page.locator('[data-canvas-kind=library]').first();
+        await board.locator('.canvas-box').first().click();
+        const record = board.locator('.reader-creature-record');
+        await record.getByText(/In OOPS/).waitFor();
+        assert.match(await record.innerText(), /Reader reference/);
+    });
     check('LOTM making tree: silver sheet into charm crafting into the charms', async () => {
         await page.goto(base + '/#world/lotm/making/' + encodeURIComponent('lotm.item.silver-sheet'));
         const c = page.locator('[data-canvas-kind=library]').first();
         await c.locator('.canvas-box', {hasText: 'Low-grade charm crafting'}).waitFor({timeout: 90000});
         assert.ok(await c.locator('.canvas-box', {hasText: 'Slumber Charm'}).count(), 'slumber charm product');
+        await c.locator('.canvas-box', {hasText: 'Slumber Charm'}).first().click();
+        const charm = c.locator('.making-item-record');
+        for (const heading of ['What it does', 'How to make it', 'How to use it', 'People', 'Places', 'Scenes']) {
+            await charm.getByRole('heading', {name: heading, exact: true}).waitFor();
+        }
+        assert.match(await charm.innerText(), /Old Neil.*In OOPS/s);
         await c.locator('.canvas-box', {hasText: 'Low-grade charm crafting'}).click();
         assert.match(await inspector(c), /Takes: .*Silver sheet/);
         await shot('making-lotm-silver-sheet.png');
+        await c.getByRole('link', {name: 'Review charm candidates'}).click();
+        const cards = page.locator('.making-candidates');
+        await cards.getByRole('heading', {name: 'LOTM charm candidates'}).waitFor();
+        assert.equal(await cards.locator('.making-candidate').count(), 3);
+        assert.match(await cards.innerText(), /dream.*(?:recorded, no compiled steps|compiled)/i);
+        assert.match(await cards.innerText(), /Give activation its own command|Walk from inscription to use/);
+        await cards.getByRole('link', {name: 'Open the silver-sheet making tree'}).click();
+        await c.locator('.canvas-box', {hasText: 'Low-grade charm crafting'}).waitFor();
         await page.goto(base + '/#world/lotm/making');
         await page.locator('[data-canvas-kind=library] .canvas-box').first().waitFor({timeout: 90000});
         await shot('making-lotm-overview.png');
@@ -184,6 +227,11 @@ try {
         await page.locator('nav.atlas-tools').getByRole('button', {name: /^Klein Moretti/}).first().click();
         const k = page.locator('[data-canvas-kind=library]').first();
         await k.locator('.canvas-inspector h3', {hasText: 'Ties'}).waitFor({timeout: 90000});
+        const person = k.locator('.reader-person-record');
+        for (const heading of ['Who they are', 'What they do', 'Where and when', 'Linked scenes']) {
+            await person.getByRole('heading', {name: heading, exact: true}).waitFor();
+        }
+        await person.getByText(/In OOPS/).waitFor();
         await shot('things-lotm-klein-ties.png');
         await page.getByRole('button', {name: /^"Other" rows · /}).click();
         await page.locator('.sheet details summary', {hasText: 'rules pass'}).waitFor();
@@ -197,6 +245,11 @@ try {
         await c.locator('.canvas-box', {hasText: 'Iron short blade'}).first().waitFor({timeout: 90000});
         assert.match(await page.locator('nav.atlas-tools').innerText(), /added by OOPS/);
         await shot('making-oops-iron-ingot.png');
+        const ingot = c.locator('.reader-item-record');
+        await ingot.getByRole('heading', {name: 'Iron ingot', exact: true}).waitFor();
+        assert.match(await ingot.innerText(), /OOPS recipe records linked/);
+        await ingot.getByRole('link', {name: 'Iron short blade', exact: true}).first().click();
+        await page.locator('.making-item-sheet').getByRole('heading', {name: 'Inputs', exact: true}).waitFor();
         await page.goto(base + '/#world/yair/making');
         await page.locator('[data-canvas-kind=library] .canvas-box').first().waitFor({timeout: 90000});
     });
@@ -205,6 +258,25 @@ try {
         assert.ok(await c.locator('.canvas-box').count() >= 20);
         await page.goto(base + '/#world/coi/making');
         await page.locator('[data-canvas-kind=library] .canvas-box').first().waitFor({timeout: 90000});
+    });
+    check('LOTM Powers opens a source-first power record', async () => {
+        const board = await canvas('world/lotm/powers', 'library');
+        await board.locator('.canvas-box').first().click();
+        const record = board.locator('.reader-power-record');
+        for (const heading of ['What it does', 'How it’s used', 'How it’s learned', 'Costs and limits']) {
+            await record.getByRole('heading', {name: heading, exact: true}).waitFor();
+        }
+        await record.getByText(/In OOPS/).waitFor();
+    });
+    check('Groups opens an institution or census group from collected records', async () => {
+        const snapshot = await (await page.request.get(base + '/data')).json();
+        const world = snapshot.findings.worlds.find(w => w.read && w.groups);
+        assert.ok(world, 'a collected world has group records');
+        const board = await canvas(`world/${world.world}/groups`, 'library');
+        await board.locator('.canvas-box').first().click();
+        const record = board.locator('.reader-group-record');
+        await record.getByRole('heading', {name: 'What it is', exact: true}).waitFor();
+        await record.getByText(/In OOPS/).waitFor();
     });
     check('village region and legacy links still land', async () => {
         await canvas('world/village/places');

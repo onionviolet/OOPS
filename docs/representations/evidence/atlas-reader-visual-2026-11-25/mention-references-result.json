@@ -1,0 +1,95 @@
+{
+  "schema": "atlas-mention-reference-proof/1",
+  "measuredAt": "2026-11-26T07:20:18.779Z",
+  "route": "#library/outputs/wus8/wus8c037/census/census",
+  "api": "/reading-output-records/wus8/wus8c037/census/census?mentions=1",
+  "snapshotSha256": "b0983bb677fbea94ebd9f0652c497e5abc44ff40ac3fe3960e949763cb27fe2d",
+  "digestSha256": "93e0d911d5791d1c6f271b2a837f3727d156e2cb8a4bf83f2420b51f3b39c42f",
+  "contentHash": "sha256:4b03869d92acdd6fd2e3ffb6301a706f37e0767b444793f71bca19c22419a7e5",
+  "indexSha256": "c758f28cec05536a8a1259ffe3ac8fbc192c823419656517765c208389ce5775",
+  "sourceSha256": {
+    "prototypes/world-atlas/output-records.mjs": "08c49a73fae15c09776b25cb0f59573e91de556a2ea2cb9c611a277735c89e73",
+    "prototypes/world-atlas/output-mention-range.mjs": "aa0a7b111809db270f17f91176460ae7324ae384cba08bd02c2c05a31f4d98b5",
+    "prototypes/world-atlas/reading-output-view.mjs": "9f7ac8b704f9f3584465f592c78010495aad0cc673e45a6c0e08af58e68bc7b8"
+  },
+  "readingMethod": {
+    "status": "unknown",
+    "method": "unknown",
+    "label": "Reading method not attested",
+    "provider": "unknown",
+    "locatorScope": null,
+    "reason": "receipt-unavailable"
+  },
+  "counts": {
+    "fileRows": 223,
+    "matchedRows": 101,
+    "noPublicMatch": 0,
+    "ambiguous": 0,
+    "unindexed": 122,
+    "parseFailures": 0,
+    "readFailures": 0
+  },
+  "unchanged": {
+    "matchedRecords": true,
+    "fieldCoverage": true,
+    "counts": true
+  },
+  "totalReferences": 46,
+  "eligibleSourceRows": 46,
+  "pages": [
+    {
+      "offset": 0,
+      "size": 15,
+      "returned": 15
+    },
+    {
+      "offset": 15,
+      "size": 15,
+      "returned": 15
+    },
+    {
+      "offset": 30,
+      "size": 15,
+      "returned": 15
+    },
+    {
+      "offset": 45,
+      "size": 15,
+      "returned": 1
+    }
+  ],
+  "publicExamples": [
+    {
+      "label": "Abel's space alteration",
+      "href": "#world/wus/things/wus.ability.abel-spatial",
+      "focus": "wus.ability.abel-spatial",
+      "kind": "ability",
+      "locators": [
+        "en b8 c37 p2"
+      ],
+      "fileLines": [
+        [
+          142,
+          142
+        ]
+      ]
+    },
+    {
+      "label": "Wish granting",
+      "href": "#world/wus/things/wus.ability.wish",
+      "focus": "wus.ability.wish",
+      "kind": "ability",
+      "locators": [
+        "en b8 c37 p16"
+      ],
+      "fileLines": [
+        [
+          81,
+          81
+        ]
+      ]
+    }
+  ],
+  "allFourPagesReadMs": 187.63,
+  "browserVerified": false
+}

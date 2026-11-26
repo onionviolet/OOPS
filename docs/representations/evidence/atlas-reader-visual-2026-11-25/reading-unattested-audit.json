@@ -1,0 +1,3540 @@
+{
+  "schema": "atlas-unattested-count-audit/1",
+  "snapshotSha256": "1a6bb2199238025ab26cddae81269a585646ae80fa5130f7a7ee78a29e9f49a1",
+  "measurementProofSha256": "f7c891d52fea35cb3134059be3b3019968d90a2f6cd810ae83f9661a2263e717",
+  "total": 75,
+  "groups": {
+    "ss/census/selected-partial": 1,
+    "lotm/census/stage-not-admitted": 6,
+    "lotm/scenes/stage-not-admitted": 12,
+    "lotm/rules/stage-not-admitted": 12,
+    "lotm/people/stage-not-admitted": 12,
+    "lotm/texture/stage-not-admitted": 30,
+    "lotm/census/selected-partial": 1,
+    "ri/census/selected-partial": 1
+  },
+  "stageChecks": [
+    {
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2",
+      "censusRows": 47,
+      "sceneRows": 5,
+      "lintWithoutSource": {
+        "census": {},
+        "scenes": {
+          "locator-format": 6,
+          "action-class": 18,
+          "motive-tag": 3,
+          "anchor": 2
+        }
+      },
+      "originalVsMigratedCensusSame": false
+    },
+    {
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2r",
+      "censusRows": 223,
+      "sceneRows": 11,
+      "lintWithoutSource": {
+        "census": {},
+        "scenes": {
+          "action-class": 45,
+          "motive-tag": 19,
+          "touched-kind": 11,
+          "dep-missing": 10
+        }
+      },
+      "originalVsMigratedCensusSame": false
+    },
+    {
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s3r",
+      "censusRows": 173,
+      "sceneRows": 5,
+      "lintWithoutSource": {
+        "census": {},
+        "scenes": {
+          "action-class": 16,
+          "motive-tag": 1
+        }
+      },
+      "originalVsMigratedCensusSame": false
+    },
+    {
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s4r",
+      "censusRows": 104,
+      "sceneRows": 8,
+      "lintWithoutSource": {
+        "census": {},
+        "scenes": {
+          "action-class": 21,
+          "motive-tag": 3
+        }
+      },
+      "originalVsMigratedCensusSame": false
+    },
+    {
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s5r",
+      "censusRows": 121,
+      "sceneRows": 9,
+      "lintWithoutSource": {
+        "census": {},
+        "scenes": {
+          "action-class": 22,
+          "motive-tag": 9
+        }
+      },
+      "originalVsMigratedCensusSame": false
+    },
+    {
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s6r",
+      "censusRows": 52,
+      "sceneRows": 4,
+      "lintWithoutSource": {
+        "census": {},
+        "scenes": {
+          "action-class": 8
+        }
+      },
+      "originalVsMigratedCensusSame": false
+    }
+  ],
+  "entries": [
+    {
+      "markers": [
+        {
+          "pass": "census",
+          "kept": 66,
+          "dropped": 1
+        }
+      ],
+      "restoredHashMatches": true,
+      "world": "ss",
+      "key": "ss11",
+      "prefix": "ss11c2721",
+      "pass": "census",
+      "kind": "census",
+      "scope": "orphan",
+      "source": "canonical",
+      "partial": true,
+      "reason": "selected-partial",
+      "stage": null,
+      "headers": [
+        {
+          "lane": "ss11c2721",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 33552,
+      "sha256": "8599448021e4ecbc0b9740f52fe251fe1a3cdf7051db057ed67cb370718a0729",
+      "objects": 106,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2",
+      "pass": "census",
+      "kind": "census",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "1-3"
+      },
+      "headers": [
+        {
+          "lane": "s2",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 20343,
+      "sha256": "f67b991d9613d1cbfc36f114beeae7eb0cb0e21dfe0f61eff2582a436af4693a",
+      "objects": 47,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2",
+      "pass": "scenes",
+      "kind": "scenes",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "1-3"
+      },
+      "headers": [
+        {
+          "lane": "s2",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 11575,
+      "sha256": "f2def82f680b6c31a456f4758e849da9fcf42753d336fcabea7fac24d71780af",
+      "objects": 5,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2",
+      "pass": "scenes",
+      "kind": "fills",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "1-3"
+      },
+      "headers": [
+        {
+          "lane": "s2",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 2105,
+      "sha256": "418c7dc32d6ee17427d86a0cabda0fadd5433c9f53f63ea13a73a5c2dbddeff2",
+      "objects": 5,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2",
+      "pass": "rules",
+      "kind": "rules",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "1-3"
+      },
+      "headers": [
+        {
+          "lane": "s2",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 7058,
+      "sha256": "738c8fad34b20fbef1ff08996ac85e1bcccca2864d61c3b47c7f21ef8397d44f",
+      "objects": 7,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2",
+      "pass": "rules",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "1-3"
+      },
+      "headers": [
+        {
+          "lane": "s2",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 2761,
+      "sha256": "67cc1fa72f2d8c7206d7510cd874469ccc11abd211f89434e780d1145e01e903",
+      "objects": 18,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2",
+      "pass": "people",
+      "kind": "people",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "1-3"
+      },
+      "headers": [
+        {
+          "lane": "s2",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 6769,
+      "sha256": "a7e90b1beadbb7c033b4ff8e9aabfdc5168c011109b5d1ee3262123f0a5c13ca",
+      "objects": 8,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2",
+      "pass": "people",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "1-3"
+      },
+      "headers": [
+        {
+          "lane": "s2",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 5185,
+      "sha256": "0ccc317b4d072006d8e8f936aa2261ae710fd1cc10bba8b895f3d259292d7b20",
+      "objects": 29,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2",
+      "pass": "texture",
+      "kind": "places",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "1-3"
+      },
+      "headers": [
+        {
+          "lane": "s2",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 4501,
+      "sha256": "1e46ef56493ed404cfd6d5873e512911694bd5b9fab2581e402efc2f22c09555",
+      "objects": 17,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2",
+      "pass": "texture",
+      "kind": "services",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "1-3"
+      },
+      "headers": [
+        {
+          "lane": "s2",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 2797,
+      "sha256": "f495aba868b5076719a9b2933bc41d2f0b3801aea522f5099f7f1f669f98c8aa",
+      "objects": 13,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2",
+      "pass": "texture",
+      "kind": "news",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "1-3"
+      },
+      "headers": [
+        {
+          "lane": "s2",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 1688,
+      "sha256": "3558c05280b0984f9ca33f91d68bab6cea67528e67eaa92d8456071abe33738e",
+      "objects": 10,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2",
+      "pass": "texture",
+      "kind": "customs",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "1-3"
+      },
+      "headers": [
+        {
+          "lane": "s2",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 1314,
+      "sha256": "52e5da8d7a5281aa21d50c4f4483b7f90e6bb8ed56cd0c99302ab36dbf30615a",
+      "objects": 9,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2",
+      "pass": "texture",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "1-3"
+      },
+      "headers": [
+        {
+          "lane": "s2",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 4266,
+      "sha256": "2a5d56a10c6a3715ee19848ac3f1a7620a43a763d349d0cb0365e5867f7f627d",
+      "objects": 29,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2r",
+      "pass": "census",
+      "kind": "census",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "4-6"
+      },
+      "headers": [
+        {
+          "lane": "s2r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 93175,
+      "sha256": "a1d95230c7a2e2a559d1224df38fbcdd49a50f1a1fa59190423fe626b31dd8ea",
+      "objects": 223,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2r",
+      "pass": "scenes",
+      "kind": "scenes",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "4-6"
+      },
+      "headers": [
+        {
+          "lane": "s2r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 39596,
+      "sha256": "52def2b71438cbe7cf3617428193ab4e294a7395d68a4256a57b78d728d92fa6",
+      "objects": 11,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2r",
+      "pass": "scenes",
+      "kind": "fills",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "4-6"
+      },
+      "headers": [
+        {
+          "lane": "s2r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 5519,
+      "sha256": "9d65f01d8474fc13e3bb8b7cdd013502cc36d1abbf1ed386b0aa39696dc8628a",
+      "objects": 15,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2r",
+      "pass": "rules",
+      "kind": "rules",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "4-6"
+      },
+      "headers": [
+        {
+          "lane": "s2r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 7823,
+      "sha256": "c09a8110f3ec38dc4ad934464569f08feb8f87ca130572dc7d51428e007b8530",
+      "objects": 7,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2r",
+      "pass": "rules",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "4-6"
+      },
+      "headers": [
+        {
+          "lane": "s2r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 9384,
+      "sha256": "e971a2b6870ded0067e68f2ad913f8973d5258f88ecf063b038c8256055f2680",
+      "objects": 62,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2r",
+      "pass": "people",
+      "kind": "people",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "4-6"
+      },
+      "headers": [
+        {
+          "lane": "s2r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 14204,
+      "sha256": "de1c73ad0e7e421995e43bdf785401b0b6288913789771a27f016864a1d58206",
+      "objects": 10,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2r",
+      "pass": "people",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "4-6"
+      },
+      "headers": [
+        {
+          "lane": "s2r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 7618,
+      "sha256": "0261bb3e8fda906d6e4c6d1259b5e7e52aaac4f1c91b9696012327d420427ace",
+      "objects": 38,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2r",
+      "pass": "texture",
+      "kind": "places",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "4-6"
+      },
+      "headers": [
+        {
+          "lane": "s2r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 4467,
+      "sha256": "c4502ab96243ca0fa4301891d92b93b0cedadf35395d5dcc1c111524a0648f1b",
+      "objects": 20,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2r",
+      "pass": "texture",
+      "kind": "services",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "4-6"
+      },
+      "headers": [
+        {
+          "lane": "s2r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 3699,
+      "sha256": "bb079e92d469aa621ab6c25b39c8c7e62c4bf54277af4afa5619e21045f4ec35",
+      "objects": 17,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2r",
+      "pass": "texture",
+      "kind": "news",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "4-6"
+      },
+      "headers": [
+        {
+          "lane": "s2r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 1161,
+      "sha256": "dffbde45501caff83488e8f1c7db16c8aa0b705cf53d964ddbea2b06f6246872",
+      "objects": 7,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2r",
+      "pass": "texture",
+      "kind": "customs",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "4-6"
+      },
+      "headers": [
+        {
+          "lane": "s2r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 1489,
+      "sha256": "fa2151d4f078c1097380c545f1eebbc07c9d7042a90fd3c2d2d0994c6d2f30c5",
+      "objects": 12,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s2r",
+      "pass": "texture",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "4-6"
+      },
+      "headers": [
+        {
+          "lane": "s2r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s2r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 5869,
+      "sha256": "0b15148b3c97ffaafc03b90b5009602192db549043a708a42640cee3cb469df2",
+      "objects": 42,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s3r",
+      "pass": "census",
+      "kind": "census",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "7-8"
+      },
+      "headers": [
+        {
+          "lane": "s3r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s3r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 73289,
+      "sha256": "53d41fe631e4b7988d222d023a26fe9c81aaf8b8e2ed0f3e22151830fc399b33",
+      "objects": 173,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s3r",
+      "pass": "scenes",
+      "kind": "scenes",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "7-8"
+      },
+      "headers": [
+        {
+          "lane": "s3r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s3r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 21236,
+      "sha256": "e20c76a6111cebda873ad17aabb99fe9c265625b7291c596c0725c0674036114",
+      "objects": 5,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s3r",
+      "pass": "scenes",
+      "kind": "fills",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "7-8"
+      },
+      "headers": [
+        {
+          "lane": "s3r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s3r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 1964,
+      "sha256": "884e618395022f3e6cec196d793e149014349d77556ad16a5e149e049c7ac363",
+      "objects": 5,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s3r",
+      "pass": "rules",
+      "kind": "rules",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "7-8"
+      },
+      "headers": [
+        {
+          "lane": "s3r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s3r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 9253,
+      "sha256": "b12da099ddec2b8f730fdf3ba6379dd7e86cb361941d0fa1538fbf059e704389",
+      "objects": 10,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s3r",
+      "pass": "rules",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "7-8"
+      },
+      "headers": [
+        {
+          "lane": "s3r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s3r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 3608,
+      "sha256": "a884ae78c7f0f8789ac9a5bd947360d64f2ae9395065a02fde22b4a710ccb291",
+      "objects": 21,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s3r",
+      "pass": "people",
+      "kind": "people",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "7-8"
+      },
+      "headers": [
+        {
+          "lane": "s3r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s3r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 23335,
+      "sha256": "1dd0c3295eedf686dba0b31858f40a11601d02d7074a9a6a510b8d65871ee067",
+      "objects": 22,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s3r",
+      "pass": "people",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "7-8"
+      },
+      "headers": [
+        {
+          "lane": "s3r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s3r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 5449,
+      "sha256": "7cb9aaaf6fcbeb9114978de4763a9694919369164a2c4d262119b5f48e6a10c0",
+      "objects": 33,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s3r",
+      "pass": "texture",
+      "kind": "places",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "7-8"
+      },
+      "headers": [
+        {
+          "lane": "s3r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s3r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 4333,
+      "sha256": "eed55d9adf3818f5a35f6c413179ae97104c259492f3903ed1729f2b9b1e4b19",
+      "objects": 16,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s3r",
+      "pass": "texture",
+      "kind": "services",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "7-8"
+      },
+      "headers": [
+        {
+          "lane": "s3r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s3r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "objects": 0,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s3r",
+      "pass": "texture",
+      "kind": "news",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "7-8"
+      },
+      "headers": [
+        {
+          "lane": "s3r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s3r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 1941,
+      "sha256": "4067131ef4d0069e011d0f5f242c38e7705bf9067000dc2148a674f9d07a99e7",
+      "objects": 10,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s3r",
+      "pass": "texture",
+      "kind": "customs",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "7-8"
+      },
+      "headers": [
+        {
+          "lane": "s3r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s3r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 1513,
+      "sha256": "671c17e68e74fbcc03186ca470e8df3d8ebd9ae86ee606ead1dea11ab918f266",
+      "objects": 11,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s3r",
+      "pass": "texture",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "7-8"
+      },
+      "headers": [
+        {
+          "lane": "s3r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s3r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 6793,
+      "sha256": "cbeeea50b29b524d347e71a8954467f8cbb98648ab00be0c463d3d0742e1946e",
+      "objects": 48,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s4r",
+      "pass": "census",
+      "kind": "census",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "9-11"
+      },
+      "headers": [
+        {
+          "lane": "s4r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s4r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 38452,
+      "sha256": "9db0346b4e27d6a261dffa27620e4e5df5cc68c7ca666b07edd8d5273c55e84c",
+      "objects": 104,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s4r",
+      "pass": "scenes",
+      "kind": "scenes",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "9-11"
+      },
+      "headers": [
+        {
+          "lane": "s4r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s4r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 16399,
+      "sha256": "d341799a9cdbcae505d7e15d56268ceaa4e5a73ab2c555017c6e3b65a27bfd92",
+      "objects": 8,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s4r",
+      "pass": "scenes",
+      "kind": "fills",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "9-11"
+      },
+      "headers": [
+        {
+          "lane": "s4r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s4r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 1967,
+      "sha256": "9c455e1fc47c90b44bc5045e04c3653d20ba71807dbd67cd4c83df0ad759b6ed",
+      "objects": 6,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s4r",
+      "pass": "rules",
+      "kind": "rules",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "9-11"
+      },
+      "headers": [
+        {
+          "lane": "s4r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s4r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 8251,
+      "sha256": "92dbe392197a6c8244a40b37703a29ec12b2fcaf2f8eec8245d1d738d3e9433d",
+      "objects": 7,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s4r",
+      "pass": "rules",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "9-11"
+      },
+      "headers": [
+        {
+          "lane": "s4r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s4r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 4215,
+      "sha256": "bc363ddee9e72276d947616615ec34b0c46edf287b9c7fa449ceb89272cdf3ba",
+      "objects": 25,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s4r",
+      "pass": "people",
+      "kind": "people",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "9-11"
+      },
+      "headers": [
+        {
+          "lane": "s4r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s4r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 11266,
+      "sha256": "5a46a9a3972b96a469bc644c0d8f9526259e68882dce923439841f5026832b3a",
+      "objects": 17,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s4r",
+      "pass": "people",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "9-11"
+      },
+      "headers": [
+        {
+          "lane": "s4r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s4r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 6845,
+      "sha256": "eef3de37f5f3b4ad56b680488ed57596987a3b2daa62b1caaeeaae4f8156ca10",
+      "objects": 46,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s4r",
+      "pass": "texture",
+      "kind": "places",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "9-11"
+      },
+      "headers": [
+        {
+          "lane": "s4r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s4r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 4259,
+      "sha256": "f7e06908d07dc64c846ddcda045a34476bbe4edd634338fe16edbab91bd9be80",
+      "objects": 18,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s4r",
+      "pass": "texture",
+      "kind": "services",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "9-11"
+      },
+      "headers": [
+        {
+          "lane": "s4r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s4r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 1282,
+      "sha256": "27f87ecbc2b1bc4252d5387ff02a68e2394f1acfdb75afedd4073a3cdf407e80",
+      "objects": 7,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s4r",
+      "pass": "texture",
+      "kind": "news",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "9-11"
+      },
+      "headers": [
+        {
+          "lane": "s4r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s4r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 2523,
+      "sha256": "9696caa22bd23cc9f22a73e6b735b3a0757bb757effe61257f37b159a2014fc5",
+      "objects": 15,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s4r",
+      "pass": "texture",
+      "kind": "customs",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "9-11"
+      },
+      "headers": [
+        {
+          "lane": "s4r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s4r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 1379,
+      "sha256": "a5eafb213a8fdca706d10197f35d49b97123f7da7a2b38cc5ca00287326398e9",
+      "objects": 11,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s4r",
+      "pass": "texture",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "9-11"
+      },
+      "headers": [
+        {
+          "lane": "s4r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s4r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 4122,
+      "sha256": "3d59a2b9c9be4ada78973d5b48861f661da5f36bcc59de94325e4dcd09bd249e",
+      "objects": 33,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s5r",
+      "pass": "census",
+      "kind": "census",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "12-14"
+      },
+      "headers": [
+        {
+          "lane": "s5r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s5r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 48314,
+      "sha256": "1b7a61ab90b008562dd6a685d003444d1ea8e67bb136f14573964fb05a8fe5b5",
+      "objects": 121,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s5r",
+      "pass": "scenes",
+      "kind": "scenes",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "12-14"
+      },
+      "headers": [
+        {
+          "lane": "s5r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s5r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 18765,
+      "sha256": "35d036ca581e0fb222da728218e66918693d49ad59b0a977f7de26a05fd87aec",
+      "objects": 9,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s5r",
+      "pass": "scenes",
+      "kind": "fills",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "12-14"
+      },
+      "headers": [
+        {
+          "lane": "s5r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s5r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 2182,
+      "sha256": "dcaa5a975b01a93286f7b98a6c9c6788d6fbbfa92adf5f03cb3ff45240d8af48",
+      "objects": 6,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s5r",
+      "pass": "rules",
+      "kind": "rules",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "12-14"
+      },
+      "headers": [
+        {
+          "lane": "s5r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s5r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 8712,
+      "sha256": "5699ed12cd5be69df786b68e416b17cbc6c61435bac1682e4f2c171f0ce6adc9",
+      "objects": 7,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s5r",
+      "pass": "rules",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "12-14"
+      },
+      "headers": [
+        {
+          "lane": "s5r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s5r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 6740,
+      "sha256": "b3bccde424b53b5d8ef938fd4cfa2875cffed6aa9370aeb1caf026042da94399",
+      "objects": 40,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s5r",
+      "pass": "people",
+      "kind": "people",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "12-14"
+      },
+      "headers": [
+        {
+          "lane": "s5r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s5r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 17603,
+      "sha256": "3b0b23f7f9118bf5dc4d89c73d735c332c784c43bed3d475c54015722b11db4b",
+      "objects": 15,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s5r",
+      "pass": "people",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "12-14"
+      },
+      "headers": [
+        {
+          "lane": "s5r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s5r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 8436,
+      "sha256": "a155fa3af17fcb6d9b6f9af07ea179f21df58fecce3b6f9455d10b7fa8d965eb",
+      "objects": 44,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s5r",
+      "pass": "texture",
+      "kind": "places",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "12-14"
+      },
+      "headers": [
+        {
+          "lane": "s5r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s5r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 3736,
+      "sha256": "b761bce7e974d186b56f431e3306a6e126494578c3bb8cdd42dcd4d9cbd331b5",
+      "objects": 15,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s5r",
+      "pass": "texture",
+      "kind": "services",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "12-14"
+      },
+      "headers": [
+        {
+          "lane": "s5r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s5r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 953,
+      "sha256": "93bd6bad8420ae91860255f4067e927168de5180be08e465bc5045926111e3e6",
+      "objects": 5,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s5r",
+      "pass": "texture",
+      "kind": "news",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "12-14"
+      },
+      "headers": [
+        {
+          "lane": "s5r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s5r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 1205,
+      "sha256": "e76e9a781d264e8eb896433060f155c5b7bf62fd429c9d0e53ddcc1923bee31a",
+      "objects": 7,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s5r",
+      "pass": "texture",
+      "kind": "customs",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "12-14"
+      },
+      "headers": [
+        {
+          "lane": "s5r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s5r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 813,
+      "sha256": "3e99dbc9d15e8cf05e2a169e29d71acf81189bac513d9cac3396adc6ecf2515c",
+      "objects": 6,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s5r",
+      "pass": "texture",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "12-14"
+      },
+      "headers": [
+        {
+          "lane": "s5r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s5r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 5746,
+      "sha256": "19b594cebf0eae4159064bd787466bc0e6649fd0406a2cfc44c8379ae27d0a61",
+      "objects": 36,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s6r",
+      "pass": "census",
+      "kind": "census",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "15"
+      },
+      "headers": [
+        {
+          "lane": "s6r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s6r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 19784,
+      "sha256": "deb7f1625ff862b00826b3515dd0dee998decfdbf199623d8391f833824132ec",
+      "objects": 52,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s6r",
+      "pass": "scenes",
+      "kind": "scenes",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "15"
+      },
+      "headers": [
+        {
+          "lane": "s6r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s6r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 9069,
+      "sha256": "b7ced8f8a184a03d18a4b2eb6bd83457710890a2896bb22258da2136dc205559",
+      "objects": 4,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s6r",
+      "pass": "scenes",
+      "kind": "fills",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "15"
+      },
+      "headers": [
+        {
+          "lane": "s6r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s6r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 2138,
+      "sha256": "0aa5f306873b8a687e71c88a62169015690a49415b9430d202d35e72951d5939",
+      "objects": 6,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s6r",
+      "pass": "rules",
+      "kind": "rules",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "15"
+      },
+      "headers": [
+        {
+          "lane": "s6r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s6r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 3455,
+      "sha256": "61dc0cf631478ed9424fb86834b3fda5c2705d0eda6a9bfa52ff75fddb3f52ef",
+      "objects": 6,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s6r",
+      "pass": "rules",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "15"
+      },
+      "headers": [
+        {
+          "lane": "s6r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s6r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 4018,
+      "sha256": "b85f54eca1944fd864ecb7e5a822d293ab4d490dd0979a28098418304fed6586",
+      "objects": 23,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s6r",
+      "pass": "people",
+      "kind": "people",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "15"
+      },
+      "headers": [
+        {
+          "lane": "s6r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s6r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 10085,
+      "sha256": "8d3d5229f3cab0a8b03494ef7d85607f2b2536124940e27d84adac8b0f86f87f",
+      "objects": 11,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s6r",
+      "pass": "people",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "15"
+      },
+      "headers": [
+        {
+          "lane": "s6r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s6r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 5980,
+      "sha256": "d42d8059e1921adcfdebc4ac35a7a67c9eb4a4cb98c90360cdea9ff6cb8f5229",
+      "objects": 38,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s6r",
+      "pass": "texture",
+      "kind": "places",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "15"
+      },
+      "headers": [
+        {
+          "lane": "s6r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s6r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 1755,
+      "sha256": "34d3949e94c91e4212c07d0e2827b99f12730abfe74f31e50a2b28be55e6f6e5",
+      "objects": 7,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s6r",
+      "pass": "texture",
+      "kind": "services",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "15"
+      },
+      "headers": [
+        {
+          "lane": "s6r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s6r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 869,
+      "sha256": "5a1f4e00cb2408010f019a8892a9b2399b88df60e441d157d29db569ce71973d",
+      "objects": 4,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s6r",
+      "pass": "texture",
+      "kind": "news",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "15"
+      },
+      "headers": [
+        {
+          "lane": "s6r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s6r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 199,
+      "sha256": "868fbb012b69c2ed2726168d8e65bb1b35ffa33e0126ea57712688c49b7e5c7e",
+      "objects": 1,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s6r",
+      "pass": "texture",
+      "kind": "customs",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "15"
+      },
+      "headers": [
+        {
+          "lane": "s6r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s6r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 938,
+      "sha256": "dcca8b89c141e74a86908079a7eeee6b980a96c27f0f75fc67704c4ba5312e51",
+      "objects": 6,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm2",
+      "prefix": "s6r",
+      "pass": "texture",
+      "kind": "other",
+      "scope": "legacy",
+      "source": "canonical",
+      "partial": false,
+      "reason": "stage-not-admitted",
+      "stage": {
+        "family": "graded-stage",
+        "grade": "C",
+        "gradingStatus": "header-recorded",
+        "admitted": false,
+        "chapters": "15"
+      },
+      "headers": [
+        {
+          "lane": "s6r",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "C",
+          "lint": "fail",
+          "sourceHashValid": true
+        },
+        {
+          "lane": "s6r",
+          "migrated": false,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 2607,
+      "sha256": "785edec2fc8d553c8d33eb13607be5ce234f7c0de6627a8ec7a267971d219f6d",
+      "objects": 17,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [
+        {
+          "pass": "census",
+          "kept": 63,
+          "dropped": 1
+        }
+      ],
+      "restoredHashMatches": true,
+      "world": "lotm",
+      "key": "lotm5",
+      "prefix": "lotm5c132",
+      "pass": "census",
+      "kind": "census",
+      "scope": "orphan",
+      "source": "canonical",
+      "partial": true,
+      "reason": "selected-partial",
+      "stage": null,
+      "headers": [
+        {
+          "lane": "lotm5c132",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 29416,
+      "sha256": "95a9058eec8a9866b5bf3789b937d06dfa60b52773621e38b47608bb74a3cb5a",
+      "objects": 89,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    },
+    {
+      "markers": [
+        {
+          "pass": "census",
+          "kept": 37,
+          "dropped": 1
+        }
+      ],
+      "restoredHashMatches": true,
+      "world": "ri",
+      "key": "ri2",
+      "prefix": "ri2c105",
+      "pass": "census",
+      "kind": "census",
+      "scope": "orphan",
+      "source": "canonical",
+      "partial": true,
+      "reason": "selected-partial",
+      "stage": null,
+      "headers": [
+        {
+          "lane": "ri2c105",
+          "migrated": true,
+          "schema": "shard-header/1.3",
+          "grade": "B",
+          "lint": "pass",
+          "sourceHashValid": true
+        }
+      ],
+      "bytes": 16966,
+      "sha256": "2070c3288f6848038ef923df0aac9305d91d8420442aedae8eb0183eb3e4737e",
+      "objects": 51,
+      "invalidLines": 0,
+      "digestFileBinding": false,
+      "digestHashMatches": null,
+      "inspected": false,
+      "readErrors": 0
+    }
+  ],
+  "note": "Metadata/byte validation only; no source prose, fresh chapter reading, method attestation or gate change."
+}

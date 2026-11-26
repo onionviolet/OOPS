@@ -5,7 +5,7 @@
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync} from 'node:fs';
-import {dirname, join} from 'node:path';
+import {dirname, join, resolve} from 'node:path';
 
 const here = fileURLToPath(new URL('.', import.meta.url)), root = join(here, '..', '..');
 export const SNAPSHOT = process.env.ATLAS_SNAPSHOT || join(root, 'work/atlas-snapshot/snapshot.json');
@@ -37,7 +37,7 @@ export function latestProgress(dir = join(root, 'docs/reports')) {
     return files.length ? {file: 'docs/reports/' + files.at(-1), ...readJson(join(dir, files.at(-1)))} : null;
 }
 
-export function buildSnapshot() {
+export function buildSnapshot({out = SNAPSHOT} = {}) {
     const timings = {}, failures = [];
     const part = (name, fn, required = false) => {
         const t = Date.now();
@@ -63,19 +63,19 @@ export function buildSnapshot() {
     const mechanics = part('mechanics', () => run('mechanics.mjs'));
     const progress = part('progress', () => latestProgress());
     // Reader findings: the matrix rides in the snapshot; one digest per world goes beside it for the Things and Making views.
-    const findings = part('findings', () => run('reader-findings.mjs', ['--out-dir', READERS]));
+    const findings = part('findings', () => run('reader-findings.mjs', ['--out-dir', join(dirname(out), 'readers')]), true);
     const recipes = part('recipes', () => run('game-recipes.mjs'));
     const gameMaking = part('gameMaking', () => run('game-making.mjs'));
     const snapshot = {builtAt: new Date().toISOString(), commit: execFileSync('git', ['rev-parse', '--short', 'HEAD'], {cwd: root, encoding: 'utf8'}).trim(),
-        timings, failures, books, frontier: native.frontier, others: native.others, sources, mechanics, progress, findings, recipes, gameMaking};
+        timings, failures, books, frontier: native.frontier, others: native.others, registeredTravel:native.registeredTravel??null, sources, mechanics, progress, findings, recipes, gameMaking};
     return snapshot;
 }
 
 export function readSnapshot(file = SNAPSHOT) {return existsSync(file) ? readJson(file) : null;}
 
 if (import.meta.main) {
-    const i = process.argv.indexOf('--out'), out = i > 0 ? process.argv[i + 1] : SNAPSHOT;
-    const s = buildSnapshot();
+    const i = process.argv.indexOf('--out'), out = i > 0 ? resolve(process.argv[i + 1]) : SNAPSHOT;
+    const s = buildSnapshot({out});
     mkdirSync(dirname(out), {recursive: true});
     writeFileSync(out, JSON.stringify(s));
     const count = v => v ? v.places?.length ?? v.length ?? Object.keys(v).length : 0;

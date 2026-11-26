@@ -1,0 +1,514 @@
+{
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "noRequestBeforeClick": true,
+  "secondaryViewport": {
+    "width": 1366,
+    "height": 768,
+    "horizontalOverflow": false
+  },
+  "sharedReload": true,
+  "backPreservesFilters": true,
+  "results": [
+    {
+      "chapter": 127,
+      "status": "12 of 12 expected outputs examined · 1 examined empty · 87 of 88 source rows matched · 1 withheld",
+      "url": "http://127.0.0.1:4187/#library/outputs/lotm1?pass=rules&chapter=127&coverage=lotm1c127",
+      "coverage": {
+        "key": "lotm1",
+        "prefix": "lotm1c127",
+        "status": "inspected",
+        "expected": 12,
+        "examined": 12,
+        "empty": 1,
+        "counts": {
+          "fileRows": 88,
+          "matchedRows": 87,
+          "noPublicMatch": 1,
+          "ambiguous": 0,
+          "unindexed": 0,
+          "parseFailures": 0,
+          "readFailures": 0
+        },
+        "outputs": [
+          {
+            "pass": "census",
+            "kind": "census",
+            "label": "Census",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 49,
+              "matchedRows": 49,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 49
+          },
+          {
+            "pass": "scenes",
+            "kind": "scenes",
+            "label": "Scenes",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 3,
+              "matchedRows": 3,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 3
+          },
+          {
+            "pass": "scenes",
+            "kind": "fills",
+            "label": "Authored fills",
+            "status": "empty",
+            "inspected": true,
+            "counts": {
+              "fileRows": 0,
+              "matchedRows": 0,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 0
+          },
+          {
+            "pass": "rules",
+            "kind": "rules",
+            "label": "Rules",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 11,
+              "matchedRows": 11,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 11
+          },
+          {
+            "pass": "rules",
+            "kind": "other",
+            "label": "Other observations",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 3,
+              "matchedRows": 3,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 3
+          },
+          {
+            "pass": "people",
+            "kind": "people",
+            "label": "People",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 9,
+              "matchedRows": 9,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 9
+          },
+          {
+            "pass": "people",
+            "kind": "other",
+            "label": "Other observations",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 1,
+              "matchedRows": 1,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 1
+          },
+          {
+            "pass": "texture",
+            "kind": "places",
+            "label": "Places",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 5,
+              "matchedRows": 5,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 5
+          },
+          {
+            "pass": "texture",
+            "kind": "services",
+            "label": "Services and prices",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 1,
+              "matchedRows": 1,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 1
+          },
+          {
+            "pass": "texture",
+            "kind": "news",
+            "label": "News",
+            "status": "no-public-match",
+            "inspected": true,
+            "counts": {
+              "fileRows": 1,
+              "matchedRows": 0,
+              "noPublicMatch": 1,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 0
+          },
+          {
+            "pass": "texture",
+            "kind": "customs",
+            "label": "Customs",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 2,
+              "matchedRows": 2,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 2
+          },
+          {
+            "pass": "texture",
+            "kind": "other",
+            "label": "Other observations",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 3,
+              "matchedRows": 3,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 3
+          }
+        ],
+        "note": "Source rows matched to this Atlas snapshot. Withheld rows reveal no private details. These counts do not establish implemented gameplay."
+      }
+    },
+    {
+      "chapter": 128,
+      "status": "12 of 12 expected outputs examined · 1 examined empty · 133 of 134 source rows matched · 1 withheld",
+      "url": "http://127.0.0.1:4187/#library/outputs/lotm1?pass=rules&chapter=128&coverage=lotm1c128",
+      "coverage": {
+        "key": "lotm1",
+        "prefix": "lotm1c128",
+        "status": "inspected",
+        "expected": 12,
+        "examined": 12,
+        "empty": 1,
+        "counts": {
+          "fileRows": 134,
+          "matchedRows": 133,
+          "noPublicMatch": 1,
+          "ambiguous": 0,
+          "unindexed": 0,
+          "parseFailures": 0,
+          "readFailures": 0
+        },
+        "outputs": [
+          {
+            "pass": "census",
+            "kind": "census",
+            "label": "Census",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 77,
+              "matchedRows": 77,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 77
+          },
+          {
+            "pass": "scenes",
+            "kind": "scenes",
+            "label": "Scenes",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 5,
+              "matchedRows": 5,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 5
+          },
+          {
+            "pass": "scenes",
+            "kind": "fills",
+            "label": "Authored fills",
+            "status": "empty",
+            "inspected": true,
+            "counts": {
+              "fileRows": 0,
+              "matchedRows": 0,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 0
+          },
+          {
+            "pass": "rules",
+            "kind": "rules",
+            "label": "Rules",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 7,
+              "matchedRows": 7,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 7
+          },
+          {
+            "pass": "rules",
+            "kind": "other",
+            "label": "Other observations",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 4,
+              "matchedRows": 4,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 4
+          },
+          {
+            "pass": "people",
+            "kind": "people",
+            "label": "People",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 7,
+              "matchedRows": 7,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 7
+          },
+          {
+            "pass": "people",
+            "kind": "other",
+            "label": "Other observations",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 2,
+              "matchedRows": 2,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 2
+          },
+          {
+            "pass": "texture",
+            "kind": "places",
+            "label": "Places",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 14,
+              "matchedRows": 14,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 14
+          },
+          {
+            "pass": "texture",
+            "kind": "services",
+            "label": "Services and prices",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 10,
+              "matchedRows": 10,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 10
+          },
+          {
+            "pass": "texture",
+            "kind": "news",
+            "label": "News",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 2,
+              "matchedRows": 1,
+              "noPublicMatch": 1,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 1
+          },
+          {
+            "pass": "texture",
+            "kind": "customs",
+            "label": "Customs",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 2,
+              "matchedRows": 2,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 2
+          },
+          {
+            "pass": "texture",
+            "kind": "other",
+            "label": "Other observations",
+            "status": "collected",
+            "inspected": true,
+            "counts": {
+              "fileRows": 4,
+              "matchedRows": 4,
+              "noPublicMatch": 0,
+              "ambiguous": 0,
+              "unindexed": 0,
+              "parseFailures": 0,
+              "readFailures": 0
+            },
+            "linkedRecords": 4
+          }
+        ],
+        "note": "Source rows matched to this Atlas snapshot. Withheld rows reveal no private details. These counts do not establish implemented gameplay."
+      }
+    }
+  ],
+  "errors": [],
+  "inputs": {
+    "snapshotSha256": "b6bbd9a4891b0f783110a02fbe645dfb826abddfddb020b281816a564d19c549",
+    "lotmDigestSha256": "05ca03834594f622dfbc4dbf657f221639b0252a47afba13bca5aed1c03c0704"
+  },
+  "actualSerialComplete": [
+    {
+      "chapter": 127,
+      "measurement": "serial-complete",
+      "counts": {
+        "fileRows": 88,
+        "matchedRows": 87,
+        "noPublicMatch": 1,
+        "ambiguous": 0,
+        "unindexed": 0,
+        "parseFailures": 0,
+        "readFailures": 0
+      }
+    },
+    {
+      "chapter": 128,
+      "measurement": "serial-complete",
+      "counts": {
+        "fileRows": 134,
+        "matchedRows": 133,
+        "noPublicMatch": 1,
+        "ambiguous": 0,
+        "unindexed": 0,
+        "parseFailures": 0,
+        "readFailures": 0
+      }
+    }
+  ],
+  "completeBrowser": {
+    "quickLimitBranch": "Synthetic HTTP limit response only; actual complete result uses held current chapter",
+    "completeRequests": 2,
+    "sharedReload": true,
+    "actualMatched": 133,
+    "actualRows": 134
+  }
+}

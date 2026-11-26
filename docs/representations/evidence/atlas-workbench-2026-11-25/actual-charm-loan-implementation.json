@@ -1,0 +1,56 @@
+{
+  "id": "d36ab6955de9976f57e6204e1cecd183e12acdc64f322f694b686582aecdb773",
+  "record": {
+    "label": "Borrow a charm and replace it if consumed",
+    "type": "rule",
+    "route": "#world/lotm/things/lotm.rule.borrowed-slumber-replacement"
+  },
+  "source": {
+    "book": "lotm1",
+    "world": "lotm",
+    "prefix": "lotm1c129",
+    "pass": "rules",
+    "kind": "rules",
+    "contentHash": "sha256:523e004e19ab6d2996ffac12de5d7acf0d59f08fca7afba6de0e342a2b08a9be",
+    "method": "manual-structured-reading",
+    "fileLines": [
+      [
+        2,
+        2
+      ]
+    ],
+    "locators": [
+      "zh 第129章 p31"
+    ],
+    "offset": 0
+  },
+  "stage": "proposed",
+  "implementationReports": [
+    {
+      "id": "1e824cf32a6d1d77b8fde809367912c1f8fcb7bb366ebb73a7ad87576b207b17",
+      "schema": "atlas-reading-implementation/1",
+      "proposalId": "d36ab6955de9976f57e6204e1cecd183e12acdc64f322f694b686582aecdb773",
+      "consumer": {
+        "name": "Old Neil’s Slumber loan and repayment in kind",
+        "path": "src/lotm_charm_loan.js",
+        "resolvedPath": "src/lotm_charm_loan.js",
+        "sha256": "8872eb6c7409c17f8fcc075aeed98ba218d99148ff9241699f30573faf73f8da"
+      },
+      "playerRoute": "With Old Neil present and holding a lendable Slumber charm, borrow the physical charm. Return it unused, or activate it and later give him a crafted replacement. The native fixture supplied his starting stock and tested custody, sleep and settlement across save and import.",
+      "receipt": {
+        "path": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_BORROWED_CHARM_HANDOFF_2026-11-25.md",
+        "resolvedPath": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_BORROWED_CHARM_HANDOFF_2026-11-25.md",
+        "sha256": "93234f035036d1075354262044cb725d1f12222a9b736aebef80d9a99436765c"
+      },
+      "status": "implementation-report-attached",
+      "files": {
+        "consumer": {
+          "status": "unchanged"
+        },
+        "receipt": {
+          "status": "unchanged"
+        }
+      }
+    }
+  ]
+}

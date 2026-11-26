@@ -1,0 +1,9 @@
+{
+  "viewport": "1366x850",
+  "route": "#world/hp/places/book.hp.lead.school_hall",
+  "href": "#workbench/handoffs/5f0c07c35f376c6433a9967abc683ba9044ea752881f5a93cf23592ae7813f9c",
+  "label": "Backlog · Extend one source-supported application of an already earned skill/power into useful work or exploration",
+  "consumer": "src/hp_library_work.js",
+  "unknownActivity": 404,
+  "errors": []
+}

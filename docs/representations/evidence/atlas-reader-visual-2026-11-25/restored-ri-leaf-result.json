@@ -1,0 +1,51 @@
+{
+  "mode": "Normal default Atlas/queue; actual restored output; no native gameplay replay",
+  "id": "69772c5a2df1f201e9299ef2b923eb24fbe1093a99b4d79ad5ad8f4e27320724",
+  "source": {
+    "contentHash": "sha256:cdde01826ef8ef737882a15845f03dc70ee3aa474a57c6aa45ae2513e1a4c019",
+    "counts": {
+      "fileRows": 9,
+      "matchedRows": 9,
+      "noPublicMatch": 0,
+      "ambiguous": 0,
+      "unindexed": 0,
+      "parseFailures": 0,
+      "readFailures": 0
+    },
+    "method": {
+      "status": "unknown",
+      "method": "unknown",
+      "label": "Reading method not attested",
+      "provider": "unknown",
+      "locatorScope": null,
+      "reason": "receipt-unavailable"
+    },
+    "record": {
+      "type": "rule",
+      "key": "rule:ri.rule.vitality-leaf-healing:entry:1037",
+      "label": "Vitality leaf healing",
+      "locator": "zh b2 第102章 p60",
+      "locators": [
+        "zh b2 第102章 p60"
+      ],
+      "view": "things",
+      "focus": "ri.rule.vitality-leaf-healing",
+      "href": "#world/ri/things/ri.rule.vitality-leaf-healing",
+      "fileLines": [
+        [
+          8,
+          8
+        ]
+      ],
+      "fileLocators": [
+        "zh b2 第102章 p60"
+      ]
+    }
+  },
+  "refreshPreserved": true,
+  "immutablePacketVerified": true,
+  "implementationReports": 1,
+  "nativeAttachments": 0,
+  "sourceVersionMatches": true,
+  "errors": []
+}

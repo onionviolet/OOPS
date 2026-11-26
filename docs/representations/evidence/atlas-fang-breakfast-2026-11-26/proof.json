@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "method": "owned fresh headless Chromium; no signed-in profile",
+  "viewports": [
+    [
+      1280,
+      720
+    ],
+    [
+      1920,
+      1080
+    ]
+  ],
+  "checks": [
+    "Actual Find Fang Zheng → existing Fang card → readable breakfast; both custody outcomes at1280×720",
+    "Same readable page: authored15 estimate, desktop draw, near-cap/refusal and older-save conservation",
+    "Checked17/18 source, absent Shen Cui, physical pouch and authored refusal shown separately",
+    "Back to existing card and paid-inn → later breakfast cross-link roundtrip",
+    "Distinct native/desktop/already-paid builds disclosed"
+  ],
+  "errors": [],
+  "inputHashes": {
+    "prototypes/world-atlas/atlas-native-evidence.mjs": "68839b851e5d9340db3e4d4f8ce7717da46c1a2860adb454d9457a957c736782",
+    "prototypes/world-atlas/atlas-native-evidence-view.mjs": "f58c058415aad1e647a3e42855b471bef6a9e0c7f8d0bb2777f17f6f9cc2a796",
+    "prototypes/world-atlas/paid-inn-evidence-view.mjs": "b3b88b94d8f36f3383f66959e6957d680f923259eb19de9944f9a7cba69b0ab9",
+    "prototypes/world-atlas/breakfast-evidence-view.mjs": "8329067cc2974b3e5deba11fd4e736534e48c4c66d55b324497e876b228800ea",
+    "prototypes/world-atlas/serve.mjs": "b9f914e9a376882837fe59f1bd56a1c465e1db58b5cacce177b0b308c1d27f16",
+    "prototypes/world-atlas/index.html": "a97abd053bec3436a302b3d7dbf48bd76b01bf8943f6c618c8db5d6e50290481",
+    "prototypes/world-atlas/atlas-type.css": "159d39649fff339abd8630b27692d1f91216158d53157838d7ac820aa48fe23a",
+    "prototypes/world-atlas/canvas.css": "bcdaf79a8f5f4e5ffe0b19a7a64116112280566f278d8c66debc2d091cb363ed",
+    "prototypes/world-atlas/canvas.mjs": "a1cc06e00a5482bb89ab9c18ca7ce73ef1672f45bbd86b01bdbcb3b4be333744",
+    "styles/ui_tokens.css": "db2cbf7f3b03d116618e3e177e63d8d33aa0884ca6cd3c9e390e9f2a9ac4dc78",
+    "docs/representations/evidence/fang-yuan-first-night-2026-11-26/breakfast.json": "5d85be99206ff10524d8f8f0e9f35df8379df46be5f937b98d3e2efd83affe6f",
+    "docs/representations/evidence/fang-yuan-first-night-2026-11-26/half-stone.json": "d1af5fe43048eb2a06bc4469f1cd10a5e0c9c0d092f82aef09fef592d549af72",
+    "docs/representations/evidence/fang-yuan-first-night-2026-11-26/proof.json": "2dd55536e1097e3302ede9f534d086e0e05b7d8ea45025ded1d22e7b76534b76",
+    "docs/representations/evidence/fang-yuan-first-night-2026-11-26/paid-inn.json": "f3cb4c7279bfbdb9de8dddc6142b74e1528054bad47696b481a76136f1c42f21"
+  },
+  "historicalMetadataUnchanged": true
+}

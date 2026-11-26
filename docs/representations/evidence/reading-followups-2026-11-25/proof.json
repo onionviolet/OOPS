@@ -1,0 +1,44 @@
+{
+  "viewport": "1366x900",
+  "normalDefault": true,
+  "hpUnindexed": {
+    "files": 199,
+    "first": {
+      "key": "hp5",
+      "prefix": "hp5c031",
+      "pass": "census",
+      "kind": "census",
+      "counts": {
+        "expected": 1,
+        "selected": 1,
+        "inspected": 1,
+        "missing": 0,
+        "partial": 0,
+        "unattested": 0,
+        "parsedRows": 193,
+        "matchedRows": 176,
+        "withheldRows": 0,
+        "ambiguousRows": 0,
+        "unindexedRows": 17,
+        "parseErrors": 0,
+        "readErrors": 0
+      },
+      "reasons": [
+        "unindexed"
+      ],
+      "route": "#library/outputs/hp5/hp5c031/census/census"
+    },
+    "outputUnindexed": 17
+  },
+  "hpMissingFiles": 0,
+  "aslMissingFiles": 264,
+  "pagination": "actual files1–25 /26–50 /1–25",
+  "legacy": "remeasure without rows",
+  "staleLegacy": "stale plus remeasure without rows",
+  "staleCurrent": "stale warning with saved rows retained",
+  "noEagerFollowupFetch": true,
+  "bookFieldDetailPreserved": true,
+  "pageErrors": [],
+  "viewSha256": "fba9f287ddf5e8d98965c82a9f70fc1312e46148e76d44e90c0ea72ba335c8fd",
+  "calculationSha256": "156657bccef33bec7cb6f29e3c81594c6682d1a6e60470a24b385de706ef461c"
+}

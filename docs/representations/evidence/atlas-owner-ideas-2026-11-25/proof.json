@@ -1,0 +1,26 @@
+{
+  "viewport": "1366x768",
+  "owner": "docs/research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md",
+  "documentHash": "66db5cedf058a9e90f827d63ae128517167063acc8b9e5b16d14340b767de186",
+  "idea": {
+    "id": "f9dceadaf608390dd3b2a5be153162ddedc37548d8dd2ff66d985c977d673f48",
+    "code": "N2",
+    "reference": "docs/research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md#idea-f9dceadaf608390dd3b2a5be153162ddedc37548d8dd2ff66d985c977d673f48",
+    "sourceReference": "docs/research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md#L211"
+  },
+  "snapshotSha256": "86706819b5f3df29aa04dd2ac1da05d679c62d6e71b4cb34a69e9a778ee79950",
+  "initialContentRequests": 0,
+  "afterBrowseContentRequests": 1,
+  "verified": [
+    "one owner fetched on demand",
+    "N2 and rank-table P2",
+    "distinct section-scoped A1 identities",
+    "exact source-hash reference resolves",
+    "owner reference prefilled in actual unsubmitted handoff",
+    "unknown ID refused",
+    "private/escaped paths refused",
+    "no overflow or page errors"
+  ],
+  "boundary": "No source reading, saved real proposal, game state or owner text changed; immutable save/drift is tested in a throwaway fixture",
+  "errors": []
+}

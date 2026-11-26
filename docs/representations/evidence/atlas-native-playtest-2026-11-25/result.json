@@ -1,0 +1,80 @@
+{
+  "viewport": "1920x1080",
+  "currentBundleSha256": "027e28270ce0a49f2165716fea2164622695e6404005d191a379b4a13ad0de6c",
+  "results": [
+    {
+      "proposalId": "d36ab6955de9976f57e6204e1cecd183e12acdc64f322f694b686582aecdb773",
+      "reportId": "1e824cf32a6d1d77b8fde809367912c1f8fcb7bb366ebb73a7ad87576b207b17",
+      "attachmentId": "10d5d45d7f386d132db2e99a347dfb8b7ba7e48e3505f66c2050ffc3f2dc09dd",
+      "proofPath": "docs/representations/evidence/lotm-charm-loan-2026-11-25/proof.json",
+      "proofSha256": "caf72912cec71e5962b19ce57f76ed1ccf8205c3ed7e4cab31a7a4b9fbe9b017",
+      "testedBundleSha256": "027e28270ce0a49f2165716fea2164622695e6404005d191a379b4a13ad0de6c",
+      "status": "exact-match",
+      "entry": {
+        "route": "named prerequisite fixture with one actual Old Neil charm, ordinary borrow/return/burn/craft/replacement controls",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        }
+      },
+      "immutableReport": true,
+      "idempotent": true
+    },
+    {
+      "proposalId": "221e0889c81cd9655cfd425fb1688bd1d853032c8d1e1e4e2ea5a5ba6af05715",
+      "reportId": "08dbd9d46ed006a4f34eb8a0d708c9f85cd71019bd3de7ac80906308ec410b95",
+      "attachmentId": "3347a8fdb894f593ee54468c38e661a8b93bf19b946273a4e0b250b03dea27cc",
+      "proofPath": "docs/representations/evidence/lotm-charm-materials-2026-11-25/proof.json",
+      "proofSha256": "91e552f9400386c41fea6c2b656d8124b408168a7acfe4775943960a6ae61b60",
+      "testedBundleSha256": "6f67513266a4b52f3ed99036aa745e1c59ccab82adabb3674291884deecb568d",
+      "status": "different-build",
+      "entry": {
+        "route": "synthetic eligible workshop maker, normal office approval/collection and personal purchase controls",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        }
+      },
+      "immutableReport": true,
+      "idempotent": true
+    },
+    {
+      "proposalId": "e9d91f20f0d853fff601abafa85e8be05c5d28c52fb9ac5be3d19ada168183db",
+      "reportId": "1e466bfbc4798e786c3fbcd24dffb60f96977b594b0460f5e9301812d6e5d006",
+      "attachmentId": "a613edb6df4591164d007e0e53df68af05a077302c49834c49eba7c067c9335f",
+      "proofPath": "docs/representations/evidence/lotm-charm-upkeep-2026-11-25/proof.json",
+      "proofSha256": "82a117835f105037bbfd17eabb1e2ddec21b813d80f1f35f6d530111320ec63c",
+      "testedBundleSha256": "d2ba7f143317736ecc2e49deb200c0949c81bc945583ce78be5047bd82fa28cd",
+      "status": "different-build",
+      "entry": {
+        "route": "synthetic aged Slumber workshop, normal native controls",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        }
+      },
+      "immutableReport": true,
+      "idempotent": true
+    },
+    {
+      "proposalId": "977a42730945b0ba79250e106e71c8f2c0518411248ee9067218820fc86d7715",
+      "reportId": "d42a8b1af3a00c6a113e134a25d0729eac6e32748addb98695ad391fe6503baa",
+      "attachmentId": "406e5e0094295549a03dccde4d28030f85538aa3c1e4e5a8dbb03f5a7dcb0c35",
+      "proofPath": "docs/representations/evidence/lotm-personal-earmark-2026-11-25/proof.json",
+      "proofSha256": "a91a9a4a0fec8dd17a520338620425133392cc9fb99b4b84d494b5e7dfea4f3d",
+      "testedBundleSha256": "d8fd161dbe7773c6cf4722e43bb343366a2780fcfe3335fb2171abc664706689",
+      "status": "different-build",
+      "entry": {
+        "route": "named eligible workshop fixture, normal intention and purchase controls",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        }
+      },
+      "immutableReport": true,
+      "idempotent": true
+    }
+  ],
+  "errors": [],
+  "route": "normal Atlas handoff forms and compare buttons; public existing native receipts, fixture scopes copied from receipts"
+}

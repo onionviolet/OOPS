@@ -1,0 +1,59 @@
+{
+  "mode": "Isolated actual source slice using existing reader digest,measurement,server and UI paths; not default adopted",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "sourceCounts": {
+    "fileRows": 9,
+    "matchedRows": 9,
+    "noPublicMatch": 0,
+    "ambiguous": 0,
+    "unindexed": 0,
+    "parseFailures": 0,
+    "readFailures": 0
+  },
+  "sceneMethod": {
+    "status": "verified",
+    "method": "manual-structured-reading",
+    "label": "Manual structured reading",
+    "provider": "unknown",
+    "locatorScope": {
+      "from": "en b4 c3 p1",
+      "through": "en b4 c4 p27"
+    }
+  },
+  "fillCounts": {
+    "fileRows": 0,
+    "matchedRows": 0,
+    "noPublicMatch": 0,
+    "ambiguous": 0,
+    "unindexed": 0,
+    "parseFailures": 0,
+    "readFailures": 0
+  },
+  "fillStatus": "empty",
+  "fillMethod": {
+    "status": "verified",
+    "method": "manual-structured-reading",
+    "label": "Manual structured reading",
+    "provider": "unknown",
+    "locatorScope": {
+      "from": "en b4 c3 p1",
+      "through": "en b4 c4 p27"
+    }
+  },
+  "permitChoiceOpened": true,
+  "readiness": {
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  "defaultInputsUnchanged": {
+    "snapshot": "1a6bb2199238025ab26cddae81269a585646ae80fa5130f7a7ee78a29e9f49a1",
+    "wusDigest": "44653423a5198d55bc39632b15d1a282322cc873c06692b7edc752c7d5b2ccde"
+  },
+  "errors": [],
+  "browserAssertionsPassed": true,
+  "browserShutdown": "Browser close lingered after successful assertions and artifact write; scoped Node84684/Chrome107948 were force-stopped. Shell cleanup exit1; no application/assertion errors."
+}

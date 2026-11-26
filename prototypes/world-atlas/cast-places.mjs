@@ -30,19 +30,24 @@ export function projectCast(world, pack) {
     for (const a of pack.placeAliases || []) if (!byKey.has(a.id) && byKey.has(a.place)) byKey.set(a.id, byKey.get(a.place));
     const resolve = key => byKey.get(key)?.id || null;
     const people = new Map((pack.people || []).map(p => [p.id, p]));
-    const seen = new Map();
-    const note = (place, actor, how) => {
+    const seen = new Map(), meetings = new Map();
+    const field = v => typeof v === 'string' || Number.isFinite(v) ? v : null;
+    const rows = v => Array.isArray(v) ? v : Object.values(v || {}).flat();
+    const note = (place, actor, how, slot) => {
         const id = resolve(place);
-        if (!id || !people.has(actor)) return;
+        if (!id || !people.has(actor) || slot.sealed?.length || slot.sealed === true) return;
         const list = seen.get(id) || new Map();
         if (!list.has(actor)) list.set(actor, how);
         seen.set(id, list);
+        const out = meetings.get(actor) || [];
+        out.push({place: id, kind: how, day: field(slot.day ?? slot.dayIndex), days: field(slot.days ?? slot.sourceTiming?.days),
+            recurrence: field(slot.recurrence ?? slot.sourceTiming?.recurrence), from: field(slot.from), to: field(slot.to), locator: field(slot.locator)});
+        meetings.set(actor, out);
     };
-    for (const r of pack.routines || []) note(r.place || r.indexPlace, r.actor, 'routine');
-    for (const r of pack.remoteWhereabouts || []) note(r.place, r.actor, 'whereabouts');
-    for (const r of pack.schedule || []) note(r.place || r.location, r.actor || r.person, 'schedule');
+    for (const r of rows(pack.routines)) note(r.place || r.indexPlace, r.actor, 'routine', r);
+    for (const r of rows(pack.remoteWhereabouts)) note(r.place, r.actor, 'whereabouts', r);
+    for (const r of rows(pack.schedule)) note(r.place || r.location, r.actor || r.person, 'schedule', r);
     // Book scenes anchored to a place: beats, dated anchors, schedule slots and household acts. Ids and locators only.
-    const rows = v => Array.isArray(v) ? v : Object.values(v || {}).flat();
     const scenes = new Map();
     const scene = (place, row) => {const id = resolve(place); if (!id) return; (scenes.get(id) || scenes.set(id, []).get(id)).push(row);};
     for (const b of rows(pack.beats)) scene(b.place, {id: b.id, kind: 'beat', locator: b.knows?.[0]?.locator || b.locator || null, day: b.dayIndex ?? null, actor: b.actor || null});
@@ -62,7 +67,8 @@ export function projectCast(world, pack) {
     for (const p of places) if (p.parent === p.id || !ids.has(p.parent)) p.parent = null;
     return {
         world, places,
-        people: [...people.values()].map(p => ({id: p.id, indexId: p.indexId || null, name: p.name || p.indexId || p.id, tier: p.tier || null, evidence: p.label || null, locator: p.locator || null})),
+        people: [...people.values()].map(p => ({id: p.id, indexId: p.indexId || null, name: p.name || p.indexId || p.id, tier: p.tier || null,
+            evidence: p.label || null, locator: p.locator || null, meetings: meetings.get(p.id) || []})),
     };
 }
 

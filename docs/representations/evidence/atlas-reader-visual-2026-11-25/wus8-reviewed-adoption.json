@@ -1,0 +1,91 @@
+{
+  "schema": "atlas-wus8-reviewed-adoption/1",
+  "adoptedAt": "2026-11-26T08:57:57.168Z",
+  "snapshotSha256": "06448a4b85652de92fa711029e7a65b790ad682cd2451ed53e2530f70ef1d41a",
+  "previousSnapshotSha256": "b0983bb677fbea94ebd9f0652c497e5abc44ff40ac3fe3960e949763cb27fe2d",
+  "nativeComponentsUnchanged": true,
+  "unaffectedWorldDigestsByteIdentical": 43,
+  "worldsMeasuredCurrent": 44,
+  "wusScenes": {
+    "before": 380,
+    "after": 386
+  },
+  "sourceRows": {
+    "scenes": 6,
+    "fills": 0
+  },
+  "totals": {
+    "expected": 53652,
+    "selected": 51964,
+    "inspected": 51889,
+    "missing": 1688,
+    "unattested": 75,
+    "parsedRows": 1004390,
+    "matchedRows": 943745,
+    "withheldRows": 16061,
+    "ambiguousRows": 0,
+    "unindexedRows": 44584,
+    "parseErrors": 0,
+    "readErrors": 0
+  },
+  "delta": {
+    "selected": 2,
+    "inspected": 2,
+    "missing": -2,
+    "parsedRows": 6,
+    "matchedRows": 6,
+    "otherCounters": 0
+  },
+  "sourceSha256": "d96f0b4bf18f5968f26a4f4d94112e34cb753cbeba31f0ade076f689354a5452",
+  "method": {
+    "scenes": {
+      "status": "verified",
+      "method": "manual-structured-reading",
+      "label": "Manual structured reading",
+      "provider": "unknown",
+      "locatorScope": {
+        "from": "en b8 c37 p1",
+        "through": "en b8 c38 p50"
+      }
+    },
+    "fills": {
+      "status": "verified",
+      "method": "manual-structured-reading",
+      "label": "Manual structured reading",
+      "provider": "unknown",
+      "locatorScope": {
+        "from": "en b8 c37 p1",
+        "through": "en b8 c38 p50"
+      }
+    }
+  },
+  "search": {
+    "scope": "Existing reader-scenes search, data/predicate verification; not global Find or browser acceptance",
+    "listRoute": "#world/wus/reader-scenes",
+    "query": "Mephistopheles",
+    "newSceneFound": "lr.wus.shane.803802",
+    "detailRoute": "#world/wus/reader-scenes/lr.wus.shane.803802",
+    "expectedTitle": "Scene at en b8 c38 p29"
+  },
+  "nativeGameplayAdded": false,
+  "browserRunByThisLane": false,
+  "rollback": "work/atlas-wus8-source-20261126/previous-default-atlas",
+  "selectedSceneOutputHash": "sha256:d6c0267053f3742361bc47f1e4cbb382828155bac2eac95b87a0fac61c2271af",
+  "originalEpubSha256": "fa69f83b690157340114d1772997084211a5c8480084c7f4a6c41f4bf3e23c28",
+  "wusDigestSha256": "197a755b1c7cfcdab41a0c4f8320c300e05170e56831b1a654a0f52f9f514e54",
+  "coordinatorDesktopVerification": {
+    "actor": "coordinator",
+    "browser": "built-in",
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "detailRoute": "#world/wus/reader-scenes/lr.wus.shane.803802",
+    "visibleHeading": "Scene at en b8 c38 p29",
+    "searchControl": "Search reader scenes",
+    "query": "Mephistopheles",
+    "newSceneRowFound": "lr.wus.shane.803802",
+    "screenshotClaimed": false,
+    "freshBrowserPage": true
+  }
+}

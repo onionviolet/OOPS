@@ -1,0 +1,19 @@
+{
+  "scope": "normal default Atlas; actual LOTM record and persistent reports; read-only on-demand trail",
+  "viewport": "1920x1080",
+  "record": "#world/lotm/things/lotm.rule.lender-release-and-compensation-intent",
+  "proposalId": "4d1614c2ed8e24b134ba0e637d417faac6a01bd8f9875aa061af46501479cc03",
+  "reportId": "d404810e0d2a7d8b033548db260e2696df498192030af3688347d8ef8bf6c368",
+  "testedBundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+  "checkoutBundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+  "exactMatch": true,
+  "sourceProposalClicked": true,
+  "emptyRecord": "#world/hp/things/hp.law.carpet-embargo",
+  "sameIdOtherFamilyEmpty": true,
+  "sameIdOtherWorldEmpty": true,
+  "lazyLookup": true,
+  "writeRequests": [],
+  "errors": [],
+  "modelSha256": "fa93e4d16572626d8d55a4cec2d65ea21a1b4d9c51866ab13a7862514451dcda",
+  "viewSha256": "26f6efdc0071b5c37f422e6958e930acab9ae1cd7c3d73b50d3957918c70ebdf"
+}

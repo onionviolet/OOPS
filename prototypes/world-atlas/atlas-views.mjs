@@ -130,7 +130,8 @@ export function sceneList(p, list) {
     const by = Map.groupBy(p.scenes, s => s.kind);
     d.append(el('summary', 'Book scenes here · ' + p.scenes.length));
     for (const [kind, rows] of by) d.append(el('h4', SCENE_KIND[kind] + ' · ' + rows.length),
-        list(rows.slice(0, 12).map(s => [s.day != null ? 'day ' + s.day : null, s.locator, s.id.split('.').at(-1).replace(/^cast-[0-9a-f]+/, '').replace(/^\W+/, '') || s.id].filter(Boolean).join(' · '))));
+        list(rows.slice(0, 12).map(s => [s.day != null ? 'day ' + s.day : null, s.locator,
+            s.id?.split('.').at(-1).replace(/^cast-[0-9a-f]+/, '').replace(/^\W+/, '') || s.id].filter(Boolean).join(' · ') || SCENE_KIND[kind])));
     return d;
 }
 export function scenesView({main, data, controls, finder, list, button, closeCanvas, worldId}) {

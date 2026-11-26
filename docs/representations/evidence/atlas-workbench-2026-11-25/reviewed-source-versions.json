@@ -1,0 +1,57 @@
+{
+  "snapshot": "1a6bb2199238025ab26cddae81269a585646ae80fa5130f7a7ee78a29e9f49a1",
+  "viewport": [
+    1366,
+    850
+  ],
+  "filters": {
+    "backlog": 1,
+    "readings": 6,
+    "readingsAwaitingReport": 0
+  },
+  "results": [
+    {
+      "id": "221e0889c81cd9655cfd425fb1688bd1d853032c8d1e1e4e2ea5a5ba6af05715",
+      "origin": "lotm1",
+      "status": "The current output matches the saved file and source lines.",
+      "reports": 1
+    },
+    {
+      "id": "4d1614c2ed8e24b134ba0e637d417faac6a01bd8f9875aa061af46501479cc03",
+      "origin": "lotm1",
+      "status": "The current output matches the saved file and source lines.",
+      "reports": 1
+    },
+    {
+      "id": "5f0c07c35f376c6433a9967abc683ba9044ea752881f5a93cf23592ae7813f9c",
+      "origin": "backlog",
+      "status": "The current owner fingerprint and exact entry match this saved proposal.",
+      "reports": 1
+    },
+    {
+      "id": "977a42730945b0ba79250e106e71c8f2c0518411248ee9067218820fc86d7715",
+      "origin": "lotm1",
+      "status": "The current output matches the saved file and source lines.",
+      "reports": 1
+    },
+    {
+      "id": "b5b2c1d4625a15be468aadf746f18fc54276e1d8d43e27d32abefdee6eaeb464",
+      "origin": "mol",
+      "status": "The current output matches the saved file and source lines.",
+      "reports": 1
+    },
+    {
+      "id": "d36ab6955de9976f57e6204e1cecd183e12acdc64f322f694b686582aecdb773",
+      "origin": "lotm1",
+      "status": "The current output matches the saved file and source lines.",
+      "reports": 2
+    },
+    {
+      "id": "e9d91f20f0d853fff601abafa85e8be05c5d28c52fb9ac5be3d19ada168183db",
+      "origin": "lotm1",
+      "status": "The current output matches the saved file and source lines.",
+      "reports": 1
+    }
+  ],
+  "errors": []
+}

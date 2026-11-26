@@ -1,0 +1,57 @@
+{
+  "stage": "proposed",
+  "source": {
+    "book": "lotm1",
+    "world": "lotm",
+    "prefix": "lotm1c127",
+    "pass": "rules",
+    "kind": "rules",
+    "contentHash": "sha256:58be2cd31181f852298abd86922e7ee151ede9fa87e704cbb4fbc830741e60fc",
+    "method": "manual-structured-reading",
+    "fileLines": [
+      [
+        8,
+        8
+      ]
+    ],
+    "locators": [
+      "zh 第127章 p32"
+    ],
+    "offset": 0
+  },
+  "record": {
+    "label": "Nighthawk practice-material quota",
+    "type": "rule",
+    "route": "#world/lotm/things/lotm.institution.material-quota"
+  },
+  "id": "221e0889c81cd9655cfd425fb1688bd1d853032c8d1e1e4e2ea5a5ba6af05715",
+  "implementationReports": [
+    {
+      "id": "08dbd9d46ed006a4f34eb8a0d708c9f85cd71019bd3de7ac80906308ec410b95",
+      "schema": "atlas-reading-implementation/1",
+      "proposalId": "221e0889c81cd9655cfd425fb1688bd1d853032c8d1e1e4e2ea5a5ba6af05715",
+      "consumer": {
+        "name": "Slumber practice materials: local office requisition or personal purchase",
+        "path": "src/lotm_charm_materials.js",
+        "resolvedPath": "src/lotm_charm_materials.js",
+        "sha256": "b94ee42211a3b793a7201e21f4c041a0a07ce70c3531f6bd5bc09ca51b902034"
+      },
+      "playerRoute": "After the amulet workshop commission, visit Blackthorn reception, request a Slumber practice packet, collect the office materials against its signed order, then take them to the silver workshop for inscription. Once the local allocation is spent, the supplier still sells the same materials for eight soli. Verified with eligible workshop history in a native fixture.",
+      "receipt": {
+        "path": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_CHARM_MATERIAL_HANDOFF_2026-11-25.md",
+        "resolvedPath": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_CHARM_MATERIAL_HANDOFF_2026-11-25.md",
+        "sha256": "808fefe2f0fe67ae7a851d9a2135fdd9d7dac21e8f0775f3d31dc9f595fdc68e"
+      },
+      "status": "implementation-report-attached",
+      "files": {
+        "consumer": {
+          "status": "unchanged"
+        },
+        "receipt": {
+          "status": "unchanged"
+        }
+      }
+    }
+  ],
+  "errors": []
+}

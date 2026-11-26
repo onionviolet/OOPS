@@ -1,5 +1,3 @@
-import {activityMarks} from '/map-marks.js';
-
 // Diagram positions, independent of travel time. The registry still supplies every
 // place and route. The grid leaves the lower left open for additions.
 const rows = [
@@ -27,7 +25,7 @@ const residents = {key: 'people', icon: 'group', label: 'Residents'};
 const otherActivity = {key: 'activity', icon: 'explore', label: 'Other activities'};
 const services = new Set(['rest', 'trader', 'craft']);
 
-export const placeMarks = [
+export const placeMarks = (activityMarks = []) => [
     ...activityMarks, residents, otherActivity,
     {key: 'combat', symbol: '▲', label: 'Combat · enemy rank'},
     {key: 'challenge', symbol: '◆', label: 'Challenge · enemy rank'},

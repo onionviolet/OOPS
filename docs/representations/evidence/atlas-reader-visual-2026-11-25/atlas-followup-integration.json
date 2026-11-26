@@ -1,0 +1,40 @@
+{
+  "status": "integrated",
+  "dataFilesChecked": 89,
+  "dataDrift": [],
+  "candidateTextParity": {
+    "prototypes/world-atlas/atlas-find.mjs": true,
+    "prototypes/world-atlas/atlas-find-view.mjs": true,
+    "prototypes/world-atlas/atlas-native-evidence.mjs": true,
+    "prototypes/world-atlas/index.html": true,
+    "prototypes/world-atlas/serve.mjs": true,
+    "prototypes/world-atlas/world-entry-inventory.mjs": true,
+    "tests/atlas_find.test.js": true
+  },
+  "files": {
+    "prototypes/world-atlas/atlas-find.mjs": "b6cef3f8b082cd93ad80959dc0abba7fbc8b55053c5c3da23c58cc8b17e3b171",
+    "prototypes/world-atlas/atlas-find-view.mjs": "8d436465a65dc9042dec3c62b366e17c1eee118c80c5a163ef67185d1b81ccc8",
+    "prototypes/world-atlas/atlas-native-evidence.mjs": "ae15d5264e5e4cdb27209879b614ca08cf445bd0edf75b2267dc384ab9ce78fb",
+    "prototypes/world-atlas/index.html": "b572498debca004799837a559142a4c4ae41adbe1ae62118fa8246b1c1655d19",
+    "prototypes/world-atlas/serve.mjs": "63beb08582a0a658b8fce37dbb2dfd475e705479dadfe0f3288171ab2dc0b545",
+    "prototypes/world-atlas/world-entry-inventory.mjs": "561a5571a63a4a0da1f978a0f8bc4bce1a1bc0d588d07fe37156586e21dcae5b",
+    "tests/atlas_find.test.js": "0944fd770ab116dc4dc8a602c42bd11a29a3455c8e7210ac327fe046d4cec72d",
+    "tests/atlas_native_evidence.test.js": "ec8062f41f0b859e95606bcf0ee1ba0341a3c8ca1e43059353ea2ac2db039264",
+    "tests/atlas_world_entries.test.js": "ddb738b076f48d3b438bfa5f8dc855ee5870e826f384a992e1b8e881a3435597"
+  },
+  "tests": "26/26 focused passed",
+  "browser": "Coordinator built-in IAB accepted isolated combined content at 1280x720; no new screenshot claimed",
+  "fullSuite": "Earlier baseline predates this Atlas delta; not rerun",
+  "snapshotSha256": "06448a4b85652de92fa711029e7a65b790ad682cd2451ed53e2530f70ef1d41a",
+  "checks": {
+    "focused": "26/26 passed",
+    "syntax": "five modules/server passed",
+    "scopedWhitespace": "passed",
+    "docs": "passed"
+  },
+  "preview": {
+    "port": 18371,
+    "pid": 145272,
+    "status": "stopped after exact command-line verification"
+  }
+}

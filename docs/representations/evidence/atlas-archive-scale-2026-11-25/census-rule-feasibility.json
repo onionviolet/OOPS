@@ -1,0 +1,3091 @@
+{
+  "schema": "atlas-census-rule-feasibility/1",
+  "snapshotSha256": "1a6bb2199238025ab26cddae81269a585646ae80fa5130f7a7ee78a29e9f49a1",
+  "matcherSha256": "fd866841591bc21a6f462228dcf61fd648a0b4170212a9b3f2d8740718a5006f",
+  "sampleSha256": "4f503beeeb1b105303929a2beba4f9c534e0a3a7018651daccf2415cdaa0fbbb",
+  "criteria": [
+    "original deterministic census sample unchanged",
+    "exact world-namespaced ID",
+    "unique admitted public rule; no entity/scene/fill collision",
+    "public matched rule in exact same book/prefix selected rules output",
+    "both selected outputs individually hash-attested by admitted digest"
+  ],
+  "totals": {
+    "sameIdPublicRuleCandidates": 1429,
+    "eligible": 621,
+    "no exact same-slice public rule match": 801,
+    "same-slice rule output unavailable": 7
+  },
+  "examples": [
+    {
+      "world": "hp",
+      "key": "hp4",
+      "prefix": "hp4c007",
+      "censusLine": 72,
+      "censusOutputHref": "#library/outputs/hp4/hp4c007/census/census",
+      "rulesOutputHref": "#library/outputs/hp4/hp4c007/rules/rules",
+      "ruleLines": [
+        [
+          10,
+          10
+        ]
+      ],
+      "publicRuleHref": "#world/hp/things/hp.law.carpet-embargo",
+      "censusHash": "sha256:5d3af62dbbdd2c1477e4c9d233da793c260ba42484b54448706a2ee3ff2823b4",
+      "rulesHash": "sha256:21b02cdba251f4a0c94a2ffe1a8fc78f5c7f92821cf7e89078eb0a2e39012873"
+    },
+    {
+      "world": "mol",
+      "key": "mol",
+      "prefix": "molc010",
+      "censusLine": 31,
+      "censusOutputHref": "#library/outputs/mol/molc010/census/census",
+      "rulesOutputHref": "#library/outputs/mol/molc010/rules/rules",
+      "ruleLines": [
+        [
+          7,
+          7
+        ]
+      ],
+      "publicRuleHref": "#world/mol/things/mol.ability.pen-spinning-exercise",
+      "censusHash": "sha256:676e31ccdddb234ee89758eb91219555dd1881de67a75d464cebe43cfe8552ad",
+      "rulesHash": "sha256:262fb0c53aac32f05fecee942c7f4ca4ca45253d32c3aab447c4e9105f5c0e1d"
+    },
+    {
+      "world": "ss",
+      "key": "ss10",
+      "prefix": "ss10c2261",
+      "censusLine": 59,
+      "censusOutputHref": "#library/outputs/ss10/ss10c2261/census/census",
+      "rulesOutputHref": "#library/outputs/ss10/ss10c2261/rules/rules",
+      "ruleLines": [
+        [
+          1,
+          1
+        ]
+      ],
+      "publicRuleHref": "#world/ss/things/ss.ability.shadow-legion",
+      "censusHash": "sha256:29dc231f346b874f538b4730ada1361d6053bc3f6b1b3ac7a6357700edf8fb4a",
+      "rulesHash": "sha256:237538b34a368f50f9bda286040c767beecec05b5e021064f576bb132a0d964b"
+    },
+    {
+      "world": "lotm",
+      "key": "lotm7",
+      "prefix": "lotm7c035",
+      "censusLine": 36,
+      "censusOutputHref": "#library/outputs/lotm7/lotm7c035/census/census",
+      "rulesOutputHref": "#library/outputs/lotm7/lotm7c035/rules/rules",
+      "ruleLines": [
+        [
+          5,
+          5
+        ]
+      ],
+      "publicRuleHref": "#world/lotm/making/working%3Alotm.note.dream-divination",
+      "censusHash": "sha256:fe7dfa684d8eb4019825ead997fdd7de3729de66745fbb4f258274517a41099f",
+      "rulesHash": "sha256:8ee5637578c8f7f35dfe812e5a118422f9616579d7570d6c78972c2f924e8711"
+    },
+    {
+      "world": "asl",
+      "key": "asl2",
+      "prefix": "asl2c113",
+      "censusLine": 127,
+      "censusOutputHref": "#library/outputs/asl2/asl2c113/census/census",
+      "rulesOutputHref": "#library/outputs/asl2/asl2c113/rules/rules",
+      "ruleLines": [
+        [
+          1,
+          1
+        ]
+      ],
+      "publicRuleHref": "#world/asl/making/working%3Aasl.spell.air-shield",
+      "censusHash": "sha256:b68096fa92068bbaaeb2b1a759fcf4bc0287f9f4a55b2c0fd295f418825adc36",
+      "rulesHash": "sha256:58ae169d6bf04166d9619cbc2e49f196fbd2facdaf074d1b792ec315b34d5403"
+    },
+    {
+      "world": "coi",
+      "key": "coi",
+      "prefix": "coic001",
+      "censusLine": 43,
+      "censusOutputHref": "#library/outputs/coi/coic001/census/census",
+      "rulesOutputHref": "#library/outputs/coi/coic001/rules/rules",
+      "ruleLines": [
+        [
+          6,
+          6
+        ]
+      ],
+      "publicRuleHref": "#world/coi/things/coi.ability.warlock",
+      "censusHash": "sha256:50d411693ab5d2fcc83109cf7da52b4fecc44eebe2511f77dce20760b8dfa7d1",
+      "rulesHash": "sha256:5bf3b7388d780d29222a30cdc4a9d3c474f3ef405c039325ac52b2cb1d80ace2"
+    },
+    {
+      "world": "ttks1",
+      "key": "ttks1",
+      "prefix": "ttks1c033",
+      "censusLine": 30,
+      "censusOutputHref": "#library/outputs/ttks1/ttks1c033/census/census",
+      "rulesOutputHref": "#library/outputs/ttks1/ttks1c033/rules/rules",
+      "ruleLines": [
+        [
+          1,
+          1
+        ]
+      ],
+      "publicRuleHref": "#world/ttks1/things/ttks1.ability.knowledge",
+      "censusHash": "sha256:559385ed8dd6d5954971d417601cf823ed7ca41f1066490e4adee2f0c75690a7",
+      "rulesHash": "sha256:0b93a0e0cffc57193969294ee0e315b5ae86f99cdcb1a70799013ed313bbc5f1"
+    },
+    {
+      "world": "ttks2",
+      "key": "ttks2",
+      "prefix": "ttks2c001",
+      "censusLine": 20,
+      "censusOutputHref": "#library/outputs/ttks2/ttks2c001/census/census",
+      "rulesOutputHref": "#library/outputs/ttks2/ttks2c001/rules/rules",
+      "ruleLines": [
+        [
+          1,
+          1
+        ]
+      ],
+      "publicRuleHref": "#world/ttks2/things/ttks2.ability.trait-simulator",
+      "censusHash": "sha256:779618a7ea5427a0ad3f8f02299d12175c33689f0b3ff82fbb51ad4e49cbdc1e",
+      "rulesHash": "sha256:c35ed7dd098daf69866cbeeaa256c670019a78f453852fa1dd06ec2197665314"
+    },
+    {
+      "world": "ttks3",
+      "key": "ttks3",
+      "prefix": "ttks3c077",
+      "censusLine": 39,
+      "censusOutputHref": "#library/outputs/ttks3/ttks3c077/census/census",
+      "rulesOutputHref": "#library/outputs/ttks3/ttks3c077/rules/rules",
+      "ruleLines": [
+        [
+          5,
+          5
+        ]
+      ],
+      "publicRuleHref": "#world/ttks3/things/ttks3.ability.cursed-technique",
+      "censusHash": "sha256:f45a7a176030e7b6e9580e6afd222d19a2c07ec50d79db7d6ce4c6541557e2cd",
+      "rulesHash": "sha256:9798dfdb31042e463edaedf5969e3ed3d2f0c838ef67b58c456cfebc7cbff6c0"
+    },
+    {
+      "world": "ttks5",
+      "key": "ttks5",
+      "prefix": "ttks5c098",
+      "censusLine": 64,
+      "censusOutputHref": "#library/outputs/ttks5/ttks5c098/census/census",
+      "rulesOutputHref": "#library/outputs/ttks5/ttks5c098/rules/rules",
+      "ruleLines": [
+        [
+          3,
+          3
+        ]
+      ],
+      "publicRuleHref": "#world/ttks5/things/ttks5.ability.tiger-force",
+      "censusHash": "sha256:5ec42041138da70278dc993d22d116b4de5f38beba74311dd95645b88f80c923",
+      "rulesHash": "sha256:0080498a71998ba4d74beead7008851b184cbca0ef94711e47c90a24a263ba52"
+    },
+    {
+      "world": "yas",
+      "key": "yas1",
+      "prefix": "yas1c003",
+      "censusLine": 85,
+      "censusOutputHref": "#library/outputs/yas1/yas1c003/census/census",
+      "rulesOutputHref": "#library/outputs/yas1/yas1c003/rules/rules",
+      "ruleLines": [
+        [
+          4,
+          4
+        ]
+      ],
+      "publicRuleHref": "#world/yas/things/yas.ability.linguistic-adaptation-interface",
+      "censusHash": "sha256:1ac6cfb02c02c65fd2f104ebada2de778396be91783b20f18ab666dee4077ce8",
+      "rulesHash": "sha256:9b06bf050f2d2fdf63ff8adbe5103fe77150e8a4a939198dc6319915b905179d"
+    },
+    {
+      "world": "wus",
+      "key": "wus1",
+      "prefix": "wus1c001",
+      "censusLine": 37,
+      "censusOutputHref": "#library/outputs/wus1/wus1c001/census/census",
+      "rulesOutputHref": "#library/outputs/wus1/wus1c001/rules/rules",
+      "ruleLines": [
+        [
+          14,
+          14
+        ]
+      ],
+      "publicRuleHref": "#world/wus/things/wus.ability.minor-wish",
+      "censusHash": "sha256:f29a38252a755f8812f2d8b5295e27e49ad76eb0d0be8a17cb7d05aca4fda31f",
+      "rulesHash": "sha256:f57ead77239342b00126d4ba8de131e257549785b9e7152b9497c74ca135dc6b"
+    }
+  ],
+  "negative": [
+    {
+      "scope": "already-linked census identity; outside missing-row candidates",
+      "censusOutputHref": "#library/outputs/hp4/hp4c007/census/census",
+      "censusLines": [
+        [
+          42,
+          42
+        ]
+      ],
+      "publicRecordHref": "#world/hp/things/hp.organization.ministry",
+      "admittedFamilies": [
+        "entity",
+        "rule"
+      ],
+      "decision": "reject multi-family identity; a shared public ID is insufficient even before checking exact same-slice rule source"
+    }
+  ],
+  "worlds": [
+    {
+      "world": "hp",
+      "digestSha256": "b863a666b898648a4b4b464cf62edf7a7dc8560c4b4916ca00327bf4e392fda9",
+      "counts": {
+        "sameIdPublicRuleCandidates": 27,
+        "eligible": 23,
+        "no exact same-slice public rule match": 4
+      },
+      "files": [
+        {
+          "key": "hp3",
+          "prefix": "hp3c008",
+          "censusHash": "sha256:f0027c80ef3f42c3d9daf3e55becb0693285aca17199946c9eee81058b604ce7",
+          "rulesHash": "sha256:788db987ad45cac8c203e03b66a918cfbb9bfb450cdcc2deae9694ea138f19a6",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "hp4",
+          "prefix": "hp4c007",
+          "censusHash": "sha256:5d3af62dbbdd2c1477e4c9d233da793c260ba42484b54448706a2ee3ff2823b4",
+          "rulesHash": "sha256:21b02cdba251f4a0c94a2ffe1a8fc78f5c7f92821cf7e89078eb0a2e39012873",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1
+          }
+        },
+        {
+          "key": "hp4",
+          "prefix": "hp4c024",
+          "censusHash": "sha256:fd58626aa7677b6ae9cb2d619ab6ee7bf4de9aae34ee66e6a7baa7b8714903cd",
+          "rulesHash": "sha256:2e3fd3b270783fc743610707b2d21eb3a0152aaf1e9e660b6a10d83ecf28ee75",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "hp5",
+          "prefix": "hp5c004",
+          "censusHash": "sha256:bd5e025a2338a570e9d33b1fae531477f7415cfaebb4821176f4279a2b9d2e2e",
+          "rulesHash": "sha256:8afb2d8f7b5d5424b7496dfd376074471af1c6c9e1f2361919f925602106660b",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 5
+          }
+        },
+        {
+          "key": "hp5",
+          "prefix": "hp5c021",
+          "censusHash": "sha256:4211f84848a023c26c2629d16b82217ba376c33860d33a28c5b51664f776c55e",
+          "rulesHash": "sha256:e272f11c8cc24aaf7b3709e211e84c3380eb49d937f83936babdbf5c18a5e04b",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1
+          }
+        },
+        {
+          "key": "hp5",
+          "prefix": "hp5c037",
+          "censusHash": "sha256:35e2ea891cbfb8dbe2fc0ba3606f31347fc6b7b2136c8f54805621eae0d758bd",
+          "rulesHash": "sha256:21745f0354f26fdac04f56401538753e167ecb5fcaf07fe24249cefd0d1acc72",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1,
+            "eligible": 1
+          }
+        },
+        {
+          "key": "hp6",
+          "prefix": "hp6c015",
+          "censusHash": "sha256:39dcb8986062993f8b15558e769a8122682348d8169698d6208b24608964c34a",
+          "rulesHash": "sha256:39769ad86ee694895081628b242bbf8fcb3160f17f65c5c31f24dbee0756d504",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 4
+          }
+        },
+        {
+          "key": "hp7",
+          "prefix": "hp7c001",
+          "censusHash": "sha256:33183f99a4bd7b5c326c287d770f6b538c9eeda36bbbbec2702ed4f4489b14c4",
+          "rulesHash": "sha256:6e4415aa62c16e565bf908167282ac48c3852ef41d3cd548758d8ec58650d21e",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 2,
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "hp7",
+          "prefix": "hp7c018",
+          "censusHash": "sha256:1946d5035945ff3b077b0d3cc78b39a13c5ff324c8b82e21d3b29100f4accbe6",
+          "rulesHash": "sha256:96f29161b73ad3931fc357c57068dd6641b12a709790330dba0702d8f82a4d15",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 2
+          }
+        },
+        {
+          "key": "hp7",
+          "prefix": "hp7c036",
+          "censusHash": "sha256:4faaf9acf0cbfcddabccdcd4f94b5b3b0c136cad3950ce0b0847ab366773ac09",
+          "rulesHash": "sha256:d994a120973710cc88d2ffcecacae998b79af88fb81e7a57beb6832c449bd50d",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 7,
+            "no exact same-slice public rule match": 2
+          }
+        }
+      ]
+    },
+    {
+      "world": "mol",
+      "digestSha256": "0103a11b1b33570792c0cafc72ade286059138dbcff094b85bb27a9fc2854b88",
+      "counts": {
+        "sameIdPublicRuleCandidates": 11,
+        "eligible": 10,
+        "no exact same-slice public rule match": 1
+      },
+      "files": [
+        {
+          "key": "mol",
+          "prefix": "molc010",
+          "censusHash": "sha256:676e31ccdddb234ee89758eb91219555dd1881de67a75d464cebe43cfe8552ad",
+          "rulesHash": "sha256:262fb0c53aac32f05fecee942c7f4ca4ca45253d32c3aab447c4e9105f5c0e1d",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 7,
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "mol",
+          "prefix": "molc106",
+          "censusHash": "sha256:333684d94d399f9c2111b22d0b03f63b2b3876d4666a852714c8ed31824daad1",
+          "rulesHash": "sha256:51185a5c7763227b873ec744f8ce3ea9536241623ab31ccfd7cef2b00f8291b3",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 3
+          }
+        }
+      ]
+    },
+    {
+      "world": "ss",
+      "digestSha256": "8d71cf629b069b8497c188a752ff849bca71e93a319987d0cd9370aed7509f55",
+      "counts": {
+        "sameIdPublicRuleCandidates": 117,
+        "eligible": 46,
+        "no exact same-slice public rule match": 71
+      },
+      "files": [
+        {
+          "key": "ss10",
+          "prefix": "ss10c2261",
+          "censusHash": "sha256:29dc231f346b874f538b4730ada1361d6053bc3f6b1b3ac7a6357700edf8fb4a",
+          "rulesHash": "sha256:237538b34a368f50f9bda286040c767beecec05b5e021064f576bb132a0d964b",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 4,
+            "no exact same-slice public rule match": 3
+          }
+        },
+        {
+          "key": "ss10",
+          "prefix": "ss10c2472",
+          "censusHash": "sha256:ba2978a9d267c66619ddf8a1c29f5f386e79991c420e07aabfc8a2e62b23af3c",
+          "rulesHash": "sha256:a105b89553bc6c4ae463fd3f2b3857154d818a07cba6542b0f47bad2ecb488f5",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 3
+          }
+        },
+        {
+          "key": "ss10",
+          "prefix": "ss10c2694",
+          "censusHash": "sha256:83c270141c3aae4f8cffb1e7b629b0eedf3567f18506fe21d3b6842946708c6e",
+          "rulesHash": "sha256:01a64be2d4d80b0ab0a16d8cfa48f22d248aa5bef7459ef21866c993840d3c69",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 10,
+            "eligible": 3
+          }
+        },
+        {
+          "key": "ss",
+          "prefix": "ssc104",
+          "censusHash": "sha256:9a80dd287b38c24a82d74390463889249660e0af6776e73136e36f5de3f12b2c",
+          "rulesHash": "sha256:c09445db9d4b915d45d29a751928dc1a057627e7c079413076a196d2c03bdccc",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 7,
+            "eligible": 9
+          }
+        },
+        {
+          "key": "ss",
+          "prefix": "ssc1232",
+          "censusHash": "sha256:7850e68e4c24a57db17bc7d0726f2e535cc72399231be8d1cc322ec6b931e161",
+          "rulesHash": "sha256:26ab4504f73a928e41867536cea9ae2041bda71e9ea1494d0cb8c975a4f14786",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 3,
+            "eligible": 6
+          }
+        },
+        {
+          "key": "ss",
+          "prefix": "ssc1424",
+          "censusHash": "sha256:74b2990d31ccbe20db4da8e3858f4313a7cd2400df5716b966796c01fd8c21ce",
+          "rulesHash": "sha256:f79ef5a704ae43876ea71d31cda1c3f335a376e92446eee8961b1a58feb0ac1a",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 7,
+            "eligible": 1
+          }
+        },
+        {
+          "key": "ss",
+          "prefix": "ssc1623",
+          "censusHash": "sha256:d1f220e80cf1ccf0810f5f12c62b46e4e1bf3730e92dd93d7740fd4b044b9f8b",
+          "rulesHash": "sha256:9ea590febd581cdab8a434242385d12fdc02df6f8c0b8d2f36474b59c439de44",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 5
+          }
+        },
+        {
+          "key": "ss",
+          "prefix": "ssc1796",
+          "censusHash": "sha256:d01db63c8c146f314ab276f704c464970894d7e64277233f6b09599143a01865",
+          "rulesHash": "sha256:3217e39ecc0c70c2a41bd9e3be7bd3bc3e42f8af441579d8ee1befe62b880fca",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 3,
+            "eligible": 1
+          }
+        },
+        {
+          "key": "ss",
+          "prefix": "ssc353",
+          "censusHash": "sha256:289a6e4390186f740a28ec6f14c65ba506184dfcf74d33a56fc13e5f7c4eaab4",
+          "rulesHash": "sha256:ceafb20e5d209ec4f745352bf9c48b74714d86cf966b6efb77598307577ae4e0",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 11,
+            "no exact same-slice public rule match": 12
+          }
+        },
+        {
+          "key": "ss",
+          "prefix": "ssc562",
+          "censusHash": "sha256:96a3fb3fd4b219ae7abd4a4fb1a1f01f38b3a4de293bc33771369dc972990ed9",
+          "rulesHash": "sha256:8e0558c8bf234e53be2dfd4888a80339d15a728350e7254f7a22eebcbcf4c7cd",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 3,
+            "no exact same-slice public rule match": 2
+          }
+        },
+        {
+          "key": "ss",
+          "prefix": "ssc760",
+          "censusHash": "sha256:7596b7705e50a378d828087c3997c8bca41a2c9ad66f159f1ddb8079a95b5ff4",
+          "rulesHash": "sha256:3825a62c9f80d6129c4b454a6c37b793b3cf428556cb90297794000f3f4bf6f2",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 6,
+            "no exact same-slice public rule match": 13
+          }
+        },
+        {
+          "key": "ss",
+          "prefix": "ssc994",
+          "censusHash": "sha256:b6dbc98ce7bb1de4ced164e7aa9c8922e142bda4d859498dbcfd450c0b63b00d",
+          "rulesHash": "sha256:735be4f734da97d679adad3d2bb22d2d1ff1407b9b6593606775ff29ebaabf75",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 2,
+            "no exact same-slice public rule match": 3
+          }
+        }
+      ]
+    },
+    {
+      "world": "lotm",
+      "digestSha256": "142cb5240f47420e87df5b31239575de39060815692111ce3405a563336addd6",
+      "counts": {
+        "sameIdPublicRuleCandidates": 23,
+        "no exact same-slice public rule match": 22,
+        "eligible": 1
+      },
+      "files": [
+        {
+          "key": "lotm2",
+          "prefix": "lotm2c059",
+          "censusHash": "sha256:d36bf333e58b7ac37a703a565d73caee80860bc785d3a0423d2bade9166767fc",
+          "rulesHash": "sha256:8b2fb6412dcfab08a2b7a7890c3ae4939494a68e460677e6ea79dc5f988e569e",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "lotm2",
+          "prefix": "lotm2c187",
+          "censusHash": "sha256:702f96b8926a7f943bec8dc62a40e7bbef48b440276694f56c2e06866663aedf",
+          "rulesHash": "sha256:60d51eaf16522c7a052524a5232de6228e8ce365fbd5fc5269254e45970bfed5",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "lotm2",
+          "prefix": "w2s22",
+          "censusHash": "sha256:b53644e1cd8abedefbcd41890aae98adca77fd147ee46670a5e045a2c00f26ad",
+          "rulesHash": "sha256:31a84970dfb6317168120ef5db7d9fdcadec9498f49a3040cbc2ff16eb347a62",
+          "censusAttested": false,
+          "rulesAttested": false,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "lotm3",
+          "prefix": "lotm3c083",
+          "censusHash": "sha256:ba27f7f64e82c50115fcb07bcf2994e27c50eafc7cda9d6927193f21de32a199",
+          "rulesHash": "sha256:0eee956d8a8600a3d283fdc625a7cda0848cd9382b12da3a4c1371d6fd273d56",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "lotm3",
+          "prefix": "lotm3c207",
+          "censusHash": "sha256:123b0d7111c1ed5d43bb0f67a0ec29dab6c5b3c76809a1c233c51e8a6ffe1f65",
+          "rulesHash": "sha256:d8f89e15be3266e2a0cd7814c0d0b55eec37db6c2fa71f205767a596b2924391",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 2
+          }
+        },
+        {
+          "key": "lotm4",
+          "prefix": "lotm4c077",
+          "censusHash": "sha256:a1df3e76547202b8355d813c7801c73d0b8584141595154a7fab38a6f6203593",
+          "rulesHash": "sha256:d79138e339268bd27036541d04ebb9bf26c628fd952155774afd70bd1c59771a",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "lotm4",
+          "prefix": "lotm4c191",
+          "censusHash": "sha256:28e1cf1b6f0ab100a7be4716a88bec5f6e00c30a067413647c42f6e682e28d89",
+          "rulesHash": "sha256:63b2f38848061f1ae138810837e113b7eee7d900139351bf3637684b66b756f8",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "lotm5",
+          "prefix": "lotm5c105",
+          "censusHash": "sha256:c0323969583b22a46ac2f4c4b99c6b68a2b551a383cb77253a0c5e0bae829f0c",
+          "rulesHash": "sha256:83c3dee62048aeedb70224ae6cb5763cf14ec24ece6ff3c0f6af0f0b44a6d961",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 8
+          }
+        },
+        {
+          "key": "lotm6",
+          "prefix": "lotm6c025",
+          "censusHash": "sha256:9dd7387ff980affe2771bd5ebc733c8a1232d2d31ae60f9849bca756d4138972",
+          "rulesHash": "sha256:b40c196152d370b4782786411c0a67673a0e00a3e8c937ac2e52f2715e5c6653",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 6
+          }
+        },
+        {
+          "key": "lotm7",
+          "prefix": "lotm7c035",
+          "censusHash": "sha256:fe7dfa684d8eb4019825ead997fdd7de3729de66745fbb4f258274517a41099f",
+          "rulesHash": "sha256:8ee5637578c8f7f35dfe812e5a118422f9616579d7570d6c78972c2f924e8711",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1,
+            "no exact same-slice public rule match": 1
+          }
+        }
+      ]
+    },
+    {
+      "world": "asl",
+      "digestSha256": "79302a4d36c2051b3fb54df0e54285c1fcdd65ec543f87cba361cdac84017c31",
+      "counts": {
+        "sameIdPublicRuleCandidates": 21,
+        "no exact same-slice public rule match": 8,
+        "eligible": 13
+      },
+      "files": [
+        {
+          "key": "asl1",
+          "prefix": "asl1c001",
+          "censusHash": "sha256:b34738b7add685d37943d6c8334a3cd39c41ed250301d88e0ad87f210943322e",
+          "rulesHash": "sha256:5e9d037b0d4c28d046fc85be8f0e0d8cda25296e622973a1f3b8cab322f98c43",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "asl1",
+          "prefix": "asl1c032",
+          "censusHash": "sha256:2ab6c75624d80645c8ea8f670dd923760b206d833982d1a19896dd8e30a34004",
+          "rulesHash": "sha256:b4701e21101b606ef084ac045ad66c0ebf98841bbd636f6f896d79b37d7f2460",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "asl2",
+          "prefix": "asl2c077",
+          "censusHash": "sha256:7d8e6721b8835074361d36623814a1d65ccded1bd18d87b45fc93b3e17046b5c",
+          "rulesHash": "sha256:de1a4461bed1875d57acf591741d1ad2f8ad9e833fb71c27dead79e3134f9035",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 3
+          }
+        },
+        {
+          "key": "asl2",
+          "prefix": "asl2c113",
+          "censusHash": "sha256:b68096fa92068bbaaeb2b1a759fcf4bc0287f9f4a55b2c0fd295f418825adc36",
+          "rulesHash": "sha256:58ae169d6bf04166d9619cbc2e49f196fbd2facdaf074d1b792ec315b34d5403",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1
+          }
+        },
+        {
+          "key": "asl3",
+          "prefix": "asl3c147",
+          "censusHash": "sha256:c9bc52391ac827401cc632139f3864c19be32edb65763d075022306a88db82fb",
+          "rulesHash": "sha256:783672d94d4bdaec08f05f70fdc3b515a1527783ccc99d4f8a1135d5c5148c10",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "asl4",
+          "prefix": "asl4c210",
+          "censusHash": "sha256:229b61e0a033dee06a90464b515878fcd8cd56bf7d95b02a6ea01bffb8bcd75e",
+          "rulesHash": "sha256:63876ed4c0afb17adfd1c0354d263e899988be1ba49a633d8cdf83c3b7216b69",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1,
+            "eligible": 4
+          }
+        },
+        {
+          "key": "asl5",
+          "prefix": "asl5c275",
+          "censusHash": "sha256:21de168e6190e831421848db2235b28a273e995af536d6691838dab7ab0b0c4c",
+          "rulesHash": "sha256:b81572b9d48ac0d00b565cdd902de3d23d725866b50f8485a7c5237ea22129d4",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1,
+            "eligible": 2
+          }
+        },
+        {
+          "key": "asl5",
+          "prefix": "asl5c309",
+          "censusHash": "sha256:836453d3e3c394194fe385bd93c4afd0ab6637d3a1bf12d999c7a769cbd325e9",
+          "rulesHash": "sha256:d4f211d499750da1794f391b8af79094f31c0a4cf461b49e881fc6a457ed5417",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1,
+            "eligible": 2
+          }
+        },
+        {
+          "key": "asl6",
+          "prefix": "asl6c349",
+          "censusHash": "sha256:1ccb9e554c6e26a52637ee65ef4e709d88382109b12e0bcc18bf3de7ca5c8eff",
+          "rulesHash": "sha256:8efa0f5db5d306edfcc5bb4713b8fcc87a4fecb426ead8f0e49575236160f665",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1
+          }
+        },
+        {
+          "key": "asl6",
+          "prefix": "asl6c383",
+          "censusHash": "sha256:df8146ff7d48e77f4887d8edaa4c0836dce0fb440d9845d1ee19bc4cc9f0f25c",
+          "rulesHash": "sha256:2e71d681fb944ead83fa0828608b2885bcb983d70af2b92685fe5ba05df41912",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 3
+          }
+        }
+      ]
+    },
+    {
+      "world": "coi",
+      "digestSha256": "a6333ef278d5de41c1814f66e99776afd3ee773f6d6513720a2d3f8669d2ac39",
+      "counts": {
+        "sameIdPublicRuleCandidates": 12,
+        "eligible": 3,
+        "no exact same-slice public rule match": 9
+      },
+      "files": [
+        {
+          "key": "coi",
+          "prefix": "coic001",
+          "censusHash": "sha256:50d411693ab5d2fcc83109cf7da52b4fecc44eebe2511f77dce20760b8dfa7d1",
+          "rulesHash": "sha256:5bf3b7388d780d29222a30cdc4a9d3c474f3ef405c039325ac52b2cb1d80ace2",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 2
+          }
+        },
+        {
+          "key": "coi",
+          "prefix": "coic141",
+          "censusHash": "sha256:ad6b0d632ee944e1c6bb494099d268be524a18f587a842ad2c28bc240335b001",
+          "rulesHash": "sha256:5ffbf31050c82b524c491abbc9886c3539c3d592f99bab866a8cca61062907b0",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "coi",
+          "prefix": "coic249",
+          "censusHash": "sha256:efff1ae7e54de94e469fe7b2aa29de1d9a77a7ea6252f8f1d026364df574d273",
+          "rulesHash": "sha256:ee31b5cdea0b9115196f808a19b7087de56abb0d0925e480d3787b6a46410822",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "coi",
+          "prefix": "coic357",
+          "censusHash": "sha256:11fe041bfcda082925586845da2da5cc2ea7f8076d1574fd713e992942fbfe94",
+          "rulesHash": "sha256:45f933819458e3f283ddef60e638662ccc11292db1fc76feb1591044c591062c",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1,
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "coi",
+          "prefix": "coic569",
+          "censusHash": "sha256:0d36ea99a87dce8979276b3feea31879f429727d73d268bb88dcf5a21ed6d04b",
+          "rulesHash": "sha256:926f6b3b032e719d0348a456fe089181b9f1482479adc0408d93fdbd9ad932c3",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 4
+          }
+        },
+        {
+          "key": "coi",
+          "prefix": "coic785",
+          "censusHash": "sha256:55628e889677d13a930704427bec06c187b5f9fc596efa7a28d47149f6109b6c",
+          "rulesHash": "sha256:9f2282c5641acab553e17d2b56af137c28dc2af9aec035d2512dd3a3d9052375",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 3
+          }
+        },
+        {
+          "key": "coix",
+          "prefix": "coixc001",
+          "censusHash": "sha256:849b4e6a7e384a9c3057097fdb559a4ca650d66745d52ae5645dcf6a0807c8b4",
+          "rulesHash": "sha256:3da1ef9061e67f2bd80a021853393c21087fa2f16d764358a618508cab7699de",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        }
+      ]
+    },
+    {
+      "world": "ttks1",
+      "digestSha256": "8393fb7110ad392d42b99b78de08934d638c77dda80d76a3e0e7edb732bebcd8",
+      "counts": {
+        "sameIdPublicRuleCandidates": 21,
+        "no exact same-slice public rule match": 14,
+        "eligible": 7
+      },
+      "files": [
+        {
+          "key": "ttks1",
+          "prefix": "ttks1c021",
+          "censusHash": "sha256:d58f3978f1f209ef2fb9898fa48b8cc1ab1190f0f359b4d676a731b79f82da08",
+          "rulesHash": "sha256:cbdb8053744e5576923ba074b4dc952fd7367ae958fdc7ce7b6ad43819f3c8f5",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 2
+          }
+        },
+        {
+          "key": "ttks1",
+          "prefix": "ttks1c033",
+          "censusHash": "sha256:559385ed8dd6d5954971d417601cf823ed7ca41f1066490e4adee2f0c75690a7",
+          "rulesHash": "sha256:0b93a0e0cffc57193969294ee0e315b5ae86f99cdcb1a70799013ed313bbc5f1",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1
+          }
+        },
+        {
+          "key": "ttks1",
+          "prefix": "ttks1c043",
+          "censusHash": "sha256:c88ae2c0b50f07d8ab3f24d7594d6bd4633258882baaf4f877c202f8662f7308",
+          "rulesHash": "sha256:63f7cab694e4938394ec41768251dbe3256edb87ca67ff23a397f5806f118e93",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 2
+          }
+        },
+        {
+          "key": "ttks1",
+          "prefix": "ttks1c053",
+          "censusHash": "sha256:bfe545a9454d028c84ea1adfd27331970784c950b52b981dcde9c94495370c72",
+          "rulesHash": "sha256:80534f8ab255ab703d14ed1622b80fe585e9278baa1795d7febb4ae462fa64e5",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 2
+          }
+        },
+        {
+          "key": "ttks1",
+          "prefix": "ttks1c065",
+          "censusHash": "sha256:f9426bfd89e3e7279223bec6a9dc55f3c2f07f3d8ed586a0e2ad2fef2dce2ee3",
+          "rulesHash": "sha256:2a578b49ebb6d2a5549102ce4bb2130a2648a95568ca054482ad72e48906dbd9",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 2,
+            "no exact same-slice public rule match": 3
+          }
+        },
+        {
+          "key": "ttks1",
+          "prefix": "ttks1c075",
+          "censusHash": "sha256:efd8f20552380d72b44914e43cdd1c74af460c82b000d5504912e54b3538839f",
+          "rulesHash": "sha256:e58dc6d0e263fb185579f3d1fb5e7a04dd5550e79fe3d830d0053d323e387720",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 3,
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "ttks1",
+          "prefix": "ttks1c085",
+          "censusHash": "sha256:807227345efda6723bc1d00f8406324bd16a9010020f20bbdb6c8b8b282558d5",
+          "rulesHash": "sha256:d5c6d9c9608060fdfcf2f5c38a249c8cde0ee37febf872aa0d6081d5272e11d6",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "ttks1",
+          "prefix": "ttks1c096",
+          "censusHash": "sha256:df066160643f810e346baa2cb7fe0ee5ff17b43d99e34fa3f5003e1c90219ba0",
+          "rulesHash": "sha256:76e3a1865424e5c5d08bf0b530c1d8f026f620d4551cf57b6d5a9476a81ea79a",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1,
+            "eligible": 1
+          }
+        },
+        {
+          "key": "ttks1",
+          "prefix": "ttks1c110",
+          "censusHash": "sha256:4a8835ee9412d2864910f9c10cbd426e983699f7c665516f0297dafd7282320e",
+          "rulesHash": "sha256:594945365e2ebbb89bc676c4610191011ec4c9715040219dde4e1f45ff8b17b7",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 2
+          }
+        }
+      ]
+    },
+    {
+      "world": "ttks2",
+      "digestSha256": "03b1dad58e635f375149cf5e51191a9be8724cd738225ac1f65ca1f4437a8143",
+      "counts": {
+        "sameIdPublicRuleCandidates": 27,
+        "eligible": 9,
+        "no exact same-slice public rule match": 18
+      },
+      "files": [
+        {
+          "key": "ttks2",
+          "prefix": "ttks2c001",
+          "censusHash": "sha256:779618a7ea5427a0ad3f8f02299d12175c33689f0b3ff82fbb51ad4e49cbdc1e",
+          "rulesHash": "sha256:c35ed7dd098daf69866cbeeaa256c670019a78f453852fa1dd06ec2197665314",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 5
+          }
+        },
+        {
+          "key": "ttks2",
+          "prefix": "ttks2c061",
+          "censusHash": "sha256:f5db0c852311343751e7707c2cf05a3b9addf35a7025c1505f872068e48b9e6e",
+          "rulesHash": "sha256:d5033ee95ac9aee42104d93b6f1f2a56272909360b4c0b4ec4190028caf35de7",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "ttks2",
+          "prefix": "ttks2c121",
+          "censusHash": "sha256:6eb3fe6c254a19351935192185043782caf9cd84b0f0f264ba1ed093474ee52f",
+          "rulesHash": "sha256:0411c0f9323a64cd1718ffab139e060ce76bcc5957b3d5a48a37532cf1c6c565",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 5
+          }
+        },
+        {
+          "key": "ttks2",
+          "prefix": "ttks2c181",
+          "censusHash": "sha256:d4bdd3ee36c48ee41702fdce3109d78010fcea40908a193437a6684975872796",
+          "rulesHash": "sha256:0f8406f4dab317fe497c8b857a2018afaa9cfef7a1acb5dc0dd14196628edd47",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 2
+          }
+        },
+        {
+          "key": "ttks2",
+          "prefix": "ttks2c301",
+          "censusHash": "sha256:7d1ae1e79e81f2a52f5668adc297c169865aa2036331aeec01ef690744a2053c",
+          "rulesHash": "sha256:1461e65c814af9148d7a506855e15adfcdb977cae8bb4506749474b288110ff0",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "ttks2",
+          "prefix": "ttks2c363",
+          "censusHash": "sha256:886ea944cc539c4e1286f07d4af0a620a9d1628a1e6e7a5d9afbe3d51e28f273",
+          "rulesHash": "sha256:66e4824093857bc409c415ad8bd7b1faf2f61c25f91296a41b0d5a9122036d99",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 4,
+            "eligible": 1
+          }
+        },
+        {
+          "key": "ttks2",
+          "prefix": "ttks2c423",
+          "censusHash": "sha256:b1db81595e2ce737761508b3f5661e79e5774211fdd3c91bff699d72103dc16d",
+          "rulesHash": "sha256:c570cfbfc9a21cec86a6fd5856c40f2b0fd73547763563b03abeb89dc992ce1e",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 3,
+            "no exact same-slice public rule match": 2
+          }
+        },
+        {
+          "key": "ttks2",
+          "prefix": "ttks2c483",
+          "censusHash": "sha256:46c944f3876822a129795c6efa04f624266679dd9a10b43da8464dccca58b946",
+          "rulesHash": "sha256:44282eb26a7d3b5961b51e20195055d36f69069e27ecf9ad44e69e4cf5917496",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 3
+          }
+        },
+        {
+          "key": "ttks2",
+          "prefix": "ttks2c665",
+          "censusHash": "sha256:a729c5661cc9d20e92fc6cb3a35d33f98f49d06e44eb7ceb121ea73459df46a9",
+          "rulesHash": "sha256:60d1dad4fd203034b9c20eb7aa04dc95841cbeea762446d4132fa665bf61a417",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        }
+      ]
+    },
+    {
+      "world": "ttks3",
+      "digestSha256": "72a6655096d3f2962f1ae612d510b83f6786e5ea19e5c70d2a0df4e8b5098009",
+      "counts": {
+        "sameIdPublicRuleCandidates": 68,
+        "no exact same-slice public rule match": 52,
+        "eligible": 16
+      },
+      "files": [
+        {
+          "key": "ttks3",
+          "prefix": "ttks3c077",
+          "censusHash": "sha256:f45a7a176030e7b6e9580e6afd222d19a2c07ec50d79db7d6ce4c6541557e2cd",
+          "rulesHash": "sha256:9798dfdb31042e463edaedf5969e3ed3d2f0c838ef67b58c456cfebc7cbff6c0",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 4,
+            "eligible": 4
+          }
+        },
+        {
+          "key": "ttks3",
+          "prefix": "ttks3c117",
+          "censusHash": "sha256:05d5f77ecc538fa18a84e17c46a33f7fe98b0eee195c3d0ee7354af8bc9152ae",
+          "rulesHash": "sha256:465f3733149ce529ceea7ade420c88bb839df3e2b337d5474554b89f1acc572c",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 7,
+            "eligible": 4
+          }
+        },
+        {
+          "key": "ttks3",
+          "prefix": "ttks3c155",
+          "censusHash": "sha256:bc8fbf9c0796035b18ffe0b3e32608d1d4efcfa285ec98f4fa85aa20bd129034",
+          "rulesHash": "sha256:41b5c07339ea62fbedf0ee25d6b74068329d42799e85ab133f472eb2ba3a81c9",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 9
+          }
+        },
+        {
+          "key": "ttks3",
+          "prefix": "ttks3c195",
+          "censusHash": "sha256:914a7eb4dc9afaf617932c31fc0daab776a787ae81784c7ce11e7feeaeec6253",
+          "rulesHash": "sha256:aec52a9a00a8af81d36fc7da27d6036fb7b6355332bc81a9d45affb4c3327272",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 3,
+            "no exact same-slice public rule match": 12
+          }
+        },
+        {
+          "key": "ttks3",
+          "prefix": "ttks3c233",
+          "censusHash": "sha256:aa6a70322a52a57a1c7c2bb854728fe83d8782cf63157b7c0fa800c7de113e75",
+          "rulesHash": "sha256:6fe55a3e0537323cc18da29d12361df3fe7935a9f1111e552285833bee31c10b",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 2,
+            "no exact same-slice public rule match": 3
+          }
+        },
+        {
+          "key": "ttks3",
+          "prefix": "ttks3c273",
+          "censusHash": "sha256:adca3eb15f13155c8cdde4b06fcee79c3117498610d9dc7ae84b59bbfb4b05ee",
+          "rulesHash": "sha256:5afa8c5c278be920505ba77e46c831b2f8c23451491da42cb5103bd18a119195",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 2,
+            "no exact same-slice public rule match": 4
+          }
+        },
+        {
+          "key": "ttks3",
+          "prefix": "ttks3c311",
+          "censusHash": "sha256:453f50a67f4d7bc592c9c41b8146d16d9a20ca14020670addf91bbec5ff047ab",
+          "rulesHash": "sha256:01a39dd11cbb0a1d3b475c5d084a491c28dac67a0f72f1075f381a0449a82c75",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "ttks3",
+          "prefix": "ttks3c351",
+          "censusHash": "sha256:2aeaec85319b67e9c15cc77223446bf4120c3c2c93003e15335022ec43f3e55a",
+          "rulesHash": "sha256:deb282b0f6ffecd4977411607ea91ae626b8ee14b565423ea5204b8d55249de8",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 5
+          }
+        },
+        {
+          "key": "ttks3",
+          "prefix": "ttks3c389",
+          "censusHash": "sha256:4967c3457450a1e6da63f26a9a94d2a9539ffce0b8432dab1251e13dd6b9f63a",
+          "rulesHash": "sha256:0b172a1f55ea8394603089a869c83dc35ddba27cf9ca67a1ed0b931a78e7bd30",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 4
+          }
+        },
+        {
+          "key": "ttks3",
+          "prefix": "ttks3c429",
+          "censusHash": "sha256:a0db1b58a302ac89a42cd8ddb190068b948025429543c29511eaa9b181682224",
+          "rulesHash": "sha256:20a466b9137e2a521d497c1cd4718eaefef7114e6dcc3cfd5a1298262434cd31",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1,
+            "no exact same-slice public rule match": 3
+          }
+        }
+      ]
+    },
+    {
+      "world": "ttks4",
+      "digestSha256": "cd1836447d0329e165989c0a6cef799a22be33dee53ef440d4a867186f3dcd9c",
+      "counts": {
+        "sameIdPublicRuleCandidates": 1,
+        "no exact same-slice public rule match": 1
+      },
+      "files": [
+        {
+          "key": "ttks4",
+          "prefix": "ttks4c019",
+          "censusHash": "sha256:41b263621ce82ae72b46d1e395fba02dec8f80add21360f3042ee305eb228cdb",
+          "rulesHash": "sha256:74647ed883fd4dd775042fc9e1a60e67190981eebaaa5212b9860324fe6d64a4",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "ttks4",
+          "prefix": "ttks4c037",
+          "censusHash": "sha256:01f9e9a758e941a7f789530c1397d3b92e7f337215841636cf248c7c98bde48b",
+          "rulesHash": "sha256:bc96178b8a47d7bef88ddc8f5881cfb4ff9fd81c1fb5f41f023b12403f90bac7",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "ttks4",
+          "prefix": "ttks4c075",
+          "censusHash": "sha256:a92f6d60e004457bfecf9e2a4cdea194f6fc8d2286105973db685336d2428d3e",
+          "rulesHash": "sha256:e5f50b7a9bd6e2d0092537fe9dc58772a746fed8a227290390f8444ac5fa8485",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "ttks4",
+          "prefix": "ttks4c093",
+          "censusHash": "sha256:2cbc1fd22cd5b65dff597ffb6b853096949887c6d88bbd27953a5204e126a2d1",
+          "rulesHash": "sha256:39814e2bcd95d1e0bb6ae7b8c81b3b5b1c63342579ad64a240557fd35df7a1a8",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "ttks4",
+          "prefix": "ttks4c111",
+          "censusHash": "sha256:dcd5603a1ba739f772d5e87f1a56cb57242bf9c1ef85401d6a5bd0abe90998d8",
+          "rulesHash": "sha256:4e75a2e62936203723b7c1756141eeedc04e5061933a0f6217e82f5c39d888e3",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "ttks4",
+          "prefix": "ttks4c129",
+          "censusHash": "sha256:2a5d15372c672684e3388b1566c47ab2668c89936140a60b477aa327cb8c7b2f",
+          "rulesHash": "sha256:054864abb3b07038cfe082a0399b32fa5c62633e4ddc58a29ea194a6708f3fb5",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "ttks4",
+          "prefix": "ttks4c149",
+          "censusHash": "sha256:68c59f4780ae728a07bd67e954a3ec91b4527d28528f46d7114bfe60d9a3bfd6",
+          "rulesHash": "sha256:63909440655623a553b45aeacc9e1fcad76fcf9d36667415aadc0c1a0f9a71a7",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "ttks4",
+          "prefix": "ttks4c167",
+          "censusHash": "sha256:665c56ef95644ae6971ae833690e7d2b75a6e6479b0055bf5b6f8b3488b619cb",
+          "rulesHash": "sha256:ff2b9285c1fdcfc099e6b36cedf8e0ba7fa034675654417de1ce83e4c5c09e46",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "ttks4",
+          "prefix": "ttks4c185",
+          "censusHash": "sha256:67f83ef71eaf1e750193bbf942cc74a2ff96f1b47c23502ecb48c1f754832234",
+          "rulesHash": "sha256:56e8f7df3060928ef6d3a6df729cace39ce05922690a28b5830d32f2b216e52c",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "ttks4",
+          "prefix": "ttks4c205",
+          "censusHash": "sha256:a3bd84bec0027d36048d4fa7b70cf345b8cd3064513a65d9e1913703812bfbd4",
+          "rulesHash": "sha256:ec67f405c3ea99a27ee79aabca74146597a0a4d037b5368fdb2ccca777d40817",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        }
+      ]
+    },
+    {
+      "world": "ttks5",
+      "digestSha256": "e725ab239796e9281b7deaf7f99808ea7d203da8e6d3b0efdfdcdbdef40a0de2",
+      "counts": {
+        "sameIdPublicRuleCandidates": 4,
+        "no exact same-slice public rule match": 2,
+        "eligible": 2
+      },
+      "files": [
+        {
+          "key": "ttks5",
+          "prefix": "ttks5c002",
+          "censusHash": "sha256:de3ea61ae9e7b3338bc167af23602f3e469dac4d7773f087336cc82982551774",
+          "rulesHash": "sha256:7870978203095d2d74108eca3cbf716d89ac5d5a689083ae7595ac1cd478cfd5",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "ttks5",
+          "prefix": "ttks5c060",
+          "censusHash": "sha256:0307dc47c52301808a0beab5cb7e557c3c3cd668f6d265c6e7865f203b58cfe4",
+          "rulesHash": "sha256:96a32fbe0ef15f34dd819a3d2632e6f2b4dac60a6680402a552e7a9b9d3225c4",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "ttks5",
+          "prefix": "ttks5c069",
+          "censusHash": "sha256:7e25df5deeacc818417a9947c2c855905a40cefe92b5dbbc9ee09ea911c40f6e",
+          "rulesHash": "sha256:b85372501568ec41922a2b881f5b604901be2b69b3404b39ee315ee67ec92980",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "ttks5",
+          "prefix": "ttks5c079",
+          "censusHash": "sha256:b889678dde05926645e55e6bc0f11fda1171ad2d3b6ba462c59615e7742c2ad8",
+          "rulesHash": "sha256:b32ba7c3548f604a010c318d7c2f65059a9157e98f599b052c0a4d2f51616220",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "ttks5",
+          "prefix": "ttks5c098",
+          "censusHash": "sha256:5ec42041138da70278dc993d22d116b4de5f38beba74311dd95645b88f80c923",
+          "rulesHash": "sha256:0080498a71998ba4d74beead7008851b184cbca0ef94711e47c90a24a263ba52",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1,
+            "eligible": 2
+          }
+        },
+        {
+          "key": "ttks5",
+          "prefix": "ttks5c108",
+          "censusHash": "sha256:b8dcae278569986b1ceaaab62558fe70aa77dc3e34467fc5f023f9b6db0c00a7",
+          "rulesHash": "sha256:3bea29eeb8430c9ae280dea520e692b25b04a34529ddb9c8dc2f484e0f24fd04",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        }
+      ]
+    },
+    {
+      "world": "worm",
+      "digestSha256": "5673b802dcb8e8b4bd490553c96961fcd0cf786bf71dab4375fd258e802f8aca",
+      "counts": {
+        "sameIdPublicRuleCandidates": 1,
+        "no exact same-slice public rule match": 1
+      },
+      "files": [
+        {
+          "key": "worm",
+          "prefix": "wormc001",
+          "censusHash": "sha256:74e126cedbdf9e1adb8da52794792b35dc299a0adcc35e9dc2558e80224793a0",
+          "rulesHash": "sha256:36194b87676819dfb843fe6c124097fcdfa89f4f85ac00c5ca2caed6ee921674",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "worm",
+          "prefix": "wormc049",
+          "censusHash": "sha256:d3ca32d37775dcdf3497b8b3d0f47928a325d0e55aebf8dca93b568a6181315b",
+          "rulesHash": "sha256:b2a807869e2e1e07dd3458b7f659777de0c8c4ea34eaf2508759be7ece97f9f8",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "worm",
+          "prefix": "wormc084",
+          "censusHash": "sha256:42b9ae5c11e6c7107b1953da1ccb824189d773dc95e4de10be2437d4e9dc68fb",
+          "rulesHash": "sha256:f9c0232a9fcc41ca391c40f44ee845a6b494acdb28db95198e57ee10a1b674f5",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "worm",
+          "prefix": "wormc110",
+          "censusHash": "sha256:05a47661e6a6f5cca495d9af0d81dd26702a976cb0a58a24b7e2c4476c42dd57",
+          "rulesHash": "sha256:d4e60bda0ca293397411a8557a5d00850d989c811fddee106f034c0dc5d4205c",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "worm",
+          "prefix": "wormc134",
+          "censusHash": "sha256:b3bc1480af86ec224ad39ddd94b4aa1038c75ac6c6b8ee09acc0bafc1796378e",
+          "rulesHash": "sha256:60c1d84ee7e635d9b20f2d7e4febdb86d0a08eb35a2da87910eda8b1b45063fd",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "worm",
+          "prefix": "wormc158",
+          "censusHash": "sha256:aa61dfdbbfb33528f2233753a92ac5c445ca912296597abb37cc416733ff2794",
+          "rulesHash": "sha256:f9d16d5fcfa21f007a6b48d775e09bf48bab8e5f32f914c265d2b922d48252ef",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "worm",
+          "prefix": "wormc182",
+          "censusHash": "sha256:7a93737b773a97f12bb875deeefa30c7a7c612d868f6972ee91b38de2821481b",
+          "rulesHash": "sha256:269525935ad5272970a47f53b98ccc075e90befaa909c8bc57cbc00d43b6087b",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "worm",
+          "prefix": "wormc206",
+          "censusHash": "sha256:2d9d70e5a5b2744cce4050e29d05eb209f7a28ee2a7888e6ddaddf2f867f9480",
+          "rulesHash": "sha256:de58203e0b2d3683728f36bcd737518d9fc0e2823d06b96def1edec52d0201cf",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "worm",
+          "prefix": "wormc230",
+          "censusHash": "sha256:3d95c3c7e68202f6bbef5dca8a7c5d809935a518357675a9cdde98fb2c39db14",
+          "rulesHash": "sha256:a57b9c8c88c3540eb1045017646d3cabdeb324bcca8d089a9f06bc32f7d32018",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "worm",
+          "prefix": "wormc254",
+          "censusHash": "sha256:25261d8391af53b5721f90c84e4fc75721013b406bfbc18d20b094910e80700c",
+          "rulesHash": "sha256:26a99ce9b62d398b69ab8e1fb447b07e025d32ccd2369edf7f799e0c6ed1131e",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "worm",
+          "prefix": "wormc279",
+          "censusHash": "sha256:95ffd28c967cb78e38f5b13d3f3287861fc11d6dfebae62032482a8bd7a8b7eb",
+          "rulesHash": "sha256:47c68c0d6c6b385a5bdf27a461828655f5b6fddd11799cdbed52fe9b83ef8d68",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "worm",
+          "prefix": "wormc304",
+          "censusHash": "sha256:e65cebcff8b8d86918514cb32b11cb336e40a164b137011a2d08be790efbfcf1",
+          "rulesHash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        }
+      ]
+    },
+    {
+      "world": "yas",
+      "digestSha256": "551f75357d2a9364258f69ee59d81f09f73ea2d3de1006187c4e535b6401ab1e",
+      "counts": {
+        "sameIdPublicRuleCandidates": 23,
+        "eligible": 14,
+        "no exact same-slice public rule match": 9
+      },
+      "files": [
+        {
+          "key": "yas1",
+          "prefix": "yas1c003",
+          "censusHash": "sha256:1ac6cfb02c02c65fd2f104ebada2de778396be91783b20f18ab666dee4077ce8",
+          "rulesHash": "sha256:9b06bf050f2d2fdf63ff8adbe5103fe77150e8a4a939198dc6319915b905179d",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1,
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "yas2",
+          "prefix": "yas2c019",
+          "censusHash": "sha256:a7531c903df748ca63cf34ee6fba9935ee0880fae4b35ebcba9a1487ab4351d0",
+          "rulesHash": "sha256:c05c60564df98edf82584d81a0a535468ee89cbfc34a1580a96a3c26edc40402",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1,
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "yas2",
+          "prefix": "yas2c052",
+          "censusHash": "sha256:f16c4137354fce7d006a5c15072f1788e77a360dfb1015ba26e14f5b62f95606",
+          "rulesHash": "sha256:a6737358e335cf7dbef311090bc7aa1944df2401322e15ab5acf3c8ee6ce8993",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "yas4",
+          "prefix": "yas4c007",
+          "censusHash": "sha256:ea672b428036aea95c9be8f64499323d5752ddb0b33d4901f57d7f20ed62e5b3",
+          "rulesHash": "sha256:cb202f0b4b216fbedecbd8305382ed8d25560a7f8f099de746e182de90711841",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1,
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "yas4",
+          "prefix": "yas4c040",
+          "censusHash": "sha256:1d06ed3cfa3a035a64cc2a73666aa0ae8190bd685c57ef2d1730d2426fcf7767",
+          "rulesHash": "sha256:8c64a07a35ce028e12ffc35767ba890ced6d862615899aa2d070068bdad280a4",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 3
+          }
+        },
+        {
+          "key": "yas5",
+          "prefix": "yas5c001",
+          "censusHash": "sha256:74cc15657d669bf9f8c3f69a086a742fccff55f73ebde9a7803648deeefb3d98",
+          "rulesHash": "sha256:1b74ad0b96d39fa094f3853ae663504b613d3a5f97bed53d2db922008cabff26",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1,
+            "eligible": 2
+          }
+        },
+        {
+          "key": "yas5",
+          "prefix": "yas5c067",
+          "censusHash": "sha256:444b05d7cb8c6fd0e96cd5174842b5bc7ce918f316478ac95719f14950fc876b",
+          "rulesHash": "sha256:164378dd144b8a0b423d9512c542dca7cb7df011fd56a55fc87d5493a060759c",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 6,
+            "no exact same-slice public rule match": 4
+          }
+        }
+      ]
+    },
+    {
+      "world": "wus",
+      "digestSha256": "44653423a5198d55bc39632b15d1a282322cc873c06692b7edc752c7d5b2ccde",
+      "counts": {
+        "sameIdPublicRuleCandidates": 64,
+        "eligible": 24,
+        "no exact same-slice public rule match": 40
+      },
+      "files": [
+        {
+          "key": "wus1",
+          "prefix": "wus1c001",
+          "censusHash": "sha256:f29a38252a755f8812f2d8b5295e27e49ad76eb0d0be8a17cb7d05aca4fda31f",
+          "rulesHash": "sha256:f57ead77239342b00126d4ba8de131e257549785b9e7152b9497c74ca135dc6b",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 4,
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "wus2",
+          "prefix": "wus2c005",
+          "censusHash": "sha256:7c0d82c8f338d6026792e10cb01cfbf50bbcaa3302af209bfadd97ca6e5f8fdb",
+          "rulesHash": "sha256:fd4f37e71a20d0376a2d76ec8cf25ec1b25232bcae7a1793099ea0df17481883",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 8,
+            "eligible": 2
+          }
+        },
+        {
+          "key": "wus4",
+          "prefix": "wus4c071",
+          "censusHash": "sha256:3f40f94158cd8823a1a4f794e9160b007232c984ac40b40b0056a2f72f584610",
+          "rulesHash": "sha256:40c953ce0663af48477677327f83a380f4448a8935a52877fbdb7814b53a5a46",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 4,
+            "no exact same-slice public rule match": 9
+          }
+        },
+        {
+          "key": "wus5",
+          "prefix": "wus5c047",
+          "censusHash": "sha256:636069d24204daea41f36896c9ceacfc1361b445f982e44b649aa56a70cc078a",
+          "rulesHash": "sha256:9d7b489fb515597bd2cd1f825010f08ca9aba1e2771e937bf5d91c735f43d60b",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 4,
+            "no exact same-slice public rule match": 2
+          }
+        },
+        {
+          "key": "wus6",
+          "prefix": "wus6c019",
+          "censusHash": "sha256:abc7bc1677d1462c4311e73f4ac36865b1e8331e89a7c7f440764a26c305c130",
+          "rulesHash": "sha256:d1389b3283bff743920b38af7e538224f3b39339c0c01a19638b31481b10fdef",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 17
+          }
+        },
+        {
+          "key": "wus8",
+          "prefix": "wus8c017",
+          "censusHash": "sha256:4e5cee5771cd274cd2e554b7935ff09c629a3f1edc4a0eeb907f5d75a075219e",
+          "rulesHash": "sha256:4a39bcee8eafcfa7199d54318b0738d71fc07b480dcb0741de424c338ea0d700",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 10,
+            "no exact same-slice public rule match": 3
+          }
+        }
+      ]
+    },
+    {
+      "world": "gc",
+      "digestSha256": "73d993a87b6ecc9b26cb048b1a66fd3c5fe434ef5a038b34b8e903691bb507a8",
+      "counts": {
+        "sameIdPublicRuleCandidates": 18,
+        "same-slice rule output unavailable": 4,
+        "eligible": 13,
+        "no exact same-slice public rule match": 1
+      },
+      "files": [
+        {
+          "key": "gc1",
+          "prefix": "gc1c011",
+          "censusHash": "sha256:a8ad629c783b5bea19b4f8e04614d4d848c438c1ce99d9a854d15a61a9a1c5f6",
+          "rulesHash": null,
+          "censusAttested": true,
+          "rulesAttested": false,
+          "counts": {
+            "same-slice rule output unavailable": 1
+          }
+        },
+        {
+          "key": "gc1",
+          "prefix": "gc1c037",
+          "censusHash": "sha256:193ce6b57c29e8d758a608dda8c7c9dfd988805addc8c1495c7af9ccb273044f",
+          "rulesHash": null,
+          "censusAttested": true,
+          "rulesAttested": false,
+          "counts": {
+            "same-slice rule output unavailable": 1
+          }
+        },
+        {
+          "key": "gc1",
+          "prefix": "gc1c049",
+          "censusHash": "sha256:412190c16bbad74df2ade791de04120771d780bbd56c88349035c07d82fc847d",
+          "rulesHash": null,
+          "censusAttested": true,
+          "rulesAttested": false,
+          "counts": {
+            "same-slice rule output unavailable": 2
+          }
+        },
+        {
+          "key": "gc2",
+          "prefix": "gc2c013",
+          "censusHash": "sha256:8eea3e4c5c445f531f644a21aff434dff4d789a4f48b9aa2e070017025c39e2d",
+          "rulesHash": "sha256:e66a95691599592a42aabaaaec63a4f5a4ac6229e898379a8db00ea9bf3c64ca",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1
+          }
+        },
+        {
+          "key": "gc2",
+          "prefix": "gc2c027",
+          "censusHash": "sha256:fe3ded2f025acdcad90dec890e52fac4e1ef1afb2470d0701590c259f81a21d1",
+          "rulesHash": "sha256:33d3755296db175f02abaa58a9ba5a28c23667968f4f0d26235b18717bda33b9",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 3
+          }
+        },
+        {
+          "key": "gc2",
+          "prefix": "gc2c075",
+          "censusHash": "sha256:1cf3147c9014505826f3185667849232b89ac50badfc7139a1b37c04bed9fcc5",
+          "rulesHash": "sha256:71e5118a5cd59e0e5663a5101cd7b9529cda4c0149268591decc7d0dd5da789f",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 3
+          }
+        },
+        {
+          "key": "gc2",
+          "prefix": "gc2c089",
+          "censusHash": "sha256:4970a8ea2363890853940df0639da505b66ed7abfc022e1cf1c136ddda450c5e",
+          "rulesHash": "sha256:cf2423c669bb8d023d03f3fc13c2b1827c2a56dbcbe3b6555aeda108ff28576e",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 6,
+            "no exact same-slice public rule match": 1
+          }
+        }
+      ]
+    },
+    {
+      "world": "pr",
+      "digestSha256": "d0629ed23528201cbde1cbd9ed8cfef7c51f3e1bd6703f7f71e6bbf5ed030304",
+      "counts": {
+        "sameIdPublicRuleCandidates": 5,
+        "eligible": 5
+      },
+      "files": [
+        {
+          "key": "prb",
+          "prefix": "prbc001",
+          "censusHash": "sha256:0f7158941620b7d0f5d2cfab7812860b8e499f6e6b9984e46fcf94c1b580173a",
+          "rulesHash": "sha256:cc4d653a4254d84e76acbff37ba3e533d5b812e540c4d8595102a9622bdabf55",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "pr",
+          "prefix": "prc009",
+          "censusHash": "sha256:1d2251f0ac9eb10a5b5d916f97e2687ba5fd3de92edae96fae96ee53ff2db963",
+          "rulesHash": "sha256:d3ffdfa4390a840df923c1496537e9106435d8eb55ab3d565ed1177fe773d238",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "pr",
+          "prefix": "prc023",
+          "censusHash": "sha256:1a4c75bd9887071ba39a2ce31c03afe10818b510da6c0faf3f4f146d389c1edf",
+          "rulesHash": "sha256:e4c11d8060a134d1b3f4da67de5f2f4d063a9b19095726b3c195bf13abd59740",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1
+          }
+        },
+        {
+          "key": "pr",
+          "prefix": "prc064",
+          "censusHash": "sha256:2f3dc06cbeb519f4f0d1ca7f82b52c383b01df682fff1142d96f061607e8b191",
+          "rulesHash": "sha256:74342523d31517be1a7228f0f9aad02c979472d488c096bf04739c971c22a249",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 2
+          }
+        },
+        {
+          "key": "pr",
+          "prefix": "prc077",
+          "censusHash": "sha256:4a9e7dfbfd6da25c08ef4ae48d399f5f4a9dc26b2af4a47aa39b63c9fdde563c",
+          "rulesHash": "sha256:466558e313a349c06a1cd9da4abfe93a898a493f012efb382fabef811eb744f4",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1
+          }
+        },
+        {
+          "key": "pr",
+          "prefix": "prc097",
+          "censusHash": "sha256:3884bb95486797a3842a24b56460f3d5e20f0100cc474f775020a710bb1c9ebe",
+          "rulesHash": "sha256:519800047dae99ca4a590f71f7c3011361fa064580ebb573d2564c253c22a44a",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1
+          }
+        },
+        {
+          "key": "pr",
+          "prefix": "prc109",
+          "censusHash": "sha256:655aa05331642c0bd7c7fd4467b5e3a1008b207a57c354ea64c0c333ed2b6d7b",
+          "rulesHash": "sha256:c4060a8e93ec30aa6e9b593c168f587f762be14b060ff063905b98f6467177ee",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "pr",
+          "prefix": "prc119",
+          "censusHash": "sha256:092d2411d8f2b51289bea2da3488e7b23508a5d8504a19cea177a92a767518cc",
+          "rulesHash": "sha256:a99a1d38ae2be75bfca1d74c8d42b50b428c1a930556f7505f7759d8abd6707f",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "pr",
+          "prefix": "prc130",
+          "censusHash": "sha256:109a416d21b0c17e60d6f15818cc2905e56c327d2cfe6ced906134673085a1b7",
+          "rulesHash": "sha256:77f8e4167484f164edf92bd3818cecac9247aba4c4d11fefd536b5edfa92c1d5",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        }
+      ]
+    },
+    {
+      "world": "sup",
+      "digestSha256": "179332c2d1e68537d1d442cf2ed882b0e41a637c6c51f79a2070820f8eb5f573",
+      "counts": {
+        "sameIdPublicRuleCandidates": 43,
+        "eligible": 12,
+        "no exact same-slice public rule match": 31
+      },
+      "files": [
+        {
+          "key": "sup",
+          "prefix": "supc001",
+          "censusHash": "sha256:6420f76611827c2f4482a16ab12bba88a5a4c7fa5f6ec6fb6406c494177c1a2b",
+          "rulesHash": "sha256:d69503841719f3e74321f3bfb1bb9a974b9ff4ba47d8c06fd83668beaddc619a",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 8
+          }
+        },
+        {
+          "key": "sup",
+          "prefix": "supc071",
+          "censusHash": "sha256:284960c6ded3d1e904b9636632c8f8e94fc3224e8a0fedb18ccb4f5da6a00737",
+          "rulesHash": "sha256:1f0337aad6f798dc4ef8d834f5804fc89473c70fc9d6c875502af2e38df24863",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 9
+          }
+        },
+        {
+          "key": "sup",
+          "prefix": "supc120",
+          "censusHash": "sha256:1e12beb007e1cd94146f44b5793c1378cbcb25f9b137411721e4a3e20f8d75ec",
+          "rulesHash": "sha256:c22f2abe34e0de0970cfa65e0a7fcd69ad5579c025a8a73bf41d7c784250eb69",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "sup",
+          "prefix": "supc169",
+          "censusHash": "sha256:ff9235d92c42ae7d9cfd6ce391644194a783df67c10ee2cb1bd4684aed605374",
+          "rulesHash": "sha256:9b40db8b03b1938700957a8a74358baf9fcc673b9d07cc039b7ff0cf20a0f2f6",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1,
+            "no exact same-slice public rule match": 15
+          }
+        },
+        {
+          "key": "sup",
+          "prefix": "supc223",
+          "censusHash": "sha256:1da18716177abf640bc7b09b0b30013c4ff294355902cc9d0652af35fbf1c383",
+          "rulesHash": "sha256:7ea4afe6706581bb537a7f47ce3a61c63a7f029463f58e85ba47329bda8df929",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 3,
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "sup",
+          "prefix": "supc257",
+          "censusHash": "sha256:ece929b96d9d26be258c7bd8014e9da8ed6468ec55ba91dee23707a41271779d",
+          "rulesHash": "sha256:a7f675c5ce2da85a4459ab4319055af23d565282caa17bba0f82b9b5eb740ddb",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "sup",
+          "prefix": "supc288",
+          "censusHash": "sha256:e6712a5bd09a9a12720565c9874e22370fe330e44ddd1db05ad37ffb380f8230",
+          "rulesHash": "sha256:f3506caf8aa4b091ac602a1016ae5d81d9353c0dbbe175edb89d419e45cda326",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 3
+          }
+        },
+        {
+          "key": "sup",
+          "prefix": "supc314",
+          "censusHash": "sha256:758f15d92ac5441b3c96beae4dbc53524655fa57b00e37522846fc74cb2414c5",
+          "rulesHash": "sha256:b3411e780ab4f87c4d600d15802c00024facfe962b4590deed7843bbef3bff1e",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 2
+          }
+        }
+      ]
+    },
+    {
+      "world": "ri",
+      "digestSha256": "b53acad587111165d7b4a8fd4e2943684333fcf5557bc804c872710836f5216c",
+      "counts": {
+        "sameIdPublicRuleCandidates": 9,
+        "no exact same-slice public rule match": 6,
+        "same-slice rule output unavailable": 3
+      },
+      "files": [
+        {
+          "key": "ri1",
+          "prefix": "ri1c001",
+          "censusHash": "sha256:b708513c98be7645f833517d8be736f6bb0b5f1550f217a7c7d4262faf0cfc4f",
+          "rulesHash": "sha256:48a6a8847352763609c973f99eabe026d5f2f8645edc73d24b4b0305d80cc76a",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "ri2",
+          "prefix": "ri2c107",
+          "censusHash": "sha256:46dec47ad3775caec63d43bb644d517c49c251b17cf45ff3479a636fefabfb76",
+          "rulesHash": "sha256:ed6293d7df1e8069289331a00416f964bae52017f4fff8aa8e3fb25875697f77",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "ri2",
+          "prefix": "ri2c149",
+          "censusHash": "sha256:4e5f4f3bce22f59e6e9409ee63243dfc77a0ab777b49a13b644fd9f080ab2107",
+          "rulesHash": "sha256:3f884dee73e0fe22eb7d9a4e6a5473013cfcf5ed7ec0a6038f858beece4d4da6",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "ri2",
+          "prefix": "ri2c191",
+          "censusHash": "sha256:0f5494c78f351ccb1215333d70e271608bc514cf0a2d6b4a551ebd20df07791b",
+          "rulesHash": "sha256:36ce5ebae8f2cd7e13684df877a8c31c368bcb3e53a246e488203b6b3b5f0017",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "ri3",
+          "prefix": "ri3c227",
+          "censusHash": "sha256:465e2a79591e122d871105d05600c7abd59d60ba05e8410c323e8f404e31c32d",
+          "rulesHash": null,
+          "censusAttested": true,
+          "rulesAttested": false,
+          "counts": {}
+        },
+        {
+          "key": "ri3",
+          "prefix": "ri3c267",
+          "censusHash": "sha256:2fc758cc3d795c26d5912d80d33d2ebd6286eb3adcbd985478ee3eab42172c3e",
+          "rulesHash": "sha256:f5b9be035692f0007fdee9bdee1ce50fe536f5cc2ac0957cc8f455db7c09a59b",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 2
+          }
+        },
+        {
+          "key": "ri4",
+          "prefix": "ri4c313",
+          "censusHash": "sha256:e0dde8557facd6fa7194d5db7bfe581aca4b2ac124f7cec4bb6d1084b777424c",
+          "rulesHash": "sha256:280add869d16ec86cfb9ba116f7da43ca3cf161438b62bdb2fa282808e87f324",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "ri4",
+          "prefix": "ri4c356",
+          "censusHash": "sha256:238fe28654b67b02d40c480c4da7bb807558dad6040864f8fe5e495287555871",
+          "rulesHash": "sha256:f549b806f0d3b222d1d30a922ecdddfe9a7b3d07765ecf2414f7bc280a253d51",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "ri5",
+          "prefix": "ri5c404",
+          "censusHash": "sha256:388b945fa0790e78d2f59676aac0980c37f3ca219391d2878032d2b77ecfb482",
+          "rulesHash": "sha256:c3f0d03085d03d9112c9eb307d774fe5b2c3cff5091c29bd7b6c8f95ffda29c4",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "ri5",
+          "prefix": "ri5c453",
+          "censusHash": "sha256:31467f6677f0af709b5b7d2589ea140136d9f3a0965eede7c9932f2809f652d5",
+          "rulesHash": "sha256:24e73e9ed6649b54b85b0d7e8c32259b87190f5727b5418c5ccf3dc1e8d01741",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "ri9",
+          "prefix": "ri9c801",
+          "censusHash": "sha256:1b6f8a441e35bf914ab5970a14346e687def8ca1b6079eed084c11474dfbc63a",
+          "rulesHash": null,
+          "censusAttested": true,
+          "rulesAttested": false,
+          "counts": {
+            "same-slice rule output unavailable": 3
+          }
+        }
+      ]
+    },
+    {
+      "world": "rtoc",
+      "digestSha256": "2640970d6d9a0050d61a92f4a50d99fd3cf3285272ef2fb78570878c69b91ae8",
+      "counts": {
+        "sameIdPublicRuleCandidates": 54,
+        "no exact same-slice public rule match": 37,
+        "eligible": 17
+      },
+      "files": [
+        {
+          "key": "rtoc",
+          "prefix": "rtocc002",
+          "censusHash": "sha256:0d58ff099e27c6e4c6e9f2d0a59615322cd45e7c0467d26e7436ee95739f2a66",
+          "rulesHash": "sha256:6b9d76562689ffc74477c92e4fbcb8c019db12806b04cd2c7130f82b48a24491",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "rtoc",
+          "prefix": "rtocc056",
+          "censusHash": "sha256:45e459081ee8f16414498d678e802d20a6aa3c34d51156016b179af695365501",
+          "rulesHash": "sha256:a68034facfe16594a931cae7d0b277d1acec787a679c361e07cc8324270a9e1a",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "rtoc",
+          "prefix": "rtocc114",
+          "censusHash": "sha256:cd172e842d0ee416434b0c8000a8a2ade6c49f2f0871f9f8011e44727b25e4b3",
+          "rulesHash": "sha256:ad79b44ba6ffb8dcd313b86dc4f084c98fe1337022381061b2390a3eadd7ad34",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 4
+          }
+        },
+        {
+          "key": "rtoc",
+          "prefix": "rtocc174",
+          "censusHash": "sha256:01fb703e7e1746aa7c64aa9cd9b285889e988d3cc9ce0a28ee63943eafc74f7d",
+          "rulesHash": "sha256:14886d24916a0fab4fcb97d9430ed3f52cac21b43875e9319e8d2821f3061d85",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 4
+          }
+        },
+        {
+          "key": "rtoc",
+          "prefix": "rtocc357",
+          "censusHash": "sha256:c9a757f6e8ebb477014317fe3bb54c3d8f168c7c77a39dc0390eb538616553b0",
+          "rulesHash": "sha256:abefad216e1de6a172f5efc4bc6dab163518312b6b3a7200ea902809d111c2f5",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "rtoc",
+          "prefix": "rtocc421",
+          "censusHash": "sha256:79a6bca9beef6c595bf86d07b14fe85500cba525abbee0c25b49a6859d02a6de",
+          "rulesHash": "sha256:e9c66e60ea13c7902ccc0709c1ca7cedf983cd924888464490e4215a89bcc6cb",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 9,
+            "no exact same-slice public rule match": 5
+          }
+        },
+        {
+          "key": "rtoc",
+          "prefix": "rtocc475",
+          "censusHash": "sha256:c822b144985afbee3d4d020ecb44221cfe9df61d2f964ddd5aa805ef0c3b9ead",
+          "rulesHash": "sha256:eb3523654316d29036b000c1a5988c814313b15988fdceefffa6f31e0a963712",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 5,
+            "eligible": 5
+          }
+        },
+        {
+          "key": "rtoc",
+          "prefix": "rtocc528",
+          "censusHash": "sha256:77a24a8b6caeeb7555658d1731a64ca0abd78264c6e2c1ca2320023fc930b3b3",
+          "rulesHash": "sha256:33962e2939ca819e6979dd2135fe331090cb8e3eb7ca8b8e9fb67702d9337641",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 3,
+            "no exact same-slice public rule match": 9
+          }
+        },
+        {
+          "key": "rtoc",
+          "prefix": "rtocc583",
+          "censusHash": "sha256:62fa076b1dcfbec058358d4f0dffff799f78cdce8f2216c3ef3018b4746d3557",
+          "rulesHash": "sha256:4a13cdb7415452bbc88aa7907196ab16074d4edc7fb8418604dda1ae0de500a0",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 3
+          }
+        },
+        {
+          "key": "rtoc",
+          "prefix": "rtocc639",
+          "censusHash": "sha256:338b4f0c186e93e872fb7f940ff57d7b78be1bacb4e741a9e350664b42607f51",
+          "rulesHash": "sha256:02b62008325198b9e14d43b26dde931c9493753a9d9e26794268f128a13de7d0",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 5
+          }
+        }
+      ]
+    },
+    {
+      "world": "rak",
+      "digestSha256": "dbc9a152b7396108f399bb0ed096175658d83441b7b497e6b16f53261333c755",
+      "counts": {},
+      "files": [
+        {
+          "key": "rak",
+          "prefix": "rakc001",
+          "censusHash": "sha256:e07c35b0baf85df5795e46f386f0ca45a9a6faf0e8bdd054c76c7971ee86f7ea",
+          "rulesHash": "sha256:535d7d99967e51e9193d7184d4cae115df1d10001c185f8059f8f2d5035cac6d",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        }
+      ]
+    },
+    {
+      "world": "pge",
+      "digestSha256": "c8f73bec905e4f29c60d5270ce3299fe95b8ddbd059eca7f6ec02eaf38f0361b",
+      "counts": {
+        "sameIdPublicRuleCandidates": 12,
+        "eligible": 4,
+        "no exact same-slice public rule match": 8
+      },
+      "files": [
+        {
+          "key": "pge",
+          "prefix": "pgec003",
+          "censusHash": "sha256:a8830f7d5ff46a893b5b2e06a0cb1b67f8d8e2d452c7912fb1d922729f5c3ca6",
+          "rulesHash": "sha256:2e7ee4b048278261e83869d41d68f9b75e740700deba446de7c57d0d3c980611",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "pge",
+          "prefix": "pgec005",
+          "censusHash": "sha256:3afcb7bf5be82a025ccbdda2e2d8b78638a4c859b92e4dfd28096e1cabf4cc8f",
+          "rulesHash": "sha256:6f0aa0f0889827be2d235406073f9af694b45cc1cb812f260fd62b4e0dd0d3ab",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "pge",
+          "prefix": "pgec007",
+          "censusHash": "sha256:9f19320ae6a04278997bdaddb9a9ddd8e4861cbf0c907d14fb8da108f5efc074",
+          "rulesHash": "sha256:1400839047a3c203b1e5443c6e3fd2fec8aa7dbcbf23676e68faa650d6ee6c46",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {}
+        },
+        {
+          "key": "pge",
+          "prefix": "pgec010",
+          "censusHash": "sha256:1069b9039eee86d53506b7e5e99ce968e6e553512ae45b5073f70d1d2c73c973",
+          "rulesHash": "sha256:35b1136c1cd49ab633184d866ec0362ba3a453e3184b09818d22d902b15a5cdc",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1
+          }
+        },
+        {
+          "key": "pge",
+          "prefix": "pgec012",
+          "censusHash": "sha256:66b25deac10de51cd5eabadbcd84c2807a0923714a316fbf2f5c06cd7b5b4c86",
+          "rulesHash": "sha256:706dcb09f7d92b504ba6f51a529455a088f5c80c31c692c4b694259fbb2c8028",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 2
+          }
+        },
+        {
+          "key": "pge",
+          "prefix": "pgec018",
+          "censusHash": "sha256:7d46a37688a900565b66933516a95060cc47b97d403a5858f92a7e7f97c802b9",
+          "rulesHash": "sha256:91b84ef78d54e8689da51a5d5d70225f7da9e1db1029a2200d4b3eba8c46f42f",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1
+          }
+        },
+        {
+          "key": "pge",
+          "prefix": "pgec020",
+          "censusHash": "sha256:354ff414fe83090b07c1bfe96988881f0219a9da95279a89a199241db8abfc96",
+          "rulesHash": "sha256:e383c52365e04a8ba9cb538c1fa078ebfefab8092a1e1c0e109c783e5a9509af",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1
+          }
+        },
+        {
+          "key": "pge",
+          "prefix": "pgec023",
+          "censusHash": "sha256:5755bdc2ee4c984a74aed8751079292d798a6aecadec27b05979f14fd34baec0",
+          "rulesHash": "sha256:0f30c587647a0786c4df3c472166fcec015d7bc1b5f1e700eea3b813d92e9f42",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "pge",
+          "prefix": "pgec025",
+          "censusHash": "sha256:b2a9f9a72bb960c4a868ae380410f0cd68ed26943d8cf99994c9f7e69823ce28",
+          "rulesHash": "sha256:687fc0f08fcb91df07bb692a324b59ffb975ebc430d1dd2994b4ed43dcc591ca",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 3
+          }
+        },
+        {
+          "key": "pge",
+          "prefix": "pgec028",
+          "censusHash": "sha256:a9f13c64a0986051fd5f0c2f98156eb3ce005efb543064b29742bd424d20090d",
+          "rulesHash": "sha256:011ce56288ef83707d191a7b68369626150e4e6de11f785ba482551fb3ef0ac1",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 2,
+            "eligible": 1
+          }
+        }
+      ]
+    },
+    {
+      "world": "az",
+      "digestSha256": "5ed128f3b0891b5e5cc543e9619ebb5d5456b7ea573f41aefe1b6fa00d8dacb0",
+      "counts": {
+        "sameIdPublicRuleCandidates": 184,
+        "eligible": 81,
+        "no exact same-slice public rule match": 103
+      },
+      "files": [
+        {
+          "key": "az",
+          "prefix": "azc001",
+          "censusHash": "sha256:03beb5342737b910a302e275d7fd5d833ab239d6ee42c5a42439f4d20754dee0",
+          "rulesHash": "sha256:2e02913063d705f44db28a5a0e0112c79b726a82b27edcab67e78905d758af20",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1
+          }
+        },
+        {
+          "key": "az",
+          "prefix": "azc004",
+          "censusHash": "sha256:8ccd4bfa24dd3a16f7aceb0ba78c40c2af4b14fb61976b9c3e16ea5261593ee1",
+          "rulesHash": "sha256:4d3eb188e5a090fa28e0a2f52771f429b9d1cb4378d8204a726159a908308764",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 7
+          }
+        },
+        {
+          "key": "az",
+          "prefix": "azc008",
+          "censusHash": "sha256:e73f4ee45b68b3086195ff15b870b89442caa67ff956f01adf07c4cb0e505c28",
+          "rulesHash": "sha256:db0205d6b472685771385e1630b916795677ae70cc5a17efa7145e2a34254376",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 11,
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "az",
+          "prefix": "azc014",
+          "censusHash": "sha256:3eaefba8bc755f0e2e3fa95832332231d899455ddd4c25c62d186c70a3690fff",
+          "rulesHash": "sha256:ca906c1e7daeafe9b3b0ef486dc7014585ac4d31e282efcb99cbdc4a5cc793a5",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 12,
+            "no exact same-slice public rule match": 6
+          }
+        },
+        {
+          "key": "az",
+          "prefix": "azc022",
+          "censusHash": "sha256:87b33e7913ac955e6e0d0f16dac2f03df80bc47229750d51bd4ba5eb31136081",
+          "rulesHash": "sha256:2918562e5055de1ed70b46adfaac581f2963613fe0cce61b7202d8aadfe52682",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 7,
+            "no exact same-slice public rule match": 16
+          }
+        },
+        {
+          "key": "az",
+          "prefix": "azc030",
+          "censusHash": "sha256:a48ebe089e8b5af26802bad7eed749db63202624d9ef53e4306ed5238cdd9082",
+          "rulesHash": "sha256:524e7f0f6bd75cc7a3c7f382eca377c0ec7f39bbb27ea790d81d49164d037293",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 6,
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "az",
+          "prefix": "azc036",
+          "censusHash": "sha256:69998be2a3bfa768d3c70c7f93856bd964393e86d0b5154f921dda283d5aaaf6",
+          "rulesHash": "sha256:dba46005923ba57ed5ea5d4d00123aceed52a5af3c520031530921ae94591a64",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 18,
+            "eligible": 9
+          }
+        },
+        {
+          "key": "az",
+          "prefix": "azc044",
+          "censusHash": "sha256:2ba8f6cd8e7d8289a99d47ddd071b447a3a03220059399b4c7407c6cdf2da281",
+          "rulesHash": "sha256:44ebae8e8cc43dd719a2ea8746fdf04d2c9ac4404ac2e739078ca521e0b30622",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 25,
+            "eligible": 13
+          }
+        },
+        {
+          "key": "az",
+          "prefix": "azc052",
+          "censusHash": "sha256:11ed6cf923fc053c874a912ccc6c50973daf5bd59cd40ddc61a4971920770440",
+          "rulesHash": "sha256:e435d44952bf4357837779b36e6b47fb1766f826e724a535be16fade6dd6261b",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 12,
+            "eligible": 6
+          }
+        },
+        {
+          "key": "az",
+          "prefix": "azc058",
+          "censusHash": "sha256:e83e5d6ef8d4ffa9bc4edaa59db79231a2004aead7096c27269c0d7a3761c3ec",
+          "rulesHash": "sha256:75954b62eb405d5442d4f5af7771cc1f5d0166940f7a0b683cdd5e5be6429bfe",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 3,
+            "no exact same-slice public rule match": 10
+          }
+        },
+        {
+          "key": "az",
+          "prefix": "azc065",
+          "censusHash": "sha256:d1a06c39479aa92075f42801798462bd86121e3afc130b33f44d27f9dceca3c3",
+          "rulesHash": "sha256:16089e65c770a3ba8aa71c3d5affd5ef0a89b0d2d010113439e1d4d432562c1f",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 14,
+            "eligible": 6
+          }
+        }
+      ]
+    },
+    {
+      "world": "sth",
+      "digestSha256": "0c898c0c613f7ab5500ad87296ba25217cbca998c588dd6a3a637d0e9eafae3e",
+      "counts": {
+        "sameIdPublicRuleCandidates": 230,
+        "eligible": 108,
+        "no exact same-slice public rule match": 122
+      },
+      "files": [
+        {
+          "key": "sth",
+          "prefix": "sthc006",
+          "censusHash": "sha256:ad549bf52aa4efbe8614bd491919115f9555e7810fcffbc96c2e8fb0f2886b6d",
+          "rulesHash": "sha256:9e19227f5137b79ecd24764e17afb830e8a4e9d6ff1a9e98343f413a89c12d54",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1,
+            "no exact same-slice public rule match": 2
+          }
+        },
+        {
+          "key": "sth",
+          "prefix": "sthc014",
+          "censusHash": "sha256:bd616e6174795d7f09173829b64d704befe495241203d06d6db029cfb3b5907e",
+          "rulesHash": "sha256:64c3432dd0d5e785becebc2fcef2323684b343dac1d4b2f3d599d2a938456a0e",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 12,
+            "no exact same-slice public rule match": 2
+          }
+        },
+        {
+          "key": "sth",
+          "prefix": "sthc020",
+          "censusHash": "sha256:f679b609b35b286615354568263c8bef8b2c3a7cf9b5fe057df63e99d0aa1918",
+          "rulesHash": "sha256:e5c02ede78d3369387d2f20a788b26f18c93673136d8c483e07a24cd07684671",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 55,
+            "no exact same-slice public rule match": 19
+          }
+        },
+        {
+          "key": "sth",
+          "prefix": "sthc027",
+          "censusHash": "sha256:225ad0d24c702a68b3eccd38e21db811b5fd3ee453232a3ada4dc5a746a92ef5",
+          "rulesHash": "sha256:f4f64a1ec39f3d615f361a02182713d06ca4ff1bba2d2053714468efd2afd6fd",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 3,
+            "no exact same-slice public rule match": 4
+          }
+        },
+        {
+          "key": "sth",
+          "prefix": "sthc034",
+          "censusHash": "sha256:c86baa0893bac99788e98dece9bebaa6de613f6b6f07d399f1e8fe423c1f2335",
+          "rulesHash": "sha256:f56152ab7ae72efae134133544edc33cb305f45550baf55cef0cfdbc6c5f2c6c",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 3,
+            "no exact same-slice public rule match": 5
+          }
+        },
+        {
+          "key": "sth",
+          "prefix": "sthc041",
+          "censusHash": "sha256:820d50e7b77a7ba60ee552530cdae2d95c71994879e39c0cbf10f0dd5b7682af",
+          "rulesHash": "sha256:6f6bda432d15ae5255f58cfe891095d15dbaeb4627d777736834ff8cc3b9e485",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 10,
+            "no exact same-slice public rule match": 10
+          }
+        },
+        {
+          "key": "sth",
+          "prefix": "sthc048",
+          "censusHash": "sha256:26ef86e9a0af643d8b7972707fb1da094918c3fea7e3d08a4d61441694a6e075",
+          "rulesHash": "sha256:8eea2d92532e249f7e8c77c55cccbbc4482a0e63fc721f8f3d6933a0d800fcfd",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 15
+          }
+        },
+        {
+          "key": "sth",
+          "prefix": "sthc056",
+          "censusHash": "sha256:a90f611a0186df905c290751e9afd5d1944950f0e343e10ef6b2cf9b6e202e76",
+          "rulesHash": "sha256:0a09c6c22ff37e71b3a24647cd6e46ed9d2baa9652252c8a6d0109decfb1aa88",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 5,
+            "no exact same-slice public rule match": 9
+          }
+        },
+        {
+          "key": "sth",
+          "prefix": "sthc064",
+          "censusHash": "sha256:00039d41873a47c6c95112af2b2f763cc4fc9fe604202d4302d76a02b5d1ca72",
+          "rulesHash": "sha256:eeddcd3f73a8fe7e707fda1c4bf8aacc9655aa03e4ae47de4061c9858dc1d749",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 8,
+            "no exact same-slice public rule match": 16
+          }
+        },
+        {
+          "key": "sth",
+          "prefix": "sthc072",
+          "censusHash": "sha256:cd5d8bab649226ece591b8bd5b627de4cc1fe60493e0f141a64ddce1f55916c2",
+          "rulesHash": "sha256:dec13579b4fe036892982f827a2816686bbd31fbcd055bb9c932cecee1769ca3",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 22,
+            "eligible": 11
+          }
+        },
+        {
+          "key": "sth",
+          "prefix": "sthc080",
+          "censusHash": "sha256:d77f63d3f6a2aacfc1e7ca031404d1976582fe50bddb3ca6ffc6813619ed7749",
+          "rulesHash": "sha256:5f3e192183d4f0c43b6c0c282a3dd6b49ab3a2449dab4b9046022e8a3139ee9b",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 18
+          }
+        }
+      ]
+    },
+    {
+      "world": "vs",
+      "digestSha256": "ae62fb09d3a23552720fab2a8623f0c94d8d54725239da5632bf699862c070be",
+      "counts": {
+        "sameIdPublicRuleCandidates": 79,
+        "eligible": 38,
+        "no exact same-slice public rule match": 41
+      },
+      "files": [
+        {
+          "key": "vs",
+          "prefix": "vsc001",
+          "censusHash": "sha256:c52ed23ff473b70ac2b7385494496405101e5e2b8c3cda93014b00455f1b9394",
+          "rulesHash": "sha256:5becfea61552536c693d8785449f6aedbe14663a94a743211990ad888ab13f57",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 3
+          }
+        },
+        {
+          "key": "vs",
+          "prefix": "vsc005",
+          "censusHash": "sha256:1ed1f828446e8b961d29a78dbab7a119f3f9b302faa5adc1a10f73110c4ce8e0",
+          "rulesHash": "sha256:a4b77558b4b44d0e8ed1325ef893668ae78c3752441115bcbfee00813a62def1",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 2,
+            "no exact same-slice public rule match": 3
+          }
+        },
+        {
+          "key": "vs",
+          "prefix": "vsc011",
+          "censusHash": "sha256:5418b6072691b8d6acba0b094d34d829882b0ce65047f17eefc92b5ff695f30b",
+          "rulesHash": "sha256:d71fd412d4f86652061674de1efa88f5d18977ef908dcf9f5171ff824deccf3f",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 2,
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "vs",
+          "prefix": "vsc017",
+          "censusHash": "sha256:002e5e6798ef70b9ad080683214813b89fac92c0d9fee3a5aa3f820ecac32c57",
+          "rulesHash": "sha256:6febe086eef7721469204d5d38dbae67d6ead7044091531220bd5e417fa552ad",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 2,
+            "eligible": 4
+          }
+        },
+        {
+          "key": "vs",
+          "prefix": "vsc022",
+          "censusHash": "sha256:6b075926890b755112f0b05602ed47a32e10241baa3d44039d7073082c3664ce",
+          "rulesHash": "sha256:5326bbd23d133f97383075a283ed8243f085f4158b4f34ca3344aa26ab6fb80b",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 6,
+            "no exact same-slice public rule match": 6
+          }
+        },
+        {
+          "key": "vs",
+          "prefix": "vsc027",
+          "censusHash": "sha256:6a9a080e77346671dc86d98ddd0ecd19795e5a78d2702e7d92af42a335751d98",
+          "rulesHash": "sha256:02c34212315a7a2b9535c877b27d431c262ae6f2ead161af8c7be910c2a9a38f",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 2,
+            "no exact same-slice public rule match": 2
+          }
+        },
+        {
+          "key": "vs",
+          "prefix": "vsc033",
+          "censusHash": "sha256:b317b66e23af03620112e0fcfb8e3dc65de0921b129cbdf6e6f4007f9a6b085d",
+          "rulesHash": "sha256:d27e646b91b6aea5d6f56e8109fa117f14f64576bee1ff0ea9810586319f26ec",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 8,
+            "eligible": 2
+          }
+        },
+        {
+          "key": "vs",
+          "prefix": "vsc038",
+          "censusHash": "sha256:84f55cfcacbb1330d148f01bb6317f3c60a25b53e3143fa39525cdb1a2f85a77",
+          "rulesHash": "sha256:c9b66709489a8ac44947fe37b1b77ed53ddcc6c3a1a0a49a9345f2bcdf91d52a",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 2,
+            "no exact same-slice public rule match": 7
+          }
+        },
+        {
+          "key": "vs",
+          "prefix": "vsc044",
+          "censusHash": "sha256:71563cb7caf088362b0cd49eb06350da4490f19bd2d5021684507c663be398c2",
+          "rulesHash": "sha256:a3ce9777019a011ca35be1193e8c2746a7f47092377a5cd067114ae4ce436f33",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 4,
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "vs",
+          "prefix": "vsc050",
+          "censusHash": "sha256:08251ab75bdb45242c184d3da154009c215984faf65e46eacaf721d4bd4de33a",
+          "rulesHash": "sha256:c866ad2345deb8ce566ea4df9d85fed6f06d40b30613ac40c9e2c1afac5432c7",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 5,
+            "eligible": 2
+          }
+        },
+        {
+          "key": "vs",
+          "prefix": "vsc056",
+          "censusHash": "sha256:24b806e7a0ba58c4c950a5ada2699e4cecd5d54550abb430784c1a8903d9614d",
+          "rulesHash": "sha256:97a7488ab8faf467a29a041a3a7a94e2d29b2efbe23584b148d6750bb258d15a",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 3,
+            "no exact same-slice public rule match": 2
+          }
+        },
+        {
+          "key": "vs",
+          "prefix": "vsc062",
+          "censusHash": "sha256:346ef7077003e038e0be291d1cb28f38a939219795f365665d944d71374fb427",
+          "rulesHash": "sha256:ed63dffa851a0e00d67ba0f09ad2ba1e42f2705083355ad4c014c329b160dceb",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 6,
+            "no exact same-slice public rule match": 4
+          }
+        }
+      ]
+    },
+    {
+      "world": "bdm",
+      "digestSha256": "79f9c19beaf580e1e524ccd9c119f2cdcc257e0ebd2e81c6fc3642a2ab0e2a06",
+      "counts": {
+        "sameIdPublicRuleCandidates": 325,
+        "no exact same-slice public rule match": 181,
+        "eligible": 144
+      },
+      "files": [
+        {
+          "key": "bdm",
+          "prefix": "bdmc005",
+          "censusHash": "sha256:418e20eaa1526beca224820003d6cb356ba7169abf06bc2bb67d9fd6058e3561",
+          "rulesHash": "sha256:a6d5fe8c69cb99d8ff848a21074091718856b119b686fb6d83d3aa84ba69bf15",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 14,
+            "eligible": 4
+          }
+        },
+        {
+          "key": "bdm",
+          "prefix": "bdmc009",
+          "censusHash": "sha256:72fc95a5eabd604cc1005bef89828fedc36591c02e35f0273621cad487c437f3",
+          "rulesHash": "sha256:9f4b0895b1b786a49e65bfb30e718d8aea4185a36b7954a83fa9e54cf9ba81bc",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 49,
+            "no exact same-slice public rule match": 13
+          }
+        },
+        {
+          "key": "bdm",
+          "prefix": "bdmc013",
+          "censusHash": "sha256:5690acad75dcd156b977b67ab0c7a188f794645721e23029b0c05bf5e8aa4b51",
+          "rulesHash": "sha256:63571c64afc35ebe46d19c658f87b10c66a5b03023520772ae536b487f680d0c",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 15
+          }
+        },
+        {
+          "key": "bdm",
+          "prefix": "bdmc017",
+          "censusHash": "sha256:cae72d998fa1bc6f8ce75da9ca00adf2cb56c4572d19da9abc49c40ab036556b",
+          "rulesHash": "sha256:7f2da15f4a8e2ccb99ea1f3335b1d1e7c7991a2feb3b941e58bb66f1ed419340",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 19,
+            "no exact same-slice public rule match": 20
+          }
+        },
+        {
+          "key": "bdm",
+          "prefix": "bdmc021",
+          "censusHash": "sha256:b7e490a8ad9c738f5ed9fb7f57c469a7f9f6fb467c4c49e9953294df1b8172fc",
+          "rulesHash": "sha256:11c1f1e32e7f2ad153c90c302f074f7b4442fa1348fa428e1dce5a5eaa7f9e27",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 28,
+            "eligible": 6
+          }
+        },
+        {
+          "key": "bdm",
+          "prefix": "bdmc027",
+          "censusHash": "sha256:dea8d4b8a1b9a6f9a84b1017096ee599650c9b8530eee7895a20bad5ec1b70f6",
+          "rulesHash": "sha256:291a58eb116846ec1ec4d420af3aade9c9359499be8b55718dc6c6bb3c2bea82",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 12,
+            "no exact same-slice public rule match": 20
+          }
+        },
+        {
+          "key": "bdm",
+          "prefix": "bdmc031",
+          "censusHash": "sha256:d786a62c555733e53446dfe71d2df5efd7a90a43783adf73eaef924ab6bbf22f",
+          "rulesHash": "sha256:36b629e707b87103601dae58f6a17eb184e1613271d1c345d29d978afc1a3ea3",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 12,
+            "no exact same-slice public rule match": 5
+          }
+        },
+        {
+          "key": "bdm",
+          "prefix": "bdmc035",
+          "censusHash": "sha256:a34e3af04ee68ed568b3b1c533fa014c43bd65544cd813e3924a438df80d5538",
+          "rulesHash": "sha256:066aa0638dea00c2a415fc24eef5abf04169689ef52c86d3d8810b8c2a154058",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 7,
+            "eligible": 2
+          }
+        },
+        {
+          "key": "bdm",
+          "prefix": "bdmc039",
+          "censusHash": "sha256:0b6a6a9f96a4f0f7f491191344897286bab3d723b6cd1d85390a6b82459d2f42",
+          "rulesHash": "sha256:cdd87f52d912fcfffdbcfa5b18d13635394d62e28a46f7b2e2ddabd5de91a805",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 9,
+            "no exact same-slice public rule match": 20
+          }
+        },
+        {
+          "key": "bdm",
+          "prefix": "bdmc043",
+          "censusHash": "sha256:2997c23ed9c541485048895d8e22dba324f3f1f8b64b3af0a8d0dc95b26793e1",
+          "rulesHash": "sha256:1232eefbc671a75d774cd6b55eb5ee3d876a3b23f735d9ac60b82ae09504162b",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 5,
+            "no exact same-slice public rule match": 1
+          }
+        },
+        {
+          "key": "bdm",
+          "prefix": "bdmc049",
+          "censusHash": "sha256:024d55b6c45c9e0c0e2e1668d2635301394ae7c944d6f0d32fac374d29d1b497",
+          "rulesHash": "sha256:4b8086d53106e946b05ca0f9d2d82e9df24fb8f0796d3b84089a51fa180e93ee",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 26,
+            "no exact same-slice public rule match": 38
+          }
+        }
+      ]
+    },
+    {
+      "world": "fod",
+      "digestSha256": "42b7f61d352ab3989196a0be34b671ad0260d265bd2fc1660e182e8f0fc3a8a9",
+      "counts": {
+        "sameIdPublicRuleCandidates": 50,
+        "eligible": 31,
+        "no exact same-slice public rule match": 19
+      },
+      "files": [
+        {
+          "key": "fod2",
+          "prefix": "fod2c001",
+          "censusHash": "sha256:b9eaaf006cc2671f72be8c66d34d32f61e3a24044749790189ab3db102f1b443",
+          "rulesHash": "sha256:f29bdfe453e1752145567c18c51673e6ddf36d88772f7acbf8efa1a87af40abf",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 1,
+            "no exact same-slice public rule match": 3
+          }
+        },
+        {
+          "key": "fod2",
+          "prefix": "fod2c003",
+          "censusHash": "sha256:6bc306b10059386eb4b086c468287c966b09ec5a2a06f3d0709c77bae3c7dd5e",
+          "rulesHash": "sha256:d914b53e53d49ad04e4fa8f369aa8a6a9d2bd7eb91da19104f0725ad53b0b36c",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1,
+            "eligible": 4
+          }
+        },
+        {
+          "key": "fod2",
+          "prefix": "fod2c005",
+          "censusHash": "sha256:702dd38f95e4156700a94e82e65318538d648fc5ca1badcc14aaa5e7193f3560",
+          "rulesHash": "sha256:302f99117c4582b7f402c0de75daca7076fe327c819c4bd7d879f88efbfbbe93",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1,
+            "eligible": 2
+          }
+        },
+        {
+          "key": "fod2",
+          "prefix": "fod2c009",
+          "censusHash": "sha256:95d7f4b8ca7d2486a70cf835b6e78ee10dd94be71e664dae1841ae78f8fe6e1c",
+          "rulesHash": "sha256:0034ef02a6c6d84f6c3e3ed8d3c5520836c11b7d54a14374b721da58bc754472",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1,
+            "eligible": 3
+          }
+        },
+        {
+          "key": "fod2",
+          "prefix": "fod2c011",
+          "censusHash": "sha256:b5bc895d73e2767f3a9f8c929e76b9bd2108e9531e614d686bdf0fac31e4786e",
+          "rulesHash": "sha256:ed41c1e85857f45761e7d18b82490df1b92d54f0405c8951c39bf0e7e8c67cf5",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 2,
+            "eligible": 3
+          }
+        },
+        {
+          "key": "fod2",
+          "prefix": "fod2c013",
+          "censusHash": "sha256:9586fce4f4d445688eb4ad455959c1d9cd908135a859eb5bd42a16078f00c43e",
+          "rulesHash": "sha256:e05abb6d05ce04b5417f89f7447bd667551a246c6b1bde819644046c29717d75",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 3
+          }
+        },
+        {
+          "key": "fod2",
+          "prefix": "fod2c017",
+          "censusHash": "sha256:fbcec0993ee4ce81ca288041c0e6f04545815cbca1e40b4a9953a26b006c5b0d",
+          "rulesHash": "sha256:90e92087de4757ae5f8034d49fed2a14580b31885501cc601d51a7df2fd1c052",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1,
+            "eligible": 3
+          }
+        },
+        {
+          "key": "fod2",
+          "prefix": "fod2c019",
+          "censusHash": "sha256:572f17fc5430586c1ea69a5d77c96454b04a6dfacecdf919de72fae397018174",
+          "rulesHash": "sha256:424ed2c2f6d7f120edbe94ac74f0d84c53fd84a7cfb1ce7ba7725d3c1be34f9a",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 2
+          }
+        },
+        {
+          "key": "fod2",
+          "prefix": "fod2c021",
+          "censusHash": "sha256:0a778a88538443b3d4e9bb94b0219465d1578a295618079fa4a041e8371ded9d",
+          "rulesHash": "sha256:e068b240adeaba6b67455030163ddcdad0769737df583bb8e0e3d720673b7964",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 4,
+            "no exact same-slice public rule match": 2
+          }
+        },
+        {
+          "key": "fod2",
+          "prefix": "fod2c025",
+          "censusHash": "sha256:6c1ca488fced4ad8d0b0bc8be72d984eaca1bf00ff483be28276d76554521c94",
+          "rulesHash": "sha256:36c21200eea22abcb4bb15fe466d68ac02d4b5b9aa4ef2eeca329f088adcf8e8",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 4,
+            "eligible": 3
+          }
+        },
+        {
+          "key": "fod2",
+          "prefix": "fod2c027",
+          "censusHash": "sha256:a727ce8a4542bca9161287d15f6d6fa5002cfeebb1fdf527ef520b7ad87ee8a7",
+          "rulesHash": "sha256:1e7f9eb5387e5611e307b4de0cbe559470cb6fa9df1d1bdc3fdf6daaaa58594b",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "no exact same-slice public rule match": 1,
+            "eligible": 3
+          }
+        },
+        {
+          "key": "fod2",
+          "prefix": "fod2c031",
+          "censusHash": "sha256:4c0fcb66450b66ec3e810fd29f067716c0df044f12c381c54c162d5cee1a2e7d",
+          "rulesHash": "sha256:864664be6431c728c1beb57a699dcf246a4ae3acf091329e1d6d188d617b16e9",
+          "censusAttested": true,
+          "rulesAttested": true,
+          "counts": {
+            "eligible": 2,
+            "no exact same-slice public rule match": 1
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "ok": false,
+  "message": "opened actual record label",
+  "stack": "AssertionError [ERR_ASSERTION]: opened actual record label\n    at openAndBack (file:///C:/Users/wayba/dev/OOPS/prototypes/world-atlas/prove-atlas-find.mjs:41:3)\n    at async file:///C:/Users/wayba/dev/OOPS/prototypes/world-atlas/prove-atlas-find.mjs:77:14",
+  "inputIdentity": {
+    "prototypes/world-atlas/index.html": "71aa69ee739bc34cb96bac08a8923ea61a242f29bf0a1771023f7672efa452e4",
+    "prototypes/world-atlas/serve.mjs": "831ffd19c2ba04838c8f416d85fa2a82759fafb84c4499a6cec2fc50d6a61ccd",
+    "prototypes/world-atlas/atlas-find.mjs": "53c1336ac2264a9d0c1bca58dd61725eb53bf4f1c529b645d96a8045e9043be2",
+    "prototypes/world-atlas/atlas-find-view.mjs": "e0ea61c8d36c59c11806482566dfe5cfd4b936232b98bffdba98808be52cafbd",
+    "prototypes/world-atlas/canvas.css": "a7cf02fd36a5300ad057807788f375c4f3af3205a004d955d948bb622166ec3c",
+    "prototypes/world-atlas/world-rules-view.mjs": "c4ab89a7d4795e7a8258f593a97197996fa8fd1a2164e1a1547ce9b7902693b5",
+    "prototypes/world-atlas/cheat-catalogue-view.mjs": "e0ec756b657a45dfdaa1ee1653ffce49e427d4892077bcd36c0a9fb26006d5db",
+    "prototypes/world-atlas/things-views.mjs": "a2e879cd9c2be05110986a0d913bce6e009bc028a8d8e4ddab4c9463739f728a",
+    "docs/CHEAT_CATALOGUE.md": "75ded39400bf248f906b443bf155b47567596e94f80499335e72fce127a269bf",
+    "work/atlas-snapshot/snapshot.json": "b0983bb677fbea94ebd9f0652c497e5abc44ff40ac3fe3960e949763cb27fe2d",
+    "work/atlas-snapshot/readers/ark.json": "e4602a6566eebeed5bf69c78101ba064a4401dd1bfdce9919eea39b18f8a0043",
+    "work/atlas-snapshot/readers/asl.json": "79302a4d36c2051b3fb54df0e54285c1fcdd65ec543f87cba361cdac84017c31",
+    "work/atlas-snapshot/readers/az.json": "5ed128f3b0891b5e5cc543e9619ebb5d5456b7ea573f41aefe1b6fa00d8dacb0",
+    "work/atlas-snapshot/readers/bdm.json": "79f9c19beaf580e1e524ccd9c119f2cdcc257e0ebd2e81c6fc3642a2ab0e2a06",
+    "work/atlas-snapshot/readers/boc.json": "a88240a044a3e245e67d3a2b5aed38c372cfa101dad7d610de75d683651fbc8e",
+    "work/atlas-snapshot/readers/coi.json": "a6333ef278d5de41c1814f66e99776afd3ee773f6d6513720a2d3f8669d2ac39",
+    "work/atlas-snapshot/readers/dc.json": "45be876fcd98b09dec20f7564f3daa45cdcacfc91dddd549c2a05117981e823c",
+    "work/atlas-snapshot/readers/dl.json": "fff1f53270a5baedffcb8b1305c300ffcb8e5fc6cc35d10fef48569f63adcea8",
+    "work/atlas-snapshot/readers/eld.json": "1aef105cf118ecdf794844ed6b457a9290250414aa2aa85dfaf1c2611e189f13",
+    "work/atlas-snapshot/readers/fod.json": "42b7f61d352ab3989196a0be34b671ad0260d265bd2fc1660e182e8f0fc3a8a9",
+    "work/atlas-snapshot/readers/gc.json": "73d993a87b6ecc9b26cb048b1a66fd3c5fe434ef5a038b34b8e903691bb507a8",
+    "work/atlas-snapshot/readers/hp.json": "b863a666b898648a4b4b464cf62edf7a7dc8560c4b4916ca00327bf4e392fda9",
+    "work/atlas-snapshot/readers/hwfwm.json": "cce6904dd731181dc44798efe0948a517744a00059c913436d5ae42053d1e797",
+    "work/atlas-snapshot/readers/lotm.json": "142cb5240f47420e87df5b31239575de39060815692111ce3405a563336addd6",
+    "work/atlas-snapshot/readers/mb.json": "b2d16de650fb5c04b1f2ae9dace8b7b5f2abac2eccd7a0a790d4d455d5ea3d37",
+    "work/atlas-snapshot/readers/mm.json": "e0d24ef0f40ae35a8162394d0556c8deca93aefaffd343da6674b6a44e5eebe3",
+    "work/atlas-snapshot/readers/mol.json": "0103a11b1b33570792c0cafc72ade286059138dbcff094b85bb27a9fc2854b88",
+    "work/atlas-snapshot/readers/motf.json": "61824a53f91b968b1e524381cb05e793222aad8ae32316bf197f3cccaac5983f",
+    "work/atlas-snapshot/readers/pge.json": "c8f73bec905e4f29c60d5270ce3299fe95b8ddbd059eca7f6ec02eaf38f0361b",
+    "work/atlas-snapshot/readers/pl.json": "e2f10be9a321203011bb19ee7fc318d1a12c1de1466adbf16b729114a285531f",
+    "work/atlas-snapshot/readers/poa.json": "cc93960c852a63d34b8b1154c7f3c59b7bac64dc9b6c5a9287be577342e54f05",
+    "work/atlas-snapshot/readers/pr.json": "d0629ed23528201cbde1cbd9ed8cfef7c51f3e1bd6703f7f71e6bbf5ed030304",
+    "work/atlas-snapshot/readers/rak.json": "dbc9a152b7396108f399bb0ed096175658d83441b7b497e6b16f53261333c755",
+    "work/atlas-snapshot/readers/rg.json": "64f1c15ac7b341fefc42077c3d643302ff677f5da39caa0d11c7369303a8a280",
+    "work/atlas-snapshot/readers/ri.json": "b53acad587111165d7b4a8fd4e2943684333fcf5557bc804c872710836f5216c",
+    "work/atlas-snapshot/readers/rtoc.json": "2640970d6d9a0050d61a92f4a50d99fd3cf3285272ef2fb78570878c69b91ae8",
+    "work/atlas-snapshot/readers/rune.json": "6404c48efffd40a25f769e7f11c51f69eb58e8cc5a31954ea8bf5b820d61d227",
+    "work/atlas-snapshot/readers/sg.json": "df544eceb23267ca044258be0684b910e6e78b447ba9bd579f9cd60415a033d4",
+    "work/atlas-snapshot/readers/ss.json": "8d71cf629b069b8497c188a752ff849bca71e93a319987d0cd9370aed7509f55",
+    "work/atlas-snapshot/readers/stc.json": "95cc7a15f87eec58af8ec619d625dd535912e90ec0401e865c899cbdfe60e4f3",
+    "work/atlas-snapshot/readers/sth.json": "96e1060c4868a0b40624fd041c28fb01cc8ec4da8232b3346b73319df76722d8",
+    "work/atlas-snapshot/readers/sup.json": "179332c2d1e68537d1d442cf2ed882b0e41a637c6c51f79a2070820f8eb5f573",
+    "work/atlas-snapshot/readers/toa.json": "566cf0ca74d1f460035d06079acf56749a1e1bb609a19c75b560ad91027cabe7",
+    "work/atlas-snapshot/readers/ttks1.json": "8393fb7110ad392d42b99b78de08934d638c77dda80d76a3e0e7edb732bebcd8",
+    "work/atlas-snapshot/readers/ttks2.json": "03b1dad58e635f375149cf5e51191a9be8724cd738225ac1f65ca1f4437a8143",
+    "work/atlas-snapshot/readers/ttks3.json": "72a6655096d3f2962f1ae612d510b83f6786e5ea19e5c70d2a0df4e8b5098009",
+    "work/atlas-snapshot/readers/ttks4.json": "cd1836447d0329e165989c0a6cef799a22be33dee53ef440d4a867186f3dcd9c",
+    "work/atlas-snapshot/readers/ttks5.json": "e725ab239796e9281b7deaf7f99808ea7d203da8e6d3b0efdfdcdbdef40a0de2",
+    "work/atlas-snapshot/readers/twi.json": "6db1af1362541422794d21058f7f4ce2fed3cb0204b386d4e5bcc762096ad484",
+    "work/atlas-snapshot/readers/vs.json": "ae62fb09d3a23552720fab2a8623f0c94d8d54725239da5632bf699862c070be",
+    "work/atlas-snapshot/readers/worm.json": "5673b802dcb8e8b4bd490553c96961fcd0cf786bf71dab4375fd258e802f8aca",
+    "work/atlas-snapshot/readers/wtc.json": "76908045793ff0142b0703f2e62e2cd7b4b5ca28f807c0a078c5b142a5a74eee",
+    "work/atlas-snapshot/readers/wus.json": "93e0d911d5791d1c6f271b2a837f3727d156e2cb8a4bf83f2420b51f3b39c42f",
+    "work/atlas-snapshot/readers/yas.json": "551f75357d2a9364258f69ee59d81f09f73ea2d3de1006187c4e535b6401ab1e"
+  },
+  "checks": [
+    {
+      "initialFindRequests": 0
+    },
+    {
+      "viewport": "1366x768",
+      "mixedQuery": "magic",
+      "total": 3134,
+      "groups": [
+        {
+          "id": "subjects",
+          "total": 363
+        },
+        {
+          "id": "rules",
+          "total": 2768
+        },
+        {
+          "id": "cheats",
+          "total": 3
+        }
+      ],
+      "keyboardSubmit": true
+    },
+    {
+      "filterType": "rules",
+      "filterWorld": "dnd_srd",
+      "filteredTotal": 167,
+      "unfilteredTotal": 3134,
+      "pages": 21,
+      "pageReload": true
+    },
+    {
+      "searchReaderDigestRequests": 0
+    },
+    {
+      "type": "rules",
+      "query": "magic",
+      "world": "dnd_srd",
+      "href": "#library/rules/dnd_srd/ZG5kX3NyZF9ydWxlcy5qc29uIy9ydWxlcy80MTU",
+      "label": "A creature can be attuned to at most three magic items at once; the glossary identifies attunemen…",
+      "keyboardOpen": true,
+      "detailReload": true,
+      "backHash": "#find?q=magic&type=rules&world=dnd_srd&page=2"
+    },
+    {
+      "type": "rules",
+      "query": "D20 test succeeds",
+      "world": "dnd_srd",
+      "href": "#library/rules/dnd_srd/ZG5kX3NyZF9ydWxlcy5qc29uIy9ydWxlcy8yMzU",
+      "label": "A D20 Test succeeds when a d20 roll plus its applicable ability modifier, relevant proficiency bo…",
+      "keyboardOpen": true,
+      "detailReload": true,
+      "backHash": "#find?q=D20+test+succeeds&type=rules&world=dnd_srd&page=1"
+    },
+    {
+      "type": "cheats",
+      "query": "CTC64",
+      "world": "",
+      "href": "#library/cheats/CTC64",
+      "label": "Roll override",
+      "keyboardOpen": true,
+      "detailReload": true,
+      "backHash": "#find?q=CTC64&type=cheats&world=&page=1",
+      "nativeEvidence": {
+        "route": "/cheat-proof/CTC64",
+        "ok": true,
+        "servedBundleSha256": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634"
+      }
+    },
+    {
+      "type": "cheats",
+      "query": "Loaded Dice",
+      "world": "",
+      "href": "#library/cheats/CTC64",
+      "label": "Roll override",
+      "keyboardOpen": true,
+      "detailReload": true,
+      "backHash": "#find?q=Loaded+Dice&type=cheats&world=&page=1",
+      "nativeEvidence": {
+        "route": "/cheat-proof/CTC64",
+        "ok": true,
+        "servedBundleSha256": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634"
+      }
+    }
+  ],
+  "errors": []
+}

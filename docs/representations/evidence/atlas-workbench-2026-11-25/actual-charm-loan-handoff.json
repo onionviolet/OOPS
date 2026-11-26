@@ -1,0 +1,28 @@
+{
+  "id": "d36ab6955de9976f57e6204e1cecd183e12acdc64f322f694b686582aecdb773",
+  "source": {
+    "book": "lotm1",
+    "world": "lotm",
+    "prefix": "lotm1c129",
+    "pass": "rules",
+    "kind": "rules",
+    "contentHash": "sha256:523e004e19ab6d2996ffac12de5d7acf0d59f08fca7afba6de0e342a2b08a9be",
+    "method": "manual-structured-reading",
+    "fileLines": [
+      [
+        2,
+        2
+      ]
+    ],
+    "locators": [
+      "zh 第129章 p31"
+    ],
+    "offset": 0
+  },
+  "record": {
+    "label": "Borrow a charm and replace it if consumed",
+    "type": "rule",
+    "route": "#world/lotm/things/lotm.rule.borrowed-slumber-replacement"
+  },
+  "stage": "proposed"
+}

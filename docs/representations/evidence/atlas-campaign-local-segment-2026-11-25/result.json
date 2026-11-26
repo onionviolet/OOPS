@@ -1,0 +1,249 @@
+{
+  "viewport": "1366x768 and1920x1080",
+  "coldUiMs": 1404,
+  "checks": [
+    "on-demand selected world",
+    "validated historical chain",
+    "current replay unknown",
+    "dated local segment bound to served bytes",
+    "later rebuild remains separate",
+    "independent mechanic scope",
+    "alternate historical endpoint",
+    "reading and exact Workbench navigation",
+    "drift fixture hides stale endpoint",
+    "expanded index spans at desktop"
+  ],
+  "klein": {
+    "world": "lotm",
+    "protagonist": "Klein Moretti",
+    "indexed": {
+      "status": "indexed",
+      "spans": [
+        {
+          "language": "en",
+          "book": 9,
+          "first": 1,
+          "last": 43,
+          "observed": 37
+        },
+        {
+          "language": "zh",
+          "book": 0,
+          "first": 1,
+          "last": 264,
+          "observed": 225
+        },
+        {
+          "language": "zh",
+          "book": 2,
+          "first": 1,
+          "last": 269,
+          "observed": 269
+        },
+        {
+          "language": "zh",
+          "book": 3,
+          "first": 1,
+          "last": 250,
+          "observed": 249
+        },
+        {
+          "language": "zh",
+          "book": 4,
+          "first": 1,
+          "last": 214,
+          "observed": 213
+        },
+        {
+          "language": "zh",
+          "book": 5,
+          "first": 1,
+          "last": 204,
+          "observed": 204
+        },
+        {
+          "language": "zh",
+          "book": 6,
+          "first": 1,
+          "last": 116,
+          "observed": 116
+        },
+        {
+          "language": "zh",
+          "book": 7,
+          "first": 1,
+          "last": 87,
+          "observed": 87
+        },
+        {
+          "language": "zh",
+          "book": 8,
+          "first": 1,
+          "last": 41,
+          "observed": 40
+        },
+        {
+          "language": "zh",
+          "book": 9,
+          "first": 4,
+          "last": 1424,
+          "observed": 50
+        }
+      ],
+      "indexedSlices": 728,
+      "digestSha256": "142cb5240f47420e87df5b31239575de39060815692111ce3405a563336addd6",
+      "note": "Observed chapter locators in the admitted index, with language/book labels as stored. The span does not establish continuous reading, every source fact, edition alignment, or connected gameplay."
+    },
+    "snapshot": {
+      "builtAt": "2026-11-26T01:07:05.642Z",
+      "commit": "db24d3a92"
+    },
+    "currentReplay": "No reviewed current-build uninterrupted end-to-end replay is registered in this view. Historical route receipts and independent mechanic proofs retain their own scope.",
+    "connected": [
+      {
+        "label": "Recovered historical connected route",
+        "status": "historical-chain-validated",
+        "episodes": 8,
+        "endpoint": {
+          "book": 1,
+          "chapter": 163,
+          "paragraph": 82
+        },
+        "episode": "kj3bh",
+        "saveSha256": "17323f5af0c5a1f9a68c3a7611dccf09ec269649a90d499139ac12b659331e48",
+        "clock": 91287,
+        "bundles": [
+          "ff3d6db273c0beb65b2271123755aa0a87c29e9b9d13db05b1c660fefb095648",
+          "dd00e300bbd46a4e7e1352d5cc31751be53e822dd590a547063f83e76d95ede5"
+        ],
+        "recordedReviewDifferences": [
+          "kj3bb",
+          "kj3bc",
+          "kj3bf",
+          "kj3bg"
+        ],
+        "statement": "Recovered historical BA→BH receipt/save segment reaches official English v1 chapter 163 P082 (KJ3BH). 8 linked episodes record completed steps, persistence and zero page errors. This is historical evidence, not current-build end-to-end replay.",
+        "note": "Hash continuity and completion flags were checked in the compact first-party audit; underlying private runs were not rerun.",
+        "evidence": [
+          {
+            "path": "docs/representations/evidence/lotm-earned-frontier-2026-11-25/historical-chain.json",
+            "heading": "Recovered historical receipt/save chain"
+          },
+          {
+            "path": "docs/research/LOTM_EARNED_FRONTIER_AUDIT_2026-11-25.md",
+            "heading": "Recovered historical frontier"
+          }
+        ],
+        "reviewedAt": "2026-11-25",
+        "auditSha256": "0e20ec73c5e1fa3cecc075905b07a7f1ff96ca3460d7162bb36d7a0b47daab26"
+      },
+      {
+        "label": "Tested local KJ3BB segment · 2026-11-25",
+        "status": "tested-local-segment",
+        "reviewedAt": "2026-11-25",
+        "testedBundleSha256": "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623",
+        "statement": "All 21 KJ3BB actions, official English v1 chapter 130 P001–chapter 135 P074, were tested from the original earned BA checkpoint on served bundle 85eaa1cbdfef5da0. Pending/final Save and reload plus native Export/Import passed. This is one earned continuation segment, not uninterrupted play from the opening.",
+        "note": "This result remains evidence for its tested served bytes. A later rebuild has a different identity and is not covered by this receipt. Literal file-picker import was not tested.",
+        "evidence": [
+          {
+            "path": "docs/representations/evidence/lotm-earned-frontier-2026-11-25/current-full-bb-scope.json",
+            "heading": "Explicit tested segment and served identity"
+          },
+          {
+            "path": "docs/representations/evidence/lotm-earned-frontier-2026-11-25/current-full-bb.json",
+            "heading": "Durable native receipt"
+          }
+        ]
+      }
+    ],
+    "mechanics": [
+      {
+        "label": "Independent lender-choice mechanic",
+        "status": "owner-evidence-matches",
+        "statement": "Chapter 130 response-charm choices were independently played on bundle 9a960b6694049fb0, with disclosed late-response prerequisites. Save/reload/export/import passed. The complete earned Klein journey was not verified by this fixture; it does not advance the connected frontier.",
+        "reviewedAt": "2026-11-25",
+        "evidence": [
+          {
+            "path": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_LENDER_RELEASE_2026-11-25.md",
+            "heading": "The response charm and Old Neil's later assurance"
+          },
+          {
+            "path": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_LENDER_RELEASE_2026-11-25.md",
+            "heading": "The response charm and Old Neil's later assurance"
+          },
+          {
+            "path": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_LENDER_RELEASE_2026-11-25.md",
+            "heading": "The response charm and Old Neil's later assurance"
+          }
+        ],
+        "href": "#workbench/handoffs/4d1614c2ed8e24b134ba0e637d417faac6a01bd8f9875aa061af46501479cc03"
+      }
+    ],
+    "readingHref": "#world/lotm/reading",
+    "workbenchHref": "#workbench/handoffs"
+  },
+  "zorian": {
+    "world": "mol",
+    "protagonist": "Zorian Kazinski",
+    "indexed": {
+      "status": "indexed",
+      "spans": [
+        {
+          "language": "en",
+          "book": 1,
+          "first": 1,
+          "last": 106,
+          "observed": 106
+        }
+      ],
+      "indexedSlices": 106,
+      "digestSha256": "0103a11b1b33570792c0cafc72ade286059138dbcff094b85bb27a9fc2854b88",
+      "note": "Observed chapter locators in the admitted index, with language/book labels as stored. The span does not establish continuous reading, every source fact, edition alignment, or connected gameplay."
+    },
+    "snapshot": {
+      "builtAt": "2026-11-26T01:07:05.642Z",
+      "commit": "db24d3a92"
+    },
+    "currentReplay": "No reviewed current-build uninterrupted end-to-end replay is registered in this view. Historical route receipts and independent mechanic proofs retain their own scope.",
+    "connected": [
+      {
+        "label": "Historical printed Arc 1 endpoint",
+        "status": "owner-evidence-matches",
+        "statement": "The November 9 receipt records printed chapter 26 P287 at mol-zorian-arc-one-end, with earned reset prerequisites and save/reload/export/import on historical bundle fd6768dd92e38ff0. Some interludes were compressed. This does not establish a current-build uninterrupted replay.",
+        "reviewedAt": "2026-11-25",
+        "evidence": [
+          {
+            "path": "docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md",
+            "heading": "Four arcs resumed, November 9, 2026"
+          }
+        ]
+      }
+    ],
+    "mechanics": [
+      {
+        "label": "Independent worked light-formula correction",
+        "status": "owner-evidence-matches",
+        "statement": "A fresh Village → Zorian → Torch route independently tested the correction and its class-test revision consumer on bundle 0c175cd2e5fd713d. Save/reload/export/import passed; time was test-stepped and no setup grant was used. This local earned mechanic does not replay the whole printed Arc 1 campaign.",
+        "reviewedAt": "2026-11-25",
+        "evidence": [
+          {
+            "path": "docs/worlds/mother-of-learning/LIGHT_FORMULA_CORRECTION_2026-11-25.md",
+            "heading": "Receipt"
+          },
+          {
+            "path": "docs/worlds/mother-of-learning/LIGHT_FORMULA_CORRECTION_2026-11-25.md",
+            "heading": "Receipt"
+          },
+          {
+            "path": "docs/worlds/mother-of-learning/LIGHT_FORMULA_CORRECTION_2026-11-25.md",
+            "heading": "Receipt"
+          }
+        ],
+        "href": "/tracked-reading-evidence/mol"
+      }
+    ],
+    "readingHref": "#world/mol/reading",
+    "workbenchHref": "#workbench/handoffs"
+  },
+  "pageErrors": []
+}

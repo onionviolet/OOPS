@@ -1,0 +1,28 @@
+{
+  "status": "agent-verified-not-human-reviewed",
+  "normalCaptures": 6,
+  "zoomEquivalentCaptures": 6,
+  "cssSha256": "159d39649fff339abd8630b27692d1f91216158d53157838d7ac820aa48fe23a",
+  "verifiedTypographyPrefixSha256": "8783093af34a4d29234adcf1c7216cec6962f3af1cf02a25a795107a9649eaee",
+  "before": "before/computed.json",
+  "normal": "after-refined/computed.json",
+  "zoom": "zoom-final/computed.json",
+  "samePopulatedText": true,
+  "brandAndDiagramComputedFontsUnchanged": true,
+  "horizontalOverflow": 0,
+  "customPreference": {
+    "family": "Georgia",
+    "size": "18px"
+  },
+  "zoomScope": "CSS viewport/1.25 with context DPR1.25, validated per state and PNG dimensions. Equivalent scaling, not native Chrome zoom.",
+  "unusedCaptures": "after/ is the retained first diagram-font regression; zoom-labelled captures inside after-refined/ are not accepted because direct CDP metrics reset after screenshot. Use zoom-final/ instead.",
+  "bridgeLinks": {
+    "scope": "Isolated append only; no effect on typography proof routes",
+    "foreground": "#b9dfb3",
+    "expectedBackground": "#1a2930",
+    "calculatedPaletteContrast": 10.164616842991082,
+    "focus": "3px solid #ebc682,3px offset",
+    "actualComputedBrowserCheck": "Built-in background browser, Loaded Dice evidence card. Tab from the focused heading selected Open related Atlas record with :focus-visible true. Computed color rgb(185, 223, 179), underline, and rgb(235, 198, 130) solid outline measuring 2.41935px at the browser scale. Enter opened #library/cheats/CTC64 and displayed the Roll override heading."
+  },
+  "cleanup": "All owned proof browsers/servers closed; last run exit0. Windows-locked private profile6bzyPa retained after owned helper teardown; no deletion attempted."
+}
