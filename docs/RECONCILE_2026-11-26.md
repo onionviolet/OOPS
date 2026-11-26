@@ -16,7 +16,7 @@ Why: the Codex work audit of 2026-11-26 found 277 modified and 531 untracked pat
 
 ## Local only
 
-Branch `reconcile/2026-11-26`, cut from `master` at `db24d3a92`, 17 commits plus this ledger. Master is untouched.
+Branch `reconcile/2026-11-26`, cut from `master` at `db24d3a92`, grouped commits (list them with `git log master..reconcile/2026-11-26`). Master is untouched.
 
 | Concern | What it holds |
 |---|---|
@@ -50,7 +50,7 @@ Still uncommitted, on purpose:
 | Rerun of those 9 files alone, 2 at a time | 59 of 59 passed, exit 0. The failures were load, not logic. |
 | `project_md_shape`, `build_output` after the PROJECT.md edit and rebuild | 4 of 4 passed |
 | `npm run check:arch` | Passed |
-| `npm run check:rules` | One failure, the broken link to this file, fixed by adding it. Rerun result is in the commit message of the ledger commit. |
+| `npm run check:rules` | Passed after this file was added (it had failed only on the missing link to it). |
 
 Not owed again: unit and headless coverage of the November 24 to 26 changes passed in the full run.
 
@@ -69,7 +69,7 @@ What does not exist: one standing gate that loads saves captured at earlier comm
 
 ## Decision packet
 
-1. **D1. Merge `reconcile/2026-11-26` into `master`.** Recommend yes after a skim of the commit list. It fast-forwards, so `master` gains 17 commits and the tree becomes clean. No push.
+1. **D1. Merge `reconcile/2026-11-26` into `master`.** Recommend yes after a skim of the commit list. It fast-forwards, so `master` gains those commits and the tree becomes clean. No push.
 2. **D2. Run an idle-machine `npm test`, then push `master`.** Recommend yes in that order. The push puts about 11 MB of rebuilt bundle and about 7 MB of screenshots on `origin/master`. Pages and the installed app stay as they are until you say so.
 3. **D3. Adopt a save-migration gate.** Recommend yes: keep a few saves from earlier commits as fixtures and add one test that loads each lead's save into the current build. It adds a test and a fixture folder, and a one-line rule in the rules index once you accept it.
 4. **D4. Delete `.lane-builds/`.** Recommend yes, now that the branch holds the work. It frees 1.5 GB and nothing tracked depends on it.
