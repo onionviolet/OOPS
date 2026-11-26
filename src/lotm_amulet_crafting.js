@@ -93,6 +93,9 @@ export function resolveAmuletInscription({blankKey, stock, clock, steps = SEQUEN
 }
 
 const WORKSHOP = 'lotm.place.cast-0785d86b800a41be64ed';
+const commissioned = {fact:'actor.book.lotm.kj3ap.both-finished',op:'eq',value:true,reason:'Finish the workshop’s amulet commission first.'};
+const desk = {fact:'actor.book.lotm.kj3ap.desk-ready',op:'eq',value:true,reason:'Set out the engraving knife at the prepared desk.'};
+export const tingenSilverWorkshop = {place:WORKSHOP,commissioned,support:{all:[commissioned,desk]}};
 export const TRIAL_AMULET_NOTE = 'making.book.lotm.silver-trial.reverse';
 const trialId = suffix => 'book.lotm.silver-trial.' + suffix;
 export const LEGACY_EARLY_AMULET_TRIAL = trialId('early');
@@ -101,9 +104,7 @@ export const REWORKED_AMULET_NOTE = 'making.' + trialId('rework');
 // The post-commission order has its own stock. Its price, lot size and work
 // times are local dials. The shared law decides which physical piece returns.
 export function amuletTrialCommands(situationId) {
-    const commissioned = {fact:'actor.book.lotm.kj3ap.both-finished', op:'eq', value:true};
-    const desk = {fact:'actor.book.lotm.kj3ap.desk-ready', op:'eq', value:true};
-    const support = {all:[commissioned,desk]};
+    const {support} = tingenSilverWorkshop;
     const item = (key, amount) => ({type:'item', actor:'player', key, amount});
     const energy = {type:'energy', energyId:'book.lotm.be_spirituality', operation:'use', output:1, control:1};
     const command = ({suffix,label,description,location,minutes,costText,costs,effects,report,once=false,observation}) => {
