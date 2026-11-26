@@ -1,0 +1,35 @@
+{
+  "fixtureSha256": "c50ce9fd2fe90eea7b86ba820f1c63169f1d36db107948bb799b94e162a9c481",
+  "viewports": [
+    [
+      1366,
+      768
+    ],
+    [
+      1920,
+      1080
+    ]
+  ],
+  "before": {
+    "route": "hp-library-astronomy composed after real Charms/wand commands; real Astronomy class and homework; both retrieval methods; Save/reload/Export/file Import",
+    "servedBundleSha256": "bad145eadb086e720c01a512af40a6d4029720678944f6a02c47c6b526c7a4d4",
+    "manualMinutes": 15,
+    "homeworkMinutes": 30,
+    "magicTries": 2,
+    "notes": 2,
+    "marked": 1,
+    "errors": [],
+    "stylesheetSha256LF": "bb1471ab629712a7dd70a51fbf9097df14d6316f94b6edf412bbf7f1af32192d"
+  },
+  "after": {
+    "route": "hp-library-astronomy composed after real Charms/wand commands; real Astronomy class and homework; both retrieval methods; Save/reload/Export/file Import",
+    "servedBundleSha256": "0f6b81ae3403ac45fe9af83166549e661db16a619d58ffb78e5bbab952a89734",
+    "manualMinutes": 15,
+    "homeworkMinutes": 30,
+    "magicTries": 2,
+    "notes": 2,
+    "marked": 1,
+    "errors": [],
+    "stylesheetSha256LF": "ab26c0d8a4afb016f186a8e089e600a0b098b5305e498d724d909e7e029af098"
+  }
+}

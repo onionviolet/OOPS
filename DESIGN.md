@@ -16,6 +16,19 @@ dial and a reason (AD5); a world or feature can depart from one by saying why.
 
 Target: desktop 1920x1080 first; mobile deferred ([standing priority](docs/USER_VISION.md#standing-ui-priority-2026-10-13)).
 
+## Shared UI standard
+
+Use Tingen Cross **Work & merit** as the reference for an ordinary service screen. The verified desktop route shows the offer, the active assignment, progress and an available Stop action. It keeps the service, terms and outcome together. The next adoption should preserve the receiving world's names, options and art. [Normal-entry reference](docs/representations/evidence/default-web-2026-11-25/final/ordinary/result.json)
+
+| Element | Default in the native game |
+| --- | --- |
+| Type | At default zoom, use `--ui-type-small` (12 px) for metadata, `--ui-type-body` (14 px) for actions and prose, and `--ui-type-heading` (16 px) for section titles. Use `--ui-line-small`, `--ui-line-body` and `--ui-line-prose` where they fit. All follow Appearance settings. |
+| Spacing | Use the shared 2, 4, 6, 8, 12, 16 and 24 px steps at default size. Use `--ui-space-panel` for panel insets, steps 2 to 4 inside a row and steps 5 to 6 between groups. |
+| Panels and buttons | Put the subject, terms and available action in one square-framed panel. Use a hairline between rows. Reuse existing button tokens for fill, border, focus and minimum height (`--ui-control-md`, 28 px). Give the action that commits the work the clearest label and position. |
+| States | Preserve keyboard focus and a visible selection marker. Say what is running, the time or cost and how to stop where stopping is supported. Give a blocked choice a readable reason. Give an empty panel a next step, a loading panel visible progress or status, and an error a way back. Use text as well as color. |
+
+Capture the same populated route before and after at 1366×768 and 1920×1080. Check labels and actions at rest, while work is active, and when a choice is blocked or ends. Keep theme values, spacing and interaction defaults in the [UI rulebook](docs/UI_RULES.md) and [shared tokens](styles/ui_tokens.css). For Atlas reading screens, use the existing Klein inspector's 24/30 px headings, 16/24.8 px prose and 15/21 px navigation as the reference. [Measured Atlas reference](docs/representations/evidence/atlas-typography-2026-11-25/after-refined/computed.json)
+
 ## What it should feel like
 
 | Code | Default | Dial | Reason |

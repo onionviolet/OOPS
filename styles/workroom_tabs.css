@@ -62,6 +62,32 @@
 [data-lotm-office-day] .kit-row__label,
 [data-hp-school-day] .kit-row__label { text-align: start; }
 [data-hp-school-day] .kit-row { padding-block: var(--kit-gap-1); }
+[data-hp-school-day] [data-hp-school-group="library"] {
+    display: grid;
+    align-content: start;
+    gap: var(--ui-space-2);
+}
+[data-hp-school-day] [data-hp-school-group="library"] > h4,
+[data-hp-school-day] [data-hp-school-group="library"] > p { margin: 0; }
+[data-hp-school-day] [data-hp-school-group="library"] > .kit-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--ui-space-1);
+    padding-block: var(--ui-space-1);
+    border-block-end: var(--ui-space-hairline) solid color-mix(in srgb, var(--ui-hairline) 55%, transparent);
+}
+[data-hp-school-day] [data-hp-school-group="library"] .kit-row__label {
+    width: 100%;
+    max-width: 100%;
+    min-height: var(--ui-control-md);
+    padding: var(--ui-space-1) var(--ui-space-2);
+    text-align: start;
+    white-space: normal;
+}
+[data-hp-school-day] [data-hp-school-group="library"] .kit-row__fact {
+    padding-inline: var(--ui-space-2);
+    line-height: var(--ui-line-small);
+}
 [data-lotm-office-day] [data-duty-policy] {
     max-width: 100%;
     white-space: nowrap;
