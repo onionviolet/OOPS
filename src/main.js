@@ -1,3 +1,4 @@
+import {configureReserve, sleepReserveBonus} from "./surplus_reserve_native.js";
 import {pressureText, zonePressure} from "./zone_pressure.js";
 import {configureRiFirstNightBed,prepareRiFirstNightSleep,continueRiFirstNightSleep,settleRiFirstNightSleep} from './ri_first_night_bed.js';
 import './timer_coalesce.js'; // first: stale interval ticks from a busy boot run once (G18 follow-up)
@@ -4008,7 +4009,7 @@ function do_sleeping() {
     if(full_stats.health < full_stats.max_health) {
         const sleeping_heal_ammount = (evolvedUse('Sleeping','sleep-health')?.multiplier??1)*p00SleepingMultiplier()*furnitureRecovery(readFurnitureBonuses(), Math.round(Math.max(full_stats.max_health * 0.04, 5) * (1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level) * (1 + 3*character.getTotalSkillLevel("Regeneration")/skills["Regeneration"].max_level)));
         
-        update_health({ammount_to_restore: sleeping_heal_ammount});
+        update_health({ammount_to_restore: sleeping_heal_ammount + sleepReserveBonus()});
     }
 
     const missingHealth=full_stats.max_health-full_stats.health;
@@ -6378,6 +6379,12 @@ function add_xp_to_activity_skills() {
         (id,xp,options)=>add_xp_to_skill({skill:skills[id],xp_to_add:xp,...options}));
 }
 
+configureReserve({
+    context:()=>({world:expansionState.actors.player.worldId,id:expansionState.simulation?.people?.player?.lifeId ?? 'village.native',money:character.money}),
+    writable:()=>workLedgerCanWrite()&&!restoringNativeSave&&character.is_alive,
+    commit:offer=>{const plan=p23Plan();plan.external.money-=offer.cost;plan.nativePatch={surplus_reserve:offer.next};persistExpansion(plan);},
+    report:text=>nativeCraftMessage(text,'skill_raised',{panelId:'skill-growth',panelLabel:'Open Growth'}),
+});
 configureGrowthPoints({
     context:()=>({world:expansionState.actors.player.worldId,atBed:current_location?.housing?.isUnlocked()===true}),
     writable:()=>workLedgerCanWrite()&&!restoringNativeSave&&character.is_alive,
