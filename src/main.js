@@ -1,3 +1,4 @@
+import {configureActivityTitle, publishActivity} from "./activity_title_native.js";
 import {configureReserve, sleepReserveBonus} from "./surplus_reserve_native.js";
 import {pressureText, zonePressure} from "./zone_pressure.js";
 import {configureRiFirstNightBed,prepareRiFirstNightSleep,continueRiFirstNightSleep,settleRiFirstNightSleep} from './ri_first_night_bed.js';
@@ -1941,6 +1942,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
     if(plan.nativePatch?.total_deaths!==undefined)game_stats.total_deaths=plan.nativePatch.total_deaths;
     for(const text of plan.p00TrancheFourNotices||[])log_message(text,'notification');
     commitPlanMoney(character,plan,moneyFrom);
+    publishActivity(plan);
     if(plan.calendar) current_game_time.loadTime(plan.calendar);
 
     if(plan.effectDurations) {
@@ -6379,6 +6381,9 @@ function add_xp_to_activity_skills() {
         (id,xp,options)=>add_xp_to_skill({skill:skills[id],xp_to_add:xp,...options}));
 }
 
+configureActivityTitle(()=>({world:expansionState.actors.player.worldId,life:expansionState.simulation?.people?.player?.lifeId ?? 'village.native',
+    clock:expansionState.clock,place:current_location?.id,kind:current_combat?'combat':current_activity?'work':is_sleeping?'rest':is_reading?'reading':null}),
+    text=>log_message(text,'notification'));
 configureReserve({
     context:()=>({world:expansionState.actors.player.worldId,id:expansionState.simulation?.people?.player?.lifeId ?? 'village.native',money:character.money}),
     writable:()=>workLedgerCanWrite()&&!restoringNativeSave&&character.is_alive,

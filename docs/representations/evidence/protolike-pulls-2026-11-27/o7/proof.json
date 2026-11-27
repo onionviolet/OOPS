@@ -1,0 +1,49 @@
+{
+  "item": "o7",
+  "entry": "/",
+  "bundleSha256": "91ef8da4ac9621b77c23e6d8e31d12df68af91ead964cb62b172e2f8cd0bb913",
+  "runs": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "result": "Your recent activity earned the life title Field veteran.",
+      "persistence": {
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true,
+        "restored": {
+          "revision": 1,
+          "life": "village.native",
+          "scores": {
+            "combat": 1
+          }
+        }
+      },
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "result": "Your recent activity earned the life title Field veteran.",
+      "persistence": {
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true,
+        "restored": {
+          "revision": 1,
+          "life": "village.native",
+          "scores": {
+            "combat": 1
+          }
+        }
+      },
+      "pageErrors": []
+    }
+  ]
+}

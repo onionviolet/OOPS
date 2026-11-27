@@ -38,6 +38,8 @@ A5 O5: Infested field and Cave depths show their pressure. Clears raise enemy st
 
 A5 O6: Skills > Growth quotes a 50-coin recovery reserve installment. Its permanent sleep bonus grows with exponent 0.08 for this life. Older saves start unfunded. [Proof](representations/evidence/protolike-pulls-2026-11-27/o6/proof.json)
 
+A5 O7: Character Stats shows a life title from decaying activity scores. Counter-based titles and achievements keep their own awards. Older saves start with no scored activity. [Proof](representations/evidence/protolike-pulls-2026-11-27/o7/proof.json)
+
 <a id="future-rpg-view-with-a-map"></a>
 
 ## Future RPG view with a map (consideration)
