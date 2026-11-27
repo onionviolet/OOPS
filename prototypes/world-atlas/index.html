@@ -48,6 +48,7 @@ import {readingSurvey} from '/reading-survey-view.mjs';
 import {readingHandoffs} from '/reading-handoffs-view.mjs';
 import {campaignSequencingView} from '/campaign-sequencing-view.mjs';
 import {worldRulesView} from '/world-rules-view.mjs';
+import {systemsView} from '/systems-view.mjs';
 import {atlasFindView,mountFind} from '/atlas-find-view.mjs';
 import {visionCoverageView} from '/vision-coverage.mjs';
 import {nativePlayEvidenceView} from '/atlas-native-evidence-view.mjs';
@@ -93,7 +94,7 @@ VIEW_LABELS.coverage='Coverage by world';
 VIEW_LABELS.campaigns='Campaign evidence';
 VIEW_LABELS.vision='Vision coverage';
 VIEW_LABELS.rules='World rules';VIEW_LABELS.cheats='Cheat catalogue';
-const SECTIONS=[{id:'worlds',label:'Worlds'},{id:'find',label:'Find'},{id:'library',label:'Library',views:['pipeline','outputs','coverage','campaigns','rules','cheats','shelves','mechanics']},
+const SECTIONS=[{id:'worlds',label:'Worlds'},{id:'find',label:'Find'},{id:'systems',label:'Systems'},{id:'library',label:'Library',views:['pipeline','outputs','coverage','campaigns','rules','cheats','shelves','mechanics']},
  {id:'creatures',label:'Creatures',views:['kinds','reader-creatures','observations']},{id:'progress',label:'Progress',views:['overview','vision','findings','mechanics2']},{id:'workbench',label:'Workbench',views:['transfer','handoffs','ideas','card-trial','play-evidence','site','drafts']},{id:'codex',label:'Codex'},{id:'changes',label:'Changes'}];
 VIEW_LABELS.handoffs='Implementation handoffs';
 VIEW_LABELS.ideas='Ideas and backlogs';
@@ -118,6 +119,7 @@ function route(){
  if(section==='world'&&worldById.has(a)){const w=worldById.get(a);return {section:'worlds',world:w,view:w.views.includes(b)?b:w.views[0],focus:c?decodeURIComponent(c):null}}
  const s=SECTIONS.find(x=>x.id===section)||SECTIONS[0];
  return {section:s.id,view:s.views?.includes(a)?a:s.views?.[0],bookKey:s.id==='library'&&a==='outputs'?b:null,
+     systemId:s.id==='systems'?a:null,
      visionTheme:s.id==='progress'&&a==='vision'?b:null,
      handoffId:s.id==='workbench'&&a==='handoffs'&&b!=='replays'?b:null,
      handoffTab:s.id==='workbench'&&a==='handoffs'&&b==='replays'?'replays':null,
@@ -160,6 +162,7 @@ function showPage(){
  main.replaceChildren();
  const shared={main,data,controls,finder,list:listOf,button,routeButtons,closeCanvas};
  if(r.section==='find')return atlasFindView(shared);
+ if(r.section==='systems')return systemsView({...shared,systemId:r.systemId});
  if(r.view==='vision')return visionCoverageView({main,focus:r.visionTheme});
  if(r.view==='play-evidence')return nativePlayEvidenceView({main});
  if(r.world)return worldView(r.world,r.view,{...shared,focus:r.focus});

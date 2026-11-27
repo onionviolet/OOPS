@@ -2,6 +2,7 @@ import {element as el} from '/canvas.mjs';
 export async function worldRulesView({main,worldId='',focus=''}) {
     main.replaceChildren();const shell=el('section');shell.className='library-view';shell.style.cssText='max-width:1100px;margin:24px auto;padding:0 20px';main.append(shell);
     shell.append(el('h1','World rules'),el('p','Recorded source paraphrases and interpretations, kept separate from coverage claims and current playable proof. Editions stay distinct.'));
+    const systems=el('a','Compare this world in Systems');shell.append(systems);
     const form=el('form'),world=el('select'),kind=el('select'),search=el('input'),submit=el('button','Search'),status=el('p'),results=el('div'),pages=el('nav');
     world.style.maxWidth='100%';kind.style.maxWidth='100%';
     world.setAttribute('aria-label','Rule world or edition');kind.setAttribute('aria-label','Rule evidence kind');search.setAttribute('aria-label','Search world rules');search.type='search';search.placeholder='Statement, source, locator, mechanism or ID';search.style.width='min(100%,430px)';submit.type='submit';
@@ -9,6 +10,7 @@ export async function worldRulesView({main,worldId='',focus=''}) {
     status.setAttribute('role','status');pages.setAttribute('aria-label','Rule pages');form.append(world,kind,search,submit);shell.append(form,status,results,pages);
     let offset=0,selected=worldId,record=focus,serial=0;
     async function load(){const id=++serial;status.textContent='Loading recorded rules…';const query=new URLSearchParams({world:selected,q:search.value,kind:kind.value,offset:String(offset),limit:'40',record});
+        systems.href=selected?'#systems?world='+encodeURIComponent(selected):'#systems';
         try{const response=await fetch('/world-rules?'+query);if(!response.ok)throw Error('Rules unavailable.');const data=await response.json();if(id!==serial)return;
             if(!world.options.length){const all=el('option','All recorded worlds / editions');all.value='';world.append(all);for(const w of data.worlds){const o=el('option',`${w.label} · ${w.count}`);o.value=w.id;world.append(o);}world.value=selected;}
             status.textContent=`${data.total} matching records of ${data.totalRecords} public records · ${data.worlds.length} world/edition groups${data.issues.length?' · '+data.issues.length+' file/line parse issues':''}. ${data.coverage}`;

@@ -1,0 +1,48 @@
+{
+  "entry": "/",
+  "snapshotSha256": "c65a4cda7a0857a57ca9139c770556427929766f13dad42ace78d639b6f8ccad",
+  "runs": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "citation": "#world/az/things/az.custom.class-level-rewards",
+      "find": [
+        "SM1",
+        "EV2"
+      ],
+      "horizontalOverflow": 0,
+      "pageErrors": [],
+      "captures": [
+        "systems-1366.png",
+        "sm1-1366.png",
+        "sm1-comparison-1366.png",
+        "ev2-1366.png",
+        "ev2-comparison-1366.png",
+        "find-1366.png"
+      ]
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "citation": "#world/az/things/az.custom.class-level-rewards",
+      "find": [
+        "SM1",
+        "EV2"
+      ],
+      "horizontalOverflow": 0,
+      "pageErrors": [],
+      "captures": [
+        "systems-1920.png",
+        "sm1-1920.png",
+        "sm1-comparison-1920.png",
+        "ev2-1920.png",
+        "ev2-comparison-1920.png",
+        "find-1920.png"
+      ]
+    }
+  ]
+}

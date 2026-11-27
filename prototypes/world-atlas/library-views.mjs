@@ -17,17 +17,8 @@ export const SHELVES = [
     {id: 'tabletop', label: 'Tabletop and modern-world procedures', worlds: []},
     {id: 'other', label: 'Other canon worlds and genre references', worlds: ['ttks1', 'ttks2', 'ttks3', 'ttks4', 'ttks5', 'yas', 'wus', 'gc', 'pr', 'sup', 'rtoc', 'motf', 'toa', 'rg', 'eld', 'stc', 'rak', 'pl', 'pge', 'wtc', 'mb', 'boc', 'sg', 'poa', 'mm', 'dc', 'dl', 'az', 'hwfwm', 'sth', 'vs', 'bdm', 'fod', 'rune', 'ark']},
 ];
-const TITLES = {
-    lotm: 'Lord of the Mysteries', ri: 'Reverend Insanity', hp: 'Harry Potter', mol: 'Mother of Learning', ss: 'Shadow Slave',
-    coi: 'Circle of Inevitability', asl: 'A Soldier’s Life', worm: 'Worm', twi: 'The Wandering Inn',
-    ttks1: 'Wizard, Hello, I’m an Imposter', ttks2: 'One Entry a Year, and a Simulated One Counts?', ttks3: 'Jujutsu Kaisen: Special-Grade Me Goes to Fight Sukuna',
-    ttks4: 'Heir of All Humanity', ttks5: 'Wasteland Border Inspector', yas: 'You Are Summoned', wus: 'Wish Upon the Stars', gc: 'Godclads',
-    pr: 'The Perfect Run', sup: 'Super Supportive', rtoc: 'A Regressor’s Tale of Cultivation', motf: 'Mark of the Fool', toa: 'Tree of Aeons',
-    rg: 'The Legend of Randidly Ghosthound', eld: 'Elydes', stc: 'Street Cultivation', rak: 'The Books of the Raksura', pl: 'Pale Lights',
-    pge: 'A Practical Guide to Evil', wtc: 'Worth the Candle', mb: '12 Miles Below', boc: 'Beware of Chicken', sg: 'The Stubborn Skill-Grinder in a Time Loop',
-    poa: 'The Path of Ascension', mm: 'Mana Mirror', dc: 'Dungeon Core', dl: 'Dungeon Life', az: 'Azarinth Healer', hwfwm: 'He Who Fights with Monsters',
-    sth: 'Small Town Hero', vs: 'Virtuous Sons', bdm: 'Beneath the Dragoneye Moons', fod: 'Forge of Destiny', rune: 'The Runesmith', ark: 'Ar’Kendrithyst',
-};
+import {worldTitle} from './world-titles.mjs';
+export {worldTitle};
 // Where a world's reading reaches the game. Cast packs join by registry id; groups are registered locations.
 // The key is also the atlas world id, so a reading world links straight to its world page.
 const worldLink = (w, button) => w.consumer ? button('Open ' + w.label + ' in Worlds', () => {location.hash = 'world/' + w.id;}) : null;
@@ -53,7 +44,6 @@ export const batchLine = (data, keys) => {
     return `Batch reading: ${sum('plans')} plans, ${sum('estimated')} estimated ($${Math.round(rows.reduce((a, r) => a + r.usdEstimate, 0) * 100) / 100}), ${sum('submitted')} submitted, ${sum('collected')} collected`;
 };
 
-export const worldTitle = id => TITLES[id] || id;
 
 // One row per reading world: reading counts plus how far it reaches into the game.
 export function libraryWorlds(data) {
