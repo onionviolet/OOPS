@@ -2074,3 +2074,15 @@ On the first skill evolution slice, which granted a separate side skill: "A2 isn
 ## Keep a future RPG view with a map possible, 2026-11-26
 
 Asked whether turning OOPS into an RPG would make things easier: "would everything be easier if we just decided to turn OOP into a RPG game?" and "Would transitioning to RPG after comprehensivelyt implementing everything be a whole different beast but make it easier?" Then: "Just add it for future consideration for all implementations to also be able to serve a rpg view with a map in the future?" [Owner](../END_GOAL.md#future-rpg-view-with-a-map)
+
+## Armored skin evolutions, 2026-11-26
+
+"For EV2, even wearing armor there should still be some sort of benefit no? so like damage passing armor? other aspetcs?" Asked to choose between acting on damage that gets through armor plus body effects, or scaling with armor: "Damage through + effects". [Owner](../PROGRESSION_GATE_RULES.md#skill-evolution-proposal-2026-11-26)
+
+## LitRPG depth, readings and a systems encyclopedia, 2026-11-27
+
+"Consider other deeper subtle Litrpg things and every little detail required for each book world and more? some stuff might need to be created for all the books accordingly?" On a paid reading pass for the LitRPG books: "Yes, send out Using api, we need to use like 90$~ of claude api in like 10 days". Then: "Do we have a workflow of batching directly adding to the world atlas and more? Can we fully improve world atlas to be like a comprehensive atlas/encyclopedia on these kind of stuffs?" [Census](../audits/LITRPG_SYSTEM_CENSUS_2026-11-27.md)
+
+## Forge Adventure as inspiration, 2026-11-27
+
+"Take inspiration from MTG forge chat about the gameplay, it feel like the two can conenct a little, thoughts and suggestions?" Proposals S1 (Forge Adventure as the reference for the future map view) and S2 (contests pluggable per world) await his pick. [Owner](../END_GOAL.md#future-rpg-view-with-a-map)
