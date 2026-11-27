@@ -6,6 +6,7 @@ import { get_crafting_quality_caps } from "../crafting_recipes.js";
 import { Skill } from "../models/skill.js";
 import { availabilities } from "./component_references.js";
 import { ladderPanelText, readLevels } from "../skill_ladder.js";
+import {SKILL_EVOLUTIONS} from './skill_evolutions.js';
 
 const ladderText = id => { const text = ladderPanelText(id, readLevels(character.getLevelableComponent()), skills[id]?.milestones); return text ? `\n${text}` : ""; };
 
@@ -3058,6 +3059,10 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
         }
     });
 })();
+
+for(const {targets} of SKILL_EVOLUTIONS)for(const {id,name} of targets){
+    skills[id]=new Skill({names:{0:name},category:'Activity',base_xp_cost:10,description:'Practice your chosen lifting form while carrying grain in the Village.'});
+}
 
 Object.keys(skills).forEach(id => {
     skills[id].skill_id = id;

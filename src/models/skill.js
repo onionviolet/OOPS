@@ -6,6 +6,7 @@ import { character } from "../data/character.js";
 import { availability_havers } from "../data/component_references.js";
 import { skill_categories, skills } from "../data/skills.js";
 import { stat_names } from "../misc.js";
+import {automaticSkillTiers,skillTierName} from '../skill_evolution.js';
 
 const which_skills_affect_skill = {};
 
@@ -154,22 +155,12 @@ class Skill {
             return unknown_skill_name;
         }
  
-        const keys = Object.keys(this.names);
-        if (keys.length == 1) {
-            return (this.names[keys[0]]);
-        }
-        else {
-            let rank_name;
-            for (var i = 0; i <= keys.length; i++) {
-                if (skillXP.current_level >= parseInt(keys[i])) {
-                    rank_name = this.names[keys[i]];
-                }
-                else {
-                    break;
-                }
-            }
-            return rank_name;
-        }
+        return this.getTierName(skillXP.current_level);
+    }
+
+    getTierName(level) {
+        this.tiers ??= automaticSkillTiers(this.skill_id,this.names);
+        return skillTierName(this.tiers,level);
     }
 
     add_xp({skillXP, xp_to_add = 0, track_dependencies = true, preparedUnlock = false}) {

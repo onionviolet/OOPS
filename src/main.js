@@ -90,6 +90,7 @@ import {mountKnownMethodChains,mountKnownNumber,formatKnownNumber} from './absor
 import {createKnownItemHotkeys,mountKnownItemBinding,mountKnownItemHotkeyList} from './absorb_p23/known_detail/hotkeys.js';
 import {skillExpansionPresentation} from './skill_expansion_host.js';
 import {setNativeObservedDropReader, setKnownClearTextReader, reset_message_log_for_life} from './display.js';
+import {configureSkillEvolution,earnActivitySkillXP,reportNativeSkillTier} from './skill_evolution_native.js';
 let p23DropObservations,loadedDisplayPreferences;
 
 import {structuredLifeEnded,reconcileStructuredLifePlan,structuredLifeView,archiveStructuredLife,publishIndependentStructuredLife,listStructuredLifeArchives} from './structured_life_runtime.js';
@@ -5169,7 +5170,7 @@ function add_xp_to_skill({skill, xp_to_add = 1, should_info = true, use_bonus = 
             if(prev_name !== new_name) { //skill name has changed
                 //display of skill name in other places (like tooltips of other skills) is handled slightly earlier
                 if(!was_hidden && (typeof should_info === "undefined" || should_info)) {
-                    nativeCraftMessage(`Skill ${prev_name} upgraded to ${new_name}`, "skill_raised");
+                    reportNativeSkillTier(skill.skill_id,prev_name,new_name);
                 }
 
                 if(current_location?.connected_locations && !current_activity) {
@@ -6205,18 +6206,17 @@ function add_active_effect(effect_key, duration = 1, skip_xp){
 }
 
 function add_xp_to_activity_skills() {
-    if(current_activity.gained_skills) {
-        const gained_skills = current_activity.gained_skills;
-        Object.keys(gained_skills).forEach(skill_key => {
-            add_xp_to_skill({skill: skills[skill_key], xp_to_add: gained_skills[skill_key]});
-        });
-    } else {
-        const skill_names = activities[current_activity.activity_name].base_skills_names;
-        for (let i = 0; i < skill_names?.length; i++) {
-            add_xp_to_skill({skill: skills[skill_names[i]], xp_to_add: current_activity.skill_xp_per_tick[i]});
-        }
-    }
+    earnActivitySkillXP(current_activity,activities[current_activity.activity_name],
+        (id,xp,options)=>add_xp_to_skill({skill:skills[id],xp_to_add:xp,...options}));
 }
+
+configureSkillEvolution({
+    context:()=>({world:expansionState.actors.player.worldId,location:current_location?.id,activity:current_activity?.id}),
+    xp:id=>skills[id].getTotalXP(),level:id=>skills[id].getCurrentLvl(),
+    writable:()=>workLedgerCanWrite()&&!restoringNativeSave&&character.is_alive,
+    persist:next=>persistExpansion({...p23Plan(),nativePatch:{skill_evolution:next}}),
+    publish:(_event,text)=>nativeCraftMessage(text,'skill_raised'),
+});
 
 /**
  * Handles preliminary management of quest events, simplifying work by automatically providing all the additional data

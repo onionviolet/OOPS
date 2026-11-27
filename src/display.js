@@ -1,4 +1,5 @@
 import {localMoneyLabel, localPurseLabel, coinPricesHere} from './ui/local_money_label.js';
+import {attachSkillEvolution} from './skill_evolution_native.js';
 import {locationMapMarks, locationMapDanger} from './ui/map_marks.js';
 import {bookFinishLines} from './book_finish_lines.js';
 import {quoteJourney, journeyTitle} from './journey_quote.js';
@@ -5497,6 +5498,7 @@ function create_new_skill_bar(skill) {
     skill_bar_divs[skill.category][skill.skill_id].setAttribute("data-skill", skill.skill_id);
     skill_bar_divs[skill.category][skill.skill_id].classList.add("skill_div");
     skill_list.querySelector(`[data-skill_category=${skill.category}]`).querySelector("[data-skill_category_skills]").appendChild(skill_bar_divs[skill.category][skill.skill_id]);
+    attachSkillEvolution(skill,skill_bar_divs[skill.category][skill.skill_id]);
 
     //sorts skill_list div alphabetically
     sort_displayed_skills({});

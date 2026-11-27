@@ -1,0 +1,14 @@
+{
+  "game version": "v0.6",
+  "levels": {
+    "person": {
+      "main_character": {
+        "skill_xp": {
+          "Iron skin": 17000000000,
+          "Giant slayer": 250000,
+          "Weightlifting": 301
+        }
+      }
+    }
+  }
+}

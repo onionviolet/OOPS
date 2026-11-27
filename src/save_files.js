@@ -51,6 +51,7 @@ import {validateVillageLives} from './npc_lives.js';
 import {validateSystemsWorkshopEnvelope} from './systems_workshop_validation.js';
 import {validateGeneratedPeople} from './generated_people.js';
 import {calendarMinutes} from './world_rhythm.js';
+import {validateSkillEvolutionEnvelope} from './data/skill_evolutions.js';
 
 const object = (value, label) => {
     if(!value || typeof value !== "object" || Array.isArray(value)) throw new Error(`${label} must be an object.`);
@@ -72,6 +73,7 @@ export function validateSaveEnvelope(original, currentVersion) {
     validateMistglassEnvelope(original);
     validateTrainingEnvelope(original);
     validateTrancheFourEnvelope(original);
+    validateSkillEvolutionEnvelope(original);
     domainRegistry.validate(original);
     validateMixtureEnvelope(original);
     validateProductAppearanceEnvelope(original);

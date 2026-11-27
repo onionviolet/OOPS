@@ -1,0 +1,116 @@
+{
+  "entry": "/",
+  "bundleSha256": "9c9809eb8a1d27357453c302236d4ec089000b61aa6bedd94d2a232ed4fb63ee",
+  "fixtures": {
+    "tier": "088fcd30c504fcfb96b0af4a28edaaf695730065711114f4e5cf16f7f705d3e3",
+    "evolution": "7faf12e3a134ea6453521189057aca32704eaea44d2b8f856a0c0d66e238c015"
+  },
+  "runs": [
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "legacyUpgrade": {
+        "report": "Skill Stone skin upgraded to Iron skin",
+        "before": 102429607508.86,
+        "after": 102429607512.86
+      },
+      "waiting": {
+        "clock": 254,
+        "experience": 304,
+        "continuedClock": 258,
+        "continuedExperience": 308,
+        "reports": 1
+      },
+      "branch": {
+        "label": "Heavy sets",
+        "identity": {
+          "clock": 269,
+          "state": {
+            "revision": 1,
+            "choices": {
+              "village.grain-lifts": {
+                "status": "chosen",
+                "level": 3,
+                "target": "Grain lifting: heavy sets"
+              }
+            }
+          },
+          "xp": {
+            "Iron skin": 17000000000,
+            "Giant slayer": 250000,
+            "Weightlifting": 324.5,
+            "Equilibrium": 0,
+            "Grain lifting: heavy sets": 11
+          },
+          "activity": "weightlifting"
+        },
+        "sourceXpAdded": 16.5,
+        "equilibriumXpAdded": 0
+      },
+      "selectionControl": "mouse",
+      "saveReloadExportImport": true,
+      "pageErrors": [],
+      "captures": [
+        "iron-skin-1920.png",
+        "choice-waiting-1920.png",
+        "branch-chosen-1920.png",
+        "branch-imported-1920.png"
+      ]
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "legacyUpgrade": {
+        "report": "Skill Stone skin upgraded to Iron skin",
+        "before": 102429607508.86,
+        "after": 102429607512.86
+      },
+      "waiting": {
+        "clock": 254,
+        "experience": 304,
+        "continuedClock": 258,
+        "continuedExperience": 308,
+        "reports": 1
+      },
+      "branch": {
+        "label": "Balanced lifts",
+        "identity": {
+          "clock": 269,
+          "state": {
+            "revision": 1,
+            "choices": {
+              "village.grain-lifts": {
+                "status": "chosen",
+                "level": 3,
+                "target": "Grain lifting: balanced lifts"
+              }
+            }
+          },
+          "xp": {
+            "Iron skin": 17000000000,
+            "Giant slayer": 250000,
+            "Weightlifting": 319,
+            "Equilibrium": 11,
+            "Grain lifting: balanced lifts": 11
+          },
+          "activity": "weightlifting"
+        },
+        "sourceXpAdded": 11,
+        "equilibriumXpAdded": 11
+      },
+      "selectionControl": "keyboard",
+      "saveReloadExportImport": true,
+      "pageErrors": [],
+      "captures": [
+        "iron-skin-1366.png",
+        "choice-waiting-1366.png",
+        "branch-chosen-1366.png",
+        "branch-imported-1366.png"
+      ]
+    }
+  ]
+}
