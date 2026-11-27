@@ -11,7 +11,6 @@ __pycache__/
 
 # Optional private content is fetched at runtime, never bundled
 /private_packs/
-/scripts/save_gate_fixtures/klein-ch129.save.txt
 /resources/fonts/private/
 
 # Source-identifying dispatch input remains local-only

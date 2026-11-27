@@ -15,7 +15,6 @@ const {serveCheckout, openPanel} = require('./fixture_browser.cjs');
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const BUILT_ROOT = resolve(process.env.BUILD_OUT || ROOT);
 const FIXTURES = join(ROOT, 'scripts/save_gate_fixtures');
-const PRIVATE_FIXTURES = join(ROOT, 'private_packs/save_gate');
 const manifest = JSON.parse(await readFile(join(FIXTURES, 'manifest.json'), 'utf8'));
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 assert.deepEqual(manifest.fixtures.map(row => row.id).sort(),
@@ -80,18 +79,12 @@ async function loadGame(page, base, {navigate = false} = {}) {
 
 function gameClock(save) { return save.expansion?.clock; }
 
-async function readFixture(row) {
-    const file = join(row.private ? PRIVATE_FIXTURES : FIXTURES, row.file);
-    const bytes = await readFile(file).catch(error => {
-        if (error.code === 'ENOENT') throw new Error(`${row.id}: required ${row.private ? 'private ' : ''}save fixture is missing at ${file}. Restore the exact earned fixture from its manifest provenance.`);
-        throw error;
-    });
+async function replay(row, browser, base) {
+    const file = join(FIXTURES, row.file);
+    const bytes = await readFile(file);
     const inputSha256 = hash(bytes);
     assert.equal(inputSha256, row.sha256, `${row.id}: fixture bytes changed; inspect provenance before updating the pin`);
-    return {row, input: parseSave(bytes, row.file), inputSha256};
-}
-
-async function replay({row, input, inputSha256}, browser, base) {
+    const input = parseSave(bytes, row.file);
     const pageErrors = [];
     const context = await browser.newContext({viewport: {width: 1920, height: 1080}, acceptDownloads: true});
     const page = await context.newPage();
@@ -180,13 +173,12 @@ assert.ok(bundle, 'Build first with `npm run build`; the gate uses the rebuilt p
 const selected = process.argv.slice(2).filter(arg => arg.startsWith('--only=')).map(arg => arg.slice('--only='.length));
 const rows = selected.length ? manifest.fixtures.filter(row => selected.includes(row.id)) : manifest.fixtures;
 assert.equal(rows.length, selected.length || manifest.fixtures.length, 'Unknown --only fixture id');
-const fixtures = await Promise.all(rows.map(readFixture));
 const server = await serveCheckout(BUILT_ROOT);
 let browser;
 try {
     browser = await launchChrome();
     const results = [];
-    for (const fixture of fixtures) results.push(await replay(fixture, browser, server.base));
+    for (const row of rows) results.push(await replay(row, browser, server.base));
     process.stdout.write(JSON.stringify({schema: manifest.schema, bundleSha256: hash(bundle), loader: 'rebuilt normal browser entry', results}, null, 2) + '\n');
 } finally {
     try { await browser?.close(); }
