@@ -14,6 +14,7 @@ import { skills } from "../data/skills.js";
 import { levels, bios } from "../data/component_references.js";
 import { Person } from "./person.js";
 import {get_current_light_level} from '../weather.js';
+import { guild_members, GuildMemberComponent } from "../components/guild_member_component.js";
 
 class Hero extends Person {
     #nativeLightBonusReader = null;
@@ -51,6 +52,9 @@ class Hero extends Person {
         if(this.#simulationEffectReader)this.addActiveEffectBonus(active_effects);
     }
 
+
+    #guild_member_component;
+
     constructor(data) {
         super(data);
         
@@ -64,19 +68,18 @@ class Hero extends Person {
 
         this.id = data.id;
 
+        this.#guild_member_component = new GuildMemberComponent();
+
         //assign them directly, as hero is not placed in NPCRegistry (obviously) so it can't be handled by it
         inventories["person"][this.id] = this.getInventoryComponent();
         equipments["person"][this.id] = this.getEquipmentComponent();
         levels["person"][this.id] = this.getLevelableComponent();
         bios[this.id] = this.getBioComponent();
+        guild_members["person"][this.id] = this.getGuildMemberComponent();
 
         this.tags = data.tags;
 
         this.is_inventory_viewable = true; //just so code knows whether certain items in inventory need to have their displays updated in certain situations
-    }
-
-    getBio() {
-        return this.getBioComponent().getBio();
     }
 
     //stupid little thing for a stupid easter egg
@@ -84,38 +87,20 @@ class Hero extends Person {
         return this.name.match(/\b(?<![\w])rat\b/i);
     }
 
+    getGuildMemberComponent() {
+        return this.#guild_member_component;
+    }
+
     getOwnedMoney() {
         return this.money;
     }
 
-    /**
-     * adds skill milestone bonuses to hero stats
-     * called when a new milestone is reached
-     * @param {{flats, multipliers}} bonuses 
-     */
-    addBookBonus({multipliers = {}, xp_multipliers = {}}) {
-        const levelable = this.getLevelableComponent();
-        Object.keys(levelable.base_stats).forEach(stat => {
-            if(multipliers[stat]) {
-                levelable.stats.multiplier.books[stat] = (levelable.stats.multiplier.books[stat] || 1) * multipliers[stat];
-            }
-        });
-       
-        if(xp_multipliers?.hero) {
-            levelable.xp_bonuses.multiplier.books.hero = (levelable.xp_bonuses.multiplier.books.hero || 1) * xp_multipliers.hero;
-        }
-        if(xp_multipliers?.all) {
-            levelable.xp_bonuses.multiplier.books.all = (levelable.xp_bonuses.multiplier.books.all || 1) * xp_multipliers.all;
-        }
-        if(xp_multipliers?.all_skill) {
-            levelable.xp_bonuses.multiplier.books.all_skill = (levelable.xp_bonuses.multiplier.books.all_skill || 1) * xp_multipliers.all_skill;
-        }
+    addBookBonus(data) {
+        this.getLevelableComponent().addBonus({...data, name: "books"});
+    }
 
-        Object.keys(skills).forEach(skill => {
-            if(xp_multipliers[skill]) {
-                levelable.xp_bonuses.multiplier.books[skill] = (levelable.xp_bonuses.multiplier.books[skill] || 1) * xp_multipliers[skill];
-            }
-        });
+    addAchievementBonus(data) {
+        this.getLevelableComponent().addBonus({...data, name: "achievements"});
     }
 
     /**

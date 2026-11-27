@@ -52,6 +52,7 @@ const skill_consumable_tags = {
     "Medicine": "medicine",
     "Gluttony": "food",
     "Poison resistance": "poison",
+    "Strength of mind": "curse",
 }
 
 //additional skill-tag mapping for crafting
@@ -339,7 +340,7 @@ const npc_key_mapping = {
     "village trader": "villageTrader",
     "suspicious trader": "suspiciousTrader",
     "swampland trader": "swamplandTrader",
-    "nekomimi trader": "nekomimiTrader",
+    "nekomimi trader": "nekomimiProprietress",
     "cat cafe trader": "catCafeTrader",
 }
 const trader_key_mapping = {

@@ -101,6 +101,8 @@
     - added a hero creation page; includes age, perceived gender, height, and race;
         they are mostly cosmetic and used only for conditions (mostly to allow fluff with some unique dialogues), 
         but additional effects from height and race are supported and can be enabled in config.js, though they are very far from being balanced
+    - added the town which can be accessed after <span class="spoiler">you defeat suspicious man in slums and talk with him; if you did that before, ask him if he's behaving himself and then visit the guard</span>
+    - added an achievement system (there's only a few)
 
     <!-- Town entry: miktaew/yet-another-idle-rpg-dev 200f1ba6, MIT. -->
     - town can now be accessed after <span class="spoiler">you defeat suspicious man in slums and talk with him; if you did that before, ask him if he's behaving himself and then visit the guard</span>
@@ -109,10 +111,17 @@
     - buffed 'cheap wooden shield'
     - when sleeping, debuff-type active effects will go down with game time rather than with game ticks (i.e. a lot faster than they used to)
     - 'Equilibrium' and 'Shield blocking' now have minor xp bonuses to each other in their milestones
+    - increased value of 'Linen cloth'
+    - traders that are supposed to have more than 1 of some item affected by quality will now have quality rolled for each instance of item instead of all having same quality
+    - item quality in traders is now rounded the same way it's rounded in crafting (by default, 4% precision for equipment and 2% precision for other items)
+    - slightly increased price multiplier for 'Suspicious merchant'
 
     - tooltips of no-quality items now show how much is in player inventory
     - conditions for items to appear in traders are now supported, can be applied both directly to each trade item and/or to groups of them 
         (for less copypasting and minor optimization)
+    - dynamic text messages now also apply to xp from clearing a combat zone repeatedly
+    - changed the way the display of crafting categories is handled for locations that have crafting for only some of them
+    - added tooltips for crafting button in locations, that show crafting station tiers
 
     - added Hits Counter https://hitscounter.dev
 
@@ -122,18 +131,24 @@
     - conditions objects can now include:
         - having at least / at most a certain number of clears of a specified location
         - having finished / not-finished specified quests
+    - implemented a mechanic of delayed rewards (does exactly what it sounds, rewards with a delay before being processed)
     - game actions can now have multiple success texts to choose from based on arbitrary logic
     - parent skills can now have custom multipliers to child skill xp gains per level of difference, instead of static *1.1
     - added another locking-related property; now elements can be marked as locked (by a differing choice) instead of previous lack of distinction between this and being completed
     - made it possible to make skills incapable of gaining xp, limiting them to levels gained from temporary sources
     - rewrote combat to be fully symmetrical (with some player-related exceptions) and to allow any fighters on either side (including fights without player)
     - implemented text placeholders for translation strings
+    - books can now show additional descriptions once fully read
 
     - non-combat locations now properly support location types
     - fixed minor display issue where background effects would not cover entire game window upon scrolling horizontally
     - tweaked display of crafting quality caps, it should now match actual caps (including the quality rounding)
     - fixed a small issue on firefox, where if playing zoomed out, some scrollbars would cover content (due to firefox scrollbars being unaffected by zoom level)
         - some places might have been missed
+    - fixed a potential small issue with getting unlocked beds marked for fast travel
+    - fixed that one old dumb easter egg
+    - fixed a bug, where activities with time-limited access would not properly become available on time change and required some sort of location reload instead
+        (e.g. waiting in village to 6:00 would not make 'Farming' available despite the button changing, you would need to move back and forth or talk with someone or save-load)
 
     courtesy of Kuroiteiken, with some additional tweaks from your favourite cat (Mik):
         * equipment tooltips now show comparison between hovered vs equipped
@@ -143,9 +158,21 @@
     courtesy of OnonokiNonon:
         * new activities in Eastern Mill
         * new fishing spots
-        * tool crafting; a few other new recipes
-        * apples
-        * new location, with new resources and enemies
+        * tool crafting
+        * apples and mushrooms (items, recipes for some more items, gathering activities)
+        * cookies
+        * some new trophies
+        * some new miscellaneous craftables
+        * new locations (Motherwood, Primeval forest, Bramble path, Miasma meadow), with new resources and enemies
+        * new materials for gear components
+        * made effects display show counts of buffs and debuffs (and durations of shortest in each group) without a need for hover
+        * multiple code improvements and dev tools
+
+    courtesy of Nitro-Carwash:
+        * multiple bugfixes for this patch's contents
+
+    courtesy of BD Jim:
+        * bears finally drop meat, comes with a few cooking choices
 </pre></div>
 <button type="button" class="collapsible">v0.5.5 - The Boring Stuff [testing release: 26/05/2026 / main release: 21.06.2026]</button>
 <div class="content"><pre>

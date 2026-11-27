@@ -5,8 +5,8 @@ import {loadNative} from './helpers/native_loader.mjs';
 // Every key process_rewards (src/main.js) reads. A reward key outside this list is silently ignored at runtime,
 // the way a location reward written `action:` instead of `actions` would be (idea absorbed from Kuroiteiken/yairp's
 // reward-key warning; mechanism only). Add a key here in the same change that teaches process_rewards to read it.
-const READ_BY_PROCESS_REWARDS = new Set(['actions', 'active_effects', 'activities', 'chance', 'crafting', 'dialogues', 'flags',
-    'global_activities', 'housing', 'items', 'locks', 'locations', 'messages', 'money', 'move_to', 'npcs', 'quest_progress', 'quests',
+const READ_BY_PROCESS_REWARDS = new Set(['achievements', 'actions', 'active_effects', 'activities', 'chance', 'crafting', 'dialogues', 'flags',
+    'global_activities', 'housing', 'items', 'locks', 'locations', 'messages', 'money', 'move_to', 'npcs', 'progress_timer', 'quest_progress', 'quests',
     'recipes', 'reputation', 'skill_xp', 'skills', 'stances', 'textlines', 'traders', 'xp']);
 
 // Keys on content rewards objects that another reader consumes; each needs a reason.

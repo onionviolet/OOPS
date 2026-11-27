@@ -1,5 +1,7 @@
 // Town-entry wave and reciprocal XP additions adapted from miktaew/yet-another-idle-rpg-dev 200f1ba6 (MIT).
 const dialogues = {
+    "temple priest restore": "Finish the ritual",
+    "temple priest restore answ": "The ritual is complete.",
     //VILLAGE ELDER
     "elder description": "You see an older man with white hair, but with a still strong posture as if still ready to fight if need be. He eyes you with curiosity.",
     "mofu#elder description": "You see an older man with curly white hair and dull, heavy horns. Despite his years, he stands with a strong posture, ready to ram any threat to the village. He eyes you with curiosity.",
@@ -364,18 +366,60 @@ const dialogues = {
             +" Despite seeming more like a scribe, he's buff and tanned.",
 
     //NEKOMIMI PROPRIETRESS (NEKOMIMI CAFE)
-    "nekomimi proprietress description": "lorem ipsum",
-    "proprietress hi": "lorem ipsum",
-    "proprietress hi answ": "lorem ipsum",
-    "proprietress offer": "lorem ipsum",
-    "proprietress offer answ": "lorem ipsum",
-    "proprietress special": "lorem ipsum",
-    "proprietress special answ": "lorem ipsum",
-    "proprietress puns": "lorem ipsum",
-    "proprietress puns answ": "lorem ipsum",
+    "nekomimi proprietress description": "You see a nekomimi woman with an ornamental smoking pipe in her hands. It seems to be just a decoration meant to make her look more prestigious, "
+                                        +"as it's clearly empty and there's not even a hint of tobacco smell coming from the pipe or from the woman. She has plum-colored hair, "
+                                        +"and her bangs cover one eye. She's dressed in a risque way, wearing an off-shoulder kimono (held by a small, barely noticeable strap) that almost reveals her bossom, "
+                                        +"but her modest proportions make the look much less provocative than she likely intended.",
+    "proprietress hi": "Hello",
+    "proprietress hi answ": "Hi there, cutie. I hope you will enjoy your stay with us and have fun~",
+    "proprietress hi answ cat": "Hi there, cutie. If you're looking for work, we don't have any free spots. But if you're here to enjoy yourself among your own kind, then I hope you will have fun~",
+    "proprietress hi answ dog": `Hi there, cutie. We don't often get your kind here, but you are as welcome as any other guest. Just please don't go "bau bau" at anyone and remember that when a cat wags `
+                               +`their tail it likely means irritation or anger, rather than happiness. I hope you will enjoy your time with us~`,
+    "proprietress hi answ rare": "Hi there, cutie. I don't think we've served your kind before, but I hope you will enjoy your stay and have lots of fun~",
+    "proprietress hi answ mouse": "Hi there, cutie. We love having your kind here, I'm sure you will get to enjoy some special attention. Just try to not get eaten~",
+    "proprietress offer": "What does this place have in offer?",
+    "proprietress offer answ": `Great and cute service, food and drinks, and if you feel generous, there's the "special service"~`,
+    "proprietress special": `What's that "special service" thing?`,
+    "proprietress special answ": "For a mere 10 pieces of silver, you can get an hour of personal private time with any of our maids, boy or girl, you choose~", //I swear this is not what it seems
+    "proprietress special 2": `I tried that "special service" you offer and it was exquisite, but now I feel like I need something even more intense.`,
+    "proprietress special 2 answ": "Here's the deal. You, five maids, private room, and air full of catnip vapors. It will cost 3 gold coins, because they might not be "
+                                 + "fit for work for at least a few hours afterwards and will need rest.",
     
+    //CAT CAFE OWNER                             
+    "cat cafe owner description": "The owner, or whoever this person actually is, sits calmly behind the counter, with a cat on their lap and another "
+                                + "cat just laying on their shoulders, basically wrapped around the back of the owner's neck. That must feel really nice and warm... "
+                                + "It seems impossible to accurately guess their gender. They have light brown hair in long ponytail and wear glasses",
+    "cat cafe hi": "Hello",
+    "cat cafe hi answ": "Hi there. I hope you will enjoy the company of our cats.",
+    "cat cafe hi answ cat": "Hi there. If you're looking for work, try that other cafe. But if you're here to enjoy yourself among some quadruped cats, then I hope you will have fun.",
+    "cat cafe hi answ dog": `Hi there. I hope you will enjoy your time here. Just try not to scare any of the cats and remember that when a cat wags `
+                               +`their tail it usually means that they are unhappy.`,
+    "cat cafe offer": "What does this place have in offer?",
+    "cat cafe offer answ": `Cats. Lots of cats. Also food and drinks. And also "the room", if you're feeling generous~`,
+    "cat cafe special": `What's that "room" thing?`,
+    "cat cafe special answ": "For a mere 10 pieces of silver, you can get an hour in private room with some of our friendliest cats that will just assault you with cuddles and purrs.",
+    "cat cafe special 2": `I tried that "special service" you offer and it was amazing, but now I feel like I need something more.`,
+    "cat cafe special 2 answ": "Okay then. How about... Thrice as many cats, plus air filled with catnip vapors? It will cost 3 gold coins, because they might "
+                                 + "spend rest of the day sleeping and be unavailable to other clients.",                             
+    
+    "gallows guard description": "The lonely guard is clearly bored beyond anything. The kind of person that is constantly pondering on whether she should just quit her job, "+
+                                "but knows she needs to have some kind of income and can't find anything else. She keeps glancing at you as if almost hoping that you would try doing anything "
+                                +"that could be an excuse to leave her post for even a moment. She's equipped with a typical for this town set of steel chainmail, spear, and sword.",
+    "gallows guard hi": "Hi.",
+    "gallows guard hi answ": "...hello.",
+    "gallows guard corpse": "May I know who's corpse this is?",
+    "gallows guard corpse answ": "A criminal... Sigh, not like I have anything better to do. They were a leader of a gang that made quite a mess in the "
+                                +"areas surrounding our town. Robberies, murders, taking slaves, stuff like that. Tried to get into the town with "
+                                +"all their money, got caught very quickly due to having bad temper and to trying to pay with money that was, "
+                                +"in the most literal sense of the word, covered in blood. Sure, it was old and dried, but still blood. Then they "
+                                +"admitted to everything quite easily during investigation. Must have been a mix of alcohol and bravado, but it "
+                                +"made for one of quickest death sentences in last decade, or so I was told.",
+    "gallows guard what": "Sounds like this's who I was looking for. I was robbed some time ago and knocked out, lost my memories too. Honestly I don't know what to do now.",
+    "gallows guard what answ": "Can't help you with that, sorry. However... It might be worth checking the local temple if you haven't done that yet, just ask for help "
+                              +"with this specific issue and who knows, they might have some kind of healing magic or a ritual that would work for your problem.",
     //SWAMPCHIEF
-    "swampchief description 1": "Looking around the encampment, you see a large hut framed by banners and lit torches. You approach the hut, calling out in greeting, but getting no response. As you step closer, you see a large man in thick scaly armor wielding a great trident emerge. He points the trident at you as he takes a firm stance.",
+    "swampchief description 1": "Looking around the encampment, you see a large hut framed by banners and lit torches. You approach the hut, calling out in greeting, but getting no response. "
+                            +"As you step closer, you see a large man in thick scaly armor wielding a great trident emerge. He points the trident at you as he takes a firm stance.",
     "mofu#swampchief description 1": "Looking around the encampment, you see a large hut framed by banners and lit torches."
             +" You approach the hut, calling out in greeting, but getting no response."
             +" As you step closer, you see a large man in thick scaly armor wielding a great trident emerge, his thick scaly tail resting behind him."
@@ -661,6 +705,7 @@ const dialogues = {
 
 const misc_texts = {
     "go back": "Go back",
+    "word tier": "tier",
 }
 
 const racial = {
@@ -782,7 +827,7 @@ const ui = {
     "option bed return": "Return to last bed upon defeat",
     "option remember filters": "Remember message log filters",
     "option dont autoswitch": "Don't autoswitch out from inventory when starting combat",
-    "option dynamic message": "Use a single dynamically updated message for loot",
+    "option dynamic message": "Use dynamically updated messages for loot and for location clear xp",
     "option scientific notation": "Use scientific notation for values over:",
     "option fahrenheit": "Use Fahrenheit instead of Celsius",
     "option animate background": "Enable rain/snow/stars animations",
@@ -790,6 +835,14 @@ const ui = {
     "option combat animation": "Enable on-hit / on-appear animations for combat",
     "option skip loading": "Automatically skip the loading screen",
     "option kemonomimi": "Enable kemonomimi mode",
+
+    "ui crafting": "tinkering",
+    "ui forging": "forging",
+    "ui smelting": "smelting",
+    "ui cooking": "cooking",
+    "ui alchemy": "alchemy",
+    "ui butchering": "butchering",
+    "ui woodworking": "woodworking",
 };
 
 const bio = {
@@ -888,11 +941,66 @@ const locations = {
     "sleep text bedroll": "Take a nap on the bedroll",
     "sleep text cot": "Take a nap on the cot",
     "sleep text open cot": "Lie down on an open cot",
+    
+    "craft default": "Try to craft something",
+    "craft cook": "Cook something on a campfire",
+    "craft tribe": "Use the tribe's workhuts to craft something",
 }
 
-const english = {...dialogues, ...racial, ...ui, ...stats, ...skills, ...bio, ...misc_texts, ...locations};
+const location_types = {
+    "bright desc 1": "A place that's always lit, no matter the time of the day",
+    "bright desc 2": "An extremely bright place, excessive light makes it hard to keep eyes open",
+    "bright desc 3": "A place with so much light that an average person would go blind in an instant",
 
-const translations_for_verifier = { dialogues, racial, ui, stats, skills, bio, misc_texts, locations };
+    "dark desc 1": "It's dark here, comparable to a bright night",
+    "dark desc 2": "An extremely dark place, darker than most of the nights",
+    "dark desc 3": "Pure darkness with not even a tiniest flicker of light",
+
+    "narrow desc 1": "A narrow area where there's not much place for maneuvering",
+    "narrow desc 2": "A very tight and narrow area where there's not much place for maneuvering",
+    "narrow desc 3": "An area so cramped that it's a miracle you can even move",
+    "narrow desc 4": "Are you trying to die? One step the wrong way and you will fall to your death!",
+
+    "open desc 1": "A completely open area where attacks can come from any direction",
+    "open desc 2": "An area that's completely open and simultanously obstructs your view, making it hard to predict where an attack will come from",
+
+    "thin air desc 1": "Place with thinner air, which negatively impacts your body",
+    "thin air desc 2": "Place with very thin air, heavily affecting your body",
+
+    "eldritch desc 1": "This place brings a strong sense of unease",
+    "eldritch desc 2": "This place goes against the laws of the world",
+
+    "rough desc 1": "The loose sand and jagged rocks make it harder to fight effectively",
+    "rough desc 2": "A boggy marshland is a terrible location to fight for your life in",
+    "rough desc 3": "The muck somehow causes you to slip even while holding you firmly in place",
+
+    "wet desc 1": "Attempting to stay dry in conditions like these is impossible",
+
+    "aquatic desc 1": "Wading in water up to your knees restricts your movement",
+    "aquatic desc 2": "With most of your body submerged, it's hard to move",
+    "aquatic desc 3": "Fully underwater and with no ground under your feet, the moves you learned on land will help you little",
+    "aquatic desc 4": "Crushed by the immense pressure of the oceanic abyss",
+
+    "perilous desc 1": "Littered with sharp and dangerous objects like thorns or broken glass. Every move risks injury",
+    "perilous desc 2": "Filled with very sharp and dangerous objects like traps, falling rocks, or the insides of a machine. Every false move puts you in mortal danger",
+    "perilous desc 3": "An extremely dangerous place, like a raging inferno or the stomach of a beast. Every move risk certain death",
+
+    "miasma desc 1": "While not harmful, the stench of this area makes you instinctively hold your breath",
+    "miasma desc 2": "Noxious fumes are hurting your lungs and irritating your body",
+    "miasma desc 3": "Highly poisonous gas fills the area",
+}
+
+const achievements = {
+    "achievement fate name": "Master of fate",
+    "achievement fate desc": "Complete the temple ritual.",
+    "achievement rat name": "Rat",
+    "achievement rat desc": "Rat? Rat. You got as close as possible to becoming a rat without receiving the Rat God's blessing",
+}
+
+const english = {...dialogues, ...racial, ...ui, ...stats, ...skills, ...bio, ...misc_texts, ...locations, ...location_types, ...achievements};
+//separation exists purely for easier management
+
+const translations_for_verifier = { dialogues, racial, ui, stats, skills, bio, misc_texts, locations, location_types, achievements };
 //kept separately so that it's also possible to check for accidental overwrites
 
 export default english;

@@ -18,14 +18,14 @@ import {rollBaseCombatDamage,nextAttackTiming} from "../combat_math.js";
 import {validateEncounterCombatProfile} from '../absorb_p23/combat_options/runtime.js';
 import { config } from "../config.js";
 import { character } from "../data/character.js";
-import { skills } from "../data/skills.js";
+import { skills, weapon_type_to_skill } from "../data/skills.js";
 import { log_message, update_displayed_health, update_displayed_stamina, update_stance_tooltip } from "../display.js";
 import { enemy_tag_to_skill_mapping } from "../enemies.js";
 import { item_templates } from "../items.js";
 import {add_xp_to_character, add_xp_to_skill, change_stance, current_stance, finish_combat_round, game_stats, kill_target, kill_player, process_current_loot, tickrate, use_stamina} from "../main.js";
 import {game_options, selected_stance,current_location} from "../runtime_state.js";
 import { get_hit_chance } from "../misc.js";
-import { do_onhit_animation, do_onstart_animation, fill_fighter_divs, remove_onhit_animation, update_displayed_health_of_fighter } from "../ui/combat_display.js";
+import { do_onhit_animation, do_onstart_animation, do_effect_animation, fill_fighter_divs, remove_onhit_animation, update_displayed_health_of_fighter } from "../ui/combat_display.js";
 
 let maximum_time_correction = 10;
 
@@ -298,7 +298,7 @@ class Combat {
 
         const side = is_attacker ? "attackers" : "defenders";
         this.#turns[side][fighter_index] = (this.#turns[side][fighter_index] || 0) + 1;
-        let target_count = 1;
+        let target_count = fighter.tags?.main_character && !this.is_special_combat ? (current_stance.target_count || 1) : 1;
         if(fighter.tags?.main_character && !this.is_special_combat) {
             if(target_count > 1 && current_stance.related_skill) {
                 target_count = target_count + Math.round(target_count * fighter.getTotalSkillLevel(current_stance.related_skill)/skills[current_stance.related_skill].max_level);
@@ -498,8 +498,9 @@ class Combat {
         //based on raw opponent count instead of only on living ones, because Mik sometimes is a benevolent cat
 
         const target_count_xp_modifier = opponent_count_xp_multiplier/target_count;
+        //penalty for xp from attacking, since multi-target attacks would be too powerful at farming xp otherwise
+        
         const fighter_count_xp_modifier = fighter_count_xp_multiplier/fighters.length;
-        //with penalty for xp from attacking, since multi-target attacks would be too powerful at farming xp otherwise
 
         let evasion_chance_modifier = fighters.filter(x => x.is_alive).length**(-1/3); //down to .5 if there's full 8 enemies (multiple attackers make it harder to evade attacks)
         let defense_modifier = 0;
@@ -559,7 +560,7 @@ class Combat {
                 }
                 
                 if(!this.is_special_combat && target.tags.main_character) {
-                    add_xp_to_skill({skill: skills["Shield blocking"], xp_to_add: fighter.xp_value*target_count_xp_modifier});
+                    add_xp_to_skill({skill: skills["Shield blocking"], xp_to_add: fighter.xp_value*fighter_count_xp_modifier});
                 }
 
                 const blocked = target.getEquipment()["off-hand"].getShieldStrength() * (target.getEquipment()["off-hand"].tags.ignore_skill?1:target.getStats().total_multiplier.block_strength);
@@ -572,7 +573,7 @@ class Combat {
                     partially_blocked = true;
                 }
             } else if(!this.is_special_combat && target.tags.main_character){
-                add_xp_to_skill({skill: skills["Shield blocking"], xp_to_add: fighter.xp_value*target_count_xp_modifier/2});
+                add_xp_to_skill({skill: skills["Shield blocking"], xp_to_add: fighter.xp_value*fighter_count_xp_modifier/2});
             }
         } else { // HAS NO SHIELD
             const hit_chance = 
@@ -599,7 +600,7 @@ class Combat {
                 return; //damage fully evaded, nothing more can happen
             } else {
                 if(!this.is_special_combat && target.tags.main_character){
-                    add_xp_to_skill({skill: skills["Evasion"], xp_to_add: xp_to_add*target_count_xp_modifier/2});
+                    add_xp_to_skill({skill: skills["Evasion"], xp_to_add: xp_to_add*fighter_count_xp_modifier/2});
                 }
             }
         }
@@ -608,6 +609,12 @@ class Combat {
         if(!this.is_special_combat&&durability.landedHit(fighter,target)) {
             const player=fighter.tags.main_character?fighter:target.tags.main_character?target:null;
             player?._equipItem(null);
+        }
+
+        if(!this.is_special_combat && fighter.tags.main_character) {
+            const weapon = fighter.getEquipment().weapon;
+            const skill_id = weapon ? weapon_type_to_skill[weapon.weapon_type] : "Unarmed";
+            add_xp_to_skill({skill: skills[skill_id], xp_to_add: target.xp_value*target_count_xp_modifier});
         }
 
         game_stats.total_hits_taken += Number(!this.is_special_combat && !!target.tags.main_character);
@@ -671,9 +678,18 @@ class Combat {
         }
 
         let callbackDraw=0;
-        target.on_damaged(fighter,()=>random(`on_damaged:${callbackDraw++}`));
+        const damageMessage=target.on_damaged(fighter,()=>random(`on_damaged:${callbackDraw++}`));
         callbackDraw=0;
-        fighter.on_hit(target,()=>random(`on_hit:${callbackDraw++}`));
+        const hitMessage=fighter.on_hit(target,()=>random(`on_hit:${callbackDraw++}`));
+        if(damageMessage){
+            const targetIndex=(is_attacker?this.defenders:this.attackers).indexOf(target);
+            do_effect_animation({fighter_index:targetIndex,is_attacker:!is_attacker,message:damageMessage});
+            log_message(damageMessage,"hero_attacked");
+        }
+        if(hitMessage){
+            do_effect_animation({fighter_index,is_attacker,message:hitMessage});
+            log_message(hitMessage,"hero_attacked");
+        }
 
         if(!this.is_special_combat && target.tags.main_character) {
             
@@ -720,7 +736,11 @@ class Combat {
                 const settlement = this.encounterHooks?.planDefeat?.({combat:this,fighter,target,dropChanceModifier});
                 if(settlement?.duplicate) return;
                 if(fighter.tags.main_character) {
-                    target.on_death(fighter);
+                    const msg = target.on_death(fighter);
+                    if (msg) {
+                        do_effect_animation({fighter_index: (is_attacker ? this.defenders : this.attackers).findIndex(x => x === target), is_attacker: !is_attacker, message: msg});
+                        log_message(msg, "hero_attacked");
+                    }
                 }
 
                 log_message(target.name + " was defeated", "enemy_defeated", {combat: logEvent("defeat")});

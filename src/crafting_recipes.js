@@ -39,7 +39,7 @@ const woodworking_recipes = {items: {}, components: {}};
 */
 
 function round_quality(quality, precision) {
-    return Math.round(quality/precision)*precision;
+    return Math.floor(quality/precision)*precision;
 }
 
 function get_crafting_quality_caps(skill_name) {
@@ -469,7 +469,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
             {material_id: "Low quality iron ingot", count: 2, result_id: "Cheap iron short blade"},
             {material_id: "Iron ingot", count: 2, result_id: "Iron short blade"},
             {material_id: "Steel ingot", count: 2, result_id: "Steel short blade"},
-            {material_id: "Frumious claw", count: 1, result_id: "Frumious short blade"},
+            {material_id: "Frumious claw", count: 1, result_id: "Frumious blade"},
         ],
         item_type: "Component",
         recipe_skill: "Forging"
@@ -500,6 +500,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
             {material_id: "Low quality iron ingot", count: 4, result_id: "Cheap iron hammer head"}, 
             {material_id: "Iron ingot", count: 4, result_id: "Iron hammer head"},
             {material_id: "Steel ingot", count: 4, result_id: "Steel hammer head"},
+            {material_id: "Monster beak", count: 1, result_id: "Beak hammer head"},
         ],
         item_type: "Component",
         recipe_skill: "Forging",
@@ -671,6 +672,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
             {material_id: "Iron chainmail", count: 3, result_id: "Iron chainmail helmet armor"},
             {material_id: "Steel chainmail", count: 3, result_id: "Steel chainmail helmet armor"},
             {material_id: "Turtle shellplate", count: 6, result_id: "Turtleshell helmet armor"},
+            {material_id: "Gryphonfeather mail", count: 3, result_id: "Gryphonfeather helmet armor"},
         ],
         item_type: "Component",
         recipe_skill: "Forging",
@@ -696,6 +698,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
             {material_id: "Iron chainmail", count: 5, result_id: "Iron chainmail vest"},
             {material_id: "Steel chainmail", count: 5, result_id: "Steel chainmail vest"},
             {material_id: "Turtle shellplate", count: 10, result_id: "Turtleshell chestplate armor"},
+            {material_id: "Gryphonfeather mail", count: 5, result_id: "Gryphonfeather chestplate armor"},
         ],
         item_type: "Component",
         recipe_skill: "Forging",
@@ -721,6 +724,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
             {material_id: "Iron chainmail", count: 4, result_id: "Iron chainmail greaves"},
             {material_id: "Steel chainmail", count: 4, result_id: "Steel chainmail greaves"},
             {material_id: "Turtle shellplate", count: 8, result_id: "Turtleshell greaves"},
+            {material_id: "Gryphonfeather mail", count: 4, result_id: "Gryphonfeather mail"},
         ],
         item_type: "Component",
         recipe_skill: "Forging",
@@ -746,6 +750,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
             {material_id: "Iron chainmail", count: 3, result_id: "Iron chainmail glove armor"},
             {material_id: "Steel chainmail", count: 3, result_id: "Steel chainmail glove armor"},
             {material_id: "Turtle shellplate", count: 6, result_id: "Turtleshell glove armor"},
+            {material_id: "Gryphonfeather mail", count: 3, result_id: "Gryphonfeather glove armor"},    //I feel like these and turtleshells would make more sense in butchering or crafting rather than here?
         ],
         item_type: "Component",
         recipe_skill: "Forging",
@@ -771,6 +776,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
             {material_id: "Iron chainmail", count: 3, result_id: "Iron chainmail shoe armor"},
             {material_id: "Steel chainmail", count: 3, result_id: "Steel chainmail shoe armor"},
             {material_id: "Turtle shellplate", count: 6, result_id: "Turtleshell shoe armor"},
+            {material_id: "Gryphonfeather mail", count: 3, result_id: "Gryphonfeather shoe armor"},
         ],
         item_type: "Component",
         recipe_skill: "Forging",
@@ -950,7 +956,8 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
             {material_id: "Processed boar hide", count: 8, result_id: "Boar hide cape"},
             {material_id: "Processed goat hide", count: 8, result_id: "Goat hide cape"},
             {material_id: "Processed bear hide", count: 8, result_id: "Bear hide cape"},
-            {material_id: "Piece of frog leather", count: 8, result_id: "Batrachian cape"}
+            {material_id: "Piece of frog leather", count: 8, result_id: "Batrachian cape"},
+            {material_id: "Gryphonfeather mail", count: 8, result_id: "Gryphonfeather cape"},
         ],
         item_type: "Cape",
         recipe_skill: "Crafting",
@@ -1044,6 +1051,17 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         recipe_skill: "Butchering",
         recipe_level: [27,37],
     });
+    butchering_recipes.items["Gryphonfeather mail"] = new ItemRecipe({
+        name: "Gryphonfeather mail",
+        is_unlocked: true,
+        recipe_type: "material",
+        materials: [{material_id: "Gryphon feather", count: 40}],
+        result: {result_id: "Gryphonfeather mail", count: 1},
+        success_chance: [0.1,1],
+        recipe_skill: "Butchering",
+        recipe_level: [30,40],
+    });
+
 
     butchering_recipes.items["Processed rat pelt"] = new ItemRecipe({
         name: "Processed rat pelt",
@@ -1499,6 +1517,42 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         recipe_level: [1,12],
         recipe_skill: "Crafting",
     });
+    crafting_recipes.items["Wicker basket"] = new ItemRecipe({
+        name: "Wicker basket",
+        is_unlocked: true,
+        recipe_type: "material",
+        materials: [{material_id: "Wicker", count: 4}],
+        result: {result_id: "Wicker basket", count: 1},
+        success_chance: [0.1,1],
+        recipe_level: [1,12],
+        recipe_skill: "Crafting",
+    });
+    smelting_recipes.items["Tallow candle"] = new ItemRecipe({
+        name: "Tallow candle",
+        is_unlocked: true,
+        recipe_type: "material",
+        materials: [
+            { material_id: "Animal fat", count: 1 },
+            { material_id: "Wool", count: 1 }
+        ],
+        result: {result_id: "Tallow candle", count: 1},
+        success_chance: [0.1,1],
+        recipe_level: [1,12],
+        recipe_skill: "Smelting",
+    });
+    alchemy_recipes.items["Soap"] = new ItemRecipe({
+        name: "Soap",
+        is_unlocked: true,
+        recipe_type: "material",
+        materials: [
+            { material_id: "Animal fat", count: 1 },
+            { material_id: "Potash", count: 1 }
+        ],
+        result: {result_id: "Soap", count: 1},
+        success_chance: [0.1,1],
+        recipe_level: [5,17],
+        recipe_skill: "Alchemy",
+    });
 
     woodworking_recipes.items["Makeshift fishing pole"] = new ItemRecipe({
         name: "Makeshift fishing pole",
@@ -1755,6 +1809,17 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         recipe_level: [10,18],
         recipe_skill: "Cooking",
     });
+    cooking_recipes.items["Oneberry cookies"] = new ItemRecipe({
+        name: "Oneberry cookies",
+        recipe_type: "usable",
+        materials: [{ material_id: "Flour", count: 3 },
+                    { material_id: "Oneberry", count: 6 }
+                ], 
+        result: {result_id: "Oneberry cookie", count: 6},
+        success_chance: [0.1,1],
+        recipe_level: [12,20],
+        recipe_skill: "Cooking",
+    });
     cooking_recipes.items["Bread kwas"] = new ItemRecipe({
         name: "Bread kwas",
         recipe_type: "usable",
@@ -1934,6 +1999,67 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         recipe_level: [35,60],
         recipe_skill: "Cooking",
     });
+
+    cooking_recipes.items["Cooked mushrooms"] = new ItemRecipe({
+        name: "Cooked mushrooms",
+        recipe_type: "usable",
+        materials: [{material_id: "Edible mushroom", count: 4}], 
+        result: {result_id: "Cooked mushrooms", count: 1},
+        success_chance: [0.5,1],
+        recipe_level: [5,15],
+        recipe_skill: "Cooking",
+    });
+    cooking_recipes.items["Cooked toadstool"] = new ItemRecipe({
+        name: "Cooked mushrooms",
+        recipe_type: "usable",
+        materials: [{material_id: "Toadstool", count: 4}], 
+        result: {result_id: "Cooked toadstool", count: 1},
+        success_chance: [0.5,1],
+        recipe_level: [5,15],
+        recipe_skill: "Cooking",
+    });
+
+    butchering_recipes.items["Stripped bear meat"] = new ItemRecipe({
+        name: "Stripped bear meat",
+        recipe_type: "material",
+        materials: [{material_id: "Bear meat", count: 1}], 
+        result:  {result_id: "Stripped bear meat", count: 1},
+                    //{ material_id: "Animal fat", count: 1 }
+					
+        success_chance: [0.2,1],
+        recipe_level: [12,25],
+        recipe_skill: "Butchering",
+    });
+
+    cooking_recipes.items["Grilled bear steak"] = new ItemRecipe({
+        name: "Grilled bear steak",
+        recipe_type: "usable",
+        materials: [{material_id: "Bear meat", count: 2}],
+        result: {result_id: "Grilled bear steak", count: 1},
+        success_chance: [0.3,1],
+        recipe_level: [15,22],
+        recipe_skill: "Cooking",
+    });
+    cooking_recipes.items["Roasted bear chunks"] = new ItemRecipe({
+        name: "Roasted bear chunks",
+        recipe_type: "usable",
+        materials: [{material_id: "Stripped bear meat", count: 2}],
+        result: {result_id: "Roasted bear chunks", count: 1},
+        success_chance: [0.3,1],
+        recipe_level: [13,20],
+        recipe_skill: "Cooking",
+    });
+    cooking_recipes.items["Bear sausage"] = new ItemRecipe({
+        name: "Bear sausage",
+        recipe_type: "usable",
+        materials: [{material_id: "Bear meat", count: 1},
+					{material_id: "Stripped bear meat", count: 1}],
+        result: {result_id: "Bear sausage", count: 1},
+        success_chance: [0.3,1],
+        recipe_level: [18,25],
+        recipe_skill: "Cooking",
+    });
+
     
     alchemy_recipes.items["Weak healing powder"] = new ItemRecipe({
         name: "Weak healing powder", id: "Weak healing powder",
@@ -2013,6 +2139,19 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         result: {result_id: "Thick healing balm", count: 2},
         success_chance: [0.1,1],
         recipe_level: [12,20],
+        recipe_skill: "Alchemy",
+    });
+
+    alchemy_recipes.items["Serum"] = new ItemRecipe({
+        name: "Serum",
+        recipe_type: "usable",
+        is_unlocked: false,
+        materials: [{material_id: "Toxin gland", count: 4},
+                    {material_id: "Glass phial", count: 1},
+        ],
+        result: {result_id: "Serum", count: 1},
+        success_chance: [0.1,1],
+        recipe_level: [10,20],
         recipe_skill: "Alchemy",
     });
 
@@ -2119,6 +2258,17 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
             { material_id: "Monster beak", count: 1 }
         ],
         result: {result_id: "Gryphon trophy", count: 1},
+        success_chance: [0.3,1],
+        recipe_level: [27,35],
+        recipe_skill: "Crafting",
+    });
+    crafting_recipes.items["Little kings trophy"] = new ItemRecipe({
+        name: "Little kings trophy",
+        recipe_type: "equipment",
+        materials: [
+            { material_id: "Evil eye", count: 4}
+        ],
+        result: {result_id: "Little kings trophy", count: 1},
         success_chance: [0.3,1],
         recipe_level: [27,35],
         recipe_skill: "Crafting",

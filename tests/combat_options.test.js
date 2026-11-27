@@ -99,7 +99,7 @@ test('P16 drop profile is optional and validates before mutation', () => {
 // Execute the actual Combat methods with isolated host/display bindings. This is
 // native SOURCE coverage, deliberately not a claim of browser gameplay.
 function native(draw = 0, defense = 0, hp = 30, runtime, speeds = [1, 1]) {
-    const calls = {xp: 0, loot: 0, kills: 0, rounds: 0, timers: [], delays: []};
+    const calls = {xp: 0, skillXp: [], loot: 0, kills: 0, rounds: 0, timers: [], delays: []};
     const stats = {attack_count: 3, attack_points: 10, agility: 10, intuition: 1, crit_rate: 0, crit_multiplier: 1.3, attack_speed: 1, stamina: 10, stamina_efficiency: 1};
     const actor = (main) => ({name: main ? 'Hero' : 'Target', tags: {main_character: main}, is_alive: true, xp_value: 1,
         getFullStats: () => ({...stats, attack_speed: speeds[main ? 0 : 1]}), getAttackPower: () => 5, getStaminaMultiplier: () => 1, hasShield: () => false,
@@ -111,10 +111,11 @@ function native(draw = 0, defense = 0, hp = 30, runtime, speeds = [1, 1]) {
     const context = {damageRecord,supportedHarvest,combatHitText,combatLogEvent,effectiveCritChance, Math, Date, structuredClone, validateEncounterCombatProfile,
         STREAMS: {combat:'encounter:core'}, gameOrdinal: () => 1, gameKeyedRandom: () => draw,
         rollBaseCombatDamage: (...args) => rollBaseCombatDamage(...args, () => draw), nextAttackTiming, get_hit_chance,
-        config: {}, document: {getElementById: () => null}, character: {addToInventory() {}}, skills: {Combat: {}}, enemy_tag_to_skill_mapping: {}, item_templates: {},
+        config: {}, document: {getElementById: () => null}, character: {addToInventory() {}}, skills: {Combat: {id: 'Combat'}, Unarmed: {id: 'Unarmed'}, Swords: {id: 'Swords'}},
+        weapon_type_to_skill: {sword: 'Swords'}, enemy_tag_to_skill_mapping: {}, item_templates: {},
         game_options: {}, game_stats: {total_hits_taken: 0, total_hits_done: 0, total_crits_taken: 0, total_crits_done: 0, strongest_hit: 0},
         durability: {landedHit: () => false}, accessoryDropModifier: x => x, getElementalDefenseModifier: () => 0, typedStrike: () => ({multiplier: 1, kind: 'physical', note: ''}),
-        add_xp_to_character: () => calls.xp++, add_xp_to_skill: () => false,
+        add_xp_to_character: () => calls.xp++, add_xp_to_skill: ({skill, xp_to_add}) => {calls.skillXp.push([skill?.id, xp_to_add]); return false;},
         kill_target: () => { calls.kills++; target.is_alive = false; }, kill_player() {},
         finish_combat_round: () => calls.rounds++, selected_stance: {id: 'normal', stamina_cost: 1}, current_stance: {id: 'normal', stamina_cost: 1},
         change_stance() {}, tickrate: 1, use_stamina() {}, setTimeout: (cb, delay) => (calls.delays.push(delay), calls.timers.push(cb), calls.timers.length), clearTimeout() {},
@@ -129,11 +130,17 @@ function native(draw = 0, defense = 0, hp = 30, runtime, speeds = [1, 1]) {
     const combat = new context.NativeCombat({attackers: [hero], defenders: [target], combatOptions: runtime, nextCombatEvent: () => 1});
     const strike = () => combat.doCombatAction({fighter_index: 0, is_attacker: true, target, attack_power: 5, target_count: 1, attack_count: 1});
     const exchange = () => {combat.start(); calls.timers = []; combat.doAttackLoop({fighter_index: 0, is_attacker: true, base_cooldown: 1, actual_cooldown: 1, attack_power: 50, targets: [target], target_count: 1, count: 59}); calls.timers.at(-1)();};
-    return {calls, combat, strike, exchange, health: () => hp};
+    return {calls, combat, hero, strike, exchange, health: () => hp};
 }
 test('actual native strike hits armor with single projectile, misses with native hit roll', () => {
     const hit = native(0, 4); hit.strike(); assert.equal(hit.health(), 28);
+    assert.deepEqual(hit.calls.skillXp.filter(([id]) => id === 'Unarmed'), [['Unarmed', 1]]);
+    const armed = native(0, 4); armed.hero.getEquipment = () => ({weapon: {weapon_type: 'sword'}});
+    armed.strike();
+    assert.deepEqual(armed.calls.skillXp.filter(([id]) => id === 'Swords'), [['Swords', 1]]);
+    assert.equal(armed.calls.skillXp.some(([id]) => id === 'Unarmed'), false);
     const miss = native(.99); miss.strike(); assert.equal(miss.health(), 30);
+    assert.equal(miss.calls.skillXp.some(([id]) => id === 'Unarmed'), false);
 });
 test('actual native defeat awards once, duplicate dead target does not repay', () => {
     const n = native(0, 0, 1); n.strike(); n.strike();

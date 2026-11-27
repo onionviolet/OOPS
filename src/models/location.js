@@ -1,6 +1,6 @@
 import {STREAMS,gameOrdinal,gameKeyedRandom} from "../seeded_streams.js";
 "use strict";
-import { clamp, slerp } from "../misc.js";
+import { clamp, slerp, random_range } from "../misc.js";
 import AvailabilityComponent from "../components/availability_component.js";
 import { activities } from "../activities.js";
 import { availabilities } from "../data/component_references.js";
@@ -64,13 +64,13 @@ class LocationCrafting {
         this.#availability = new AvailabilityComponent({is_unlocked});
         this.use_text = use_text;
         this.tiers = {
-            crafting: tiers.crafting || 1,
-            forging: tiers.forging || 1,
-            smelting: tiers.smelting || 1,
-            cooking: tiers.cooking || 1,
-            alchemy: tiers.alchemy || 1,
-            butchering: tiers.butchering || 1,
-            woodworking: tiers.woodworking || 1,
+            crafting: tiers.crafting ?? 0,
+            forging: tiers.forging ?? 0,
+            smelting: tiers.smelting ?? 0,
+            cooking: tiers.cooking ?? 0,
+            alchemy: tiers.alchemy ?? 0,
+            butchering: tiers.butchering ?? 0,
+            woodworking: tiers.woodworking ?? 0,
         }
         
     }
@@ -90,6 +90,7 @@ class BaseLocation {
         is_unlocked = true, 
         types = [], //{type, xp per tick}
         light_level = "normal",
+        description_texts, 
         getDescription,
         tags = {},
         is_temperature_static = false,
@@ -108,6 +109,7 @@ class BaseLocation {
         this.#availability = new AvailabilityComponent({is_unlocked});
         availabilities["location"][this.id] = this.#availability;
         this.description = description;
+        this.description_texts = description_texts; //put all possible values used in getDescription in this so they can be verified properly
         this.getDescription = getDescription || function(){return description;}
 
         this.types = types;
@@ -466,7 +468,7 @@ class LocationActivity {
 
         this.applied_effects = applied_effects;
 
-        this.gained_resources = gained_resources; 
+        this.gained_resources = gained_resources ? new GainedResources(gained_resources) : null; 
         /*
             {
                 resources: [{name, ammount: [[min,max], [min,max]], chance: [min,max]}], 
@@ -515,18 +517,14 @@ class LocationActivity {
         gathering_time_needed = Math.floor(slerp(this.gained_resources.time_period, skill_modifier));
         if(this.tool_rates) gathering_time_needed = Math.ceil(gathering_time_needed / this.tool_rates.speed);
 
-        for(let i = 0; i < this.gained_resources.resources.length; i++) {
-
-            const chance = slerp(this.gained_resources.resources[i].chance, skill_modifier) * (this.tool_rates ? this.tool_rates.yield : 1);
-            const min = Math.round(slerp([this.gained_resources.resources[i].ammount[0][0], this.gained_resources.resources[i].ammount[1][0]], skill_modifier));
-            const max = Math.round(slerp([this.gained_resources.resources[i].ammount[0][1], this.gained_resources.resources[i].ammount[1][1]], skill_modifier));
-            gained_resources.push({name: this.gained_resources.resources[i].name, count: [min,max], chance: chance});
+        for (let resource of this.gained_resources.resources) {
+            const chance = slerp(resource.chance, skill_modifier) * (this.tool_rates ? this.tool_rates.yield : 1);
+            const min = Math.round(slerp([resource.ammount[0][0], resource.ammount[1][0]], skill_modifier));
+            const max = Math.round(slerp([resource.ammount[0][1], resource.ammount[1][1]], skill_modifier));
+            gained_resources.push({name: resource.name, count: [min,max], chance: chance});
         }
 
-        if (!this.gained_resources.roll_quality) {
-            return { gathering_time_needed, gained_resources };
-        }
-        else {
+        if (this.gained_resources.roll_quality) {
             const skill = skills[activities[this.activity_name].base_skills_names[0]];
             const quality_cap = Math.min(Math.round(100+2*character.getTotalSkillLevel(skill.skill_id)),200);
             const quality = (3 * character.getTotalSkillLevel(skill.skill_id) - skill.max_level) + 130/* + (15 * tier)*/;
@@ -534,8 +532,24 @@ class LocationActivity {
                 clamp(Math.round(quality - 15), 10, quality_cap),
                 clamp(Math.round(quality + 10), 10, quality_cap),
             ];
-            return { gathering_time_needed, gained_resources, quality_range}
+            return { gathering_time_needed, gained_resources, quality_range }
+        } else {
+            return { gathering_time_needed, gained_resources };
         }
+    }
+}
+
+class GainedResources {
+    resources;  // [{name, ammount: [[min,max], [min,max]], chance: [min,max]}]
+    time_period;    // [min,max]
+    skill_required; // [min_efficiency, max_efficiency]
+    roll_quality;   // boolean, whether dropped items have quality
+
+    constructor({ resources, time_period, skill_required, roll_quality = false }) {
+        this.resources = resources;
+        this.time_period = time_period;
+        this.skill_required = skill_required;
+        this.roll_quality = roll_quality;
     }
 }
 

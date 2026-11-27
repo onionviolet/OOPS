@@ -5848,6 +5848,17 @@
       "snippet": "#518ae0",
       "count": 1,
       "reason": "Graphite default palette presets (Weibao, 2026-11-21): profile palettes are validated #RRGGBB data, like the Luminous presets above; the shell colours live in styles/ui_tokens.css."
+    },
+    {
+      "key": "src/mods/map.js|foreign-host|310e052cb5d0d449",
+      "path": "src/mods/map.js",
+      "rule": "foreign-host",
+      "snippet": "map_labels.appendChild(label);",
+      "targets": [
+        "map_labels"
+      ],
+      "count": 1,
+      "reason": "U1 preserves the upstream developer map as written. It draws inside the data viewer map labels container."
     }
   ]
 }

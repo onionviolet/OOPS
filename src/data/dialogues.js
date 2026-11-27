@@ -3,6 +3,7 @@
 import DialogueAction from "../models/dialogue_action.js";
 
 import {DialogueComponent, Textline} from "../components/dialogue_component.js";
+import { Rewards } from "../rewards.js";
 
 const dialogues = {};
 
@@ -425,11 +426,12 @@ const dialogues = {};
             
             "more training": new Textline({
                 name: "elder training",
-                getText: (context) => {
+                possible_texts: ["elder training answ 1", "elder training answ 2"],
+                getText: function(context){
                     if(context?.season === "Winter") {
-                        return "elder training answ 2";
+                        return this.possible_texts[1];
                     } else {
-                        return "elder training answ 1";
+                        return this.possible_texts[0];
                     }
                 },
                 is_unlocked: false,
@@ -930,7 +932,11 @@ dialogues["suspicious man"] = new DialogueComponent({
                 rewards: {
                     textlines: [
                         {dialogue: "suspicious man", lines: ["situation", "boss"]},
+                        {dialogue: "gate guard", lines: ["enter 2"]}, //for saves from before
                     ],
+                    locks: {
+                            textlines: {"gate guard": ["enter"]}, //for saves from before
+                    }
                 },
             }), 
             "boss": new Textline({ 
@@ -1269,7 +1275,20 @@ dialogues["suspicious man"] = new DialogueComponent({
         textlines: {
             "hi": new Textline({
                 name: "proprietress hi",
-                text: "proprietress hi answ",
+                possible_texts: ["proprietress hi answ", "proprietress hi answ cat", "proprietress hi answ dog", "proprietress hi answ rare", "proprietress hi answ mouse"],
+                getText: function(context){
+                    if(context.character.getBio().race === "nekomimi") {
+                        return this.possible_texts[1];
+                    } else if(context.character.getBio().race === "inumimi") {
+                        return this.possible_texts[2];
+                    } else if(context.character.getRaceTags().exotic) {
+                        return this.possible_texts[3];
+                    } else if(context.character.getBio().race === "nezumimi") {
+                        return this.possible_texts[4];
+                    } else {
+                        return this.possible_texts[0];
+                    }
+                },
                 is_unlocked: true,
                 rewards: {
                     textlines: [{dialogue: "nekomimi proprietress", lines: ["offer"]}],
@@ -1279,19 +1298,30 @@ dialogues["suspicious man"] = new DialogueComponent({
             "offer": new Textline({
                 name: "proprietress offer",
                 text: "proprietress offer answ",
+                is_unlocked: false,
                 rewards: {
-                    textlines: [{dialogue: "nekomimi proprietress", lines: ["special", "puns"]}],
-                    //todo: unlock trade
+                    textlines: [{dialogue: "nekomimi proprietress", lines: ["special"]}],
+                    traders: [{trader: "nekomimi trader"}],
                 },
                 locks_lines: ["offer"],
             }),
             "special": new Textline({
                 name: "proprietress special",
                 text: "proprietress special answ",
+                is_unlocked: false,
                 rewards: {
-                    //todo: unlock paid action
+                    actions: [{location: "Nekomimi cafe", action: "private time"}],
                 },
                 locks_lines: ["special"],
+            }),
+            "something stronger": new Textline({
+                name: "proprietress special 2",
+                text: "proprietress special 2 answ",
+                is_unlocked: false,
+                rewards: {
+                    actions: [{location: "Nekomimi cafe", action: "private time 2"}, {location: "Nekomimi cafe", action: "private time 2 cat"}],
+                },
+                locks_lines: ["something stronger"],
             }),
             "puns": new Textline({
                 name: "proprietress puns",
@@ -1299,8 +1329,171 @@ dialogues["suspicious man"] = new DialogueComponent({
                 locks_lines: ["puns"],
             }),
         }
-
     });
+
+    dialogues["cat cafe owner"] = new DialogueComponent({ 
+        //basically a copy of nekomimi cafe, just slightly different descriptions, meant mainly for people playing with fluffy mode off
+        name: "Cafe owner", // names: allow upstream localization key
+        is_unlocked: true,
+        description: "cat cafe owner description",
+        textlines: {
+            "hi": new Textline({
+                name: "cat cafe hi", // names: allow upstream localization key
+                possible_texts: ["cat cafe hi answ", "cat cafe hi answ cat", "cat cafe hi answ dog"],
+                getText: function(context){
+                    if(context.character.getBio().race === "nekomimi") {
+                        return this.possible_texts[1];
+                    } else if(context.character.getBio().race === "inumimi") {
+                        return this.possible_texts[2];
+                    } else {
+                        return this.possible_texts[0];
+                    }
+                },
+                is_unlocked: true,
+                rewards: {
+                    textlines: [{dialogue: "cat cafe owner", lines: ["offer"]}],
+                },
+                locks_lines: ["hi"],
+            }),
+            "offer": new Textline({
+                name: "cat cafe offer", // names: allow upstream localization key
+                text: "cat cafe offer answ",
+                is_unlocked: false,
+                rewards: {
+                    textlines: [{dialogue: "cat cafe owner", lines: ["special"]}],
+                    traders: [{trader: "nekomimi trader"}],
+                },
+                locks_lines: ["offer"],
+            }),
+            "special": new Textline({
+                name: "cat cafe special", // names: allow upstream localization key
+                text: "cat cafe special answ",
+                is_unlocked: false,
+                rewards: {
+                    actions: [{location: "Cat cafe", action: "private time"}],
+                },
+                locks_lines: ["special"],
+            }),
+            "something stronger": new Textline({
+                name: "cat cafe special 2", // names: allow upstream localization key
+                text: "cat cafe special 2 answ",
+                is_unlocked: false,
+                rewards: {
+                    actions: [{location: "Cat cafe", action: "private time 2"}, {location: "Cat cafe", action: "private time 2 cat"}],
+                },
+                locks_lines: ["something stronger"],
+            }),
+        }
+    });
+
+    dialogues["gallows guard"] = new DialogueComponent({
+        name: "guard",
+        is_unlocked: true,
+        description: "gallows guard description",
+        textlines: {
+            "hi": new Textline({
+                name: "gallows guard hi",
+                text: "gallows guard hi answ",
+                is_unlocked: true,
+                rewards: {
+                    textlines: [{dialogue: "gallows guard", lines: ["corpse"]}],
+                },
+                locks_lines: ["hi"],
+            }),
+            "corpse": new Textline({
+                name: "gallows guard corpse",
+                text: "gallows guard corpse answ",
+                is_unlocked: false,
+                rewards: {
+                    textlines: [{dialogue: "gallows guard", lines: ["what now"]}],
+                },
+                locks_lines: ["corpse"],
+            }),
+            "what now": new Textline({
+                name: "gallows guard what",
+                text: "gallows guard what answ",
+                is_unlocked: false,
+                rewards: {
+                    textlines: [{dialogue: "temple priest", lines: ["memory"]}],
+                    quest_progress: [
+                        {quest_id: "Lost memory", task_index: 4},
+                    ],
+                },
+                locks_lines: ["what now"],
+            }),
+        }
+    });
+
+    dialogues["temple priest"] = new DialogueComponent({
+        name: "priest",
+        is_unlocked: true,
+        description: "temple priest description",
+        textlines: {
+            "hi": new Textline({
+                name: "temple priest hi",
+                text: "temple priest hi answ",
+                is_unlocked: true,
+                rewards: {
+                    textlines: [{dialogue: "temple priest", lines: ["services"]}],
+                },
+                locks_lines: ["hi"],
+            }),
+            "services": new Textline({
+                name: "temple priest services",
+                text: "temple priest services answ",
+                is_unlocked: false,
+                rewards: {
+                    flags: ["are_temple_blessings_unlocked"], //better this way since they are likely to be expanded
+                },
+                locks_lines: ["services"],
+            }),
+            "memory": new Textline({
+                name: "temple priest memory",
+                text: "temple priest memory answ",
+                is_unlocked: false,
+                rewards: new Rewards({
+                    quest_progress: [
+                        {quest_id: "Lost memory", task_index: 4},
+                    ],
+                    textlines: [{dialogue: "temple priest", lines: ["remind", "agree"]}],
+                }),
+                locks_lines: ["memory"],
+            }),
+            "remind": new Textline({
+                name: "temple priest remind",
+                text: "temple priest remind answ",
+                is_unlocked: false,
+                rewards: new Rewards({
+                    textlines: [{dialogue: "temple priest", lines: ["services"]}],
+                }),
+            }),
+            "agree": new Textline({
+                name: "temple priest agree",
+                text: "temple priest agree answ",
+                is_unlocked: false,
+                delayed_rewards: [
+                    {
+                        delay: 60*24*7,
+                        id: "temple_ritual",
+                    }
+                ],
+                locks_lines: ["agree"],
+            }),
+            "restore": new Textline({
+                name: "temple priest restore",
+                text: "temple priest restore answ",
+                is_unlocked: false,
+                locks_lines: ["remind", "restore"],
+                rewards: new Rewards({
+                    achievements: ["Master of fate"],
+                    quest_progress: [
+                        {quest_id: "Lost memory", task_index: 5},
+                    ],
+                }),
+            }),
+        },
+    });
+
 
     dialogues["swampland chief"] = new DialogueComponent({
         //lizard like everyone in triber, aggressive and proud

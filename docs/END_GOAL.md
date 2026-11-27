@@ -37,6 +37,8 @@ Weibao, 2026-11-26: "for all implementations to also be able to serve a rpg view
 - **R3 · Places carry position.** A new place, route or encounter records where it is and what it connects to (the existing place and travel data), so a map view can draw it later without new rules.
 - **R4 · Views read one model.** Screens read the same observer-safe read model (DSG11), so a later RPG or map view is another view over it, not a second copy of the facts.
 
+The YAIR development merge includes upstream's canvas map prototype. In the game, open Data, then Open YAIR data viewer, then Map. It reads the registered YAIR locations and their connections, travel times and authored azimuths. This shares location records with play for R4. The prototype still shows the developer graph. A player map needs the observer-safe location projection. [Upstream merge](UPSTREAM_DIRECTION.md#2026-11-27-yair-development-merge-u1)
+
 The idle game stays the product ([standing direction](USER_VISION.md#nov-26-coordination-direction)). These keep a later RPG front end a choice of view rather than a rewrite.
 
 ## Codex lanes

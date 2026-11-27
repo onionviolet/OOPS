@@ -107,11 +107,19 @@ class Person{
         return this.#bio;
     }
 
+    getBio() {
+        return this.getBioComponent().getBio();
+    }
+
+    getRaceTags() {
+        return playable_races[this.getBio().race].tags;
+    }
+
     getHeight() {
-        return this.getBioComponent().height;
+        return this.getBio().height;
     }
     getRace(){
-        return this.getBioComponent().race;
+        return this.getBio().race;
     }
 
     getNumericalHeight() {
@@ -612,6 +620,7 @@ class Person{
                     (levelable.xp_bonuses.multiplier.race[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.levels[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.skills[bonus_target] || 1)
+                    * (levelable.xp_bonuses.multiplier.skill_milestones[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.books[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.titles?.[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.aptitude?.[bonus_target] || 1)

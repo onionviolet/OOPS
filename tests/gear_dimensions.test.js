@@ -85,6 +85,11 @@ test('worn armor changes what the native hero actually loses: percent layer afte
     const stats = character.getStats();
     assert.ok(stats.multiplier.equipment.damage_taken < 1);
     assert.ok(stats.flat.equipment.crit_resistance > 0);
+    const shell = item_templates['Steel chainmail armor'].components.external;
+    const block = item_templates[shell].component_stats.block_strength.multiplier;
+    assert.ok(block < 1);
+    assert.equal(stats.multiplier.equipment.block_strength, block);
+    assert.equal(stats.total_multiplier.block_strength, block);
 });
 
 test('toughness: authored or derived from strength, and equal-strength materials wear at different rates', async () => {

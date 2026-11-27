@@ -28,6 +28,7 @@ export const HAND_SAVE_KEYS = Object.freeze({
     levels: {owner: 'src/main.js'}, inventories: {owner: 'src/main.js'}, availabilities: {owner: 'src/main.js'},
     npcs: {owner: 'src/main.js'}, npc_equipment: {owner: 'src/main.js'}, native_encounter: {owner: 'src/seeded_streams.js'},
     content_packs: {owner: 'src/content_packs.js'}, customization: {owner: 'src/customization_profiles.js'},
+    pending_rewards: {owner: 'src/delayed_rewards.js'},
     customization_default: {owner: 'src/customization_profiles.js'}, display_preferences: {owner: 'src/main.js'},
     continuation: {owner: 'src/continuation_state.js'}, life_record: {owner: 'src/life_record.js'},
     npc_lives: {owner: 'src/npc_lives.js'}, generated_people: {owner: 'src/generated_people.js'},

@@ -1,0 +1,109 @@
+{
+  "schema": "yair-dev-merge/1",
+  "entry": "/",
+  "upstreamRevision": "be3276b1f001ce68c579726ea1a5b4e153a461fd",
+  "bundleSha256": "ef565fbc47aa33f9689ca62d1a7ba6dc1e68e36b50a7d3c94a84e82bc7f981d1",
+  "viewports": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "growth": "Sleeping earned 1 recovery point. Bank or allocate in Growth.",
+      "combat": "Breathing skin caught a hit that got through armor and restored 0.26 stamina.",
+      "notice": "Achievement unlocked: Master of fate",
+      "locations": 85,
+      "persistence": {
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true,
+        "character": "Hero",
+        "clock": 252
+      },
+      "captures": [
+        "village-growth-1366.png",
+        "armored-evolution-1366.png",
+        "achievement-1366.png",
+        "map-1366.png"
+      ],
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "growth": "Sleeping earned 1 recovery point. Bank or allocate in Growth.",
+      "combat": "Breathing skin caught a hit that got through armor and restored 0.26 stamina.",
+      "notice": "Achievement unlocked: Master of fate",
+      "locations": 85,
+      "persistence": {
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true,
+        "character": "Hero",
+        "clock": 252
+      },
+      "captures": [
+        "village-growth-1920.png",
+        "armored-evolution-1920.png",
+        "achievement-1920.png",
+        "map-1920.png"
+      ],
+      "pageErrors": []
+    }
+  ],
+  "plainUpstreamImport": {
+    "build": "be3276b1f001ce68c579726ea1a5b4e153a461fd",
+    "version": "v0.6",
+    "name": "Dev voyage",
+    "location": "Village",
+    "sourceExportSha256": "88742d13ad6991d5fdedb260c070149d8f013559803476d353d50d9a5c4182b4",
+    "forkSchema": 1,
+    "errors": []
+  },
+  "legacySaveGate": {
+    "exitCode": 0,
+    "replays": [
+      {
+        "id": "fang-first-night",
+        "result": "passed",
+        "startClock": 14919,
+        "afterIdleClock": 14920,
+        "reloadClock": 14920,
+        "importClock": 14920,
+        "browserPageErrors": 0
+      },
+      {
+        "id": "klein-ch129",
+        "result": "passed",
+        "startClock": 79256,
+        "afterIdleClock": 79257,
+        "reloadClock": 79257,
+        "importClock": 79257,
+        "browserPageErrors": 0
+      },
+      {
+        "id": "ryan-ch1",
+        "result": "passed",
+        "startClock": 0,
+        "afterIdleClock": 1,
+        "reloadClock": 1,
+        "importClock": 1,
+        "browserPageErrors": 0
+      },
+      {
+        "id": "alden-hospital",
+        "result": "passed",
+        "startClock": 1020,
+        "afterIdleClock": 1021,
+        "reloadClock": 1021,
+        "importClock": 1021,
+        "browserPageErrors": 0
+      }
+    ],
+    "chromeTeardownWarning": "OWNED_CHROME_PROFILE_BUSY"
+  }
+}

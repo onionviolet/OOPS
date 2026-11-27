@@ -49,6 +49,7 @@ class Textline {
     constructor({
                 name,
                 text,
+                possible_texts,
                 getText,
                 is_branch_only = false,
                 is_unlocked,
@@ -63,6 +64,7 @@ class Textline {
                         locks: {},
                         //reputation reward from textlines is currently not supported
                         },
+                delayed_rewards = [],
                 branches_into = [],
                 locks_lines = [], //for lines to be locked in >same< dialogue
                 //it's a simplified version of doing rewards: {locks: textlines: {...blah blah blah, values from it are actually autofilled in that form in a script at the end of this file
@@ -73,6 +75,9 @@ class Textline {
     {
         this.name = name; // displayed option to click, don't make it too long
         this.text = text; // what's shown after clicking
+        this.possible_texts = possible_texts; 
+        //if getText is custom, provide all possible texts through possible_texts and then just return value at index; 
+        //this allows existing mechanisms to check if text keys are correct
         this.getText = getText || function(){return this.text;};
         this.otherUnlocks = otherUnlocks || function(){return;};
 
@@ -101,8 +106,8 @@ class Textline {
         }
         //related text lines that get locked; might be itself, might be some previous line 
         //e.g. line finishing quest would also lock line like "remind me what I was supposed to do"
-        //should be alright if it's limited only to lines in same Dialogue
-        //just make sure there won't be Dialogues with ALL lines unavailable
+
+        this.delayed_rewards = delayed_rewards;
     }
     
     getAvailabilityComponent() {

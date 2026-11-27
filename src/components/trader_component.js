@@ -10,6 +10,7 @@ import { getItem, item_templates } from "../items.js";
 import InventoryComponent, { inventories } from "./inventory_component.js";
 import AvailabilityComponent from "./availability_component.js";
 import { availabilities, availability_havers } from "../data/component_references.js";
+import { config } from "../config.js";
 import {factorioRetortItemSpecifications} from '../factorio_retort_content.js';
 import {proto23ItemSpecifications} from '../proto23_world_content.js';
 import {affixedStockEntries} from '../gear_acquisition.js';
@@ -34,6 +35,7 @@ class TraderComponent {
     constructor({
                 name,
                 trade_text,
+                trade_from_dialogue_text,
                 unlock_message = null,
                 refresh_time = 4,
                 refresh_shift = 0,
@@ -48,6 +50,7 @@ class TraderComponent {
         this.played_minute_refresh = played_minute_refresh;
         this.name = name;
         this.trade_text = trade_text;
+        this.trade_from_dialogue_text = trade_from_dialogue_text || "Trade";
         this.last_refresh = -1;  
         //just the day_count from game_time at which trader was supposedly last refreshed
 
@@ -202,23 +205,23 @@ class TraderComponent {
                             (inventory_template[i].items[j].count[1] - inventory_template[i].items[j].count[0]) + inventory_template[i].items[j].count[0]);
                         
                         const specification = inventory_template[i].items[j];
-                        let item;
-                        if(specification.quality) {
-                            let quality = Math.round(random(i,j,"quality") *
-                                (inventory_template[i].items[j].quality[1] - inventory_template[i].items[j].quality[0]) + inventory_template[i].items[j].quality[0]);
-
-                            item = getItem({...item_templates[specification.item_name], quality});
-                        } else {
-                            item = getItem(item_templates[specification.item_name]);
-                        }
+                        const template = item_templates[specification.item_name];
+                        const variants = specification.quality ? item_count : 1;
+                        const precision = template.tags?.equipment ? config.equipment_crafting_quality_precision : config.item_crafting_quality_precision;
                         let draw = 0;
-                        const entries = affixedStockEntries({item, count: item_count,
-                            partsOf: components => Object.fromEntries(Object.entries(components).map(([slot, id]) => [slot, item_templates[id]])),
-                            random: piece => random(i,j,`affix:${piece}:${draw++}`),
-                            plain: specification.roll_affixes === false});
-                        for (const entry of entries) {
-                            const existing = items[entry.item_key];
-                            items[entry.item_key] = {item: existing?.item || getItemFromKey(entry.item_key), count: (existing?.count || 0) + entry.count};
+                        for (let piece = 0; piece < variants; piece++) {
+                            const quality = specification.quality && Math.round(
+                                (random(i,j,piece === 0 ? "quality" : `quality:${piece}`) *
+                                (specification.quality[1]-specification.quality[0])+specification.quality[0])/precision)*precision;
+                            const item = getItem(specification.quality ? {...template,quality} : template);
+                            const entries = affixedStockEntries({item, count: specification.quality ? 1 : item_count,
+                                partsOf: components => Object.fromEntries(Object.entries(components).map(([slot, id]) => [slot, item_templates[id]])),
+                                random: part => random(i,j,`affix:${part}:${draw++}`),
+                                plain: specification.roll_affixes === false});
+                            for (const entry of entries) {
+                                const existing = items[entry.item_key];
+                                items[entry.item_key] = {item: existing?.item || getItemFromKey(entry.item_key), count: (existing?.count || 0) + entry.count};
+                            }
                         }
                     }
                 }

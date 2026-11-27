@@ -340,9 +340,13 @@ import { end_activity_animation,
          update_fav_display,
          update_displayed_item_log,
          set_light_based_background_color,
-         unassign_dynamic_loot_message,
+         unassign_dynamic_messages,
          fill_character_bio,
          insert_HTML,
+         log_location_xp,
+         update_displayed_achievements,
+         notification_sources,
+         remove_displayed_notification,
         } from "./display.js";
 import { update_displayed_fighters_stats, update_displayed_health_of_fighter, } from "./ui/combat_display.js";
 import { compare_game_version, crafting_tags_to_skills, get_component_name, is_a_older_than_b, get_item_mapping, skill_consumable_tags, rtp, write_availability_status, npc_key_mapping, format_working_time, stat_names } from "./misc.js";
@@ -373,6 +377,8 @@ import { Rewards } from "./rewards.js";
 import { ReputationManager } from "./reputation.js";
 import { traders } from "./data/traders.js";
 import { dialogue_owners } from "./components/dialogue_component.js";
+import {readDelayedRewards,settleDelayedRewards} from "./delayed_rewards.js";
+import { achievements } from "./data/achievements.js";
 
 fill_availability_methods();
 registerFortContent({locations,item_templates,book_stats,quests,availabilities,SafeLocation,CombatZone,Book,BookData,Quest,QuestTask});
@@ -1897,6 +1903,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
         applyGameplayEffect(future, {type: "xp", skill: p.xpSkill, amount: Math.max(...p.rewards) * p.xpPerPoint}, "player");
         prepareGameplayPublication(future, {actors: actorBindings, skills, getItemFromKey, unlockAdapter,preparedSkillUnlocks:(plan.unlocks||[]).filter(e=>e.kind==='skill').map(e=>e.id)});
     }
+    stageNativeDelayedRewards(plan);
     stageGrowthNativeGrants(plan);
     stageGrowthForPublication(plan);
     const nativePublications=[tidemarkNative.stage(plan),nestedNative.stage(plan),paradiseNative.stage(plan),molNative.stage(plan),proto23Native.stage(plan),causalNative.stage(plan),prepareContextualBalmNative(expansionState,plan,{activeEffects:active_effects,itemTemplates:item_templates,effectTemplates:effect_templates,ActiveEffect,refresh:()=>{update_displayed_effects();character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}})];
@@ -2877,6 +2884,13 @@ const current_loot = {
     total: {},
 }
 
+//xp from current combat zone
+const current_xp = {
+    recent: 0,
+    total: 0,
+    count: 0,
+}
+
 //time needed to travel from A to B
 
 let pathfinder;
@@ -2917,6 +2931,8 @@ let end_date;
 let current_dialogue;
 
 //e.g. health regen from food
+
+let pending_rewards = {};
 
 setSelectedStance(stances["normal"]);
 let current_stance = stances["normal"];
@@ -3387,6 +3403,10 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
         }
     }
 
+    if(current_location.housing?.isUnlocked()) {
+        unlocked_beds[location_id] = true;
+    }
+
     process_rewards({rewards: current_location.entrance_rewards});
     if(!restoringNativeSave)domainRegistry.refresh();
 }
@@ -3776,6 +3796,10 @@ function finish_game_action({action_key, conditions_status, dialogue_key}){
         const success_conditions = action.getAvailabilityComponent().success_conditions;
         const start_conditions = action.getAvailabilityComponent().start_conditions;
         const heldKeyById = (id, n) => Object.keys(character.getItems()).find(k => JSON.parse(k).id === id && character.getItems()[k].count >= n) ?? item_templates[id].getInventoryKey();
+
+        if(success_conditions[0]?.money?.remove) {
+            add_money_to_character(-success_conditions[0].money.number, "action");
+        }
         Object.keys(success_conditions[0]?.items_by_id || {}).forEach(item_id => {
             //the stack that met the condition (process_conditions accepts any quality of the id, e.g. graded Wool), else the plain key
             if(success_conditions[0].items_by_id[item_id].remove) {
@@ -3884,7 +3908,7 @@ function unlock_activity(activity_data) {
 function unlock_action(action_data) {
     if(!action_data.action.isUnlocked()) {
         action_data.action.setUnlocked();
-        
+            
         if(!action_data.skip_message) {
             let message = "";
             if(action_data.location) {
@@ -4169,6 +4193,13 @@ function process_rewards({rewards = {}, source_type, source_name, is_first_clear
         }
     }
 
+    if(rewards.progress_timer) {
+        progress_time({value: rewards.progress_timer});
+        if(inform_overall) {
+            log_message(`Some time has passed...`);
+        }
+    }
+
     if(rewards.money && typeof rewards.money === "number" && !only_unlocks) {
         if(inform_overall) {
             nativeCraftMessage(`%HeroName% earned ${format_money(rewards.money)}`);
@@ -4181,8 +4212,10 @@ function process_rewards({rewards = {}, source_type, source_name, is_first_clear
             if(inform_overall) {
                 if(is_first_clear) {
                     nativeCraftMessage(`Obtained ${rewards.xp}xp for clearing ${source_name} for the first time`, "location_reward");
+                } else if(game_options.do_dynamic_loot_message){
+                    log_location_xp(current_xp, source_name);
                 } else {
-                    nativeCraftMessage(`Obtained additional ${rewards.xp}xp for clearing ${source_name}`, "location_reward");
+                    nativeCraftMessage(`Obtained additional ${rewards.xp}xp for clearing ${source_name}`, "location_xp_reward");
                 }
             }
         } else {
@@ -4440,6 +4473,23 @@ function process_rewards({rewards = {}, source_type, source_name, is_first_clear
         }
     }
 
+    if(rewards.achievements) {
+        let any = false;
+        for(const id of rewards.achievements) {
+            const achievement=achievements[id];
+            if(achievement.isFinished())continue;
+            achievement.setFinished();
+            any = true;
+            character.addAchievementBonus(achievement.bonuses);
+            if(!is_from_loading)nativeCraftMessage(`Achievement unlocked: ${translate(achievement.name)}`, 'notification');
+        }
+
+        if(any) {
+            character.updateStatsAndDisplay();
+            update_displayed_achievements();
+        }
+    }
+
     if(rewards.locks) {
         if(rewards.locks.textlines) {
             Object.keys(rewards.locks.textlines).forEach(dialogue_key => {
@@ -4594,6 +4644,37 @@ function process_mixed_rewards({mixed_rewards, source_type, source_name, is_firs
 
 /**
  * 
+ * @param {Object} data
+ * @param {Object} data.delayed_rewards {id, delay} 
+ */
+function prepare_delayed_rewards({delayed_rewards: rows, source_type, inform_textline, source_name}) {
+    for(const row of rows){
+        const prior=pending_rewards[row.id];
+        pending_rewards[row.id]={delay:Math.min(row.delay,prior?.delay??Infinity),source:{source_type,inform_textline,source_name}};
+    }
+}
+
+function stageNativeDelayedRewards(plan){
+    const elapsed=plan.state.clock-expansionState.clock;
+    if(elapsed<=0||plan.state.actors.player.worldId!=='base.frontier'||!Object.keys(pending_rewards).length)return;
+    const {next,unlocks}=settleDelayedRewards(pending_rewards,elapsed);
+    const targets=unlocks.flatMap(({dialogue,lines})=>lines.map(line=>`${dialogue_owners[dialogues[dialogue].name]}:${line}`));
+    const patch={pending_rewards:next};
+    for(const id of targets){
+        if(!availabilities.textline[id])throw Error('Unknown delayed dialogue reward.');
+        patch[`availabilities/textline/${id}`]=status_to_flag({...availabilities.textline[id].getStatus(),is_unlocked:true});
+    }
+    plan.nativePatch={...plan.nativePatch,...patch};
+    const previous=plan.absorbPublish;
+    plan.absorbPublish=()=>{
+        previous?.();
+        pending_rewards=next;
+        for(const id of targets)availabilities.textline[id].setStatus(flag_to_status(patch[`availabilities/textline/${id}`]));
+    };
+}
+
+/**
+ * 
  * @param {*} selected_activity location activity property (job or training)
  * @returns if current time is within working hours
  */
@@ -4644,7 +4725,8 @@ function start_textline(textline_key){
     const dialogue = NPCRegistry.get(current_dialogue).getDialogueComponent();
     const textline = dialogue.textlines[textline_key];
 
-    process_rewards({rewards: textline.rewards, source_type: "textline", inform_textline: false, source_name: current_dialogue})
+    process_rewards({rewards: textline.rewards, source_type: "textline", inform_textline: false, source_name: current_dialogue});
+    if(textline.delayed_rewards) prepare_delayed_rewards({delayed_rewards: textline.delayed_rewards, source_type: "textline", inform_textline: false, source_name: current_dialogue});
 
     updateP23MoonConversation();
     if(textline.otherUnlocks) {
@@ -4655,16 +4737,6 @@ function start_textline(textline_key){
     //start_dialogue(current_dialogue);
     let text = get_textline_answer(textline);
 
-    //a very stupid easter egg that totally won't be annoying - 1% chance to have a random word in dialogue replaced with "rat" if your hero's name contains that word
-    if(character.isRat()) {
-        if(Math.random() <= 0.01) {
-            const words = text.split(" ");
-            const index = Math.floor(words.length * Math.random());
-            words[index] = "rat";
-            text = words.join(" ");
-        }
-    }
-
     if(textline.branches_into?.length) {
         fill_action_box({content_type: "dialogue_branch", data: {text: text, npc_id: current_dialogue, textlines: textline.branches_into}});
     } else {
@@ -4673,15 +4745,12 @@ function start_textline(textline_key){
 }
 
 /**
- * Attaches some context to textline's .getText()
+ * Attaches context to textline's .getText()
  * @param {Textline} textline 
  * @returns textline answer
  */
 function get_textline_answer(textline) {
-    return textline.getText({
-            season: current_game_time.getSeason(),
-            //to be expanded with more stuff when needed
-        });
+    return textline.getText(get_context());
 }
 
 /**
@@ -5297,6 +5366,10 @@ function get_location_rewards(location) {
             process_rewards({rewards: location.first_reward, source_type: "location", source_name: location.name, is_first_clear: true, source_id: location.id});
         }
     } else if(location.repeatable_reward.xp && typeof location.repeatable_reward.xp === "number") {
+        current_xp.recent = location.repeatable_reward.xp;
+        current_xp.total += location.repeatable_reward.xp;
+        current_xp.count++;
+        
         process_rewards({rewards: {xp: location.repeatable_reward.xp}, source_type: "location", source_name: location.name, is_first_clear: false, source_id: location.id});
     }
 
@@ -5351,7 +5424,10 @@ function clear_loot_information() {
     //called whenever changing a location or stopping an activity
     current_loot.recent = {};
     current_loot.total = {};
-    unassign_dynamic_loot_message();
+    current_xp.recent = 0;
+    current_xp.total = 0;
+    current_xp.count = 0;
+    unassign_dynamic_messages();
 }
 
 /**
@@ -6241,6 +6317,61 @@ function add_active_effect(effect_key, duration = 1, skip_xp){
     return old_duration < active_effects[effect_key].duration;
 }
 
+//TODO - wip
+function add_active_effect_to_enemy(target, effect_key, duration = 1, skip_xp){
+    if(!effect_templates[effect_key]) {
+        throw new Error(`No such active effect available as "${effect_key}"`);
+    }
+
+    let active_effects = target.active_effects;
+
+    let do_not_apply_because_stronger_is_active = false; //readable names are good, right?
+    const was_already_active = active_effects[effect_key];
+    const old_duration = active_effects[effect_key]?.duration ?? 0;
+
+    if(!was_already_active) {
+        Object.keys(active_effects).forEach(effect => {
+            if(do_not_apply_because_stronger_is_active) {
+                return;
+            }
+            Object.keys(effect_templates[effect].group_tags).forEach(group_tag => {
+                if(do_not_apply_because_stronger_is_active) {
+                    return;
+                }
+                if(group_tag in effect_templates[effect_key].group_tags) {
+                    if(effect_templates[effect].group_tags[group_tag] > effect_templates[effect_key].group_tags[group_tag]) {
+                        //stronger effect is active, skip
+                        do_not_apply_because_stronger_is_active = true; 
+                    } else {
+                        //existing effect is weaker, aply the effect normally, remove the weaker
+                        delete active_effects[effect];
+                    }
+                }
+            });
+        });
+
+        if(do_not_apply_because_stronger_is_active) {
+            //shouldn't need any recalculations or display updates as nothing was changed
+            return;
+        }
+    } else {
+        delete active_effects[effect_key];
+    }
+    active_effects[effect_key] = new ActiveEffect({...effect_templates[effect_key], duration});
+    update_displayed_effects();
+    
+    if(!was_already_active) {
+        target.addActiveEffectBonus(active_effects);
+        target.updateStatsAndDisplay();
+    }
+
+    //no need to check for whether effect was activated, code won't reach this point if it wasn't
+
+    return old_duration < active_effects[effect_key].duration;
+}
+
+
+
 function add_xp_to_activity_skills() {
     earnActivitySkillXP(current_activity,activities[current_activity.activity_name],
         (id,xp,options)=>add_xp_to_skill({skill:skills[id],xp_to_add:xp,...options}));
@@ -6270,6 +6401,18 @@ configureSkillEvolution({
     persist:next=>persistExpansion({...p23Plan(),nativePatch:{skill_evolution:next}}),
     publish:(event,text)=>nativeCraftMessage(text,'skill_raised',event.type==='skill-evolution-waiting'?{panelId:'skill-growth',panelLabel:'Open Growth'}:undefined),
 });
+
+function add_all_achievement_bonuses() {
+    const level=character.getLevelableComponent();
+    level.stats.flat.achievements={};
+    level.stats.multiplier.achievements={};
+    level.xp_bonuses.multiplier.achievements={};
+    Object.keys(achievements).forEach(id => {
+        if(achievements[id].isFinished()) {
+            character.addAchievementBonus(achievements[id].bonuses);
+        }
+    });
+}
 
 /**
  * Handles preliminary management of quest events, simplifying work by automatically providing all the additional data
@@ -6307,6 +6450,34 @@ function get_date() {
     const minute = date.getMinutes() > 9 ? date.getMinutes().toString() : "0" + date.getMinutes().toString();
     const second = date.getSeconds() > 9 ? date.getSeconds().toString() : "0" + date.getSeconds().toString();
     return `${year}-${month}-${day} ${hour}_${minute}_${second}`;
+}
+
+function process_hovered_notificationable(event) {
+    let target = event.target;
+    if("notificationable_tab" in target.dataset || target.querySelector("[data-notificationable_tab]")) {
+        return;
+    }
+
+    while(target && !("notificationable_tab" in target.dataset) && !("notification_source" in target.dataset)) {
+        target = target.parentElement;
+    }
+
+    if(!target || target.querySelector("[data-notificationable_tab]")) {
+        return;
+    }
+
+    const source = notification_sources.get(target);
+    if(!source) {
+        console.warn('Failed to get source for element with notification!');
+        return;
+    }
+
+    if("notificationable_tab" in target.dataset) {
+        return;
+    }
+
+    source.getNotificationComponent().setFinished();
+    remove_displayed_notification(target);
 }
 
 function is_on_dev() {
@@ -6602,6 +6773,8 @@ function create_save({forExport = false} = {}) {
         save_data["active_effects"] = active_effects;
         if(getMixtureOwner())save_data.mixtures=structuredClone(getMixtureOwner());
 
+        if(Object.keys(pending_rewards).length)save_data.pending_rewards=structuredClone(pending_rewards);
+
         save_data["enemy_killcount"] = enemy_killcount;
         save_data["item_log"] = item_log.items;
 
@@ -6774,6 +6947,7 @@ function load(save_data) {
             save_data = preparePackSave(save_data,packDefinitionsForSave());
             if(!importProbeToken)save_data=readCheatSave(save_data);
             save_data = validateSaveEnvelope(save_data, game_version);
+            pending_rewards=readDelayedRewards(save_data.pending_rewards);
             continuationState=save_data.continuation?structuredClone(save_data.continuation):null;
             if(!importProbeToken&&continuationState?.arrivalPaused&&!continuationArrivalRelease)continuationArrivalRelease=suspendEngine();
             p23DropObservations=save_data.p23_drop_observations===undefined?undefined:validateDropObservations(save_data.p23_drop_observations);
@@ -7684,6 +7858,9 @@ function load(save_data) {
                         const trader_availability = npc.getTraderAvailability();
                         
                         write_availability_status(trader_availability, save_data.traders[trader_key]);
+                        if(trader_key === "suspicious trader") {
+                            trader_availability.setStatus({is_unlocked: true, is_locked: false, is_finished: false});
+                        }
                         
                         let trader_item_list = [];
 
@@ -7860,7 +8037,7 @@ function load(save_data) {
                             });
                         }
 
-                        trader.last_refresh = save_data.traders[trader_key].last_refresh;
+                        trader.last_refresh = save_data.traders[trader_key].last_refresh ?? -1;
                         trader.emptyInventory();
                         trader.addToInventory(trader_item_list);
                     }
@@ -8212,7 +8389,7 @@ function load(save_data) {
             });
             set_loot_sold_count(loot_count);
             
-            if(NPCRegistry.get("old craftsman").getDialogueComponent().textlines["learn"].isFinished()) {
+            if(NPCRegistry.get("oldCraftsman").getDialogueComponent().textlines["learn"].isFinished()) {
                 character.addToInventory([{item_id: "Old shovel"}]);
             }
         } else if(is_a_older_than_b(save_data["game version"], "v0.5.0.22") && is_a_older_than_b("v0.5", save_data["game version"])) {
@@ -8340,6 +8517,7 @@ function load(save_data) {
         if(is_a_older_than_b(save_data["game version"], "v0.5.0")){
             
             let elder = NPCRegistry.get("villageElder").getDialogueComponent();
+            let puppy = NPCRegistry.get("suspiciousMan").getDialogueComponent();
             //memory line
             questManager.startQuest({quest_id: "Lost memory", should_inform: false});
             if(elder.textlines["what happened"].isFinished()) {
@@ -8350,8 +8528,7 @@ function load(save_data) {
 
                     if(elder.textlines["cleared cave"].isFinished()) {
                         questManager.finishQuestTask({quest_id: "Lost memory", task_index: 2, skip_message: true});
-    
-                        if(elder.textlines["defeated"].isFinished()) {
+                        if(puppy.textlines["defeated"].isFinished()) {
                             questManager.finishQuestTask({quest_id: "Lost memory", task_index: 3, skip_message: true});
                         }
                     }
@@ -8375,7 +8552,7 @@ function load(save_data) {
                 }
             }
 
-            let puppy = NPCRegistry.get("suspiciousMan").getDialogueComponent();
+            
             //slums line
             if(puppy.textlines["gang"].isFinished()) {
                 questManager.startQuest({quest_id: "Light in the darkness", should_inform: false});
@@ -8501,8 +8678,13 @@ function load(save_data) {
         refreshCausalQuests();
         refreshTidemarkQuest();
     refreshNestedQuests();
+        add_all_achievement_bonuses();
+        update_displayed_achievements();
+
         character.updateStatsAndDisplay();
         update_displayed_character_inventory();
+
+        update_all_displayed_skills_xp_gain();
 
         update_displayed_health();
         //load current health
@@ -9032,9 +9214,9 @@ function simulateTick() {
                                     quality = Math.round(gameRandomRange(STREAMS.gather, `activity:${current_activity.activity_id}:${i}:quality`,quality_range[0], quality_range[1]) / 4) * 4;
                                 }
 
-                                items.push({item_id: gained_resources[i].name, quality: quality, count: count});
 
                                 game_stats.gathered_materials[gained_resources[i].name] = (game_stats.gathered_materials[gained_resources[i].name] || 0) + count;
+                                current_activity.gathered_materials[gained_resources[i].name] = (current_activity.gathered_materials[gained_resources[i].name] || 0) + count;
                             }
                         }
 
@@ -9042,9 +9224,6 @@ function simulateTick() {
                             process_current_loot({loot_list: items});
                             
 
-                            for(let i = 0; i < items.length; i++) {
-                                current_activity.gathered_materials[items[i].item_id] = (current_activity.gathered_materials[items[i].item_id] + items[i].count || items[i].count);
-                            }
                         
                             character.addToInventory(items.map(row=>{const item_key=gatheredIronKey({id:row.item_id,count:row.count,world:expansionState.actors.player.worldId,location:current_location.id,activity:current_activity.activity_id,clock:calendarMinutes(current_game_time)});return item_key?{item_key,count:row.count}:row;}));
                         }
@@ -9087,6 +9266,7 @@ function simulateTick() {
                         if(can_work(activity)) {
                             divs[i].classList.remove("activity_unavailable");
                             divs[i].classList.add("start_activity");
+                            divs[i].setAttribute("onclick", "start_activity(this.getAttribute('data-activity'));");
                         } else {
                             divs[i].classList.remove("start_activity");
                             divs[i].classList.add("activity_unavailable");
@@ -9527,6 +9707,8 @@ window.importOtherReleaseSave = load_other_release_save;
 window.hardReset = hard_reset;
 window.get_game_version = get_game_version;
 
+window.process_hovered_notificationable = process_hovered_notificationable;
+
 window.run = run;
 
 // Do not suspend the legacy initialization before its onload UI has elements.
@@ -9571,7 +9753,7 @@ function set_game_speed(multiplier) {
     return game_speed;
 }
 
-window.Verify_Game_Objects = Verify_Game_Objects;
+window.Verify_Game_Objects = () => Verify_Game_Objects(get_context(),traders);
 
 set_loading_screen_progress("Waking up from a nyap...");
 
@@ -10017,7 +10199,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             if(!openingAllows(id,getDisplaySetting('stagedOpening')==='on',openingStep))return false;
             if(['time','location'].includes(id)&&current_location?.id==='Village'&&expansionState.actors.player.worldId==='base.frontier')return false;
             if(id==='skills')return Object.values(skills).some(skill=>nativeSkillDiscovery(skill,character));
-            if(id==='records')return item_templates['Old combat manual'].isFinished() || item_templates['ABC for kids'].isFinished() || Object.values(enemy_killcount).some(n=>n>0) || metVillageElder();
+            if(id==='records')return Object.values(achievements).some(achievement=>achievement.isFinished()) || item_templates['Old combat manual'].isFinished() || item_templates['ABC for kids'].isFinished() || Object.values(enemy_killcount).some(n=>n>0) || metVillageElder();
             return true;
         };
         registerWorkspaceModule({id,title,node,home,critical,eligible:found,discovered:found});
@@ -10142,7 +10324,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         }});
 }
 
-if((game_options.skip_play_button || continuationState?.loop.enabled) && !importProbeToken) {
+if((game_options.skip_play_button || continuationState?.loop.enabled) && !importProbeToken && !is_loading_error) {
     play_button.click();
 }
 
@@ -10221,17 +10403,8 @@ export {
     game_stats, 
     kill_target, kill_player,
     process_current_loot,
-    add_money_to_character,
-    unlock_location,
     flag_unlock_texts,
     remove_location_from_favourites,
-    unlock_global_activity,
-    unlock_activity,
-    unlock_action,
-    unlock_combat_stance,
-    lock_location,
-    lock_action,
-    update_pathing,
     change_location, change_current_location,
     process_rewards,
     translate

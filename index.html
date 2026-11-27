@@ -9,13 +9,13 @@
         <link rel="stylesheet" href="styles/workspace_discovery.css?version=bae49fa06d41">
         <link rel="stylesheet" href="styles/display_settings.css?version=4d0f06403dd0">
         <link rel="stylesheet" href="styles/status_window.css?version=c018274c699f">
-        <link rel="stylesheet" href="style.css?version=v0.6-45ea32f9e0b1">
+        <link rel="stylesheet" href="style.css?version=v0.6-e6a810691546">
         <link rel="stylesheet" href="styles/action_legibility.css?version=2c48659cbe46">
         <link rel="stylesheet" href="styles/crafting_detail.css?version=f66fe066d61d">
         <link rel="stylesheet" href="styles/component_themes.css?version=a28da1585175">
         <link rel="stylesheet" href="styles/start_probe.css?version=12cc6bb2054f">
         <link rel="stylesheet" href="styles/ui_tokens.css?version=91ecc6142d8c">
-        <link rel="stylesheet" href="styles/shell_layout.css?version=ebf96db3fa32">
+        <link rel="stylesheet" href="styles/shell_layout.css?version=bfc0fffeb87a">
         <link rel="stylesheet" href="styles/inventory.css?version=62678286c391">
         <link rel="stylesheet" href="styles/opponents.css?version=d8ec72aad52a">
         <link rel="stylesheet" href="styles/combat_log.css?version=5a1dfbdcce41">
@@ -61,7 +61,7 @@
         
         <script type="module" src="resources/js/HackTimer/HackTimer.min.js"></script>
 
-        <script type="module" src="dist/bundle.js?version=v0.6-0cbdb8ef45b9"></script>
+        <script type="module" src="dist/bundle.js?version=v0.6-ef565fbc47aa"></script>
 
 
         <!--favicon-->
@@ -126,7 +126,7 @@
             <div id ="loading_screen_version_info">
 
             </div>
-            <div id ="loading_screen_status" class="loading_screen_status_good">
+            <div id ="loading_screen_status">
                 No issues in the loading process :)
             </div>
             <div id ="loading_screen_play_button" class="none_display">
@@ -507,11 +507,15 @@
 
                 <div id = "journal_div" class = "box_div">
                     <div id = "journal_control_div" class="activable_buttons flex_wrap">
-                        <button type="button" id = "journal_show_quests" class = "ui-native-control journal_control_button active_selection_button" onclick = "showQuests()"> Quests </button>
+                        <button type="button" id = "journal_show_quests" class = "ui-native-control journal_control_button active_selection_button notificationable" onclick = "showQuests()"> Quests </button>
                         <button type="button" id = "journal_show_bestiary" class = "ui-native-control journal_control_button" onclick = "showBestiary()"> Bestiary </button>
                         <button type="button" id = "journal_show_books" class = "ui-native-control journal_control_button" onclick = "showReadBooks()"> Anthology </button>
                         <button type="button" id = "journal_show_data" class = "ui-native-control journal_control_button" onclick = "showData()"> Data </button>
                         <button id="journal_show_notebook" type="button" class="journal_control_button" onclick="showNotebook()" hidden>Notebook</button>
+                        <button type="button" id = "journal_show_guild" class = "ui-native-control journal_control_button" onclick = "showGuild()"> Guild </button>
+                        <button type="button" id = "journal_show_achievements" class = "ui-native-control journal_control_button hidden" onclick = "showAchievements()" data-notificationable_button> Achievements </button>
+                        <button type="button" id = "journal_show_story" class = "ui-native-control journal_control_button" hidden> Story </button>
+                        <button type="button" id = "journal_show_items" class = "ui-native-control journal_control_button" onclick = "showItems()"> Catalogue </button>
                     </div>
                     <div id = "journal_content_div">
                         <div id="notebook_box_div" style="display: none">
@@ -540,12 +544,26 @@
 
                             </div>
                         </div>
-                        <div id = "data_box_div">
-                            <div id = "data_list">
-                                <div id = "data_tab_reputation_div">
-                                </div>
-                                <div id = "data_tab_item_log_div">
-                                </div>
+                        <div id="data_box_div">
+                            <button type="button" class="ui-native-control" id="show_yair_data_viewer">Open YAIR data viewer</button>
+                            <div id="data_list">
+                                <div id="data_tab_reputation_div"></div>
+                            </div>
+                        </div>
+                        <div id="item_box_div">
+                            <div id="data_tab_item_log_div"></div>
+                        </div>
+                        <div id = "guild_box_div">
+                            <div id = "guild_header">
+
+                            </div>
+                            <div id = "guild_list">
+
+                            </div>
+                        </div>
+                        <div id = "achievement_box_div" data-notificationable_tab>
+                            <div id = "achievement_list">
+
                             </div>
                         </div>
                     </div>
@@ -676,7 +694,6 @@
 
                             <div id = "character_effects">
                                 <div id = "effects_div">
-                                    <div> Active effects: </div>
                                     <div id = "active_effect_count"> 0 </div>
                                     <div id = "effects_tooltip"> 
                                         No active effects            
@@ -784,7 +801,7 @@
             <div id = "help_button" class = "game_info"><a href="help.html" target="_blank"><i class="material-icons">help_outline</i></a></div>
 
             <div id = "repo_link" class = "repo_link" title="OOPS source · onionv"><a href="https://github.com/onionviolet/OOPS" target="_blank" rel="noopener noreferrer" aria-label="OOPS source on GitHub · onionv"><img src="resources/img/github-mark-white.png" alt=""><span class="creator_link_label">OOPS source · onionv</span></a></div>
-            <div id = "ko_fi_link" class = "financial_link" title="Support Miktaew, the original YAIR author"><a href="https://ko-fi.com/miktaew" target="_blank" rel="noopener noreferrer" aria-label="Support Miktaew on Ko-fi · original YAIR author"><img src="resources/img/ko-fi_icon.png" alt=""><span class="creator_link_label">Support Miktaew on Ko-fi <span aria-hidden="true">🐱</span></span></a></div>
+            <div id = "ko_fi_link" class = "financial_link" title="Support Miktaew, the original YAIR author"><a href="https://buymeacoffee.com/miktaew" target="_blank" rel="noopener noreferrer" aria-label="Support Miktaew on Buy Me a Coffee · original YAIR author"><img src="resources/img/bmac_icon.png" alt=""><span class="creator_link_label">Support Miktaew on Buy Me a Coffee <span aria-hidden="true">🐱</span></span></a></div>
             <nav id="reference_creator_links" aria-label="Original games and creators">
                 <a href="https://miktaew.github.io/yet-another-idle-rpg/" target="_blank" rel="noopener noreferrer">Play YAIR · Miktaew <span aria-hidden="true">🐱</span></a>
                 <a href="https://23html.github.io/" target="_blank" rel="noopener noreferrer">Play Proto23 · 23html</a>
@@ -1026,6 +1043,9 @@
             function showData() {
                 changeTab(document.getElementById("data_box_div"));
             }
+            function showItems() {
+                changeTab(document.getElementById("item_box_div"));
+            }
             function showQuests() {
                 changeTab(document.getElementById("quests_box_div"));
             }
@@ -1043,6 +1063,12 @@
                 for(const button of control.parentNode.children) {
                     button.classList.toggle("active_selection_button", button === control);
                 }
+            }
+            function showGuild() {
+                changeTab(document.getElementById("guild_box_div"));
+            }
+            function showAchievements() {
+                changeTab(document.getElementById("achievement_box_div"));
             }
 
             function showCharacterStats() {
@@ -1303,7 +1329,12 @@
                 document.body.addEventListener('mousemove', (event)=>{
                     mouse_position = [event.clientX, event.clientY];
                 });
-                
+
+                document.querySelectorAll("[data-notificationable_tab]").forEach(elem => {
+                    elem.addEventListener("mouseover", (event)=>{
+                        process_hovered_notificationable(event);
+                    });
+                });
 
                 function get_scrollbar_thickness() {
 
@@ -1582,6 +1613,17 @@
                         top_variable: "--race_choice_tooltip_top",
                         left_variable: "--race_choice_tooltip_left",
                     },
+                    {
+                        element: location_actions_div,
+                        top_variable: "--crafting_station_tooltip_top",
+                        left_variable: "--crafting_station_tooltip_left",
+                        target_classes: ["choice_craft"],
+                    },
+                    {
+                        element: achievement_list,
+                        top_variable: "--achievement_tooltip_top",
+                        left_variable: "--achievement_tooltip_left",
+                    }
                 ];
 
                 const elements_with_unrestricted_tooltips = [
@@ -1619,8 +1661,7 @@
                         element: hero_gender_selection,
                         top_variable: "--gender_choice_tooltip_top",
                         left_variable: "--gender_choice_tooltip_left",
-                    },
-                    
+                    },              
                 ];
 
                 const inventory_display_elements = [
