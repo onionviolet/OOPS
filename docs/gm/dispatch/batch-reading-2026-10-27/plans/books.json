@@ -2363,6 +2363,1638 @@
     "target": 99999,
     "max": 2
    }
+  },
+  {
+   "key": "az2",
+   "world": "az",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/source/az2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/azarinth-healer/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:6a33f1ca7c, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:6a33f1ca7c",
+   "title": "Azarinth Healer 2"
+  },
+  {
+   "key": "az3",
+   "world": "az",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/source/az3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/azarinth-healer/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:05254a5d5e, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:05254a5d5e",
+   "title": "Azarinth Healer 3"
+  },
+  {
+   "key": "az4",
+   "world": "az",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/source/az4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/azarinth-healer/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:034eba88fc, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:034eba88fc",
+   "title": "Azarinth Healer 4"
+  },
+  {
+   "key": "az5",
+   "world": "az",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/source/az5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/azarinth-healer/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:54eb283fd8, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:54eb283fd8",
+   "title": "Azarinth Healer 5"
+  },
+  {
+   "key": "az6",
+   "world": "az",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/source/az6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/azarinth-healer/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:c726dbf165, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:c726dbf165",
+   "title": "Azarinth Healer 6"
+  },
+  {
+   "key": "az7",
+   "world": "az",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/source/az7.epub",
+   "book": 7,
+   "dir": "docs/research/novels/azarinth-healer/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:c2edf26b5f, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:c2edf26b5f",
+   "title": "Azarinth Healer 7"
+  },
+  {
+   "key": "bdm2",
+   "world": "bdm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/source/bdm2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:78f49e783f, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:78f49e783f",
+   "title": "Beneath the Dragoneye Moons 2"
+  },
+  {
+   "key": "bdm8",
+   "world": "bdm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/source/bdm8.epub",
+   "book": 8,
+   "dir": "docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:1aa54d9df6, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:1aa54d9df6",
+   "title": "Beneath the Dragoneye Moons 8"
+  },
+  {
+   "key": "bdm9",
+   "world": "bdm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/source/bdm9.epub",
+   "book": 9,
+   "dir": "docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:483880a675, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:483880a675",
+   "title": "Beneath the Dragoneye Moons 9"
+  },
+  {
+   "key": "hwfwm2",
+   "world": "hwfwm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/source/hwfwm2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:e6ee452e8e, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:e6ee452e8e",
+   "title": "He Who Fights with Monsters 2"
+  },
+  {
+   "key": "hwfwm3",
+   "world": "hwfwm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/source/hwfwm3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:51559cfb78, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:51559cfb78",
+   "title": "He Who Fights with Monsters 3"
+  },
+  {
+   "key": "hwfwm4",
+   "world": "hwfwm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/source/hwfwm4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:e82152b5cd, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:e82152b5cd",
+   "title": "He Who Fights with Monsters 4"
+  },
+  {
+   "key": "hwfwm5",
+   "world": "hwfwm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/source/hwfwm5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:f41c6b0dae, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:f41c6b0dae",
+   "title": "He Who Fights with Monsters 5"
+  },
+  {
+   "key": "hwfwm6",
+   "world": "hwfwm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/source/hwfwm6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:b4f52cde0f, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:b4f52cde0f",
+   "title": "He Who Fights with Monsters 6"
+  },
+  {
+   "key": "hwfwm7",
+   "world": "hwfwm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/source/hwfwm7.epub",
+   "book": 7,
+   "dir": "docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:315baf4576, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:315baf4576",
+   "title": "He Who Fights with Monsters 7"
+  },
+  {
+   "key": "hwfwm8",
+   "world": "hwfwm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/source/hwfwm8.epub",
+   "book": 8,
+   "dir": "docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:4ecea45f63, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:4ecea45f63",
+   "title": "He Who Fights with Monsters 8"
+  },
+  {
+   "key": "hwfwm9",
+   "world": "hwfwm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/source/hwfwm9.epub",
+   "book": 9,
+   "dir": "docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:5feda9db8c, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:5feda9db8c",
+   "title": "He Who Fights with Monsters 9"
+  },
+  {
+   "key": "hwfwm10",
+   "world": "hwfwm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/source/hwfwm10.epub",
+   "book": 10,
+   "dir": "docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:aa1be19c6f, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:aa1be19c6f",
+   "title": "He Who Fights with Monsters 10"
+  },
+  {
+   "key": "hwfwm11",
+   "world": "hwfwm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/source/hwfwm11.epub",
+   "book": 11,
+   "dir": "docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:d261361890, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:d261361890",
+   "title": "He Who Fights with Monsters 11"
+  },
+  {
+   "key": "hwfwm12",
+   "world": "hwfwm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/source/hwfwm12.epub",
+   "book": 12,
+   "dir": "docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:ab30512118, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:ab30512118",
+   "title": "He Who Fights with Monsters 12"
+  },
+  {
+   "key": "hwfwm13",
+   "world": "hwfwm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/source/hwfwm13.epub",
+   "book": 13,
+   "dir": "docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:6d624cc901, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:6d624cc901",
+   "title": "He Who Fights with Monsters 13"
+  },
+  {
+   "key": "twi2",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:c160409e97, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:c160409e97",
+   "title": "The Wandering Inn 2"
+  },
+  {
+   "key": "dcc1",
+   "world": "dcc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/source/dcc1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:ab90f355de, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:ab90f355de",
+   "title": "Dungeon Crawler Carl 1"
+  },
+  {
+   "key": "dcc2",
+   "world": "dcc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/source/dcc2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:4fc73532b3, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:4fc73532b3",
+   "title": "Dungeon Crawler Carl 2"
+  },
+  {
+   "key": "dcc3",
+   "world": "dcc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/source/dcc3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:0896e4abae, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:0896e4abae",
+   "title": "Dungeon Crawler Carl 3"
+  },
+  {
+   "key": "dcc4",
+   "world": "dcc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/source/dcc4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:325ffb1e67, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:325ffb1e67",
+   "title": "Dungeon Crawler Carl 4"
+  },
+  {
+   "key": "dcc5",
+   "world": "dcc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/source/dcc5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:4e7108c32e, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:4e7108c32e",
+   "title": "Dungeon Crawler Carl 5"
+  },
+  {
+   "key": "dcc6",
+   "world": "dcc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/source/dcc6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:47f1960292, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:47f1960292",
+   "title": "Dungeon Crawler Carl 6"
+  },
+  {
+   "key": "dcc7",
+   "world": "dcc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/source/dcc7.epub",
+   "book": 7,
+   "dir": "docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:747d764aaa, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:747d764aaa",
+   "title": "Dungeon Crawler Carl 7"
+  },
+  {
+   "key": "dcc8",
+   "world": "dcc",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/source/dcc8.epub",
+   "book": 8,
+   "dir": "docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:2bcd260a85, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:2bcd260a85",
+   "title": "Dungeon Crawler Carl 8"
+  },
+  {
+   "key": "chry2",
+   "world": "chry",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/source/chry2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/chrysalis/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 5
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:b278254a51, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:b278254a51",
+   "title": "Chrysalis 2"
+  },
+  {
+   "key": "chry4",
+   "world": "chry",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/source/chry4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/chrysalis/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 5
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:0572361444, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:0572361444",
+   "title": "Chrysalis 4"
+  },
+  {
+   "key": "chry5",
+   "world": "chry",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/source/chry5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/chrysalis/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 5
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:33c4d4d6f0, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:33c4d4d6f0",
+   "title": "Chrysalis 5"
+  },
+  {
+   "key": "chry6",
+   "world": "chry",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/source/chry6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/chrysalis/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 5
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:fd173bccf5, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:fd173bccf5",
+   "title": "Chrysalis 6"
+  },
+  {
+   "key": "chry7",
+   "world": "chry",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/source/chry7.epub",
+   "book": 7,
+   "dir": "docs/research/novels/chrysalis/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 5
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:819607bfde, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:819607bfde",
+   "title": "Chrysalis 7"
+  },
+  {
+   "key": "chry8",
+   "world": "chry",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/source/chry8.epub",
+   "book": 8,
+   "dir": "docs/research/novels/chrysalis/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 5
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:16ea8640b5, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:16ea8640b5",
+   "title": "Chrysalis 8"
+  },
+  {
+   "key": "chry9",
+   "world": "chry",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/source/chry9.epub",
+   "book": 9,
+   "dir": "docs/research/novels/chrysalis/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 5
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:0dfcc634bf, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:0dfcc634bf",
+   "title": "Chrysalis 9"
+  },
+  {
+   "key": "mlm3",
+   "world": "mlm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/source/mlm3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/millennial-mage/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:4253a011d5, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:4253a011d5",
+   "title": "Millennial Mage 3"
+  },
+  {
+   "key": "mlm4",
+   "world": "mlm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/source/mlm4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/millennial-mage/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:0ddc241b08, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:0ddc241b08",
+   "title": "Millennial Mage 4"
+  },
+  {
+   "key": "mlm5",
+   "world": "mlm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/source/mlm5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/millennial-mage/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:63efaf37ee, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:63efaf37ee",
+   "title": "Millennial Mage 5"
+  },
+  {
+   "key": "mlm6",
+   "world": "mlm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/source/mlm6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/millennial-mage/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:5c6100f878, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:5c6100f878",
+   "title": "Millennial Mage 6"
+  },
+  {
+   "key": "mlm7",
+   "world": "mlm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/source/mlm7.epub",
+   "book": 7,
+   "dir": "docs/research/novels/millennial-mage/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:a1859e8c4b, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:a1859e8c4b",
+   "title": "Millennial Mage 7"
+  },
+  {
+   "key": "mlm8",
+   "world": "mlm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/source/mlm8.epub",
+   "book": 8,
+   "dir": "docs/research/novels/millennial-mage/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:90c73f33b6, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:90c73f33b6",
+   "title": "Millennial Mage 8"
+  },
+  {
+   "key": "thr4",
+   "world": "thr",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/source/thr4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/threadbare/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:3c625aaeb3, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:3c625aaeb3",
+   "title": "Threadbare 4"
+  },
+  {
+   "key": "thr5",
+   "world": "thr",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/source/thr5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/threadbare/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:3c6013d8f0, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:3c6013d8f0",
+   "title": "Threadbare 5"
+  },
+  {
+   "key": "thr6",
+   "world": "thr",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/source/thr6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/threadbare/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:24bac90dc5, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:24bac90dc5",
+   "title": "Threadbare 6"
+  },
+  {
+   "key": "cbun1",
+   "world": "cbun",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/source/cbun1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 5
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:bcb158c7f9, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:bcb158c7f9",
+   "title": "Cinnamon Bun 1"
+  },
+  {
+   "key": "cbun2",
+   "world": "cbun",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/source/cbun2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:7751b34420, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:7751b34420",
+   "title": "Cinnamon Bun 2"
+  },
+  {
+   "key": "cbun3",
+   "world": "cbun",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/source/cbun3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:5600a14113, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:5600a14113",
+   "title": "Cinnamon Bun 3"
+  },
+  {
+   "key": "cbun4",
+   "world": "cbun",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/source/cbun4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 5
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:c0f0df4056, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:c0f0df4056",
+   "title": "Cinnamon Bun 4"
+  },
+  {
+   "key": "cbun5",
+   "world": "cbun",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/source/cbun5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 5
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:e67cdca43e, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:e67cdca43e",
+   "title": "Cinnamon Bun 5"
+  },
+  {
+   "key": "cbun6",
+   "world": "cbun",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/source/cbun6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 5
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:055018f0d5, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:055018f0d5",
+   "title": "Cinnamon Bun 6"
+  },
+  {
+   "key": "cbun7",
+   "world": "cbun",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/source/cbun7.epub",
+   "book": 7,
+   "dir": "docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 5
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:5f764c13c7, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:5f764c13c7",
+   "title": "Cinnamon Bun 7"
+  },
+  {
+   "key": "mnl2",
+   "world": "mnl",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/source/mnl2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/menocht-loop/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:f36bcbd99b, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:f36bcbd99b",
+   "title": "The Menocht Loop 2"
+  },
+  {
+   "key": "mnl3",
+   "world": "mnl",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/source/mnl3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/menocht-loop/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:054054069e, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:054054069e",
+   "title": "The Menocht Loop 3"
+  },
+  {
+   "key": "mnl4",
+   "world": "mnl",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/source/mnl4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/menocht-loop/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:6c238fa2f1, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:6c238fa2f1",
+   "title": "The Menocht Loop 4"
+  },
+  {
+   "key": "mnl5",
+   "world": "mnl",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/source/mnl5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/menocht-loop/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:67f3a46f0d, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:67f3a46f0d",
+   "title": "The Menocht Loop 5"
+  },
+  {
+   "key": "mnl6",
+   "world": "mnl",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/source/mnl6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/menocht-loop/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:7c4ec73b71, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:7c4ec73b71",
+   "title": "The Menocht Loop 6"
+  },
+  {
+   "key": "ph1",
+   "world": "ph",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/source/ph1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:9d7678ed7b, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:9d7678ed7b",
+   "title": "The Primal Hunter 1"
+  },
+  {
+   "key": "ph2",
+   "world": "ph",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/source/ph2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:7eb1498cdf, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:7eb1498cdf",
+   "title": "The Primal Hunter 2"
+  },
+  {
+   "key": "ph3",
+   "world": "ph",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/source/ph3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:3564fb61ee, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:3564fb61ee",
+   "title": "The Primal Hunter 3"
+  },
+  {
+   "key": "ph4",
+   "world": "ph",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/source/ph4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:922d179d95, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:922d179d95",
+   "title": "The Primal Hunter 4"
+  },
+  {
+   "key": "ph5",
+   "world": "ph",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/source/ph5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:04bd9d2978, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:04bd9d2978",
+   "title": "The Primal Hunter 5"
+  },
+  {
+   "key": "ph6",
+   "world": "ph",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/source/ph6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:bd9d65bd81, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:bd9d65bd81",
+   "title": "The Primal Hunter 6"
+  },
+  {
+   "key": "ph7",
+   "world": "ph",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/source/ph7.epub",
+   "book": 7,
+   "dir": "docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:0846374023, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:0846374023",
+   "title": "The Primal Hunter 7"
+  },
+  {
+   "key": "ph8",
+   "world": "ph",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/source/ph8.epub",
+   "book": 8,
+   "dir": "docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:36d9ba3acd, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:36d9ba3acd",
+   "title": "The Primal Hunter 8"
+  },
+  {
+   "key": "ph9",
+   "world": "ph",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/source/ph9.epub",
+   "book": 9,
+   "dir": "docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:fa71da0495, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:fa71da0495",
+   "title": "The Primal Hunter 9"
+  },
+  {
+   "key": "ph10",
+   "world": "ph",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/source/ph10.epub",
+   "book": 10,
+   "dir": "docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:173dc213d9, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:173dc213d9",
+   "title": "The Primal Hunter 10"
+  },
+  {
+   "key": "ph11",
+   "world": "ph",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/source/ph11.epub",
+   "book": 11,
+   "dir": "docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:a7453bea8e, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:a7453bea8e",
+   "title": "The Primal Hunter 11"
+  },
+  {
+   "key": "ph12",
+   "world": "ph",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/source/ph12.epub",
+   "book": 12,
+   "dir": "docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:cb00ad5903, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:cb00ad5903",
+   "title": "The Primal Hunter 12"
+  },
+  {
+   "key": "ph13",
+   "world": "ph",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/source/ph13.epub",
+   "book": 13,
+   "dir": "docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:ef856c9121, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:ef856c9121",
+   "title": "The Primal Hunter 13"
+  },
+  {
+   "key": "ph14",
+   "world": "ph",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/source/ph14.epub",
+   "book": 14,
+   "dir": "docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:2d9564cbc6, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:2d9564cbc6",
+   "title": "The Primal Hunter 14"
+  },
+  {
+   "key": "ph15",
+   "world": "ph",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/source/ph15.epub",
+   "book": 15,
+   "dir": "docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:6036654587, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:6036654587",
+   "title": "The Primal Hunter 15"
+  },
+  {
+   "key": "ph16",
+   "world": "ph",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/source/ph16.epub",
+   "book": 16,
+   "dir": "docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:3b8cc2ac81, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:3b8cc2ac81",
+   "title": "The Primal Hunter 16"
+  },
+  {
+   "key": "bdm3",
+   "world": "bdm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/source/bdm3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py glued (Source Library sha256:fbeff288f6, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:fbeff288f6",
+   "title": "Beneath the Dragoneye Moons 3"
+  },
+  {
+   "key": "bdm4",
+   "world": "bdm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/source/bdm4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py glued (Source Library sha256:6e487e0eca, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:6e487e0eca",
+   "title": "Beneath the Dragoneye Moons 4"
+  },
+  {
+   "key": "bdm5",
+   "world": "bdm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/source/bdm5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py glued (Source Library sha256:645cbeb857, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:645cbeb857",
+   "title": "Beneath the Dragoneye Moons 5"
+  },
+  {
+   "key": "bdm6",
+   "world": "bdm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/source/bdm6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py glued (Source Library sha256:89b7a98a83, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:89b7a98a83",
+   "title": "Beneath the Dragoneye Moons 6"
+  },
+  {
+   "key": "bdm7",
+   "world": "bdm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/source/bdm7.epub",
+   "book": 7,
+   "dir": "docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py glued (Source Library sha256:3fc6a2d004, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:3fc6a2d004",
+   "title": "Beneath the Dragoneye Moons 7"
+  },
+  {
+   "key": "twi3",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:83f8f7309a, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:83f8f7309a",
+   "title": "The Wandering Inn 3"
+  },
+  {
+   "key": "twi4",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi4.epub",
+   "book": 4,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:47f4a1d4e8, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:47f4a1d4e8",
+   "title": "The Wandering Inn 4"
+  },
+  {
+   "key": "twi5",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi5.epub",
+   "book": 5,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:4bfe416ef4, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:4bfe416ef4",
+   "title": "The Wandering Inn 5"
+  },
+  {
+   "key": "twi6",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi6.epub",
+   "book": 6,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:27b8846392, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:27b8846392",
+   "title": "The Wandering Inn 6"
+  },
+  {
+   "key": "twi7",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi7.epub",
+   "book": 7,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:849179fd2b, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:849179fd2b",
+   "title": "The Wandering Inn 7"
+  },
+  {
+   "key": "twi8",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi8.epub",
+   "book": 8,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:eaf579c296, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:eaf579c296",
+   "title": "The Wandering Inn 8"
+  },
+  {
+   "key": "twi9",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi9.epub",
+   "book": 9,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:a855151d1f, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:a855151d1f",
+   "title": "The Wandering Inn 9"
+  },
+  {
+   "key": "twi10",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi10.epub",
+   "book": 10,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:321eb8575c, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:321eb8575c",
+   "title": "The Wandering Inn 10"
+  },
+  {
+   "key": "twi13",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi13.epub",
+   "book": 13,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:3245e4d8e0, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:3245e4d8e0",
+   "title": "The Wandering Inn 13"
+  },
+  {
+   "key": "twi14",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi14.epub",
+   "book": 14,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:4affd34b67, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:4affd34b67",
+   "title": "The Wandering Inn 14"
+  },
+  {
+   "key": "twi15",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi15.epub",
+   "book": 15,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:31fd8b5e70, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:31fd8b5e70",
+   "title": "The Wandering Inn 15"
+  },
+  {
+   "key": "twi16",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi16.epub",
+   "book": 16,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:d1f2282951, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:d1f2282951",
+   "title": "The Wandering Inn 16"
+  },
+  {
+   "key": "twi18",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi18.epub",
+   "book": 18,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py files (Source Library sha256:8b35c96103, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:8b35c96103",
+   "title": "The Wandering Inn 18"
+  },
+  {
+   "key": "twi19",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi19.epub",
+   "book": 19,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py files (Source Library sha256:bbd3d9d6d0, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:bbd3d9d6d0",
+   "title": "The Wandering Inn 19"
+  },
+  {
+   "key": "chry1",
+   "world": "chry",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/source/chry1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/chrysalis/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 5
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py chunk (Source Library sha256:21f03c4692, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:21f03c4692",
+   "title": "Chrysalis 1"
+  },
+  {
+   "key": "chry3",
+   "world": "chry",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/source/chry3.epub",
+   "book": 3,
+   "dir": "docs/research/novels/chrysalis/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 5
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py chunk (Source Library sha256:575b971897, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:575b971897",
+   "title": "Chrysalis 3"
+  },
+  {
+   "key": "mlm1",
+   "world": "mlm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/source/mlm1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/millennial-mage/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:a4f787b2ec, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:a4f787b2ec",
+   "title": "Millennial Mage 1"
+  },
+  {
+   "key": "mlm2",
+   "world": "mlm",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/source/mlm2.epub",
+   "book": 2,
+   "dir": "docs/research/novels/millennial-mage/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:a46120c104, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:a46120c104",
+   "title": "Millennial Mage 2"
+  },
+  {
+   "key": "mnl1",
+   "world": "mnl",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/source/mnl1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/menocht-loop/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:65ac5331d7, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:65ac5331d7",
+   "title": "The Menocht Loop 1"
+  },
+  {
+   "key": "twi17",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi17.epub",
+   "book": 17,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py files (Source Library sha256:3149bf4e38, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:3149bf4e38",
+   "title": "The Wandering Inn 17"
+  },
+  {
+   "key": "thr1",
+   "world": "thr",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/source/thr1.epub",
+   "book": 1,
+   "dir": "docs/research/novels/threadbare/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library sha256:672dc92772, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:672dc92772",
+   "title": "Threadbare 1"
+  },
+  {
+   "key": "twi11",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi11.epub",
+   "book": 11,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto with SPLIT_OVER=35000 (Source Library sha256:c6d29518f6, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:c6d29518f6",
+   "title": "The Wandering Inn 11"
+  },
+  {
+   "key": "twi12",
+   "world": "twi",
+   "lang": "en",
+   "type": "html",
+   "source": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/source/twi12.epub",
+   "book": 12,
+   "dir": "docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+   "group": {
+    "target": 8000,
+    "max": 2
+   },
+   "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto with SPLIT_OVER=35000 (Source Library sha256:addbc20806, running chapter count 1..N, source number kept as [ch N] when it differs)",
+   "sourceLibraryId": "sha256:addbc20806",
+   "title": "The Wandering Inn 12"
   }
  ]
 }

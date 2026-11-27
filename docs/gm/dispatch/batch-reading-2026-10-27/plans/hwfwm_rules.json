@@ -6,21 +6,22 @@
  "effort": "high",
  "schemaMode": "prompt",
  "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
  "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30",
  "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/batch",
  "glossary": {
   "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30",
-  "censusMatch": "^(hwfwm)c\\d{3,}m_census\\.jsonl$"
+  "censusMatch": "^(hwfwm|hwfwm2|hwfwm3|hwfwm4|hwfwm5|hwfwm6|hwfwm7|hwfwm8|hwfwm9|hwfwm10|hwfwm11|hwfwm12|hwfwm13)c\\d{3,}m_census\\.jsonl$"
  },
  "label": "hwfwm-rules",
  "pass": "rules",
  "shards": [
-  {
-   "prefix": "hwfwmc001",
-   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm_b1_ch001-002.txt",
-   "base": "00101",
-   "chapters": "1-2"
-  },
   {
    "prefix": "hwfwmc003",
    "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm_b1_ch003-004.txt",

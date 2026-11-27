@@ -1,0 +1,206 @@
+{
+ "name": "2026-11-27-ph",
+ "approval": "Weibao 2026-11-27: \u201cYes, send out Using api, we need to use like 90$~ of claude api in like 10 days\u201d",
+ "ceilingUsd": 14.79,
+ "capTotal": 20.55,
+ "budgetFile": "docs/gm/dispatch/batch-reading-2026-10-27/plans/reading_budget_2026-11-27_litrpg-campaign.json",
+ "budgetReservation": "2026-11-27-ph",
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph1_pilot_rules.json",
+     "cap": 0.04,
+     "label": "ph1-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph2_pilot_rules.json",
+     "cap": 0.04,
+     "label": "ph2-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph3_pilot_rules.json",
+     "cap": 0.04,
+     "label": "ph3-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph4_pilot_rules.json",
+     "cap": 0.04,
+     "label": "ph4-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph5_pilot_rules.json",
+     "cap": 0.04,
+     "label": "ph5-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph6_pilot_rules.json",
+     "cap": 0.04,
+     "label": "ph6-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph7_pilot_rules.json",
+     "cap": 0.04,
+     "label": "ph7-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph8_pilot_rules.json",
+     "cap": 0.04,
+     "label": "ph8-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph9_pilot_rules.json",
+     "cap": 0.04,
+     "label": "ph9-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph10_pilot_rules.json",
+     "cap": 0.04,
+     "label": "ph10-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph11_pilot_rules.json",
+     "cap": 0.04,
+     "label": "ph11-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph12_pilot_rules.json",
+     "cap": 0.04,
+     "label": "ph12-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph13_pilot_rules.json",
+     "cap": 0.04,
+     "label": "ph13-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph14_pilot_rules.json",
+     "cap": 0.04,
+     "label": "ph14-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph15_pilot_rules.json",
+     "cap": 0.04,
+     "label": "ph15-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph16_pilot_rules.json",
+     "cap": 0.04,
+     "label": "ph16-pilot-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-1",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph1_rules.json",
+     "cap": 1.19,
+     "label": "ph1-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph2_rules.json",
+     "cap": 1.16,
+     "label": "ph2-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph3_rules.json",
+     "cap": 1.09,
+     "label": "ph3-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-2",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph4_rules.json",
+     "cap": 1.29,
+     "label": "ph4-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph5_rules.json",
+     "cap": 1.16,
+     "label": "ph5-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph6_rules.json",
+     "cap": 1.26,
+     "label": "ph6-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph7_rules.json",
+     "cap": 1.16,
+     "label": "ph7-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-3",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph8_rules.json",
+     "cap": 1.29,
+     "label": "ph8-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph9_rules.json",
+     "cap": 1.26,
+     "label": "ph9-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph10_rules.json",
+     "cap": 1.29,
+     "label": "ph10-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-4",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph11_rules.json",
+     "cap": 1.52,
+     "label": "ph11-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph12_rules.json",
+     "cap": 1.22,
+     "label": "ph12-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph13_rules.json",
+     "cap": 1.29,
+     "label": "ph13-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-5",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph14_rules.json",
+     "cap": 1.16,
+     "label": "ph14-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph15_rules.json",
+     "cap": 1.32,
+     "label": "ph15-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ph16_rules.json",
+     "cap": 1.25,
+     "label": "ph16-rules"
+    }
+   ]
+  }
+ ]
+}

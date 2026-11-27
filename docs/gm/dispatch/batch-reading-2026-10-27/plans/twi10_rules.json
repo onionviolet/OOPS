@@ -1,0 +1,122 @@
+{
+ "world": "twi",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+  "censusMatch": "^(twi|twi2|twi3|twi4|twi5|twi6|twi7|twi8|twi9|twi10|twi13|twi14|twi15|twi16|twi18|twi19|twi17|twi11|twi12)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "twi10-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "twi10c002",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/shard_twi10_b10_ch002-002.txt",
+   "base": "1000201",
+   "chapters": "2-2"
+  },
+  {
+   "prefix": "twi10c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/shard_twi10_b10_ch003-003.txt",
+   "base": "1000301",
+   "chapters": "3-3"
+  },
+  {
+   "prefix": "twi10c004",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/shard_twi10_b10_ch004-004.txt",
+   "base": "1000401",
+   "chapters": "4-4"
+  },
+  {
+   "prefix": "twi10c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/shard_twi10_b10_ch005-005.txt",
+   "base": "1000501",
+   "chapters": "5-5"
+  },
+  {
+   "prefix": "twi10c006",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/shard_twi10_b10_ch006-006.txt",
+   "base": "1000601",
+   "chapters": "6-6"
+  },
+  {
+   "prefix": "twi10c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/shard_twi10_b10_ch007-007.txt",
+   "base": "1000701",
+   "chapters": "7-7"
+  },
+  {
+   "prefix": "twi10c008",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/shard_twi10_b10_ch008-008.txt",
+   "base": "1000801",
+   "chapters": "8-8"
+  },
+  {
+   "prefix": "twi10c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/shard_twi10_b10_ch009-009.txt",
+   "base": "1000901",
+   "chapters": "9-9"
+  },
+  {
+   "prefix": "twi10c010",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/shard_twi10_b10_ch010-010.txt",
+   "base": "1001001",
+   "chapters": "10-10"
+  },
+  {
+   "prefix": "twi10c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/shard_twi10_b10_ch011-011.txt",
+   "base": "1001101",
+   "chapters": "11-11"
+  },
+  {
+   "prefix": "twi10c012",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/shard_twi10_b10_ch012-012.txt",
+   "base": "1001201",
+   "chapters": "12-12"
+  },
+  {
+   "prefix": "twi10c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/shard_twi10_b10_ch013-013.txt",
+   "base": "1001301",
+   "chapters": "13-13"
+  },
+  {
+   "prefix": "twi10c014",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/shard_twi10_b10_ch014-014.txt",
+   "base": "1001401",
+   "chapters": "14-14"
+  },
+  {
+   "prefix": "twi10c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/shard_twi10_b10_ch015-015.txt",
+   "base": "1001501",
+   "chapters": "15-15"
+  },
+  {
+   "prefix": "twi10c016",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/shard_twi10_b10_ch016-016.txt",
+   "base": "1001601",
+   "chapters": "16-16"
+  },
+  {
+   "prefix": "twi10c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/shard_twi10_b10_ch017-017.txt",
+   "base": "1001701",
+   "chapters": "17-17"
+  }
+ ]
+}

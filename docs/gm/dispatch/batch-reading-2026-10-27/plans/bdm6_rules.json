@@ -1,0 +1,140 @@
+{
+ "world": "bdm",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30",
+  "censusMatch": "^(bdm|bdm2|bdm8|bdm9|bdm3|bdm4|bdm5|bdm6|bdm7)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "bdm6-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "bdm6c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch003-004.txt",
+   "base": "600301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "bdm6c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch005-006.txt",
+   "base": "600501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "bdm6c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch007-008.txt",
+   "base": "600701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "bdm6c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch009-010.txt",
+   "base": "600901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "bdm6c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch011-011.txt",
+   "base": "601101",
+   "chapters": "11-11"
+  },
+  {
+   "prefix": "bdm6c012",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch012-013.txt",
+   "base": "601201",
+   "chapters": "12-13"
+  },
+  {
+   "prefix": "bdm6c014",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch014-015.txt",
+   "base": "601401",
+   "chapters": "14-15"
+  },
+  {
+   "prefix": "bdm6c016",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch016-016.txt",
+   "base": "601601",
+   "chapters": "16-16"
+  },
+  {
+   "prefix": "bdm6c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch017-017.txt",
+   "base": "601701",
+   "chapters": "17-17"
+  },
+  {
+   "prefix": "bdm6c018",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch018-019.txt",
+   "base": "601801",
+   "chapters": "18-19"
+  },
+  {
+   "prefix": "bdm6c020",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch020-021.txt",
+   "base": "602001",
+   "chapters": "20-21"
+  },
+  {
+   "prefix": "bdm6c022",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch022-023.txt",
+   "base": "602201",
+   "chapters": "22-23"
+  },
+  {
+   "prefix": "bdm6c024",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch024-025.txt",
+   "base": "602401",
+   "chapters": "24-25"
+  },
+  {
+   "prefix": "bdm6c026",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch026-027.txt",
+   "base": "602601",
+   "chapters": "26-27"
+  },
+  {
+   "prefix": "bdm6c028",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch028-029.txt",
+   "base": "602801",
+   "chapters": "28-29"
+  },
+  {
+   "prefix": "bdm6c030",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch030-031.txt",
+   "base": "603001",
+   "chapters": "30-31"
+  },
+  {
+   "prefix": "bdm6c032",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch032-032.txt",
+   "base": "603201",
+   "chapters": "32-32"
+  },
+  {
+   "prefix": "bdm6c033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch033-033.txt",
+   "base": "603301",
+   "chapters": "33-33"
+  },
+  {
+   "prefix": "bdm6c034",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dragoneye-moons/private/lead-run-2026-10-30/shard_bdm6_b6_ch034-034.txt",
+   "base": "603401",
+   "chapters": "34-34"
+  }
+ ]
+}

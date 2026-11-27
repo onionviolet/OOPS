@@ -1,0 +1,32 @@
+{
+ "world": "dcc",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30",
+  "censusMatch": "^(dcc1|dcc2|dcc3|dcc4|dcc5|dcc6|dcc7|dcc8)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "dcc3-pilot-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "dcc3c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc3_b3_ch001-001.txt",
+   "base": "300101",
+   "chapters": "1-1"
+  }
+ ]
+}

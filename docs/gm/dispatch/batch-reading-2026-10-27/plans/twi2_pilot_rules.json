@@ -1,0 +1,32 @@
+{
+ "world": "twi",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30",
+  "censusMatch": "^(twi|twi2|twi3|twi4|twi5|twi6|twi7|twi8|twi9|twi10|twi13|twi14|twi15|twi16|twi18|twi19|twi17|twi11|twi12)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "twi2-pilot-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "twi2c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/wandering-inn/private/lead-run-2026-10-30/shard_twi2_b2_ch001-001.txt",
+   "base": "200101",
+   "chapters": "1-1"
+  }
+ ]
+}

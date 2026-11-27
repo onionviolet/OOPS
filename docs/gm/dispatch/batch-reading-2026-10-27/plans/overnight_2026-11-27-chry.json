@@ -1,0 +1,96 @@
+{
+ "name": "2026-11-27-chry",
+ "approval": "Weibao 2026-11-27: \u201cYes, send out Using api, we need to use like 90$~ of claude api in like 10 days\u201d",
+ "ceilingUsd": 3.29,
+ "capTotal": 4.58,
+ "budgetFile": "docs/gm/dispatch/batch-reading-2026-10-27/plans/reading_budget_2026-11-27_litrpg-campaign.json",
+ "budgetReservation": "2026-11-27-chry",
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry2_pilot_rules.json",
+     "cap": 0.04,
+     "label": "chry2-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry4_pilot_rules.json",
+     "cap": 0.04,
+     "label": "chry4-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry5_pilot_rules.json",
+     "cap": 0.04,
+     "label": "chry5-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry1_pilot_rules.json",
+     "cap": 0.04,
+     "label": "chry1-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry3_pilot_rules.json",
+     "cap": 0.04,
+     "label": "chry3-pilot-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-1",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry2_rules.json",
+     "cap": 0.86,
+     "label": "chry2-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-2",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry4_rules.json",
+     "cap": 0.86,
+     "label": "chry4-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-3",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry5_rules.json",
+     "cap": 1.03,
+     "label": "chry5-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-4",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry1_rules.json",
+     "cap": 0.77,
+     "label": "chry1-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-5",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry3_rules.json",
+     "cap": 0.86,
+     "label": "chry3-rules"
+    }
+   ]
+  }
+ ]
+}

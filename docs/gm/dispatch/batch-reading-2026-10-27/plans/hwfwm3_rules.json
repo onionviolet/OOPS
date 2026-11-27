@@ -1,0 +1,254 @@
+{
+ "world": "hwfwm",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30",
+  "censusMatch": "^(hwfwm|hwfwm2|hwfwm3|hwfwm4|hwfwm5|hwfwm6|hwfwm7|hwfwm8|hwfwm9|hwfwm10|hwfwm11|hwfwm12|hwfwm13)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "hwfwm3-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "hwfwm3c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch003-004.txt",
+   "base": "300301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "hwfwm3c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch005-006.txt",
+   "base": "300501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "hwfwm3c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch007-008.txt",
+   "base": "300701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "hwfwm3c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch009-010.txt",
+   "base": "300901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "hwfwm3c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch011-012.txt",
+   "base": "301101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "hwfwm3c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch013-014.txt",
+   "base": "301301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "hwfwm3c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch015-016.txt",
+   "base": "301501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "hwfwm3c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch017-018.txt",
+   "base": "301701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "hwfwm3c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch019-020.txt",
+   "base": "301901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "hwfwm3c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch021-022.txt",
+   "base": "302101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "hwfwm3c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch023-024.txt",
+   "base": "302301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "hwfwm3c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch025-026.txt",
+   "base": "302501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "hwfwm3c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch027-028.txt",
+   "base": "302701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "hwfwm3c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch029-030.txt",
+   "base": "302901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "hwfwm3c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch031-032.txt",
+   "base": "303101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "hwfwm3c033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch033-034.txt",
+   "base": "303301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "hwfwm3c035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch035-036.txt",
+   "base": "303501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "hwfwm3c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch037-038.txt",
+   "base": "303701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "hwfwm3c039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch039-040.txt",
+   "base": "303901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "hwfwm3c041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch041-042.txt",
+   "base": "304101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "hwfwm3c043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch043-044.txt",
+   "base": "304301",
+   "chapters": "43-44"
+  },
+  {
+   "prefix": "hwfwm3c045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch045-046.txt",
+   "base": "304501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "hwfwm3c047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch047-048.txt",
+   "base": "304701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "hwfwm3c049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch049-050.txt",
+   "base": "304901",
+   "chapters": "49-50"
+  },
+  {
+   "prefix": "hwfwm3c051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch051-052.txt",
+   "base": "305101",
+   "chapters": "51-52"
+  },
+  {
+   "prefix": "hwfwm3c053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch053-054.txt",
+   "base": "305301",
+   "chapters": "53-54"
+  },
+  {
+   "prefix": "hwfwm3c055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch055-056.txt",
+   "base": "305501",
+   "chapters": "55-56"
+  },
+  {
+   "prefix": "hwfwm3c057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch057-058.txt",
+   "base": "305701",
+   "chapters": "57-58"
+  },
+  {
+   "prefix": "hwfwm3c059",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch059-060.txt",
+   "base": "305901",
+   "chapters": "59-60"
+  },
+  {
+   "prefix": "hwfwm3c061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch061-062.txt",
+   "base": "306101",
+   "chapters": "61-62"
+  },
+  {
+   "prefix": "hwfwm3c063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch063-064.txt",
+   "base": "306301",
+   "chapters": "63-64"
+  },
+  {
+   "prefix": "hwfwm3c065",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch065-066.txt",
+   "base": "306501",
+   "chapters": "65-66"
+  },
+  {
+   "prefix": "hwfwm3c067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch067-068.txt",
+   "base": "306701",
+   "chapters": "67-68"
+  },
+  {
+   "prefix": "hwfwm3c069",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch069-070.txt",
+   "base": "306901",
+   "chapters": "69-70"
+  },
+  {
+   "prefix": "hwfwm3c071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch071-072.txt",
+   "base": "307101",
+   "chapters": "71-72"
+  },
+  {
+   "prefix": "hwfwm3c073",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch073-074.txt",
+   "base": "307301",
+   "chapters": "73-74"
+  },
+  {
+   "prefix": "hwfwm3c075",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch075-076.txt",
+   "base": "307501",
+   "chapters": "75-76"
+  },
+  {
+   "prefix": "hwfwm3c077",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/he-who-fights-with-monsters/private/lead-run-2026-10-30/shard_hwfwm3_b3_ch077-078.txt",
+   "base": "307701",
+   "chapters": "77-78"
+  }
+ ]
+}

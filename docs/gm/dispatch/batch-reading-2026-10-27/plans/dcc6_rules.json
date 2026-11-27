@@ -1,0 +1,284 @@
+{
+ "world": "dcc",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30",
+  "censusMatch": "^(dcc1|dcc2|dcc3|dcc4|dcc5|dcc6|dcc7|dcc8)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "dcc6-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "dcc6c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch003-004.txt",
+   "base": "600301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "dcc6c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch005-005.txt",
+   "base": "600501",
+   "chapters": "5-5"
+  },
+  {
+   "prefix": "dcc6c006",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch006-006.txt",
+   "base": "600601",
+   "chapters": "6-6"
+  },
+  {
+   "prefix": "dcc6c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch007-008.txt",
+   "base": "600701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "dcc6c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch009-010.txt",
+   "base": "600901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "dcc6c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch011-012.txt",
+   "base": "601101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "dcc6c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch013-013.txt",
+   "base": "601301",
+   "chapters": "13-13"
+  },
+  {
+   "prefix": "dcc6c014",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch014-015.txt",
+   "base": "601401",
+   "chapters": "14-15"
+  },
+  {
+   "prefix": "dcc6c016",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch016-016.txt",
+   "base": "601601",
+   "chapters": "16-16"
+  },
+  {
+   "prefix": "dcc6c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch017-017.txt",
+   "base": "601701",
+   "chapters": "17-17"
+  },
+  {
+   "prefix": "dcc6c018",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch018-019.txt",
+   "base": "601801",
+   "chapters": "18-19"
+  },
+  {
+   "prefix": "dcc6c020",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch020-020.txt",
+   "base": "602001",
+   "chapters": "20-20"
+  },
+  {
+   "prefix": "dcc6c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch021-022.txt",
+   "base": "602101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "dcc6c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch023-023.txt",
+   "base": "602301",
+   "chapters": "23-23"
+  },
+  {
+   "prefix": "dcc6c024",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch024-025.txt",
+   "base": "602401",
+   "chapters": "24-25"
+  },
+  {
+   "prefix": "dcc6c026",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch026-027.txt",
+   "base": "602601",
+   "chapters": "26-27"
+  },
+  {
+   "prefix": "dcc6c028",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch028-029.txt",
+   "base": "602801",
+   "chapters": "28-29"
+  },
+  {
+   "prefix": "dcc6c030",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch030-031.txt",
+   "base": "603001",
+   "chapters": "30-31"
+  },
+  {
+   "prefix": "dcc6c032",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch032-033.txt",
+   "base": "603201",
+   "chapters": "32-33"
+  },
+  {
+   "prefix": "dcc6c034",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch034-034.txt",
+   "base": "603401",
+   "chapters": "34-34"
+  },
+  {
+   "prefix": "dcc6c035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch035-036.txt",
+   "base": "603501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "dcc6c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch037-038.txt",
+   "base": "603701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "dcc6c039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch039-040.txt",
+   "base": "603901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "dcc6c041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch041-042.txt",
+   "base": "604101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "dcc6c043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch043-043.txt",
+   "base": "604301",
+   "chapters": "43-43"
+  },
+  {
+   "prefix": "dcc6c044",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch044-045.txt",
+   "base": "604401",
+   "chapters": "44-45"
+  },
+  {
+   "prefix": "dcc6c046",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch046-047.txt",
+   "base": "604601",
+   "chapters": "46-47"
+  },
+  {
+   "prefix": "dcc6c048",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch048-048.txt",
+   "base": "604801",
+   "chapters": "48-48"
+  },
+  {
+   "prefix": "dcc6c049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch049-049.txt",
+   "base": "604901",
+   "chapters": "49-49"
+  },
+  {
+   "prefix": "dcc6c050",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch050-051.txt",
+   "base": "605001",
+   "chapters": "50-51"
+  },
+  {
+   "prefix": "dcc6c052",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch052-053.txt",
+   "base": "605201",
+   "chapters": "52-53"
+  },
+  {
+   "prefix": "dcc6c054",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch054-055.txt",
+   "base": "605401",
+   "chapters": "54-55"
+  },
+  {
+   "prefix": "dcc6c056",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch056-057.txt",
+   "base": "605601",
+   "chapters": "56-57"
+  },
+  {
+   "prefix": "dcc6c058",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch058-059.txt",
+   "base": "605801",
+   "chapters": "58-59"
+  },
+  {
+   "prefix": "dcc6c060",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch060-061.txt",
+   "base": "606001",
+   "chapters": "60-61"
+  },
+  {
+   "prefix": "dcc6c062",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch062-063.txt",
+   "base": "606201",
+   "chapters": "62-63"
+  },
+  {
+   "prefix": "dcc6c064",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch064-065.txt",
+   "base": "606401",
+   "chapters": "64-65"
+  },
+  {
+   "prefix": "dcc6c066",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch066-067.txt",
+   "base": "606601",
+   "chapters": "66-67"
+  },
+  {
+   "prefix": "dcc6c068",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch068-069.txt",
+   "base": "606801",
+   "chapters": "68-69"
+  },
+  {
+   "prefix": "dcc6c070",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch070-071.txt",
+   "base": "607001",
+   "chapters": "70-71"
+  },
+  {
+   "prefix": "dcc6c072",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch072-073.txt",
+   "base": "607201",
+   "chapters": "72-73"
+  },
+  {
+   "prefix": "dcc6c074",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch074-074.txt",
+   "base": "607401",
+   "chapters": "74-74"
+  },
+  {
+   "prefix": "dcc6c075",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/dungeon-crawler-carl/private/lead-run-2026-10-30/shard_dcc6_b6_ch075-075.txt",
+   "base": "607501",
+   "chapters": "75-75"
+  }
+ ]
+}

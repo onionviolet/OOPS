@@ -8,13 +8,17 @@ rtoc (A Regressor's Tale of Cultivation, Calibre 17: titles come from toc.ncx, f
 own number is appended to the title as `[site ch N]` when it differs; site ad, Discord and translator lines at the start and end of each file are dropped),
 gen (any EPUB whose chapters open with a `Chapter N` block, `Chapter N: Title`, or `Chapter N` then a short title block; running count 1..N, source number kept as `[ch N]` when it differs;
 stops at back matter or a numbering restart after 10 chapters),
+glued (one chapter per spine file opening `ChapterN Title` with no separator, decimal interludes allowed),
+chunk (EPUBs whose chapter headings were stripped: story text cut into synthetic `Chapter N: Part N` blocks of about 3,500 words at paragraph boundaries; locators are synthetic, not the book's own),
 spine (one chapter per spine file of enough text), auto (gen, else spine when gen finds fewer than 4)."""
-import sys, re, zipfile, html, posixpath
+import sys, os, re, zipfile, html, posixpath
 from urllib.parse import unquote
 
 def blocks(x):
     x = re.sub(r'<(script|style)[\s\S]*?</\1>', '', x, flags=re.I)
-    pat = r'<(?:p|h[1-6])[^>]*>([\s\S]*?)</(?:p|h[1-6])>' if re.search(r'<p[\b\s>]', x, re.I) else r'<div[^>]*>((?:(?!<div)[\s\S])*?)</div>'
+    # <p> blocks, unless the file is mostly <div> paragraphs (Royal Road captures such as Threadbare: a few stray <p>, one <div> per paragraph, the title in <h3>)
+    np_, nd_ = len(re.findall(r'<p[\b\s>]', x, re.I)), len(re.findall(r'<div[\b\s>]', x, re.I))
+    pat = r'<(?:p|h[1-6])[^>]*>([\s\S]*?)</(?:p|h[1-6])>' if np_ and np_ * 2 >= nd_ else r'<(?:div|h[1-6])[^>]*>((?:(?!<div)[\s\S])*?)</(?:div|h[1-6])>'
     out = []
     for m in re.finditer(pat, x, re.I):
         t = html.unescape(re.sub(r'<[^>]+>', '', m.group(1))).replace(' ', ' ')
@@ -135,7 +139,48 @@ def auto_chapters(z):
     if g and len(g[0][1]) > 6 and g[0][1].lower() in dt: g = [(i + 1, t, b) for i, (_, t, b) in enumerate(g[1:])]
     return g
 
+def glued_chapters(z):
+    """One chapter per spine file whose first block is `ChapterN Title` with no separator (Dragoneye Moons 3-7), including `Chapter 4.5` interludes; running count 1..N, source number kept as `[ch N]` when it differs."""
+    out = []
+    for p in spine(z):
+        b = blocks(z.read(p).decode('utf8'))
+        if len(b) < 6 or sum(len(x.split()) for x in b) < 300: continue
+        m = re.match(r'Chapter\s*(\d+(?:\.\d+)?)\s*(.*)$', b[0], re.I) if len(b[0]) < 120 else None
+        if not m: continue
+        n = len(out) + 1
+        out.append((n, (m.group(2).strip() or 'Untitled') + ('' if m.group(1) == str(n) else ' [ch %s]' % m.group(1)), b[1:]))
+    return out
+
+def files_chapters(z):
+    """One chapter per xhtml file in name order, for repaired web-text compilations whose OPF is namespace-prefixed (Wandering Inn 18-19); the first block is the title and is kept as the web serial's own number (for example `7.43 G`)."""
+    out = []
+    for n in sorted(x for x in z.namelist() if x.lower().endswith(('.xhtml', '.html')) and '/text/' in x.lower()):
+        b = blocks(z.read(n).decode('utf8'))
+        if len(b) < 10: continue
+        out.append((len(out) + 1, b[0][:80], b[1:]))
+    return out
+
+def chunk_chapters(z, target=3500):
+    flat = []
+    for p in spine(z):
+        for b in blocks(z.read(p).decode('utf8')):
+            if re.fullmatch(r'(oceanofpdf\.com|document outline)', b, re.I): continue
+            flat.append(b)
+    k = 0
+    while k < len(flat) and len(flat[k]) < 150: k += 1  # title page and copyright lines before the first story paragraph
+    flat = flat[k:]
+    out, cur, words = [], [], 0
+    for b in flat:
+        cur.append(b); words += len(b.split())
+        if words >= target: out.append((len(out) + 1, 'Part %d' % (len(out) + 1), cur)); cur, words = [], 0
+    if cur and (words >= target // 3 or not out): out.append((len(out) + 1, 'Part %d' % (len(out) + 1), cur))
+    elif cur: out[-1][2].extend(cur)
+    return out
+
 def chapters(mode, z, vol=0):
+    if mode == 'chunk': return chunk_chapters(z)
+    if mode == 'files': return files_chapters(z)
+    if mode == 'glued': return glued_chapters(z)
     if mode == 'auto': return auto_chapters(z)
     if mode == 'spine': return spine_chapters(z)
     if mode == 'gen': return gen_chapters(z)
@@ -169,6 +214,18 @@ def chapters(mode, z, vol=0):
 if __name__ == '__main__':
     mode, src, dst = sys.argv[1:4]
     chs = chapters(mode, zipfile.ZipFile(src), int(sys.argv[4]) if len(sys.argv) > 4 else 0)
+    so = int(os.environ.get('SPLIT_OVER') or 0)  # env SPLIT_OVER=N: a chapter over N words is cut into equal parts at paragraph boundaries (`Title (part k of m)`), so no shard passes the prompt-price tier
+    if so:
+        parts = []
+        for n, ti, ps in chs:
+            w = sum(len(x.split()) for x in ps); m = -(-w // so)
+            if m < 2: parts.append((n, ti, ps)); continue
+            per, cur, acc, k = w / m, [], 0, 1
+            for x in ps:
+                cur.append(x); acc += len(x.split())
+                if acc >= per and k < m: parts.append((0, '%s (part %d of %d)' % (ti, k, m), cur)); cur, acc, k = [], 0, k + 1
+            parts.append((0, '%s (part %d of %d)' % (ti, k, m), cur))
+        chs = [(i + 1, ti, ps) for i, (_, ti, ps) in enumerate(parts)]
     o = ['<html><head><meta charset="utf-8"><title>%s</title></head><body>' % html.escape(posixpath.basename(src))]
     for n, t, ps in chs:
         o.append('<h1>Chapter %d: %s</h1>' % (n, html.escape(t)))

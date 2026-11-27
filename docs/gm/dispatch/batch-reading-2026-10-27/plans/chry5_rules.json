@@ -1,0 +1,212 @@
+{
+ "world": "chry",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30",
+  "censusMatch": "^(chry2|chry4|chry5|chry6|chry7|chry8|chry9|chry1|chry3)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "chry5-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "chry5c006",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch006-010.txt",
+   "base": "500601",
+   "chapters": "6-10"
+  },
+  {
+   "prefix": "chry5c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch011-015.txt",
+   "base": "501101",
+   "chapters": "11-15"
+  },
+  {
+   "prefix": "chry5c016",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch016-020.txt",
+   "base": "501601",
+   "chapters": "16-20"
+  },
+  {
+   "prefix": "chry5c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch021-025.txt",
+   "base": "502101",
+   "chapters": "21-25"
+  },
+  {
+   "prefix": "chry5c026",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch026-030.txt",
+   "base": "502601",
+   "chapters": "26-30"
+  },
+  {
+   "prefix": "chry5c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch031-035.txt",
+   "base": "503101",
+   "chapters": "31-35"
+  },
+  {
+   "prefix": "chry5c036",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch036-040.txt",
+   "base": "503601",
+   "chapters": "36-40"
+  },
+  {
+   "prefix": "chry5c041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch041-045.txt",
+   "base": "504101",
+   "chapters": "41-45"
+  },
+  {
+   "prefix": "chry5c046",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch046-050.txt",
+   "base": "504601",
+   "chapters": "46-50"
+  },
+  {
+   "prefix": "chry5c051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch051-055.txt",
+   "base": "505101",
+   "chapters": "51-55"
+  },
+  {
+   "prefix": "chry5c056",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch056-060.txt",
+   "base": "505601",
+   "chapters": "56-60"
+  },
+  {
+   "prefix": "chry5c061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch061-065.txt",
+   "base": "506101",
+   "chapters": "61-65"
+  },
+  {
+   "prefix": "chry5c066",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch066-070.txt",
+   "base": "506601",
+   "chapters": "66-70"
+  },
+  {
+   "prefix": "chry5c071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch071-075.txt",
+   "base": "507101",
+   "chapters": "71-75"
+  },
+  {
+   "prefix": "chry5c076",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch076-080.txt",
+   "base": "507601",
+   "chapters": "76-80"
+  },
+  {
+   "prefix": "chry5c081",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch081-085.txt",
+   "base": "508101",
+   "chapters": "81-85"
+  },
+  {
+   "prefix": "chry5c086",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch086-090.txt",
+   "base": "508601",
+   "chapters": "86-90"
+  },
+  {
+   "prefix": "chry5c091",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch091-095.txt",
+   "base": "509101",
+   "chapters": "91-95"
+  },
+  {
+   "prefix": "chry5c096",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch096-100.txt",
+   "base": "509601",
+   "chapters": "96-100"
+  },
+  {
+   "prefix": "chry5c101",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch101-105.txt",
+   "base": "510101",
+   "chapters": "101-105"
+  },
+  {
+   "prefix": "chry5c106",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch106-110.txt",
+   "base": "510601",
+   "chapters": "106-110"
+  },
+  {
+   "prefix": "chry5c111",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch111-115.txt",
+   "base": "511101",
+   "chapters": "111-115"
+  },
+  {
+   "prefix": "chry5c116",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch116-120.txt",
+   "base": "511601",
+   "chapters": "116-120"
+  },
+  {
+   "prefix": "chry5c121",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch121-125.txt",
+   "base": "512101",
+   "chapters": "121-125"
+  },
+  {
+   "prefix": "chry5c126",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch126-130.txt",
+   "base": "512601",
+   "chapters": "126-130"
+  },
+  {
+   "prefix": "chry5c131",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch131-135.txt",
+   "base": "513101",
+   "chapters": "131-135"
+  },
+  {
+   "prefix": "chry5c136",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch136-140.txt",
+   "base": "513601",
+   "chapters": "136-140"
+  },
+  {
+   "prefix": "chry5c141",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch141-145.txt",
+   "base": "514101",
+   "chapters": "141-145"
+  },
+  {
+   "prefix": "chry5c146",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch146-150.txt",
+   "base": "514601",
+   "chapters": "146-150"
+  },
+  {
+   "prefix": "chry5c151",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch151-155.txt",
+   "base": "515101",
+   "chapters": "151-155"
+  },
+  {
+   "prefix": "chry5c156",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/chrysalis/private/lead-run-2026-10-30/shard_chry5_b5_ch156-156.txt",
+   "base": "515601",
+   "chapters": "156-156"
+  }
+ ]
+}

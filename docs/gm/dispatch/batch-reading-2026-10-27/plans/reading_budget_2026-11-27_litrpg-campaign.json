@@ -1,0 +1,37 @@
+{
+ "ceilingUsd": 90,
+ "reservedUsd": 89.34,
+ "unallocatedUsd": 0.66,
+ "approval": "Weibao 2026-11-27: \u201cYes, send out Using api, we need to use like 90$~ of claude api in like 10 days\u201d",
+ "note": "Campaign ceiling is $90 of recorded spend plus reservations. Each reservation is its run file capTotal (true bound). Replace a finished run reservation with its measured spend (receipt-based) to free headroom for the next phase; do not raise the ceiling.",
+ "reservations": [
+  {
+   "id": "2026-11-27-az",
+   "capUsd": 8.78
+  },
+  {
+   "id": "2026-11-27-bdm",
+   "capUsd": 6.88
+  },
+  {
+   "id": "2026-11-27-chry",
+   "capUsd": 4.58
+  },
+  {
+   "id": "2026-11-27-dcc",
+   "capUsd": 9.88
+  },
+  {
+   "id": "2026-11-27-hwfwm",
+   "capUsd": 17.46
+  },
+  {
+   "id": "2026-11-27-ph",
+   "capUsd": 20.55
+  },
+  {
+   "id": "2026-11-27-twi",
+   "capUsd": 21.21
+  }
+ ]
+}

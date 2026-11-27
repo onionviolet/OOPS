@@ -1,0 +1,338 @@
+{
+ "world": "az",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30",
+  "censusMatch": "^(az|az2|az3|az4|az5|az6|az7)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "az4-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "az4c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch003-004.txt",
+   "base": "400301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "az4c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch005-006.txt",
+   "base": "400501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "az4c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch007-008.txt",
+   "base": "400701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "az4c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch009-010.txt",
+   "base": "400901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "az4c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch011-011.txt",
+   "base": "401101",
+   "chapters": "11-11"
+  },
+  {
+   "prefix": "az4c012",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch012-012.txt",
+   "base": "401201",
+   "chapters": "12-12"
+  },
+  {
+   "prefix": "az4c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch013-013.txt",
+   "base": "401301",
+   "chapters": "13-13"
+  },
+  {
+   "prefix": "az4c014",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch014-014.txt",
+   "base": "401401",
+   "chapters": "14-14"
+  },
+  {
+   "prefix": "az4c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch015-015.txt",
+   "base": "401501",
+   "chapters": "15-15"
+  },
+  {
+   "prefix": "az4c016",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch016-016.txt",
+   "base": "401601",
+   "chapters": "16-16"
+  },
+  {
+   "prefix": "az4c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch017-017.txt",
+   "base": "401701",
+   "chapters": "17-17"
+  },
+  {
+   "prefix": "az4c018",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch018-019.txt",
+   "base": "401801",
+   "chapters": "18-19"
+  },
+  {
+   "prefix": "az4c020",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch020-021.txt",
+   "base": "402001",
+   "chapters": "20-21"
+  },
+  {
+   "prefix": "az4c022",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch022-023.txt",
+   "base": "402201",
+   "chapters": "22-23"
+  },
+  {
+   "prefix": "az4c024",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch024-025.txt",
+   "base": "402401",
+   "chapters": "24-25"
+  },
+  {
+   "prefix": "az4c026",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch026-027.txt",
+   "base": "402601",
+   "chapters": "26-27"
+  },
+  {
+   "prefix": "az4c028",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch028-029.txt",
+   "base": "402801",
+   "chapters": "28-29"
+  },
+  {
+   "prefix": "az4c030",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch030-031.txt",
+   "base": "403001",
+   "chapters": "30-31"
+  },
+  {
+   "prefix": "az4c032",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch032-033.txt",
+   "base": "403201",
+   "chapters": "32-33"
+  },
+  {
+   "prefix": "az4c034",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch034-035.txt",
+   "base": "403401",
+   "chapters": "34-35"
+  },
+  {
+   "prefix": "az4c036",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch036-037.txt",
+   "base": "403601",
+   "chapters": "36-37"
+  },
+  {
+   "prefix": "az4c038",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch038-039.txt",
+   "base": "403801",
+   "chapters": "38-39"
+  },
+  {
+   "prefix": "az4c040",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch040-041.txt",
+   "base": "404001",
+   "chapters": "40-41"
+  },
+  {
+   "prefix": "az4c042",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch042-043.txt",
+   "base": "404201",
+   "chapters": "42-43"
+  },
+  {
+   "prefix": "az4c044",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch044-045.txt",
+   "base": "404401",
+   "chapters": "44-45"
+  },
+  {
+   "prefix": "az4c046",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch046-047.txt",
+   "base": "404601",
+   "chapters": "46-47"
+  },
+  {
+   "prefix": "az4c048",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch048-049.txt",
+   "base": "404801",
+   "chapters": "48-49"
+  },
+  {
+   "prefix": "az4c050",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch050-051.txt",
+   "base": "405001",
+   "chapters": "50-51"
+  },
+  {
+   "prefix": "az4c052",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch052-053.txt",
+   "base": "405201",
+   "chapters": "52-53"
+  },
+  {
+   "prefix": "az4c054",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch054-055.txt",
+   "base": "405401",
+   "chapters": "54-55"
+  },
+  {
+   "prefix": "az4c056",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch056-057.txt",
+   "base": "405601",
+   "chapters": "56-57"
+  },
+  {
+   "prefix": "az4c058",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch058-059.txt",
+   "base": "405801",
+   "chapters": "58-59"
+  },
+  {
+   "prefix": "az4c060",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch060-061.txt",
+   "base": "406001",
+   "chapters": "60-61"
+  },
+  {
+   "prefix": "az4c062",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch062-063.txt",
+   "base": "406201",
+   "chapters": "62-63"
+  },
+  {
+   "prefix": "az4c064",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch064-065.txt",
+   "base": "406401",
+   "chapters": "64-65"
+  },
+  {
+   "prefix": "az4c066",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch066-067.txt",
+   "base": "406601",
+   "chapters": "66-67"
+  },
+  {
+   "prefix": "az4c068",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch068-069.txt",
+   "base": "406801",
+   "chapters": "68-69"
+  },
+  {
+   "prefix": "az4c070",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch070-071.txt",
+   "base": "407001",
+   "chapters": "70-71"
+  },
+  {
+   "prefix": "az4c072",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch072-073.txt",
+   "base": "407201",
+   "chapters": "72-73"
+  },
+  {
+   "prefix": "az4c074",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch074-075.txt",
+   "base": "407401",
+   "chapters": "74-75"
+  },
+  {
+   "prefix": "az4c076",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch076-077.txt",
+   "base": "407601",
+   "chapters": "76-77"
+  },
+  {
+   "prefix": "az4c078",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch078-079.txt",
+   "base": "407801",
+   "chapters": "78-79"
+  },
+  {
+   "prefix": "az4c080",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch080-081.txt",
+   "base": "408001",
+   "chapters": "80-81"
+  },
+  {
+   "prefix": "az4c082",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch082-083.txt",
+   "base": "408201",
+   "chapters": "82-83"
+  },
+  {
+   "prefix": "az4c084",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch084-085.txt",
+   "base": "408401",
+   "chapters": "84-85"
+  },
+  {
+   "prefix": "az4c086",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch086-087.txt",
+   "base": "408601",
+   "chapters": "86-87"
+  },
+  {
+   "prefix": "az4c088",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch088-089.txt",
+   "base": "408801",
+   "chapters": "88-89"
+  },
+  {
+   "prefix": "az4c090",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch090-091.txt",
+   "base": "409001",
+   "chapters": "90-91"
+  },
+  {
+   "prefix": "az4c092",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch092-093.txt",
+   "base": "409201",
+   "chapters": "92-93"
+  },
+  {
+   "prefix": "az4c094",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch094-095.txt",
+   "base": "409401",
+   "chapters": "94-95"
+  },
+  {
+   "prefix": "az4c096",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch096-097.txt",
+   "base": "409601",
+   "chapters": "96-97"
+  },
+  {
+   "prefix": "az4c098",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/azarinth-healer/private/lead-run-2026-10-30/shard_az4_b4_ch098-099.txt",
+   "base": "409801",
+   "chapters": "98-99"
+  }
+ ]
+}

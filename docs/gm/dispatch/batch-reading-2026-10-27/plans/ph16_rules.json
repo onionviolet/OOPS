@@ -1,0 +1,254 @@
+{
+ "world": "ph",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30",
+  "censusMatch": "^(ph1|ph2|ph3|ph4|ph5|ph6|ph7|ph8|ph9|ph10|ph11|ph12|ph13|ph14|ph15|ph16)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "ph16-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "ph16c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch003-004.txt",
+   "base": "1600301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "ph16c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch005-006.txt",
+   "base": "1600501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "ph16c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch007-008.txt",
+   "base": "1600701",
+   "chapters": "7-8"
+  },
+  {
+   "prefix": "ph16c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch009-010.txt",
+   "base": "1600901",
+   "chapters": "9-10"
+  },
+  {
+   "prefix": "ph16c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch011-012.txt",
+   "base": "1601101",
+   "chapters": "11-12"
+  },
+  {
+   "prefix": "ph16c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch013-014.txt",
+   "base": "1601301",
+   "chapters": "13-14"
+  },
+  {
+   "prefix": "ph16c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch015-016.txt",
+   "base": "1601501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "ph16c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch017-018.txt",
+   "base": "1601701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "ph16c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch019-020.txt",
+   "base": "1601901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "ph16c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch021-022.txt",
+   "base": "1602101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "ph16c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch023-024.txt",
+   "base": "1602301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "ph16c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch025-026.txt",
+   "base": "1602501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "ph16c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch027-028.txt",
+   "base": "1602701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "ph16c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch029-030.txt",
+   "base": "1602901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "ph16c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch031-032.txt",
+   "base": "1603101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "ph16c033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch033-034.txt",
+   "base": "1603301",
+   "chapters": "33-34"
+  },
+  {
+   "prefix": "ph16c035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch035-036.txt",
+   "base": "1603501",
+   "chapters": "35-36"
+  },
+  {
+   "prefix": "ph16c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch037-038.txt",
+   "base": "1603701",
+   "chapters": "37-38"
+  },
+  {
+   "prefix": "ph16c039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch039-040.txt",
+   "base": "1603901",
+   "chapters": "39-40"
+  },
+  {
+   "prefix": "ph16c041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch041-042.txt",
+   "base": "1604101",
+   "chapters": "41-42"
+  },
+  {
+   "prefix": "ph16c043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch043-044.txt",
+   "base": "1604301",
+   "chapters": "43-44"
+  },
+  {
+   "prefix": "ph16c045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch045-046.txt",
+   "base": "1604501",
+   "chapters": "45-46"
+  },
+  {
+   "prefix": "ph16c047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch047-048.txt",
+   "base": "1604701",
+   "chapters": "47-48"
+  },
+  {
+   "prefix": "ph16c049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch049-050.txt",
+   "base": "1604901",
+   "chapters": "49-50"
+  },
+  {
+   "prefix": "ph16c051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch051-052.txt",
+   "base": "1605101",
+   "chapters": "51-52"
+  },
+  {
+   "prefix": "ph16c053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch053-054.txt",
+   "base": "1605301",
+   "chapters": "53-54"
+  },
+  {
+   "prefix": "ph16c055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch055-056.txt",
+   "base": "1605501",
+   "chapters": "55-56"
+  },
+  {
+   "prefix": "ph16c057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch057-058.txt",
+   "base": "1605701",
+   "chapters": "57-58"
+  },
+  {
+   "prefix": "ph16c059",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch059-060.txt",
+   "base": "1605901",
+   "chapters": "59-60"
+  },
+  {
+   "prefix": "ph16c061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch061-062.txt",
+   "base": "1606101",
+   "chapters": "61-62"
+  },
+  {
+   "prefix": "ph16c063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch063-064.txt",
+   "base": "1606301",
+   "chapters": "63-64"
+  },
+  {
+   "prefix": "ph16c065",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch065-066.txt",
+   "base": "1606501",
+   "chapters": "65-66"
+  },
+  {
+   "prefix": "ph16c067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch067-068.txt",
+   "base": "1606701",
+   "chapters": "67-68"
+  },
+  {
+   "prefix": "ph16c069",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch069-070.txt",
+   "base": "1606901",
+   "chapters": "69-70"
+  },
+  {
+   "prefix": "ph16c071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch071-072.txt",
+   "base": "1607101",
+   "chapters": "71-72"
+  },
+  {
+   "prefix": "ph16c073",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch073-074.txt",
+   "base": "1607301",
+   "chapters": "73-74"
+  },
+  {
+   "prefix": "ph16c075",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch075-076.txt",
+   "base": "1607501",
+   "chapters": "75-76"
+  },
+  {
+   "prefix": "ph16c077",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/primal-hunter/private/lead-run-2026-10-30/shard_ph16_b16_ch077-077.txt",
+   "base": "1607701",
+   "chapters": "77-77"
+  }
+ ]
+}

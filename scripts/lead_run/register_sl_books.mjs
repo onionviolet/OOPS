@@ -13,16 +13,26 @@ const reg = JSON.parse(readFileSync(REG, 'utf8')), report = [];
 for (const s of spec) {
     if (only.length && !only.includes(s.key)) continue;
     if (reg.books.some(b => b.key === s.key)) { report.push(`${s.key}: already registered`); continue; }
-    const src = execFileSync('sqlite3', [SQL, `select path from locations where managed=1 and path like '%${s.id}-%.epub' limit 1`]).toString().trim();
+    // spec may give `hash` (asset hash prefix) instead of `id`: first existing location of that asset (managed first), id becomes sha256:<prefix>.
+    let src;
+    if (s.hash) { s.id = `sha256:${s.hash.slice(0, 12)}`; src = execFileSync('sqlite3', [SQL, `select l.path from locations l where l.hash like '${s.hash}%' order by l.managed desc`]).toString().split('\n').filter(p => p && existsSync(p))[0] || ''; }
+    else src = execFileSync('sqlite3', [SQL, `select path from locations where managed=1 and path like '%${s.id}-%.epub' limit 1`]).toString().trim();
+    if (!src && s.hash) { // catalogued path moved: look for the same file name under ~/Downloads
+        for (const p of execFileSync('sqlite3', [SQL, `select path from locations where hash like '${s.hash}%'`]).toString().split('\n').filter(Boolean)) {
+            const found = execFileSync('find', [`${process.env.HOME}/Downloads`, '-name', p.split('/').pop()]).toString().split('\n').filter(Boolean)[0];
+            if (found) { src = found; break; }
+        }
+    }
     if (!src) { report.push(`${s.key}: source ${s.id} not found`); continue; }
     const priv = join('docs/research/novels', s.slug, 'private'), dir = join(priv, 'source'); mkdirSync(dir, {recursive: true});
     const html = join(dir, `${s.key}.html`), epub = join(dir, `${s.key}.epub`);
-    const out = execFileSync('python3', ['-I', 'scripts/lead_run/normalize_epub_chapters.py', 'auto', src, html]).toString().trim();
+    let out;
+    try { out = execFileSync('python3', ['-I', 'scripts/lead_run/normalize_epub_chapters.py', s.mode || 'auto', src, html], {stdio: ['ignore', 'pipe', 'pipe'], env: {...process.env, SPLIT_OVER: String(s.splitOver || '')}}).toString().trim(); } catch (e) { report.push(`${s.key}: normalize failed (${src})`); continue; }
     const n = +out.split(' ')[0];
     if (n < MIN) { report.push(`${s.key}: only ${out}, not registered`); continue; }
     execFileSync(EBOOK_CONVERT, [html, epub, '--chapter-mark', 'none', '--page-breaks-before', '/'], {stdio: 'ignore'});
     reg.books.push({key: s.key, world: s.world, lang: 'en', type: 'html', source: join(process.cwd(), epub), book: s.book || 1, dir: join(priv, 'lead-run-2026-10-30'),
-        group: {target: 8000, max: 2}, convertWith: `scripts/lead_run/normalize_epub_chapters.py auto (Source Library ${s.id}, running chapter count 1..N, source number kept as [ch N] when it differs)`, sourceLibraryId: s.id, title: s.title});
+        group: {target: 8000, max: 2}, convertWith: `scripts/lead_run/normalize_epub_chapters.py ${s.mode || 'auto'}${s.splitOver ? ` with SPLIT_OVER=${s.splitOver}` : ''} (Source Library ${s.id}, running chapter count 1..N, source number kept as [ch N] when it differs)`, sourceLibraryId: s.id, title: s.title});
     report.push(`${s.key}: ${out}`);
 }
 writeFileSync(REG, JSON.stringify(reg, null, 1) + '\n');

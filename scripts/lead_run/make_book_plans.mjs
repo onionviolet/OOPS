@@ -138,6 +138,9 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const registry = JSON.parse(readFileSync(join(PLANS, 'books.json'), 'utf8'));
     // `--model gpt-6-luna` writes plans for the OpenAI batch backend (openai_batch.mjs); pair it with a `--tag` so labels stay apart from Haiku runs.
     const model = flag('--model');
+    // `--passes census,rules` plans only those passes; `--pilot census,rules` sets which passes the one-shard pilot of a fresh book reads (default census,scenes).
+    const passList = flag('--passes') ? flag('--passes').split(',') : PASSES, pilotPasses = flag('--pilot') ? flag('--pilot').split(',') : ['census', 'scenes'];
+    for (const p of [...passList, ...pilotPasses]) if (!PASSES.includes(p)) throw new Error(`unknown pass ${p}`);
     const schema = flag('--schema'), keys = flag('--keys') ? new Set(flag('--keys').split(',')) : null, tag = flag('--tag');
     if (schema && !['1.4', '1.5'].includes(schema)) throw new Error(`--schema supports 1.4 or 1.5, got ${schema}`);
     const ceilings = Object.fromEntries((flag('--ceiling') || '').split(',').filter(Boolean).map(x => x.split('=')).map(([w, u]) => [w, Number(u)]));
@@ -161,8 +164,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
         // A book with no census read yet gets a one-shard pilot (census and scenes) as its own step, so a format fault costs cents, not a whole pass.
         const fresh = !shards.some(s => passDone('census', s.prefix, have));
         const pilotPrefix = fresh ? shards[0].prefix : null;
-        const units = [...(fresh ? ['census', 'scenes'].map(pass => ({pass, step: 'pilot', only: pilotPrefix, suffix: `pilot_${pass}`})) : []),
-            ...PASSES.map(pass => ({pass, step: pass, skip: ['census', 'scenes'].includes(pass) ? pilotPrefix : null, suffix: pass}))];
+        const units = [...(fresh ? pilotPasses.map(pass => ({pass, step: 'pilot', only: pilotPrefix, suffix: `pilot_${pass}`})) : []),
+            ...passList.map(pass => ({pass, step: pass, skip: pilotPasses.includes(pass) ? pilotPrefix : null, suffix: pass}))];
         for (const {pass, step, only, skip, suffix} of units) {
             const todo = shards.filter(s => !passDone(pass, s.prefix, have) && (!only || s.prefix === only) && s.prefix !== skip)
                 .map(s => ({prefix: s.prefix, shard: join(priv, s.file), base: s.base, chapters: s.chapters}));
@@ -182,7 +185,21 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const runName = flag('--run');
     if (runName) for (const [world, labels] of Object.entries(byWorld)) {
         // Pilots first, then pass by pass across the world's books, so measured spend counts before each larger step and a stop rule halts the rest.
-        const steps = ['pilot', ...PASSES].map(step => ({name: step, gate: 'stop', labels: labels.filter(l => l.step === step).map(({plan, cap, label}) => ({plan, cap, label}))})).filter(s => s.labels.length);
+        // `--split N` cuts each pass (not the pilot) into up to N steps of about equal cap in book order, so measured spend counts before each next step
+        // (a ceiling at 0.7 of the cap total would otherwise block a single large step: the driver tests spent + the step's whole cap against it).
+        const split = Number(flag('--split') || 1), steps = [];
+        for (const step of ['pilot', ...passList]) {
+            const ls = labels.filter(l => l.step === step), mk = (name, g) => ({name, gate: 'stop', labels: g.map(({plan, cap, label}) => ({plan, cap, label}))});
+            if (!ls.length) continue;
+            if (step === 'pilot' || split < 2) { steps.push(mk(step, ls)); continue; }
+            const total = ls.reduce((a, l) => a + l.cap, 0), groups = [[]];
+            let acc = 0;
+            for (const l of ls) {
+                if (groups.at(-1).length && groups.length < split && acc + l.cap / 2 > total * groups.length / split) groups.push([]);
+                groups.at(-1).push(l); acc += l.cap;
+            }
+            groups.forEach((g, i) => steps.push(mk(`${step}-${i + 1}`, g)));
+        }
         const capTotal = Number(steps.flatMap(s => s.labels).reduce((x, l) => x + l.cap, 0).toFixed(2));
         const run = {name: `${runName}-${world}`, approval: 'PENDING: needs Weibao\'s go phrase.', ceilingUsd: ceilings[world] ?? capTotal, capTotal, steps};
         writeFileSync(join(PLANS, `overnight_${runName}-${world}.json`), JSON.stringify(run, null, 1) + '\n');
