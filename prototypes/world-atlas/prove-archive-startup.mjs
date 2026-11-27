@@ -21,7 +21,7 @@ for(const row of input.findings.worlds){
  digests.push({world:row.world,bytes:body.length,sha256:sha(body)});
 }
 const env={...process.env,ATLAS_SNAPSHOT:snapshot,ATLAS_PORT:'0'};
-delete env.ATLAS_REBUILD;delete env.ATLAS_READER_ROOT;
+delete env.ATLAS_REBUILD;
 let server;try{
  const start=performance.now();server=spawn(process.execPath,['prototypes/world-atlas/serve.mjs'],{cwd:root,env,windowsHide:true,stdio:['ignore','pipe','pipe']});
  let stderr='';server.stderr.setEncoding('utf8').on('data',s=>stderr+=s);
@@ -43,7 +43,7 @@ let server;try{
   worlds:data.findings.worlds.length,readingKeys:data.reading.keys.length,
   outputOnlyKeys:data.reading.keys.filter(k=>k.outputOnly).length,
   preparedKeys:data.reading.keys.filter(k=>k.shards>0).length,stderr};
- const out=resolve(root,'docs/representations/evidence/atlas-archive-scale-2026-11-25/full-startup.json');mkdirSync(dirname(out),{recursive:true});writeFileSync(out,JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
+ const out=resolve(root,process.env.ATLAS_STARTUP_RECEIPT||'docs/representations/evidence/atlas-archive-scale-2026-11-25/full-startup.json');mkdirSync(dirname(out),{recursive:true});writeFileSync(out,JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
 }finally{
  if(server?.exitCode===null&&server.signalCode===null){const exited=once(server,'exit');server.kill();await exited;}
 }

@@ -67,6 +67,24 @@ The normal staged server became ready in 7,667.56 ms. Its four actual desktop ou
 
 ## Full build and normal adoption
 
+### Windows refresh and Mac completion queue
+
+Run `npm run atlas:refresh -- --dry-run` to inventory the registered Mac reader outputs and see the planned transfer without writing anything. Run `npm run atlas:refresh` to copy changed output bytes, build a candidate, check play labels and run the normal startup proof. The prior snapshot stays at the reported rollback path. A failed gate leaves the live snapshot in place. Verified private outputs remain available for the next attempt. The input manifest makes a repeat with identical outputs a no-op. Use `npm run atlas:refresh -- --rebuild` after changing Atlas projections.
+
+Only registered novel reader-output folders under `docs/research/novels/*/private/lead-run-*/` participate. Prepared source, prompts and raw book files stay on the Mac. Transferred outputs, logs and staging directories are ignored by Git. Refresh requires the existing `ssh mac` alias, Mac Python 3 and the Windows `tar` command.
+
+For a future Mac batch driver or run file, append a completion event locally after every expected output for the world has been collected and validated. For example, pass the registry world ID as `WORLD` and run this after the successful collection step:
+
+```sh
+cd ~/code/yet-another-idle-rpg
+mkdir -p .local/atlas-refresh
+node --input-type=module -e 'import {appendFileSync} from "node:fs"; appendFileSync(".local/atlas-refresh/world-finished.jsonl", JSON.stringify({world:process.argv[1],finishedAt:new Date().toISOString()})+"\n")' "$WORLD"
+```
+
+Windows reads the queue and reports the latest completion by world. The queue carries no reader text, and its absence still permits pickup of existing registered outputs. It does not trigger remote execution on Windows. This is an opt-in hook for the next run.
+
+The Nov 27 Windows dry run exited 0 in 116.910 s. It matched 70,658 Mac output files by content and planned zero bytes. The first real refresh exited 0 in 450.490 s. It moved zero reader bytes, rebuilt in 295.066 s, checked labels in 26.973 s, and ran the startup proof in 9.058 s. The ready server reported 44 worlds. The previous snapshot remains at `work/atlas-snapshot-before-refresh-Q0oMsN`. The Mac queue was empty at the time of the run.
+
 After the coordinator's complete rerun succeeded, the startup proof validated all 44 registry world IDs in order, parsed each digest independently, and compared every projected matrix row exactly with its digest. Build failures were empty. The new snapshot is 1,476,961 bytes, SHA-256 `1a6bb2199238025ab26cddae81269a585646ae80fa5130f7a7ee78a29e9f49a1`.
 
 `node prototypes/world-atlas/prove-archive-startup.mjs` exited 0 against the complete staged snapshot and actual stable local directories, without rebuilding. The normal HTTP server was ready in 4,397.94 ms. `/data` was 1,940,682 bytes, SHA-256 `69a4c2a6f45e85950deb6803f5c147f399293acd665bb5f9b3190161de4ae2f3`. Two requests took 35.98/14.45 ms to receive and 8.41/7.13 ms to parse. It reported 44 worlds, 153 registry keys, 67 output-only keys and one key with prepared shards; stderr was empty. [Exact payload and all digest identities](../representations/evidence/atlas-archive-scale-2026-11-25/full-startup.json) are retained.
