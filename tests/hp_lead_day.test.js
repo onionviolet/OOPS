@@ -3,6 +3,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {HP_TIMETABLE, HP_NOTES_ITEM, HP_MARKED_ITEM, HP_SET_ITEM, hpClassAgenda, hpDayFacts, hpDayFact, hpTimetableWords, hpNextClassLine, hpSchoolDayRecap} from '../src/book_world_hp_day.js';
+import {hpLeadLibraryExtension} from '../src/hp_library_work.js';
+import {requireStructuredExtensions} from '../src/structured_pack_extensions.js';
 import {describePlace} from '../src/place_descriptions.js';
 import {hpLeadDayExtension, HP_LEAD_DAY_COMMANDS} from '../src/world_packs/book_hp_lead_day.js';
 import {hpExamInputs, hpExamFacts} from '../src/book_world_hp_exams.js';
@@ -41,6 +43,22 @@ test('homework is owed while a set piece is held; a class sets it and writing us
     assert.deepEqual(cmd('homework_history').costs, [{type: 'item', actor: 'player', key: setKey, amount: -1}], 'writing it uses the set piece up');
     const ext = hpLeadDayExtension({id: 'book.hp.lead', revision: 1, contentHash: 'sha256:x'});
     assert.equal(ext.items.find(i => i.id === HP_SET_ITEM('history')).label, 'History of Magic homework', 'the item name the Done line matches');
+});
+
+test('ordinary and reference homework each require their own pin for the shared recap', () => {
+    const base = {id: 'book.hp.lead', revision: 1, contentHash: 'sha256:' + '0'.repeat(64)};
+    const day = {...hpLeadDayExtension(base), contentHash: 'sha256:' + '1'.repeat(64)};
+    const library = {...hpLeadLibraryExtension(base), contentHash: 'sha256:' + '2'.repeat(64)};
+    base.extensions = [day, library];
+    const selection = ({id, revision, contentHash}) => ({packId: base.id, extensions: [{id, revision, contentHash}]});
+    for (const [writer, other] of [[day, library], [library, day]]) {
+        const receipt = writer.commands.flatMap(command => command.effects || [])
+            .find(effect => effect.key === 'book.hp.lead.day.last_homework');
+        const state = {simulation: {knowledge: {player: {[receipt.key]: {stage: receipt.stage, value: receipt.value}}}}};
+        assert.doesNotThrow(() => requireStructuredExtensions(selection(writer), base, state));
+        assert.throws(() => requireStructuredExtensions(selection(other), base, state), /saved content pin/);
+        assert.throws(() => requireStructuredExtensions({packId: base.id}, base, state), /saved content pin/);
+    }
 });
 
 test('the week feeds the June paper: notes raise fluency, marked homework understanding, and the chance of a better band rises', () => {

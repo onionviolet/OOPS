@@ -1,0 +1,188 @@
+{
+  "entry": "/",
+  "fixture": "hp-term-jinx",
+  "fixtureSha256": "cebeb3dc42a55ccc5749a236d8b07672ff194820451a73a18c89510ab8fa8c43",
+  "bundleSha256": "5e27955234bf4e3f451983c930857a12feeae74f2d33644c30d2130708aa242e",
+  "stylesheetSha256": "6e139116fe3ef2ba08fe4e13cbc0837543abb05c259e3e922e2b6b322ca446ca",
+  "runs": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "captures": [
+        "after-1366-rest.png",
+        "after-1366-active.png",
+        "after-1366-ended.png"
+      ],
+      "result": {
+        "clock": 94080,
+        "pins": [
+          "book.hp.lead.day"
+        ],
+        "knowledge": {
+          "book.hp.lead.lesson.levitation": {
+            "stage": "understood",
+            "value": "The charms master showed the wand motion and the words for the levitation charm.",
+            "at": 93690,
+            "cause": "simulation:2",
+            "basis": {
+              "kind": "instruction",
+              "attributedTo": "player",
+              "situationId": "book.hp.lead.situation"
+            }
+          },
+          "book.hp.lead.charms_last": {
+            "stage": "understood",
+            "value": "The charms master corrected your wrist and your pronunciation. You know the levitation charm now; getting a feather to rise takes practice.",
+            "at": 93690,
+            "cause": "simulation:2"
+          },
+          "book.hp.lead.spell.levitation.last": {
+            "stage": "understood",
+            "value": "You made the motion and said the words, and the feather rose off the desk.",
+            "at": 94080,
+            "cause": "simulation:6"
+          },
+          "book.hp.lead.day.last_lesson": {
+            "stage": "understood",
+            "value": "History of Magic: The ghost read out names and dates. You kept awake long enough to write most of them down. History of Magic homework is set.",
+            "at": 94020,
+            "cause": "simulation:4",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "player",
+              "situationId": "book.hp.lead.situation"
+            }
+          },
+          "book.hp.lead.day.last_homework": {
+            "stage": "understood",
+            "value": "History of Magic: You wrote the essay on this week's goblin rebellion.",
+            "at": 94080,
+            "cause": "simulation:5",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "player",
+              "situationId": "book.hp.lead.situation"
+            }
+          }
+        },
+        "powers": {
+          "book.hp.lead.levitation": {
+            "revision": 1,
+            "owned": true,
+            "mastery": 2,
+            "fragments": [],
+            "executions": 2,
+            "cause": "simulation:2",
+            "lineage": [],
+            "readyAt": 94080
+          }
+        }
+      },
+      "recap": "Latest resultYou made the motion and said the words, and the feather rose off the desk.Earlier resultsHistory of Magic: You wrote the essay on this week's goblin rebellion.History of Magic: The ghost read out names and dates. You kept awake long enough to write most of them down. History of Magic homework is set.",
+      "practice": "Spell practice\nCast the levitation charm on a feather\n1 stamina · about 60% to lift · 2 tries\nStudy the levitation charm in the library · 60 min\nThree library hours and a lesson with two tries help you understand the motion. Each session takes an hour; it improves Levitation without spending stamina. nothing yet: 0 of 180 minutes worked, 0 of 3 pieces of evidence.",
+      "appearance": {
+        "buttonHeight": 28.1875,
+        "headingType": "16px",
+        "border": "solid",
+        "columns": "360.938px"
+      },
+      "roundTrip": null,
+      "pageErrors": [],
+      "horizontalOverflow": 0
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "captures": [
+        "after-1920-rest.png",
+        "after-1920-active.png",
+        "after-1920-ended.png"
+      ],
+      "result": {
+        "clock": 94080,
+        "pins": [
+          "book.hp.lead.day"
+        ],
+        "knowledge": {
+          "book.hp.lead.lesson.levitation": {
+            "stage": "understood",
+            "value": "The charms master showed the wand motion and the words for the levitation charm.",
+            "at": 93690,
+            "cause": "simulation:2",
+            "basis": {
+              "kind": "instruction",
+              "attributedTo": "player",
+              "situationId": "book.hp.lead.situation"
+            }
+          },
+          "book.hp.lead.charms_last": {
+            "stage": "understood",
+            "value": "The charms master corrected your wrist and your pronunciation. You know the levitation charm now; getting a feather to rise takes practice.",
+            "at": 93690,
+            "cause": "simulation:2"
+          },
+          "book.hp.lead.spell.levitation.last": {
+            "stage": "understood",
+            "value": "You made the motion and said the words, and the feather rose off the desk.",
+            "at": 94080,
+            "cause": "simulation:6"
+          },
+          "book.hp.lead.day.last_lesson": {
+            "stage": "understood",
+            "value": "History of Magic: The ghost read out names and dates. You kept awake long enough to write most of them down. History of Magic homework is set.",
+            "at": 94020,
+            "cause": "simulation:4",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "player",
+              "situationId": "book.hp.lead.situation"
+            }
+          },
+          "book.hp.lead.day.last_homework": {
+            "stage": "understood",
+            "value": "History of Magic: You wrote the essay on this week's goblin rebellion.",
+            "at": 94080,
+            "cause": "simulation:5",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "player",
+              "situationId": "book.hp.lead.situation"
+            }
+          }
+        },
+        "powers": {
+          "book.hp.lead.levitation": {
+            "revision": 1,
+            "owned": true,
+            "mastery": 2,
+            "fragments": [],
+            "executions": 2,
+            "cause": "simulation:2",
+            "lineage": [],
+            "readyAt": 94080
+          }
+        }
+      },
+      "recap": "Latest resultYou made the motion and said the words, and the feather rose off the desk.Earlier resultsHistory of Magic: You wrote the essay on this week's goblin rebellion.History of Magic: The ghost read out names and dates. You kept awake long enough to write most of them down. History of Magic homework is set.",
+      "practice": "Spell practice\nCast the levitation charm on a feather\n1 stamina · about 60% to lift · 2 tries\nStudy the levitation charm in the library · 60 min\nThree library hours and a lesson with two tries help you understand the motion. Each session takes an hour; it improves Levitation without spending stamina. nothing yet: 0 of 180 minutes worked, 0 of 3 pieces of evidence.",
+      "appearance": {
+        "buttonHeight": 28.1875,
+        "headingType": "16px",
+        "border": "solid",
+        "columns": "284.531px 284.547px"
+      },
+      "roundTrip": {
+        "save": true,
+        "reload": true,
+        "export": true,
+        "fileImport": true
+      },
+      "pageErrors": [],
+      "horizontalOverflow": 0
+    }
+  ]
+}
