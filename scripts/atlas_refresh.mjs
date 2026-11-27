@@ -122,7 +122,11 @@ function run(args){
             for(let i=0;i<changed.length;i+=100){
                 const batch=changed.slice(i,i+100);
                 const bytes=ssh({mode:'fetch',dirs:[...dirs],files:batch},batch.reduce((n,row)=>n+row.size,4e6));
-                execFileSync('tar',['-xf','-','-C',incoming],{input:bytes,windowsHide:true,stdio:['pipe','ignore','pipe']});
+                // Git for Windows puts GNU tar first on PATH, and GNU tar reads "C:\..." as host:path.
+                // Windows ships bsdtar, which accepts drive paths.
+                const tar=process.platform==='win32'?join(process.env.SystemRoot||'C:\\Windows','System32','tar.exe'):'tar';
+                try{execFileSync(tar,['-xf','-','-C',incoming],{input:bytes,windowsHide:true,stdio:['pipe','ignore','pipe']});}
+                catch(error){throw new Error(`tar extract failed: ${String(error.stderr||error.message).trim().slice(0,400)}`);}
             }
             // Validate every received file before installing any. Transfers are
             // additive; absent remote files never remove local readings.
