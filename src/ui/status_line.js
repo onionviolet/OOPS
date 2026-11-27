@@ -38,13 +38,15 @@ export function statusReserveWords(state) {
 let reserveReader = () => statusReserveWords(readPort('expansion'));
 export function setReserveReader(fn) { reserveReader = typeof fn === 'function' ? fn : reserveReader; }
 
-// Owners return a navigation callback only while their work is running. Opening
-// work must focus its status, never activate the adjacent cancellation control.
+// Owners offer navigation for running work or paused work that needs attention.
+// An opener can decline if its destination is no longer available.
 const workTargets = new Set();
 export function registerWorkTarget(read) { workTargets.add(read); return () => workTargets.delete(read); }
 export function openRunningWork() {
-    const open = [...workTargets].map(read => read()).find(Boolean);
-    if (open) { open(); return; }
+    for (const read of workTargets) {
+        const open = read();
+        if (open && open() !== false) return;
+    }
     const target = () => document.getElementById('action_status_div') || document.getElementById('workspace_current_work');
     if (!target()?.checkVisibility()) centerModes().showHere();
     requestAnimationFrame(() => {
@@ -57,8 +59,6 @@ export function openRunningWork() {
 }
 
 let line = null;
-let workJump=null;
-export function setWorkStatusJump(open){workJump=typeof open==='function'?open:null;}
 const slots = new Map();
 export const statusLineMounted = () => !!line?.isConnected;
 
@@ -98,12 +98,7 @@ export function mountStatusLine({bar}) {
         if (name === 'place') semanticInk(slot, 'place');
         if (name === 'work') {
             slot.type = 'button';
-            // Work under way names what runs and the time left. The workspace's own jump (setWorkStatusJump) goes first; owners that
-            // register a running-work target (registerWorkTarget) come next, then Doing now on Here.
-            slot.addEventListener('click', () => {
-                if(workJump?.()===true)return;
-                openRunningWork();
-            });
+            slot.addEventListener('click', openRunningWork);
         }
         slots.set(name, slot); line.append(slot);
     }

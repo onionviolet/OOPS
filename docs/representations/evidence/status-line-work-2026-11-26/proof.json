@@ -1,0 +1,58 @@
+{
+  "entry": "/",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "ab9cbaec4df7eff36e8d1701d677c4200c954832eff8546567cbf58ed799897e",
+  "runs": [
+    {
+      "life": "fang",
+      "command": "book.ri.lead.day.sell_meat",
+      "jobId": "simulation:419",
+      "destination": "[data-structured-job=\"simulation:419\"]",
+      "hiddenBeforeClick": true,
+      "focusedAfterClick": true,
+      "runningAfterClick": true,
+      "horizontalOverflow": 0,
+      "pageErrors": [],
+      "capture": "fang-1920.png"
+    },
+    {
+      "life": "klein",
+      "command": "lotm.be.lesson.chart",
+      "jobId": "simulation:866",
+      "destination": "[data-lotm-job=\"simulation:866\"]",
+      "hiddenBeforeClick": true,
+      "focusedAfterClick": true,
+      "runningAfterClick": true,
+      "horizontalOverflow": 0,
+      "pageErrors": [],
+      "capture": null
+    },
+    {
+      "life": "harry",
+      "command": "book.hp.lead.library_work.move_ladder",
+      "jobId": "simulation:5",
+      "destination": "[data-structured-job=\"simulation:5\"]",
+      "hiddenBeforeClick": true,
+      "focusedAfterClick": true,
+      "runningAfterClick": true,
+      "horizontalOverflow": 0,
+      "pageErrors": [],
+      "capture": "harry-1920.png"
+    },
+    {
+      "life": "village",
+      "command": "patrolling",
+      "jobId": null,
+      "destination": "#action_status_div",
+      "hiddenBeforeClick": false,
+      "focusedAfterClick": true,
+      "runningAfterClick": true,
+      "horizontalOverflow": 0,
+      "pageErrors": [],
+      "capture": null
+    }
+  ]
+}

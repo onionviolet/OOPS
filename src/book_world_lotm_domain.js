@@ -20,6 +20,7 @@ import {registerUpcomingSource} from './upcoming_strip_ui.js';
 import {registerReady} from './ready_rows.js';
 import {readPort} from './ui_ports.js';
 import {registerWorkAttention} from './work_attention.js';
+import {registerWorkTarget} from './ui/status_line.js';
 import {copyFileAttention} from './lotm_copy_routine.js';
 import {expandWorkspaceModule} from './workspace_layout.js';
 import {lotmWorkRows,mountPayLedgerTab,mountLotmBio} from './lotm_work_day.js';
@@ -39,6 +40,7 @@ import {lotmStreetLine} from './book_world_lotm_events.js';
 import {LOTM_STREET_PLACES} from './lotm_street_events.js';
 import {configureHeatPurse} from './heat.js';
 let host=null,panel=null,ports=null,castLocationRestore=null;
+registerWorkTarget(()=>panel?.runningWorkTarget());
 registerWorkAttention({worldId:I.world,read:()=>copyFileAttention(ports?.state()),open:()=>{
  if(!copyFileAttention(ports?.state()))return false;
  return expandWorkspaceModule('lotm')?panel?.openCopyQuestion()===true:false;

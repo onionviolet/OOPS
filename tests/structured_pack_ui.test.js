@@ -3,10 +3,37 @@ import assert from 'node:assert/strict';
 import {createStructuredPackPanel} from '../src/structured_pack_ui.js';
 import {withPanelDom} from './helpers/mini_dom.mjs';
 import {collectReady} from '../src/ready_rows.js';
+import {openRunningWork} from '../src/ui/status_line.js';
 
 const withDom=run=>withPanelDom(env=>run({...env,cleared:env.isCleared,
     find:function find(node,key,id){return node.dataset[key]===id?node:node.children.map(c=>find(c,key,id)).find(Boolean);}}));
 const view=()=>({available:true,active:true,title:'A local beginning',place:'Workroom',description:'A modest room.',people:[{name:'Keeper',details:['You met today.']}],status:[{label:'Held',value:2}],actions:[{id:'work',label:'Prepare supplies',description:'Use your actual supplies.',eligible:true,reasons:[]}],jobs:[{id:'job.1',label:'Sorting',remaining:3,cancellable:true}],canWrite:true});
+
+for(const [life,commandId,label] of [
+    ['Fang','book.ri.lead.day.sell_meat','Cut and sell meat'],
+    ['Harry','book.hp.lead.library_work.move_ladder','Move the library ladder'],
+]){
+    test(`running-work navigation focuses ${life}'s job status without cancelling`,()=>withDom(({document,host,find})=>{
+        const v=view(), commands=[];
+        const job={...v.jobs[0],commandId,label};
+        v.jobs=[job];
+        const panel=createStructuredPackPanel({read:()=>v,command:request=>commands.push(request)});
+        const card=find(host,'structuredJob',job.id);
+        const status=card.children.find(child=>child.tagName==='p');
+        status.scrollIntoView=()=>{};
+        const before=globalThis.requestAnimationFrame;
+        globalThis.requestAnimationFrame=callback=>callback();
+        try{
+            openRunningWork();
+            assert.equal(document.activeElement,status);
+            assert.match(status.textContent,/3 played minutes remaining/);
+            assert.deepEqual(commands,[]);
+        }finally{
+            globalThis.requestAnimationFrame=before;
+            panel.destroy();
+        }
+    }));
+}
 
 test('unchanged projection retains focus and remounts the same controls',()=>withDom(({document,host,find,text,tick,cleared})=>{
     const v=view(),calls=[];const panel=createStructuredPackPanel({read:()=>v,command:r=>calls.push(r)});

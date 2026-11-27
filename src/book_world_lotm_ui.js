@@ -114,6 +114,10 @@ export function createLotmPanel({read,reviseCommissionEarmark,beginWait=null,act
  const showTabOf=b=>{const off=b.closest('[data-tab-off]');const key=off&&Object.keys(tabBlocks).find(k=>tabBlocks[k]===off);const tab=key&&WORKROOM_TABS.find(t=>t.blocks.includes(key));if(tab)tabsUi.select(tab.id);};
  const findControl=(id,{focusAction=false}={})=>{const b=[...panel.querySelectorAll('[data-lotm]')].find(n=>n.dataset.lotm===id);if(!b)return false;for(let a=b.parentElement;a&&a!==panel;a=a.parentElement)if(a.tagName==='DETAILS')a.open=true;showTabOf(b);const r=b.parentElement;r.tabIndex=-1;(focusAction&&!b.disabled?b:r).focus();r.scrollIntoView({block:'nearest'});return true;};
  const findWork=id=>{const status=[...panel.querySelectorAll('[data-lotm-job]')].find(n=>n.dataset.lotmJob===id);if(!status)return false;showTabOf(status);status.focus();status.scrollIntoView({block:'nearest'});return true;};
+ const runningWorkTarget=()=>{
+  const id=panel.querySelector('[data-lotm-job]')?.dataset.lotmJob;
+  return id?()=>expandWorkspaceModule('lotm')&&findWork(id):null;
+ };
  const restoreControl=id=>{
   if(findControl(id,{focusAction:true}))return true;
   const next=id.startsWith('wait.until.')&&actions.querySelector('button[data-lotm^="wait.until."]');if(next)return findControl(next.dataset.lotm,{focusAction:true});
@@ -693,5 +697,5 @@ setWorkspaceModuleTitle('lotm',lotmPanelTitle(v));syncDoor(v);hereActs=v.residen
  function openShift(id){render();return findControl(`shift_${id}`,{focusAction:true});}
  function openWage(){render();const wage=panel.querySelector('[data-lotm-wage]');if(!wage)return false;showTabOf(wage);wage.focus();wage.scrollIntoView({block:'nearest'});return true;}
  function openCopyQuestion(){render();return findControl(COPY_FILE.ask,{focusAction:true})||findControl(COPY_FILE.flag,{focusAction:true});}
- render();return {render,openShift,openWage,openCopyQuestion};
+ render();return {render,openShift,openWage,openCopyQuestion,runningWorkTarget};
 }

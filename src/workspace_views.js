@@ -6,7 +6,7 @@ import {publishChange} from './ui_change_signal.js';
 import {applyWorldLook} from './world_look.js';
 import {sayReason} from './locked_control.js';
 import {livesOwnLife} from './seat_profiles.js';
-import {setStatusText,setWorkStatusJump} from './ui/status_line.js';
+import {registerWorkTarget,setStatusText} from './ui/status_line.js';
 import {readWorkAttention} from './work_attention.js';
 
 // Only host-supplied, already visible labels enter this presentation. No new
@@ -25,7 +25,7 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
     const work=document.createElement('p'),ownership=document.createElement('p');
     const jump=document.createElement('button');jump.type='button';jump.textContent='Open local controls';
     const openAttention=()=>{const attention=readWorkAttention(read());return attention?.open()===true;};
-    setWorkStatusJump(openAttention);
+    const releaseWorkTarget=registerWorkTarget(()=>readWorkAttention(read())?.open);
     jump.onclick=()=>{if(read().waiting){openWorkspaceModule('notebook');sayReason(jump,'Opened your waiting response in the notebook.');return;}if(openAttention())return;openWorkspaceModule('local-actions');const target=document.getElementById('location_related_div');target?.scrollIntoView({block:'nearest'});const first=target?.querySelector('button:not(:disabled),[role="button"],summary');first?.focus();sayReason(jump,first?'Opened local controls. The first action there has focus.':'Opened local controls. Nothing here is ready to act on yet.');};
     panel.append(heading,work,ownership,jump);
     document.getElementById('location_related_div')?.prepend(panel);
@@ -135,7 +135,7 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
     };
     nativeHost?.addEventListener('keydown',onKey);
     const observer=new MutationObserver(decorate);if(nativeHost)observer.observe(nativeHost,{childList:true,subtree:true,attributes:true,attributeFilter:['onclick','class']});decorate();
-    render();const timer=setInterval(render,250);return {render,destroy(){setWorkStatusJump(null);clearInterval(timer);fightObserver.disconnect();syncTempoStance(false);switcher?.removeEventListener('click',showSelection);components.destroy();references.destroy();observer.disconnect();nativeHost?.removeEventListener('keydown',onKey);panel.remove();more.remove();taskObserver.disconnect();}};
+    render();const timer=setInterval(render,250);return {render,destroy(){releaseWorkTarget();clearInterval(timer);fightObserver.disconnect();syncTempoStance(false);switcher?.removeEventListener('click',showSelection);components.destroy();references.destroy();observer.disconnect();nativeHost?.removeEventListener('keydown',onKey);panel.remove();more.remove();taskObserver.disconnect();}};
 }
 
 export function createEquipmentComparison({read}) {
