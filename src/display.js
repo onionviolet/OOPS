@@ -1,3 +1,4 @@
+import {worldStanding} from "./world_standing.js";
 import {placeMapPositions} from './location_positions.js';
 import {localMoneyLabel, localPurseLabel, coinPricesHere} from './ui/local_money_label.js';
 import {attachSkillEvolution,focusSkillGrowth} from './skill_evolution_native.js';
@@ -4297,6 +4298,12 @@ function update_displayed_stats() {
     const attack_stats = document.querySelector?.("[data-character_attack_div]")?.getElementById?.("attack_stats");
 
     const ap = Math.round(full_stats.attack_points);
+    const standingRow = document.getElementById("world_standing");
+    if (standingRow) {
+        const standing = worldStanding(get_context?.()?.worldId, ap);
+        standingRow.hidden = !standing;
+        if (standing) standingRow.textContent = `Estimated standing in ${standing.population}: top ${standing.topPercent}% (attack rating ${ap}).`;
+    }
     other_combat_divs.attack_points.innerText = `${ap}`;
 
     if(equipment["off-hand"] != null && equipment["off-hand"].offhand_type === "shield") { //HAS SHIELD

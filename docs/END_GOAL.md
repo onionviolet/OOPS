@@ -30,6 +30,8 @@ A5 O1: The Village walking map shows compass exits and takes the chosen native r
 
 A5 O2: Enemy bestiary entries name their combat trait and its counter. Reports shows the damage change when it acts. [Proof](representations/evidence/protolike-pulls-2026-11-27/o2/proof.json)
 
+A5 O3: Character Stats estimates population standing from the current attack rating in the Frontier and Tingen. [Proof](representations/evidence/protolike-pulls-2026-11-27/o3/proof.json)
+
 <a id="future-rpg-view-with-a-map"></a>
 
 ## Future RPG view with a map (consideration)
