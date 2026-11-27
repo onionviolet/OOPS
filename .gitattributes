@@ -7,3 +7,5 @@ src/data/invention_pack_home.js text eol=lf
 # Preserve the exact captured save bytes across Git checkouts.
 scripts/save_gate_fixtures/*.save.txt -text
 scripts/save_gate_fixtures/*.save.json -text
+# Receipts hash the captured bytes, including the original line endings.
+docs/representations/evidence/** -text
