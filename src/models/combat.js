@@ -1,3 +1,4 @@
+import {frontierReactions, quoteParry, quoteRiposte} from "../combat_reactions.js";
 import {domainRegistry} from '../domain_registry.js';
 import {damageRecord,supportedHarvest} from '../harvest.js';
 import {settleSkinCritical,settleSkinStamina} from '../skill_evolution.js';
@@ -606,11 +607,26 @@ class Combat {
                     }
                 }
                 
+                if (this.nativeExchangeHost && !this.is_special_combat && target.tags.main_character &&
+                    quoteRiposte(target.getTotalSkillLevel("Evasion"), random("riposte"))) {
+                    log_message("You counterattacked after the dodge.", "hero_attacked");
+                    this.doCombatAction({fighter_index: targetIndex, is_attacker: !is_attacker, target: fighter,
+                        attack_power: target.getAttackPower() * frontierReactions.counterPower, target_count: 1, attack_count: 1});
+                }
                 return; //damage fully evaded, nothing more can happen
             } else {
                 if(!this.is_special_combat && target.tags.main_character){
                     add_xp_to_skill({skill: skills["Evasion"], xp_to_add: xp_to_add*fighter_count_xp_modifier/2});
                 }
+            }
+        }
+
+        if (this.nativeExchangeHost && !this.is_special_combat && target.tags.main_character) {
+            const reaction = quoteParry(target.getTotalSkillLevel("Equilibrium"), random("parry"));
+            if (reaction) {
+                damages_dealt = damages_dealt.map(damage => damage * (1 - reaction.reduction));
+                add_xp_to_skill({skill: skills["Equilibrium"], xp_to_add: fighter.xp_value * fighter_count_xp_modifier});
+                log_message(`You parried the incoming blow, turning aside ${Math.round(reaction.reduction * 100)}% of its force.`, "hero_blocked");
             }
         }
 
