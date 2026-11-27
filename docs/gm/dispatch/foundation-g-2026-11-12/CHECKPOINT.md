@@ -190,3 +190,20 @@ Merged master (P's coverage tooling `5cd05f309`). The ledgers now use P's six-fi
 I did not regenerate `docs/coverage/README.md`, so it doesn't conflict with other ledger owners. `node scripts/coverage_report.mjs` rebuilds it at merge.
 
 Codex lane brief: [CODEX_LANE.md](CODEX_LANE.md). It asks for five more Keeper deletions (seven, nine, vitality, rainbow, stealth) on the essence-line pattern, with the route flags, file limits and done check. G reviews its diff before committing.
+
+## A1, 2026-11-26: the first wall exchange
+
+After Wood Charm, Fang climbs to the wall and holds the ladder with one Water Shield activation and three Moonblades. The Gu catalogue now prices each activation on the lead-life essence scale. Water Shield costs 9 parts and Moonglow costs 5 per blade, for the same 24 parts reserved at the start. The split is authored tuning. The Gu activation law produces the costs, and the existing simulation transaction applies and refunds them. The 15-minute job, outcome, recovery and later rotation stay in the wall-night pack. [Gu seam](../../../AREA_GUIDE.md#powers-and-abilities)
+
+| PFP2 measure | Before A1 | After A1 |
+| --- | ---: | ---: |
+| Canon cases with activation costs run from catalogue data in this slice | 0 | 1 |
+| Bespoke wall-night scene modules | 1 | 1 |
+
+The exchange still has an authored outcome. A1 adds no Gu kind or move to the earlier coverage counts and retires no scene module.
+
+**Save compatibility (AR6, MC4).** Wall-night and its exchange command advance to revision 2. The normal loader upgrades the exact revision 1 pin. If the job is pending, it checks the frozen old debit and verifies that its replacements reserve and refund the same essence. It changes the job's revision and reservation rows while retaining its identity, due minute, paid reserve, effects and eligibility for cancellation. Completed exchanges and other pending wall-night steps keep their saved outcomes and progress. The revision 1 fixture was recorded four minutes into an earned exchange on `2ac5278e8`. [Legacy fixture](../../../../tests/fixtures/gu_wall_exchange/legacy-mid-exchange.json)
+
+At the rebuilt game's 1920×1080 entry, the exchange leaves 12 of Fang's 36 parts. Save, reload, Export and file Import preserve both the pending and settled states. The revision 1 fixture opens with the same 11 minutes left and settles on the same due minute. [Ready](../../../representations/evidence/gu-wall-exchange-2026-11-26/wall-ready-1920.png) · [Pending](../../../representations/evidence/gu-wall-exchange-2026-11-26/wall-pending-1920.png) · [Settled](../../../representations/evidence/gu-wall-exchange-2026-11-26/wall-settled-1920.png) · [Legacy settled](../../../representations/evidence/gu-wall-exchange-2026-11-26/legacy-settled-1920.png) · [Proof](../../../representations/evidence/gu-wall-exchange-2026-11-26/proof.json)
+
+`npm run build`, the focused tests (232 passed), `npm run check:arch`, `npm run check:rules` and `npm run gate:save` exited 0. The save gate passed all four earned fixtures in its standalone run. Windows left a locked profile directory after terminating the gate's Chrome process. The earlier `gu_lotus_essence_case` rung 2 failure was outside A1.

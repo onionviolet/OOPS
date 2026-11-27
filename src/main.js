@@ -392,7 +392,7 @@ import {createAuthoredSiteUI} from './authored_site_ui.js';
 import {createStructuredNativeRegistration} from './structured_native_registration.js';
 import {admittedExtensionCommands} from './structured_pack_extensions.js';
 import {beginStructuredCampaign,planStructuredSelection,structuredCampaignView,adoptStructuredExtension,replacesStructuredReportLife} from './structured_pack_runtime.js';
-import {requireStructuredContent,requireStructuredSelection} from './structured_pack_state.js';
+import {prepareStructuredContent,requireStructuredContent,requireStructuredSelection} from './structured_pack_state.js';
 import {previewStructuredRenewal,commitStructuredRenewal} from './structured_renewal.js';
 import {createStructuredPackPanel} from './structured_pack_ui.js';
 import {registerBookBeginnings,bookPassageClockRequest} from './book_world_beginning_registration.js';
@@ -6715,7 +6715,7 @@ function load(save_data) {
     restoringNativeSave = true;
     try{
         try {
-            try {requireStructuredContent(save_data.content_packs?.structured,structuredPacks,save_data.expansion);requireStructuredSelection(save_data.content_packs?.pendingStructured,structuredPacks);}
+            try {const compatible=prepareStructuredContent(save_data,structuredPacks);requireStructuredSelection(compatible.content_packs?.pendingStructured,structuredPacks);save_data=compatible;}
             catch(error){suspendedStructuredSave=structuredClone(save_data);throw error;}
             syncAuthoredSite(save_data.content_packs?.authored?.draft??null);
             save_data = preparePackSave(save_data,packDefinitionsForSave());

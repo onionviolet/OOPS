@@ -2,6 +2,7 @@ import {structuredSelectionIdentity} from './structured_pack_identity.js';
 import {object} from './basics.js';
 import {validateExtensionRefs,requireStructuredExtensions,structuredAdmittedLocations} from './structured_pack_extensions.js';
 import {canonicalDurabilityKey} from './absorb_e2/durability.js';
+import {energyCharge} from './energy_resources.js';
 const id=v=>typeof v==='string'&&/^[a-zA-Z0-9_.:-]+$/.test(v)&&!['__proto__','constructor','prototype'].includes(v);
 export function validateStructuredRecord(r) {
     if(r==null)return;
@@ -36,6 +37,42 @@ export function requireStructuredContent(record,definitions,state) {
     if(record.schema===2)requireStructuredSelection(record,definitions);
     const b=record.schema===2?d?.starts?.find(b=>b.id===record.startId):d?.bootstrap;
     if(!d||d.revision!==record.revision||(d.contentHash!==record.contentHash&&!(record.schema===2&&b&&structuredSelectionIdentity(d,record,b)))||d.world.id!==record.worldId||b?.id!==record.startId||b?.locationId!==record.locationId||JSON.stringify(structuredAdmittedLocations(d,record).map(l=>l.id))!==JSON.stringify(record.locationIds)||JSON.stringify((d.simulation.people||[]).map(p=>p.id))!==JSON.stringify(record.peopleIds)||JSON.stringify(record.units)!==JSON.stringify(d.units||[])||JSON.stringify(record.containerBindings||[])!==JSON.stringify((d.simulation.containers||[]).map(c=>({id:c.id,category:c.category,holder:c.holder,revision:c.revision}))))throw Error('Restore the exact beginning content to resume this character. The saved beginning has been preserved.');
+}
+
+// Upgrade a registered exact pin before normal content validation. For pending
+// work, exchange equivalent reservation rows without applying an energy effect.
+export function prepareStructuredContent(save, definitions) {
+    const record=save.content_packs?.structured;
+    validateStructuredRecord(record);
+    let next=save;
+    for (const [index,pin] of (record?.extensions||[]).entries()) {
+        const extension=definitions.get(record.packId)?.extensions?.find(e=>e.id===pin.id);
+        const old=extension?.previousRevision;
+        if (!old || pin.revision!==old.revision || pin.contentHash!==old.contentHash) continue;
+        if (next===save) next=structuredClone(save);
+        next.content_packs.structured.extensions[index]={id:pin.id,revision:extension.revision,contentHash:extension.contentHash};
+        for (const job of next.expansion?.simulation?.jobs||[]) {
+            if (job.commandId!==old.pending.id) continue;
+            const command=extension.commands.find(c=>c.id===job.commandId);
+            if (job.revision!==old.pending.revision || JSON.stringify(job.costs)!==JSON.stringify(old.pending.costs) ||
+                !sameEnergyReservation(next.expansion,job,command?.costs)) {
+                throw Error('Restore the exact pending extension reservation. Your saved work has been preserved.');
+            }
+            job.revision=command.revision;
+            job.costs=structuredClone(command.costs);
+        }
+    }
+    requireStructuredContent(next.content_packs?.structured,definitions,next.expansion);
+    return next;
+}
+
+function sameEnergyReservation(state, job, costs) {
+    const [old]=job.costs;
+    const policy=state.simulation.energies?.[job.actorId]?.[old.energyId]?.policy;
+    return job.costs.length===1 && old.type==='energy' && old.operation==='use' && policy?.strainPerUse===0 &&
+        costs?.length>0 && costs.every(e=>e.type===old.type && e.operation===old.operation && e.actor===old.actor &&
+            e.energyId===old.energyId && e.control===old.control && e.output<=policy.output) &&
+        costs.reduce((total,e)=>total+energyCharge(policy,e),0)===energyCharge(policy,old);
 }
 export function validateStructuredEnvelope(save) {
     const pending=save.content_packs?.pendingStructured;

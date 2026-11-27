@@ -214,7 +214,7 @@ export function stageStructuredNativeObjects(d,{availabilities,makeLocation,make
 
 // Bundled extensions may add local places. The base world, actors and
 // beginning stay pinned. Stage native objects after the definition checks.
-export function registerStructuredCommandExtension(raw,contentHash,base,registry,stageObjects,{bundledInstant=false}={}) {
+export function registerStructuredCommandExtension(raw,contentHash,base,registry,stageObjects,{bundledInstant=false,previousRevision}={}) {
     jsonData(raw, 0, raw?.id || 'extension');requireExtensionBase(raw,base);
     check(raw.schema===1&&stableId(raw.id)&&raw.id.startsWith(base.id+'.')&&Number.isSafeInteger(raw.revision)&&raw.revision>0&&/^sha256:[a-f0-9]{64}$/.test(contentHash),'Invalid command extension header.');
     check(Object.keys(raw).every(k=>['schema','id','revision','base','label','description','requires','reason','commands','items','status','locations','dependsOn','energies','roles','conditions','supportAlternatives'].includes(k))&&typeof raw.label==='string'&&typeof raw.description==='string'&&typeof raw.reason==='string'&&Array.isArray(raw.commands)&&raw.commands.length>0,'Only a command extension is supported.');
@@ -355,7 +355,8 @@ export function registerStructuredCommandExtension(raw,contentHash,base,registry
         simulation:{...base.simulation,people:[...(base.simulation.people||[]),...dependencyRoles,...roles],conditions:[...(base.simulation.conditions||[]),...conditions],energies:[...(base.simulation.energies||[]),...energies],commands:[...base.simulation.commands,...raw.commands]}};
     const compiled=compileStructuredPack(candidate);
     const commands=raw.commands.map(c=>compiled.registry.simulation.commands.get(c.id));
-    const extension=freeze({...structuredClone(raw),contentHash,commands});
+    const extension=freeze({...structuredClone(raw),contentHash,commands,
+        ...(previousRevision && {previousRevision:structuredClone(previousRevision)})});
     for(const c of commands)check(!registry.simulation.commands.has(c.id),'Structured extension command collision.');
     if((items.length||locations.length)&&stageObjects)stageObjects(items,locations);
     for(const role of roles)registry.simulation.people.set(role.id,compiled.registry.simulation.people.get(role.id));

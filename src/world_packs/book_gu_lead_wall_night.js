@@ -1,5 +1,6 @@
 // Qing Mao, volume two chapters 146–149.
 import {extensionFact} from '../structured_pack_extensions.js';
+import {guLeadActivationCosts} from '../gu_activation.js';
 import {GU_LEAD, riLeadId as id} from './book_gu_lead_life.js';
 import {GU_LEAD_MOONGLOW} from './book_gu_lead_moonglow.js';
 import {GU_LEAD_REFINEMENT} from './book_gu_lead_refinement.js';
@@ -31,6 +32,12 @@ const sea = id('primeval');
 const reserve = value => ({fact: `energy.${sea}.reserve`, op: 'gte', value,
     reason: `Prepare ${value} parts of essence first.`});
 const spend = output => ({type: 'energy', actor: 'player', energyId: sea, operation: 'use', output, control: 1});
+const exchange = guLeadActivationCosts(['water-shield', 'moonglow', 'moonglow', 'moonglow'], 'player', sea);
+export const guLeadWallNightPrevious = {
+    revision: 1,
+    contentHash: 'sha256:aa002f161e9a739225b73296c069db2b534793c4275b9fe583c7bb803e718d3b',
+    pending: {id: local('hold_the_wall_against_a_bold_wolf'), revision: 1, costs: [spend(24)]},
+};
 const recover = amount => ({type: 'energy', actor: 'player', energyId: sea, operation: 'recover', amount});
 const pay = amount => item(stone, -amount);
 const stoneCost = amount => stock(stone, amount);
@@ -44,11 +51,11 @@ const predecessor = all(eq(extensionFact(GU_LEAD_WOOD_CHARM)),
     eq(`actor.${GU_LEAD_WOOD_CHARM}.leaves`, 'extra_sales_refused'));
 const admitted = eq(extensionFact(GU_LEAD_WALL_NIGHT));
 
-function act(name, label, duration, previous, description, effects, {needs = [], atStart = [], costs = [], parts = 0, reason} = {}) {
+function act(name, label, duration, previous, description, effects, {needs = [], atStart = [], costs = [], parts = 0, reason, revision = 1} = {}) {
     const visibleWhen = all(admitted, previous);
     const support = all(ready, visibleWhen, ...needs);
     return {
-        id: local(name), revision: 1, label, description, group: 'structured_local', worldId: world,
+        id: local(name), revision, label, description, group: 'structured_local', worldId: world,
         actorId: 'player', location: academy, audience: ['$actor'], once: true, duration, visibleWhen,
         requires: {...all(support, ...atStart, ...(parts ? [reserve(parts)] : [])), reason: reason || 'Finish the previous step and stay in the village.'},
         completionRequires: support, completionCoLocated: true, completionFailure: 'refund',
@@ -56,11 +63,10 @@ function act(name, label, duration, previous, description, effects, {needs = [],
     };
 }
 
-// Authored dials, each labelled in the private receipt: the essence spent refining the Bear Gu (8 parts), the wall
-// exchange (24 parts, over half of the 36 on hand), the stones drawn to recover (6 for 22 parts), the rotation's
+// Authored dials: the essence spent refining the Bear Gu (8 parts), the stones drawn to recover (6 for 22 parts), the rotation's
 // total (20 parts), the minutes each step takes, and the 700 stones arriving with the refined Gu.
 export const guLeadWallNight = {
-    schema: 1, id: GU_LEAD_WALL_NIGHT, revision: 1,
+    schema: 1, id: GU_LEAD_WALL_NIGHT, revision: 2,
     base: {id: GU_LEAD, revision: 1, contentHash: baseHash},
     label: 'Fang Yuan spends the night on the wall',
     description: 'Leaf prices, a rescue on your terms, a clan notice and the first night of the wolf tide.',
@@ -115,10 +121,10 @@ export const guLeadWallNight = {
                 note('wall', 'You count thousands of lightning wolves, at least thirty bold ones and three frenzy wolves behind them. There is no lightning crown wolf. The village looks safe for now. You keep in mind that your return may have changed the timing.')],
             {needs: [field('plan', 'life_burial_recipe_pending_right_moment')]}),
         act('hold_the_wall_against_a_bold_wolf', 'Hold the ladder with Water Shield and three Moonblades', 15, done('answer_the_sirens'),
-            'Spend twenty-four parts in one exchange. The shield takes the wolf’s lightning, the blades wound it and the defenders finish it.',
+            'The shield takes the wolf’s lightning, the blades wound it and the defenders finish it.',
             [set('wall', 'essence_below_half_after_first_exchange'), event('bold_wolf', 'killed_at_the_ladder'),
                 note('wall', 'The Water Shield takes the lightning. Three Moonblades wound the wolf and the defenders kill it. You are below half your essence and step down.')],
-            {needs: [field('wall', 'tide_counted'), moonglow, shield], parts: 24}),
+            {needs: [field('wall', 'tide_counted'), moonglow, shield], atStart: [reserve(exchange.parts)], costs: exchange.costs, revision: 2}),
         act('recover_off_the_ladder', 'Leave the ladder and draw from stones', 60, done('hold_the_wall_against_a_bold_wolf'),
             'Pay six stones to refill part of your sea while the rotation covers your place.',
             [recover(22), set('wall', 'recovering_off_the_ladder'), note('wall', 'You recover twenty-two parts. The tide keeps arriving.')],
@@ -136,5 +142,5 @@ export const guLeadWallNight = {
 export async function registerGuLeadWallNight(register, base) {
     if (!register.extension || base.contentHash !== baseHash ||
         !base.extensions?.some(e => e.id === GU_LEAD_WOOD_CHARM && e.revision === 1 && e.contentHash === predecessorHash)) return null;
-    return register.extension(guLeadWallNight, base);
+    return register.extension(guLeadWallNight, base, {previousRevision: guLeadWallNightPrevious});
 }

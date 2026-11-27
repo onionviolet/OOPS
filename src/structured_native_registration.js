@@ -86,7 +86,7 @@ export function createStructuredNativeRegistration({registry,locations,items,inv
         for(const [id,item] of staged.items)items[id]=item;
         for(const [id,location] of staged.locations)locations[id]=location;
     },options);
-    register.extension=(raw,base)=>extension(raw,base);
+    register.extension=(raw,base,options)=>extension(raw,base,options);
     register.bundledInstantExtension=(raw,base)=>extension(raw,base,{bundledInstant:true});
     return register;
 }
