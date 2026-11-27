@@ -1,0 +1,20 @@
+{
+  "game version": "v0.6",
+  "skill_evolution": {
+    "revision": 1,
+    "choices": {
+      "village.grain-lifts": {"status": "chosen", "level": 3, "target": "Grain lifting: heavy sets"}
+    }
+  },
+  "levels": {
+    "person": {
+      "main_character": {
+        "skill_xp": {
+          "Iron skin": 17000000000,
+          "Weightlifting": 324.5,
+          "Grain lifting: heavy sets": 11
+        }
+      }
+    }
+  }
+}

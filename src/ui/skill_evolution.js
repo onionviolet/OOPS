@@ -3,6 +3,7 @@ import {kitControl,kitElement,kitRow} from './kit.js';
 const node=(tag,text)=>kitElement(tag,'',text);
 
 function branchDescription(target,source) {
+    if(target.description)return target.description;
     const {practiceXP,sourceMultiplier,companion}=target.gains;
     const gains=[`+${practiceXP} ${target.name} XP per workout minute.`];
     if(sourceMultiplier)gains.push(`+${Math.round((sourceMultiplier-1)*100)}% base ${source} XP per workout minute.`);
@@ -10,39 +11,56 @@ function branchDescription(target,source) {
     return gains.join(' ');
 }
 
-export function mountEvolutionChoice(parent,row){
-    const details=node('details');details.dataset.skillEvolution=row.id;
-    const summary=node('summary'),choices=node('div'),notice=node('p');
+const formName=form=>form.grade?`${form.name} · ${form.grade}`:form.name;
+
+export function mountGrowthQueue(skillList) {
+    const details=node('details'),summary=node('summary'),entries=node('div'),notice=node('p');
+    details.dataset.skillGrowthQueue='';
+    summary.textContent='Growth';
     notice.setAttribute('role','status');
-    details.append(summary,choices,notice);
-    parent.append(details);
+    details.append(summary,entries,notice);
+    skillList.before(details);
+    const focus=()=>{details.open=true;summary.focus();};
     let signature;
-    return ({choice,target,reason,choose})=>{
-        const key=[choice?.status,choice?.target,reason].join('|');
-        if(key===signature)return;
-        signature=key;
-        details.hidden=!choice;
-        if(!choice)return;
-        summary.textContent=target?`Chosen form: ${target.name}`:`Choose a ${row.from} form`;
-        choices.replaceChildren();
-        for(const form of target?[target]:row.targets){
-            const retention=form.retainSource?`Keeps ordinary ${row.from}.`:`Replaces ordinary ${row.from} in this practice.`;
-            const entry=kitRow({label:form.name,fact:branchDescription(form,row.from),from:`${row.practiceText} ${retention}`,
-                data:{evolutionForm:form.id}});
-            if(!target){
-                const button=kitControl(node('button',`Choose ${form.name}`));button.type='button';
-                button.disabled=Boolean(reason);
-                button.onclick=()=>{
-                    try{choose(form.id);notice.textContent='';summary.focus();}
-                    catch(error){notice.textContent=error.message;}
-                };
-                entry.append(button);
+    return {focus,render(choices){
+        const next=JSON.stringify(choices.map(({row,reason})=>[row.id,reason]));
+        if(next===signature)return;
+        signature=next;
+        summary.textContent=choices.length?`Growth · ${choices.length} waiting`:'Growth';
+        entries.replaceChildren();
+        if(!choices.length)entries.append(node('p','Keep practising to earn a growth choice.'));
+        for(const {row,reason,choose} of choices){
+            const section=node('section');
+            section.dataset.skillGrowthChoice=row.id;
+            section.append(node('h4',row.grade?`${row.from} · ${row.grade}`:row.from));
+            for(const target of row.targets){
+                const terms=row.policy==='specialization'?`${row.practiceText} Keeps ordinary ${row.from}.`:
+                    'Replaces this skill in its row and keeps its XP and level.';
+                section.append(kitRow({label:`Choose ${formName(target)}`,fact:branchDescription(target,row.from),
+                    from:[terms,target.costs.length?'Requires payment.':'No fee.'].join(' '),
+                    data:{evolutionForm:target.id},action:{disabled:!!reason,title:reason||formName(target),run:()=>{
+                        try{choose(target.id);notice.textContent='';focus();}
+                        catch(error){notice.textContent=error.message;}
+                    }}}));
             }
-            choices.append(entry);
+            if(reason)section.append(node('p',reason));
+            entries.append(section);
         }
-        if(!target){
-            choices.prepend(node('p','Choose one form. No fee. Each workout minute takes the usual time.'));
-            if(reason)choices.append(node('p',reason));
-        }
+    }};
+}
+
+export function mountSkillGrowth(parent,row,open) {
+    const container=node('div'),button=kitControl(node('button','Open Growth')),description=node('small');
+    container.dataset.skillEvolution=row.id;
+    container.hidden=true;
+    button.type='button';
+    button.addEventListener('click',open);
+    container.append(button,description);
+    parent.append(container);
+    return (choice,target)=>{
+        container.hidden=!choice;
+        button.hidden=choice?.status!=='waiting';
+        description.textContent=!target?'':row.policy==='specialization'?`Specialization: ${target.name}`:
+            [target.grade,target.description].filter(Boolean).join(' · ');
     };
 }

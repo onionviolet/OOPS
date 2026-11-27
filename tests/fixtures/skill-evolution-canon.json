@@ -1,0 +1,30 @@
+[
+  {
+    "reference": "A Novel Concept, chapter 120, Thrust and Trust",
+    "basis": "Common Thrust offers three Rare continuations with differing use, cost and growth. Form keys model the three offers without assigning uncited names or prices.",
+    "world": {"primary":"EV2","mix":[]},
+    "row": {
+      "id":"source.thrust-choice","policy":"EV2","from":"Common Thrust","threshold":1,
+      "requirements":{"world":"aether-study","reachedCap":true},
+      "targets":[
+        {"id":"source.thrust.option-1","name":"First Rare Thrust offer","costs":[],"restrictions":{},"gains":{"function":{"trigger":"thrust","mode":"option-1"}}},
+        {"id":"source.thrust.option-2","name":"Second Rare Thrust offer","costs":[],"restrictions":{},"gains":{"function":{"trigger":"thrust","mode":"option-2"}}},
+        {"id":"source.thrust.option-3","name":"Third Rare Thrust offer","costs":[],"restrictions":{},"gains":{"function":{"trigger":"thrust","mode":"option-3"}}}
+      ]
+    },
+    "proof":{"context":{"reachedCap":true},"target":"source.thrust.option-2","trigger":"thrust","mode":"option-2"}
+  },
+  {
+    "reference": "The Primal Hunter, chapter 1388, Sharpened Fangs",
+    "basis": "A demonstrated penetrating thrust upgrades the same Rare Fang to Epic. This held-out case has one result, with confirmation supplied by the test host.",
+    "world":{"primary":"EV3","mix":[],"grades":["Rare","Epic"]},
+    "row":{
+      "id":"source.arcane-fang-upgrade","policy":"EV3","from":"Piercing Cursed Arcane Fang","grade":"Rare","threshold":1,
+      "requirements":{"world":"hunter-study","defensePierced":true},
+      "targets":[
+        {"id":"source.rupturing-fang","name":"Rupturing Arcane Fang","grade":"Epic","costs":[],"restrictions":{},"gains":{"function":{"trigger":"thrust","mode":"rupture-defense"}}}
+      ]
+    },
+    "proof":{"context":{"defensePierced":true},"target":"source.rupturing-fang","trigger":"thrust","mode":"rupture-defense","grade":"Epic"}
+  }
+]

@@ -1,5 +1,5 @@
 import {localMoneyLabel, localPurseLabel, coinPricesHere} from './ui/local_money_label.js';
-import {attachSkillEvolution} from './skill_evolution_native.js';
+import {attachSkillEvolution,focusSkillGrowth} from './skill_evolution_native.js';
 import {locationMapMarks, locationMapDanger} from './ui/map_marks.js';
 import {bookFinishLines} from './book_finish_lines.js';
 import {quoteJourney, journeyTitle} from './journey_quote.js';
@@ -1211,7 +1211,7 @@ export function setNativeLogBufferReader(reader) {
     if(panelId){
         const link=document.createElement('button');link.type='button';link.className='notice-panel-link';link.textContent=details.panelLabel||'Open';
         link.title=voice?.panel===panelId?'Open the panel this line names':'Open related panel';link.dataset.noticePanel=panelId;
-        link.onclick=()=>{if(panelId==='crafting'){if(document.querySelector('.choice_craft'))window.openCraftingWindow();}else if(!expandWorkspaceModule(panelId))openWorkspaceModule(panelId);};message.append(link);
+        link.onclick=()=>{if(panelId==='skill-growth')openSkillGrowth();else if(panelId==='crafting'){if(document.querySelector('.choice_craft'))window.openCraftingWindow();}else if(!expandWorkspaceModule(panelId))openWorkspaceModule(panelId);};message.append(link);
     }
     if(details.calendarDate) {
         message.dataset.calendarDate = details.calendarDate;
@@ -5498,7 +5498,7 @@ function create_new_skill_bar(skill) {
     skill_bar_divs[skill.category][skill.skill_id].setAttribute("data-skill", skill.skill_id);
     skill_bar_divs[skill.category][skill.skill_id].classList.add("skill_div");
     skill_list.querySelector(`[data-skill_category=${skill.category}]`).querySelector("[data-skill_category_skills]").appendChild(skill_bar_divs[skill.category][skill.skill_id]);
-    attachSkillEvolution(skill,skill_bar_divs[skill.category][skill.skill_id]);
+    attachSkillEvolution(skill,skill_bar_divs[skill.category][skill.skill_id],openSkillGrowth);
 
     //sorts skill_list div alphabetically
     sort_displayed_skills({});
@@ -5512,6 +5512,12 @@ function create_new_skill_bar(skill) {
  * @param {Boolean} leveled_up 
  * @returns 
  */
+function openSkillGrowth() {
+    if(!expandWorkspaceModule('skills'))openWorkspaceModule('skills');
+    document.getElementById('show_skills')?.click();
+    focusSkillGrowth();
+}
+
 function update_displayed_skill_bar(skill, leveled_up=true) {
     if(deferSimulationRender(`skill:${skill.skill_id}`, () => update_displayed_skill_bar(skill, true))) return;
     renderRecentLearning(skill_list, character.getLevelableComponent(), learning_readers);

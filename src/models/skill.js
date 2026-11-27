@@ -7,6 +7,7 @@ import { availability_havers } from "../data/component_references.js";
 import { skill_categories, skills } from "../data/skills.js";
 import { stat_names } from "../misc.js";
 import {automaticSkillTiers,skillTierName} from '../skill_evolution.js';
+import {domainRegistry} from '../domain_registry.js';
 
 const which_skills_affect_skill = {};
 
@@ -155,7 +156,8 @@ class Skill {
             return unknown_skill_name;
         }
  
-        return this.getTierName(skillXP.current_level);
+        const form=skillXP===this.getDefaultSkillXP()&&domainRegistry.command('skill_evolution','form')?.(this.skill_id);
+        return form?.name??this.getTierName(skillXP.current_level);
     }
 
     getTierName(level) {

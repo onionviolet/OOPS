@@ -2,7 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {loadNative,STANCE_LOCATION_STUBS} from './helpers/native_loader.mjs';
-import {automaticSkillTiers,skillTierEvent,offerSkillEvolution,chooseSkillEvolution,evolveSkillPractice,emptySkillEvolution} from '../src/skill_evolution.js';
+import {activeSkillForm,activeSkillFunction,automaticSkillTiers,skillTierEvent,offerSkillEvolution,chooseSkillEvolution,
+    evolveSkillPractice,emptySkillEvolution,readSkillEvolution,validateEvolutionRows} from '../src/skill_evolution.js';
 import {SKILL_EVOLUTIONS,validateSkillEvolutionEnvelope} from '../src/data/skill_evolutions.js';
 
 const [row]=SKILL_EVOLUTIONS;
@@ -14,6 +15,8 @@ test('native skill data keeps the YAIR tier boundaries and upgrade event',async(
     const {skills,character,fill_availability_methods}=await loadNative(`export {skills} from './src/data/skills.js'; export {character} from './src/data/character.js'; export {fill_availability_methods} from './src/component_management.js';`,{stubs:STANCE_LOCATION_STUBS});
     fill_availability_methods();
     const iron=skills['Iron skin'], giant=skills['Giant slayer'];
+    assert.ok(!Object.hasOwn(skills,'village.breathing-skin'));
+    assert.ok(Object.hasOwn(skills,'Grain lifting: heavy sets'));
     for(const [skill,levels,names] of [
         [iron,[0,9,10,19,20,29,30],['Tough skin','Tough skin','Wooden skin','Wooden skin','Stone skin','Stone skin','Iron skin']],
         [giant,[0,14,15],['Giant killer','Giant killer','Giant slayer']],
@@ -62,6 +65,65 @@ test('one durable form has its own identity and distinct earned effects',()=>{
     const trained={skill_evolution:control,levels:{person:{main_character:{skill_xp:{[balance.id]:11}}}}};
     assert.deepEqual(validateSkillEvolutionEnvelope(trained),control);
     assert.throws(()=>validateSkillEvolutionEnvelope({...trained,skill_evolution:waiting}),/chosen skill form/);
-    assert.throws(()=>validateSkillEvolutionEnvelope({skill_evolution:{...control,revision:2}}),/revision/);
+    assert.throws(()=>validateSkillEvolutionEnvelope({skill_evolution:{...control,revision:3}}),/revision/);
     assert.throws(()=>validateSkillEvolutionEnvelope({skill_evolution:{...control,choices:{[row.id]:{status:'chosen',target:'forged',level:3}}}}),/Invalid saved/);
+});
+
+test('revision 1 preserves the A2 specialization, original XP and tier',async()=>{
+    const envelope=JSON.parse(await readFile(new URL('./fixtures/skill-evolution-a2.json',import.meta.url),'utf8'));
+    const old=structuredClone(envelope);
+    const migrated=validateSkillEvolutionEnvelope(envelope);
+    assert.deepEqual(migrated,{...old.skill_evolution,revision:2});
+    assert.deepEqual(envelope,old);
+    assert.equal(activeSkillForm(migrated,SKILL_EVOLUTIONS,row.from),undefined);
+    assert.deepEqual(evolveSkillPractice(migrated,row,2,context),{sourceXP:3,extra:[[heavy.id,1]]});
+});
+
+test('Iron skin evolves its own slot past the tier cap and picks a gated combat function',()=>{
+    const iron=SKILL_EVOLUTIONS.find(row=>row.policy==='EV2');
+    const qualified={...iron.requirements,xp:120,thresholdXP:100,unarmored:true};
+    assert.equal(offerSkillEvolution(emptySkillEvolution(),iron,30,{...qualified,xp:107}),null);
+    const {state}=offerSkillEvolution(emptySkillEvolution(),iron,30,qualified);
+    assert.equal(activeSkillForm(state,SKILL_EVOLUTIONS,iron.from),undefined);
+    assert.deepEqual(evolveSkillPractice(state,iron,9,qualified),{sourceXP:9,extra:[]});
+    const [tempered,breathing]=iron.targets;
+    for(const target of iron.targets){
+        const chosen=chooseSkillEvolution(state,iron,target.id,30,qualified).state;
+        assert.equal(activeSkillForm(chosen,SKILL_EVOLUTIONS,iron.from).id,target.id);
+        const {trigger,mode}=target.gains.function;
+        assert.equal(activeSkillFunction(chosen,SKILL_EVOLUTIONS,iron.from,trigger,qualified).mode,mode);
+        assert.equal(activeSkillFunction(chosen,SKILL_EVOLUTIONS,iron.from,trigger,{...qualified,unarmored:false}),undefined);
+        assert.deepEqual(evolveSkillPractice(chosen,iron,9,qualified),{sourceXP:9,extra:[]});
+        assert.throws(()=>readSkillEvolution({...chosen,revision:1},SKILL_EVOLUTIONS),/Invalid saved/);
+        const xp={levels:{person:{main_character:{skill_xp:{[iron.from]:120}}}}};
+        assert.deepEqual(validateSkillEvolutionEnvelope({...xp,skill_evolution:chosen}),chosen);
+        assert.throws(()=>validateSkillEvolutionEnvelope({skill_evolution:chosen}),/original XP/);
+    }
+    assert.notEqual(tempered.gains.function.trigger,breathing.gains.function.trigger);
+});
+
+test('Sleeping offers a strict grade climb and an executed recovery function',()=>{
+    const sleeping=SKILL_EVOLUTIONS.find(row=>row.policy==='EV3'), context=sleeping.requirements;
+    const offered=offerSkillEvolution(emptySkillEvolution(),sleeping,2,context);
+    const chosen=chooseSkillEvolution(offered.state,sleeping,sleeping.targets[0].id,2,context).state;
+    assert.equal(activeSkillForm(chosen,SKILL_EVOLUTIONS,'Sleeping').grade,'Uncommon');
+    assert.equal(activeSkillFunction(chosen,SKILL_EVOLUTIONS,'Sleeping','sleep-health',context).multiplier,1.25);
+    assert.equal(activeSkillFunction(chosen,SKILL_EVOLUTIONS,'Sleeping','sleep-stamina',context),undefined);
+    const invalid=structuredClone(sleeping);
+    invalid.targets[0].grade='Common';
+    assert.throws(()=>validateEvolutionRows([invalid],{[context.world]:{primary:'EV3',mix:[],grades:['Common','Uncommon']}}),/Invalid/);
+});
+
+test('the same law runs the held-out Thrust choice and Arcane Fang grade climb',async()=>{
+    const cases=JSON.parse(await readFile(new URL('./fixtures/skill-evolution-canon.json',import.meta.url),'utf8'));
+    for(const {row,proof,world} of cases){
+        validateEvolutionRows([row],{[row.requirements.world]:world});
+        const context={...proof.context,world:row.requirements.world};
+        assert.equal(offerSkillEvolution(emptySkillEvolution(),row,0,context),null);
+        const {state}=offerSkillEvolution(emptySkillEvolution(),row,1,context);
+        const result=chooseSkillEvolution(state,row,proof.target,1,context);
+        assert.equal(activeSkillForm(result.state,[row],row.from).id,proof.target);
+        assert.equal(activeSkillForm(result.state,[row],row.from).grade,proof.grade);
+        assert.equal(activeSkillFunction(result.state,[row],row.from,proof.trigger,context).mode,proof.mode);
+    }
 });

@@ -3060,7 +3060,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
     });
 })();
 
-for(const {targets} of SKILL_EVOLUTIONS)for(const {id,name} of targets){
+for(const {targets} of SKILL_EVOLUTIONS.filter(row=>row.policy==='specialization'))for(const {id,name} of targets){
     skills[id]=new Skill({names:{0:name},category:'Activity',base_xp_cost:10,description:'Practice your chosen lifting form while carrying grain in the Village.'});
 }
 

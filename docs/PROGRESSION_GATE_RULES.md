@@ -215,13 +215,23 @@ Only the Skill-Grinder audit reports fresh bounded text reading in round3. The o
 
 ## Skill evolution proposal, 2026-11-26
 
-**Proposal under AD56.** Native XP continues to own ordinary levels. Each automatic name tier is a single-target row over the same skill identity. The game keeps the YAIR names and Reports wording, including Stone skin to Iron skin at level 30 and Giant killer to Giant slayer at level 15. A structural evolution instead names its source skill, threshold, requirements and target forms. Each target says what it grants on actual use, where it works, what it costs and whether the source form stays usable.
+**Proposal under AD56.** A world declares a primary policy and any explicit mix. Village keeps EV1 first and adds EV2, EV3 and specialization for the named skills. Native XP and level belong to the skill lineage. An in-place evolution gives that lineage one active form, with its own identity and practical use.
 
-The first consumer is the existing Village grain-bag workout. YAIR and OOPS already train Weightlifting through this activity and use the skill for strength. The proposed level 3 fork lets Heavy sets add 50% to the workout's base Weightlifting XP or Balanced lifts add 1 Equilibrium XP per minute. Either form gains 1 XP of its own per minute and keeps ordinary Weightlifting. Both apply to the Village workout, cost its usual time and have no fee. The other form is foregone. A waiting choice leaves all ordinary ticks and skill gain running.
+| Policy | Skill change | Status |
+| --- | --- | --- |
+| EV1 · Named tiers | The same skill takes its next name automatically at a YAIR boundary. | Existing. Stone skin becomes Iron skin at 30 and Giant killer becomes Giant slayer at 15. |
+| EV2 · Evolved forms | Pick one of two or three forms. It takes over the same skill row and XP, with a different function. | Iron skin offers Tempered skin or Breathing skin after level 30 and eight more XP. |
+| EV3 · Grade climb | Choose an offered form of a higher local grade. The active form keeps its lineage and learned level. | Sleeping offers a Common to Uncommon upgrade at level 2. |
+| EV4 · Fusion | Form a skill from specified constituents, with a rule for XP and what each constituent keeps. | Later slice. |
+| EV5 · Consolidation | Bring overlapping skills into one lineage, with a rule for overlapping mastery. | Later slice. |
+| EV6 · Class or path | Evolve a class or path with its own carried progression and unlocks. | Later slice. |
+| Specialization | Add a practice perk alongside its source skill. | A2's Heavy sets and Balanced lifts remain choices for Weightlifting 3 in the Village grain-bag workout. |
 
-The law emits a neutral event. Reports shows the offer once, and the Weightlifting row shows both forms and their terms before commitment. Worlds can present the same event through their own surfaces under WKR11 and WKR15.
+Iron skin already learns from hits taken without armor and has a YAIR cap. Tempered skin turns incoming criticals into ordinary hits while unarmored. Breathing skin restores missing stamina on landed blows while unarmored. Sleeping already drives recovery during idle play. Restorative sleep and Deep sleep offer additional health and stamina recovery, respectively. These offers have no fee. [Research on advancement](RESEARCH_LITRPG_SYSTEMS.md#skill-tiers-critical-points-and-advancement-routes-2026-10-02)
 
-The optional `skill_evolution` revision 1 stores a waiting choice or one selected identity. The ordinary native skill XP table stores practice in the new skill. A save without this slice opens with its existing XP and name tiers. The next eligible practice can offer a choice if the threshold is already met. Loading never chooses a form or awards XP. The native save transaction commits a selection before the live form changes. Uses outside the named practice follow the original skill rules. [Research](RESEARCH_LITRPG_SYSTEMS.md#skill-tiers-critical-points-and-advancement-routes-2026-10-02) · [Foundation proof](representations/evidence/skill-evolution-2026-11-26/proof.json)
+The held-out EV2 case is the Common Thrust choice in *A Novel Concept*, chapter 120. The row retains the three distinct Rare continuations and represents their differences with neutral keys. The held-out EV3 case is Piercing Cursed Arcane Fang changing from Rare to Epic Rupturing Arcane Fang after a penetrating thrust in *The Primal Hunter*, chapter 1388. Its single result is confirmed by the test host. The two local Sleeping offers use that rank-climb policy. [Thrust source note](RESEARCH_LITRPG_SYSTEMS.md#mastery-beyond-the-creator-rarity-and-other-distinctions-2026-10-02) · [Sharpened Fangs](https://www.royalroad.com/fiction/36049/the-primal-hunter/chapter/4002974/chapter-1388-sharpened-fangs)
+
+The neutral offer event leaves idle play running and appears once under Growth in Reports. Its button opens the one Growth queue in Skills. The optional save slice revision 2 records the selected form and its lineage through the row ID. The native XP table keeps the original slot for EV2 and EV3. Revision 1 choices migrate as specializations with their existing XP slots. Pre-A2 saves keep their XP and name tiers. Loading never chooses or awards XP. Selection publishes the live form after the native save transaction succeeds. [A2 proof](representations/evidence/skill-evolution-2026-11-26/proof.json)
 
 ## Progression dispatch chronology reconciliation B570
 

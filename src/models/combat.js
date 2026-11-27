@@ -18,7 +18,7 @@ import {validateEncounterCombatProfile} from '../absorb_p23/combat_options/runti
 import { config } from "../config.js";
 import { character } from "../data/character.js";
 import { skills } from "../data/skills.js";
-import { log_message, update_displayed_health, update_stance_tooltip } from "../display.js";
+import { log_message, update_displayed_health, update_displayed_stamina, update_stance_tooltip } from "../display.js";
 import { enemy_tag_to_skill_mapping } from "../enemies.js";
 import { item_templates } from "../items.js";
 import {add_xp_to_character, add_xp_to_skill, change_stance, current_stance, finish_combat_round, game_stats, kill_target, kill_player, process_current_loot, tickrate, use_stamina} from "../main.js";
@@ -605,7 +605,13 @@ class Combat {
         game_stats.total_hits_taken += Number(!this.is_special_combat && !!target.tags.main_character);
         game_stats.total_hits_done += Number(!this.is_special_combat && !!fighter.tags.main_character);
 
-        if(effectiveCritChance(fighter.getFullStats().crit_rate, target.getFullStats().crit_resistance) > random("crit")){
+        const unarmored = !this.is_special_combat && target.tags.main_character && !target.isWearingArmor();
+        const skinUse = trigger => unarmored && domainRegistry.command('skill_evolution','use')?.('Iron skin',trigger,{unarmored});
+        const critical = effectiveCritChance(fighter.getFullStats().crit_rate, target.getFullStats().crit_resistance) > random("crit");
+        const deflection = critical && skinUse('enemy-critical');
+        if(deflection?.mode==='deflect-critical') {
+            log_message(`${deflection.name} turned a critical strike into an ordinary hit.`,'hero_attacked');
+        } else if(critical){
             damages_dealt = damages_dealt.map(val => val*fighter.getFullStats().crit_multiplier);
             critted = true;
             game_stats.total_crits_taken += Number(!this.is_special_combat && !!target.tags.main_character);
@@ -626,6 +632,17 @@ class Combat {
         // Damage types (damage_types.js): the attack's type mix against the defender's per-type protection; 1 when nothing is declared.
         const typed = typedStrike({fighter, target});
         let {damage_taken, fainted} = target.takeDamage({damage_values: damages_dealt, defense_modifier, armor_penetration:fighter.getFullStats().armor_penetration??0, type_multiplier: typed.multiplier, give_skill_xp: (!this.is_special_combat && target.tags.main_character)});
+
+        const breathing = !fainted && skinUse('enemy-hit');
+        if(breathing?.mode==='restore-stamina') {
+            const stats = target.getFullStats();
+            const restored = Math.min(breathing.amount,stats.max_stamina-stats.stamina);
+            if(restored>0) {
+                stats.stamina += restored;
+                update_displayed_stamina();
+                log_message(`${breathing.name} caught the blow and restored ${restored} stamina.`,'hero_attacked');
+            }
+        }
 
         if(!this.is_special_combat&&this.nativeExchangeHost)domainRegistry.command('pledges','resolvedSiphon')?.({fighter,target,damage:Math.max(0,Math.min(damage_taken,harvestHealth-Math.max(0,target.getFullStats().health)))});
 

@@ -137,8 +137,11 @@
 #main_content .skill_div[data-practising] .skill_bar_name {color:var(--ui-accent);font-weight:var(--ui-weight-strong);}
 #main_content .skill_category_div:has(.skill_div[data-practising]) .skill_div:not([data-practising]) :is(.skill_bar_name,.skill_bar_xp) {color:var(--ui-muted);}
 #main_content [data-skill-evolution] {padding:var(--ui-space-1) var(--ui-space-2);min-width:0;overflow-wrap:anywhere;}
-#main_content [data-skill-evolution] .kit-row {display:grid;justify-items:start;gap:var(--kit-gap-1);margin-block:var(--kit-gap-2);}
-#main_content [data-skill-evolution] .kit-row__from {margin-left:0;white-space:normal;}
+#main_content [data-skill-growth-queue] {padding:var(--ui-space-2);border:var(--ui-space-hairline) solid var(--ui-hairline);overflow-wrap:anywhere;}
+#main_content [data-skill-growth-choice] {border-block-start:var(--ui-space-hairline) solid var(--ui-hairline);margin-block:var(--ui-space-2);}
+#main_content [data-skill-growth-choice] .kit-row {display:grid;min-width:0;justify-items:start;gap:var(--kit-gap-1);margin-block:var(--kit-gap-2);}
+#main_content [data-skill-growth-choice] .kit-row__label {min-height:var(--ui-control-md);white-space:normal;text-align:start;}
+#main_content [data-skill-growth-choice] :is(.kit-row__fact,.kit-row__from) {margin-left:0;white-space:normal;}
 /* PS281, PS282 (round 25, proposals): in a wide column the percent sits inside the bar's end (the list's width sets
    data-skill-wide, src/ui/skill_row.js); a narrow one keeps it beside the name. Row style Spacing keeps its one-line rows. A
    maxed skill reads "Max" in the capped colour. */
