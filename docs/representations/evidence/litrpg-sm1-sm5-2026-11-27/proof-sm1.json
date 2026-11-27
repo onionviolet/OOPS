@@ -1,0 +1,68 @@
+{
+  "entry": "/",
+  "life": "Village",
+  "bundleSha256": "ef6827a415e319fa8826a00ffcd7b85e7b48f5b2a2ee2d433832ef994366a5cc",
+  "fixtureSha256": "3400f42a0333b0aeb749ac547a5819dca71e29612bef0917e86b1f656d98bc3b",
+  "runs": [
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "offer": "Sleeping earned 1 recovery point. Bank or allocate in Growth.",
+      "effect": "Deep rest restored 4 extra health. Upkeep reduced stamina recovery by 1.",
+      "choice": {
+        "revision": 1,
+        "earned": {
+          "recovery": 1
+        },
+        "allocated": {
+          "deep-rest": 1
+        }
+      },
+      "earned": 257,
+      "deferred": 263,
+      "persistence": {
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true
+      },
+      "captures": [
+        "sm1-offer-1920.png",
+        "sm1-effect-1920.png"
+      ],
+      "errors": []
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "offer": "Sleeping earned 1 recovery point. Bank or allocate in Growth.",
+      "effect": "Deep rest restored 4 extra health. Upkeep reduced stamina recovery by 1.",
+      "choice": {
+        "revision": 1,
+        "earned": {
+          "recovery": 1
+        },
+        "allocated": {
+          "deep-rest": 1
+        }
+      },
+      "earned": 257,
+      "deferred": 263,
+      "persistence": {
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true
+      },
+      "captures": [
+        "sm1-offer-1366.png",
+        "sm1-effect-1366.png"
+      ],
+      "errors": []
+    }
+  ]
+}

@@ -90,6 +90,7 @@ import {mountKnownMethodChains,mountKnownNumber,formatKnownNumber} from './absor
 import {createKnownItemHotkeys,mountKnownItemBinding,mountKnownItemHotkeyList} from './absorb_p23/known_detail/hotkeys.js';
 import {skillExpansionPresentation} from './skill_expansion_host.js';
 import {setNativeObservedDropReader, setKnownClearTextReader, reset_message_log_for_life} from './display.js';
+import {configureGrowthPoints,observePointLevel,villagePointRecovery} from './growth_points_native.js';
 import {configureSkillEvolution,earnActivitySkillXP,evolvedPath,evolvedUse,observeGrowthRest,observePathGrowth,observeSkillAward,reportNativeSkillTier,settleGrowthRecovery} from './skill_evolution_native.js'; import {settleSkinBodyEffect} from './skill_evolution.js'; import {VILLAGE_PATROL_PATH} from './data/skill_evolutions.js'; import {formatDuration} from './number_format.js';
 let p23DropObservations,loadedDisplayPreferences;
 
@@ -3984,17 +3985,27 @@ function do_sleeping() {
         update_health({ammount_to_restore: sleeping_heal_ammount});
     }
 
+    const missingHealth=full_stats.max_health-full_stats.health;
+    let recovery=villagePointRecovery(missingHealth,0);
     if(full_stats.stamina < full_stats.max_stamina) {
         const sleeping_stamina_ammount = (evolvedUse('Sleeping','sleep-stamina')?.multiplier??1)*p00SleepingMultiplier()*furnitureRecovery(readFurnitureBonuses(), Math.round(Math.max(full_stats.max_stamina/30, 5) * (1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level)));
 
         const growth=settleGrowthRecovery('Patience','sleep-stamina',{healthy:full_stats.health>=full_stats.max_health},
             full_stats.max_stamina-full_stats.stamina-sleeping_stamina_ammount);
-        full_stats.stamina += sleeping_stamina_ammount+(growth?.stamina??0);
+        const stamina=sleeping_stamina_ammount+(growth?.stamina??0);
+        recovery=villagePointRecovery(missingHealth,stamina);
+        const missingStamina=full_stats.max_stamina-full_stats.stamina;
+        recovery.upkeep=Math.min(missingStamina,stamina)-Math.min(missingStamina,stamina-recovery.upkeep);
+        full_stats.stamina += stamina-recovery.upkeep;
         if(growth)log_message(`${growth.name} restored ${growth.stamina} extra stamina while you slept.`,'skill_raised');
         if(full_stats.stamina > full_stats.max_stamina) {
             full_stats.stamina = full_stats.max_stamina;
         } 
         update_displayed_stamina();
+    }
+    if(recovery.health){
+        update_health({ammount_to_restore:recovery.health});
+        log_message(`Deep rest restored ${recovery.health} extra health. Upkeep reduced stamina recovery by ${Number(recovery.upkeep.toFixed(2))}.`,'skill_raised');
     }
 }
 
@@ -5070,8 +5081,10 @@ function add_xp_to_skill({skill, xp_to_add = 1, should_info = true, use_bonus = 
     if(!is_from_loading&&!restoringNativeSave)xp_to_add*=getPacingEffects(homePacingContext()).efficiency;
     const growthNativeBefore=!is_from_loading&&!restoringNativeSave&&p23Growth?readNativeSkillXP(character.getLevelableComponent().skill_progress):null;
     const checkEvolution=observeSkillAward(skill,!is_from_loading&&!restoringNativeSave);
+    const pointLevel=skill.skill_id==='Sleeping'&&!is_from_loading&&!restoringNativeSave ? skill.getCurrentLvl() : null;
     let {leveled, prev_name, new_name, was_hidden, message, unlocks} = character.addXPToSkill({skill, xp_to_add, should_info, use_bonus, add_to_parent, cap_gained_xp, is_from_loading, do_quest_events});
     checkEvolution?.();
+    if(pointLevel!==null)observePointLevel(skill.skill_id,pointLevel,skill.getCurrentLvl());
     if(growthNativeBefore)recordGrowthNativeGrant(growthNativeBefore,readNativeSkillXP(character.getLevelableComponent().skill_progress));
     const is_visible = skill.visibility_treshold <= skill.getTotalXP();
 
@@ -6219,6 +6232,13 @@ function add_xp_to_activity_skills() {
     earnActivitySkillXP(current_activity,activities[current_activity.activity_name],
         (id,xp,options)=>add_xp_to_skill({skill:skills[id],xp_to_add:xp,...options}));
 }
+
+configureGrowthPoints({
+    context:()=>({world:expansionState.actors.player.worldId,atBed:current_location?.housing?.isUnlocked()===true}),
+    writable:()=>workLedgerCanWrite()&&!restoringNativeSave&&character.is_alive,
+    persist:next=>persistExpansion({...p23Plan(),nativePatch:{growth_points:next}}),
+    report:(text,link)=>nativeCraftMessage(text,'skill_raised',link?{panelId:'skill-growth',panelLabel:'Open Growth'}:undefined),
+});
 
 configureSkillEvolution({
     context:()=>({world:expansionState.actors.player.worldId,location:current_location?.id,activity:current_activity?.id}),

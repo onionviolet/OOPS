@@ -393,11 +393,13 @@ R1-R4 refer to "Future RPG view with a map" in docs/END_GOAL.md: R1 loop-neutral
 
 **Books and rows.** Azarinth Healer (AZ5); Beneath the Dragoneye Moons (BD7, BD8, BD12, BD49, BD50); The Primal Hunter (PH3). bg only: Dungeon Crawler Carl (DCbg1).
 
-**Closest seam.** `src/progression_path.js` (PRG4 tracks) for the earning side; `src/kernel_working.js` for the allocation commit; `src/status_window.js` already has a "System points" field (cheat card only).
+**OOPS status.** Playable for the Village sleep routine. Sleeping level crossings award bankable recovery points. Deep rest spends them to improve sleep healing with a proportional stamina recovery upkeep. A bed lets the player reset the allocation. The book variants run as held-out data. [Normal-entry receipts](../representations/evidence/litrpg-sm1-sm5-2026-11-27/proof-sm1.json)
 
-**Save implications.** New optional slice `progression.points@1`: unspent pools by type and the allocation ledger by row ID. Loading grants nothing (GTR12). Pre-feature saves load with an empty pool.
+**Owner.** `src/growth_points.js` quotes and settles the typed pool. The native Sleeping award supplies the crossing and the existing Growth queue reads the holder projection.
 
-**Idle-play note.** Points accrue while away from the same settlement that grants levels. Unspent points stay banked; nothing auto-spends unless the player set a standing allocation template. The return recap lists points earned (SLR26).
+**Save implications.** Optional save slice `growth_points` revision 1 records earnings by type and allocated counts by option. The bank is derived. Pre-feature saves open with an empty bank and unchanged XP (GTR12).
+
+**Idle-play note.** Points accrue while away from the same settlement that grants levels. Unspent points stay banked. Reports links to Growth when a crossing earns a point (SLR26).
 
 **Future RPG view (END_GOAL R1-R4).** R1: time passing in one jump or step by step gives the same result; R2: needs one player-driven proof (a choice, scene or fight turn) besides idle routine; R4: must read through the shared observer-safe model, not a private copy.
 

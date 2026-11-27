@@ -77,9 +77,17 @@ function evolutionReceipts(proofs){
     };
 }
 
-export function buildSystems({census,progression,digests=[],proofs=[]}){
+function growthReceipt(proof,id,action,effect) {
+    if (!hasBuild(proof) || proof.life!=='Village' || proof.entry!=='/') return;
+    const valid=(width,height)=>proof.runs?.some(run=>run.viewport.width===width&&run.viewport.height===height&&
+        run.errors?.length===0&&run.effect?.startsWith(effect)&&['save','reload','export','import'].every(key=>run.persistence?.[key]));
+    if(valid(1920,1080)&&valid(1366,768))return {id,life:proof.life,action,build:proof.bundleSha256,href:bundled(id)};
+}
+
+export function buildSystems({census,progression,digests=[],proofs=[],growthProofs={}}){
     const {records,definitions}=parseCensus(census);
     const receipt=evolutionReceipts(proofs);
+    receipt.SM1=growthReceipt(growthProofs.SM1,'sm1','Allocate Deep rest and recover health with stamina upkeep','Deep rest restored');
     for(const line of progression.split(/\r?\n/).filter(line=>/^\| EV[1-6] ·/.test(line))){
         const [header,definition,scope]=cells(line),[id,label]=header.split(' · ');
         definitions.push({id,label,definition,variations:[scope,...SKILL_EVOLUTIONS.filter(row=>row.policy===id)
@@ -120,7 +128,8 @@ export function readSystems(root,readers,worlds){
     const proofs=['skill-evolution-ev2-ev3-2026-11-26/proof.json','skill-evolution-ev4-ev5-2026-11-26/proof.json',
         'skill-evolution-armor-ev6-2026-11-26/proof-ev6.json'].map(file=>take(join(root,'docs/representations/evidence',file)));
     const digests=worlds.map(world=>take(join(readers,world+'.json'))).filter(Boolean);
-    return buildSystems({census:readFileSync(join(root,censusFile),'utf8'),progression:readFileSync(join(root,progressionFile),'utf8'),digests,proofs});
+    const growthProofs={SM1:take(join(root,'docs/representations/evidence/litrpg-sm1-sm5-2026-11-27/proof-sm1.json'))};
+    return buildSystems({census:readFileSync(join(root,censusFile),'utf8'),progression:readFileSync(join(root,progressionFile),'utf8'),digests,proofs,growthProofs});
 }
 
 export function findSystems({articles=[]}={}){

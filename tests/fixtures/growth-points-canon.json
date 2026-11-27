@@ -1,0 +1,29 @@
+{
+  "azarinth": {
+    "source": "AZ5: az.rule.level-stat-points ch69; az.custom.class-level-rewards ch43; az.ability.statistics ch7",
+    "awards": [{"track":"class","pool":"free","amount":5}],
+    "options": [
+      {"id":"strength","pool":"free","stat":"strength","gain":1},
+      {"id":"dexterity","pool":"free","stat":"dexterity","gain":1},
+      {"id":"vitality","pool":"free","stat":"vitality","gain":1},
+      {"id":"endurance","pool":"free","stat":"endurance","gain":1},
+      {"id":"wisdom","pool":"free","stat":"wisdom","gain":1},
+      {"id":"intelligence","pool":"free","stat":"intelligence","gain":1}
+    ]
+  },
+  "dragoneye": {
+    "source": "BD7/8/12/49/50: bdm.institution.system bdmc003; bdm.custom.free-stat-allocation bdmc023; bdm.ability.child-of-earth bdmc009; bdm.institution.system-level-notifications bdmc019",
+    "awards": [
+      {"track":"earth","pool":"free","amount":3},
+      {"track":"earth","pool":"human","amount":1}
+    ],
+    "safeSpread": 0,
+    "warning": "Improper physical allocation can be fatal. This preview flags imbalance and does not predict a lethal threshold.",
+    "options": [
+      {"id":"strength","pair":"dexterity","pool":"free","stat":"strength","gain":1,"upkeep":{"stat":"manaRegeneration","amount":24}},
+      {"id":"dexterity","pair":"strength","pool":"free","stat":"dexterity","gain":1,"upkeep":{"stat":"manaRegeneration","amount":24}},
+      {"id":"vitality","pair":"speed","pool":"free","stat":"vitality","gain":1,"upkeep":{"stat":"manaRegeneration","amount":24}},
+      {"id":"speed","pair":"vitality","pool":"free","stat":"speed","gain":1,"upkeep":{"stat":"manaRegeneration","amount":24}}
+    ]
+  }
+}

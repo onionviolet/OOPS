@@ -26,18 +26,31 @@ export function mountGrowthQueue(skillList,onOpen) {
     const focus=()=>{details.open=true;summary.focus();};
     const previews=new Map();
     let signature;
-    return {focus,render(choices,paths=[]){
-        const next=JSON.stringify([choices.map(({row,reason})=>[row.id,reason]),paths.map(path=>path.id)]);
+    return {focus,render(choices,paths=[],sections=[]){
+        const next=JSON.stringify([choices.map(({row,reason})=>[row.id,reason]),paths.map(path=>path.id),sections]);
         if(next===signature){
             for(const {row,quote} of choices)if(previews.has(row.id))previews.get(row.id).textContent=mastery(quote.lineages);
             return;
         }
         signature=next;
-        summary.textContent=choices.length?`Growth · ${choices.length} waiting`:'Growth';
+        const waiting=choices.length+sections.filter(section=>section.waiting).length;
+        summary.textContent=waiting?`Growth · ${waiting} waiting`:'Growth';
         entries.replaceChildren();
         previews.clear();
         for(const path of paths)entries.append(kitRow({label:path.name,fact:path.description,data:{evolvedPath:path.id}}));
-        if(!choices.length&&!paths.length)entries.append(node('p','Keep practising to earn a growth choice.'));
+        if(!choices.length&&!paths.length&&!sections.length)entries.append(node('p','Keep practising to earn a growth choice.'));
+        for(const section of sections){
+            const panel=node('section');
+            panel.dataset.growthSection=section.id;
+            panel.append(node('h4',section.name),node('p',section.summary));
+            for(const {label,fact,reason,run} of section.actions){
+                panel.append(kitRow({label,fact,from:reason,action:{disabled:!!reason,title:reason||label,run:()=>{
+                    try{run();notice.textContent='';focus();}
+                    catch(error){notice.textContent=error.message;}
+                }}}));
+            }
+            entries.append(panel);
+        }
         for(const {row,quote,reason,choose,refuse} of choices){
             const section=node('section');
             const grouped=quote.lineages.length>0;

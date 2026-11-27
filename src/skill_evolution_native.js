@@ -1,4 +1,4 @@
-import {registerDomain} from './domain_registry.js';
+import {domainRegistry,registerDomain} from './domain_registry.js';
 import {SKILL_EVOLUTIONS} from './data/skill_evolutions.js';
 import {activeSkillForm,activeSkillFunction,chosenSkillForm,chooseSkillEvolution,combinesSkills,emptySkillEvolution,evolveSkillPractice,evolvesPath,
     mergedSkillView,offerSkillEvolution,quoteSkillEvolution,readSkillEvolution,refuseSkillEvolution,settleSkillRecovery,skillTierEvent} from './skill_evolution.js';
@@ -73,7 +73,8 @@ function refresh(){
         .map(row=>{
             const quote=quoteSkillEvolution(state,row,readLineage(row.from).level,progressContext(row));
             return {row,quote,reason:eligibility(row,quote),choose:target=>choose(row,target),refuse:()=>refuse(row)};
-        }),pathRows.map(row=>evolvedPath(row.from)).filter(Boolean));
+        }),pathRows.map(row=>evolvedPath(row.from)).filter(Boolean),
+        [domainRegistry.project('growth_points','growth')].filter(Boolean));
     for(const [id,{row,parent,render}] of displays){
         if(!parent.isConnected){displays.delete(id);continue;}
         const choice=state.choices[row.id];
