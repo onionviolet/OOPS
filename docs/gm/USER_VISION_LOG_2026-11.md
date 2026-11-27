@@ -2058,3 +2058,11 @@ For the next one to two weeks: "Foundation and making atlas actually reflect my 
 On effort: "As much as needed as we get a good quality."
 
 Standing direction: "Keep OOPS a progression RPG with idle play" (01:50) and "check how YAIR and OOPS already handle the activity" before a new mechanic. [Owner](../USER_VISION.md#nov-26-coordination-direction)
+
+## Skill evolution and LitRPG worlds, 2026-11-26
+
+After a screenshot of YAIR's "Skill Stone skin upgraded to Iron skin": "do we have skill evolution and more yet? Implement subtle aspectrs of each and every litrpg world? more to consider?" Asked whether LitRPG world packs come now or after this run: "Foundation first, worlds later". [Owner](../USER_VISION.md#nov-26-coordination-direction)
+
+## Public push and book text, 2026-11-26
+
+Asked whether to move OOPS to a private repo before pushing: "public, it doesnt matter some stuff gets gets put publically, its not like we are redistributing the original books". Earlier the same evening: "do everything" and "just ssh on the mac" (run the book-text scan on the Mac library). [Owner](../USER_VISION.md#nov-26-coordination-direction)

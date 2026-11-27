@@ -155,6 +155,9 @@ How to use and update it:
 
 **Next one to two weeks (2026-11-26).** "Foundation and making atlas actually reflect my vision? Standardizing UI and more?" Quality sets the pace: "As much as needed as we get a good quality." The standing instructions are "Keep OOPS a progression RPG with idle play" (01:50) and "check how YAIR and OOPS already handle the activity" before a new mechanic. [Original requests](gm/USER_VISION_LOG_2026-11.md#coordination-direction-2026-11-26)
 
+- **Skill evolution as a foundation first (2026-11-26).** Build skill evolution and the subtle mechanics of LitRPG worlds as shared rules on existing skills now; LitRPG world packs come later: "Foundation first, worlds later". [Request](gm/USER_VISION_LOG_2026-11.md#skill-evolution-and-litrpg-worlds-2026-11-26)
+- **OOPS stays public (2026-11-26).** Pushing project text that draws on books is fine; the line is redistributing the original books: "its not like we are redistributing the original books". [Request](gm/USER_VISION_LOG_2026-11.md#public-push-and-book-text-2026-11-26)
+
 - **Reserve OOPS `v0.1.0` for genuinely playable work.** It and future major feature updates should match or exceed the feature scope of a major YAIR update. Give past verified work dated development versions ([first version](gm/USER_VISION_LOG_2026-11.md#first-oops-version-and-retrospective-changelog-2026-11-08), [release scale](gm/USER_VISION_LOG_2026-11.md#major-update-scale-2026-11-08)).
 - **All ideas stay on the table.** The one-realm/one-prestige first milestone is not a gate: "f5 I like having all my ideas on the table" ([2026-10-24](gm/USER_VISION_LOG_2026-10.md#first-milestone-and-scope-check-2026-10-24)).
 - **Build a system that lets worlds, plots and enemies be added**, from simple rules that compose ([2026-10-03](gm/USER_VISION_LOG_2026-10.md#long-world-campaigns-and-parallel-systems-2026-10-03), [2026-10-01](gm/USER_VISION_LOG_2026-10.md#original-user-messages)).
