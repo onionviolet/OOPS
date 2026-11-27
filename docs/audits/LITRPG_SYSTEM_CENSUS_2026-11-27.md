@@ -409,11 +409,13 @@ R1-R4 refer to "Future RPG view with a map" in docs/END_GOAL.md: R1 loop-neutral
 
 **Books and rows.** Azarinth Healer (AZ21); Beneath the Dragoneye Moons (BD25, BD36); He Who Fights with Monsters (HW7).
 
-**Closest seam.** `src/ability_records.js` (typed ability rows) for the content; `src/loadouts.js` for the equipment-style picker UI shape.
+**OOPS status.** Playable for the Village sleep routine. At Sleeping level one, the active slot can change to Steady breath for stamina or Gentle position for health. Swaps take 12 game minutes. Recovery continues with the current slot until the swap settles, and the extra recovery scales with what is missing. [Normal-entry receipts](../representations/evidence/litrpg-sm1-sm5-2026-11-27/proof-sm5.json)
 
-**Save implications.** Optional `loadout` map by slot class with ability row IDs. Ability XP stays on the native skill row, so dropping an ability is a flag, not a delete, unless the world says reset.
+**Owner.** `src/ability_loadout.js` quotes slot changes and resolves the selected slot from the saved clock deadline. Growth uses the same projection as the sleep routine. Azarinth and Dragoneye run as held-out cases. HWFWM runs as a provisional slot and donor case from HW7, with an illustrative slot count.
 
-**Idle-play note.** Idle play uses the loadout as set. The offer to fill a slot waits for the player; away time never swaps abilities.
+**Save implications.** Optional `ability_loadout` revision 1 holds slot groups, relearning levels and any pending change with its game-clock deadline. Legacy saves start with ordinary sleep. Native skill XP is unchanged.
+
+**Idle-play note.** An unaccepted offer can wait indefinitely. Work continues with the current loadout until a change the player booked reaches its deadline.
 
 **Future RPG view (END_GOAL R1-R4).** R2: needs one player-driven proof (a choice, scene or fight turn) besides idle routine; R4: must read through the shared observer-safe model, not a private copy.
 

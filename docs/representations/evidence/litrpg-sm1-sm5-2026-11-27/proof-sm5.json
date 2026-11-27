@@ -1,0 +1,114 @@
+{
+  "entry": "/",
+  "life": "Village",
+  "bundleSha256": "0cbdb8ef45b946af2dc5f99bca317db686511856ba51ec1c4da0f1d240baac62",
+  "fixtureSha256": "3400f42a0333b0aeb749ac547a5819dca71e29612bef0917e86b1f656d98bc3b",
+  "runs": [
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "offer": "Sleeping earned 1 recovery point. Bank or allocate in Growth.",
+      "queued": "Changing the sleep slot to Steady breath takes 12 game minutes.",
+      "effect": "Slotted Steady breath restored 3 extra stamina while you slept.",
+      "scheduled": {
+        "revision": 1,
+        "slots": {
+          "active": [
+            "ordinary-sleep"
+          ]
+        },
+        "levels": {},
+        "pending": {
+          "group": "active",
+          "slots": [
+            "steady-breath"
+          ],
+          "ready": 269,
+          "removed": "ordinary-sleep"
+        },
+        "readyAt": 269
+      },
+      "choice": {
+        "revision": 1,
+        "slots": {
+          "active": [
+            "steady-breath"
+          ]
+        },
+        "levels": {},
+        "pending": null,
+        "readyAt": 269
+      },
+      "clock": 257,
+      "deferred": 263,
+      "settled": 269,
+      "persistence": {
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true
+      },
+      "captures": [
+        "sm5-offer-1920.png",
+        "sm5-swap-1920.png",
+        "sm5-effect-1920.png"
+      ],
+      "errors": []
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "offer": "Sleeping earned 1 recovery point. Bank or allocate in Growth.",
+      "queued": "Changing the sleep slot to Steady breath takes 12 game minutes.",
+      "effect": "Slotted Steady breath restored 3 extra stamina while you slept.",
+      "scheduled": {
+        "revision": 1,
+        "slots": {
+          "active": [
+            "ordinary-sleep"
+          ]
+        },
+        "levels": {},
+        "pending": {
+          "group": "active",
+          "slots": [
+            "steady-breath"
+          ],
+          "ready": 269,
+          "removed": "ordinary-sleep"
+        },
+        "readyAt": 269
+      },
+      "choice": {
+        "revision": 1,
+        "slots": {
+          "active": [
+            "steady-breath"
+          ]
+        },
+        "levels": {},
+        "pending": null,
+        "readyAt": 269
+      },
+      "clock": 257,
+      "deferred": 263,
+      "settled": 269,
+      "persistence": {
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true
+      },
+      "captures": [
+        "sm5-offer-1366.png",
+        "sm5-swap-1366.png",
+        "sm5-effect-1366.png"
+      ],
+      "errors": []
+    }
+  ]
+}

@@ -40,3 +40,18 @@ test('admitted reader identifiers add comparisons without copying reader prose i
     assert.ok(results('level up').some(row=>row.id==='EV2'));
     assert.ok(results('stat-points-new').some(row=>row.href.endsWith('?cell='+record.id)));
 });
+
+test('growth points and slots need the Village action, normal entry, build and both save receipts',()=>{
+    const receipt=id=>JSON.parse(read('docs/representations/evidence/litrpg-sm1-sm5-2026-11-27/proof-'+id.toLowerCase()+'.json'));
+    const growthProofs={SM1:receipt('SM1'),SM5:receipt('SM5')};
+    const articles=proofs=>buildSystems({...source,growthProofs:proofs}).articles;
+    for(const id of Object.keys(growthProofs)){
+        const select=proofs=>articles(proofs).find(article=>article.id===id);
+        const row=select(growthProofs);
+        assert.equal(row.playStatus,'Playable');
+        assert.equal(row.playReceipt.life,'Village');
+        assert.equal(row.evidence,'/system-play/'+id.toLowerCase());
+        const incomplete={...growthProofs[id],runs:growthProofs[id].runs.slice(0,1)};
+        assert.equal(select({...growthProofs,[id]:incomplete}).playStatus,'Reading-only');
+    }
+});

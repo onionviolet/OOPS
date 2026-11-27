@@ -91,6 +91,7 @@ import {createKnownItemHotkeys,mountKnownItemBinding,mountKnownItemHotkeyList} f
 import {skillExpansionPresentation} from './skill_expansion_host.js';
 import {setNativeObservedDropReader, setKnownClearTextReader, reset_message_log_for_life} from './display.js';
 import {configureGrowthPoints,observePointLevel,villagePointRecovery} from './growth_points_native.js';
+import {configureAbilityLoadout,villageSlottedRecovery} from './ability_loadout_native.js';
 import {configureSkillEvolution,earnActivitySkillXP,evolvedPath,evolvedUse,observeGrowthRest,observePathGrowth,observeSkillAward,reportNativeSkillTier,settleGrowthRecovery} from './skill_evolution_native.js'; import {settleSkinBodyEffect} from './skill_evolution.js'; import {VILLAGE_PATROL_PATH} from './data/skill_evolutions.js'; import {formatDuration} from './number_format.js';
 let p23DropObservations,loadedDisplayPreferences;
 
@@ -3998,6 +3999,10 @@ function do_sleeping() {
         recovery.upkeep=Math.min(missingStamina,stamina)-Math.min(missingStamina,stamina-recovery.upkeep);
         full_stats.stamina += stamina-recovery.upkeep;
         if(growth)log_message(`${growth.name} restored ${growth.stamina} extra stamina while you slept.`,'skill_raised');
+        for(const effect of villageSlottedRecovery('sleepStamina',full_stats.max_stamina-full_stats.stamina)){
+            full_stats.stamina+=effect.amount;
+            reportSlottedRecovery(effect,'stamina');
+        }
         if(full_stats.stamina > full_stats.max_stamina) {
             full_stats.stamina = full_stats.max_stamina;
         } 
@@ -4007,6 +4012,14 @@ function do_sleeping() {
         update_health({ammount_to_restore:recovery.health});
         log_message(`Deep rest restored ${recovery.health} extra health. Upkeep reduced stamina recovery by ${Number(recovery.upkeep.toFixed(2))}.`,'skill_raised');
     }
+    for(const effect of villageSlottedRecovery('sleepHealth',full_stats.max_health-full_stats.health)){
+        update_health({ammount_to_restore:effect.amount});
+        reportSlottedRecovery(effect,'health');
+    }
+}
+
+function reportSlottedRecovery(effect,stat){
+    log_message(`Slotted ${effect.name} restored ${Number(effect.amount.toFixed(2))} extra ${stat} while you slept.`,'skill_raised');
 }
 
 function start_sleeping() {
@@ -6238,6 +6251,14 @@ configureGrowthPoints({
     writable:()=>workLedgerCanWrite()&&!restoringNativeSave&&character.is_alive,
     persist:next=>persistExpansion({...p23Plan(),nativePatch:{growth_points:next}}),
     report:(text,link)=>nativeCraftMessage(text,'skill_raised',link?{panelId:'skill-growth',panelLabel:'Open Growth'}:undefined),
+});
+
+configureAbilityLoadout({
+    context:()=>({world:expansionState.actors.player.worldId,clock:expansionState.clock}),
+    level:id=>skills[id].getCurrentLvl(),
+    writable:()=>workLedgerCanWrite()&&!restoringNativeSave&&character.is_alive,
+    persist:next=>persistExpansion({...p23Plan(),nativePatch:{ability_loadout:next}}),
+    report:text=>nativeCraftMessage(text,'skill_raised',{panelId:'skill-growth',panelLabel:'Open Growth'}),
 });
 
 configureSkillEvolution({

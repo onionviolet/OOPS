@@ -1,0 +1,35 @@
+{
+  "entry": "/",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "snapshotSha256": "09aa63e1486530a2b8170ffd68546bca304cd9f4d04652cf06170fc69cab0eda",
+  "records": [
+    {
+      "id": "SM1",
+      "status": "Playable",
+      "life": "Village",
+      "evidence": {
+        "id": "sm1",
+        "life": "Village",
+        "action": "Allocate Deep rest and recover health with stamina upkeep",
+        "build": "ef6827a415e319fa8826a00ffcd7b85e7b48f5b2a2ee2d433832ef994366a5cc",
+        "href": "/system-play/sm1"
+      }
+    },
+    {
+      "id": "SM5",
+      "status": "Playable",
+      "life": "Village",
+      "evidence": {
+        "id": "sm5",
+        "life": "Village",
+        "action": "Swap the sleep slot and recover stamina through Steady breath",
+        "build": "0cbdb8ef45b946af2dc5f99bca317db686511856ba51ec1c4da0f1d240baac62",
+        "href": "/system-play/sm5"
+      }
+    }
+  ],
+  "errors": []
+}
