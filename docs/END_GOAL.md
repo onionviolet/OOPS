@@ -26,6 +26,19 @@ A milestone is done only when every done condition has a commit and a capture or
 | M4 | **Verified on Weibao's route** | The installed Tauri app runs the M1 to M3 routes. The full suite passes on an idle machine. A check confirms no long verbatim book text is in the public tree. | Open. Installed app, 8 GB target and full suite are open in the [Nov 26 intake](gm/ABSORB_2026-11-26.md#open-checks). |
 | M5 | **`v0.1.0`** | The work meets the [YAIR release scale](reviews/YAIR_RELEASE_SCALE_2026-11-08.md) and Weibao says yes to the push. | Waiting on M1 to M4. |
 
+<a id="future-rpg-view-with-a-map"></a>
+
+## Future RPG view with a map (consideration)
+
+Weibao, 2026-11-26: "for all implementations to also be able to serve a rpg view with a map in the future". A design consideration for every slice, not a gate on current milestones. [His words](gm/USER_VISION_LOG_2026-11.md#keep-a-future-rpg-view-with-a-map-possible-2026-11-26)
+
+- **R1 · Loop-neutral rules.** Mechanics settle through the kernel's quote, settle and receipt, with the same result whether time passes in one jump or step by step. A mechanic never assumes it is driven by an idle timer.
+- **R2 · One active proof.** A new mechanic shows its effect once through an interaction the player drives, such as a choice, a scene or a fight turn, as well as through idle routine.
+- **R3 · Places carry position.** A new place, route or encounter records where it is and what it connects to (the existing place and travel data), so a map view can draw it later without new rules.
+- **R4 · Views read one model.** Screens read the same observer-safe read model (DSG11), so a later RPG or map view is another view over it, not a second copy of the facts.
+
+The idle game stays the product ([standing direction](USER_VISION.md#nov-26-coordination-direction)). These keep a later RPG front end a choice of view rather than a rewrite.
+
 ## Codex lanes
 
 One Codex writer per lane, run one at a time in the primary checkout because every lane rebuilds `dist/bundle.js`. Each lane commits its own paths after a normal-entry proof.

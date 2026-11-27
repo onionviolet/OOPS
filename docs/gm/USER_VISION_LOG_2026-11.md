@@ -2070,3 +2070,7 @@ Asked whether to move OOPS to a private repo before pushing: "public, it doesnt 
 ## Skill evolution means the skill transforms, 2026-11-26
 
 On the first skill evolution slice, which granted a separate side skill: "A2 isnt quite the same type of skill evoluition we are thinking of is it?" Asked which evolution style to build first (choose an evolved form, or rarity grades): "We can build all of them for each type of litrpg and more?" [Owner](../USER_VISION.md#nov-26-coordination-direction)
+
+## Keep a future RPG view with a map possible, 2026-11-26
+
+Asked whether turning OOPS into an RPG would make things easier: "would everything be easier if we just decided to turn OOP into a RPG game?" and "Would transitioning to RPG after comprehensivelyt implementing everything be a whole different beast but make it easier?" Then: "Just add it for future consideration for all implementations to also be able to serve a rpg view with a map in the future?" [Owner](../END_GOAL.md#future-rpg-view-with-a-map)
