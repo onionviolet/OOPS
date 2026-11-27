@@ -430,7 +430,7 @@ class Person{
      * @param {*}
      * @returns [actual damage taken; Boolean if target should faint] 
      */
-    takeDamage({damage_values, can_faint = true, give_skill_xp = true, defense_modifier = 0, armor_penetration = 0, type_multiplier = 1}) {
+    takeDamage({damage_values, can_faint = true, give_skill_xp = true, defense_modifier = 0, armor_penetration = 0, type_multiplier = 1, settle_damage}) {
 
         //TODO: move this to levelable, only make a shortcut in Person?
 
@@ -445,7 +445,9 @@ class Person{
         const levelable = this.getLevelableComponent();
         let fainted;
     
-        const damage_taken = mitigateCombatDamageFromStats(damage_values, levelable.stats.full, defense_modifier, armor_penetration, type_multiplier);
+        const mitigate = values => mitigateCombatDamageFromStats(values, levelable.stats.full, defense_modifier, armor_penetration, type_multiplier);
+        const mitigated = mitigate(damage_values);
+        const damage_taken = settle_damage ? settle_damage(mitigated,mitigate) : mitigated;
         levelable.stats.full.health -= damage_taken;
     
         if(levelable.stats.full.health <= 0 && can_faint) {

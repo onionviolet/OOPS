@@ -90,7 +90,7 @@ import {mountKnownMethodChains,mountKnownNumber,formatKnownNumber} from './absor
 import {createKnownItemHotkeys,mountKnownItemBinding,mountKnownItemHotkeyList} from './absorb_p23/known_detail/hotkeys.js';
 import {skillExpansionPresentation} from './skill_expansion_host.js';
 import {setNativeObservedDropReader, setKnownClearTextReader, reset_message_log_for_life} from './display.js';
-import {configureSkillEvolution,earnActivitySkillXP,evolvedUse,observeGrowthRest,observeSkillAward,reportNativeSkillTier,settleGrowthRecovery} from './skill_evolution_native.js';
+import {configureSkillEvolution,earnActivitySkillXP,evolvedUse,observeGrowthRest,observeSkillAward,reportNativeSkillTier,settleGrowthRecovery} from './skill_evolution_native.js'; import {settleSkinBodyEffect} from './skill_evolution.js';
 let p23DropObservations,loadedDisplayPreferences;
 
 import {structuredLifeEnded,reconcileStructuredLifePlan,structuredLifeView,archiveStructuredLife,publishIndependentStructuredLife,listStructuredLifeArchives} from './structured_life_runtime.js';
@@ -1641,7 +1641,7 @@ function localLifeContext(calendar=current_game_time, state=expansionState, loca
         perception:character.getTotalSkillLevel('Perception'),money:character.money,villageReputation:character.reputation.Village,illumination:domainRegistry.project('lamplight')?.light?.light,nightVisionRatio:character.getTotalSkillLevel('Night vision')/skills['Night vision'].max_level,
         knowsWellLinen:villageCareer.watchcraft.wellLinenLead===true,
         millUnlocked:locations['Eastern mill'].getAvailabilityComponent().getStatus().is_unlocked===true,
-        bleedingRemaining:active_effects.Bleeding?.duration||0,
+        bleedingRemaining:character.isWearingArmor()?0:active_effects.Bleeding?.duration||0,
         foodPoisonRemaining:active_effects['Slight food poisoning']?.duration||0};
 }
 function stageLocalLifeResult(plan, result) {
@@ -6176,7 +6176,9 @@ function add_active_effect(effect_key, duration = 1, skip_xp){
     } else {
         delete active_effects[effect_key];
     }
-    if(effect_key==='Bleeding')duration=Math.min(15,old_duration+duration);
+    const skin=evolvedUse('Iron skin','body-effect'), reached=settleSkinBodyEffect(skin,effect_key,duration);
+    if(reached<duration)log_message(`${skin.name} shortened ${effect_key.toLowerCase()} from ${duration} to ${reached} minutes.`,'skill_raised');
+    duration=effect_key==='Bleeding'?Math.min(15,old_duration+reached):reached;
     active_effects[effect_key] = new ActiveEffect({...effect_templates[effect_key], duration});
     update_displayed_effects();
     

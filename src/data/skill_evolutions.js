@@ -19,13 +19,16 @@ export const SKILL_EVOLUTIONS=validateEvolutionRows([{
 },{
     id:'village.iron-skin-form',policy:'EV2',from:'Iron skin',threshold:30,afterThresholdXP:8,
     requirements:village,requirementText:'Practice Iron skin past level 30 in the Village life.',
+    trainingText:'Trains: unarmored.',
     targets:[
-        {id:'village.tempered-skin',name:'Tempered skin',costs:[],restrictions:{...village,unarmored:true},
-            description:'While unarmored, turn an incoming critical strike into an ordinary hit.',
-            gains:{function:{trigger:'enemy-critical',mode:'deflect-critical'}}},
-        {id:'village.breathing-skin',name:'Breathing skin',costs:[],restrictions:{...village,unarmored:true},
-            description:'While unarmored, recover 1 missing stamina each time an enemy lands a hit.',
-            gains:{function:{trigger:'enemy-hit',mode:'restore-stamina',amount:1}}},
+        {id:'village.tempered-skin',name:'Tempered skin',costs:[],restrictions:village,
+            description:'Works on hits that get through armor. Removes a critical’s extra damage on bare skin, or half through armor. New bleeding lasts 25% less time.',
+            gains:{function:{trigger:'enemy-critical',mode:'deflect-critical',armoredShare:0.5},
+                body:{trigger:'body-effect',mode:'shorten-effect',effects:['Bleeding'],share:0.75}}},
+        {id:'village.breathing-skin',name:'Breathing skin',costs:[],restrictions:village,
+            description:'Works on hits that get through armor. Restores 1 missing stamina on bare skin, or less through armor. New poison lasts 25% less time.',
+            gains:{function:{trigger:'enemy-hit',mode:'restore-stamina',amount:1,armoredCap:0.75},
+                body:{trigger:'body-effect',mode:'shorten-effect',effects:['Slight food poisoning','Dragonfly venom','Dragonfly queen venom'],share:0.75}}},
     ],
 },{
     id:'village.sleeping-grade',policy:'EV3',from:'Sleeping',threshold:2,grade:'Common',
@@ -49,9 +52,9 @@ export const SKILL_EVOLUTIONS=validateEvolutionRows([{
     id:'village.recovery',policy:'EV5',from:'Patience',threshold:1,offerOn:'rest',
     sources:[{id:'Patience',level:1},{id:'Breathing',level:1},{id:'Regeneration',level:1}],
     requirements:village,requirementText:'Reach level 1 in Patience, Breathing and Regeneration, then start sleeping.',
-    targets:[{id:'village.quiet-recovery',name:'Quiet recovery',costs:[],restrictions:{...village,healthy:true},
-        description:'While sleeping at full health, recover up to 2 extra stamina each minute.',
-        gains:{function:{trigger:'sleep-stamina',mode:'restore-stamina',amount:2}}}],
+    targets:[{id:'village.quiet-recovery',name:'Quiet recovery',costs:[],restrictions:village,
+        description:'While sleeping, recover up to 1 extra stamina each minute when injured or 2 at full health.',
+        gains:{function:{trigger:'sleep-stamina',mode:'restore-stamina',amount:2,injuredShare:0.5}}}],
 }],SKILL_EVOLUTION_WORLDS);
 
 export function validateSkillEvolutionEnvelope(envelope) {

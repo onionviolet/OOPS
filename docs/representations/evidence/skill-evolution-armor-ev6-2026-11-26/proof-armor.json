@@ -1,0 +1,61 @@
+{
+  "entry": "/",
+  "bundleSha256": "b98d584cb811b4f877185e676e367a6a81032e0d198300be6e74e2980018d558",
+  "fixtureSha256": "6cb6c76194dcaa23bf5f35aa9f0feb97214c8dfde5390b086d499e1c3f1c917c",
+  "runs": [
+    {
+      "width": 1920,
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "effect": "Breathing skin caught a hit that got through armor and restored 0.19 stamina.",
+      "armored": true,
+      "initialXP": 102429607519.86,
+      "choice": {
+        "status": "chosen",
+        "level": 30,
+        "target": "village.breathing-skin"
+      },
+      "xp": {
+        "Iron skin": 102429607519.86
+      },
+      "revision": 3,
+      "save": true,
+      "reload": true,
+      "export": true,
+      "import": true,
+      "captures": [
+        "armored-effect-1920.png"
+      ],
+      "pageErrors": []
+    },
+    {
+      "width": 1366,
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "effect": "Breathing skin caught a hit that got through armor and restored 0.19 stamina.",
+      "armored": true,
+      "initialXP": 102429607519.86,
+      "choice": {
+        "status": "chosen",
+        "level": 30,
+        "target": "village.breathing-skin"
+      },
+      "xp": {
+        "Iron skin": 102429607519.86
+      },
+      "revision": 3,
+      "save": true,
+      "reload": true,
+      "export": true,
+      "import": true,
+      "captures": [
+        "armored-effect-1366.png"
+      ],
+      "pageErrors": []
+    }
+  ]
+}

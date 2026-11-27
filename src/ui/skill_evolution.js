@@ -50,7 +50,7 @@ export function mountGrowthQueue(skillList) {
                 const terms=grouped?'Removes the separate skill rows. Keeps each source’s exact XP, level, practice and bonuses in the new skill. This choice is permanent.':
                     row.policy==='specialization'?`${row.practiceText} Keeps ordinary ${row.from}.`:
                     'Replaces this skill in its row and keeps its XP and level.';
-                section.append(kitRow({label:`Choose ${formName(target)}`,fact:branchDescription(target,row.from),
+                section.append(kitRow({label:`Choose ${formName(target)}`,fact:[row.trainingText,branchDescription(target,row.from)].filter(Boolean).join(' '),
                     from:[terms,target.costs.length?'Requires payment.':'No fee.'].join(' '),
                     data:{evolutionForm:target.id},action:{disabled:!!reason,title:reason||formName(target),run:()=>{
                         try{choose(target.id);notice.textContent='';focus();}
@@ -84,7 +84,7 @@ export function mountSkillGrowth(parent,row,open) {
         container.hidden=!choice||choice.status==='refused';
         button.hidden=choice?.status!=='waiting';
         const text=merged?`${merged.description} ${mastery(merged.lineages)}`:!target?'':row.policy==='specialization'?`Specialization: ${target.name}`:
-            [target.grade,target.description].filter(Boolean).join(' · ');
+            [target.grade,row.trainingText,target.description].filter(Boolean).join(' · ');
         if(description.textContent!==text)description.textContent=text;
     };
 }

@@ -1,5 +1,6 @@
 import {domainRegistry} from '../domain_registry.js';
 import {damageRecord,supportedHarvest} from '../harvest.js';
+import {settleSkinCritical,settleSkinStamina} from '../skill_evolution.js';
 import {effectiveCritChance} from '../gear_dimensions.js';
 import {acquiredLootKeys} from '../gear_acquisition.js';
 import {engineTimeout,clearEngineTimeout,engineNow} from '../simulation_clock.js';
@@ -612,16 +613,16 @@ class Combat {
         game_stats.total_hits_taken += Number(!this.is_special_combat && !!target.tags.main_character);
         game_stats.total_hits_done += Number(!this.is_special_combat && !!fighter.tags.main_character);
 
-        const unarmored = !this.is_special_combat && target.tags.main_character && !target.isWearingArmor();
-        const skinUse = trigger => unarmored && domainRegistry.command('skill_evolution','use')?.('Iron skin',trigger,{unarmored});
+        const armored = !!target.isWearingArmor();
+        const skinUse = trigger => !this.is_special_combat && target.tags.main_character &&
+            domainRegistry.command('skill_evolution','use')?.('Iron skin',trigger);
         const critical = effectiveCritChance(fighter.getFullStats().crit_rate, target.getFullStats().crit_resistance) > random("crit");
         const deflection = critical && skinUse('enemy-critical');
-        if(deflection?.mode==='deflect-critical') {
-            log_message(`${deflection.name} turned a critical strike into an ordinary hit.`,'hero_attacked');
-        } else if(critical){
+        let ordinary = damages_dealt;
+        if(critical){
             damages_dealt = damages_dealt.map(val => val*fighter.getFullStats().crit_multiplier);
-            critted = true;
-            game_stats.total_crits_taken += Number(!this.is_special_combat && !!target.tags.main_character);
+            critted = !deflection || armored;
+            game_stats.total_crits_taken += Number(critted && !this.is_special_combat && !!target.tags.main_character);
 
             if(!this.is_special_combat && fighter.tags.main_character) {
                 game_stats.total_crits_done++;
@@ -634,20 +635,30 @@ class Combat {
         }
 
         if(!this.is_special_combat&&target.tags.main_character)defense_modifier+=getElementalDefenseModifier({enabled:game_options.elemental_affinities,attacker:fighter,equipment:target.getEquipment(),baseDamage:base_damage});
-        if(!this.is_special_combat&&this.nativeExchangeHost){const charge=domainRegistry.command('pledges','resolvedCharge')?.({fighter,target});if(charge)damages_dealt=damages_dealt.map(n=>n*charge.multiplier);}
+        if(!this.is_special_combat&&this.nativeExchangeHost){const charge=domainRegistry.command('pledges','resolvedCharge')?.({fighter,target});if(charge){damages_dealt=damages_dealt.map(n=>n*charge.multiplier);if(deflection)ordinary=ordinary.map(n=>n*charge.multiplier);}}
         const harvestHealth=target.getFullStats().health;
         // Damage types (damage_types.js): the attack's type mix against the defender's per-type protection; 1 when nothing is declared.
         const typed = typedStrike({fighter, target});
-        let {damage_taken, fainted} = target.takeDamage({damage_values: damages_dealt, defense_modifier, armor_penetration:fighter.getFullStats().armor_penetration??0, type_multiplier: typed.multiplier, give_skill_xp: (!this.is_special_combat && target.tags.main_character)});
+        let criticalReceipt;
+        const settle_damage=deflection?(damage,mitigate)=>{
+            criticalReceipt=settleSkinCritical(deflection,damage,mitigate(ordinary),armored);
+            return criticalReceipt.damage;
+        }:undefined;
+        let {damage_taken, fainted} = target.takeDamage({damage_values: damages_dealt, defense_modifier, armor_penetration:fighter.getFullStats().armor_penetration??0, type_multiplier: typed.multiplier, give_skill_xp: (!this.is_special_combat && target.tags.main_character),settle_damage});
+        if(criticalReceipt?.saved>0)log_message(armored?
+            `${deflection.name} softened a critical that got through armor by ${criticalReceipt.saved} damage.`:
+            `${deflection.name} turned a critical strike into an ordinary hit.`,'hero_attacked');
 
         const breathing = !fainted && skinUse('enemy-hit');
         if(breathing?.mode==='restore-stamina') {
             const stats = target.getFullStats();
-            const restored = Math.min(breathing.amount,stats.max_stamina-stats.stamina);
+            const restored = settleSkinStamina(breathing,{damage:damage_taken,raw:damages_dealt.reduce((sum,value)=>sum+value,0),
+                armored,missing:stats.max_stamina-stats.stamina});
             if(restored>0) {
                 stats.stamina += restored;
                 update_displayed_stamina();
-                log_message(`${breathing.name} caught the blow and restored ${restored} stamina.`,'hero_attacked');
+                log_message(armored?`${breathing.name} caught a hit that got through armor and restored ${restored} stamina.`:
+                    `${breathing.name} caught the blow and restored ${restored} stamina.`,'hero_attacked');
             }
         }
 

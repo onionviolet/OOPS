@@ -4,7 +4,8 @@ import {readFile} from 'node:fs/promises';
 import {loadNative,STANCE_LOCATION_STUBS} from './helpers/native_loader.mjs';
 import {activeSkillForm,activeSkillFunction,automaticSkillTiers,skillTierEvent,offerSkillEvolution,chooseSkillEvolution,
     evolveSkillPractice,emptySkillEvolution,mergedSkillView,quoteSkillEvolution,readSkillEvolution,refuseSkillEvolution,
-    settleSkillRecovery,validateEvolutionRows,SKILL_EVOLUTION_REVISION} from '../src/skill_evolution.js';
+    settleSkillRecovery,settleSkinBodyEffect,settleSkinCritical,settleSkinStamina,validateEvolutionRows,SKILL_EVOLUTION_REVISION} from '../src/skill_evolution.js';
+import {mitigateCombatDamage} from '../src/combat_math.js';
 import {SKILL_EVOLUTIONS,validateSkillEvolutionEnvelope} from '../src/data/skill_evolutions.js';
 
 const [row]=SKILL_EVOLUTIONS;
@@ -93,7 +94,7 @@ test('Iron skin evolves its own slot past the tier cap and picks a gated combat 
         assert.equal(activeSkillForm(chosen,SKILL_EVOLUTIONS,iron.from).id,target.id);
         const {trigger,mode}=target.gains.function;
         assert.equal(activeSkillFunction(chosen,SKILL_EVOLUTIONS,iron.from,trigger,qualified).mode,mode);
-        assert.equal(activeSkillFunction(chosen,SKILL_EVOLUTIONS,iron.from,trigger,{...qualified,unarmored:false}),undefined);
+        assert.equal(activeSkillFunction(chosen,SKILL_EVOLUTIONS,iron.from,trigger,{...qualified,unarmored:false}).mode,mode);
         assert.deepEqual(evolveSkillPractice(chosen,iron,9,qualified),{sourceXP:9,extra:[]});
         assert.throws(()=>readSkillEvolution({...chosen,revision:1},SKILL_EVOLUTIONS),/Invalid saved/);
         const xp={levels:{person:{main_character:{skill_xp:{[iron.from]:120}}}}};
@@ -101,6 +102,30 @@ test('Iron skin evolves its own slot past the tier cap and picks a gated combat 
         assert.throws(()=>validateSkillEvolutionEnvelope({skill_evolution:chosen}),/original XP/);
     }
     assert.notEqual(tempered.gains.function.trigger,breathing.gains.function.trigger);
+});
+
+test('evolved skin settles after armor and shortens only its own body effect',()=>{
+    const row=SKILL_EVOLUTIONS.find(row=>row.policy==='EV2'), [tempered,breathing]=row.targets;
+    const context={...row.requirements,xp:120,thresholdXP:100};
+    const {state}=offerSkillEvolution(emptySkillEvolution(),row,30,context);
+    const use=(target,trigger,armored)=>activeSkillFunction(
+        chooseSkillEvolution(state,row,target.id,30,context).state,[row],row.from,trigger,{...context,armored});
+    const armoredCrit=mitigateCombatDamage([20],8), armoredOrdinary=mitigateCombatDamage([10],8);
+    assert.deepEqual(settleSkinCritical(use(tempered,'enemy-critical',true),armoredCrit,armoredOrdinary,true),{damage:7,saved:5});
+    assert.deepEqual(settleSkinCritical(use(tempered,'enemy-critical',false),20,10,false),{damage:10,saved:10});
+    assert.deepEqual(settleSkinCritical(use(tempered,'enemy-critical',true),0,0,true),{damage:0,saved:0});
+    const restore=(armored,damage,missing=3)=>settleSkinStamina(use(breathing,'enemy-hit',armored),{damage,raw:20,armored,missing});
+    assert.equal(restore(true,12),0.6);
+    assert.equal(restore(true,20),0.75);
+    assert.equal(restore(true,0),0);
+    assert.equal(restore(false,20),1);
+    assert.equal(restore(false,20,0.2),0.2);
+    for(const armored of [false,true]){
+        assert.equal(settleSkinBodyEffect(use(tempered,'body-effect',armored),'Bleeding',8),6);
+        assert.equal(settleSkinBodyEffect(use(tempered,'body-effect',armored),'Dragonfly venom',8),8);
+        assert.equal(settleSkinBodyEffect(use(breathing,'body-effect',armored),'Dragonfly venom',8),6);
+        assert.equal(settleSkinBodyEffect(use(breathing,'body-effect',armored),'Bleeding',8),8);
+    }
 });
 
 test('Sleeping offers a strict grade climb and an executed recovery function',()=>{
@@ -168,6 +193,7 @@ test('fusion and consolidation quote and keep each lineage exactly once',()=>{
         assert.equal(settleSkillRecovery(restored,[row],row.from,trigger,context,0),null);
         assert.equal(settleSkillRecovery(restored,[row],row.from,trigger,{...context,world:'other'},10),null);
         assert.equal(settleSkillRecovery(restored,[row],row.from,trigger,context,10).stamina,amount);
+        if(row.policy==='EV5')assert.equal(settleSkillRecovery(restored,[row],row.from,trigger,{...context,healthy:false},10).stamina,1);
         assert.equal(settleSkillRecovery(restored,[row],row.from,trigger,context,0.5).stamina,0.5);
     }
 });

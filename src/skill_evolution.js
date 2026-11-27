@@ -116,14 +116,35 @@ export function mergedSkillView(state,rows,lineage,readLineage) {
 
 export function activeSkillFunction(state,rows,lineage,trigger,context) {
     const form=activeSkillForm(state,rows,lineage);
-    const ability=form?.gains.function;
-    if(ability?.trigger===trigger&&matches(context,form.restrictions))return {...ability,name:form.name};
+    if(!form||!matches(context,form.restrictions))return;
+    const ability=trigger==='body-effect'?form.gains.body:form.gains.function;
+    if(ability?.trigger===trigger)return {...ability,name:form.name};
+}
+
+// A qualifying event keeps its ordinary settlement. Redirect only the
+// critical surplus or scale the recovery by the part that reached the body.
+export function settleSkinCritical(ability,damage,ordinary,armored) {
+    if(ability?.mode!=='deflect-critical'||damage<=ordinary)return {damage,saved:0};
+    const result=armored?Math.round(10*(damage-(damage-ordinary)*ability.armoredShare))/10:ordinary;
+    return {damage:result,saved:Math.round((damage-result)*10)/10};
+}
+
+export function settleSkinStamina(ability,{damage,raw,armored,missing}) {
+    if(ability?.mode!=='restore-stamina'||!(damage>0)||!(missing>0))return 0;
+    const share=armored?Math.min(ability.armoredCap,damage/Math.max(damage,raw)):1;
+    return Math.min(missing,Math.max(0.01,Math.round(ability.amount*share*100)/100));
+}
+
+export function settleSkinBodyEffect(ability,effect,minutes) {
+    if(ability?.mode!=='shorten-effect'||!ability.effects.includes(effect)||!(minutes>0))return minutes;
+    return Math.max(1,Math.ceil(minutes*ability.share));
 }
 
 export function settleSkillRecovery(state,rows,lineage,trigger,context,missing) {
     const action=activeSkillFunction(state,rows,lineage,trigger,context);
     if(action?.mode!=='restore-stamina'||!(missing>0))return null;
-    return {name:action.name,stamina:Math.min(action.amount,missing)};
+    const share=context.healthy===false?(action.injuredShare??1):1;
+    return {name:action.name,stamina:Math.min(action.amount*share,missing)};
 }
 
 // The participating practice owns this use. Base XP and the acquired form's
