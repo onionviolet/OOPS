@@ -18,7 +18,9 @@ const map_bounds = { min_x: 0, max_x: 0, min_y: 0, max_y: 0 };
 const show_combat = true;
 
 function draw_map() {
+    for (const id of Object.keys(map_nodes)) delete map_nodes[id];
     const map_labels = document.getElementById('map_labels');
+    map_labels.replaceChildren();
 
     const canvas = document.getElementById('map_canvas');
     ctx = canvas.getContext('2d');
@@ -39,6 +41,10 @@ function draw_map() {
 
 function draw_location(location, x, y, angle) {
 
+    if (location.mapPosition) {
+        x = 1500 + location.mapPosition.x * 90;
+        y = 1500 + location.mapPosition.y * 70;
+    }
     let is_combat = location instanceof CombatZone
 
     if (!is_combat) {

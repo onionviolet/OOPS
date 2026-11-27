@@ -1,3 +1,4 @@
+import {placeMapPositions} from "../location_positions.js";
 import {registerFortLocations} from "../fork_fort_content.js";
 import {grainAppleAction,GRAIN_APPLE_ACTION} from '../village_grain_cart.js';
 "use strict";
@@ -4210,6 +4211,10 @@ registerFortLocations({locations, SafeLocation, CombatZone, LocationCrafting, Ga
     });
 })();
 
+placeMapPositions(locations, {
+    Village: [0, 0], Shack: [-1, 0], 'Infested field': [1, 0],
+    'Forest road': [0, 1], 'Nearby cave': [1, -1],
+});
 fill_market_regions();
 
 export { locations, location_types, favourite_locations };

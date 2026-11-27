@@ -1,3 +1,4 @@
+import {placeMapPositions} from './location_positions.js';
 import {localMoneyLabel, localPurseLabel, coinPricesHere} from './ui/local_money_label.js';
 import {attachSkillEvolution,focusSkillGrowth} from './skill_evolution_native.js';
 import {locationMapMarks, locationMapDanger} from './ui/map_marks.js';
@@ -2996,7 +2997,9 @@ function create_fast_travel_choices() {
     const neighbors = id => (locations[id].parent_location ? [locations[id].parent_location] :
         (locations[id].connected_locations || []).map(route => route.location)).map(place => place.id);
     const known = id => !!locations[id]?.canBeStarted?.(context);
+    if (Object.keys(distances).some(id => known(id) && !locations[id].mapPosition)) placeMapPositions(locations);
     const describe = id => ({
+        position: locations[id].mapPosition,
         marks: locationMapMarks(locations[id], {
             activities, available: entry => entry.isUnlocked(),
             trader: id => {const npc = NPCRegistry.get(id); return npc.tags.trader && npc.canBeDisplayed(context);},

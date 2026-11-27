@@ -3,6 +3,7 @@
 // where you stand, so no map geometry is invented (SR1, SR7). Only what the view already projects for
 // this seat is drawn; a place or person the seat does not know never reaches the spec (SR9, LTU11).
 // Name-free and pure apart from walkMapBlock, which builds the panel disclosure. Design: docs/representations/MAPS_AND_TRAVEL.md.
+import {exitArrow} from '../location_positions.js';
 import {renderFigure} from './figure.js';
 import {walkTopology} from './walk_topology.js';
 import {activityMarks, dangerLabel} from './map_marks.js';
@@ -127,7 +128,10 @@ export function walkMapBlock(view, {open = true, ontoggle, onPick} = {}) {
 function drawNeighborhood(doc, figure, {graph, neighbors}, onPick) {
     const {layers, edges, outside} = walkTopology(graph, neighbors);
     const positions = new Map(), byId = new Map(graph.map(place => [place.id, place]));
-    const dimensions = [layers.length * 150 + 12, Math.max(...layers.map(layer => layer.length)) * 82 + 12];
+    const mapped = graph.every(place => place.position);
+    const xs = mapped ? graph.map(place => place.position.x) : [], ys = mapped ? graph.map(place => place.position.y) : [];
+    const here = graph.find(place => place.here);
+    const dimensions = mapped ? [(Math.max(...xs)-Math.min(...xs)+1)*150+12, (Math.max(...ys)-Math.min(...ys)+1)*82+12] : [layers.length * 150 + 12, Math.max(...layers.map(layer => layer.length)) * 82 + 12];
     const node = (tag, text, className) => kitElement(tag, className, text, doc);
     const icon = mark => {
         const pip = node('span', mark.icon, 'material-icons walk-map-pip');
@@ -154,7 +158,8 @@ function drawNeighborhood(doc, figure, {graph, neighbors}, onPick) {
     plane.append(svg);
     for (const [i, layer] of layers.entries()) layer.forEach((id, j) => {
         const place = byId.get(id);
-        const x = 81 + i * 150, y = dimensions[1] / 2 + (j - (layer.length - 1) / 2) * 82;
+        const x = 81 + (mapped ? place.position.x - Math.min(...xs) : i) * 150;
+        const y = mapped ? 47 + (place.position.y - Math.min(...ys)) * 82 : dimensions[1] / 2 + (j - (layer.length - 1) / 2) * 82;
         positions.set(id, [x, y]);
         const box = node(place.here ? 'div' : 'button', '', 'walk-map-place');
         box.dataset.placeId = id;
@@ -168,7 +173,8 @@ function drawNeighborhood(doc, figure, {graph, neighbors}, onPick) {
         if (!place.here) box.setAttribute('aria-label', label);
         const pips = node('span', '', 'walk-map-pips');
         pips.append(...(place.marks || []).map(icon));
-        box.append(pips, node('span', place.place), node('small', words));
+        const arrow = mapped && place.moveId?.startsWith('go:') ? exitArrow(here.position, place.position) + ' ' : '';
+        box.append(pips, node('span', arrow + place.place), node('small', words));
         if (danger) {
             box.dataset.danger = '';
             box.append(node('small', (place.danger.challenge ? '◆ ' : '▲ ') + (place.danger.rank ?? ''), 'walk-map-danger'));

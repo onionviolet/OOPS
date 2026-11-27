@@ -26,6 +26,8 @@ A milestone is done only when every done condition has a commit and a capture or
 | M4 | **Verified on Weibao's route** | The installed Tauri app runs the M1 to M3 routes. The full suite passes on an idle machine. A check confirms no long verbatim book text is in the public tree. | Open. Installed app, 8 GB target and full suite are open in the [Nov 26 intake](gm/ABSORB_2026-11-26.md#open-checks). |
 | M5 | **`v0.1.0`** | The work meets the [YAIR release scale](reviews/YAIR_RELEASE_SCALE_2026-11-08.md) and Weibao says yes to the push. | Waiting on M1 to M4. |
 
+A5 O1: The Village walking map shows compass exits and takes the chosen native route. [Proof](representations/evidence/protolike-pulls-2026-11-27/o1/proof.json)
+
 <a id="future-rpg-view-with-a-map"></a>
 
 ## Future RPG view with a map (consideration)
@@ -37,7 +39,7 @@ Weibao, 2026-11-26: "for all implementations to also be able to serve a rpg view
 - **R3 · Places carry position.** A new place, route or encounter records where it is and what it connects to (the existing place and travel data), so a map view can draw it later without new rules.
 - **R4 · Views read one model.** Screens read the same observer-safe read model (DSG11), so a later RPG or map view is another view over it, not a second copy of the facts.
 
-The YAIR development merge includes upstream's canvas map prototype. In the game, open Data, then Open YAIR data viewer, then Map. It reads the registered YAIR locations and their connections, travel times and authored azimuths. This shares location records with play for R4. The prototype still shows the developer graph. A player map needs the observer-safe location projection. [Upstream merge](UPSTREAM_DIRECTION.md#2026-11-27-yair-development-merge-u1)
+The YAIR development merge includes upstream's canvas map prototype. In the game, open Data, then Open YAIR data viewer, then Map. It reads the registered YAIR locations and their connections, travel times and authored azimuths. This shares location records with play for R4. The player walking map under Fast travel uses the same location positions and filters destinations through the native known-place projection. Its arrows point toward direct exits. Picking a place uses native travel. [Upstream merge](UPSTREAM_DIRECTION.md#2026-11-27-yair-development-merge-u1)
 
 The idle game stays the product ([standing direction](USER_VISION.md#nov-26-coordination-direction)). These keep a later RPG front end a choice of view rather than a rewrite.
 
