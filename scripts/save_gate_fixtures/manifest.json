@@ -13,6 +13,7 @@
     {
       "id": "klein-ch129",
       "file": "klein-ch129.save.txt",
+      "private": true,
       "sha256": "ebd217413f215f9413845932c942a15ba9140ec1d5f93a191f0b97fc34e4d3c0",
       "provenance": "work/lotm-earned-replay-20261125/inputs/kj3ba-harbor-emergency-2026-11-09/completed-checkpoint.json; docs/representations/evidence/lotm-earned-frontier-2026-11-25/historical-chain.json records the exact earned ch129 checkpoint",
       "expected": {"character": "Klein Moretti", "location": "lotm.place.kj3ba.cargo-deck", "world": "book.lotm.tingen", "completed": "book.lotm.kj3ba.hear-neil-reflect", "fact": {"key": "book.lotm.kj3ba.review-complete", "value": true}, "clock": 79256}
