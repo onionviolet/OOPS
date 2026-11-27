@@ -15,6 +15,7 @@ import {readPort} from '../ui_ports.js';
 import {energyView} from '../energy_resources.js';
 import {centerModes} from '../center_modes.js';
 import {TEMPO_SCHEMA} from '../tempo_fight_contract.js';
+import {observerView} from '../observer_view.js';
 import {semanticInk} from './semantic_ink.js';
 
 const SLOTS = ['place', 'when', 'weather', 'reserve', 'today', 'work', 'save'];
@@ -29,10 +30,11 @@ export function reserveWords(energies = []) {
 // Keep the pool's own label and capacity, and never write the projected reserve.
 export function statusReserveWords(state) {
     if (!state) return '';
-    const fight = state.simulation?.sessions?.player?.nativeBattle;
-    const essence = fight?.schema === TEMPO_SCHEMA && !fight.result && state.actors?.player?.worldId === 'book.ri.lead.world'
-        ? fight.fighters?.player?.means?.essence : undefined;
-    return reserveWords(energyView(state, 'player').map(e => e.id === 'book.ri.lead.primeval' && Number.isFinite(essence)
+    const {actorId, worldId} = observerView(state);
+    const fight = state.simulation?.sessions?.[actorId]?.nativeBattle;
+    const essence = fight?.schema === TEMPO_SCHEMA && !fight.result && worldId === 'book.ri.lead.world'
+        ? fight.fighters?.[actorId]?.means?.essence : undefined;
+    return reserveWords(energyView(state, actorId).map(e => e.id === 'book.ri.lead.primeval' && Number.isFinite(essence)
         ? {...e, reserve: essence} : e));
 }
 let reserveReader = () => statusReserveWords(readPort('expansion'));

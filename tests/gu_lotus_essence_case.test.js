@@ -8,7 +8,7 @@ import {LOTUS_AMOUNT, LOTUS_CASE_ID, LOTUS_CASE_MODULE, LOTUS_SENTENCE, coverage
 import {effectsWorkshopRun as workshop} from '../src/world_packs/effects_workshop.js';
 import {WORLD_QUANTITIES} from '../src/world_quantities.js';
 import {serializeEngineWorld} from '../src/engine_world.js';
-import {DEFAULT_ENTRY, reachableFrom} from '../scripts/reachable.mjs';
+import {isReachable} from '../scripts/reachable.mjs';
 
 const row = {id: LOTUS_CASE_ID, state: 'catalogued', case: {module: LOTUS_CASE_MODULE, id: LOTUS_CASE_ID}};
 
@@ -39,8 +39,7 @@ test('near misses: the wiki-tier heal guess does not meet the essence expectatio
 });
 
 test('rung 2, module reachability: the case module is reachable from src/main.js through the effects workshop', async () => {
-    const root = new URL('..', import.meta.url).pathname;
-    assert.equal(reachableFrom(DEFAULT_ENTRY).has(root + LOTUS_CASE_MODULE), true);
+    assert.equal(isReachable(LOTUS_CASE_MODULE), true);
     assert.deepEqual((await runCase(row)).state, 'runs-authored');
 });
 

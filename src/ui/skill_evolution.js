@@ -1,6 +1,6 @@
-import {kitControl,kitRow} from './kit.js';
+import {kitControl,kitElement,kitRow} from './kit.js';
 
-const node=(tag,text)=>{const el=document.createElement(tag);if(text)el.textContent=text;return el;};
+const node=(tag,text)=>kitElement(tag,'',text);
 
 function branchDescription(target,source) {
     const {practiceXP,sourceMultiplier,companion}=target.gains;

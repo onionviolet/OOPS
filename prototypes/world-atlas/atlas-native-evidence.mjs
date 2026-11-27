@@ -230,7 +230,7 @@ export async function loadNativePlayEvidence(root,{cards=NATIVE_EVIDENCE_CARDS}=
   const [receiptId,life,action]=playedRoutes[card.id]||[];
   const receipt=receipts.find(row=>row.id===receiptId&&row.status==='verified');
   const exercised=authoredReplay||(receipt&&{id:receiptId,life,action,build:receipt.testedBundleSha256});
-  const gap=card.id==='fang-first-night'?'The aggregate first-night card needs matching breakfast and half-stone receipts.':
+  const gap=card.id==='fang-first-night'?'The first night, breakfast and half-stone use still need one native replay on the same build.':
    card.id==='taylor-backpack-bus'?'The fresh and earned backpack replay files need their pinned identity and action scope confirmed.':
     'The named native replay could not be verified for this route.';
   entries.push({id:card.id,title:card.title,pov:card.pov,relatedHref:card.relatedHref,where:card.where,setup:card.setup,outcome:verified?card.outcome:null,status:verified?(card.evidenceKind==='authored-record'?'documented':'verified'):'unavailable',
