@@ -2066,3 +2066,7 @@ After a screenshot of YAIR's "Skill Stone skin upgraded to Iron skin": "do we ha
 ## Public push and book text, 2026-11-26
 
 Asked whether to move OOPS to a private repo before pushing: "public, it doesnt matter some stuff gets gets put publically, its not like we are redistributing the original books". Earlier the same evening: "do everything" and "just ssh on the mac" (run the book-text scan on the Mac library). [Owner](../USER_VISION.md#nov-26-coordination-direction)
+
+## Skill evolution means the skill transforms, 2026-11-26
+
+On the first skill evolution slice, which granted a separate side skill: "A2 isnt quite the same type of skill evoluition we are thinking of is it?" Asked which evolution style to build first (choose an evolved form, or rarity grades): "We can build all of them for each type of litrpg and more?" [Owner](../USER_VISION.md#nov-26-coordination-direction)
