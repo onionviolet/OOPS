@@ -112,7 +112,9 @@ function mountDailyPowers(ports) {
     errorLine.setAttribute('role', 'alert');
     const itemChoices=kitElement('section'),itemTitle=kitElement('strong'),itemRows=new Map();
     itemChoices.dataset.knownItemChoices='';itemChoices.append(itemTitle);
-    panel.append(title, reserve, meter,itemChoices);
+    const kitchen = kitElement('section', 'daily-powers__kitchen');
+    kitchen.append(kitElement('h3', '', 'Village kitchens'));
+    panel.append(title, reserve, meter, itemChoices, kitchen);
 
     let controls = {}, error = '';
     const rows = rowKeys.map(key => {
@@ -128,8 +130,9 @@ function mountDailyPowers(ports) {
             try { ports.command(control.request); } catch (e) { error = e.message; }
             render();
         });
-        panel.append(row);
-        return {key, row, button, hint, reason};
+        const kitchenRow = key === 'hand' || key === 'moonglow';
+        (kitchenRow ? kitchen : panel).append(row);
+        return {key, row, button, hint, reason, kitchenRow};
     });
     panel.append(errorLine, result);
 
@@ -144,6 +147,7 @@ function mountDailyPowers(ports) {
         }
         const view = ports.read();
         controls = riDayControls(view);
+        kitchen.hidden = !controls.hand && !controls.moonglow;
         const tally=riTallyChoices(view);
         const sea = energyView(state, 'player').find(row => row.id === 'book.ri.lead.primeval');
         panel.hidden = !(sea && Object.values(controls).some(Boolean));
@@ -169,10 +173,11 @@ function mountDailyPowers(ports) {
             setText(hint,[...(choice.costs||[]),formatDuration(choice.duration||0)].join(' · '));
             setText(reason,choice.eligible?(view.canWrite?'':view.pauseReason||'Saving is unavailable.'):choice.reasons?.[0]||'');reason.hidden=!reason.textContent;
         }
-        for (const {key, row, button, hint, reason} of rows) {
+        for (const {key, row, button, hint, reason, kitchenRow} of rows) {
             const control = controls[key];
             row.hidden = !control;
             if (!control) continue;
+            if (kitchenRow) row.dataset.kitState = control.running ? 'running' : control.enabled ? 'ready' : 'blocked';
             setText(button, control.label);
             button.disabled = !control.enabled;
             setText(hint, control.hint || '');
