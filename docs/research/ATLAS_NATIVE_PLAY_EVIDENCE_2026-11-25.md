@@ -46,6 +46,14 @@ Existing native receipts are immutable inputs. If their bytes change, that card�
 The desktop proof checked default native bundle 06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634 before and after. A final metadata wording was narrowed afterward from pending/final Klein persistence to final persistence, matching the clean paid receipt; client rendering and route code did not change, and backend tests were rerun. The owned browser/server closed normally with exit 0. No scratch snapshot, copied save, candidate native build or gameplay installer was created. Kept artifacts are the cited public proof and source identities.
 
 
+## November 27 replay of Village watch and relay
+
+The checkout Workbench lists eleven cards. Three have documented evidence and eight have verified receipts. The desktop proof now compares the rendered card identities with the current inventory and still requires the five original receipt-backed routes to verify. Run `node prototypes/world-atlas/prove-native-evidence.mjs .local/atlas-replay` for a fresh desktop capture.
+
+The Village card points to the previously verified `e0dad8c7` bundle. On checkout bundle `3ecaa88c`, a separate native replay from the earned cave-report and courier checkpoints passed the watch payout, carried receipt, relay payout, interruption and zero-standing courier branches. Pending watch, carried receipt and finished relay survived reload and fresh file import. The replay finished with three shifts and one completed relay. The Workbench still identifies the original receipt's bundle correctly.
+
+For another replay, use an empty scratch working directory. Copy the two earned inputs into the same relative `.lane-builds/village-native-watch-relay-20261125/` directory inside it, then invoke the checkout's `tests/village_watch_relay_browser.cjs` with the absolute checkout as its build argument. The runner writes screenshots, saves and a proof relative to its working directory. This keeps the reviewed receipt available for comparison.
+
 ## Additional native routes integrated, 2026-11-26
 
 Fang’s two reviewed native-evidence cards and typed world-entry inventory were integrated after the suite release alongside the independent reader-scene Find change. The coordinator observed both cards in the combined built-in desktop preview; native gameplay assertions remain bound to each card’s existing receipt and tested bundle. The overview distinguishes 10 worlds with listed native routes, 3 source-game references and 36 reading worlds without a listed native entry. This is a route inventory, not a universal gameplay gate. The [Find integration record](ATLAS_FIND_2026-11-25.md#reader-scene-metadata-and-combined-atlas-integration-2026-11-26) records 26/26 combined focused checks, file identities, unchanged snapshot/readiness and the limits of prior full-suite evidence.
