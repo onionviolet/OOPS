@@ -3,6 +3,7 @@ export function renderPaidInnEvidence({main,report,element:el}){
  const sheet=el('article',null,'sheet findings-sheet');sheet.style.overflowWrap='anywhere';sheet.dataset.nativeEvidence='fang-paid-inn';
  const back=el('a','Back to Fang Yuan’s first-night card');back.href=BACK;
  sheet.append(el('h2','Fang Yuan · paid inn evidence'),back);main.replaceChildren(sheet);
+ if(report.playStatus)sheet.append(el('p',report.playStatus+(report.playGap?' · '+report.playGap:'')));
  if(report.status!=='verified'){
   const message=el('p',report.status==='loading'?'Reading the paid-inn proof…':'The paid-inn proof is unavailable or changed. No paid-room result is inferred.');message.setAttribute('role','status');sheet.append(message);return sheet;
  }

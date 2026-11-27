@@ -50,6 +50,7 @@ export function otherPlaces({main, data, controls, finder, list, closeCanvas, gr
         select(id, side) {
             const p = byId.get(id);
             side.append(el('small', p.group + (p.combat ? ' · Combat area' : '')), el('h2', p.label), el('p', 'Location id: ' + p.id));
+            side.append(el('p',p.playStatus+' · '+p.playGap));
             for (const [label, values] of [['Residents', p.people], ['Activities', p.activities], ['Work stations', p.stations]]) {
                 if (!values.length) continue;
                 const d = el('details');

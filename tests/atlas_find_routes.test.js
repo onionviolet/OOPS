@@ -21,9 +21,9 @@ test('seven existing public route cards are searchable by action/name with exact
 test('title overlay adds direct backpack and Alden routes while preserving documented scope',async()=>{
  if(NATIVE_EVIDENCE_CARDS.length===7)return; // primary without the separately owned title-card overlay
  const report=await publicReport;assert.equal(report.entries.length,11);
- const taylor=routes(report,'backpack','worm').find(r=>r.id==='taylor-backpack-bus');assert.ok(taylor);assert.equal(taylor.href,'#workbench/play-evidence/taylor-backpack-bus');assert.match(taylor.status,/Verified receipts/);
+ const taylor=routes(report,'backpack','worm').find(r=>r.id==='taylor-backpack-bus');assert.ok(taylor);assert.equal(taylor.href,'#workbench/play-evidence/taylor-backpack-bus');assert.equal(taylor.playStatus,'Partial');assert.match(taylor.status,/Evidence unavailable/);
  assert.equal(routes(report,'Taylor Hebert','worm')[0].id,'taylor-backpack-bus');
- const alden=routes(report,'Alden Thorn','sup')[0];assert.equal(alden.href,'#workbench/play-evidence/alden-bedside-choice');assert.match(alden.status,/Documented play route.*authored record/);assert.doesNotMatch(alden.status,/Verified/);
+ const alden=routes(report,'Alden Thorn','sup')[0];assert.equal(alden.href,'#workbench/play-evidence/alden-bedside-choice');assert.equal(alden.playStatus,'Playable');assert.match(alden.status,/Documented play route.*authored record/);assert.doesNotMatch(alden.status,/Verified/);
  assert.equal(routes(report,'Super Supportive','sup')[0].id,'alden-bedside-choice');assert.equal(routes(report,'backpack','sup').length,0);
 });
 test('failed or changed evidence withholds outcome claims without inventing absence or discarding documented directions',()=>{
@@ -34,7 +34,7 @@ test('failed or changed evidence withholds outcome claims without inventing abse
 test('ordinary Find remains lazy, route validation is once per index, and UI exposes its own filter',async()=>{
  const serve=await readFile(new URL('../prototypes/world-atlas/serve.mjs',import.meta.url),'utf8'),view=await readFile(new URL('../prototypes/world-atlas/atlas-find-view.mjs',import.meta.url),'utf8');
  assert.match(serve,/if\(atlasFindIndex\)return atlasFindIndex/);assert.match(serve,/if\(request.q.trim\(\)\)index=await findIndex\(\)/);assert.match(serve,/playEvidence=await loadNativePlayEvidence\(root\)/);
- assert.match(view,/\["routes", "Playable routes"\]/);assert.match(view,/playableRoutesUnavailable/);
+ assert.match(view,/\["routes", "Game route evidence"\]/);assert.match(view,/playableRoutesUnavailable/);
 });
 
 test('every route search hit resolves through the actual Atlas router to native evidence, with readable clipped directions',async()=>{

@@ -4,6 +4,7 @@ import {boxCanvas, element as el} from '/canvas.mjs';
 import {appendTrackedReadings} from '/tracked-readings.mjs';
 import {appendReadingReadiness} from '/reading-readiness-view.mjs';
 import {registeredTravel} from '/registered-travel.mjs';
+import {mechanicPlayStatus,mechanicReadinessRows,WORLD_CONSUMERS} from '/play-status.mjs';
 
 // Shelf membership follows the library build atlas table (LIBRARY_BUILD_ATLAS_2026-11-20.md).
 // A world may sit on more than one shelf; shelves with no reading keys still show.
@@ -29,14 +30,12 @@ const TITLES = {
 };
 // Where a world's reading reaches the game. Cast packs join by registry id; groups are registered locations.
 // The key is also the atlas world id, so a reading world links straight to its world page.
-const CONSUMERS = {lotm: {cast: 'lotm', group: 'Lord of the Mysteries'}, mol: {cast: 'mol', group: 'Mother of Learning'},
-    hp: {group: 'Harry Potter'}, ri: {group: 'Reverend Insanity'}, ss: {group: 'Shadow Slave'}};
 const worldLink = (w, button) => w.consumer ? button('Open ' + w.label + ' in Worlds', () => {location.hash = 'world/' + w.id;}) : null;
 export const ASPECT_LABELS = {procedures: 'Procedures and crafts', generation: 'Generation and chance', progression: 'Learning and progression',
     institutions: 'Institutions and law', economy: 'Money and trade', knowledge: 'Knowledge and secrets', life: 'Daily life and travel', conflict: 'Harm, combat and healing'};
 export const STAGES = [
     {key: 'held', label: 'Held'}, {key: 'prepared', label: 'Prepared'}, {key: 'read', label: 'Read, all five passes'},
-    {key: 'consumer', label: 'Used by the game'}, {key: 'inGame', label: 'In the game'}, {key: 'walkable', label: 'Registered travel'},
+    {key: 'consumer', label: 'Game consumer listed'}, {key: 'inGame', label: 'Registered locations'}, {key: 'walkable', label: 'Registered travel'},
 ];
 // O1: the progress atlas's proof and delivery columns continue the lane. They come from the latest dated
 // docs/reports/progress-atlas-*.json, so they are only as fresh as that run; a world it never covered is unknown, not failed.
@@ -66,7 +65,7 @@ export function libraryWorlds(data) {
         const passTotal = rows.reduce((s, k) => s + Object.values(k.passes).reduce((a, b) => a + b, 0), 0);
         const aspects = {};
         for (const k of rows) for (const [a, n] of Object.entries(k.aspects)) aspects[a] = (aspects[a] || 0) + n;
-        const consumer = CONSUMERS[id] || null, cast = consumer?.cast && data.books?.[consumer.cast];
+        const consumer = WORLD_CONSUMERS[id] || null, cast = consumer?.cast && data.books?.[consumer.cast];
         const located = (groupCounts.get(consumer?.group) || []).length;
         const castPlaces = cast ? cast.places.length : 0;
         const measured=data.registeredTravel?.status==='measured'&&data.registeredTravel.worlds.find(row=>row.group===consumer?.group);
@@ -87,7 +86,7 @@ export function libraryWorlds(data) {
 
 const pct = x => Math.round(x * 100) + '%';
 const readMark = {key: 'partial', icon: 'hourglass_bottom', label: 'Partly read'};
-const gameMark = {key: 'game', icon: 'sports_esports', label: 'Used by the game'};
+const gameMark = {key: 'game', icon: 'sports_esports', label: 'Game consumer listed'};
 const askedMark = {key: 'asked', icon: 'bookmark_added', label: 'Reading requested'};
 
 function worldFacts(w, side, list, data) {
@@ -97,7 +96,7 @@ function worldFacts(w, side, list, data) {
         `Observed output files: ${w.observedOutputFiles} · file presence does not establish reading coverage`,
         `Prepared-shard pointer rows: ${w.rows}`,
         batchLine(data, w.keys),
-        w.consumer ? `In the game: ${w.castPlaces ? w.castPlaces + ' cast-pack places' : ''}${w.castPlaces && w.located ? ' · ' : ''}${w.located ? w.located + ' registered locations' : ''}` : 'No game consumer yet',
+        w.consumer ? `Game inventory: ${w.castPlaces ? w.castPlaces + ' cast-pack places' : ''}${w.castPlaces && w.located ? ' · ' : ''}${w.located ? w.located + ' registered locations' : ''}` : 'No game consumer listed',
         travelSummary(w),
         w.castPlaces ? `${w.castPlaces} cast-place projections; place presence does not establish travel.` : null,
     ].filter(Boolean)));
@@ -323,13 +322,13 @@ export function mechanicReadiness({main, data, controls, finder, list, button, c
     const asked = (w, a) => requests.some(r => r.world === w && r.aspect === a);
     const bar = controls();
     const open = a => mechanicReadiness({main, data, controls, finder, list, button, closeCanvas, aspect: a});
-    bar.append(el('small', `Start from a mechanic. Counts are keyword pointers in extracted rows, not findings. ${requests.length} reading requests saved.`));
+    bar.append(el('small', `Counts show source keyword pointers and world-level game consumers. Each mechanic needs its own play receipt. ${requests.length} reading requests saved.`));
     finder(bar, aspects.map(a => ({id: a, label: ASPECT_LABELS[a] || a})), r => open(r.id));
     const state = (w, a) => w.consumer ? (w.aspects[a] ? 'backed' : 'gap') : (w.aspects[a] ? 'unused' : 'none');
     const marks = [gameMark, askedMark, {key: 'contains', label: 'Has pointers'}, {key: 'selected', label: 'Selected'}];
     if (aspect && aspects.includes(aspect)) {
         bar.append(button('All mechanics', () => open()));
-        const rows = worlds.filter(w => w.consumer || w.aspects[aspect]).sort((a, b) => (b.aspects[aspect] || 0) - (a.aspects[aspect] || 0)).slice(0, 48);
+        const rows = mechanicReadinessRows(worlds,aspect);
         const cols = Math.max(3, Math.min(7, Math.ceil(Math.sqrt(rows.length * 1.8))));
         const nodes = [{id: 'aspect', label: ASPECT_LABELS[aspect], x: 0, y: 0, w: 240, h: 46, group: 'aspect'},
             ...rows.map((w, i) => ({id: w.id, label: `${w.label} · ${w.aspects[aspect] || 0}`, x: (i % cols) * 170 - (cols - 1) * 85, y: 100 + Math.floor(i / cols) * 66,
@@ -339,11 +338,13 @@ export function mechanicReadiness({main, data, controls, finder, list, button, c
             select(id, side) {
                 if (id === 'aspect') {
                     side.append(el('small', 'Mechanic'), el('h2', ASPECT_LABELS[aspect]),
-                        el('p', `${rows.filter(w => state(w, aspect) === 'backed').length} worlds in the game with pointers · ${rows.filter(w => state(w, aspect) === 'gap').length} in the game without · ${rows.filter(w => state(w, aspect) === 'unused').length} with pointers but no game use yet`));
+                        el('p', `${rows.filter(w => state(w, aspect) === 'backed').length} with a world consumer and pointers · ${rows.filter(w => state(w, aspect) === 'gap').length} with a world consumer and no pointers · ${rows.filter(w => state(w, aspect) === 'unused').length} with pointers only`));
                     return;
                 }
-                const w = worlds.find(x => x.id === id), s = state(w, aspect);
-                side.append(el('small', {backed: 'In the game, with source pointers', gap: 'In the game, no source pointers yet', unused: 'Source pointers, no game use yet', none: 'Nothing yet'}[s]), el('h2', w.label));
+                const w = worlds.find(x => x.id === id);
+                const evidence = mechanicPlayStatus(w.label,ASPECT_LABELS[aspect],w.consumer);
+                side.append(el('small',evidence.playStatus), el('h2', w.label));
+                if(evidence.playGap)side.append(el('p',evidence.playGap));
                 side.append(el('p', `${w.aspects[aspect] || 0} rows point at ${ASPECT_LABELS[aspect].toLowerCase()}.`));
                 worldFacts(w, side, list, data);
                 const link = worldLink(w, button);
@@ -364,7 +365,7 @@ export function mechanicReadiness({main, data, controls, finder, list, button, c
     }
     const nodes = aspects.map((a, i) => {
         const backed = worlds.filter(w => state(w, a) === 'backed').length, gaps = worlds.filter(w => state(w, a) === 'gap').length;
-        return {id: a, label: `${ASPECT_LABELS[a]} · ${backed} backed`, x: (i % 4) * 240, y: Math.floor(i / 4) * 90, w: 220, h: 54,
+        return {id: a, label: `${ASPECT_LABELS[a]} · ${backed} with both`, x: (i % 4) * 240, y: Math.floor(i / 4) * 90, w: 220, h: 54,
             group: gaps ? 'gap' : 'backed', marks: requests.some(r => r.aspect === a) ? [askedMark] : []};
     });
     boxCanvas({parent: main, title: 'Mechanic readiness', nodes, edges: [], marks, kind: 'library', close: closeCanvas,

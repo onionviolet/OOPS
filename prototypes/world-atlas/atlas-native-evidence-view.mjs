@@ -6,7 +6,7 @@ export async function nativePlayEvidenceView({main}){
  if(location.hash==='#workbench/play-evidence/fang-first-night/breakfast')return breakfastEvidenceView({main,element:el});
  if(location.hash==='#workbench/play-evidence/fang-first-night/paid-inn')return paidInnEvidenceView({main,element:el});
  const sheet=el('article',null,'sheet findings-sheet');sheet.style.overflowWrap='anywhere';
- sheet.append(el('h2','Native play evidence'),el('p','Atlas browses sources, proposals and evidence. The interactions below run in the native OOPS game. These receipts show specific played decisions; opening this page does not install or change gameplay.'));
+ sheet.append(el('h2','Native play evidence'),el('p','Playable marks an exercised action on the named build. Partial records explain which part of the evidence is missing.'));
  const focus=location.hash.split('/')[2]||null;
  const refresh=el('button','Compare checkout build'),body=el('div');sheet.append(refresh,body);main.replaceChildren(sheet);
  async function show(){refresh.disabled=true;body.textContent='Reading public playtest receipts…';
@@ -15,7 +15,10 @@ export async function nativePlayEvidenceView({main}){
    body.replaceChildren(el('p',report.currentBundleSha256?'Checkout web bundle: '+report.currentBundleSha256:'Checkout web bundle is unavailable.'));
    for(const entry of report.entries){
     const card=el('section');card.id='native-evidence-'+entry.id;card.dataset.nativeEvidence=entry.id;card.style.marginBlock='1.5rem';card.style.overflowWrap='anywhere';
-    card.append(el('h3',entry.title),el('p',entry.pov),el('h4','Where to play'),el('p',entry.where),el('h4','Setup and scope'),el('p',entry.setup));
+    card.append(el('h3',entry.title),el('p',entry.playStatus,'atlas-find-status-note'));
+    if(entry.playGap)card.append(el('p',entry.playGap));
+    card.append(el('p',entry.pov),el('h4','Where to play'),el('p',entry.where),el('h4','Setup and scope'),el('p',entry.setup));
+    if(entry.playReceipt){const {life,action,build}=entry.playReceipt;card.append(el('p',life+' · '+action+' · Build '+build));}
     if(entry.evidenceKind==='authored-record')card.append(el('p','Documented checkpoint record. No machine-readable native playtest receipt is registered for this card.'));
     if(entry.outcome)card.append(el('h4','Played result'),el('p',entry.outcome));else card.append(el('p','A registered receipt changed or is unavailable. Its played-result claim is withheld; this does not mean the feature is absent.'));
     const link=el('a','Open related Atlas record');link.href=entry.relatedHref;card.append(link);

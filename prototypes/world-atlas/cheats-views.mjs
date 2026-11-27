@@ -7,7 +7,8 @@ import {element as el} from '/canvas.mjs';
 const PAGE = 50;
 const n = v => Number(v).toLocaleString('en-US');
 const get = async url => {const r = await fetch(url); if (!r.ok) throw Error(await r.text() || r.statusText); return r.json();};
-const STATUSES = [['', 'All'], ['proposal', 'Proposal'], ['working-default', 'Working default'], ['implemented', 'Implemented']];
+const STATUSES = [['', 'All'], ['proposal', 'Proposal'], ['working-default', 'Working default'], ['implemented', 'Built with a source match']];
+const sourceStatus = new Map(STATUSES);
 const KIND_LABEL = {'catalogue-source': 'Catalogue source', 'library-family': 'Library family', 'cosmology-placement': 'Cosmology placement', 'world-variant': 'By world', 'scenario-lever': 'Scenario lever'};
 
 // Same tokens as codex-views (already in canvas.css); nothing new.
@@ -46,7 +47,7 @@ const where = l => `${l.link ?? l.file}${l.line ? ':' + l.line : ''}`;
 
 export function statusLine(s) {
     const b = s.counts.byStatus;
-    return `${n(s.counts.cheats)} cheats · ${n(s.counts.variations)} variations · ${n(s.counts.withDefinition)} with a definition in src · ${n(b.implemented)} implemented · ${n(b['working-default'])} working default · ${n(b.proposal)} proposal · ${n(s.counts.candidates)} candidates`;
+    return `${n(s.counts.cheats)} cheats · ${n(s.counts.variations)} variations · ${n(s.counts.withDefinition)} with a definition in src · ${n(b.implemented)} built with a source match · ${n(b['working-default'])} working default · ${n(b.proposal)} proposal · ${n(s.counts.candidates)} candidates`;
 }
 
 function showCatalogue(host, r) {
@@ -62,7 +63,7 @@ function showCatalogue(host, r) {
     if (ev.unverifiedIds.length) runtime.append(el('p', `Named by the catalogue, not found as a definition or card: ${ev.unverifiedIds.join(', ')}`));
     if (!runtime.childNodes.length) runtime.append(missing('no runtime id named or found'));
     host.append(dl([
-        ['Status', r.status], ['Catalogue says', r.docStatus], ['Runtime evidence', runtime],
+        ['Play status', r.playStatus], ['Proof gap', r.playGap||null], ['Source classification', sourceStatus.get(r.status)], ['Catalogue says', r.docStatus], ['Runtime evidence', runtime],
     ]));
     host.append(el('h3', 'Rule references'));
     const rules = r.rules.cht.map(x => `${x.code}${x.text ? ': ' + x.text : ''} (${x.how})`).concat(r.rules.other);
@@ -86,7 +87,7 @@ function showCandidate(host, r) {
     host.replaceChildren(); host.dataset.key = r.key;
     host.append(el('strong', `${r.code ? r.code + ' · ' : ''}${r.name}`));
     host.append(dl([
-        ['Status', 'candidate (not in the catalogue)'], ['Found by', r.detector === 'coded' ? 'a coded entry that says cheat' : 'a table with a Cheat column'],
+        ['Play status', r.playStatus], ['Found by', r.detector === 'coded' ? 'a coded entry that says cheat' : 'a table with a Cheat column'],
         ['Where', where(r.locator)], ['Heading', r.locator.heading], ['Also in', r.alsoAt.length ? r.alsoAt.map(where).join('; ') : null], ['Docs carrying it', n(r.docsCount)],
         ['Worlds', r.worlds], ['Closest catalogue row', r.resembles ? `${r.resembles.id} ${r.resembles.name} (inferred, overlap ${r.resembles.score})` : null],
     ]));
@@ -140,7 +141,7 @@ export async function cheatsView({main, tab = 'index', focus = null}) {
         for (const r of page.rows) {
             const li = el('li'), b = el('button'); b.type = 'button'; b.setAttribute('aria-pressed', String(r.key === view.selected));
             b.append(el('span', r.kind === 'candidate' ? `${r.code ? r.code + ' ' : ''}${r.name}` : `${r.id} ${r.name}`),
-                el('small', r.kind === 'candidate' ? `in ${n(r.docsCount)} doc${r.docsCount === 1 ? '' : 's'}` : r.status));
+                el('small', r.playStatus));
             const open = () => {view.selected = r.key; for (const x of list.querySelectorAll('button')) x.setAttribute('aria-pressed', String(x === b)); (r.kind === 'candidate' ? showCandidate : showCatalogue)(detailHost, r);};
             b.onclick = open; li.append(b); list.append(li);
             if (focus && r.id === focus && view.selected !== r.key) open();

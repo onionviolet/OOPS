@@ -1,0 +1,110 @@
+{
+  "entry": "/",
+  "serverCommand": "node prototypes/world-atlas/serve.mjs",
+  "archive": {
+    "commit": "db24d3a92",
+    "builtAt": "2026-11-26T01:07:05.642Z",
+    "failures": []
+  },
+  "testedFiles": {
+    "prototypes/world-atlas/index.html": "bf3de61ba5d3e3ff82d75173ab8448f1e5f01ecbc71f5a33849706290f56d635",
+    "prototypes/world-atlas/serve.mjs": "e22c1bf3458a55606276c13b5b0539c22a500f5b306a3143acda3966cbffe161",
+    "prototypes/world-atlas/atlas-find.mjs": "46ccf148b7e102986a9b108eabd2f950f8ec321a2ce666c0f195a4704e396794",
+    "prototypes/world-atlas/atlas-find-view.mjs": "3b7ef9c536c35b4d223eed85b2d3c730b47e40ec474a458e7c3a18f4293058a9",
+    "prototypes/world-atlas/vision-coverage.mjs": "85b195018a74b8d64cfa57bdec9f6849b7966ab08be4e752b1f140a477033fbf",
+    "prototypes/world-atlas/atlas-native-evidence.mjs": "f8dba13c1f7aa3921e44f4c23e1a26b27a4e4ab5d8115426da3ea3cab7071dbc",
+    "prototypes/world-atlas/atlas-native-evidence-view.mjs": "260dad92b105c46a4c07a0d073f23d4db9f1419c49c4233a3f5713f82d029675"
+  },
+  "viewports": [
+    {
+      "width": 1366,
+      "height": 768,
+      "pageErrors": [],
+      "records": [
+        {
+          "id": "time-and-progression",
+          "query": "idle play",
+          "href": "#progress/vision/time-and-progression",
+          "findStatus": "Partial",
+          "sourceStatus": "Time and progression · Partial",
+          "findGeometry": {
+            "width": 1366,
+            "document": 1366,
+            "body": 1366
+          },
+          "ownerGeometry": {
+            "width": 1366,
+            "document": 1366,
+            "body": 1366
+          },
+          "findCapture": "time-and-progression-find-1366.png",
+          "ownerCapture": "time-and-progression-1366.png"
+        },
+        {
+          "id": "taylor-backpack-bus",
+          "query": "Taylor Hebert",
+          "href": "#workbench/play-evidence/taylor-backpack-bus",
+          "findStatus": "Partial · The fresh and earned backpack replay files need their pinned identity and action scope confirmed.",
+          "sourceStatus": "Partial",
+          "findGeometry": {
+            "width": 1366,
+            "document": 1366,
+            "body": 1366
+          },
+          "ownerGeometry": {
+            "width": 1366,
+            "document": 1366,
+            "body": 1366
+          },
+          "findCapture": "taylor-backpack-bus-find-1366.png",
+          "ownerCapture": "taylor-backpack-bus-1366.png"
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "pageErrors": [],
+      "records": [
+        {
+          "id": "time-and-progression",
+          "query": "idle play",
+          "href": "#progress/vision/time-and-progression",
+          "findStatus": "Partial",
+          "sourceStatus": "Time and progression · Partial",
+          "findGeometry": {
+            "width": 1920,
+            "document": 1920,
+            "body": 1920
+          },
+          "ownerGeometry": {
+            "width": 1920,
+            "document": 1920,
+            "body": 1920
+          },
+          "findCapture": "time-and-progression-find-1920.png",
+          "ownerCapture": "time-and-progression-1920.png"
+        },
+        {
+          "id": "taylor-backpack-bus",
+          "query": "Taylor Hebert",
+          "href": "#workbench/play-evidence/taylor-backpack-bus",
+          "findStatus": "Partial · The fresh and earned backpack replay files need their pinned identity and action scope confirmed.",
+          "sourceStatus": "Partial",
+          "findGeometry": {
+            "width": 1920,
+            "document": 1920,
+            "body": 1920
+          },
+          "ownerGeometry": {
+            "width": 1920,
+            "document": 1920,
+            "body": 1920
+          },
+          "findCapture": "taylor-backpack-bus-find-1920.png",
+          "ownerCapture": "taylor-backpack-bus-1920.png"
+        }
+      ]
+    }
+  ]
+}

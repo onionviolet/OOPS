@@ -2,6 +2,7 @@ import {readFile,stat} from 'node:fs/promises';
 import {createReadStream} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {join} from 'node:path';
+import {playStatus} from './play-status.mjs';
 const sha=b=>createHash('sha256').update(b).digest('hex');
 // Tracked text may be checked out as CRLF. Accept the canonical Git text bytes
 // for a pinned receipt, while rejecting every other edit.
@@ -76,6 +77,27 @@ export const NATIVE_EVIDENCE_CARDS=[
   outcome:'No-call/LOW/HIGH earned-save continuations produced pelt quality 75/70/80 after 26 fighting ticks apiece. Every pelt was scraps with 35 integrity; HIGH did not undo battle damage. Each call spent one reserve. The older held-card comparison separately checked browser persistence and rejected-write recovery.',
   receipts:[source('loaded-dice-acquisition','cheat-starting-insight-normal-2026-11-25/ordinary-proof.json','0eb8cd43ba22a706478a1e54b397290b40b0a37fdc5477bf6cc3d3d26370a1d6','dice-acquisition','Ordinary fresh beginning: earned insight and developed the first three facets, including Loaded Dice; no extra starting point'),source('loaded-dice','cheat-loaded-dice-normal-2026-11-25/proof.json','7f5cd530d7d9b87b2d86410b7e93b62d7d61e67e87c7743cc60a2b3e4f7facbe','dice','Ordinary/low/high actual combat→owned graded pelt; held-card fixture, separate from acquisition'),source('loaded-dice-earned-development','cheat-loaded-dice-normal-2026-11-25/ordinary-acquisition-2026-11-26.json','f49d56e530c64b5255c1afa1486864f8b0bfa8568c2eca5586378896b3548889','dice-earned-development','Native headless earned preparation; desktop development and queued HIGH, without a measured loot outcome','2026-11-26'),source('loaded-dice-earned-consumption','cheat-loaded-dice-normal-2026-11-25/earned-consumption-2026-11-26.json','3472d3b0d1a7c932dd5f3542e5d525e008e4b6d10ec06c071b5f2ac4c41263b7','dice-earned-consumption','Matched native-headless case assertions passed; combined run exit1 at whole-tree source guard. Actual headless bundle, not browser acceptance or reload/import acceptance','2026-11-26')]}
 ];
+// A receipt supports this action only. Other receipts on the card can cover
+// persistence, setup or neighbouring branches without establishing play.
+const playedRoutes = {
+ 'taylor-backpack-bus':['taylor-bus-fresh','Taylor Hebert','Collect the backpack and ride toward home'],
+ 'farm-courtyard':['farm-desktop','Ordinary Village life','Host Bram with Mira’s stored grain'],
+ 'su-xiao-recruitment':['paradise-opening','Su Xiao','Sign, receive treatment and open the trial panel'],
+ 'village-watch-relay':['village-watch-relay','Ordinary Village life','Patrol and complete the watch relay'],
+ 'tingen-local':['tingen-local-bakery-notice','Local Tingen life','Post the bakery notice after collecting a spare'],
+ 'tingen-klein':['tingen-klein-closure','Klein Moretti','Complete the earned tent reading and response'],
+ 'starting-insight':['starting-insight','Ordinary Village life','Take starting insight, develop facets and appraise a carcass'],
+ 'loaded-dice':['loaded-dice','Frontier dice holder','Arm a LOW or HIGH call and consume it on a native loot draw'],
+};
+const authoredReplays = {
+ 'alden-bedside-choice':{id:'alden-signed-off-record',life:'Alden Thorn',action:'Listen, ask who has come, and refuse the visit',
+  build:'c7a58589ddac5f9aaba9b0c1c365dcd20f3f5a926c06c168c14cb13139fb4f76',
+  markers:['coordinator played the real Beginning entry','refuse left Hannah downstairs']},
+ 'ryan-wyvern-visit':{id:'ryan-combined-record',life:'Ryan Romano',action:'Earn the delivery and continue through the private, no-card branch',
+  build:'b9d9d7572f628b9d34cafce3ed3a2003e12d966dd195f71db3a3130ef28c5989',
+  markers:['identical to the proved candidate','Fresh native life earned the opening','private/no-card branch']},
+};
+
 function earnedConsumptionMatches(r){
  if(r.schema!=='loaded-dice-earned-consumption/1'||r.status!=='native-headless-case-assertions-passed-combined-end-input-guard-rejected'||r.browserUsed!==false||
   r.normalBundleSha256!=='db58757be1df194ac5193c357d176c71eec4f235ff831065038d8913342b57a1')return false;
@@ -185,13 +207,34 @@ export async function loadNativePlayEvidence(root,{cards=NATIVE_EVIDENCE_CARDS}=
    }catch{receipts.push({...base,status:'unavailable',buildComparison:'unavailable'});}
   }
   const references=[];
+  let authoredReplay;
   for(const reference of card.references||[]){
    const base={id:reference.id,label:reference.label,href:reference.href,scope:reference.scope,expectedSha256:reference.fingerprint};
-   try{if((await stat(join(root,reference.path))).size>65536)throw Error('Record too large');const actualSha256=receiptHash(await readFile(join(root,reference.path)),reference.fingerprint);references.push({...base,actualSha256,status:actualSha256===reference.fingerprint?'verified':'changed'});}catch{references.push({...base,status:'unavailable'});}
+   try{
+    if((await stat(join(root,reference.path))).size>65536)throw Error('Record too large');
+    const bytes=await readFile(join(root,reference.path)),actualSha256=receiptHash(bytes,reference.fingerprint);
+    const matched=actualSha256===reference.fingerprint;
+    references.push({...base,actualSha256,status:matched?'verified':'changed'});
+    const spec=authoredReplays[card.id];
+    if(matched&&spec?.id===reference.id){
+     const record=bytes.toString('utf8');
+     if([spec.build,...spec.markers].every(marker=>record.includes(marker))){
+      const {id,life,action,build}=spec;
+      authoredReplay={id,life,action,build};
+     }
+    }
+   }catch{references.push({...base,status:'unavailable'});}
   }
   const referencesVerified=references.every(x=>x.status==='verified');
   const verified=referencesVerified&&receipts.every(r=>r.status==='verified');
-  entries.push({id:card.id,title:card.title,pov:card.pov,relatedHref:card.relatedHref,where:card.where,setup:card.setup,outcome:verified?card.outcome:null,status:verified?(card.evidenceKind==='authored-record'?'documented':'verified'):'unavailable',receipts,...(card.evidenceKind?{evidenceKind:card.evidenceKind}:{}),...(references.length?{references}:{})});
+  const [receiptId,life,action]=playedRoutes[card.id]||[];
+  const receipt=receipts.find(row=>row.id===receiptId&&row.status==='verified');
+  const exercised=authoredReplay||(receipt&&{id:receiptId,life,action,build:receipt.testedBundleSha256});
+  const gap=card.id==='fang-first-night'?'The aggregate first-night card needs matching breakfast and half-stone receipts.':
+   card.id==='taylor-backpack-bus'?'The fresh and earned backpack replay files need their pinned identity and action scope confirmed.':
+    'The named native replay could not be verified for this route.';
+  entries.push({id:card.id,title:card.title,pov:card.pov,relatedHref:card.relatedHref,where:card.where,setup:card.setup,outcome:verified?card.outcome:null,status:verified?(card.evidenceKind==='authored-record'?'documented':'verified'):'unavailable',
+   ...playStatus({receipt:verified?exercised:null,gap}),receipts,...(card.evidenceKind?{evidenceKind:card.evidenceKind}:{}),...(references.length?{references}:{})});
  }
  return {schema:'atlas-native-play-evidence/1',currentBundleSha256,entries};
 }
@@ -214,11 +257,11 @@ export async function loadPaidInnEvidence(root){
   const bytes=await readFile(path);if(receiptHash(bytes,ref.fingerprint)!==ref.fingerprint)throw Error();
   const p=JSON.parse(bytes),names={buy_wine:'Buy green bamboo wine',lure:'Lure the worm',follow:'Follow it',take_worm:'Take the worm',search_crevice:'Search the crevice',return_inn:'Return to the inn',first_night:'Finish the first-night working'},places={grove:'Grove',crevice:'Crevice',inn:'Paid inn'};
   if(p.schema!=='fang-yuan-paid-room/1'||p.testedBundle!=='8751c15de722c1deff382507b29c841ed535f6df4772d1048f7e14c70ebc423f'||!empty(p.errors)||p.ordinaryRoute?.length!==7||p.sleepAndBreakfast?.length!==2)throw Error();
-  return {...base,status:'verified',testedBundleSha256:p.testedBundle,evidenceSha256:ref.fingerprint,scope:p.scope,
+  return {...base,status:'verified',...playStatus({receipt:{id:ref.id,life:'Fang Yuan',action:'Sleep and wake in the already-paid inn room',build:p.testedBundle}}),testedBundleSha256:p.testedBundle,evidenceSha256:ref.fingerprint,scope:p.scope,
    desktop:{viewport:[...p.desktop.viewport],summary:p.desktop.route},persistence:p.restoration,
    route:p.ordinaryRoute.map(r=>({action:names[r.action],place:places[r.scene],essence:r.essence,untouchedStones:r.untouchedStones})),
    savedRoute:p.sleepAndBreakfast.map((r,i)=>({action:i?'Continue to breakfast':'Sleep, restore and wake',essence:r.essence,untouchedStones:r.stones,priorWorkKept:r.worked===1,breakfastHappened:r.brother===1}))};
- }catch{return {...base,status:'unavailable'};}
+ }catch{return {...base,status:'unavailable',...playStatus({gap:'A matching paid-room sleep and wake receipt is needed.'})};}
 }
 
 async function loadBreakfastStoneEvidence(root){
@@ -252,7 +295,7 @@ export async function loadBreakfastEvidence(root){
    readFangReceipt(root, 'individual-stone-desktop.json', '2fcd5e7ac6445a9a2e1bd1fd7f616e35c1b824b5b532bdf35c8d06a13f121d7f'),
    readFangReceipt(root, 'breakfast-wine.json', 'b369d2b09a263a048d2b16c14c104bf4dc530b1beb11e7ac8669691e01dbd9b8')
   ]);
-  return {...base,status:'verified',
+  return {...base,status:'verified',...playStatus({receipt:{id:ref.id,life:'Fang Yuan',action:'Hear the breakfast offer and accept or refuse the pouch',build:p.nativeBundle}}),
    selection:selection && {charges:selection.input.charges, before:selection.selectedPiece.before, after:selection.selectedPiece.after, keptSelection:selection.selectedPiece.persistedSelection, whole:selection.wholeStones},
    purchases:purchase?.cases.map(row=>({branch:row.branch,whole:row.after.whole,minutes:row.after.minute-row.before.minute,grove:row.lureAvailable})) ?? [],
    stone:await loadBreakfastStoneEvidence(root),evidenceSha256:ref.fingerprint,nativeBundleSha256:p.nativeBundle,desktopBundleSha256:p.desktop.webBundle,
@@ -264,5 +307,5 @@ export async function loadBreakfastEvidence(root){
     method:'The checkpoint records a direct EPUB check matching the prepared paragraphs. This Atlas page reuses that qualification; it does not reread the raw book.',
     findings:[{locator:'English ch17 paragraphs56–61',text:'Fang Yuan orders breakfast downstairs before Fang Zheng arrives.'},{locator:'English ch18 paragraphs2 and6',text:'Fang Zheng describes comforting Shen Cui. She is absent from this conversation.'},{locator:'English ch18 paragraphs23 and31–35; paragraph45',text:'Six stones were asked for; the actual pouch held five whole stones and one half-sized, partly depleted piece. The retained balance is separately recorded.'},{locator:'English ch18 paragraphs47–52',text:'Fang Zheng later reports the exchange to his uncle, who promises reimbursement. This encounter does not deliver that later payment.'}],
     authored:'Hearing the conversation and pushing the pouch back are authored alternatives. Neither answer transfers Shen Cui or delivers the uncle’s later reimbursement. This breakfast source check is separate from the chapter10 qualification on the main card.'}};
- }catch{return {...base,status:'unavailable'};}
+ }catch{return {...base,status:'unavailable',...playStatus({gap:'The breakfast choices need a matching pinned native receipt.'})};}
 }

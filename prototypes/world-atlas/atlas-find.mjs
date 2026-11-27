@@ -3,9 +3,10 @@ import {readFile, readdir} from 'node:fs/promises';
 import {join} from 'node:path';
 import {parseLocator} from '../../scripts/lead_run/world_profiles.mjs';
 import {VISION_THEMES} from './vision-coverage.mjs';
+import {PARTIAL, READING} from './play-status.mjs';
 
 const FIND_GROUPS = [['subjects', 'Subjects and places'], ['rules', 'World rules'], ['cheats', 'Cheat catalogue'],
-    ['scenes', 'Reader scenes'], ['routes', 'Playable routes'], ['vision', 'Vision themes'], ['ideas', 'Ideas and backlogs']];
+    ['scenes', 'Reader scenes'], ['routes', 'Game route evidence'], ['vision', 'Vision themes'], ['ideas', 'Ideas and backlogs']];
 
 function hidden(row) {
     if (!row || typeof row !== 'object') return false;
@@ -134,7 +135,7 @@ export function projectFindRoutes(report) {
         const status=checked?'Verified receipts · '+(comparisons.has('different')?'tested on another build':comparisons.has('unavailable')?'checkout comparison unavailable':'exact checkout build'):
             documented?'Documented play route · authored record; see scope':'Evidence unavailable · documented directions; played result withheld';
         return [{id:entry.id,label:entry.title,world,worldLabel:routeWorlds[world]||world,type:'routes',kind:'Native OOPS route',
-            summary:entry.where,status,href:'#workbench/play-evidence/'+encodeURIComponent(entry.id),
+            summary:entry.where,status,playStatus:entry.playStatus||PARTIAL,playGap:entry.playGap||(!entry.playStatus?'Native replay evidence is unavailable.':undefined),href:'#workbench/play-evidence/'+encodeURIComponent(entry.id),
             terms:[entry.pov,routeWorlds[world],entry.setup,checked||documented?entry.outcome:'',
                 entry.id==='tingen-klein'?'Klein Moretti':''].map(text).join(' ')}];
     });
@@ -149,8 +150,8 @@ export function buildFindIndex({subjects = [], rules = {records: [], worlds: []}
             worldLabel:'OOPS backlogs', summary:idea.boardTitle, status:'Board status: '+idea.statusLabel,
             terms:idea.code, href:'#workbench/ideas/registry/'+encodeURIComponent(idea.id)});
     }
-    for (const {id, label, status, summary, terms} of VISION_THEMES) {
-        rows.push({id, label, status, summary, terms, type:'vision', kind:'Vision theme', world:'oops-vision',
+    for (const {id, label, status, summary, terms, playGap} of VISION_THEMES) {
+        rows.push({id, label, status, playStatus:status, playGap, summary, terms, type:'vision', kind:'Vision theme', world:'oops-vision',
             worldLabel:'OOPS vision', href:`#progress/vision/${id}`});
     }
     for (const rule of rules.records) {
@@ -173,6 +174,7 @@ export function buildFindIndex({subjects = [], rules = {records: [], worlds: []}
                 kind: section.name || 'Cheat design',
                 summary: [cheat.effect, comparison?.advantage].filter(Boolean).join('. '),
                 status: cheat.status || 'Design catalogue entry',
+                playStatus: cheat.playStatus || READING, playGap: cheat.playGap,
                 href: '#library/cheats/' + cheat.id,
                 terms: [cheat.backing, cheat.worlds, cheat.hooks, cheat.source,
                     comparison?.ordinary, comparison?.advantage, comparison?.evidence].map(text).join(' '),
@@ -187,7 +189,7 @@ export function buildFindIndex({subjects = [], rules = {records: [], worlds: []}
         const {terms, ...publicRow} = row;
         const summary = plain(row.summary);
         admitted.push({
-            ...publicRow, search, labelSearch: normal(row.label),
+            ...publicRow, playStatus:row.playStatus||READING, search, labelSearch: normal(row.label),
             summary: row.type === 'rules' ? summary : row.type==='routes'&&summary.length>220 ? summary.slice(0,220).replace(/\s+\S*$/,'')+'…' : summary.slice(0, 220), status: plain(row.status),
         });
     }
@@ -235,6 +237,6 @@ export function searchAtlas(index, {q = '', type = 'all', world = '', page = 1, 
     return {
         query: q, type, world, page, limit, total: matches.length, groups, worlds: index.worlds,
         pages: Math.max(1, ...groups.map(group => Math.ceil(group.total / limit))),
-        scope: 'Search covers public subjects, places, recorded rules, cheat designs, reader scenes, playable route evidence, vision themes and reference-board ideas.',
+        scope: 'Search covers public subjects, places, recorded rules, cheat designs, reader scenes, game route evidence, vision themes and reference-board ideas.',
     };
 }

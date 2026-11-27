@@ -5,6 +5,7 @@ import {createHash} from 'node:crypto';
 import {parseLocator} from '../../scripts/lead_run/world_profiles.mjs';
 import {publicLifeRow} from './texture-life.mjs';
 import {boundedCache} from './bounded-cache.mjs';
+import {playStatus} from './play-status.mjs';
 const sha=value=>createHash('sha256').update(value).digest('hex');
 const spans=boundedCache({maxEntries:2,maxWeight:128*1024,ttlMs:3600000});
 const array=value=>Array.isArray(value)?value:[];
@@ -32,11 +33,16 @@ export function definingParagraph(text,marker,heading){
  const paragraphs=text.split(/\n\s*\n/).map(p=>p.trim());
  const matches=paragraphs.filter(p=>p.includes(marker));return matches.length===1?matches[0]:null;
 }
-export function checkCampaignClaim(claim,readOwner){
+export function checkCampaignClaim(claim,readOwner,life){
  const inputs=Array.isArray(claim.evidence)?claim.evidence:[claim.evidence],evidence=inputs.map(e=>({path:e.path,heading:e.heading}));
  try{
-  if(!inputs.every(e=>{const paragraph=definingParagraph(readOwner(e.path),e.marker,e.heading);return paragraph&&sha(paragraph)===e.sha256;}))return {label:claim.label,status:'unknown',note:'Defining owner evidence changed or could not be identified. Review the source before using this endpoint.',evidence};
+  const texts=inputs.map(e=>definingParagraph(readOwner(e.path),e.marker,e.heading));
+  if(!texts.every((paragraph,i)=>paragraph&&sha(paragraph)===inputs[i].sha256))return {label:claim.label,status:'unknown',note:'Defining owner evidence changed or could not be identified. Review the source before using this endpoint.',evidence};
+  const played=claim.played;
+  const receipt=life&&played&&texts.some(text=>text.includes(played.build))&&texts.some(text=>text.includes(played.marker))
+   ?{id:inputs[0].path,life,action:played.action,build:played.build}:undefined;
   return {label:claim.label,status:'owner-evidence-matches',statement:claim.statement,reviewedAt:claim.reviewedAt,evidence,
+   ...playStatus({receipt,gap:'The exact life, exercised action and build still need to be connected to this campaign claim.'}),
    ...(claim.href?{href:claim.href}:{})};
  }catch{return {label:claim.label,status:'unknown',note:'Owner evidence is unavailable.',evidence};}
 }
@@ -68,7 +74,7 @@ export function testedLocalSegment(scope,proofBytes,reviewedAt,expected){
   if(!proof.steps.every(row=>row.id?.startsWith('book.lotm.'+expected.episode.toLowerCase()+'.')&&Number.isSafeInteger(row.clock))||proof.steps.at(-1).id!==scope.terminal?.lastAction||proof.steps.at(-1).clock!==scope.terminal.clock||proof.fixture!==scope.entry?.sha256||proof.pack!==scope.candidatePackSha256)return unknown();
   if(proof.persistence!==true||scope.pendingSaveReload!==true||scope.finalSaveReload!==true||scope.nativeExportImport!==true||scope.defaultDiskGuardPassed!==true||scope.originalInputUnchanged!==true||proof.pageErrors!==0||scope.pageErrors!==0||proof.viewport!=='1920x1080'||scope.viewport!=='1920x1080')return unknown();
   if(!['officialEnglishVolume','fromChapter','fromParagraph','toChapter','toParagraph'].every(key=>Number.isSafeInteger(segment[key])&&segment[key]>0))return unknown();
-  return {label:'Tested local '+segment.episode+' segment · '+reviewedAt,status:'tested-local-segment',reviewedAt,episode:segment.episode,testedBundleSha256:scope.testedBundleSha256,entryCheckpointSha256:scope.entry.sha256,terminalCheckpointSha256:scope.terminal.newCurrentCheckpointSha256,
+  return {label:'Tested local '+segment.episode+' segment · '+reviewedAt,status:'tested-local-segment',reviewedAt,episode:segment.episode,testedBundleSha256:scope.testedBundleSha256,action:proof.steps.at(-1).id,entryCheckpointSha256:scope.entry.sha256,terminalCheckpointSha256:scope.terminal.newCurrentCheckpointSha256,
    ...(scope.entry.earnedOnBundleSha256?{entryEarnedOnBundleSha256:scope.entry.earnedOnBundleSha256}:{}),
    statement:`All ${segment.actions} ${segment.episode} actions, official English v${segment.officialEnglishVolume} chapter ${segment.fromChapter} P${String(segment.fromParagraph).padStart(3,'0')}–chapter ${segment.toChapter} P${String(segment.toParagraph).padStart(3,'0')}, were tested from the ${expected.entryLabel} on served bundle ${scope.testedBundleSha256.slice(0,16)}. Pending/final Save and reload plus native Export/Import passed. This is one earned continuation segment, not uninterrupted play from the opening.`,
    note:'This result remains evidence for its tested served bytes. A later rebuild has a different identity and is not covered by this receipt.'+(scope.literalFilePickerImport===false?' Literal file-picker import was not tested.':'')};
@@ -89,7 +95,8 @@ export function campaignSequencing(track,{root,readers,snapshot}){
    indexed={status:'indexed',spans:indexedChapterSpans(digest),indexedSlices:Number.isSafeInteger(digest.shards)?digest.shards:null,digestSha256:sha(bytes),
     note:'Observed chapter locators in the admitted index, with language/book labels as stored. The span does not establish continuous reading, every source fact, edition alignment, or connected gameplay.'};spans.set(key,indexed,JSON.stringify(indexed).length*2);}
  }catch{}
- const connected=track.connected.map(claim=>checkCampaignClaim(claim,readOwner));
+ const ownerClaim=claim=>checkCampaignClaim(claim,readOwner,track.protagonist);
+ const connected=track.connected.map(ownerClaim);
  if(track.historicalChain){const evidence=[{path:track.historicalChain,heading:'Recovered historical receipt/save chain'},...(track.historicalOwner?[{path:track.historicalOwner,heading:'Recovered historical frontier'}]:[])];
   try{const bytes=readFileSync(join(root,track.historicalChain));connected.unshift({...historicalChainFrontier(JSON.parse(bytes)),evidence,reviewedAt:track.reviewedAt,auditSha256:sha(bytes)});}catch{connected.unshift({label:'Recovered historical chain',status:'unknown',note:'Historical audit is unavailable.',evidence});}}
  const tested=new Map();
@@ -97,9 +104,18 @@ export function campaignSequencing(track,{root,readers,snapshot}){
   try{const scope=JSON.parse(readFileSync(join(root,scopePath),'utf8')),bytes=readFileSync(join(root,proofPath));let result=testedLocalSegment(scope,bytes,track.reviewedAt,segment);
    if(segment.follows)result=linkTestedSegment(result,tested.get(segment.follows));tested.set(segment.episode,result);connected.push({...result,evidence});}
   catch{connected.push({label:'Tested local segment',status:'unknown',note:'Local-segment evidence is unavailable.',evidence});}}
- return {world:track.world,protagonist:track.protagonist,indexed,snapshot:{builtAt:snapshot?.builtAt||null,commit:snapshot?.commit||null},
+ const qualify=claim=>{
+  if(claim.playStatus)return claim;
+  const receipt=claim.status==='tested-local-segment'?
+   {id:claim.evidence[1].path,life:track.protagonist,action:claim.action,build:claim.testedBundleSha256}:undefined;
+  const gap=claim.status==='historical-chain-validated'
+   ?'The compact historical chain carries hashes and completion flags. Its underlying action receipts and a current opening-to-endpoint replay remain unchecked.'
+   :claim.note;
+  return {...claim,...playStatus({receipt,gap})};
+ };
+ return {world:track.world,protagonist:track.protagonist,indexed:{...indexed,...playStatus()},snapshot:{builtAt:snapshot?.builtAt||null,commit:snapshot?.commit||null},
   currentReplay:'No reviewed current-build uninterrupted end-to-end replay is registered in this view. Historical route receipts and independent mechanic proofs retain their own scope.',
-  connected,
-  mechanics:track.mechanics.map(claim=>checkCampaignClaim(claim,readOwner)),
+  connected:connected.map(qualify),
+  mechanics:track.mechanics.map(ownerClaim).map(qualify),
   readingHref:'#world/'+track.world+'/reading',workbenchHref:'#workbench/handoffs'};
 }

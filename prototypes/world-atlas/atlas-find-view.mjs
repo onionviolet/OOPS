@@ -31,7 +31,7 @@ function mountFind(header) {
   input.type = "search";
   input.name = "q";
   input.maxLength = 160;
-  input.placeholder = "People, places, rules, playable routes, cheats, ideas\u2026";
+  input.placeholder = "People, places, rules, game routes, cheats, ideas\u2026";
   const submit = el("button", "Find");
   submit.type = "submit";
   form.append(label, input, submit);
@@ -73,7 +73,7 @@ async function atlasFindView({ main }) {
     ["rules", "World rules"],
     ["cheats", "Cheat catalogue"],
     ["scenes", "Reader scenes"],
-    ["routes", "Playable routes"],
+    ["routes", "Game route evidence"],
     ["vision", "Vision themes"],
     ["ideas", "Ideas and backlogs"]
   ]) {
@@ -140,7 +140,7 @@ async function atlasFindView({ main }) {
     if (data.sourceScope?.unreadableReaderFiles) {
       content.append(el("p", "Some admitted reader projections could not be indexed. These results cover the available public index.", "atlas-find-scope"));
     }
-    if (data.sourceScope?.playableRoutesUnavailable) content.append(el("p", "Playable route evidence could not be loaded. Other public results remain available.", "atlas-find-scope"));
+    if (data.sourceScope?.playableRoutesUnavailable) content.append(el("p", "Game route evidence could not be loaded. Other public results remain available.", "atlas-find-scope"));
     if (!data.total) content.append(el("div", "No matching public indexed records. Unindexed and withheld reading rows are not searched. Try fewer words, another name, or All worlds / All result types.", "atlas-find-empty"));
     const layout = el("div");
     layout.className = "atlas-find-groups";
@@ -164,7 +164,9 @@ async function atlasFindView({ main }) {
         h.append(a);
         article.append(h, el("p", `${displayWorld(data.worlds, r.world)} · ${r.kind}`, "atlas-find-meta"));
         if (!repeatedRule && r.summary) article.append(el("p", r.summary));
-        article.append(el("p", r.status, "atlas-find-status-note"));
+        const statusNote = r.playGap || r.status;
+        article.append(el("p", r.playStatus === statusNote || (r.type === "vision" && r.playGap) ? r.playStatus :
+          r.playStatus+" · "+statusNote, "atlas-find-status-note"));
         section.append(article);
       }
       if (!group.rows.length) section.append(el("p", "No further results in this group on this page."));

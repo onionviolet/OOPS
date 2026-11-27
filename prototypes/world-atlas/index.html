@@ -39,7 +39,7 @@ window.addEventListener('error', atlasLoadError);
 <script type="module" onerror="atlasLoadError()">
 import {boxCanvas, element as el} from '/canvas.mjs';
 import {placeMarks, villageDiagram} from '/village-layout.mjs';
-import {withNativeWorldEntries,worldEntryRole,overviewSummary,overviewRows,worldNodeLabel} from '/world-entry-inventory.mjs';
+import {worldRoster,worldEntryRole,worldEntryStatus,overviewSummary,overviewRows,worldNodeLabel} from '/world-entry-inventory.mjs';
 import {bookWorlds} from '/book-worlds.mjs';
 import {otherPlaces} from '/other-places.mjs';
 import {readingPipeline, libraryShelves, mechanicReadiness, libraryWorlds, worldTitle} from '/library-views.mjs';
@@ -54,7 +54,7 @@ import {nativePlayEvidenceView} from '/atlas-native-evidence-view.mjs';
 import {renderCheatCatalogue} from '/cheat-catalogue-view.mjs';
 import {ideaOwners} from '/idea-owners-view.mjs';
 import {cardWorldTrial} from '/card-world-trial.mjs';
-import {sourceGamePage, scenesView, mechanicsView, progressView, SOURCE_GAMES} from '/atlas-views.mjs';
+import {sourceGamePage, scenesView, mechanicsView, progressView} from '/atlas-views.mjs';
 import {implementationView, snapshotStatus} from '/implementation-view.mjs';
 import {transferView} from '/transfer-view.mjs';
 import {findingsView, thingsView, makingView, readerScenesView, readerCreatureShelf} from '/things-views.mjs';
@@ -84,36 +84,7 @@ function loadCreatureRecord(){
 }
 let draft={...data.draft};
 // A world owns its places, walks and reading. Old tab links still land.
-const WORLDS=withNativeWorldEntries([
- {id:'village',label:'The Village',note:'Native region, where a fresh game starts',game:'oops',views:['places','making']},
- {id:'lotm',label:'Lord of the Mysteries',cast:'lotm',group:'Lord of the Mysteries',views:['places','scenes','things','making','locations','districts','reading']},
- {id:'mol',label:'Mother of Learning',cast:'mol',group:'Mother of Learning',views:['places','scenes','things','making','locations','encounter','reading']},
- {id:'hp',label:'Harry Potter',group:'Harry Potter',views:['locations','things','making','reading']},
- {id:'ri',label:'Reverend Insanity',group:'Reverend Insanity',views:['locations','things','making','reading']},
- {id:'ss',label:'Shadow Slave',group:'Shadow Slave',views:['locations','things','making','reading']},
- {id:'paradise',label:'Reincarnation Paradise',group:'Reincarnation Paradise',views:['locations']},
- {id:'proto23',registeredOnly:true,label:'Proto23 reference',group:'Proto23 reference',views:['locations']},
- {id:'testpacks',registeredOnly:true,label:'Private test packs',group:'Private test packs',views:['locations']},
- {id:'yair',label:SOURCE_GAMES.yair.label,source:'yair',game:'yair',note:SOURCE_GAMES.yair.note,views:['source','making']},
- {id:'proto23-src',label:SOURCE_GAMES.proto23.label,source:'proto23',note:SOURCE_GAMES.proto23.note,views:['source']},
- {id:'arkivia',label:SOURCE_GAMES.arkivia.label,source:'arkivia',note:SOURCE_GAMES.arkivia.note,views:['source']},
- {id:'frontier',registeredOnly:true,label:'Frontier outposts',note:'Registered, but no route from the Village at a fresh start',group:'Frontier, not reached from the Village',views:['locations']},
-]);
-// Every other read world with reader rows gets a page of its own: things, making and its reading lane.
-for(const f of data.findings?.worlds||[]){
- if(!f.read)continue;
- let world=WORLDS.find(w=>w.id===f.world);
- if(!world){world={id:f.world,label:worldTitle(f.world),readOnly:true,note:'Read by the batch readers; no native entry listed',views:['things','making','reading']};WORLDS.push(world)}
- if(f.counts.places?.distinct&&!world.views.includes('places'))world.views.splice(world.views.indexOf('things')+1,0,'places');
- if(f.counts.people?.distinct&&!world.views.includes('people'))world.views.splice(world.views.indexOf('things')+1,0,'people');
- if(f.powers||f.counts.abilities?.distinct)world.views.splice(world.views.indexOf('making')+1,0,'powers');
- if(f.groups||f.counts.groups?.distinct)world.views.splice(world.views.indexOf('people')>=0?world.views.indexOf('people')+1:world.views.indexOf('things')+1,0,'groups');
- const reading=world.views.indexOf('reading');
- if(f.sceneIndex)world.views.splice(reading<0?world.views.length:reading,0,'reader-scenes');
-}
-for(const world of WORLDS)if(data.books?.[world.cast]?.people?.length&&!world.views.includes('people'))world.views.splice(world.views.indexOf('things')+1,0,'people');
-for(const world of WORLDS)if(data.placeActivities?.[world.id]?.length&&!world.views.includes('places'))world.views.unshift('places');
-for(const world of WORLDS)if(!world.source&&!world.views.includes('rules'))world.views.push('rules');
+const WORLDS=worldRoster(data,worldTitle);
 const worldById=new Map(WORLDS.map(w=>[w.id,w]));
 const VIEW_LABELS={things:'Things',people:'People',groups:'Groups',making:'Making',powers:'Powers',findings:'Reader findings',source:'Source map',scenes:'Scenes','reader-scenes':'Reader scenes',overview:'Where things stand',mechanics2:'Mechanics',transfer:'Send to the game',places:'Places',locations:'Registered locations',districts:'Walk districts',encounter:'Cyoria encounter',reading:'Reading',
  pipeline:'Reading pipeline',shelves:'Library shelves',mechanics:'Mechanic readiness',kinds:'Creatures and kinds','reader-creatures':'From the readers',observations:'Identified target',site:'Village site workshop',implementation:'Implementation',list:'Catalogue',candidates:'Candidates',drafts:'Drafts'};
@@ -272,6 +243,7 @@ async function regionalMap(id, local = false) {
    const kind = place.danger && dangerLabel ? dangerLabel(place.danger) : place.housing ? 'Dwelling' : 'Location';
    side.append(el('small', place.current ? 'You are here · Fresh game start' : kind), el('h2', place.label),
     button(local ? 'Whole region' : 'Inspect local area', () => regionalMap(placeId, !local)));
+   side.append(el('p',place.playStatus+' · '+place.playGap));
    const facts = el('div', null, 'canvas-facts');
    for (const [label, values] of [['Residents', place.people], ['Crafts', place.craft], ['Activities', place.activities]]) {
     if (!values.length) continue;
@@ -326,6 +298,8 @@ function worldsIndex(){
    const w=worldById.get(id),st=stats.get(id);
    side.append(el('small',worldEntryRole(w)),el('h2',w.label));
    if(w.note)side.append(el('p',w.note));
+   const entryStatus=worldEntryStatus(w,data.playEvidence);
+   side.append(el('p',entryStatus.playStatus+(entryStatus.playGap?' · '+entryStatus.playGap:'')));
    if(w.nativeEntry)side.append(el('h3','Enter in OOPS'),el('p',w.nativeEntry.route),el('p',w.nativeEntry.scope));
    if(w.nativeEntry?.evidenceHref)side.append(worldEvidenceLink(w.nativeEntry));
    side.append(listOf([

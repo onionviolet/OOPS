@@ -17,7 +17,7 @@ import {recordHandoffQuery,handoffsForRecord} from './record-handoffs.mjs';
 import {readMeasuredReadiness,readReadinessFollowups} from './reading-readiness.mjs';
 import {savedReadingSurvey} from './reading-survey.mjs';
 import {loadWorldRules,queryWorldRules} from './world-rules.mjs';
-import {loadCheatCatalogue} from './cheat-catalogue.mjs';
+import {loadCheatCatalogue,cheatPlayStatus} from './cheat-catalogue.mjs';
 import {readFindSubjects,buildFindIndex,searchAtlas,findWorldChoices} from './atlas-find.mjs';
 import {loadNativePlayEvidence,loadNativePlayRecord,loadPaidInnEvidence,loadBreakfastEvidence} from './atlas-native-evidence.mjs';
 import {campaignSequencing} from './campaign-sequencing.mjs';
@@ -48,6 +48,8 @@ import {defineActs} from '../../src/book_world_lotm_acts_host.js';
 import {charmMaterialActs} from '../../src/lotm_charm_materials.js';
 import {tingenSilverWorkshop} from '../../src/lotm_amulet_crafting.js';
 import {projectOfficeMaterialActivities,projectHpLibraryActivities,handoffsForActivityReceipt} from './place-activities.mjs';
+import {loadPlaceActivityEvidence} from './place-activity-evidence.mjs';
+import {playStatus,registeredPlaceStatus,boundActionStatus} from './play-status.mjs';
 import {HP_LIBRARY_COMMANDS} from '../../src/hp_library_work.js';
 import {molCommands, molEncounters} from '../../src/book_world_mol_actions.js';
 import {DEFAULT_DRAFT, DRAFT_FIELDS, compileDraft, exportAuthoredFile} from '../../src/authored_site.js';
@@ -66,11 +68,12 @@ const places = LOTM_DISTRICTS.flatMap(d => d.places.map(name => ({
 const actors = new Map(LOTM_DISTRICTS.map(d => [d.officerId,d.officerLabel]));
 const actionsBy = (commands, field) => Object.fromEntries([...Map.groupBy(commands.filter(c => c[field] &&
     !/(?:^|[._-])(?:walk|travel|move)(?:[._-]|$)/.test(c.id)), c => c[field])].map(([id, rows]) => [id,
-    rows.map(c => ({id:c.id, label:c.label}))]));
+    rows.map(c => ({id:c.id, label:c.label,...(field==='location'?boundActionStatus(c.label):{})}))]));
 const commandsByWorld = {lotm:[...districtCommands,...brewCommands,...defineActs().commands], mol:molCommands,hp:HP_LIBRARY_COMMANDS};
 const placeActions = Object.fromEntries(Object.entries(commandsByWorld).map(([world, rows]) => [world, actionsBy(rows, 'location')]));
-const placeActivities={lotm:projectOfficeMaterialActivities(commandsByWorld.lotm,charmMaterialActs(tingenSilverWorkshop).rows,{worldId:'book.lotm.tingen'}),
-    hp:projectHpLibraryActivities(HP_LIBRARY_COMMANDS,{worldId:'book.hp.lead.world'})};
+const receiptRoot = fileURLToPath(new URL('../../', import.meta.url));
+const placeActivities={lotm:projectOfficeMaterialActivities(commandsByWorld.lotm,charmMaterialActs(tingenSilverWorkshop).rows,{worldId:'book.lotm.tingen',receipt:loadPlaceActivityEvidence(receiptRoot,'lotm')}),
+    hp:projectHpLibraryActivities(HP_LIBRARY_COMMANDS,{worldId:'book.hp.lead.world',receipt:loadPlaceActivityEvidence(receiptRoot,'hp')})};
 const personActions = Object.fromEntries(Object.entries(commandsByWorld).map(([world, rows]) => [world, actionsBy(rows, 'targetId')]));
 const encounters = molEncounters.flatMap(e => molCommands.filter(c => c.encounterId === e.id).map(c => ({
     name:e.label, place:c.location, target:c.targetId, requires:c.requires,
@@ -96,8 +99,7 @@ const previewBooks = process.env.ATLAS_LOTM_CAST
 const currentBooks = () => previewBooks ?? snap.books;
 const registered=registeredBooks();
 const outputByBook=boundedCache();
-let gameMakingFallback;
-const currentGameMaking = () => snap.gameMaking?.worlds?.lotm?.slumber ? snap.gameMaking : (gameMakingFallback ??= readGameMaking());
+const currentGameMaking = readGameMaking;
 const currentTravel = () => selectRegisteredTravel(snap,travelLeaf,snapFromCache&&existsSync(readinessSnapshot)?travelHash('sha256').update(readFileSync(readinessSnapshot)).digest('hex'):null);
 
 function refreshAtlas() {
@@ -107,7 +109,7 @@ function refreshAtlas() {
         .finally(() => {refresh = null;});
     return refresh;
 }
-async function atlasData() {
+export async function atlasData() {
     if (refresh) await refresh.catch(() => {});
     const reading = readLibrary(registered);
     const batches = readBatches(reading.keys.map(k => k.key));
@@ -119,9 +121,14 @@ async function atlasData() {
         await refreshAtlas().catch(() => {});
     }
     const {builtAt, commit, dirty, failures, findings, recipes, sources, mechanics, frontier, others} = snap;
+    const playEvidence=await loadNativePlayEvidence(root);
     return {registeredTravel:currentTravel(), findings, recipes, gameMaking:currentGameMaking(), transfer, snapshot:{builtAt, commit, dirty, failures}, sources, mechanics,
+        playEvidence:{entries:playEvidence.entries.map(({id,playStatus,playReceipt,playGap})=>({id,playStatus,playReceipt,playGap}))},
         progress: latestProgress(), batches, latestCollectedAt, refreshError, reading, readingRequests: loadRequests(),
-        frontier, others, books:currentBooks(), library:entityLibrary(places,actors), target, places, placeActions, placeActivities, personActions,
+        frontier:frontier.map(row=>({...row,...registeredPlaceStatus()})), others:others.map(row=>({...row,...registeredPlaceStatus()})),
+        books:Object.fromEntries(Object.entries(currentBooks()).map(([id,book])=>[id,{...book,
+            places:book.places.map(place=>({...place,...registeredPlaceStatus()}))}])),
+        library:entityLibrary(places,actors), target, places, placeActions, placeActivities, personActions,
         actors:Object.fromEntries(actors), encounters, fields:DRAFT_FIELDS, draft:DEFAULT_DRAFT, implementation, mapMarksAvailable, creatureRecordAvailable};
 }
 // Reading requests: the atlas's writeback for the library. Gitignored; nothing runs from it.
@@ -140,15 +147,15 @@ function readingRoute(world,aspect,reading){
 let worldRuleCatalogue;
 let atlasFindIndex;
 let atlasFindIdeas;
-function findIndex() {
+export function findIndex() {
     if(atlasFindIndex)return atlasFindIndex;
     atlasFindIndex=(async()=>{
         worldRuleCatalogue??=loadWorldRules(root);
         const subjects=await readFindSubjects({readers:READERS,library:entityLibrary(places,actors),books:currentBooks()});
-        const cheats=await loadCheatCatalogue(root);
         // One bounded public evidence check per lazy Find index, not per query.
         let playEvidence;
         try{playEvidence=await loadNativePlayEvidence(root);}catch{}
+        const cheats=await loadCheatCatalogue(root,playEvidence);
         const index=buildFindIndex({subjects:subjects.rows,rules:worldRuleCatalogue,cheats,playEvidence});
         return {
             ...index,
@@ -159,6 +166,12 @@ function findIndex() {
         throw error;
     });
     return atlasFindIndex;
+}
+export function findIdeaRows() {
+    return atlasFindIdeas??=buildFindIndex({ideas:readIdeas().rows}).rows.filter(row=>row.type==='ideas');
+}
+export function qualifyCheatRows(rows,report) {
+    return rows.map(row=>({...row,...(row.kind==='candidate'?playStatus():cheatPlayStatus(row.id,row.docStatus,report))}));
 }
 const handoffDirectory = process.env.ATLAS_HANDOFFS || root+'work/atlas-reading-handoffs';
 async function outputPage(key, prefix, pass, kind, offset, explain = false, mentions = false, mentionOffset = 0) {
@@ -229,6 +242,7 @@ const assets = {
     '/cheat-proof/CTC64':['../../docs/representations/evidence/cheat-loaded-dice-normal-2026-11-25/proof.json','application/json'],
     '/atlas-find-view.mjs':['./atlas-find-view.mjs','text/javascript'],
     '/vision-coverage.mjs':['./vision-coverage.mjs','text/javascript'],
+    '/play-status.mjs':['./play-status.mjs','text/javascript'],
     '/world-entry-inventory.mjs':['./world-entry-inventory.mjs','text/javascript'],
     '/atlas-native-evidence-view.mjs':['./atlas-native-evidence-view.mjs','text/javascript'],
     '/paid-inn-evidence-view.mjs':['./paid-inn-evidence-view.mjs','text/javascript'],
@@ -350,7 +364,8 @@ const server=createServer(async(req,res)=>{
             const data = readCheats(), json = body => res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(JSON.stringify(body));
             if(!cheatsUrl[1])return json(cheatsSummary(data,{hash:data.hash,files:data.files}));
             const q = new URL(req.url,'http://x').searchParams;
-            return json({...pageCheats(data,{offset:q.get('offset'),limit:q.get('limit'),q:q.get('q'),status:q.get('status'),world:q.get('world')}),hash:data.hash});
+            const page=pageCheats(data,{offset:q.get('offset'),limit:q.get('limit'),q:q.get('q'),status:q.get('status'),world:q.get('world')});
+            return json({...page,rows:qualifyCheatRows(page.rows,await loadNativePlayEvidence(root)),hash:data.hash});
         }
         // Ideas: /ideas summary, /ideas/rows, /ideas/row, /ideas/families, /ideas/boards, /ideas/residue (contract at the top of ideas.mjs). Never in /data (C1).
         const ideasUrl=/^\/ideas(?:\/(rows|row|families|boards|residue))?(?:\?.*)?$/.exec(req.url);
@@ -371,7 +386,7 @@ const server=createServer(async(req,res)=>{
             const body = JSON.stringify(changesSince(snap.changes,since)); // built first: a bad `since` must reach the 400 handler before headers are sent
             return res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(body);
         }
-        if(req.method==='GET'&&req.url==='/cheat-catalogue')return res.writeHead(200,{'Content-Type':'application/json'}).end(JSON.stringify(await loadCheatCatalogue(root)));
+        if(req.method==='GET'&&req.url==='/cheat-catalogue')return res.writeHead(200,{'Content-Type':'application/json'}).end(JSON.stringify(await loadCheatCatalogue(root,await loadNativePlayEvidence(root))));
         if(req.method==='GET'&&['/native-play-record/taylor','/native-play-record/alden','/native-play-record/ryan','/native-play-record/fang'].includes(req.url)){
             const record=await loadNativePlayRecord(fileURLToPath(new URL('../..',import.meta.url)),req.url);
             return res.writeHead(record?200:404,{'Content-Type':'application/json; charset=utf-8'}).end(JSON.stringify(record));
@@ -401,8 +416,7 @@ const server=createServer(async(req,res)=>{
                     index={rows:[],worlds:findWorldChoices([...choices.values()]).sort((a,b)=>a.label.localeCompare(b.label))};
                 }
                 if(request.q.trim() && ['all','ideas'].includes(request.type) && (!request.world || request.world==='oops-ideas')){
-                    atlasFindIdeas??=buildFindIndex({ideas:readIdeas().rows}).rows.filter(row=>row.type==='ideas');
-                    index={...index,rows:[...index.rows,...atlasFindIdeas],worlds:[...index.worlds,{id:'oops-ideas',label:'OOPS backlogs'}]};
+                    index={...index,rows:[...index.rows,...findIdeaRows()],worlds:[...index.worlds,{id:'oops-ideas',label:'OOPS backlogs'}]};
                 }
                 return res.writeHead(200,{'Content-Type':'application/json'}).end(JSON.stringify({...searchAtlas(index,request),sourceScope:index.sourceScope}));
             }catch{return res.writeHead(400,{'Content-Type':'application/json'}).end(JSON.stringify({error:'Invalid or unavailable Atlas Find query.'}));}

@@ -115,8 +115,8 @@ export function bookWorlds({main, data, controls, finder, routeButtons, button, 
     const counts = {walk: 0, fill: 0, authored: 0, unplaced: 0, host: 0};
     for (const p of all) counts[placeState(p, ix)]++;
     bar.append(el('small', ix.usesDistricts
-        ? `${all.length} places in the game · ${counts.walk} walkable, district from the book${counts.authored ? ` · ${counts.authored} walkable, placed in the atlas` : ''} · ${counts.fill} walkable, provisional district · ${counts.unplaced} not yet on a walk`
-        : `${all.length} places in the game · walking is handled by this world's own host, not districts`));
+        ? `${all.length} cast-pack place records · ${counts.walk} in districts from the book${counts.authored ? ` · ${counts.authored} Atlas placements` : ''} · ${counts.fill} provisional districts · ${counts.unplaced} without a mapped route`
+        : `${all.length} cast-pack place records · route definitions come from the world host`));
     const searchable = all.map(p => ({...p, label: p.name}));
     finder(bar, searchable, p => {
         const target = ix.byId.get(p.id);
@@ -141,6 +141,7 @@ export function bookWorlds({main, data, controls, finder, routeButtons, button, 
             const p = ix.byId.get(id);
             const state = placeState(p, ix);
             const record = el('div');
+            side.append(el('p',p.playStatus+' · '+p.playGap));
             side.append(record);
             const render = digest => {
                 if (!record.isConnected) return;

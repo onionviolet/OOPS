@@ -7,6 +7,7 @@ import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import {loadNativePlayEvidence,loadNativePlayRecord,NATIVE_EVIDENCE_CARDS} from '../prototypes/world-atlas/atlas-native-evidence.mjs';
 const sha=b=>createHash('sha256').update(b).digest('hex');
+const changedOnAdoption=new Set(['fang-first-night','taylor-backpack-bus']);
 async function fixture(t){const root=await mkdtemp(join(tmpdir(),'atlas-native-evidence-'));t.after(()=>rm(root,{recursive:true,force:true}));await mkdir(join(root,'dist'));return root;}
 const raw=bundle=>({ok:true,bundleSha256:bundle,servedBundleSha256:bundle,results:[],errors:[],route:'C:/private/save.json',privateSave:{secret:'not public'}});
 async function install(root,proof,{format='dice',evidenceDate}={}){const bytes=JSON.stringify(proof);await writeFile(join(root,'proof.json'),bytes);return [{id:'one',title:'One',pov:'Fixture',where:'Native route',setup:'Named fixture',outcome:'Played result',relatedHref:'#library/cheats/CTC64',receipts:[{id:'one',path:'proof.json',fingerprint:sha(bytes),format,scope:'One decision',...(evidenceDate?{evidenceDate}:{})}]}];}
@@ -14,7 +15,8 @@ async function install(root,proof,{format='dice',evidenceDate}={}){const bytes=J
 test('actual twenty-one machine receipts and separate authored records retain distinct build, date and entry scopes',async()=>{
  const root=fileURLToPath(new URL('..',import.meta.url)),out=await loadNativePlayEvidence(root);
  assert.equal(out.entries.length,11);assert.equal(out.entries.flatMap(x=>x.receipts).length,21);
- assert.ok(out.entries.every(x=>x.status==='verified'||x.status==='documented'));
+ assert.deepEqual(out.entries.filter(x=>x.status==='unavailable').map(x=>x.id),[...changedOnAdoption]);
+ assert.ok(out.entries.filter(x=>changedOnAdoption.has(x.id)).every(x=>x.playStatus==='Partial'&&!x.outcome&&!x.playReceipt));
  const dice=out.entries.find(x=>x.id==='loaded-dice');assert.match(dice.setup,/without an extra starting point.*Desktop.*queued HIGH.*did not measure loot.*headless continuation.*source guard failed.*not a passed whole-run/);
  assert.match(dice.where,/Village elder.*equip his sword.*Infested field.*Retain insight.*True Appraisal followed by Loaded Dice/);
  const acquisition=dice.receipts.find(x=>x.id==='loaded-dice-acquisition'),use=dice.receipts.find(x=>x.id==='loaded-dice');assert.equal(acquisition.evidenceDate,'2026-11-25');assert.equal(acquisition.testedBundleSha256,'b691073af3c1a5a3c1ccf49171c4d97175873f992e4b7d00e8d6b1c05eca9d2a');assert.notEqual(acquisition.testedBundleSha256,use.testedBundleSha256);
@@ -32,7 +34,7 @@ test('actual twenty-one machine receipts and separate authored records retain di
  assert.match(klein.where,/bakery.*straight to market.*original tent route.*return to the tent.*Decline/);assert.match(klein.outcome,/07:06.*07:08.*07:13.*07:17/);
  assert.match(klein.setup,/refunds after a completed sale were not tested/);assert.match(klein.outcome,/Stop before completion.*Purchase-state Save\/reload.*unavailable before the draw.*interrupted reading.*ready to unpack/);
  assert.doesNotMatch(klein.where+klein.setup+klein.outcome,/c3b5|ab3094|SHA|hash-linked/);
- for(const entry of out.entries)for(const receipt of entry.receipts)assert.equal(receipt.buildComparison,!out.currentBundleSha256?'unavailable':receipt.testedBundleSha256===out.currentBundleSha256?'exact':'different');
+ for(const entry of out.entries)for(const receipt of entry.receipts)assert.equal(receipt.buildComparison,receipt.status!=='verified'||!out.currentBundleSha256?'unavailable':receipt.testedBundleSha256===out.currentBundleSha256?'exact':'different');
  assert.doesNotMatch(JSON.stringify(out),/privateSave|\.json|C:\/private|docs\/representations/);
 });
 
@@ -221,7 +223,7 @@ test('new receipt formats reject hash-matched wrong builds and unsupported outco
  }
 });
 
-test('changed and unavailable farm receipt withholds its outcome while every unrelated card stays verified',async t=>{
+test('changed and unavailable farm receipt withholds its outcome without changing other cards',async t=>{
  const root=await fixture(t);
  for(const card of NATIVE_EVIDENCE_CARDS)for(const def of card.receipts){
   await mkdir(join(root,...def.path.split('/').slice(0,-1)),{recursive:true});await writeFile(join(root,def.path),await readFile(new URL('../'+def.path,import.meta.url)));
@@ -229,22 +231,24 @@ test('changed and unavailable farm receipt withholds its outcome while every unr
  for(const card of NATIVE_EVIDENCE_CARDS)for(const ref of card.references||[]){await mkdir(join(root,...ref.path.split('/').slice(0,-1)),{recursive:true});await writeFile(join(root,ref.path),await readFile(new URL('../'+ref.path,import.meta.url)));}
  await writeFile(join(root,'dist/bundle.js'),'a later checkout');
  const farm=NATIVE_EVIDENCE_CARDS.find(x=>x.id==='farm-courtyard'),target=join(root,farm.receipts[0].path);
+ const baseline=(await loadNativePlayEvidence(root)).entries.filter(x=>x.id!==farm.id);
  for(const changed of [true,false]){
   if(changed)await writeFile(target,'{}');else await rm(target);
   const out=await loadNativePlayEvidence(root),entry=out.entries.find(x=>x.id===farm.id);
   assert.equal(entry.status,'unavailable');assert.equal(entry.outcome,null);assert.equal(entry.receipts[0].status,changed?'changed':'unavailable');assert.equal(entry.receipts[0].testedBundleSha256,undefined);
-  assert.ok(out.entries.filter(x=>x.id!==farm.id).every(x=>['verified','documented'].includes(x.status)&&x.outcome));
+  assert.deepEqual(out.entries.filter(x=>x.id!==farm.id),baseline);
   assert.ok(out.entries.flatMap(x=>x.receipts).filter(x=>x.status==='verified').every(x=>x.buildComparison==='different'));
  }
  await rm(join(root,'dist/bundle.js'));const absent=await loadNativePlayEvidence(root);assert.equal(absent.currentBundleSha256,null);assert.ok(absent.entries.flatMap(x=>x.receipts).every(x=>x.buildComparison==='unavailable'));
 });
 
 
-test('Taylor and Alden keep native proofs distinct from signed-off desktop records',async()=>{
+test('Taylor and Alden keep changed native pins distinct from signed-off desktop records',async()=>{
  const out=await loadNativePlayEvidence(fileURLToPath(new URL('..',import.meta.url))),taylor=out.entries.find(x=>x.id==='taylor-backpack-bus'),alden=out.entries.find(x=>x.id==='alden-bedside-choice');
- assert.equal(taylor.status,'verified');assert.equal(taylor.receipts.length,2);assert.ok(taylor.receipts.every(x=>x.testedBundleSha256==='6cd80403907c3c913edcf3c85c02dc0e917b5a0a2e9dc2e922c2f5b7d6ef1b69'));
- assert.match(taylor.setup,/fresh route.*without a supplied save.*separate native route.*earned corridor.*earlier held-bag.*not relabeled/i);assert.match(taylor.where,/leave it at school.*return bus/);assert.match(taylor.outcome,/Cancelling inspection reveals nothing.*Native Save\/reload.*insects at their prior location/);
+ assert.equal(taylor.status,'unavailable');assert.equal(taylor.playStatus,'Partial');assert.equal(taylor.receipts.length,2);assert.ok(taylor.receipts.every(x=>x.status==='changed'));
+ assert.match(taylor.setup,/fresh route.*without a supplied save.*separate native route.*earned corridor.*earlier held-bag.*not relabeled/i);assert.match(taylor.where,/leave it at school.*return bus/);assert.equal(taylor.outcome,null);
  assert.equal(alden.status,'documented');assert.equal(alden.evidenceKind,'authored-record');assert.deepEqual(alden.receipts,[]);assert.equal(alden.references[0].status,'verified');assert.equal(alden.references[0].testedBundleSha256,undefined);
+ assert.equal(alden.playStatus,'Playable');assert.equal(alden.playReceipt.life,'Alden Thorn');assert.match(alden.playReceipt.action,/refuse/);
  assert.match(alden.setup,/not a registered machine-readable native receipt.*c7a58589.*Later.*8a430b38.*does not re-test/);assert.match(alden.outcome,/desktop refusal.*downstairs.*separately support admission.*not claimed as a desktop replay/);
  assert.doesNotMatch(JSON.stringify({taylor,alden}),/C:\\|\/private\/|\"(?:inventory|simulation|actors|privateSave)\"\s*:/);
 });
@@ -278,7 +282,7 @@ test('direct public-record HTTP endpoints return only scoped projections, never 
  const server=createServer(async(req,res)=>{try{const record=await loadNativePlayRecord(root,req.url);res.writeHead(record?200:404,{'Content-Type':'application/json'}).end(JSON.stringify(record));}catch{res.writeHead(500).end();}});
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));t.after(()=>new Promise(resolve=>server.close(resolve)));
  for(const[route,id]of[['taylor','taylor-backpack-bus'],['alden','alden-bedside-choice'],['ryan','ryan-wyvern-visit'],['fang','fang-first-night']]){
-  const response=await fetch('http://127.0.0.1:'+server.address().port+'/native-play-record/'+route),body=await response.text();assert.equal(response.status,200);assert.match(response.headers.get('content-type'),/application\/json/);const record=JSON.parse(body);assert.equal(record.schema,'atlas-native-play-record/1');assert.equal(record.id,id);assert.ok(record.outcome);assert.equal(record.references[0].path,undefined);
+  const response=await fetch('http://127.0.0.1:'+server.address().port+'/native-play-record/'+route),body=await response.text();assert.equal(response.status,200);assert.match(response.headers.get('content-type'),/application\/json/);const record=JSON.parse(body);assert.equal(record.schema,'atlas-native-play-record/1');assert.equal(record.id,id);assert.equal(Boolean(record.outcome),!changedOnAdoption.has(id));assert.equal(record.references[0].path,undefined);
   assert.doesNotMatch(body,/C:\\|\/Users\/|\/private\/|SSH alias|shard_|pre-copy-native-export|work\/|\.epub\b/i);
   assert.doesNotMatch(body,/# Agent|## Reading and source qualification|Paragraphs|Source Library short identity/);
  }

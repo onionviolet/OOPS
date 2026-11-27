@@ -1,4 +1,5 @@
 // Exact native locations and cited source IDs. A binding is not a save-access check.
+import {playStatus} from './play-status.mjs';
 export function handoffsForActivityReceipt(entries,receipt) {
     return entries.flatMap(entry=>{
         const reports=(entry.implementationReports||[]).filter(report=>report.receipt?.path===receipt);
@@ -19,12 +20,13 @@ export function projectNativeActivities(commands,{worldId,describe}) {
     });
 }
 
-export function projectOfficeMaterialActivities(commands,rows,{worldId}) {
+export function projectOfficeMaterialActivities(commands,rows,{worldId,receipt}) {
     const byId=new Map(rows.map(row=>[row.id,row]));
     return projectNativeActivities(commands,{worldId,describe:command=>{
         const row=byId.get(command.lotmAct?.rowId);
         if(!row)return null;
         return {
+            ...playStatus({receipt,gap:'The approval and materials collection replay needs a matching receipt for the tested maker and build.'}),
             locationLabel:'Blackthorn reception · native fixture',
             locationNote:'Native fixture location, not a sourced map placement. Its membership in Blackthorn’s source geography remains unverified.',
             costText:command.lotmAct.costText,
@@ -42,8 +44,9 @@ export function projectOfficeMaterialActivities(commands,rows,{worldId}) {
     }});
 }
 
-export function projectHpLibraryActivities(commands,{worldId}) {
+export function projectHpLibraryActivities(commands,{worldId,receipt}) {
     return projectNativeActivities(commands,{worldId,describe:command=>({
+        ...playStatus({receipt,gap:'The library activity needs a matching receipt for the prepared Harry school day and its build.'}),
         locationLabel:'Hogwarts, the Great Hall',
         locationNote:'Registered native Hogwarts location. Library work currently uses the school-hall location; no separate library node or source geography is asserted.',
         costText:command.costs?.some(cost=>cost.type==='vital')?'1 stamina per try, including a fizzle.'

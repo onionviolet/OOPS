@@ -1,6 +1,7 @@
 const BACK='#workbench/play-evidence/fang-first-night';
 export function renderBreakfastEvidence({main,report,element:el}){
  const sheet=el('article',null,'sheet findings-sheet');sheet.style.overflowWrap='anywhere';sheet.dataset.nativeEvidence='fang-breakfast';const back=el('a','Back to Fang Yuan’s card');back.href=BACK;sheet.append(el('h2','Fang Yuan · breakfast choices'),back);main.replaceChildren(sheet);
+ if(report.playStatus)sheet.append(el('p',report.playStatus+(report.playGap?' · '+report.playGap:'')));
  if(report.status!=='verified'){const status=el('p',report.status==='loading'?'Reading the breakfast evidence…':'Breakfast evidence is unavailable or changed. No outcome is inferred.');status.setAttribute('role','status');sheet.append(status);return sheet;}
  sheet.append(el('h3','Where to play'),el('p','After the paid night at the inn, choose Go downstairs for breakfast. Hear Fang Zheng, then choose Take the pouch or Push the pouch back. Play these replies in OOPS.'),el('p','Slept-only morning: '+report.morning.time+'. The same offer was reached at '+report.offer.time+'. Neither reply completed Liquor Worm work.'));
  sheet.append(el('h3','Two replies to the same pouch'),el('p','Before the offer, Fang Yuan had '+report.offer.whole+' whole stones. The pouch either stays with Fang Zheng or moves to Fang Yuan. Its half-sized piece is partly depleted.'));

@@ -20,7 +20,7 @@ function appendComparison(node,example) {
 function cheatDetails(cheat,examples) {
     const details = el('details');
     details.id = 'atlas-cheat-'+cheat.id;
-    details.append(el('summary',cheat.id+' · '+plain(cheat.name)),el('p',plain(cheat.effect)),field('Catalogue status',cheat.status));
+    details.append(el('summary',cheat.id+' · '+plain(cheat.name)),el('p',plain(cheat.effect)),field('Play status',cheat.playStatus));
     const link=el('a','Open '+plain(cheat.name));link.href='#library/cheats/'+cheat.id;
     details.append(link);
     for (const example of examples) appendComparison(details,example);
@@ -51,10 +51,9 @@ function detailRecord(sheet,section,cheat) {
         evidence.append(el('h3','Evidence'));
         if (mark) evidence.append(el('strong',levels[mark[1]]));
         evidence.append(el('p',plain(citation.replace(/\[([^\]]+)\]\([^)]+\)/g,'$1'))));
-        const playRoute={CTC21:'starting-insight',CTC64:'loaded-dice'}[cheat.id];
-        if (playRoute) {
+        if (cheat.evidenceHref) {
             const guide=el('a','Where to play');
-            guide.href='#workbench/play-evidence/'+playRoute;
+            guide.href=cheat.evidenceHref;
             const proof=el('a','Open native playtest results');
             proof.href='/cheat-proof/'+cheat.id;proof.target='_blank';proof.rel='noopener';
             const actions=el('p');actions.append(guide,document.createTextNode(' · '),proof);
@@ -68,9 +67,10 @@ function detailRecord(sheet,section,cheat) {
         const owner=el('a','Open the catalogue source');owner.href='/cheat-catalogue-source';owner.target='_blank';owner.rel='noopener';
         sources.append(paths,owner);evidence.append(sources);decisions.append(comparison,evidence);
     }
-    reference.append(el('h3','In OOPS'),field('Catalogue status',cheat.status),
+    reference.append(el('h3','In OOPS'),field('Play status',cheat.playStatus),field('Catalogue design status',cheat.status),
         field('Backing',cheat.backing),field('Implementation hooks',cheat.hooks),
         field('Worlds and references',cheat.worlds),field('Optional limits',cheat.limits));
+    if (cheat.playGap) reference.append(el('p',cheat.playGap));
     content.append(decisions,reference);
     sheet.replaceChildren(back,identity,title,el('p',plain(cheat.effect),'cheat-effect'),content);
     title.focus({preventScroll:true});

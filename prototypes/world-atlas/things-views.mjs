@@ -823,7 +823,7 @@ function inspectReaderPerson(side, person, digest, worldId, data, names) {
     });
     const ties = (person.relations || []).map(r => [link(r.with), ...annotate([r.kind, r.attitude, r.since, r.basis ? 'Basis: ' + r.basis : null, peopleEvidenceLabel(r.label), r.locator])]);
     const actionIndex = data.personActions?.[worldId] || {};
-    const actions = new Map([...ids].flatMap(id => Object.hasOwn(actionIndex, id) ? actionIndex[id] : []).map(a => [a.id, a.label]));
+    const actions = new Map([...ids].flatMap(id => Object.hasOwn(actionIndex, id) ? actionIndex[id] : []).map(a => [a.id, a]));
     const registered = data.library?.some(p => p.group === 'Individuals' && ids.has(p.id));
     const status = [cast ? 'In the cast pack.' : registered ? 'Registered person.' : null,
         actions.size ? `${actions.size} bound ${actions.size === 1 ? 'interaction' : 'interactions'}.` : null,
@@ -886,7 +886,7 @@ export function inspectReaderPlace(parent, place, digest, worldId, data, selecte
     const actions = new Map([...ids].flatMap(id => Object.hasOwn(actionIndex, id) ? actionIndex[id] : []).map(a => [a.id, a.label]));
     const native = data.others?.find(p => ids.has(p.id));
     const detailed=new Map(activitiesForPlace([...ids],worldId,data).map(action=>[action.id,action]));
-    for(const action of detailed.values())actions.set(action.id,action.label);
+    for(const action of detailed.values())actions.set(action.id,action);
     const registered = [...(native?.activities || []).map(label => [label, 'Registered activity']),
         ...(native?.stations || []).map(label => [label, 'Registered work station'])];
     const hasGame = !!(cast || native || actions.size);
@@ -917,11 +917,11 @@ export function inspectReaderPlace(parent, place, digest, worldId, data, selecte
     if (place.within) {
         const within = el('p'); within.append('Inside ', entityLink(place.within)); record.append(within);
     }
-    const localRows=[...actions].map(([id,label])=>{
-        const action=detailed.get(id);
-        if(!action)return [label,el('small','Bound in OOPS; access not checked here')];
+    const localRows=[...actions].map(([id,row])=>{
+        const {label}=row,action=detailed.get(id);
+        if(!action)return [label,el('small',row.playStatus+' · '+row.playGap)];
         const context=action.sources.map(id=>digest?.rules.find(rule=>rule.id===id)).filter(Boolean);
-        return [label,el('small','Bound native action · '+(action.minutes? action.minutes+' min':'Instant attempt')),action.description,
+        return [label,el('small',action.playStatus+' · '+(action.minutes? action.minutes+' min':'Instant attempt')),action.description,
             el('small',action.costText),el('small',action.boundary),
             ...(action.conditions?.length?[el('small','Possible blockers: '+action.conditions.join(' '))]:[]),
             ...context.map(rule=>sourceLink(worldId,'things',rule.id,'Open source context: '+rule.name)),
@@ -930,7 +930,11 @@ export function inspectReaderPlace(parent, place, digest, worldId, data, selecte
     const what = section('What you can do here',[...localRows,...registered.map(([label,state])=>[label,el('small',state)])],null);
     if(detailed.size){
         const summary=detailed.values().next().value;
-        what.append(el('p',summary.verificationText),el('p',summary.geographyNote));
+        what.append(el('p',summary.playGap||summary.verificationText),el('p',summary.geographyNote));
+        if(summary.playReceipt){
+            const {life,action,build}=summary.playReceipt;
+            what.append(el('p',life+' · '+action+' · Build '+build));
+        }
         for(const link of summary.related||[]){const a=el('a',link.label);a.href=link.href;const line=el('p');line.append(a);what.append(line);}
         const receipt=el('a',summary.verification.receiptLabel||'Read the native gameplay receipt');receipt.href=summary.verification.receiptHref;
         const line=el('p');line.append(receipt);what.append(line);

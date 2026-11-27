@@ -10,7 +10,7 @@ export async function campaignSequencingView({main}){
    body.replaceChildren();body.append(el('h3',report.protagonist));
    const nav=el('p'),reading=evidenceLink('Open this world’s reading records',report.readingHref),work=evidenceLink('Open implementation reports',report.workbenchHref);nav.append(reading,' · ',work);body.append(nav);
    const grid=el('div');grid.style.display='grid';grid.style.gridTemplateColumns='repeat(auto-fit,minmax(min(100%,24rem),1fr))';grid.style.gap='1.5rem';body.append(grid);
-   const index=el('section');index.style.minWidth='0';index.append(el('h3','Indexed source / read-ahead'),el('p',report.indexed.note));
+   const index=el('section');index.style.minWidth='0';index.append(el('h3','Indexed source / read-ahead'),el('p',report.indexed.playStatus),el('p',report.indexed.note));
    if(report.indexed.status==='indexed'){
     index.append(el('small',`${report.indexed.indexedSlices??'Unknown'} indexed slices · snapshot ${report.snapshot.builtAt||'date unavailable'}`));
     const details=el('details');details.append(el('summary','Observed chapter-locator spans'));
@@ -20,7 +20,8 @@ export async function campaignSequencingView({main}){
    for(const [title,key]of [['Connected gameplay evidence','connected'],['Independently tested mechanics','mechanics']]){
     const section=el('section');section.style.minWidth='0';section.append(el('h3',title));if(key==='connected')section.append(el('p',report.currentReplay));
     if(!report[key].length)section.append(el('p','No reviewed claim registered here; this is unknown, not a missing capability.'));
-    for(const claim of report[key]){section.append(el('h4',claim.label),el('p',claim.status==='unknown'?'Unknown: '+claim.note:claim.statement));
+    for(const claim of report[key]){section.append(el('h4',claim.label),el('p',claim.playStatus),el('p',claim.status==='unknown'?'Unknown: '+claim.note:claim.statement));
+     if(claim.playGap&&claim.playGap!==claim.note)section.append(el('p',claim.playGap));
      if(claim.note&&claim.status!=='unknown')section.append(el('small',claim.note));
      if(claim.bundles)section.append(el('p','Historical tested bundles: '+claim.bundles.map(x=>x.slice(0,16)).join(', ')));
      if(claim.testedBundleSha256){const identity=el('p','Tested served bundle: '+claim.testedBundleSha256.slice(0,16));identity.title=claim.testedBundleSha256;section.append(identity);}
