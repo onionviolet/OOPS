@@ -12,8 +12,13 @@ export const CUSTOMIZATION_MODULES = ['ledger', 'crafting', 'local-actions', 'vi
 export const EFFECT_MODULES = ['ledger', 'crafting', 'skills'];
 const LUMINOUS_PALETTE = {background:'#07162d', text:'#d5f7ff', accent:'#7fe7e8'};
 const LUMINOUS_MESSAGES_PALETTE = {background:'#231735', text:'#eee5ff', accent:'#bca4ff'};
-const GRAPHITE_PALETTE = {background:'#1e1e1e', text:'#eeeeee', accent:'#518ae0'}; // DK2 (2026-11-22): darker, by Arkivia's measures
-const GRAPHITE_MESSAGES_PALETTE = {background:'#1e1e1e', text:'#eeeeee', accent:'#b9a0d8'}; // DK2: Reports on the same dark ground; colour lives in the line kinds
+function graphiteBackground(token) {
+    const value = typeof document === 'undefined' ? '' : getComputedStyle(document.documentElement).getPropertyValue(token).trim();
+    // Keep the persisted RGB format for older profiles, color inputs and headless saves.
+    return /^#[\da-f]{6}$/i.test(value) ? value : '#' + (30).toString(16).repeat(3);
+}
+const GRAPHITE_PALETTE = {background:graphiteBackground('--graphite-stage'), text:'#eeeeee', accent:'#518ae0'};
+const GRAPHITE_MESSAGES_PALETTE = {background:graphiteBackground('--graphite-log'), text:'#eeeeee', accent:'#b9a0d8'};
 const THEME_PALETTES = {luminous: LUMINOUS_PALETTE, graphite: GRAPHITE_PALETTE};
 // The Neutral look that was the default before 2026-10-29. Saves whose only
 // profile still equals it are upgraded to Luminous Gothic on load.

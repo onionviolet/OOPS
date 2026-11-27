@@ -1202,7 +1202,8 @@ export function setNativeLogBufferReader(reader) {
         const line=document.createElement('span');line.className='report-voice';
         const flavour=document.createElement('i');flavour.className='report-voice-flavour';flavour.textContent=voice.flavour;
         const useful=document.createElement('span');useful.className='report-voice-useful';useful.textContent=voice.useful;
-        line.append(flavour,' ',useful);message.append(line);
+        line.replaceChildren(flavour,' ',useful);
+        message.append(line);
     }
     // One control per line: a voiced line's Open goes to the panel its useful part names.
     const panelId=details.panelId||voice?.panel||({message_combat:'combat',message_loot:'belongings',message_crafting:'crafting'}[group_to_add])||({skill_raised:'skills',skill_unlocked:'skills',activity_unlocked:'local-actions',location_unlocked:'local-actions'}[message_type]);
@@ -5086,14 +5087,15 @@ function start_activity_display(current_activity) {
         action_end_div.appendChild(action_end_earnings);
     }
 
-    action_div.appendChild(action_status_div);
-    action_div.appendChild(action_xp_div);
+    const activityDetails = document.createDocumentFragment();
+    activityDetails.append(action_xp_div);
     if (['meditating','patrolling'].includes(current_activity.id) && get_context().villagePatrol) {
         const watchcraft = document.createElement('div');
         watchcraft.id = 'village_watchcraft_activity';
         watchcraft.hidden = true;
-        action_div.append(watchcraft);
+        activityDetails.append(watchcraft);
     }
+    action_div.replaceChildren(action_status_div, activityDetails);
 
     if(current_activity.gathering_time_needed != 1) {
         const action_progress_bar_max = document.createElement("div");
@@ -5154,7 +5156,7 @@ function updateVillageWatchcraftActivity(current_activity) {
             document.querySelector('[data-activity="patrolling"]')?.focus();
         }
     };
-    line.append(earned,next);
+    line.replaceChildren(earned,next);
 }
 
 function update_displayed_ongoing_activity(current_activity) {
