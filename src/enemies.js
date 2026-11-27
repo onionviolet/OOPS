@@ -237,7 +237,7 @@ class Enemy {
      * @returns 
      */
     get_droprate_modifier(drop_chance_modifier = 1) {
-        let droprate_modifier = 1 * drop_chance_modifier;
+        let droprate_modifier = (this.lootPressure ?? 1) * drop_chance_modifier;
         if(supportedHarvest(this.name))return droprate_modifier;
 
         Object.keys(this.tags).forEach(tag => {

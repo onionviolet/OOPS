@@ -34,6 +34,8 @@ A5 O3: Character Stats estimates population standing from the current attack rat
 
 A5 O4: In regular combat, a defender can parry a landed blow or counterattack through the native strike after a dodge. [Proof](representations/evidence/protolike-pulls-2026-11-27/o4/proof.json)
 
+A5 O5: Infested field and Cave depths show their pressure. Clears raise enemy strength, XP and loot chance to a zone cap. Loaded fights retain their saved stats and use the zone's reward scale. [Proof](representations/evidence/protolike-pulls-2026-11-27/o5/proof.json)
+
 <a id="future-rpg-view-with-a-map"></a>
 
 ## Future RPG view with a map (consideration)

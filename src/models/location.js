@@ -1,3 +1,4 @@
+import {pressureTemplate, zonePressure} from "../zone_pressure.js";
 import {STREAMS,gameOrdinal,gameKeyedRandom} from "../seeded_streams.js";
 "use strict";
 import { clamp, slerp, random_range } from "../misc.js";
@@ -370,7 +371,7 @@ class CombatZone extends BaseLocation {
         }
  
         for(let i = 0; i < enemy_group.length; i++) {
-            const enemy = enemy_templates[enemy_group[i]];
+            const enemy = pressureTemplate(enemy_templates[enemy_group[i]], zonePressure(this));
             let newEnemy;
 
             if(this.enemy_stat_variation != 0) {
@@ -398,6 +399,7 @@ class CombatZone extends BaseLocation {
             newEnemy.rngKey = `${encounterKey}:enemy:${i}`;
             newEnemy.encounterKey = encounterKey;
             newEnemy.templateKey = enemy_group[i];
+            newEnemy.lootPressure = zonePressure(this);
             newEnemy.is_alive = true
             newEnemy.init();
 

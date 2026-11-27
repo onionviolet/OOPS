@@ -1,3 +1,4 @@
+import {pressureText} from "./zone_pressure.js";
 import {worldStanding} from "./world_standing.js";
 import {placeMapPositions} from './location_positions.js';
 import {localMoneyLabel, localPurseLabel, coinPricesHere} from './ui/local_money_label.js';
@@ -3071,7 +3072,7 @@ function update_displayed_combat_location(location) {
 
 
     enemy_count_div.children[0].children[1].innerText = location.enemy_count - location.enemy_groups_killed % location.enemy_count + " / " + location.enemy_count;
-    clear_count_div.children[0].children[0].innerText = knownClearReader(location);
+    clear_count_div.children[0].children[0].innerText = [knownClearReader(location), pressureText(location)].filter(Boolean).join(" ");
 
     action = create_location_choices({location: location, category: "travel", is_combat: true});
     action.forEach(choice => choice.dataset.nativeChoice = "combat");
@@ -3094,7 +3095,7 @@ function update_displayed_combat_location(location) {
 
 function update_location_kill_count(location) {
     enemy_count_div.children[0].children[1].innerText = location.enemy_count - location.enemy_groups_killed % location.enemy_count + " / " + location.enemy_count;
-    clear_count_div.children[0].children[0].innerText = knownClearReader(location);
+    clear_count_div.children[0].children[0].innerText = [knownClearReader(location), pressureText(location)].filter(Boolean).join(" ");
 }
 
 function create_location_types_display(current_location){

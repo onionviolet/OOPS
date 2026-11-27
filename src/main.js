@@ -1,3 +1,4 @@
+import {pressureText, zonePressure} from "./zone_pressure.js";
 import {configureRiFirstNightBed,prepareRiFirstNightSleep,continueRiFirstNightSleep,settleRiFirstNightSleep} from './ri_first_night_bed.js';
 import './timer_coalesce.js'; // first: stale interval ticks from a busy boot run once (G18 follow-up)
 import {MISTGLASS_ARTIFACT} from './artifact_refining.js';
@@ -3349,7 +3350,7 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
 
     if(typeof current_location !== "undefined" && current_location.id !== location.id){
         //so it's not called when initializing the location on page load or on reloading current location due to new unlocks
-        log_message(`[ Entering ${location.name} ]`, "message_travel");
+        log_message([`[ Entering ${location.name} ]`, pressureText(location)].filter(Boolean).join(" "), "message_travel");
     }
 
     if(location.crafting) {
@@ -4866,8 +4867,8 @@ function set_new_combat({enemies} = {}) {
     pendingNativeEncounter = null;
     if(savedEncounter && !enemies) {
         enemies=savedEncounter.enemies.map(row=>{
-            const e=current_location.id===AREA_ID?trainingEnemy(p23EncounterProfile,Enemy,row):new Enemy({...enemy_templates[row.template],stats:{...row.stats}});
-            e.init();Object.assign(e.getFullStats(),row.full);e.is_alive=row.alive;
+            const e=current_location.id===AREA_ID?trainingEnemy(p23EncounterProfile,Enemy,row):new Enemy({...enemy_templates[row.template],xp_value:enemy_templates[row.template].xp_value * zonePressure(current_location),stats:{...row.stats}});
+            e.lootPressure=zonePressure(current_location);e.init();Object.assign(e.getFullStats(),row.full);e.is_alive=row.alive;
             if(row.harvestDamage)e.harvestDamage=structuredClone(row.harvestDamage);
             e.rngKey=row.key;e.encounterKey=savedEncounter.key;e.templateKey=row.template;return e;
         });
