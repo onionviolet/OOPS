@@ -90,7 +90,7 @@ import {mountKnownMethodChains,mountKnownNumber,formatKnownNumber} from './absor
 import {createKnownItemHotkeys,mountKnownItemBinding,mountKnownItemHotkeyList} from './absorb_p23/known_detail/hotkeys.js';
 import {skillExpansionPresentation} from './skill_expansion_host.js';
 import {setNativeObservedDropReader, setKnownClearTextReader, reset_message_log_for_life} from './display.js';
-import {configureSkillEvolution,earnActivitySkillXP,evolvedUse,observeSkillAward,reportNativeSkillTier} from './skill_evolution_native.js';
+import {configureSkillEvolution,earnActivitySkillXP,evolvedUse,observeGrowthRest,observeSkillAward,reportNativeSkillTier,settleGrowthRecovery} from './skill_evolution_native.js';
 let p23DropObservations,loadedDisplayPreferences;
 
 import {structuredLifeEnded,reconcileStructuredLifePlan,structuredLifeView,archiveStructuredLife,publishIndependentStructuredLife,listStructuredLifeArchives} from './structured_life_runtime.js';
@@ -3984,7 +3984,10 @@ function do_sleeping() {
     if(full_stats.stamina < full_stats.max_stamina) {
         const sleeping_stamina_ammount = (evolvedUse('Sleeping','sleep-stamina')?.multiplier??1)*p00SleepingMultiplier()*furnitureRecovery(readFurnitureBonuses(), Math.round(Math.max(full_stats.max_stamina/30, 5) * (1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level)));
 
-        full_stats.stamina += (sleeping_stamina_ammount);
+        const growth=settleGrowthRecovery('Patience','sleep-stamina',{healthy:full_stats.health>=full_stats.max_health},
+            full_stats.max_stamina-full_stats.stamina-sleeping_stamina_ammount);
+        full_stats.stamina += sleeping_stamina_ammount+(growth?.stamina??0);
+        if(growth)log_message(`${growth.name} restored ${growth.stamina} extra stamina while you slept.`,'skill_raised');
         if(full_stats.stamina > full_stats.max_stamina) {
             full_stats.stamina = full_stats.max_stamina;
         } 
@@ -3998,7 +4001,7 @@ function start_sleeping() {
     if(is_sleeping||!prepareRiFirstNightSleep())return;
     interruptP23NativeWork();
     start_sleeping_display();
-    is_sleeping = true;
+    is_sleeping = true; observeGrowthRest();
     pursuitPanel?.render();
 
     setLastLocationWithBed(current_location.id);

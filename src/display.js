@@ -5385,7 +5385,7 @@ function start_reading_display(title) {
  * @param {Skill} skill 
  */
 function create_new_skill_bar(skill) {
-    if(!nativeSkillDiscovery(skill,character))return;
+    if(!nativeSkillDiscovery(skill,character)||domainRegistry.project('skill_evolution','merged',skill.skill_id)?.primary===false)return;
     if(!skill_bar_divs[skill.category]) {
         skill_bar_divs[skill.category] = {};
 
@@ -5521,7 +5521,7 @@ function openSkillGrowth() {
 function update_displayed_skill_bar(skill, leveled_up=true) {
     if(deferSimulationRender(`skill:${skill.skill_id}`, () => update_displayed_skill_bar(skill, true))) return;
     renderRecentLearning(skill_list, character.getLevelableComponent(), learning_readers);
-    if(!nativeSkillDiscovery(skill,character)){
+    if(!nativeSkillDiscovery(skill,character)||domainRegistry.project('skill_evolution','merged',skill.skill_id)?.primary===false){
         skill_bar_divs[skill.category]?.[skill.skill_id]?.remove();
         if(skill_bar_divs[skill.category])delete skill_bar_divs[skill.category][skill.skill_id];
         const category=[...skill_list.querySelectorAll('.skill_category_div')].find(n=>n.dataset.skill_category===skill.category);

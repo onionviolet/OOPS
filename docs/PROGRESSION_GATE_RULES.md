@@ -215,15 +215,15 @@ Only the Skill-Grinder audit reports fresh bounded text reading in round3. The o
 
 ## Skill evolution proposal, 2026-11-26
 
-**Proposal under AD56.** A world declares a primary policy and any explicit mix. Village keeps EV1 first and adds EV2, EV3 and specialization for the named skills. Native XP and level belong to the skill lineage. An in-place evolution gives that lineage one active form, with its own identity and practical use.
+**Proposal under AD56.** A world declares a primary policy and any explicit mix. Village keeps EV1 first and adds EV2 through EV5 and specialization for the named skills. Native XP and level belong to their lineage. An evolution assigns one active form to either a single lineage or a group of lineages.
 
 | Policy | Skill change | Status |
 | --- | --- | --- |
 | EV1 · Named tiers | The same skill takes its next name automatically at a YAIR boundary. | Existing. Stone skin becomes Iron skin at 30 and Giant killer becomes Giant slayer at 15. |
 | EV2 · Evolved forms | Pick one of two or three forms. It takes over the same skill row and XP, with a different function. | Iron skin offers Tempered skin or Breathing skin after level 30 and eight more XP. |
 | EV3 · Grade climb | Choose an offered form of a higher local grade. The active form keeps its lineage and learned level. | Sleeping offers a Common to Uncommon upgrade at level 2. |
-| EV4 · Fusion | Form a skill from specified constituents, with a rule for XP and what each constituent keeps. | Later slice. |
-| EV5 · Consolidation | Bring overlapping skills into one lineage, with a rule for overlapping mastery. | Later slice. |
+| EV4 · Fusion | Two skills reaching their specified levels can take one shared form with a new function. | Evasion and Combat at level 2 offer Counterstep, which recovers stamina on a dodge. |
+| EV5 · Consolidation | Rest or a qualifying gain offers a broader form for several related skills. | At the start of sleep, Patience, Breathing and Regeneration at level 1 offer Quiet recovery. Sleeping at full health can then recover up to two extra stamina per minute. |
 | EV6 · Class or path | Evolve a class or path with its own carried progression and unlocks. | Later slice. |
 | Specialization | Add a practice perk alongside its source skill. | A2's Heavy sets and Balanced lifts remain choices for Weightlifting 3 in the Village grain-bag workout. |
 
@@ -231,7 +231,9 @@ Iron skin already learns from hits taken without armor and has a YAIR cap. Tempe
 
 The held-out EV2 case is the Common Thrust choice in *A Novel Concept*, chapter 120. The row retains the three distinct Rare continuations and represents their differences with neutral keys. The held-out EV3 case is Piercing Cursed Arcane Fang changing from Rare to Epic Rupturing Arcane Fang after a penetrating thrust in *The Primal Hunter*, chapter 1388. Its single result is confirmed by the test host. The two local Sleeping offers use that rank-climb policy. [Thrust source note](RESEARCH_LITRPG_SYSTEMS.md#mastery-beyond-the-creator-rarity-and-other-distinctions-2026-10-02) · [Sharpened Fangs](https://www.royalroad.com/fiction/36049/the-primal-hunter/chapter/4002974/chapter-1388-sharpened-fangs)
 
-The neutral offer event leaves idle play running and appears once under Growth in Reports. Its button opens the one Growth queue in Skills. The optional save slice revision 2 records the selected form and its lineage through the row ID. The native XP table keeps the original slot for EV2 and EV3. Revision 1 choices migrate as specializations with their existing XP slots. Pre-A2 saves keep their XP and name tiers. Loading never chooses or awards XP. Selection publishes the live form after the native save transaction succeeds. [A2 proof](representations/evidence/skill-evolution-2026-11-26/proof.json)
+The neutral offer event leaves idle play running and appears once under Growth in Reports. Its button opens the one Growth queue in Skills. EV4 and EV5 quote each constituent's current XP and level. Their commitment retires the separate skill identities and keeps the original practice, XP and bonuses under one active skill. Each practiced source still gets its own XP once. The player can defer or permanently decline. Evasion and Combat already meet in every Village fight. Patience, Breathing and Regeneration train the three parts of catching one's breath and recovering at rest. [Joined source cases](RESEARCH_LITRPG_SYSTEMS.md#joined-skill-cases-2026-11-26)
+
+The optional save slice revision 3 records the chosen or refused form by row ID. Pre-A2 saves carry their original XP and names, revision 1 carries specialization, and revision 2 carries the EV2 and EV3 forms. Loading grants no XP or choice. Selection quotes current facts, settles through the native save transaction and publishes its receipt only on success. The Skills view reads the same projected active identity and XP by source that a future view can use. The recovery functions take an actual dodge or sleep settlement and missing stamina, independent of the timer or UI. [A2 proof](representations/evidence/skill-evolution-2026-11-26/proof.json)
 
 ## Progression dispatch chronology reconciliation B570
 

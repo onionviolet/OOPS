@@ -1,0 +1,27 @@
+{
+  "skill_evolution": {
+    "revision": 2,
+    "choices": {
+      "village.iron-skin-form": {
+        "status": "chosen",
+        "level": 30,
+        "target": "village.breathing-skin"
+      },
+      "village.sleeping-grade": {
+        "status": "chosen",
+        "level": 2,
+        "target": "village.restorative-sleep"
+      }
+    }
+  },
+  "levels": {
+    "person": {
+      "main_character": {
+        "skill_xp": {
+          "Iron skin": 102429607519.86,
+          "Sleeping": 3000.58
+        }
+      }
+    }
+  }
+}

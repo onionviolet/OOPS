@@ -1,5 +1,5 @@
 // Name tiers are projections of native levels. Chosen forms own only their lineage.
-export const SKILL_EVOLUTION_REVISION = 2;
+export const SKILL_EVOLUTION_REVISION = 3;
 export const emptySkillEvolution = () => ({revision:SKILL_EVOLUTION_REVISION,choices:{}});
 
 export function automaticSkillTiers(from,names) {
@@ -21,10 +21,13 @@ export function skillTierEvent(from,previous,current) {
 const matches = (context,requirements) =>
     Object.entries(requirements).every(([key,value])=>context[key]===value);
 
-const replacesSkill = row => row.policy==='EV2'||row.policy==='EV3';
+export const combinesSkills = row => row.policy==='EV4'||row.policy==='EV5';
+const replacesSkill = row => row.policy==='EV2'||row.policy==='EV3'||combinesSkills(row);
+const sources = row => row.sources ?? [{id:row.from,level:row.threshold}];
 
 export function skillEvolutionEligible(row,level,context) {
-    return level>=row.threshold&&(row.afterThresholdXP===undefined||context.xp>=context.thresholdXP+row.afterThresholdXP)&&matches(context,row.requirements);
+    return level>=row.threshold&&(row.afterThresholdXP===undefined||context.xp>=context.thresholdXP+row.afterThresholdXP)&&
+        matches(context,row.requirements)&&(!combinesSkills(row)||sources(row).every(part=>context.lineages?.[part.id]?.level>=part.level));
 }
 
 export function validateEvolutionRows(rows,worlds) {
@@ -36,7 +39,11 @@ export function validateEvolutionRows(rows,worlds) {
         const transforms=row.targets.every(target=>target.id!==row.from&&!target.retainSource&&target.gains.function);
         const grades=row.policy!=='EV3'||world?.grades?.includes(row.grade)&&row.targets.every(target=>
             world.grades.indexOf(target.grade)>world.grades.indexOf(row.grade));
-        if(ids.has(row.id)||!shape||!grades||replacesSkill(row)&&!transforms||row.policy==='EV2'&&(count<2||count>3)){
+        const parts=sources(row), group=!combinesSkills(row)||
+            (row.policy==='EV4'?parts.length===2:parts.length>=3)&&parts[0].id===row.from&&parts[0].level===row.threshold&&
+            new Set(parts.map(part=>part.id)).size===parts.length&&parts.every(part=>part.id&&Number.isSafeInteger(part.level)&&part.level>0)&&
+            row.targets.every(target=>!parts.some(part=>part.id===target.id))&&['practice','rest'].includes(row.offerOn);
+        if(ids.has(row.id)||!shape||!grades||!group||replacesSkill(row)&&!transforms||row.policy==='EV2'&&(count<2||count>3)){
             throw Error('Invalid skill evolution row: '+row.id);
         }
         ids.add(row.id);
@@ -45,24 +52,41 @@ export function validateEvolutionRows(rows,worlds) {
 }
 
 export function offerSkillEvolution(state,row,level,context) {
-    if(Object.hasOwn(state.choices,row.id)||!skillEvolutionEligible(row,level,context))return null;
+    if(Object.hasOwn(state.choices,row.id)||!skillEvolutionEligible(row,level,context)||
+        (row.offerOn&&row.offerOn!==context.trigger))return null;
     return {
         state:{...state,choices:{...state.choices,[row.id]:{status:'waiting',level}}},
         event:{type:'skill-evolution-waiting',from:row.from,evolution:row.id},
     };
 }
 
+// Quote from current facts. Settlement rechecks these same facts before a choice
+// is written. No stamp, elapsed duration or UI state is part of either operation.
+export function quoteSkillEvolution(state,row,level,context) {
+    const eligible=state.choices[row.id]?.status==='waiting'&&skillEvolutionEligible(row,level,context);
+    const lineages=combinesSkills(row)?sources(row).map(({id})=>({id,...context.lineages?.[id]})):[];
+    return {eligible,lineages,targets:row.targets};
+}
+
 export function chooseSkillEvolution(state,row,id,level,context) {
     const choice=state.choices[row.id];
     if(choice?.status!=='waiting')throw Error('This skill choice is no longer waiting.');
-    const target=row.targets.find(target=>target.id===id);
+    const quote=quoteSkillEvolution(state,row,level,context);
+    const target=quote.targets.find(target=>target.id===id);
     if(!target)throw Error('This form is not offered.');
-    if(!skillEvolutionEligible(row,level,context))throw Error(row.requirementText);
+    if(!quote.eligible)throw Error(row.requirementText);
     return {
         state:{...state,choices:{...state.choices,[row.id]:{...choice,status:'chosen',target:id}}},
-        event:{type:'skill-evolution-chosen',from:row.from,evolution:row.id,target:id},
+        event:{type:'skill-evolution-chosen',from:row.from,evolution:row.id,target:id,
+            ...(combinesSkills(row)?{lineages:quote.lineages}:{})},
         costs:target.costs,
     };
+}
+
+export function refuseSkillEvolution(state,row) {
+    if(!combinesSkills(row)||state.choices[row.id]?.status!=='waiting')throw Error('This skill choice is no longer waiting.');
+    return {state:{...state,choices:{...state.choices,[row.id]:{...state.choices[row.id],status:'refused'}}},
+        event:{type:'skill-evolution-refused',from:row.from,evolution:row.id}};
 }
 
 export function chosenSkillForm(state,row) {
@@ -73,9 +97,20 @@ export function chosenSkillForm(state,row) {
 // A native XP slot is the lineage. Exactly one active identity occupies it.
 export function activeSkillForm(state,rows,lineage) {
     for(const row of rows){
-        if(row.from!==lineage||!replacesSkill(row))continue;
+        if(!replacesSkill(row)||!sources(row).some(part=>part.id===lineage))continue;
         const form=chosenSkillForm(state,row);
         if(form)return form;
+    }
+}
+
+// One observer-safe identity for each active group. The original XP objects
+// still feed their existing practice, caps and bonuses under the new identity.
+export function mergedSkillView(state,rows,lineage,readLineage) {
+    for(const row of rows){
+        if(!combinesSkills(row)||!sources(row).some(part=>part.id===lineage))continue;
+        const form=chosenSkillForm(state,row);
+        if(form)return {id:form.id,name:form.name,primary:row.from===lineage,description:form.description,
+            lineages:sources(row).map(({id})=>({id,...readLineage(id)}))};
     }
 }
 
@@ -83,6 +118,12 @@ export function activeSkillFunction(state,rows,lineage,trigger,context) {
     const form=activeSkillForm(state,rows,lineage);
     const ability=form?.gains.function;
     if(ability?.trigger===trigger&&matches(context,form.restrictions))return {...ability,name:form.name};
+}
+
+export function settleSkillRecovery(state,rows,lineage,trigger,context,missing) {
+    const action=activeSkillFunction(state,rows,lineage,trigger,context);
+    if(action?.mode!=='restore-stamina'||!(missing>0))return null;
+    return {name:action.name,stamina:Math.min(action.amount,missing)};
 }
 
 // The participating practice owns this use. Base XP and the acquired form's
@@ -100,12 +141,13 @@ export function evolveSkillPractice(state,row,baseXP,context) {
 export function readSkillEvolution(saved,rows) {
     if(saved===undefined)return emptySkillEvolution();
     const record=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
-    if(!record(saved)||![1,SKILL_EVOLUTION_REVISION].includes(saved.revision)||!record(saved.choices)||
+    if(!record(saved)||![1,2,SKILL_EVOLUTION_REVISION].includes(saved.revision)||!record(saved.choices)||
       Object.keys(saved).length!==2)throw Error('Unsupported skill evolution save revision.');
     for(const [id,choice] of Object.entries(saved.choices)){
         const row=rows.find(row=>row.id===id);
-        if(!row||saved.revision===1&&replacesSkill(row)||!record(choice)||!Number.isSafeInteger(choice.level)||choice.level<row.threshold||
-          !(choice.status==='waiting'&&Object.keys(choice).length===2||
+        if(!row||saved.revision===1&&replacesSkill(row)||saved.revision<3&&combinesSkills(row)||
+          !record(choice)||!Number.isSafeInteger(choice.level)||choice.level<row.threshold||
+          !((choice.status==='waiting'||combinesSkills(row)&&choice.status==='refused')&&Object.keys(choice).length===2||
             choice.status==='chosen'&&Object.keys(choice).length===3&&row.targets.some(target=>target.id===choice.target))){
             throw Error('Invalid saved skill evolution: '+id);
         }

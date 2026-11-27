@@ -1,9 +1,9 @@
-import {readSkillEvolution,validateEvolutionRows} from '../skill_evolution.js';
+import {combinesSkills,readSkillEvolution,validateEvolutionRows} from '../skill_evolution.js';
 
 const village={world:'base.frontier'};
 const practice={...village,location:'Village',activity:'weightlifting'};
 export const SKILL_EVOLUTION_WORLDS={
-    'base.frontier':{primary:'EV1',mix:['EV2','EV3','specialization'],grades:['Common','Uncommon']},
+    'base.frontier':{primary:'EV1',mix:['EV2','EV3','EV4','EV5','specialization'],grades:['Common','Uncommon']},
 };
 
 export const SKILL_EVOLUTIONS=validateEvolutionRows([{
@@ -38,6 +38,20 @@ export const SKILL_EVOLUTIONS=validateEvolutionRows([{
             description:'While sleeping, restore 25% more stamina.',
             gains:{function:{trigger:'sleep-stamina',mode:'scale-recovery',multiplier:1.25}}},
     ],
+},{
+    id:'village.counterstep',policy:'EV4',from:'Evasion',threshold:2,offerOn:'practice',
+    sources:[{id:'Evasion',level:2},{id:'Combat',level:2}],
+    requirements:village,requirementText:'Reach level 2 in Evasion and Combat in the Village life.',
+    targets:[{id:'village.counterstep-form',name:'Counterstep',costs:[],restrictions:village,
+        description:'Without a shield, recover 1 missing stamina each time you dodge an enemy attack.',
+        gains:{function:{trigger:'enemy-dodged',mode:'restore-stamina',amount:1}}}],
+},{
+    id:'village.recovery',policy:'EV5',from:'Patience',threshold:1,offerOn:'rest',
+    sources:[{id:'Patience',level:1},{id:'Breathing',level:1},{id:'Regeneration',level:1}],
+    requirements:village,requirementText:'Reach level 1 in Patience, Breathing and Regeneration, then start sleeping.',
+    targets:[{id:'village.quiet-recovery',name:'Quiet recovery',costs:[],restrictions:{...village,healthy:true},
+        description:'While sleeping at full health, recover up to 2 extra stamina each minute.',
+        gains:{function:{trigger:'sleep-stamina',mode:'restore-stamina',amount:2}}}],
 }],SKILL_EVOLUTION_WORLDS);
 
 export function validateSkillEvolutionEnvelope(envelope) {
@@ -47,6 +61,9 @@ export function validateSkillEvolutionEnvelope(envelope) {
     for(const row of SKILL_EVOLUTIONS){
         const choice=state.choices[row.id];
         if(row.policy!=='specialization'&&choice&&!(xp(row.from)>0))throw Error('Evolved skill needs its original XP lineage.');
+        if(combinesSkills(row)&&choice&&row.sources.some(part=>!(xp(part.id)>0))){
+            throw Error('Merged skill needs all of its original XP lineages.');
+        }
         for(const target of row.targets)if(xp(target.id)>0&&(row.policy!=='specialization'||choice?.target!==target.id)){
             throw Error('Practice needs its chosen skill form and its original XP owner.');
         }

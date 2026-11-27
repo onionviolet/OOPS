@@ -1,46 +1,63 @@
 import {registerDomain} from './domain_registry.js';
 import {SKILL_EVOLUTIONS} from './data/skill_evolutions.js';
-import {activeSkillForm,activeSkillFunction,chosenSkillForm,chooseSkillEvolution,emptySkillEvolution,evolveSkillPractice,
-    offerSkillEvolution,readSkillEvolution,skillEvolutionEligible,skillTierEvent} from './skill_evolution.js';
+import {activeSkillForm,activeSkillFunction,chosenSkillForm,chooseSkillEvolution,combinesSkills,emptySkillEvolution,evolveSkillPractice,
+    mergedSkillView,offerSkillEvolution,quoteSkillEvolution,readSkillEvolution,refuseSkillEvolution,settleSkillRecovery,skillTierEvent} from './skill_evolution.js';
 import {mountGrowthQueue,mountSkillGrowth} from './ui/skill_evolution.js';
 
 const rows=new Map(SKILL_EVOLUTIONS.map(row=>[row.from,row]));
+const sourceRows=new Map(SKILL_EVOLUTIONS.flatMap(row=>(row.sources??[{id:row.from}]).map(part=>[part.id,row])));
 const displays=new Map();
 let state=emptySkillEvolution(),ports,queue;
 
-function progressContext(row) {
+function readLineage(id) {
+    const skill=ports.skill(id);
+    return {level:skill.getCurrentLvl(),xp:skill.getTotalXP()};
+}
+
+function progressContext(row,trigger) {
     const skill=ports.skill(row.from), xp=skill.getTotalXP(), scale=skill.xp_scaling;
     const thresholdXP=scale===1?skill.base_xp_cost*row.threshold:
         Math.round(100*skill.base_xp_cost*(1-scale**row.threshold)/(1-scale))/100;
-    return {...ports.context(),xp,thresholdXP};
+    const lineages=row.sources&&Object.fromEntries(row.sources.map(part=>[part.id,readLineage(part.id)]));
+    return {...ports.context(),xp,thresholdXP,lineages,trigger};
 }
 
-function eligibility(row){
+function eligibility(row,quote){
     if(!ports?.writable())return 'Restore saving before choosing a form.';
-    if(!skillEvolutionEligible(row,ports.skill(row.from).getCurrentLvl(),progressContext(row)))return row.requirementText;
+    if(!quote.eligible)return row.requirementText;
     return '';
 }
 
 function report(event,row){
     if(!event)return;
     const form=row&&chosenSkillForm(state,row);
+    const subject=row?.sources?.map(part=>part.id).join(' + ')??row?.from;
     const text=event.type==='skill-tier-changed'? `Skill ${event.previous} upgraded to ${event.current}`:
-        event.type==='skill-evolution-waiting'? `${row.from} has a choice waiting in Growth.`:
+        event.type==='skill-evolution-waiting'? `${subject} has a choice waiting in Growth.`:
+        event.type==='skill-evolution-refused'? `Kept ${subject} as separate skills.`:
         row.policy==='specialization'? `${row.from}: chose ${form.name}.`:
-            `${row.from} became ${form.name}${form.grade?` (${form.grade})`:''}.`;
+            `${subject} became ${form.name}${form.grade?` (${form.grade})`:''}.`;
     ports.publish(event,text);
 }
 
 function choose(row,target){
-    const reason=eligibility(row);
-    if(reason)throw Error(reason);
+    if(!ports.writable())throw Error('Restore saving before choosing a form.');
     const result=chooseSkillEvolution(state,row,target,ports.skill(row.from).getCurrentLvl(),progressContext(row));
     if(result.costs.length)throw Error('This practice cannot settle that cost.');
+    commitChoice(row,result);
+}
+
+function commitChoice(row,result) {
     ports.persist(result.state);
     state=result.state;
     report(result.event,row);
-    ports.repaint(row.from);
+    for(const part of row.sources??[{id:row.from}])ports.repaint(part.id);
     refresh();
+}
+
+function refuse(row) {
+    if(!ports.writable())throw Error('Restore saving before declining a form.');
+    commitChoice(row,refuseSkillEvolution(state,row));
 }
 
 function refresh(){
@@ -48,20 +65,23 @@ function refresh(){
     const host=globalThis.document?.getElementById('skill_list');
     if(!queue&&host)queue=mountGrowthQueue(host);
     queue?.render(SKILL_EVOLUTIONS.filter(row=>state.choices[row.id]?.status==='waiting')
-        .map(row=>({row,reason:eligibility(row),choose:target=>choose(row,target)})));
-    for(const [row,{parent,render}] of displays){
-        if(!parent.isConnected){displays.delete(row);continue;}
+        .map(row=>{
+            const quote=quoteSkillEvolution(state,row,readLineage(row.from).level,progressContext(row));
+            return {row,quote,reason:eligibility(row,quote),choose:target=>choose(row,target),refuse:()=>refuse(row)};
+        }));
+    for(const [id,{row,parent,render}] of displays){
+        if(!parent.isConnected){displays.delete(id);continue;}
         const choice=state.choices[row.id];
-        render(choice,choice&&chosenSkillForm(state,row));
+        render(choice,choice&&chosenSkillForm(state,row),mergedGrowth(id));
     }
 }
 
 export function configureSkillEvolution(config){ports=config;}
 
 export function attachSkillEvolution(skill,parent,open){
-    const row=rows.get(skill.skill_id);
+    const row=sourceRows.get(skill.skill_id);
     if(!row)return;
-    displays.set(row,{parent,render:mountSkillGrowth(parent,row,open)});
+    displays.set(skill.skill_id,{row,parent,render:mountSkillGrowth(parent,row,open)});
     refresh();
 }
 
@@ -70,21 +90,34 @@ export function reportNativeSkillTier(from,previous,current){
 }
 
 export function observeSkillAward(skill,earned) {
-    const row=rows.get(skill.skill_id);
-    if(!earned||!row||!ports||state.choices[row.id])return;
+    const row=sourceRows.get(skill.skill_id),choice=row&&state.choices[row.id];
+    if(!earned||!row||!ports||choice&&(!combinesSkills(row)||choice.status==='refused'))return;
     const before=skill.getTotalXP();
     return () => {
         if(skill.getTotalXP()<=before)return;
-        const next=offerSkillEvolution(state,row,skill.getCurrentLvl(),progressContext(row));
-        if(!next)return;
-        state=next.state;
-        report(next.event,row);
-        refresh();
+        if(choice){refresh();return;}
+        offer(row,'practice');
     };
+}
+
+function offer(row,trigger) {
+    const next=offerSkillEvolution(state,row,readLineage(row.from).level,progressContext(row,trigger));
+    if(!next)return;
+    state=next.state;
+    report(next.event,row);
+    refresh();
+}
+
+export function observeGrowthRest() {
+    if(!ports?.writable())return;
+    for(const row of SKILL_EVOLUTIONS.filter(row=>row.offerOn==='rest'))offer(row,'rest');
 }
 
 export function focusSkillGrowth(){refresh();queue?.focus();}
 export const evolvedSkill = id => activeSkillForm(state,SKILL_EVOLUTIONS,id);
+export const mergedGrowth = id => ports&&mergedSkillView(state,SKILL_EVOLUTIONS,id,readLineage);
+export const settleGrowthRecovery = (id,trigger,context,missing) =>
+    ports&&settleSkillRecovery(state,SKILL_EVOLUTIONS,id,trigger,{...ports.context(),...context},missing);
 export function evolvedUse(id,trigger,context={}) {
     return ports&&activeSkillFunction(state,SKILL_EVOLUTIONS,id,trigger,{...ports.context(),...context});
 }
@@ -105,5 +138,6 @@ export function earnActivitySkillXP(activity,definition,award){
 registerDomain({id:'skill_evolution',initialState:emptySkillEvolution,
     load:saved=>{state=readSkillEvolution(saved,SKILL_EVOLUTIONS);},
     save:()=>Object.keys(state.choices).length?structuredClone(state):undefined,
-    commands:{form:evolvedSkill,use:evolvedUse},
+    commands:{form:evolvedSkill,use:evolvedUse,recovery:settleGrowthRecovery},
+    projection:(name,id)=>name==='merged'?mergedGrowth(id):undefined,
     refresh});

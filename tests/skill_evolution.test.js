@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {loadNative,STANCE_LOCATION_STUBS} from './helpers/native_loader.mjs';
 import {activeSkillForm,activeSkillFunction,automaticSkillTiers,skillTierEvent,offerSkillEvolution,chooseSkillEvolution,
-    evolveSkillPractice,emptySkillEvolution,readSkillEvolution,validateEvolutionRows} from '../src/skill_evolution.js';
+    evolveSkillPractice,emptySkillEvolution,mergedSkillView,quoteSkillEvolution,readSkillEvolution,refuseSkillEvolution,
+    settleSkillRecovery,validateEvolutionRows,SKILL_EVOLUTION_REVISION} from '../src/skill_evolution.js';
 import {SKILL_EVOLUTIONS,validateSkillEvolutionEnvelope} from '../src/data/skill_evolutions.js';
 
 const [row]=SKILL_EVOLUTIONS;
@@ -65,7 +66,7 @@ test('one durable form has its own identity and distinct earned effects',()=>{
     const trained={skill_evolution:control,levels:{person:{main_character:{skill_xp:{[balance.id]:11}}}}};
     assert.deepEqual(validateSkillEvolutionEnvelope(trained),control);
     assert.throws(()=>validateSkillEvolutionEnvelope({...trained,skill_evolution:waiting}),/chosen skill form/);
-    assert.throws(()=>validateSkillEvolutionEnvelope({skill_evolution:{...control,revision:3}}),/revision/);
+    assert.throws(()=>validateSkillEvolutionEnvelope({skill_evolution:{...control,revision:SKILL_EVOLUTION_REVISION+1}}),/revision/);
     assert.throws(()=>validateSkillEvolutionEnvelope({skill_evolution:{...control,choices:{[row.id]:{status:'chosen',target:'forged',level:3}}}}),/Invalid saved/);
 });
 
@@ -73,7 +74,7 @@ test('revision 1 preserves the A2 specialization, original XP and tier',async()=
     const envelope=JSON.parse(await readFile(new URL('./fixtures/skill-evolution-a2.json',import.meta.url),'utf8'));
     const old=structuredClone(envelope);
     const migrated=validateSkillEvolutionEnvelope(envelope);
-    assert.deepEqual(migrated,{...old.skill_evolution,revision:2});
+    assert.deepEqual(migrated,{...old.skill_evolution,revision:3});
     assert.deepEqual(envelope,old);
     assert.equal(activeSkillForm(migrated,SKILL_EVOLUTIONS,row.from),undefined);
     assert.deepEqual(evolveSkillPractice(migrated,row,2,context),{sourceXP:3,extra:[[heavy.id,1]]});
@@ -125,5 +126,79 @@ test('the same law runs the held-out Thrust choice and Arcane Fang grade climb',
         assert.equal(activeSkillForm(result.state,[row],row.from).id,proof.target);
         assert.equal(activeSkillForm(result.state,[row],row.from).grade,proof.grade);
         assert.equal(activeSkillFunction(result.state,[row],row.from,proof.trigger,context).mode,proof.mode);
+    }
+});
+
+const mergedContext=(row,extra={})=>({...row.requirements,trigger:row.offerOn,
+    lineages:Object.fromEntries(row.sources.map(({id,level},i)=>[id,{level,xp:(i+1)*137}])),...extra});
+
+test('fusion and consolidation quote and keep each lineage exactly once',()=>{
+    for(const row of SKILL_EVOLUTIONS.filter(row=>['EV4','EV5'].includes(row.policy))){
+        const context=mergedContext(row,{healthy:true}), initial=emptySkillEvolution();
+        const last=row.sources.at(-1);
+        assert.equal(offerSkillEvolution(initial,row,row.threshold,{...context,trigger:'invalid'}),null);
+        const short={...context,lineages:{...context.lineages,[last.id]:{level:last.level-1,xp:1}}};
+        assert.equal(offerSkillEvolution(initial,row,row.threshold,short),null);
+        const {state}=offerSkillEvolution(initial,row,row.threshold,context);
+        assert.equal(offerSkillEvolution(state,row,row.threshold,context),null);
+        const waiting=structuredClone(state), quote=quoteSkillEvolution(state,row,row.threshold,context);
+        assert.deepEqual(waiting,state);
+        assert.equal(quote.lineages.length,row.sources.length);
+        assert.deepEqual(quote.lineages,Object.entries(context.lineages).map(([id,xp])=>({id,...xp})));
+        assert.throws(()=>chooseSkillEvolution(state,row,row.targets[0].id,row.threshold,short));
+        const kept=refuseSkillEvolution(state,row).state;
+        assert.equal(kept.choices[row.id].status,'refused');
+        assert.equal(offerSkillEvolution(kept,row,row.threshold,context),null);
+        assert.equal(activeSkillForm(kept,[row],row.from),undefined);
+        assert.deepEqual(readSkillEvolution(kept,[row]),kept);
+
+        const picked=chooseSkillEvolution(state,row,row.targets[0].id,row.threshold,context);
+        const restored=readSkillEvolution(JSON.parse(JSON.stringify(picked.state)),[row]);
+        assert.deepEqual(restored,picked.state);
+        assert.deepEqual(picked.event.lineages,quote.lineages);
+        assert.throws(()=>readSkillEvolution({...restored,revision:2},[row]),/Invalid saved/);
+        for(const {id} of row.sources){
+            const view=mergedSkillView(restored,[row],id,part=>context.lineages[part]);
+            assert.deepEqual(view.lineages,quote.lineages);
+            assert.equal(view.id,row.targets[0].id);
+            assert.equal(view.primary,id===row.from);
+        }
+        const {trigger,amount}=row.targets[0].gains.function;
+        assert.equal(settleSkillRecovery(waiting,[row],row.from,trigger,context,10),null);
+        assert.equal(settleSkillRecovery(restored,[row],row.from,trigger,context,0),null);
+        assert.equal(settleSkillRecovery(restored,[row],row.from,trigger,{...context,world:'other'},10),null);
+        assert.equal(settleSkillRecovery(restored,[row],row.from,trigger,context,10).stamina,amount);
+        assert.equal(settleSkillRecovery(restored,[row],row.from,trigger,context,0.5).stamina,0.5);
+    }
+});
+
+test('revision 2 keeps the A2b forms and native XP without writing new skills',async()=>{
+    const envelope=JSON.parse(await readFile(new URL('./fixtures/skill-evolution-a2b.json',import.meta.url),'utf8'));
+    const original=structuredClone(envelope);
+    const migrated=validateSkillEvolutionEnvelope(envelope);
+    assert.equal(migrated.revision,3);
+    assert.deepEqual(migrated.choices,original.skill_evolution.choices);
+    assert.equal(activeSkillForm(migrated,SKILL_EVOLUTIONS,'Iron skin').name,'Breathing skin');
+    assert.equal(activeSkillForm(migrated,SKILL_EVOLUTIONS,'Sleeping').grade,'Uncommon');
+    assert.deepEqual(envelope,original);
+});
+
+test('held-out Rampage and the Alchemy Master offer use the same rules',async()=>{
+    const cases=JSON.parse(await readFile(new URL('./fixtures/skill-evolution-merge-canon.json',import.meta.url),'utf8'));
+    for(const {row} of cases){
+        const context=mergedContext(row,{ongoingBattle:true});
+        validateEvolutionRows([row],{[context.world]:{primary:row.policy,mix:[]}});
+        const {state}=offerSkillEvolution(emptySkillEvolution(),row,row.threshold,context);
+        const view=quoteSkillEvolution(state,row,row.threshold,context);
+        assert.equal(view.eligible,true);
+        assert.equal(view.lineages.length,row.policy==='EV4'?2:4);
+        if(row.policy==='EV4'){
+            const chosen=chooseSkillEvolution(state,row,row.targets[0].id,row.threshold,context).state;
+            assert.equal(activeSkillFunction(chosen,[row],'Fast Stab','battle-progress',context).mode,'escalating-speed-and-lethality');
+            assert.equal(activeSkillForm(chosen,[row],'Assassinate'),undefined);
+        }else{
+            assert.equal(view.targets[0].name,'Alchemy Master');
+            assert.equal(refuseSkillEvolution(state,row).state.choices[row.id].status,'refused');
+        }
     }
 });

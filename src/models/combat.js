@@ -586,6 +586,13 @@ class Combat {
                     const xp_to_add = target.isWearingArmor() ? fighter.xp_value : fighter.xp_value * 1.5;
                     //50% more evasion xp if going without armor
                     add_xp_to_skill({skill: skills["Evasion"], xp_to_add: xp_to_add*fighter_count_xp_modifier});
+                    const stats=target.getFullStats();
+                    const growth=domainRegistry.command('skill_evolution','recovery')?.('Evasion','enemy-dodged',{},stats.max_stamina-stats.stamina);
+                    if(growth){
+                        stats.stamina+=growth.stamina;
+                        update_displayed_stamina();
+                        log_message(`${growth.name} restored ${growth.stamina} stamina after a dodge.`,'hero_attacked');
+                    }
                 }
                 
                 return; //damage fully evaded, nothing more can happen
