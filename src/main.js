@@ -1,3 +1,4 @@
+import {configureRoutes, observeRouteArrival, idleRouteStep} from "./recorded_route_native.js";
 import {configureActivityTitle, publishActivity} from "./activity_title_native.js";
 import {configureReserve, sleepReserveBonus} from "./surplus_reserve_native.js";
 import {pressureText, zonePressure} from "./zone_pressure.js";
@@ -3394,6 +3395,7 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
     
     character.updateStatsAndDisplay();
 
+    if(!restoringNativeSave)observeRouteArrival(previous_location?.id,location.id);
     if(current_location.tags.safe_zone) { 
         update_displayed_normal_location(current_location);
     } else {
@@ -6381,6 +6383,16 @@ function add_xp_to_activity_skills() {
         (id,xp,options)=>add_xp_to_skill({skill:skills[id],xp_to_add:xp,...options}));
 }
 
+configureRoutes({
+    context:()=>({world:expansionState.actors.player.worldId,life:expansionState.simulation?.people?.player?.lifeId ?? 'village.native',
+        place:current_location?.id,hostile:!!current_combat,rain:is_raining(),occupied:!!(current_activity||is_sleeping||is_reading||current_dialogue||current_game_action||is_in_trade())}),
+    writable:()=>workLedgerCanWrite()&&!restoringNativeSave&&character.is_alive,
+    known:id=>!!locations[id]?.canBeStarted(get_context()),
+    open:id=>!!locations[id]?.canBeStarted(get_context())&&Number.isFinite(travel_times[current_location?.id]?.[id]),
+    outdoors:id=>!locations[id]?.is_under_roof,walk:id=>change_location({location_id:id}),
+    persist:next=>persistExpansion({...p23Plan(),nativePatch:{recorded_route:next}}),
+    report:text=>log_message(text,'message_travel'),
+});
 configureActivityTitle(()=>({world:expansionState.actors.player.worldId,life:expansionState.simulation?.people?.player?.lifeId ?? 'village.native',
     clock:expansionState.clock,place:current_location?.id,kind:current_combat?'combat':current_activity?'work':is_sleeping?'rest':is_reading?'reading':null}),
     text=>log_message(text,'notification'));
@@ -8966,6 +8978,7 @@ function simulateTick() {
         const advancedMinutes = update_timer();
         if(!deferWhileHidden(renderTickPanels,renderTickPanels))renderTickPanels();
         if(!advancedMinutes || nativeLifeEnded()) {awakenOptionalStart(); return;}
+        idleRouteStep();
 
         try {
         if(!deferWhileHidden(renderExportReward,renderExportReward))renderExportReward();

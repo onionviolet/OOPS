@@ -1,3 +1,4 @@
+import {routeControls} from "./recorded_route_native.js";
 import {pressureText} from "./zone_pressure.js";
 import {worldStanding} from "./world_standing.js";
 import {placeMapPositions} from './location_positions.js';
@@ -3011,7 +3012,11 @@ function create_fast_travel_choices() {
     const map = fastTravelMapBlock({hereId, distances, neighbors, describe, known,
         exits: neighbors(hereId).map(id => ({id, minutes: distances[id]})),
         label: id => locations[id]?.name ?? id, onGo: id => window.change_location({location_id:id})});
-    if (map) choice_list.push(map);
+    if (map) {
+        const routes = routeControls();
+        if (routes) map.append(routes);
+        choice_list.push(map);
+    }
     return choice_list;
 }
 

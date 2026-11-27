@@ -40,6 +40,8 @@ A5 O6: Skills > Growth quotes a 50-coin recovery reserve installment. Its perman
 
 A5 O7: Character Stats shows a life title from decaying activity scores. Counter-based titles and achievements keep their own awards. Older saves start with no scored activity. [Proof](representations/evidence/protolike-pulls-2026-11-27/o7/proof.json)
 
+A5 O8: Fast travel > Walking map records actual stops, replays one leg on each idle tick and lets you forget the route. An encounter, rain on an outdoor leg or a closed destination interrupts replay. Older saves have no route. [Proof](representations/evidence/protolike-pulls-2026-11-27/o8/proof.json)
+
 <a id="future-rpg-view-with-a-map"></a>
 
 ## Future RPG view with a map (consideration)

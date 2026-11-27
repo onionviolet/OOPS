@@ -1,0 +1,71 @@
+{
+  "item": "o8",
+  "entry": "/",
+  "bundleSha256": "3ecaa88c5f10d5a94de281b65fc876a18b67b6d346d234231b81eeb19957b707",
+  "runs": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "result": {
+        "places": [
+          "Village",
+          "Shack",
+          "Village"
+        ],
+        "receipt": "Finished the recorded route at Village."
+      },
+      "persistence": {
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true,
+        "restored": {
+          "revision": 1,
+          "life": "village.native",
+          "mode": "ready",
+          "places": [
+            "Village",
+            "Shack",
+            "Village"
+          ],
+          "cursor": 0
+        }
+      },
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "result": {
+        "places": [
+          "Village",
+          "Shack",
+          "Village"
+        ],
+        "receipt": "Finished the recorded route at Village."
+      },
+      "persistence": {
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true,
+        "restored": {
+          "revision": 1,
+          "life": "village.native",
+          "mode": "ready",
+          "places": [
+            "Village",
+            "Shack",
+            "Village"
+          ],
+          "cursor": 0
+        }
+      },
+      "pageErrors": []
+    }
+  ]
+}
