@@ -84,6 +84,15 @@ test('every standing vision heading is searchable with a coverage status and dir
     }
 });
 
+test('reference-board ideas resolve from Find to the canonical exact idea address', () => {
+    const idea = {id:'craft-board#MKC89',code:'MKC89',title:'A workpiece is a real thing',boardTitle:'Making crafts',statusLabel:'proposal (AD32)',reference:true};
+    const index = buildFindIndex({ideas:[idea,{...idea,id:'hidden',private:true},{...idea,id:'history',reference:false}]});
+    const group = searchAtlas(index,{q:'MKC89',type:'ideas'}).groups[0];
+    assert.equal(group.total,1);
+    assert.equal(group.rows[0].href,'#workbench/ideas/registry/craft-board%23MKC89');
+    assert.equal(group.rows[0].status,'Board status: proposal (AD32)');
+});
+
 test('reader indexing reads only admitted JSON projections and reports unreadable scope', async () => {
     const root = mkdtempSync(join(tmpdir(), 'atlas-find-'));
     try {

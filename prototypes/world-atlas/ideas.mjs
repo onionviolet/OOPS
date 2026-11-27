@@ -111,7 +111,7 @@ const sentence = (s, n = 140) => {
  * Residue: lines that begin like an idea (a code at the start, after a list/bold/table/heading marker) but were not parsed.
  */
 export function scanIdeas(text) {
-    const lines = text.split('\n'), headings = [], items = [], residue = [], seen = new Map(), stack = [];
+    const lines = text.split(/\r?\n/), headings = [], items = [], residue = [], seen = new Map(), stack = [];
     let fence = false, header = null, tableOpen = false, listStack = [];
     const headOf = () => stack.at(-1) || null, chainOf = () => stack.map(s => s.text);
     const claimed = new Set();

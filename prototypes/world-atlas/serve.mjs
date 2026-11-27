@@ -102,7 +102,7 @@ const currentTravel = () => selectRegisteredTravel(snap,travelLeaf,snapFromCache
 
 function refreshAtlas() {
     if (!refresh) refresh = run(process.execPath, [fileURLToPath(new URL('./build.mjs', import.meta.url))], {cwd: root})
-        .then(() => {snap = readSnapshot(); snapFromCache = true; refreshError = null;})
+        .then(() => {snap = readSnapshot(); snapFromCache = true; refreshError = null; atlasFindIdeas = undefined;})
         .catch(error => {refreshError = 'Atlas refresh failed. The previous snapshot is still available.'; throw error;})
         .finally(() => {refresh = null;});
     return refresh;
@@ -139,6 +139,7 @@ function readingRoute(world,aspect,reading){
 // Placement picks: the atlas's writeback for places. Gitignored; transfer_candidate.mjs turns them into a candidate pack.
 let worldRuleCatalogue;
 let atlasFindIndex;
+let atlasFindIdeas;
 function findIndex() {
     if(atlasFindIndex)return atlasFindIndex;
     atlasFindIndex=(async()=>{
@@ -398,6 +399,10 @@ const server=createServer(async(req,res)=>{
                     for(const world of snap.findings?.worlds||[])if(!choices.has(world.world))choices.set(world.world,{id:world.world,label:world.world});
                     for(const world of Object.keys(currentBooks()))if(!choices.has(world))choices.set(world,{id:world,label:world});
                     index={rows:[],worlds:findWorldChoices([...choices.values()]).sort((a,b)=>a.label.localeCompare(b.label))};
+                }
+                if(request.q.trim() && ['all','ideas'].includes(request.type) && (!request.world || request.world==='oops-ideas')){
+                    atlasFindIdeas??=buildFindIndex({ideas:readIdeas().rows}).rows.filter(row=>row.type==='ideas');
+                    index={...index,rows:[...index.rows,...atlasFindIdeas],worlds:[...index.worlds,{id:'oops-ideas',label:'OOPS backlogs'}]};
                 }
                 return res.writeHead(200,{'Content-Type':'application/json'}).end(JSON.stringify({...searchAtlas(index,request),sourceScope:index.sourceScope}));
             }catch{return res.writeHead(400,{'Content-Type':'application/json'}).end(JSON.stringify({error:'Invalid or unavailable Atlas Find query.'}));}

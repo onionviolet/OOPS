@@ -50,3 +50,23 @@ test('every route search hit resolves through the actual Atlas router to native 
  assert.match(index,/if\(r.view==='play-evidence'\)return nativePlayEvidenceView\(\{main\}\)/);
  const title=routes(report,'backpack','worm')[0];if(title){assert.match(title.summary,/…$/);assert.ok(title.summary.length<=221);assert.ok(title.summary.startsWith('From a fresh Village life'));}
 });
+
+test('merged Atlas routes keep exact deep links under one visible home per concept',async()=>{
+ const {runInNewContext}=await import('node:vm');
+ const html=await readFile(new URL('../prototypes/world-atlas/index.html',import.meta.url),'utf8');
+ const routeCode=html.slice(html.indexOf('const SECTIONS='),html.indexOf('const trail=document.querySelector'));
+ for(const [old,canonical,view,key,value] of [
+  ['#cheats','#library/cheats','cheats','cheatTab',null],
+  ['#cheats/list/CTC64','#library/cheats/CTC64','cheats','cheatId','CTC64'],
+  ['#cheats/candidates','#library/cheats/candidates','cheats','cheatTab','candidates'],
+  ['#ideas','#workbench/ideas/registry','ideas','ideaTab','registry'],
+  ['#ideas/craft%23MKC89?from=old','#workbench/ideas/registry/craft%23MKC89?from=old','ideas','ideaFocus','craft#MKC89'],
+  ['#workbench/implementation','#workbench/handoffs/replays','handoffs','handoffTab','replays'],
+ ]){
+  const location={hash:old},history={replaceState:(_state,_title,hash)=>{location.hash=hash;}};
+  const result=runInNewContext(routeCode+';({result:route(),sections:SECTIONS})',{location,history,VIEW_LABELS:{},worldById:new Map()});
+  assert.equal(location.hash,canonical);assert.equal(result.result.view,view);assert.equal(result.result[key],value);
+  assert.ok(!result.sections.some(row=>['cheats','ideas'].includes(row.id)));
+  assert.ok(!result.sections.find(row=>row.id==='workbench').views.includes('implementation'));
+ }
+});

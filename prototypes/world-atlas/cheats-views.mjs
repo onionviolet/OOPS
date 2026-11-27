@@ -26,6 +26,7 @@ const CSS = `
 .cheats-pager{display:flex;gap:.5rem;align-items:center;margin-top:.5rem}
 .cheats-detail dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.3rem .8rem;margin:.4rem 0}.cheats-detail dd{margin:0;overflow-wrap:anywhere;color:var(--canvas-ink);font-weight:400}
 .cheats-col.cheats-detail{max-height:none;overflow:visible}
+.cheats-detail a{color:#e2f1bd;text-underline-offset:.15em}
 .cheats-detail h3{margin:1.1rem 0 .35rem}.cheats-detail h4{margin:.7rem 0 .2rem}.cheats-detail dd p{margin:0 0 .2rem}.cheats-detail dd{min-width:0}
 .cheats-detail dt{color:var(--canvas-muted)}.cheats-detail ul{margin:.2rem 0;padding-left:1.1rem}.cheats-detail code{overflow-wrap:anywhere}
 .cheats-missing{color:var(--canvas-muted);font-style:italic}
@@ -50,7 +51,9 @@ export function statusLine(s) {
 
 function showCatalogue(host, r) {
     host.replaceChildren(); host.dataset.key = r.key;
-    host.append(el('strong', `${r.id} · ${r.name}`));
+    const record = el('a', `${r.id} · ${r.name}`);
+    record.href = '#library/cheats/' + r.id;
+    host.append(record);
     const ev = r.runtime;
     const runtime = el('div');
     if (ev.definition) runtime.append(el('p', `Definition: ${ev.definition.id} in ${ev.definition.file}`));
@@ -60,8 +63,6 @@ function showCatalogue(host, r) {
     if (!runtime.childNodes.length) runtime.append(missing('no runtime id named or found'));
     host.append(dl([
         ['Status', r.status], ['Catalogue says', r.docStatus], ['Runtime evidence', runtime],
-        ['Family', r.family ? `${r.family.code}. ${r.family.title}` : null], ['What it does', r.what], ['Backing', r.backing],
-        ['Worlds and sources', r.worlds], ['Engine hooks', r.hooks], ['Usual limits', r.limits],
     ]));
     host.append(el('h3', 'Rule references'));
     const rules = r.rules.cht.map(x => `${x.code}${x.text ? ': ' + x.text : ''} (${x.how})`).concat(r.rules.other);
@@ -79,7 +80,7 @@ function showCatalogue(host, r) {
         }
         host.append(ul);
     }
-    host.append(el('h3', 'Catalogue row'), el('p', `${r.locator.file}:${r.locator.line}`), el('p', r.source.text));
+    host.append(el('h3', 'Catalogue locator'), el('p', `${r.locator.file}:${r.locator.line}`));
 }
 function showCandidate(host, r) {
     host.replaceChildren(); host.dataset.key = r.key;
@@ -92,10 +93,11 @@ function showCandidate(host, r) {
     host.append(el('h3', 'Row text'), el('p', r.excerpt));
 }
 
-export async function cheatsView({main, tab = 'list', focus = null, go}) {
+export async function cheatsView({main, tab = 'index', focus = null}) {
     style();
     main.replaceChildren();
     const root = el('section', null, 'cheats'); root.setAttribute('aria-label', 'Cheat log');
+    root.append(el('h2', tab === 'candidates' ? 'Cheat candidates' : 'Runtime and variations'));
     main.append(root);
     const loading = el('p', 'Loading the cheat log…', 'cheats-missing'); root.append(loading);
     let sum;

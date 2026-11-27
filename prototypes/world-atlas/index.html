@@ -123,7 +123,7 @@ VIEW_LABELS.campaigns='Campaign evidence';
 VIEW_LABELS.vision='Vision coverage';
 VIEW_LABELS.rules='World rules';VIEW_LABELS.cheats='Cheat catalogue';
 const SECTIONS=[{id:'worlds',label:'Worlds'},{id:'find',label:'Find'},{id:'library',label:'Library',views:['pipeline','outputs','coverage','campaigns','rules','cheats','shelves','mechanics']},
- {id:'creatures',label:'Creatures',views:['kinds','reader-creatures','observations']},{id:'progress',label:'Progress',views:['overview','vision','findings','mechanics2']},{id:'workbench',label:'Workbench',views:['implementation','transfer','handoffs','ideas','card-trial','play-evidence','site','drafts']},{id:'codex',label:'Codex'},{id:'cheats',label:'Cheats',views:['list','candidates']},{id:'ideas',label:'Ideas'},{id:'changes',label:'Changes'}];
+ {id:'creatures',label:'Creatures',views:['kinds','reader-creatures','observations']},{id:'progress',label:'Progress',views:['overview','vision','findings','mechanics2']},{id:'workbench',label:'Workbench',views:['transfer','handoffs','ideas','card-trial','play-evidence','site','drafts']},{id:'codex',label:'Codex'},{id:'changes',label:'Changes'}];
 VIEW_LABELS.handoffs='Implementation handoffs';
 VIEW_LABELS.ideas='Ideas and backlogs';
 VIEW_LABELS['card-trial']='Card-world trial';
@@ -137,16 +137,24 @@ function route(){
  const routePath=raw.split('?')[0];
  const parts=routePath.split('/');
  const [section='worlds',a,b,c]=parts;
+ let replacement;
+ if(section==='ideas')replacement='workbench/ideas/registry'+(a?'/'+a:'');
+ if(section==='cheats')replacement=a==='candidates'?'library/cheats/candidates'+(b?'/'+b:''):'library/cheats'+(/^CTC\d+$/.test(b||'')?'/'+b:'');
+ if(section==='workbench'&&a==='implementation')replacement='workbench/handoffs/replays';
+ if(replacement){history.replaceState(null,'','#'+replacement+raw.slice(routePath.length));return route()}
  if(section==='codex-map')return {section:'codex',map:true};
  if(section==='codex')return {section:'codex',ledger:/^[a-z0-9_]+$/.test(a||'')?a:'gu_kinds',focus:b?decodeURIComponent(b):null};
- if(section==='ideas')return {section:'ideas',focus:a?decodeURIComponent(a):null};
- if(section==='cheats')return {section:'cheats',view:a==='candidates'?'candidates':'list',focus:/^CTC\d+$/.test(b||'')?b:null};
  if(section==='world'&&worldById.has(a)){const w=worldById.get(a);return {section:'worlds',world:w,view:w.views.includes(b)?b:w.views[0],focus:c?decodeURIComponent(c):null}}
  const s=SECTIONS.find(x=>x.id===section)||SECTIONS[0];
  return {section:s.id,view:s.views?.includes(a)?a:s.views?.[0],bookKey:s.id==='library'&&a==='outputs'?b:null,
      visionTheme:s.id==='progress'&&a==='vision'?b:null,
-     handoffId:s.id==='workbench'&&a==='handoffs'?b:null,
-     cheatId:s.id==='library'&&a==='cheats'?b:null,entityId:s.id==='creatures'&&a==='kinds'&&b?decodeURIComponent(b):null,
+     handoffId:s.id==='workbench'&&a==='handoffs'&&b!=='replays'?b:null,
+     handoffTab:s.id==='workbench'&&a==='handoffs'&&b==='replays'?'replays':null,
+     ideaTab:s.id==='workbench'&&a==='ideas'&&b==='registry'?'registry':null,
+     ideaFocus:s.id==='workbench'&&a==='ideas'&&b==='registry'&&c?decodeURIComponent(c):null,
+     cheatTab:s.id==='library'&&a==='cheats'&&['index','candidates'].includes(b)?b:null,
+     cheatId:s.id==='library'&&a==='cheats'?(['index','candidates'].includes(b)?c:b):null,
+     entityId:s.id==='creatures'&&a==='kinds'&&b?decodeURIComponent(b):null,
      ruleWorld:s.id==='library'&&a==='rules'&&b?decodeURIComponent(b):'',ruleFocus:s.id==='library'&&a==='rules'?c:'',
      output:s.id==='library'&&a==='outputs'&&parts.length===6?parts.slice(2):null};
 }
@@ -166,6 +174,17 @@ function showPage(){
  else if(section.views)list=section.views.map(v=>[v,r.section+'/'+v]);
  for(const [v,hash] of list){const b=button(VIEW_LABELS[v],()=>go(hash));b.setAttribute('aria-pressed',String(v===r.view));views.append(b)}
  trail.append(crumbs);if(list.length>1)trail.append(views);
+ const conceptViews={
+   cheats:[['Catalogue','library/cheats'+(r.cheatId&&!r.cheatTab?'/'+r.cheatId:''),!r.cheatTab],
+     ['Runtime and variations','library/cheats/index'+(r.cheatId&&r.cheatTab!=='candidates'?'/'+r.cheatId:''),r.cheatTab==='index'],['Candidates','library/cheats/candidates',r.cheatTab==='candidates']],
+   ideas:[['Owner directory','workbench/ideas',!r.ideaTab],['Boards and code index','workbench/ideas/registry',Boolean(r.ideaTab)]],
+   handoffs:[['Saved handoffs','workbench/handoffs',!r.handoffTab],['Earned replays','workbench/handoffs/replays',Boolean(r.handoffTab)]],
+ }[r.view];
+ if(conceptViews){
+   const tabs=el('nav',null,'trail-views');tabs.setAttribute('aria-label',VIEW_LABELS[r.view]+' views');
+   for(const [name,hash,active] of conceptViews){const tab=button(name,()=>go(hash));tab.setAttribute('aria-pressed',String(active));tabs.append(tab);}
+   trail.append(tabs);
+ }
  if(r.world?.nativeEntry?.evidenceHref)trail.append(worldEvidenceLink(r.world.nativeEntry));
  main.replaceChildren();
  const shared={main,data,controls,finder,list:listOf,button,routeButtons,closeCanvas};
@@ -176,11 +195,9 @@ function showPage(){
  if(r.section==='worlds')return worldsIndex();
  if(r.section==='codex'&&r.map)return codexMapView({...shared,go});
  if(r.section==='codex')return codexView({...shared,ledger:r.ledger,focus:r.focus,go});
- if(r.section==='ideas')return ideasView({...shared,focus:r.focus,go});
- if(r.section==='cheats')return cheatsView({...shared,tab:r.view,focus:r.focus,go});
  if(r.section==='changes')return changesView(shared);
- ({pipeline:()=>readingPipeline(shared),coverage:()=>readingSurvey(shared),campaigns:()=>campaignSequencingView(shared),rules:()=>worldRulesView({...shared,worldId:r.ruleWorld,focus:r.ruleFocus}),cheats:()=>renderCheatCatalogue(main,r.cheatId),outputs:()=>r.output?readingOutputRecords(shared,r.output):readingOutputs({...shared,bookKey:r.bookKey}),shelves:()=>libraryShelves(shared),mechanics:()=>mechanicReadiness(shared),
-   kinds:()=>library(r.entityId),'reader-creatures':()=>readerCreatureShelf(shared),observations:target,site:editor,overview:()=>progressView(shared),findings:()=>findingsView(shared),mechanics2:()=>mechanicsView(shared),transfer:()=>transferView(shared),handoffs:()=>readingHandoffs({...shared,handoffId:r.handoffId}),implementation:()=>implementationView(shared),drafts:()=>draftsView({...shared,go}),ideas:()=>ideaOwners(shared),'card-trial':()=>cardWorldTrial(shared)})[r.view]();
+ ({pipeline:()=>readingPipeline(shared),coverage:()=>readingSurvey(shared),campaigns:()=>campaignSequencingView(shared),rules:()=>worldRulesView({...shared,worldId:r.ruleWorld,focus:r.ruleFocus}),cheats:()=>r.cheatTab?cheatsView({...shared,tab:r.cheatTab,focus:r.cheatId}):renderCheatCatalogue(main,r.cheatId),outputs:()=>r.output?readingOutputRecords(shared,r.output):readingOutputs({...shared,bookKey:r.bookKey}),shelves:()=>libraryShelves(shared),mechanics:()=>mechanicReadiness(shared),
+   kinds:()=>library(r.entityId),'reader-creatures':()=>readerCreatureShelf(shared),observations:target,site:editor,overview:()=>progressView(shared),findings:()=>findingsView(shared),mechanics2:()=>mechanicsView(shared),transfer:()=>transferView(shared),handoffs:()=>r.handoffTab?implementationView(shared):readingHandoffs({...shared,handoffId:r.handoffId}),drafts:()=>draftsView({...shared,go}),ideas:()=>r.ideaTab?ideasView({...shared,focus:r.ideaFocus,go}):ideaOwners(shared),'card-trial':()=>cardWorldTrial(shared)})[r.view]();
 }
 function worldView(w,view,shared){
  if(view==='rules')return worldRulesView({...shared,worldId:w.id==='ri'?'reverend-insanity':w.id==='hp'?'book.hp':w.id});

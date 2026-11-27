@@ -31,7 +31,7 @@ function mountFind(header) {
   input.type = "search";
   input.name = "q";
   input.maxLength = 160;
-  input.placeholder = "People, places, rules, scenes, playable routes, cheats\u2026";
+  input.placeholder = "People, places, rules, playable routes, cheats, ideas\u2026";
   const submit = el("button", "Find");
   submit.type = "submit";
   form.append(label, input, submit);
@@ -74,7 +74,8 @@ async function atlasFindView({ main }) {
     ["cheats", "Cheat catalogue"],
     ["scenes", "Reader scenes"],
     ["routes", "Playable routes"],
-    ["vision", "Vision themes"]
+    ["vision", "Vision themes"],
+    ["ideas", "Ideas and backlogs"]
   ]) {
     const o = el("option", label);
     o.value = id;

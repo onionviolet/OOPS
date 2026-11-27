@@ -7,7 +7,7 @@ const link = (label, href) => {
 };
 
 export function implementationView({main, data}) {
-    main.append(el('h2', 'Implementation'));
+    main.append(el('h2', 'Earned replays'));
     for (const work of data.implementation) {
         const card = el('article', null, 'implementation-card');
         const header = el('div', null, 'implementation-heading');
