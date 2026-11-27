@@ -17,7 +17,7 @@ import {attachItemBoundRows} from './item_bound_ledgers.mjs';
 import {attachFormRows} from './form_transformation_ledgers.mjs';
 import {attachDivinationRows} from './divination_ledgers.mjs';
 
-const root = new URL('..', import.meta.url).pathname;
+const root = fileURLToPath(new URL('..', import.meta.url));
 const PRIVATE = '/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-catalogues-2026-11-16/private/';
 export const BOOKS = {
     ss: {stem: 'shadow_slave', title: 'Shadow Slave', source: 'shadow-slave'},

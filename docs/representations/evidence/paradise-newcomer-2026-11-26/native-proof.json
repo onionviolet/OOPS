@@ -1,0 +1,118 @@
+{
+  "schema": "su-intruder-native-summary/1",
+  "date": "2026-11-26",
+  "status": "PASS",
+  "runtime": "native Node DOM through actual primary game loader, Beginning controls and native save APIs",
+  "headlessBundleSha256": "5b913e45e422d025777e7c2063073cc0b356403dba6cfdc5514521f5cc5b4e2b",
+  "sourceFiles": [
+    {
+      "path": "src/paradise_intruder.js",
+      "sha256": "4560d5f8ec3b1fb5d9d14d5cb608a94612fb9d9e794deccdf61dc7794be4250d"
+    },
+    {
+      "path": "src/world_packs/book_paradise_lead_intruder.js",
+      "sha256": "db7eeed84e96cce0317e0610b3f1b1aabb629b0c57d1db1479164ed66d9dc5e2"
+    },
+    {
+      "path": "src/structured_pack_definitions.js",
+      "sha256": "9c78225472c1331d4385c73f9fa594abfbc1f62680df7c6997ddbe93a6af2e40"
+    },
+    {
+      "path": "src/structured_pack_runtime.js",
+      "sha256": "bd94a0337dc2b2442263db04859c91760d7accc5e1a77a4ed30fc3b2a0b417b2"
+    },
+    {
+      "path": "src/book_world_beginning_registration.js",
+      "sha256": "aac5dca977dbed428ed1daf08d9d5e9f446c56e64c0c350b179afa9403baf81b"
+    },
+    {
+      "path": "tests/paradise_intruder.test.js",
+      "sha256": "8dc3f73db48545854b772fd4d4baa75f77609a5bd621c47ba51b0a4d7765ac35"
+    },
+    {
+      "path": "scripts/headless/paradise_intruder_route.mjs",
+      "sha256": "038fbfe6980289d410dc161a6d21a029bafca9f17375c6f336a2cbc27c429e3e"
+    }
+  ],
+  "source": {
+    "epubSha256": "67f15d112389a7e4a1218a9f0888b358c5c8f8bd6ab339d9df4ede50c76636e6",
+    "memberSha256": "363cd8f6be7e0c0e941944e21d950bc76c6caf7898430a5546c4b448d6e17968",
+    "locators": "English MTL ch3 p51–74, one-based p including empty nodes",
+    "qualification": "English MTL directly held; primary-language fidelity unverified",
+    "canon": "Entry, drop, abstract subdue/question, identity and attributed shelter claim",
+    "authored": "Distance exchange, wait/release, minutes and RPG conditions/trust calibration"
+  },
+  "cases": [
+    {
+      "inputKind": "fresh-earned",
+      "inputSha256": "761ad103b8130fe5117dbf15fb071b14a61b4f55a7ac36e812f02d203f2e2dea",
+      "branch": "distance",
+      "originalClock": 8,
+      "idleMinutes": 0,
+      "finalClock": 10,
+      "deadline": 4320,
+      "sameBody": true,
+      "sameBaseAndOldPins": true,
+      "anonymousReloadBeforeChoice": true,
+      "pendingSaveReloadExportImport": true,
+      "finalSaveReloadExportImport": true,
+      "noDuplicatePerson": true,
+      "noRewardOrPartyGrant": true
+    },
+    {
+      "inputKind": "fresh-earned",
+      "inputSha256": "761ad103b8130fe5117dbf15fb071b14a61b4f55a7ac36e812f02d203f2e2dea",
+      "branch": "source",
+      "originalClock": 8,
+      "idleMinutes": 0,
+      "finalClock": 10,
+      "deadline": 4320,
+      "sameBody": true,
+      "sameBaseAndOldPins": true,
+      "anonymousReloadBeforeChoice": true,
+      "pendingSaveReloadExportImport": true,
+      "finalSaveReloadExportImport": true,
+      "noDuplicatePerson": true,
+      "noRewardOrPartyGrant": true
+    },
+    {
+      "inputKind": "inherited-roof",
+      "inputSha256": "1120f3eee2c0910f8debc06056f14ecd38e772dff7e97ec5e66c8d244f9e6e2a",
+      "branch": "distance",
+      "originalClock": 12,
+      "idleMinutes": 3,
+      "finalClock": 17,
+      "deadline": 4320,
+      "sameBody": true,
+      "sameBaseAndOldPins": true,
+      "anonymousReloadBeforeChoice": true,
+      "pendingSaveReloadExportImport": true,
+      "finalSaveReloadExportImport": true,
+      "noDuplicatePerson": true,
+      "noRewardOrPartyGrant": true
+    },
+    {
+      "inputKind": "inherited-roof",
+      "inputSha256": "1120f3eee2c0910f8debc06056f14ecd38e772dff7e97ec5e66c8d244f9e6e2a",
+      "branch": "source",
+      "originalClock": 12,
+      "idleMinutes": 3,
+      "finalClock": 17,
+      "deadline": 4320,
+      "sameBody": true,
+      "sameBaseAndOldPins": true,
+      "anonymousReloadBeforeChoice": true,
+      "pendingSaveReloadExportImport": true,
+      "finalSaveReloadExportImport": true,
+      "noDuplicatePerson": true,
+      "noRewardOrPartyGrant": true
+    }
+  ],
+  "browserScope": "No browser claim in this native record. Coordinator owns separate rebuilt desktop comparison.",
+  "checks": {
+    "focused": "73/73 PASS",
+    "architecture": "PASS",
+    "rules": "PASS with existing warning-only lints and stale private_packs route glob"
+  },
+  "harnessNote": "Initial combined-process attempt exhausted Node default heap before completing distance branch. Final four cases each passed in a separate bounded process; no gameplay assertion failed."
+}

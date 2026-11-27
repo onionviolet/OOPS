@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "kind": "source-freeze-not-browser-proof",
+  "at": "2026-11-26T06:14:51.133837+00:00",
+  "files": {
+    "src/lotm_tent_refusal.js": "baa2c33443fd4ed3ee233048970b4e2f2539dbbea3b5b9851e8756aa4a0eb671",
+    "src/lotm_tent_incident.js": "aa0a47f8d30a091092c14d9b90dc6f2a5668337ccc82b04c0878ce393a0c711a",
+    "src/book_world_lotm_cast_host.js": "03b476c0a1437b6023b06aff535ea44f451ef606fcfc699f4de0e46f1f7465dc",
+    "tests/lotm_tent_refusal.test.js": "0b7c83a5ac65e1892c23d2dffcb92fdf5e6361c98d009fc19017da4abe2fc75d",
+    "tests/lotm_tent_native_completion.test.js": "88a711df95dc01d827fc3f616d89596a3dede1021d98d9a352b9d20f49bab584"
+  },
+  "checks": {
+    "focused": "15/15 passed in28.0s: node --test tests/lotm_tent_refusal.test.js tests/lotm_tent_native_completion.test.js tests/lotm_tent_incident.test.js",
+    "architectureAndRules": "passed with existing warning-only lints and stale private-pack glob",
+    "whitespace": "passed",
+    "browser": "not run; coordinator owns rebuilt desktop replay"
+  },
+  "cause": "Alternative grocery receipt resolved the source predecessor stage without a performed card reading.",
+  "fix": "Paid-interpretation response requires actual reading evidence at admission and completion: native reading completion, mounted reading observation key, or retained legacy observed-card key. Invitation, direct-shopping and refusal receipts are insufficient.",
+  "compatibility": "Original reading/canonical/local mechanics retained; observed legacy equivalents retained; no new save schema or migration."
+}

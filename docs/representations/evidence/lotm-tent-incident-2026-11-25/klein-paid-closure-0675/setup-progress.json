@@ -1,0 +1,10 @@
+[
+  {
+    "from": 530,
+    "to": 1960,
+    "wallStartedAt": "2026-11-26T03:36:04.413Z",
+    "method": "test tick advancement to an offered native Wait target",
+    "status": "completed",
+    "wallMs": 216635
+  }
+]

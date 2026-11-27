@@ -2,6 +2,8 @@
 // The fixture is built (or read from the cache) through scenarios.mjs, stored as the origin's only save, and the page boots it through
 // the normal load path. Lanes import `openFixture` and play their changed behaviour from there; the fixture is setup, not proof.
 //   npm run build && node scripts/fixture_browser.cjs <name|all> [--out dir]
+//   node scripts/fixture_browser.cjs --serve-save <earned-test-save.json> [--root <built-game>] [--paused]
+// The latter serves a fresh loopback origin for the built-in browser. Ctrl+C closes it.
 // Prints one JSON line per fixture: build (or cache) seconds, browser load seconds, the check it made, page errors.
 const fs = require('node:fs'), path = require('node:path'), http = require('node:http');
 const {launchChrome} = require('./ui_helpers.cjs');
@@ -10,9 +12,17 @@ const TYPES = {'.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/jav
     '.png': 'image/png', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.ttf': 'font/ttf', '.map': 'application/json', '.ink': 'text/plain', '.txt': 'text/plain'};
 
 /** A static server over the checkout (index.html, dist/, private_packs/ when linked). Resolves to {base, close}. */
-function serveCheckout(root = ROOT) {
+function serveCheckout(root = ROOT, {previewHtml, previewBundle} = {}) {
     const server = http.createServer((req, res) => {
         const rel = decodeURIComponent(new URL(req.url, 'http://x').pathname);
+        if(previewBundle && rel === '/dist/bundle.js') {
+            res.writeHead(200, {'content-type':'text/javascript', 'cache-control':'no-store'});
+            return res.end(previewBundle);
+        }
+        if(previewHtml && rel === '/') {
+            res.writeHead(200, {'content-type':'text/html; charset=utf-8','cache-control':'no-store'});
+            return res.end(previewHtml);
+        }
         let file = path.join(root, rel);
         if(!file.startsWith(root)) {res.statusCode = 403; return res.end();}
         if(fs.existsSync(file) && fs.statSync(file).isDirectory()) file = path.join(file, 'index.html');
@@ -63,6 +73,60 @@ module.exports = {serveCheckout, fixtureSave, openFixture, openPanel};
 
 if(require.main === module) (async () => {
     const args = process.argv.slice(2), outAt = args.indexOf('--out');
+    if(args[0] === '--serve-save') {
+        const paused = args.at(-1) === '--paused';
+        const input = paused ? args.slice(0,-1) : args;
+        if(!input[1] || !(input.length === 2 || (input.length === 4 && input[2] === '--root'))) {
+            throw new Error('Use --serve-save <earned-test-save.json> [--root <built-game>] [--paused].');
+        }
+        const root = input[3] ? path.resolve(input[3]) : ROOT;
+        const bytes = fs.readFileSync(args[1]);
+        if(!JSON.parse(bytes).expansion) throw new Error('Expected a native game save with expansion state.');
+        const {createHash} = require('node:crypto');
+        const sha = data => createHash('sha256').update(data).digest('hex');
+        const bundle = fs.readFileSync(path.join(root, 'dist/bundle.js'));
+        const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+        const setup = `<script>
+            if(!sessionStorage.getItem('fixture-opened') && !localStorage.getItem('save data')) {
+                const bytes = Uint8Array.from(atob('${bytes.toString('base64')}'), c => c.charCodeAt(0));
+                localStorage.setItem('save data', new TextDecoder().decode(bytes));
+                sessionStorage.setItem('fixture-opened', '1');
+            }
+            if(${paused} && new URLSearchParams(location.search).get('test_hooks') === '1') addEventListener('load', () => {
+                const timer = setInterval(() => {
+                    if(!window.simulationTestHooks) return;
+                    window.simulationTestHooks.pause();
+                    clearInterval(timer);
+                    const step = document.createElement('button');
+                    step.type = 'button';
+                    step.textContent = 'Advance one test tick';
+                    const clock = document.createElement('output');
+                    const showClock = () => {clock.textContent = 'Game minute ' + window.simulationTestHooks.clock();};
+                    showClock();
+                    step.addEventListener('click', () => {
+                        try {window.advanceTicks(1); showClock();}
+                        catch(error) {clock.textContent = error.message;}
+                    });
+                    const summary = document.createElement('summary');
+                    summary.textContent = 'Paused test clock';
+                    const controls = document.createElement('details');
+                    controls.addEventListener('toggle', () => { if(controls.open) showClock(); });
+                    const timeField = document.getElementById('time_div');
+                    if(timeField) new MutationObserver(showClock).observe(timeField, {
+                        childList: true, characterData: true, subtree: true
+                    });
+                    controls.append(summary, step, clock);
+                    document.body.append(controls);
+                }, 50);
+            });
+        </script>`;
+        const {base} = await serveCheckout(root, {
+            previewHtml: html.replace(/<head>/i, match => match + setup),
+            previewBundle: bundle
+        });
+        console.log(JSON.stringify({url:base+(paused?'/?test_hooks=1':'/'),paused,saveSha256:sha(bytes),bundleSha256:sha(bundle)}));
+        return;
+    }
     const out = outAt >= 0 ? args[outAt + 1] : 'docs/gm/dispatch/world-fixtures-2026-11-10';
     const {WORLD_FIXTURES} = await import('./headless/world_fixtures.mjs');
     const names = args[0] === 'all' ? Object.keys(WORLD_FIXTURES) : [args[0]];

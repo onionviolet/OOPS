@@ -4,6 +4,14 @@ import {formatDuration} from './number_format.js';
 import {quoteJourney, journeyTitle} from './journey_quote.js';
 import {LAYOUT_SPEC} from './layout_spec.js';
 
+// Opening the owner of work already underway is navigation, not another assignment.
+export function canOpenCurrentWorkStation(station,state,{location,nativeBusy=false,commands}={}){
+    if(nativeBusy||station?.module!=='lotm'||state.simulation?.people.player?.location!==location)return false;
+    if(state.pending?.some(j=>j.context.actorId==='player')||state.simulation.sessions?.player)return false;
+    const jobs=(state.simulation.jobs||[]).filter(j=>j.actorId==='player'||j.participants?.includes('player'));
+    return jobs.length>0&&jobs.every(j=>{const d=commands?.get(j.commandId);return j.actorId==='player'&&(j.commandId.startsWith('book.lotm.merit_')||j.commandId.startsWith('book.lotm.copy_file.'))&&d?.group==='book_lotm'&&d.location===location;});
+}
+
 // UIC127, PRS1: what the action list calls someone ("Talk to the suspicious man" gives "The suspicious man"), so Around you
 // shows no name the character has not learned. '' when the line is not of that shape.
 export const heardName = line => {const m = String(line || '').replace(/<[^>]*>/g, '').trim().match(/^(?:talk|speak|chat) (?:to|with) (.+?)[.!]?$/i); return m ? m[1][0].toUpperCase() + m[1].slice(1) : '';};

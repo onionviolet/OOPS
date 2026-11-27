@@ -44,6 +44,24 @@ test('Gothic font validates, applies its role tokens and survives JSON roundtrip
     assert.throws(() => validateCustomizationState({...state, profiles:{Default:{...state.profiles.Default,settings:{...state.profiles.Default.settings,typography:{font:'unknown',size:14}}}}}), /invalid font/);
 });
 
+test('tiny Gothic secondary text uses the outline rather than an empty strike or a scaled 14px face', () => {
+    for (const [size, smallSize, bodyFamily, smallFamily] of [
+        [10, 9, '"OOPS Gothic Bitmap 10", var(--ui-font-gothic)', 'var(--ui-gothic-outline)'],
+        [11, 9, '"OOPS Gothic Bitmap 11", var(--ui-font-gothic)', 'var(--ui-gothic-outline)'],
+        [12, 10, '"OOPS Gothic Bitmap 12", var(--ui-font-gothic)', '"OOPS Gothic Bitmap 10", var(--ui-font-gothic)'],
+        [23, 20, 'var(--ui-gothic-outline)', '"OOPS Gothic Bitmap 20", var(--ui-font-gothic)'],
+        [28, 24, 'var(--ui-gothic-outline)', 'var(--ui-gothic-outline)'],
+    ]) {
+        const state = defaultCustomizationState();
+        state.profiles.Default.settings.typography.size = size;
+        const node = {style:{values:{},setProperty(key,value){this.values[key]=value;}},classList:{add(){}},dataset:{},querySelectorAll(){return [];}};
+        applyCustomizationProfile(state, {moduleNodes:{ledger:node}});
+        assert.equal(node.style.values['--custom-font'], bodyFamily, `body at ${size}px`);
+        assert.equal(node.style.values['--custom-small-font'], smallFamily, `secondary at ${smallSize}px`);
+        assert.equal(node.style.values['--custom-small-size'], `${smallSize}px`);
+    }
+});
+
 test('internal Gothic defaults include prose while explicit saved font choices stay intact', () => {
     const initial = defaultCustomizationState();
     assert.equal(initial.profiles.Default.settings.typography.font, 'gothic');

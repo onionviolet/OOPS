@@ -1,5 +1,5 @@
 {
-  "note": "Exact existing exceptions, never file-wide. Token consumers and unresolved inline styles are retained explicitly. Remove exceptions when migrated. Integration 2026-10-30: draft rep-branch styles (body_view, character_sheet, crafting_detail, figure, item_card, research, settled_text_effects, style.css) merged with literal values; migrate them to tokens (see MERGE_RECEIPT).",
+  "note": "Exact existing exceptions, never file-wide. Font choices and unresolved inline styles are retained explicitly; the shared --ui-radius token is compliant. Remove exceptions when migrated. Integration 2026-10-30: draft rep-branch styles (body_view, character_sheet, crafting_detail, figure, item_card, research, settled_text_effects, style.css) merged with literal values; migrate them to tokens (see MERGE_RECEIPT).",
   "entries": [
     {
       "key": "styles/redesign_drafts.css|declaration|cf94225da1e41e60",
@@ -1412,13 +1412,6 @@
       "count": 3
     },
     {
-      "key": "style.css|declaration|bc403f80588ec27d",
-      "path": "style.css",
-      "rule": "declaration",
-      "snippet": "border-radius: var(--ui-radius)",
-      "count": 20
-    },
-    {
       "key": "style.css|declaration|d67235fb63821aef",
       "path": "style.css",
       "rule": "declaration",
@@ -1426,25 +1419,11 @@
       "count": 1
     },
     {
-      "key": "styles/action_legibility.css|declaration|bc403f80588ec27d",
-      "path": "styles/action_legibility.css",
-      "rule": "declaration",
-      "snippet": "border-radius: var(--ui-radius)",
-      "count": 2
-    },
-    {
       "key": "styles/component_themes.css|declaration|a48ea9c8643bd2ba",
       "path": "styles/component_themes.css",
       "rule": "declaration",
       "snippet": "font-family: var(--ui-font)",
       "count": 1
-    },
-    {
-      "key": "styles/component_themes.css|declaration|bc403f80588ec27d",
-      "path": "styles/component_themes.css",
-      "rule": "declaration",
-      "snippet": "border-radius: var(--ui-radius)",
-      "count": 2
     },
     {
       "key": "styles/component_themes.css|declaration|c572c5fbc229734e",
@@ -1461,39 +1440,11 @@
       "count": 1
     },
     {
-      "key": "styles/crafting_detail.css|declaration|bc403f80588ec27d",
-      "path": "styles/crafting_detail.css",
-      "rule": "declaration",
-      "snippet": "border-radius: var(--ui-radius)",
-      "count": 2
-    },
-    {
-      "key": "styles/customization.css|declaration|bc403f80588ec27d",
-      "path": "styles/customization.css",
-      "rule": "declaration",
-      "snippet": "border-radius: var(--ui-radius)",
-      "count": 1
-    },
-    {
       "key": "styles/customization.css|declaration|c572c5fbc229734e",
       "path": "styles/customization.css",
       "rule": "declaration",
       "snippet": "font-family: var(--custom-font)",
       "count": 1
-    },
-    {
-      "key": "styles/settled_text_effects.css|declaration|bc403f80588ec27d",
-      "path": "styles/settled_text_effects.css",
-      "rule": "declaration",
-      "snippet": "border-radius: var(--ui-radius)",
-      "count": 5
-    },
-    {
-      "key": "styles/workspace.css|declaration|bc403f80588ec27d",
-      "path": "styles/workspace.css",
-      "rule": "declaration",
-      "snippet": "border-radius: var(--ui-radius)",
-      "count": 12
     },
     {
       "key": "src/proto23_shell.js|foreign-host|4a4a9d4f54cdc595",
@@ -5771,34 +5722,6 @@
       "reason": "Same home as the road-rivalry panel; the notes shelf collects it by id. Move onto a declared panel home with the other encounter panels."
     },
     {
-      "key": "styles/character_sheet.css|declaration|bc403f80588ec27d",
-      "path": "styles/character_sheet.css",
-      "rule": "declaration",
-      "snippet": "border-radius: var(--ui-radius)",
-      "count": 1
-    },
-    {
-      "key": "styles/body_view.css|declaration|bc403f80588ec27d",
-      "path": "styles/body_view.css",
-      "rule": "declaration",
-      "snippet": "border-radius: var(--ui-radius)",
-      "count": 3
-    },
-    {
-      "key": "styles/figure_gallery.css|declaration|bc403f80588ec27d",
-      "path": "styles/figure_gallery.css",
-      "rule": "declaration",
-      "snippet": "border-radius: var(--ui-radius)",
-      "count": 1
-    },
-    {
-      "key": "styles/figure.css|declaration|bc403f80588ec27d",
-      "path": "styles/figure.css",
-      "rule": "declaration",
-      "snippet": "border-radius: var(--ui-radius)",
-      "count": 1
-    },
-    {
       "key": "src/mixture_ui.js|pixel-geometry|3bf129a9e15d1183",
       "path": "src/mixture_ui.js",
       "rule": "pixel-geometry",
@@ -5829,6 +5752,62 @@
       "snippet": "if (panel.parentElement !== host) host.append(panel);",
       "count": 1,
       "reason": "PS108: placeHerePanel is the one placer under Here; owners call it instead of appending themselves."
+    },
+    {
+      "key": "src/combat_situation_ui.js|foreign-host|157295f9728923a7",
+      "path": "src/combat_situation_ui.js",
+      "rule": "foreign-host",
+      "snippet": "document.getElementById('character_combat_management')?.prepend(playerPanel);",
+      "count": 1,
+      "reason": "Reviewed 2026-11-25: the native combat-control owner hosts Your fight; this is the existing Hero combat placement, not a new Here panel. Rebuilt eight-opponent comparison retains one Hero HP and the native stance destination."
+    },
+    {
+      "key": "src/combat_situation_ui.js|foreign-host|96cd3bb8ed6e2ae6",
+      "path": "src/combat_situation_ui.js",
+      "rule": "foreign-host",
+      "snippet": "if (progress !== null && !heroCycle.isConnected) document.getElementById('basic_character_info_div')?.append(heroCycle);",
+      "count": 1,
+      "reason": "Reviewed 2026-11-25: the native Hero owns the attack-cycle meter. The existing connected-node guard reuses one meter; it is hidden without an active cycle. This does not add a separately registered panel."
+    },
+    {
+      "key": "src/ri_daily_powers.js|foreign-host|a230244edeeb5c57",
+      "path": "src/ri_daily_powers.js",
+      "rule": "foreign-host",
+      "snippet": "if (panel.parentNode !== hero) hero.append(panel);",
+      "count": 1,
+      "reason": "Reviewed 2026-11-25: Fang Yuan’s day occupies the existing Hero Powers home authorized by the day comparison receipt; the guard keeps one projection in that native home (docs/gm/dispatch/play-surface-2026-11-14/FANG_YUAN_DAY_COMPARISON_2026-11-24.md)."
+    },
+    {
+      "key": "src/workspace_views.js|foreign-host|ad4c4b56944b3d32",
+      "path": "src/workspace_views.js",
+      "rule": "foreign-host",
+      "snippet": "switcher.append(stancePage);",
+      "count": 1,
+      "reason": "Reviewed 2026-11-25: the inventory Combat switch hosts the registered native stance through hostWorkspaceModule; leaving the tempo fight releases its owner and removes this temporary seat. No second stance module is created."
+    },
+    {
+      "key": "styles/potion_bench.css|declaration|8d239b82ab140405",
+      "path": "styles/potion_bench.css",
+      "rule": "declaration",
+      "snippet": "border-radius: 50%",
+      "count": 1,
+      "reason": "Reviewed 2026-11-25: potion splash/swirl illustration geometry is circular, rather than panel chrome. The shared panel radius would replace the authored vessel marks with square shapes."
+    },
+    {
+      "key": "styles/potion_bench.css|declaration|9cd5fadd817da39c",
+      "path": "styles/potion_bench.css",
+      "rule": "declaration",
+      "snippet": "border-radius: 100% 100% 65% 65%",
+      "count": 1,
+      "reason": "Reviewed 2026-11-25: the potion illustration’s droplet silhouette requires these proportions; the shared panel radius cannot represent the teardrop."
+    },
+    {
+      "key": "styles/potion_bench.css|type|d2817955e00ce038",
+      "path": "styles/potion_bench.css",
+      "rule": "type",
+      "snippet": "line-height: 1.45",
+      "count": 1,
+      "reason": "Reviewed 2026-11-25: potion inputs and observation records use 1.45 times their small type. Existing --ui-line-prose is based on body type and changes the rendered leading; retain this exact component-specific leading."
     },
     {
       "key": "src/customization_profiles.js|color|0ab9b7707742f7dc",

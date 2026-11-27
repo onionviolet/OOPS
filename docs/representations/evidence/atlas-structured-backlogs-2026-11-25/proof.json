@@ -1,0 +1,30 @@
+{
+  "viewport": "1366x768",
+  "owner": "docs/gm/artifact-collection/ACCEPTANCE_BACKLOG.md",
+  "documentHash": "8d6bdcbaac85918b8961b13d7b1ad6566d8c37b138c794a556dfa68d56fb8863",
+  "entry": {
+    "id": "8724b045deef8f0ef0372e7e226847406a76e3513e70b68fdd1e78679de94897",
+    "code": null,
+    "kind": "acceptance-check",
+    "reference": "docs/gm/artifact-collection/ACCEPTANCE_BACKLOG.md#idea-8724b045deef8f0ef0372e7e226847406a76e3513e70b68fdd1e78679de94897",
+    "lineStart": 7,
+    "lineEnd": 9
+  },
+  "fixturePacket": "f89917309a41380a1c54ff0870237fdef0d8a2ce1b902ef6401a288a55105557",
+  "savedOnlyIn": "isolated temporary ATLAS_HANDOFFS queue; removed after proof",
+  "referenceLimit": 2048,
+  "initialContentRequests": 0,
+  "afterBrowseContentRequests": 1,
+  "snapshotSha256": "8a30f74679c0298744a058d1c8637daf87bd8dbc4cc54fb71241c927ad7f9c99",
+  "verified": [
+    "five real uncoded multiline acceptance checks",
+    "no invented code",
+    "source-kind label not status inference",
+    "actual browser fixture save",
+    "immutable reference resolves",
+    "owner and exact-entry reverse citation",
+    "shared UI/server/parser bound",
+    "no page errors or overflow"
+  ],
+  "errors": []
+}

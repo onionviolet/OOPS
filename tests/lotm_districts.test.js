@@ -86,3 +86,37 @@ test('FD7: Tingen walks quote through travel_legs as a zero-fare foot leg and ke
  const c=districtCommands.find(x=>x.id==='book.lotm.walk_workroom_docks');assert.ok(c);assert.equal(c.duration,q.totalMinutes);
  for(const w of districtCommands.filter(x=>x.id.startsWith('book.lotm.walk_')))assert.ok(w.duration>0,w.id);
 });
+
+
+test('packed district index preserves pre-load nulls, built-in precedence and first-row semantics',async()=>{
+ const {execFileSync}=await import('node:child_process');
+ const script=String.raw`
+ import assert from 'node:assert/strict';
+ import {LOTM_LOCATIONS as L} from './src/book_world_lotm_ids.js';
+ let release;const ready=new Promise(resolve=>release=resolve);
+ const row=(id,district)=>({id,name:id,indexId:id,openingHours:[],label:'I',locator:'Authored test fixture',
+  ...(district?{travel:{district,basis:'Authored district fixture'}}:{})});
+ const pack={schema:'lotm-cast/1',people:[],references:[],schedule:[],beats:[],remoteWhereabouts:[],anchors:[],placeAliases:[],clockClaims:[],
+  places:[row(L.workroom,'storm'),row('fixture.packed','machinery'),row('fixture.first'),row('fixture.first','storm')],
+  host:{profile:{blurb:'Authored fixture'},situation:{label:'Authored fixture'}},bindings:{days:[{scene:'fixture.scene',day:1,from:0,to:1}],schedule:[],beats:[]}};
+ globalThis.fetch=async url=>{await ready;return String(url).endsWith('manifest.json')?
+  {ok:true,json:async()=>({schema:1,supplements:['lotm-cast/cast.json']})}:
+  String(url).endsWith('lotm-cast/cast.json')?{ok:true,json:async()=>pack}:{ok:false};};
+ const {districtOfPlace,lotmWalkMinutes}=await import('./src/book_world_lotm_districts.js');
+ const {whenCastLoaded,getPrivateLotmCast}=await import('./src/book_world_lotm_cast_days.js');
+ assert.equal(districtOfPlace('fixture.packed'),null);
+ assert.equal(districtOfPlace(L.workroom).id,'evernight');
+ release();await whenCastLoaded();assert.ok(getPrivateLotmCast());assert.ok(Object.isFrozen(getPrivateLotmCast()));
+ const before=JSON.stringify(pack);
+ assert.equal(districtOfPlace('fixture.packed').id,'machinery','an earlier unloaded miss is not cached');
+ assert.equal(districtOfPlace(L.workroom).id,'evernight','built-in wins over conflicting cast row');
+ assert.equal(districtOfPlace('fixture.first'),null,'first row with no district wins over later duplicate');
+ assert.equal(districtOfPlace('fixture.unknown'),null);
+ assert.equal(lotmWalkMinutes(L.workroom,'fixture.packed'),25);
+ assert.equal(lotmWalkMinutes('fixture.first','fixture.packed'),null);
+ assert.equal(lotmWalkMinutes('fixture.packed','fixture.packed'),null);
+ assert.equal(JSON.stringify(pack),before,'index construction changes no pack data');
+ console.log('packed-index-controls-pass');
+ `;
+ assert.match(execFileSync(process.execPath,['--input-type=module','-e',script],{encoding:'utf8',timeout:10000}),/packed-index-controls-pass/);
+});

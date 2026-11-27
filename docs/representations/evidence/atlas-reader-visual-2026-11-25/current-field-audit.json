@@ -1,0 +1,1280 @@
+{
+  "checkedAt": "2026-11-25T21:52:16.796Z",
+  "scope": "Actual selected ch127-129 files against adopted public digest; source presence counts do not establish presentation or semantic completeness",
+  "snapshotSha256": "8a30f74679c0298744a058d1c8637daf87bd8dbc4cc54fb71241c927ad7f9c99",
+  "digestSha256": "e673a1b75aa733d6a768b11afc9d0f597525ad63cacfcff7bdb4e8a699deb74f",
+  "kinds": [
+    {
+      "pass": "census",
+      "kind": "census",
+      "counts": {
+        "fileRows": 149,
+        "matchedRows": 149,
+        "noPublicMatch": 0,
+        "ambiguous": 0,
+        "unindexed": 0,
+        "parseFailures": 0,
+        "readFailures": 0
+      },
+      "fields": [
+        {
+          "id": "original-name",
+          "label": "Original-language name",
+          "rows": 149
+        },
+        {
+          "id": "name-source",
+          "label": "Naming provenance",
+          "rows": 149
+        },
+        {
+          "id": "mention-rung",
+          "label": "Mention depth",
+          "rows": 149
+        },
+        {
+          "id": "aliases",
+          "label": "Alternative names",
+          "rows": 0
+        },
+        {
+          "id": "whereabouts",
+          "label": "Recorded whereabouts",
+          "rows": 36
+        },
+        {
+          "id": "whereabouts-era",
+          "label": "Whereabouts dates or eras",
+          "rows": 36
+        },
+        {
+          "id": "whereabouts-status",
+          "label": "Whereabouts qualifications",
+          "rows": 36
+        },
+        {
+          "id": "claimant",
+          "label": "Attributed claimant",
+          "rows": 149
+        },
+        {
+          "id": "amount",
+          "label": "Numeric amount",
+          "rows": 19
+        },
+        {
+          "id": "amount-unit",
+          "label": "Amount unit",
+          "rows": 19
+        },
+        {
+          "id": "amount-per",
+          "label": "Amount frequency",
+          "rows": 10
+        },
+        {
+          "id": "amount-cap",
+          "label": "Amount ceiling",
+          "rows": 1
+        },
+        {
+          "id": "lead-contact",
+          "label": "Whether the lead encounters it",
+          "rows": 149
+        }
+      ],
+      "perChapter": [
+        {
+          "chapter": 127,
+          "status": "collected",
+          "counts": {
+            "fileRows": 49,
+            "matchedRows": 49,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 128,
+          "status": "collected",
+          "counts": {
+            "fileRows": 77,
+            "matchedRows": 77,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 129,
+          "status": "collected",
+          "counts": {
+            "fileRows": 23,
+            "matchedRows": 23,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        }
+      ]
+    },
+    {
+      "pass": "scenes",
+      "kind": "scenes",
+      "counts": {
+        "fileRows": 12,
+        "matchedRows": 12,
+        "noPublicMatch": 0,
+        "ambiguous": 0,
+        "unindexed": 0,
+        "parseFailures": 0,
+        "readFailures": 0
+      },
+      "fields": [
+        {
+          "id": "time-precision",
+          "label": "Recorded time granularity",
+          "rows": 12
+        },
+        {
+          "id": "date-anchor",
+          "label": "Date anchor",
+          "rows": 0
+        },
+        {
+          "id": "date-offset",
+          "label": "Date offset",
+          "rows": 0
+        },
+        {
+          "id": "step-actor",
+          "label": "Step actors",
+          "rows": 12
+        },
+        {
+          "id": "step-locator",
+          "label": "Step locators",
+          "rows": 12
+        },
+        {
+          "id": "step-kind",
+          "label": "Kinds of step",
+          "rows": 12
+        },
+        {
+          "id": "step-class",
+          "label": "Step action classes",
+          "rows": 12
+        },
+        {
+          "id": "step-target",
+          "label": "Step targets",
+          "rows": 3
+        },
+        {
+          "id": "step-tools",
+          "label": "Items used in steps",
+          "rows": 7
+        },
+        {
+          "id": "step-habit",
+          "label": "Repeated or habitual steps",
+          "rows": 0
+        },
+        {
+          "id": "step-results",
+          "label": "Step result links",
+          "rows": 0
+        },
+        {
+          "id": "step-witnesses",
+          "label": "Step witnesses",
+          "rows": 0
+        },
+        {
+          "id": "step-time",
+          "label": "Step timing",
+          "rows": 2
+        },
+        {
+          "id": "step-inputs",
+          "label": "Step inputs",
+          "rows": 1
+        },
+        {
+          "id": "step-outputs",
+          "label": "Step outputs",
+          "rows": 0
+        },
+        {
+          "id": "step-gains",
+          "label": "Step gains",
+          "rows": 0
+        },
+        {
+          "id": "step-needs",
+          "label": "Step prerequisites",
+          "rows": 0
+        },
+        {
+          "id": "footprint-places",
+          "label": "Broader affected places",
+          "rows": 4
+        },
+        {
+          "id": "footprint-window",
+          "label": "Broader affected time window",
+          "rows": 0
+        },
+        {
+          "id": "footprint-hazards",
+          "label": "Broader hazards",
+          "rows": 4
+        },
+        {
+          "id": "footprint-roles",
+          "label": "Broader roles",
+          "rows": 0
+        },
+        {
+          "id": "mechanism",
+          "label": "Mechanism account",
+          "rows": 0
+        }
+      ],
+      "perChapter": [
+        {
+          "chapter": 127,
+          "status": "collected",
+          "counts": {
+            "fileRows": 3,
+            "matchedRows": 3,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 128,
+          "status": "collected",
+          "counts": {
+            "fileRows": 5,
+            "matchedRows": 5,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 129,
+          "status": "collected",
+          "counts": {
+            "fileRows": 4,
+            "matchedRows": 4,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        }
+      ]
+    },
+    {
+      "pass": "scenes",
+      "kind": "fills",
+      "counts": {
+        "fileRows": 0,
+        "matchedRows": 0,
+        "noPublicMatch": 0,
+        "ambiguous": 0,
+        "unindexed": 0,
+        "parseFailures": 0,
+        "readFailures": 0
+      },
+      "fields": [
+        {
+          "id": "basis",
+          "label": "Evidence for the proposal",
+          "rows": 0
+        },
+        {
+          "id": "respects",
+          "label": "Rules the proposal respects",
+          "rows": 0
+        },
+        {
+          "id": "replacement",
+          "label": "What could replace the proposal",
+          "rows": 0
+        },
+        {
+          "id": "layer",
+          "label": "Proposal layer",
+          "rows": 0
+        },
+        {
+          "id": "confidence",
+          "label": "Proposal confidence",
+          "rows": 0
+        }
+      ],
+      "perChapter": [
+        {
+          "chapter": 127,
+          "status": "empty",
+          "counts": {
+            "fileRows": 0,
+            "matchedRows": 0,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 128,
+          "status": "empty",
+          "counts": {
+            "fileRows": 0,
+            "matchedRows": 0,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 129,
+          "status": "empty",
+          "counts": {
+            "fileRows": 0,
+            "matchedRows": 0,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        }
+      ]
+    },
+    {
+      "pass": "rules",
+      "kind": "rules",
+      "counts": {
+        "fileRows": 23,
+        "matchedRows": 23,
+        "noPublicMatch": 0,
+        "ambiguous": 0,
+        "unindexed": 0,
+        "parseFailures": 0,
+        "readFailures": 0
+      },
+      "fields": [
+        {
+          "id": "world-kind",
+          "label": "World-specific kind",
+          "rows": 0
+        },
+        {
+          "id": "conditions",
+          "label": "Conditions",
+          "rows": 6
+        },
+        {
+          "id": "steps",
+          "label": "Ordered working steps",
+          "rows": 16
+        },
+        {
+          "id": "step-minutes",
+          "label": "Step durations",
+          "rows": 0
+        },
+        {
+          "id": "inputs",
+          "label": "Input items",
+          "rows": 3
+        },
+        {
+          "id": "input-quantity",
+          "label": "Input quantities",
+          "rows": 3
+        },
+        {
+          "id": "input-unit",
+          "label": "Input units",
+          "rows": 3
+        },
+        {
+          "id": "input-role",
+          "label": "Input roles",
+          "rows": 3
+        },
+        {
+          "id": "products",
+          "label": "Products",
+          "rows": 2
+        },
+        {
+          "id": "product-quantity",
+          "label": "Product quantities",
+          "rows": 0
+        },
+        {
+          "id": "product-unit",
+          "label": "Product units",
+          "rows": 0
+        },
+        {
+          "id": "minutes",
+          "label": "Total duration",
+          "rows": 0
+        },
+        {
+          "id": "place",
+          "label": "Working place",
+          "rows": 0
+        },
+        {
+          "id": "costs",
+          "label": "Costs",
+          "rows": 2
+        },
+        {
+          "id": "cost-amount",
+          "label": "Cost amounts",
+          "rows": 1
+        },
+        {
+          "id": "cost-unit",
+          "label": "Cost units",
+          "rows": 1
+        },
+        {
+          "id": "ritual-needed",
+          "label": "Whether a ritual is needed",
+          "rows": 1
+        },
+        {
+          "id": "ritual-scale",
+          "label": "Ritual scale",
+          "rows": 0
+        },
+        {
+          "id": "ritual-steps",
+          "label": "Ritual steps",
+          "rows": 0
+        },
+        {
+          "id": "results",
+          "label": "Success, failure or partial results",
+          "rows": 15
+        },
+        {
+          "id": "limits",
+          "label": "Limits",
+          "rows": 23
+        },
+        {
+          "id": "consequences",
+          "label": "Consequences",
+          "rows": 2
+        },
+        {
+          "id": "consequence-trigger",
+          "label": "Consequence triggers",
+          "rows": 2
+        },
+        {
+          "id": "consequence-actor",
+          "label": "Actors imposing consequences",
+          "rows": 2
+        },
+        {
+          "id": "who",
+          "label": "Who can use the rule",
+          "rows": 19
+        },
+        {
+          "id": "cost-stated",
+          "label": "Whether costs are stated",
+          "rows": 23
+        },
+        {
+          "id": "teacher",
+          "label": "Acquisition teacher",
+          "rows": 3
+        },
+        {
+          "id": "acquire-needs",
+          "label": "Acquisition prerequisites",
+          "rows": 1
+        },
+        {
+          "id": "acquire-time",
+          "label": "Acquisition time",
+          "rows": 0
+        },
+        {
+          "id": "practice",
+          "label": "Practice",
+          "rows": 3
+        },
+        {
+          "id": "progress",
+          "label": "Signs of progress",
+          "rows": 4
+        },
+        {
+          "id": "failure",
+          "label": "Learning failure",
+          "rows": 0
+        },
+        {
+          "id": "ceiling",
+          "label": "Learning ceiling",
+          "rows": 0
+        },
+        {
+          "id": "reset-trigger",
+          "label": "Reset trigger",
+          "rows": 1
+        },
+        {
+          "id": "reset-span",
+          "label": "Reset span",
+          "rows": 1
+        },
+        {
+          "id": "resets",
+          "label": "What resets",
+          "rows": 1
+        },
+        {
+          "id": "keeps",
+          "label": "What survives a reset",
+          "rows": 0
+        },
+        {
+          "id": "reset-end",
+          "label": "How a reset ends",
+          "rows": 0
+        },
+        {
+          "id": "penalty",
+          "label": "Enforcement penalty",
+          "rows": 0
+        },
+        {
+          "id": "enforcer",
+          "label": "Enforcing actor",
+          "rows": 0
+        },
+        {
+          "id": "detection",
+          "label": "How breaches are detected",
+          "rows": 0
+        }
+      ],
+      "perChapter": [
+        {
+          "chapter": 127,
+          "status": "collected",
+          "counts": {
+            "fileRows": 11,
+            "matchedRows": 11,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 128,
+          "status": "collected",
+          "counts": {
+            "fileRows": 7,
+            "matchedRows": 7,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 129,
+          "status": "collected",
+          "counts": {
+            "fileRows": 5,
+            "matchedRows": 5,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        }
+      ]
+    },
+    {
+      "pass": "rules",
+      "kind": "other",
+      "counts": {
+        "fileRows": 10,
+        "matchedRows": 10,
+        "noPublicMatch": 0,
+        "ambiguous": 0,
+        "unindexed": 0,
+        "parseFailures": 0,
+        "readFailures": 0
+      },
+      "fields": [
+        {
+          "id": "about",
+          "label": "Subjects linked to the observation",
+          "rows": 10
+        }
+      ],
+      "perChapter": [
+        {
+          "chapter": 127,
+          "status": "collected",
+          "counts": {
+            "fileRows": 3,
+            "matchedRows": 3,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 128,
+          "status": "collected",
+          "counts": {
+            "fileRows": 4,
+            "matchedRows": 4,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 129,
+          "status": "collected",
+          "counts": {
+            "fileRows": 3,
+            "matchedRows": 3,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        }
+      ]
+    },
+    {
+      "pass": "people",
+      "kind": "people",
+      "counts": {
+        "fileRows": 19,
+        "matchedRows": 19,
+        "noPublicMatch": 0,
+        "ambiguous": 0,
+        "unindexed": 0,
+        "parseFailures": 0,
+        "readFailures": 0
+      },
+      "fields": [
+        {
+          "id": "routine",
+          "label": "Routine activity",
+          "rows": 13
+        },
+        {
+          "id": "routine-place",
+          "label": "Routine place",
+          "rows": 13
+        },
+        {
+          "id": "routine-days",
+          "label": "Routine days",
+          "rows": 0
+        },
+        {
+          "id": "routine-clock",
+          "label": "Routine start or end",
+          "rows": 0
+        },
+        {
+          "id": "routine-recurrence",
+          "label": "Routine recurrence",
+          "rows": 1
+        },
+        {
+          "id": "routine-until",
+          "label": "When a routine ends",
+          "rows": 0
+        },
+        {
+          "id": "relations",
+          "label": "Relations",
+          "rows": 10
+        },
+        {
+          "id": "relation-attitude",
+          "label": "Relation attitudes",
+          "rows": 2
+        },
+        {
+          "id": "relation-basis",
+          "label": "Basis for relations",
+          "rows": 10
+        },
+        {
+          "id": "relation-since",
+          "label": "Dated relations",
+          "rows": 0
+        },
+        {
+          "id": "reactions",
+          "label": "Reactions",
+          "rows": 5
+        },
+        {
+          "id": "reaction-class",
+          "label": "Action class reacted to",
+          "rows": 3
+        },
+        {
+          "id": "reaction-actor",
+          "label": "Actor reacted to",
+          "rows": 2
+        },
+        {
+          "id": "response-class",
+          "label": "Response action class",
+          "rows": 2
+        },
+        {
+          "id": "goals",
+          "label": "Goals",
+          "rows": 2
+        }
+      ],
+      "perChapter": [
+        {
+          "chapter": 127,
+          "status": "collected",
+          "counts": {
+            "fileRows": 9,
+            "matchedRows": 9,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 128,
+          "status": "collected",
+          "counts": {
+            "fileRows": 7,
+            "matchedRows": 7,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 129,
+          "status": "collected",
+          "counts": {
+            "fileRows": 3,
+            "matchedRows": 3,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        }
+      ]
+    },
+    {
+      "pass": "people",
+      "kind": "other",
+      "counts": {
+        "fileRows": 5,
+        "matchedRows": 5,
+        "noPublicMatch": 0,
+        "ambiguous": 0,
+        "unindexed": 0,
+        "parseFailures": 0,
+        "readFailures": 0
+      },
+      "fields": [
+        {
+          "id": "about",
+          "label": "Subjects linked to the observation",
+          "rows": 5
+        }
+      ],
+      "perChapter": [
+        {
+          "chapter": 127,
+          "status": "collected",
+          "counts": {
+            "fileRows": 1,
+            "matchedRows": 1,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 128,
+          "status": "collected",
+          "counts": {
+            "fileRows": 2,
+            "matchedRows": 2,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 129,
+          "status": "collected",
+          "counts": {
+            "fileRows": 2,
+            "matchedRows": 2,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        }
+      ]
+    },
+    {
+      "pass": "texture",
+      "kind": "places",
+      "counts": {
+        "fileRows": 25,
+        "matchedRows": 25,
+        "noPublicMatch": 0,
+        "ambiguous": 0,
+        "unindexed": 0,
+        "parseFailures": 0,
+        "readFailures": 0
+      },
+      "fields": [
+        {
+          "id": "within",
+          "label": "Containing place",
+          "rows": 12
+        },
+        {
+          "id": "hours",
+          "label": "Opening hours",
+          "rows": 0
+        },
+        {
+          "id": "access",
+          "label": "Access conditions",
+          "rows": 2
+        },
+        {
+          "id": "crowd",
+          "label": "Crowding",
+          "rows": 4
+        },
+        {
+          "id": "affordances",
+          "label": "Available actions",
+          "rows": 17
+        },
+        {
+          "id": "affordance-needs",
+          "label": "Action prerequisites",
+          "rows": 1
+        },
+        {
+          "id": "routes",
+          "label": "Route destinations",
+          "rows": 1
+        },
+        {
+          "id": "route-minutes",
+          "label": "Route durations",
+          "rows": 1
+        },
+        {
+          "id": "route-mode",
+          "label": "Route transport modes",
+          "rows": 1
+        }
+      ],
+      "perChapter": [
+        {
+          "chapter": 127,
+          "status": "collected",
+          "counts": {
+            "fileRows": 5,
+            "matchedRows": 5,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 128,
+          "status": "collected",
+          "counts": {
+            "fileRows": 14,
+            "matchedRows": 14,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 129,
+          "status": "collected",
+          "counts": {
+            "fileRows": 6,
+            "matchedRows": 6,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        }
+      ]
+    },
+    {
+      "pass": "texture",
+      "kind": "services",
+      "counts": {
+        "fileRows": 12,
+        "matchedRows": 12,
+        "noPublicMatch": 0,
+        "ambiguous": 0,
+        "unindexed": 0,
+        "parseFailures": 0,
+        "readFailures": 0
+      },
+      "fields": [
+        {
+          "id": "place",
+          "label": "Service place",
+          "rows": 12
+        },
+        {
+          "id": "hours",
+          "label": "Service hours",
+          "rows": 1
+        },
+        {
+          "id": "price",
+          "label": "Price description",
+          "rows": 6
+        },
+        {
+          "id": "price-kind",
+          "label": "Kind of price or payment",
+          "rows": 12
+        },
+        {
+          "id": "price-stated",
+          "label": "Whether a price is stated",
+          "rows": 12
+        },
+        {
+          "id": "amount",
+          "label": "Numeric price",
+          "rows": 6
+        },
+        {
+          "id": "unit",
+          "label": "Price unit",
+          "rows": 6
+        },
+        {
+          "id": "per",
+          "label": "Price frequency",
+          "rows": 6
+        },
+        {
+          "id": "price-id",
+          "label": "Linked price record",
+          "rows": 6
+        }
+      ],
+      "perChapter": [
+        {
+          "chapter": 127,
+          "status": "collected",
+          "counts": {
+            "fileRows": 1,
+            "matchedRows": 1,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 128,
+          "status": "collected",
+          "counts": {
+            "fileRows": 10,
+            "matchedRows": 10,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 129,
+          "status": "collected",
+          "counts": {
+            "fileRows": 1,
+            "matchedRows": 1,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        }
+      ]
+    },
+    {
+      "pass": "texture",
+      "kind": "news",
+      "counts": {
+        "fileRows": 5,
+        "matchedRows": 2,
+        "noPublicMatch": 3,
+        "ambiguous": 0,
+        "unindexed": 0,
+        "parseFailures": 0,
+        "readFailures": 0
+      },
+      "fields": [
+        {
+          "id": "date",
+          "label": "News date",
+          "rows": 2
+        },
+        {
+          "id": "carrier",
+          "label": "News carrier",
+          "rows": 1
+        }
+      ],
+      "perChapter": [
+        {
+          "chapter": 127,
+          "status": "no-public-match",
+          "counts": {
+            "fileRows": 1,
+            "matchedRows": 0,
+            "noPublicMatch": 1,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 128,
+          "status": "collected",
+          "counts": {
+            "fileRows": 2,
+            "matchedRows": 1,
+            "noPublicMatch": 1,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 129,
+          "status": "collected",
+          "counts": {
+            "fileRows": 2,
+            "matchedRows": 1,
+            "noPublicMatch": 1,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        }
+      ]
+    },
+    {
+      "pass": "texture",
+      "kind": "customs",
+      "counts": {
+        "fileRows": 7,
+        "matchedRows": 7,
+        "noPublicMatch": 0,
+        "ambiguous": 0,
+        "unindexed": 0,
+        "parseFailures": 0,
+        "readFailures": 0
+      },
+      "fields": [
+        {
+          "id": "applies",
+          "label": "Where the custom applies",
+          "rows": 7
+        }
+      ],
+      "perChapter": [
+        {
+          "chapter": 127,
+          "status": "collected",
+          "counts": {
+            "fileRows": 2,
+            "matchedRows": 2,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 128,
+          "status": "collected",
+          "counts": {
+            "fileRows": 2,
+            "matchedRows": 2,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 129,
+          "status": "collected",
+          "counts": {
+            "fileRows": 3,
+            "matchedRows": 3,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        }
+      ]
+    },
+    {
+      "pass": "texture",
+      "kind": "other",
+      "counts": {
+        "fileRows": 10,
+        "matchedRows": 10,
+        "noPublicMatch": 0,
+        "ambiguous": 0,
+        "unindexed": 0,
+        "parseFailures": 0,
+        "readFailures": 0
+      },
+      "fields": [
+        {
+          "id": "about",
+          "label": "Subjects linked to the observation",
+          "rows": 10
+        }
+      ],
+      "perChapter": [
+        {
+          "chapter": 127,
+          "status": "collected",
+          "counts": {
+            "fileRows": 3,
+            "matchedRows": 3,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 128,
+          "status": "collected",
+          "counts": {
+            "fileRows": 4,
+            "matchedRows": 4,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        },
+        {
+          "chapter": 129,
+          "status": "collected",
+          "counts": {
+            "fileRows": 3,
+            "matchedRows": 3,
+            "noPublicMatch": 0,
+            "ambiguous": 0,
+            "unindexed": 0,
+            "parseFailures": 0,
+            "readFailures": 0
+          }
+        }
+      ]
+    }
+  ]
+}

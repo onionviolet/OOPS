@@ -2,6 +2,8 @@
 // and the progress overview (O1). All read the batch snapshot through /data; nothing here writes.
 import {boxCanvas, element as el} from '/canvas.mjs';
 import {libraryWorlds, progressRow, PROGRESS_GROUP, batchLine, worldTitle} from '/library-views.mjs';
+import {SOURCE_GAMES} from '/world-entry-inventory.mjs';
+import {sourceMapPlaceStatus} from '/play-status.mjs';
 
 const MAX = 72; // the canvas reads well up to about this many boxes
 const people = {key: 'people', icon: 'person', label: 'People here'};
@@ -12,13 +14,7 @@ const gather = {key: 'gather', icon: 'grass', label: 'Gathering'};
 const craft = {key: 'craft', icon: 'construction', label: 'Crafting'};
 const inside = {key: 'inside', icon: 'unfold_more', label: 'Has places inside'};
 const SOURCE_MARKS = [people, shop, act, foe, gather, craft, inside];
-const STATE_LABEL = {absorbed: 'In OOPS too', source: 'Only in the source game', added: 'Added by OOPS', region: 'Region'};
-
-export const SOURCE_GAMES = {
-    yair: {label: 'Yet Another Idle RPG (upstream)', note: 'Upstream geography from git, compared with what OOPS registers today'},
-    proto23: {label: 'Proto23 (original)', note: 'The original single-file game, read statically; OOPS keeps its own Proto23 reference places separately'},
-    arkivia: {label: 'Arkivia', note: 'Proto23-inspired browser RPG; OOPS takes ideas from it, not places'},
-};
+const STATE_LABEL = {absorbed: 'Matching OOPS definition', source: 'Only in the source game', added: 'OOPS definition', region: 'Region'};
 
 function grid(items, cols, dx = 210, dy = 96) {
     return items.map((it, i) => ({...it, x: (i % cols) * dx, y: Math.floor(i / cols) * dy}));
@@ -54,9 +50,9 @@ export function sourceGamePage({main, controls, finder, list, button, closeCanva
     const top = id => {let p = byId.get(id), guard = 0; while (p?.parent && byId.has(p.parent) && p.parent !== focus && guard++ < 20) p = byId.get(p.parent); return p?.id;};
     const shown = (focus ? kids.get(focus) || [] : places.filter(p => !p.parent || !byId.has(p.parent)));
     const counts = Object.groupBy(src.places, p => p.state);
-    bar.append(el('small', `${src.places.length} places in the source · ${counts.absorbed?.length || 0} also in OOPS · ${counts.source?.length || 0} only in the source` +
+    bar.append(el('small', `${src.places.length} places in the source · ${counts.absorbed?.length || 0} matching OOPS definitions · ${counts.source?.length || 0} only in the source` +
         (src.added?.length ? ` · ${src.added.length} added by OOPS on the Village walk` : '') + (src.gameOnly?.length ? ` · ${src.gameOnly.length} OOPS reference places with no source match` : '')));
-    bar.append(el('small', 'Borders: green, also in OOPS · dashed blue, only in the source · violet, added by OOPS · gold, a region or group'));
+    bar.append(el('small', 'Borders: green, matching OOPS definition · dashed blue, only in the source · violet, OOPS definition · gold, a region or group'));
     const open = id => sourceGamePage({main, controls, finder, list, button, closeCanvas, data, game, focus: id});
     if (focus) bar.append(button('Up one level', () => open(byId.get(focus)?.parent)));
     finder(bar, places, p => open(p.parent && byId.has(p.parent) ? p.parent : undefined));
@@ -88,6 +84,10 @@ export function sourceGamePage({main, controls, finder, list, button, closeCanva
         select(id, side) {
             const p = byId.get(id);
             side.append(el('small', [p.kind, STATE_LABEL[p.state]].filter(Boolean).join(' · ')), el('h2', p.label));
+            if(p.state!=='region'){
+                const evidence=sourceMapPlaceStatus(p.state);
+                side.append(el('p',evidence.playStatus+(evidence.playGap?' · '+evidence.playGap:'')));
+            }
             const facts = [`Source id: ${p.id}`, p.gameId ? `OOPS location: ${p.gameId}` : null, p.sourceLine ? `Source line: ${p.sourceLine}` : null,
                 p.unlocked === false ? 'Locked at the start' : null].filter(Boolean);
             side.append(list(facts));
@@ -130,7 +130,8 @@ export function sceneList(p, list) {
     const by = Map.groupBy(p.scenes, s => s.kind);
     d.append(el('summary', 'Book scenes here · ' + p.scenes.length));
     for (const [kind, rows] of by) d.append(el('h4', SCENE_KIND[kind] + ' · ' + rows.length),
-        list(rows.slice(0, 12).map(s => [s.day != null ? 'day ' + s.day : null, s.locator, s.id.split('.').at(-1).replace(/^cast-[0-9a-f]+/, '').replace(/^\W+/, '') || s.id].filter(Boolean).join(' · '))));
+        list(rows.slice(0, 12).map(s => [s.day != null ? 'day ' + s.day : null, s.locator,
+            s.id?.split('.').at(-1).replace(/^cast-[0-9a-f]+/, '').replace(/^\W+/, '') || s.id].filter(Boolean).join(' · ') || SCENE_KIND[kind])));
     return d;
 }
 export function scenesView({main, data, controls, finder, list, button, closeCanvas, worldId}) {

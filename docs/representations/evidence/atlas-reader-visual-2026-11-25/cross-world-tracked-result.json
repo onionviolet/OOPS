@@ -1,0 +1,37 @@
+{
+  "scope": "Current review of tracked receipts; no new source reading, acquisition, batch or gameplay proof",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "results": [
+    {
+      "world": "hp",
+      "id": "HP-D7-S1",
+      "route": "http://127.0.0.1:4187/#world/hp/reading/tracked%3AHP-D7-S1",
+      "mountedBatchFiles": 0,
+      "mountedBatchRows": 0,
+      "evidenceHttp": 200,
+      "nativeReceiptLinked": true
+    },
+    {
+      "world": "ri",
+      "id": "RI-RA9-FIRST-REFINEMENT",
+      "route": "http://127.0.0.1:4187/#world/ri/reading/tracked%3ARI-RA9-FIRST-REFINEMENT",
+      "mountedBatchFiles": 0,
+      "mountedBatchRows": 0,
+      "evidenceHttp": 200,
+      "nativeReceiptLinked": false
+    },
+    {
+      "world": "mol",
+      "id": "MOL-C002-METHODS",
+      "route": "http://127.0.0.1:4187/#world/mol/reading/tracked%3AMOL-C002-METHODS",
+      "mountedBatchFiles": 0,
+      "mountedBatchRows": 0,
+      "evidenceHttp": 200,
+      "nativeReceiptLinked": true
+    }
+  ],
+  "errors": []
+}

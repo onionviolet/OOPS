@@ -1,0 +1,25 @@
+# LOTM Soothing charm
+
+| Preflight | Scope |
+| --- | --- |
+| Reading and authority | Make, carry and spend Soothing through the existing LOTM silver workshop and exposure route. Show one changed action while its cause persists. AD5, AD6, AD36, AD38, AD42, AD43. |
+| Player sentence | “The bell is still ringing, but the clerk has stepped back from the rope.” Workshop voice sample (PRS4, PRS6–PRS7) from Slumber: “The silver takes the inscription. You put the finished charm away.” |
+| Ordinary route and mechanism | Buy triangular silver and ritual supplies, inscribe, then decide when and where to throw. At the ringing workshop bell, Soothing gives the clerk time to step back, which leaves the player free to muffle the clapper. If the spell fades first, the clerk can return to the rope. |
+| Fit and ring | Existing LOTM act compiler, silver workshop, cast presence, inventory, condition and NPC controller. Making, exposure, response, failed means, persistence and screen evidence. AR3, AR10, AR14, AR19, MR10, MR13, MR32, UR70–UR75, WPR5. |
+| Screen and failure check | Desktop 1920×1080, Tingen Here and Notebook. Test the clerk’s ordinary response, a temporary change while the bell rings, expiry, and a separate physical resolution. Dream stays deferred. |
+
+The [source row](../../../../src/lotm_craft_rows.js) records triangular silver, ritual inscription and a blue-flamed charm that spreads calm. The ch198 anchors show the thrower calming and another person’s dangerous movement slowing while its cause persists. The bell, the clerk, the 8-soli packet and blank, one point of spirituality at inscription and use, 35/12/1-minute costs, and five-minute calm are game dials. The bell scene is original Tingen material. The source’s teaching about spirits is a separate candidate.
+
+Play from Tingen’s prepared silver workshop in Klein’s life. Under Here → Altar and rites, order Soothing supplies and inscribe the charm. Answer the workshop alarm, then see the clerk pull the rope and block access to the clapper. Throw the charm and the clerk steps back while the bell keeps ringing. Muffle it during the opening, or see the clerk pull again after calm expires. The notebook records the throw and the physical resolution.
+
+The [shared silver-charm path](../../../../src/lotm_silver_charms.js) keeps the costs and presence rules together. The [clerk’s controller](../../../../src/lotm_soothing_bell.js) reads the timed condition and chooses the NPC action. The ringing bell is a separate world fact and only the physical clapper action clears it. The clerk, controller, costs and condition use native save records. Older saves gain the clerk only by answering the alarm. The [Slumber receipt](LOTM_SLUMBER_CHARM_RECEIPT.md) owns the prior proof. Dream remains deferred.
+
+| Receipt · 2026-11-24 | Evidence |
+| --- | --- |
+| FLR1 Build | Standard build passed in an isolated copy with the Windows Ink line endings normalized. Build SHA-256 `11b6fe70decf72bc049c83e7ede448c5ae1ac38c85c1c5f14a71e94fd4115ade`. Rebuilt browser bundle SHA-256 `eaa05db6a3c0bf4f6e3a5a9fae1074c68c28c389800d6d3352e9d3250c20b245`. |
+| FLR2 Route | [Synthetic Tingen workshop](../../../../tests/lotm_slumber_browser.mjs), run with `--soothing` at 1920×1080 in headless Chrome from a fresh origin. The fixture supplies the cast, the prior commission and spirituality. The bell incident and all charm actions run through the ordinary interface. The private cast and reader join remain unavailable locally. |
+| FLR3 Shown | Missing charm disables the throw with a reason. Here shows the paid costs, the clerk yanking the rope and the changed opening. Notebook records who grew calmer and how the bell was stopped. Zero page errors and zero horizontal overflow. |
+| FLR4 Used | The NPC completes a rope pull before Soothing and steps back after the throw, changing the clapper action from blocked to available while the bell still rings. The thrower is calmed too. The person in another room is unaffected. At expiry the clerk pulls again if the bell still rings. |
+| FLR5 Kept | Save, reload, Export and literal file Import preserve the calm deadline, clerk action counts, bell, rope, paid charm and spirituality. After import, muffling the bell stops the cause and the clerk stays clear after calm expires. |
+| FLR6 Labelled | Agent-verified on the named synthetic fixture, not human-reviewed. An earned Klein replay remains open. |
+| Surface and checks | Five player commands, three clerk commands, one clerk and controller, three items and one condition. No composition-root or save-schema changes. Focused compiler, craft-source, amulet and atlas projection tests 32/32. The original Slumber browser journey also passed, including empty-room use and persistence, on bundle `11b6fe70decf72bc049c83e7ede448c5ae1ac38c85c1c5f14a71e94fd4115ade`. Normalized architecture check found zero new cycle edges. `git diff --check` passed. The global rules check still stops at existing rules-index and machine-local documentation links. |

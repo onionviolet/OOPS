@@ -1,0 +1,22 @@
+{
+  "schema": "ordinary-loaded-dice-acquisition/1",
+  "bundleSha256": "efcf175d46efe11d641dfa8025dffd86bb271a0e2e7238090663f98b0266df54",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "inputSaveSha256": "a9742de4f47a4b02a51b6833d1cf44f70d4cc75f8cc190c36feb6abaec6203ce",
+  "exportSha256": "f62c051e562a46aedc420ebb2a094810c49f80054ae8ef45f75260a51984ff2e",
+  "setup": "Fresh ordinary Village life, elder sword, actual field fight, two earned insights, first facet developed in native headless play.",
+  "browser": {
+    "clock": 42,
+    "unspentBefore": 1,
+    "unspentAfter": 0,
+    "card": "loaded-dice",
+    "direction": "high",
+    "chargesRemaining": 1,
+    "chargesUsed": 1,
+    "pendingValue": 0.9999999997671694
+  },
+  "scope": "Desktop development and queued HIGH; no loot outcome measured in this replay."
+}

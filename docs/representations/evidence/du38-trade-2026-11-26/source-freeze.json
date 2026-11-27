@@ -1,0 +1,33 @@
+{
+  "browser": "not run by lane",
+  "earnedInput": "work/du38-trade-20261126/merchant-ready.json",
+  "earnedInputSha256": "204312d5657714920b0fac1a57ea99856a9778d834c0b99cf5edfcf1132014d4",
+  "files": [
+    {
+      "sha256": "0ab923b1a249dc36d5ec1755450adf4108a76a98ca4f2bc547e5ce64949ea3a2",
+      "path": "index.html"
+    },
+    {
+      "sha256": "c1d74692a58701e37c89d72e0db0cdd39904da6b59c72c10447c0a3201e648cb",
+      "path": "styles/workspace.css"
+    },
+    {
+      "sha256": "59b6ff44cf5ba5e486ed86dd996f2d2edf7208fa044b69e3063edd84a75c8519",
+      "path": "tests/headless/trade_controls.test.js"
+    },
+    {
+      "sha256": "9035019f1e119cb5a4ca855350712e38fd240ecd79808881fa3579ed6c9d4119",
+      "path": "scripts/perf/du38_trade_probe.mjs"
+    },
+    {
+      "sha256": "985b863e80cfe36fd4cd0ffe972d9235626ea4fb974c1b26bcd7797474a42282",
+      "path": "src/trade.js"
+    },
+    {
+      "sha256": "906fa216425f89f7a1f62bd03587bddf11ab465c78ba69f9d4bac629afed8451",
+      "path": "src/display.js"
+    }
+  ],
+  "focusedChecks": "9/9 pass",
+  "scope": "DU38 native trade clarity; root owns rebuilt desktop acceptance"
+}

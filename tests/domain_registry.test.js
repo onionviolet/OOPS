@@ -49,3 +49,9 @@ test("ownsItemKey answers are cached per key and reset when a domain registers",
     registry.registerDomain({id: "b", ownsItemKey: key => key === "y"});
     assert.equal(registry.ownsItemKey("y"), true);
 });
+test('exact command guards snapshot registration, reject malformed registration atomically and validate results',()=>{
+ const r=createDomainRegistry(),guards={one:()=>['Wait here.']};r.registerDomain({id:'guarded',commandGuards:guards});guards.one=()=>[];
+ assert.deepEqual(r.commandGuardReasons({}, {id:'one'},{}),['Wait here.']);assert.deepEqual(r.commandGuardReasons({}, {id:'other'},{}),[]);
+ assert.throws(()=>r.registerDomain({id:'bad',commandGuards:{leak:()=>['leaked'],invalid:1}}),/Invalid command guard/);assert.deepEqual(r.commandGuardReasons({}, {id:'leak'},{}),[]);
+ r.registerDomain({id:'wrong-result',commandGuards:{wrong:()=>[1]}});assert.throws(()=>r.commandGuardReasons({}, {id:'wrong'},{}),/Invalid command guard result/);
+});

@@ -1,0 +1,21 @@
+{
+  "viewport": "1366x768",
+  "snapshotSha256": "79d9071470a1b8a8a729920ca83e3f7e4caf39b4aa58fbcd9511fa757f3ab25d",
+  "source": "actual local work/atlas-reading-handoffs; no synthetic packet or POST",
+  "directoryReferences": 445,
+  "quotaProposal": "221e0889c81cd9655cfd425fb1688bd1d853032c8d1e1e4e2ea5a5ba6af05715",
+  "upkeepProposal": "e9d91f20f0d853fff601abafa85e8be05c5d28c52fb9ac5be3d19ada168183db",
+  "upkeepReports": 1,
+  "verified": [
+    "exact owner reverse links",
+    "typed multi-reference retained",
+    "attached report distinguished",
+    "unique filename shorthand",
+    "directory section filter",
+    "empty state",
+    "direct handoff refresh",
+    "no overflow",
+    "simulated handoff unavailability leaves directory usable and disables citation filter"
+  ],
+  "errors": []
+}

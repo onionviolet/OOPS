@@ -4,12 +4,29 @@
 // Counts and ids only.
 import {readFileSync, readdirSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
+import {join} from 'node:path';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const read = p => readFileSync(root + p, 'utf8');
-const jsonl = p => read(p).split('\n').filter(l => l.trim()).flatMap(l => {try {return [JSON.parse(l)];} catch {return [];}});
+const parseJsonl = raw => raw.split('\n').filter(l => l.trim()).flatMap(l => {try {return [JSON.parse(l)];} catch {return [];}});
+const jsonl = p => parseJsonl(read(p));
 const CORPORA = ['powers', 'artifacts', 'potions_and_recipes', 'materials', 'creatures', 'places', 'institutions', 'people', 'jobs_and_roles', 'rules'];
 const family = state => state.startsWith('runs') ? 'runs' : state.startsWith('expressed') ? 'expressed' : state.startsWith('blocked') ? 'blocked' : state.startsWith('not-a-thing') ? 'other' : 'catalogued';
+
+// Exact ids only. Two ledger rows for an id remain two evidence claims.
+export function coverageFor(ids, dir = join(root, 'docs/coverage')) {
+    const matches = new Map();
+    if (!ids.size) return matches;
+    for (const file of readdirSync(dir).filter(f => f.endsWith('.jsonl') && f !== 'worlds.jsonl')) {
+        for (const row of parseJsonl(readFileSync(join(dir, file), 'utf8'))) {
+            if (!ids.has(row.id) || typeof row.state !== 'string') continue;
+            const entries = matches.get(row.id) ?? [];
+            entries.push({ledger: file, state: row.state, test: typeof row.test === 'string' ? row.test : null});
+            matches.set(row.id, entries);
+        }
+    }
+    return matches;
+}
 
 export function readMechanics() {
     const worlds = jsonl('docs/coverage/worlds.jsonl');

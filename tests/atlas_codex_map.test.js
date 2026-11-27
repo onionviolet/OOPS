@@ -28,9 +28,9 @@ test('blocker and edge caps leave only connected nodes', () => {
 });
 
 test('ladder maps fresh, stale, missing and case-less receipts to Fold states', async () => {
-    // codex-views imports browser routes. Replace only those imports to load its pure state function in Node.
+    // Strip the browser-only imports on both LF and Windows CRLF checkouts.
     const source = await readFile(new URL('../prototypes/world-atlas/codex-views.mjs', import.meta.url), 'utf8');
-    const pure = source.replace(/^import .*;\n/gm, '');
+    const pure = source.replace(/^import .*;\r?\n/gm, '');
     const {ladderFoldState} = await import(`data:text/javascript,${encodeURIComponent(pure)}`);
     assert.equal(ladderFoldState(1, 'runs'), 'known');
     assert.equal(ladderFoldState(1, null), 'unknown');

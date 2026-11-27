@@ -1,0 +1,51 @@
+{
+  "schema": "lotm-earned-segment-proof/1",
+  "status": "agent-verified-not-human-reviewed",
+  "testedSegment": {
+    "episode": "KJ3BC",
+    "officialEnglishVolume": 1,
+    "fromChapter": 136,
+    "fromParagraph": 1,
+    "toChapter": 138,
+    "toParagraph": 45,
+    "actions": 12
+  },
+  "entry": {
+    "kind": "newly earned BB checkpoint from this session, continued across builds; isolated pack; normal checkout route",
+    "sourceCheckpointChapter": 135,
+    "sourceCheckpointParagraph": 74,
+    "clock": 79983,
+    "sha256": "b688f03d49435303c0d4ed2bbfd6e67176894da275109050e012136eff482f0f",
+    "earnedOnBundleSha256": "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623"
+  },
+  "terminal": {
+    "clock": 80027,
+    "lastAction": "book.lotm.kj3bc.name-contact",
+    "newCurrentCheckpointSha256": "0eedb3a4150c4be5d0b65024204a4dda0a8f844b2903627ebb2d4cbd5c5c5b83"
+  },
+  "proof": {
+    "path": "docs/representations/evidence/lotm-earned-frontier-2026-11-25/current-full-bc.json",
+    "sha256": "a2a89d9cb465b54c3f752330b2b4762123a2b04bf85559b9fbc61d2a086a3cbb",
+    "driverPath": "work/lotm-earned-replay-20261125/probe-full-bc.mjs",
+    "driverSha256": "da3214fd447924ae5020a2541b5ea130256abb9adee98e0160c7a1aed2fe26a6"
+  },
+  "testedBundleSha256": "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca",
+  "actualServedHashes": [
+    "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca",
+    "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca",
+    "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca",
+    "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca",
+    "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca"
+  ],
+  "candidatePackSha256": "4e1b1e4be8d9420553259132ad02ceef7b41fb6fa0f9241aa63bcb619eea5c0e",
+  "sourceReviewSha256": "d470db1944b7b77801670c2d1356e708f511af1fb3e81e64cca86d83925bcb8a",
+  "pendingSaveReload": true,
+  "finalSaveReload": true,
+  "nativeExportImport": true,
+  "literalFilePickerImport": false,
+  "viewport": "1920x1080",
+  "pageErrors": 0,
+  "defaultDiskGuardPassed": true,
+  "originalInputUnchanged": true,
+  "broaderCurrentFrontierNotClaimed": "No BD–BH replay; historical ch163P082 remains separate. This is not a current-from-start run."
+}

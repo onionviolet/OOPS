@@ -1,0 +1,26 @@
+{
+  "schema": "lotm-wait-source-freeze/1",
+  "status": "persistent progress/Stop and clock-only render regression passed; rebuilt IAB acceptance pending",
+  "files": [
+    {
+      "path": "src/wait_until.js",
+      "sha256": "3ab0b41dd833ff5dd9d18da57bc7441774cfd79b73f3f14e3df9ab9d37e7bf6e"
+    },
+    {
+      "path": "src/book_world_lotm_host.js",
+      "sha256": "206ce8b51a0256da5e554731afa8355de76d9e68cf66e3ed35bba8cf492e54dd"
+    },
+    {
+      "path": "src/book_world_lotm_domain.js",
+      "sha256": "f4c32cdffd66c6297ee478dfee2990641a257583ffa9294e074f7ffe9315a8c3"
+    },
+    {
+      "path": "src/book_world_lotm_ui.js",
+      "sha256": "89efff0f05b006f7a7f0cd88a45422cda4de514117f9e0560790f7182d74ac78"
+    },
+    {
+      "path": "src/perspective_controls.js",
+      "sha256": "19ddb5a799de2b0af4eeaf50a5cdd62c701fbbf8036b34597b5aed07b6cff65b"
+    }
+  ]
+}

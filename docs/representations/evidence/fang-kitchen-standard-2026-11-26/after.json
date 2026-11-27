@@ -1,0 +1,101 @@
+{
+  "version": "after",
+  "bundle": "c2b6405fe68e90c3c190a541c9ef68b9f391aeabbc4fddd65ac95fbb29985a65",
+  "stylesheet": {
+    "file": "styles/daily_powers.css",
+    "sha256": "6f54e357319097d380141ea1bbd44c3db92c7ce96233b65f2e33bf85b31e71a0"
+  },
+  "fixture": "de3bed3a815efbd9dd588f74dc4a96645516448f9d3945648243219f7d381502",
+  "runs": [
+    {
+      "width": 1366,
+      "height": 768,
+      "captures": [
+        "after-1366-rest.png",
+        "after-1366-active.png",
+        "after-1366-ended.png"
+      ],
+      "result": {
+        "clock": 321628,
+        "reserve": 40,
+        "work": [
+          [
+            "book.ri.lead.day.sell_meat",
+            1
+          ],
+          [
+            "book.ri.lead.daily_powers.portion_seen",
+            1
+          ]
+        ],
+        "notes": [
+          [
+            "book.ri.lead.day.sold",
+            {
+              "stage": "understood",
+              "value": "The kitchens paid a primeval stone for 6 jin of wolf meat.",
+              "at": 321618,
+              "cause": "simulation:419"
+            }
+          ],
+          [
+            "book.ri.lead.daily_powers.sale",
+            {
+              "stage": "understood",
+              "value": "The kitchens paid a primeval stone for 6 jin of wolf meat. The academy elder looks up at the flash from your palm.",
+              "at": 321628,
+              "cause": "simulation:421"
+            }
+          ]
+        ]
+      },
+      "persisted": false,
+      "pageErrors": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "captures": [
+        "after-1920-rest.png",
+        "after-1920-active.png",
+        "after-1920-ended.png"
+      ],
+      "result": {
+        "clock": 321628,
+        "reserve": 40,
+        "work": [
+          [
+            "book.ri.lead.day.sell_meat",
+            1
+          ],
+          [
+            "book.ri.lead.daily_powers.portion_seen",
+            1
+          ]
+        ],
+        "notes": [
+          [
+            "book.ri.lead.day.sold",
+            {
+              "stage": "understood",
+              "value": "The kitchens paid a primeval stone for 6 jin of wolf meat.",
+              "at": 321618,
+              "cause": "simulation:419"
+            }
+          ],
+          [
+            "book.ri.lead.daily_powers.sale",
+            {
+              "stage": "understood",
+              "value": "The kitchens paid a primeval stone for 6 jin of wolf meat. The academy elder looks up at the flash from your palm.",
+              "at": 321628,
+              "cause": "simulation:421"
+            }
+          ]
+        ]
+      },
+      "persisted": true,
+      "pageErrors": []
+    }
+  ]
+}

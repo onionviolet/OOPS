@@ -1,0 +1,7 @@
+{
+  "date": "2026-11-26",
+  "runtime": "native Node DOM",
+  "status": "failed driver attempt, not app acceptance",
+  "observed": "Save/reload during recruitment collapsed the Beginning module. Driver tried hidden awakening control.",
+  "correction": "Use normal Beginning control to reopen the panel before continuing. No runtime patch."
+}

@@ -1,0 +1,266 @@
+[
+  {
+    "world": "ark",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "asl",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "az",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "bdm",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "boc",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "coi",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "dc",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "dl",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "eld",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "fod",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "gc",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "hp",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "hwfwm",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "lotm",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "mb",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "mm",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "mol",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "motf",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "pge",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "pl",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "poa",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "pr",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "rak",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "rg",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "ri",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "rtoc",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "rune",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "sg",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "ss",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "stc",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "sth",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "sup",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "toa",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "ttks1",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "ttks2",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "ttks3",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "ttks4",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "ttks5",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "twi",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "vs",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "worm",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "wtc",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "wus",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  },
+  {
+    "world": "yas",
+    "status": "measured",
+    "fileState": "metadata-matches",
+    "stale": []
+  }
+]

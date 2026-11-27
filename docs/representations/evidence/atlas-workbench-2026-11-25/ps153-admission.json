@@ -1,0 +1,16 @@
+{
+  "admitted": {
+    "reference": "docs/gm/dispatch/play-surface-2026-11-14/CONSIDERATIONS.md",
+    "title": "considerations",
+    "group": "Game idea index",
+    "backlog": false
+  },
+  "ideaId": "61268f9dfc88e941773ba8736ad255f772a3097decf6a51f19d4c1f24662e253",
+  "entryText": "PS153 · Item glow by meaning.\nProposal entry from source context\nPlay surface: more to consider › Round 16, 2026-11-15: feel and finish, the Discord features, and UI for what has none › Feel and finish (proposals; polish lane)\n\nRarity or quality as a coloured name with a soft edge glow; a new item pulses once and keeps a dot until hovered; equipped and favourited items get a mark (☆ as in YAIR). A glow means one thing per world, with no decoration for its own sake.\n\ndocs/gm/dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#idea-61268f9dfc88e941773ba8736ad255f772a3097decf6a51f19d4c1f24662e253\nSource: docs/gm/dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#L463 · lines 463–463\nPrepare a handoff from this entry\nCite this exact entry in a handoff\n\nVerify this exact entry in its owner\n\n0 saved handoffs cite this exact entry. This is not its implementation status.",
+  "viewport": "1366x900",
+  "ownerReferenceCount": 448,
+  "uniqueOwnerFiles": 299,
+  "canonicalOwnerReferenceCount": 445,
+  "canonicalUniqueOwnerFiles": 296,
+  "canonicalAdmitted": true
+}

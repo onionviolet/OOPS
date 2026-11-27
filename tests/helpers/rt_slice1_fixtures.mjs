@@ -7,7 +7,7 @@ import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import {build} from 'esbuild';
 const require = createRequire(import.meta.url);
-const {chromium} = require(process.env.RT_PLAYWRIGHT_MODULE || '/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {launchChrome} = require('../../scripts/ui_helpers.cjs');
 const root = new URL('../../', import.meta.url);
 export const fixtureDirectory = new URL('../fixtures/rt_slice1/', import.meta.url);
 export const fixtureNames = ['old-before-slice', 'crafted-low', 'crafted-high', 'town-returned'];
@@ -50,7 +50,9 @@ export async function rtSlice1Game() {
     });
     await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
     let browser;
-    try {browser = await chromium.launch({headless:true,executablePath:process.env.RT_CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});}
+    try {browser = process.env.RT_PLAYWRIGHT_MODULE
+        ? await require(process.env.RT_PLAYWRIGHT_MODULE).chromium.launch({headless:true, ...(process.env.RT_CHROME_PATH ? {executablePath:process.env.RT_CHROME_PATH} : {})})
+        : await launchChrome(process.env.RT_CHROME_PATH ? {executablePath:process.env.RT_CHROME_PATH} : {});}
     catch(error) {await new Promise(resolve=>server.close(resolve));throw error;}
     const errors = [];
     async function open(save) {

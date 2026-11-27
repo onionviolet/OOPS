@@ -8,6 +8,7 @@ import {worldWeatherWords} from '../src/world_weather_display.js';
 import {Game_Time} from '../src/game_time.js';
 import {molCalendarAt} from '../src/book_world_mol_native.js';
 import {paradiseCalendarAt} from '../src/book_world_paradise_native.js';
+import {replacesStructuredReportLife} from '../src/structured_pack_runtime.js';
 const p = profiles['book.mol.cyoria'];
 const view = (elapsed = 0, instanceId = 'test.visitor') => projectCalendar(p, {elapsed, instanceId});
 const freeze = x => {if (x && typeof x === 'object') {Object.values(x).forEach(freeze);Object.freeze(x);}return x;};
@@ -97,17 +98,19 @@ test('W33.T6 actual host publication seam emits only after storage success and b
     const lines = [], next = view(1080), log = createCalendarLog(text => lines.push(text));
     let invalidations = 0;
     log.commit(view()); lines.length = 0;
+    let reportResets = 0;
     const context = {plan: {state: {clock: 1080}}, create_save() {}, lifeSaveStorage: {}, stagedGameplay: {bindings: {}},
         ownershipBindings: {}, unlockPublication: {}, equipmentPublication: {}, nativePublication: {},
         validateSaveEnvelope() {}, game_version: 'test', is_on_dev: () => true, dev_save_key: 'dev', save_key: 'save',
         current_combat: null, expansionState: {clock: 0}, nextLocalCalendar: next, localDateLog: log, freshLifeStart: {storage: storage => storage},
+        replacesStructuredReportLife, reset_message_log_for_life() {reportResets++;},
         readFrame: {invalidate() {invalidations++;assert.equal(context.expansionState.clock, 0);}},
         persistExpansionPlan() {throw Error('storage failed');}};
     assert.throws(() => vm.runInNewContext(`(function(){${seam}})()`, context), /storage failed/);
     assert.equal(context.expansionState.clock, 0); assert.equal(lines.length, 0); assert.equal(invalidations, 0);
     context.persistExpansionPlan = () => {};
     vm.runInNewContext(`(function(){${seam}})()`, context);
-    assert.equal(context.expansionState.clock, 1080); assert.equal(lines.length, 1); assert.equal(invalidations, 1);
+    assert.equal(context.expansionState.clock, 1080); assert.equal(lines.length, 1); assert.equal(invalidations, 1); assert.equal(reportResets, 0);
     assert.ok(end < source.indexOf('for(const message of plan.localLifeResult.messages)', end));
     const display = readFileSync(new URL('../src/display.js', import.meta.url), 'utf8');
     assert.match(display, /if\(details.safeText\) message.textContent = message_to_add/);

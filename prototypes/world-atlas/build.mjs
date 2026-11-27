@@ -5,7 +5,7 @@
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {existsSync, mkdirSync, readFileSync, readdirSync, renameSync, writeFileSync} from 'node:fs';
-import {dirname, join} from 'node:path';
+import {dirname, join, resolve} from 'node:path';
 import {readLibrary} from './library-reading.mjs';
 import {readBatches} from './batch-status.mjs';
 import {buildCodex} from './codex.mjs';
@@ -47,7 +47,7 @@ export function latestBatchCollection(rows) {
     return rows.reduce((latest, row) => Math.max(latest, row.latestCollectedAt), 0);
 }
 
-export function buildSnapshot(out = SNAPSHOT) {
+export function buildSnapshot({out = SNAPSHOT} = {}) {
     const latestCollectedAt = latestBatchCollection(readBatches(readLibrary().keys.map(k => k.key)));
     const dirty = Boolean(execFileSync('git', ['status', '--porcelain', '--untracked-files=normal'], {cwd: root, encoding: 'utf8'}).trim());
     const timings = {}, failures = [];
@@ -75,7 +75,7 @@ export function buildSnapshot(out = SNAPSHOT) {
     const mechanics = part('mechanics', () => run('mechanics.mjs'));
     const progress = part('progress', () => latestProgress());
     // Reader findings: the matrix rides in the snapshot; one digest per world goes beside it for the Things and Making views.
-    const findings = part('findings', () => run('reader-findings.mjs', ['--out-dir', join(dirname(out), 'readers')]));
+    const findings = part('findings', () => run('reader-findings.mjs', ['--out-dir', join(dirname(out), 'readers')]), true);
     const recipes = part('recipes', () => run('game-recipes.mjs'));
     const gameMaking = part('gameMaking', () => run('game-making.mjs'));
     const codex = part('codex', () => buildCodex()); // aggregates only; row pages are served on demand (C1)
@@ -84,15 +84,15 @@ export function buildSnapshot(out = SNAPSHOT) {
     const head = execFileSync('git', ['rev-parse', '--short', 'HEAD'], {cwd: root, encoding: 'utf8'}).trim();
     const changes = part('changes', () => buildChanges({commit: head, codex, cheats, existing: readSnapshot(out)?.changes ?? null}));
     const snapshot = {builtAt: new Date().toISOString(), commit: execFileSync('git', ['rev-parse', '--short', 'HEAD'], {cwd: root, encoding: 'utf8'}).trim(),
-        dirty, latestCollectedAt, timings, failures, books, frontier: native.frontier, others: native.others, sources, mechanics, progress, findings, recipes, gameMaking, codex, cheats, ideas, changes};
+        dirty, latestCollectedAt, timings, failures, books, frontier: native.frontier, others: native.others, registeredTravel:native.registeredTravel??null, sources, mechanics, progress, findings, recipes, gameMaking, codex, cheats, ideas, changes};
     return snapshot;
 }
 
 export function readSnapshot(file = SNAPSHOT) {return existsSync(file) ? readJson(file) : null;}
 
 if (import.meta.main) {
-    const i = process.argv.indexOf('--out'), out = i > 0 ? process.argv[i + 1] : SNAPSHOT;
-    const s = buildSnapshot(out);
+    const i = process.argv.indexOf('--out'), out = i > 0 ? resolve(process.argv[i + 1]) : SNAPSHOT;
+    const s = buildSnapshot({out});
     if (!s.failures.some(f => f.required)) {
         mkdirSync(dirname(out), {recursive: true});
         const temporary = out + '.' + process.pid + '.tmp';

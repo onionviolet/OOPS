@@ -4,11 +4,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
+import {readCanonicalText} from '../scripts/canonical_text.mjs';
 import {buildWormLedger, toLedgerText, readSidecar, summarize} from '../scripts/worm_power_ledger.mjs';
 import {parseLedger} from '../scripts/coverage_report.mjs';
 import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES, VERB_ACCEPTS} from '../src/effect_grammar.js';
 
-const text = readFileSync(new URL('../docs/coverage/worm_powers.jsonl', import.meta.url), 'utf8');
+const text = readCanonicalText(new URL('../docs/coverage/worm_powers.jsonl', import.meta.url));
 const rows = text.trim().split('\n').map(l => JSON.parse(l));
 const side = readSidecar();
 const SPEAKERS = ['narrator', 'character_claim', 'demonstration', 'wiki', 'unknown'];

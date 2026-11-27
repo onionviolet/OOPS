@@ -1,3 +1,4 @@
+import {validateFarmSupplyState} from './farm_supply.js';
 import {natural, sameJson as same} from '../basics.js';
 import {I} from './shared.js';
 import {managementDefinitions} from './content.js';
@@ -10,6 +11,7 @@ export function stampManagementJob(state,job) {
 // Validate real resident balances against exact authored transactions and held
 // costs. Old saves with no charter remain inert and gain no defaults.
 export function validateManagementState(state,registry) {
+ validateFarmSupplyState(state);
  const s=state.simulation,opened=state.actors?.player?.facts?.['mg.opened']===true;
  const related=Object.keys(state.actors||{}).some(id=>id.startsWith('mg.'))||Object.keys(s?.sites||{}).some(id=>id.startsWith('mg.'))||Object.keys(state.actors?.player?.facts||{}).some(id=>id.startsWith('mg.'));
  if(!opened){check(!related,'local records require explicit charter activation.');return;}

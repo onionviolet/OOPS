@@ -1,0 +1,69 @@
+{
+  "task": "Ordinary first-work choice affordance",
+  "buildSha256": "efc4817f08b2ebd2cb9a66ca8a856cdb77ece1a9e3c9949dc0dd879b6cf4c383",
+  "earnedCheckpointSha256": "ea59e00316afea92bdfd88dbd5e24bf47ef5f671f98ab568c7eecc6c33576e9f",
+  "viewport": "1920x1080",
+  "setup": "Normal PLAY -> Village -> Tingen crossing -> Nighthawk probationer confirmation -> report. Fresh browser contexts branch only from that UI-earned checkpoint; no world fixture or gifted powers.",
+  "offers": [
+    "Stand a night watch over the cold room… · 60 min · earns 2 meritOne start covers 1 h and earns 2 merit on completion. Matching that time and merit with copying takes 2 starts. Issuer Warden Hale. Risk: Sleepless hours. You can walk away, but the watch only counts once the hour ends.",
+    "Copy a closed case file into the church… · 30 min · earns 1 meritPractises your copying hand. Each completed 30 min assignment earns 1 merit. Issuer Warden Hale. Risk: None beyond a cramped hand."
+  ],
+  "branches": [
+    {
+      "name": "Two copies",
+      "starts": 2,
+      "before": {
+        "clock": 0,
+        "merit": 0,
+        "copying": null,
+        "pool": null
+      },
+      "after": {
+        "clock": 60,
+        "merit": 2,
+        "copying": "Copying hand: mastery 4. At 20: copy a case file that cites sealed references.",
+        "pool": "Desk practice pooled: 1 of 8. Each copy adds to it until it is full. Desk work across the records builds a general steadiness beyond any one kind of file. Pouring it into one kind of file sharpens that file and leaves the desk less settled."
+      }
+    },
+    {
+      "name": "One watch",
+      "starts": 1,
+      "before": {
+        "clock": 0,
+        "merit": 0,
+        "copying": null,
+        "pool": null
+      },
+      "after": {
+        "clock": 60,
+        "merit": 2,
+        "copying": null,
+        "pool": null
+      }
+    }
+  ],
+  "checks": [
+    "Both offers explain actual time, merit and start count before choice",
+    "Copying practice is stated before first learning; hidden future rewards are omitted",
+    "Matching initial clocks, merit, absent copying mastery and absent pool",
+    "Both branches advance60minutes and earn2merit; only copying learns/practises its hand and earns pooled practice"
+  ],
+  "pageErrors": [],
+  "verification": {
+    "build": "BUILD_OUT=.lane-builds/ordinary-work-choice-20261125 npm run build: passed",
+    "focused": "node --test tests/institution_store.test.js tests/ui_contract.test.js tests/ui_style_ratchet.test.js:15/15 passed",
+    "architecture": "npm run check:arch:passed;6 grandfathered main imports,205 cycle edges unchanged",
+    "persistence": "Unchanged;no save fields or migration",
+    "review": "Agent-verified,not human-reviewed",
+    "visual": "1920x1080;both offers and all new comparison text fit the existing center view",
+    "sourceEdits": [
+      "src/book_world_lotm_merit.js",
+      "src/book_world_lotm_ui.js (mission row only)",
+      "tests/institution_store.test.js"
+    ],
+    "owner": "docs/audits/LEAD_CORE_FLOW_AUDIT_2026-11-13.md,D2 ordinary-offer slice",
+    "rules": "npm run check:rules:passed (rules index,58 receipts,direction sync,player text/durations,names,continuity,rule routes;10 nonfailing warning entries)",
+    "docs": "D2 completion paragraph added to original loop audit; both evidence links resolve; git diff --check passed",
+    "cleanup": "All proof assertions completed before closing. Graceful browser cleanup later timed out and reset the Node REPL; identified owned browser remnants were stopped by exact PID. Owned servers are gone; isolated build and probe script removed. Windows retains one locked CrashpadMetrics-active.pma browser residue at C:/Users/wayba/AppData/Local/Temp/playwright_chromiumdev_profile-DnCkXk after bounded removal retries; the remaining residue is named here rather than treated as removed. Automatic approval review subsequently rejected the scoped PowerShell removal of the remaining profile contents with stated reason \"blocked by policy\". That profile is retained; no alternate deletion route was attempted after rejection."
+  }
+}

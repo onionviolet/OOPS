@@ -1,3 +1,4 @@
+import {settleFarmSupply} from './farm_supply.js';
 import {check} from '../basics.js';
 import {evaluateRule} from '../rules.js';
 import {UNMET_REASON} from '../player_reasons.js';
@@ -48,6 +49,7 @@ export function commitManagement(state,registry,command,context,sequence=state.s
   out.acquisitions=[...(first.acquisitions||[]),...(out.acquisitions||[])];
   out.unlocks=[...(first.unlocks||[]),...(out.unlocks||[])];
  }
+ settleFarmSupply(out,registry,managementContext(out.state,{...context,external:out.external,gameplay:out.gameplay}),{harvest:command.id==='mg.farm.harvest_grain'});
  validateManagementState(out.state,registry.simulation);
  return out;
 }

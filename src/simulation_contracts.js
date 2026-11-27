@@ -1,4 +1,5 @@
 import {stableId} from "./simulation_ids.js";
+import {validateRiStoneEffect} from './ri_stone_pieces.js';
 import {isKeeperColonyEffect} from './gu_keeper_colony.js';
 import {isKeeperTimeEffect} from './gu_keeper_time.js';
 import {isKeeperWildEffect} from './gu_keeper_wild.js';
@@ -39,14 +40,29 @@ import {validateConstructEffect, validateConstructState} from './temporary_const
 import {validateSourceSuppliers} from './source_suppliers.js';
 
 
-export function jsonData(value, depth = 0) {
+function validateJsonValue(value, depth) {
     assert(depth < 32, "Simulation data is too deeply nested.");
     if(value === null || typeof value === "boolean" || typeof value === "string") return;
     if(typeof value === "number") {assert(finite(value), "Nonfinite simulation value."); return;}
     assert(Array.isArray(value) || record(value), "Simulation data must be JSON.");
     for(const [key, child] of Object.entries(value)) {
         assert(!["__proto__", "constructor", "prototype"].includes(key), "Unsafe simulation key.");
-        jsonData(child, depth + 1);
+        try {
+            validateJsonValue(child, depth + 1);
+        } catch (error) {
+            (error.simulationPath ||= []).push(key);
+            throw error;
+        }
+    }
+}
+export function jsonData(value, depth = 0, owner = 'root') {
+    try {
+        validateJsonValue(value, depth);
+    } catch (error) {
+        // Construct the path on failure. Successful save and tick validation stay allocation-free here.
+        const path = [owner, ...(error.simulationPath || []).reverse()].join('.');
+        error.message += ' At ' + path + '.';
+        throw error;
     }
 }
 export function validatePredicate(rule) {
@@ -69,6 +85,7 @@ function simulationOperations() {return operations ||= new Set(["spawn", "reloca
 
 
 export function validateSimulationEffect(e) {
+    if(e?.type==='riStoneDraw'){validateRiStoneEffect(e);return;}
     assert(record(e) && simulationOperations().has(e.type), `Unsupported simulation effect: ${e?.type}`);
     if(e.actor != null) assert(selector(e.actor), "Invalid effect actor.");
     if(e.origin != null) assert(["source", "faculty"].includes(e.type) && ["unknown", "inherited", "trained", "acquired"].includes(e.origin), "Invalid acquisition origin.");
@@ -106,6 +123,9 @@ export function validateSimulationEffect(e) {
     if(e.type === "item") {validateItemKey(e.key); assert(Number.isSafeInteger(e.amount) && e.amount !== 0, "Invalid item amount.");}
     if(e.reservationReturn != null) assert(e.reservationReturn === true && (e.type === "item" && e.amount > 0 || e.type === "transfer"), "Invalid reservation return.");
     if(e.type === "transfer" || e.type === "custody") {validateItemKey(e.key); assert(selector(e.from) && selector(e.to) && e.from !== e.to && natural(e.count) && e.count > 0, "Invalid transfer.");}
+    if(e.type==='custody'&&e.operation!=null)assert(e.operation==='release'&&selector(e.actor),"A custody release needs its actual creditor actor.");
+    if(e.replacementKey != null) {assert(e.type === "custody", "Equivalent returns need a custody contract.");validateItemKey(e.replacementKey);}
+    if(e.equivalentKey != null) {assert(e.type === "custody", "Equivalent terms need a custody contract.");validateItemKey(e.equivalentKey);}
     if(e.type === "xp") assert(typeof e.skill === "string" && finite(e.amount) && e.amount > 0, "Invalid native XP.");
     if(e.type === "reputation") assert(typeof e.region === "string" && finite(e.amount), "Invalid native reputation.");
     if(e.type === "knowledge") assert(stableId(e.key) && ["seen", "interpreted", "understood"].includes(e.stage) && typeof e.value === "string", "Invalid knowledge.");
@@ -168,7 +188,7 @@ export function createSimulationRegistry(definitions = {}) {
             jsonData(d); validatePredicate(d.requires); validatePredicate(d.visibleWhen);
             if(d.audience) assert(family === "commands" && Array.isArray(d.audience) && d.audience.length > 0 && new Set(d.audience).size === d.audience.length && d.audience.every(id => ["$actor","$target"].includes(id) || stableId(id)), "Invalid command audience.");
             for(const key of ["costs", "effects", "onExpire", "onComplete"]) (d[key] || []).forEach(validateSimulationEffect);
-            for(const cost of d.costs || []) assert(["item", "resource", "vital", "transfer", "custody", "energy"].includes(cost.type) && (cost.type !== "energy" || cost.operation === "use") &&
+            for(const cost of d.costs || []) assert(["item", "resource", "vital", "transfer", "custody", "energy"].includes(cost.type) && !(cost.type==='custody'&&cost.operation==='release') && (cost.type !== "energy" || cost.operation === "use") &&
                 (!["item", "resource", "vital"].includes(cost.type) || typeof cost.amount === "object" || cost.amount < 0), "Costs must reserve existing means.");
             const frozen = freeze(copy(d)); registeredSimulation.add(frozen); registry[family].set(d.id, frozen);
         }
@@ -185,6 +205,7 @@ export function createSimulationRegistry(definitions = {}) {
     for(const d of registry.commands.values()) {
         if(d.participantsCoLocated!=null)assert(typeof d.participantsCoLocated==='boolean', 'Invalid participant contact policy.');
         assert(natural(d.duration || 0) && ["none", "refund", "forfeit"].includes(d.cancellation || "none"), "Invalid command timing.");
+        if(d.durationRecovery!=null)assert(record(d.durationRecovery)&&Object.keys(d.durationRecovery).every(k=>['energyId','minutesPerPart','anchorKnowledge'].includes(k))&&stableId(d.durationRecovery.energyId)&&registry.energies.has(d.durationRecovery.energyId)&&Number.isSafeInteger(d.durationRecovery.minutesPerPart)&&d.durationRecovery.minutesPerPart>0&&d.durationRecovery.minutesPerPart<=1440&&(d.durationRecovery.anchorKnowledge==null||stableId(d.durationRecovery.anchorKnowledge))&&d.duration>0&&!d.durationSinceKnowledge&&!d.fluency,'Invalid energy recovery duration.');
         if(d.durationSinceKnowledge!=null)assert(stableId(d.durationSinceKnowledge)&&d.duration>0&&!d.fluency,'Invalid command time anchor.');
         if(d.fluency !== undefined) assert(d.powerId && natural(d.fluency.floor) && d.fluency.floor >= 1 && d.fluency.floor <= d.duration && natural(d.fluency.halfAt) && d.fluency.halfAt > 0 && Object.keys(d.fluency).length === 2, "Invalid command fluency.");
         assert(d.reservationReturns === undefined || d.reservationReturns === 1, 'Unsupported authored reservation return accounting.');
@@ -307,7 +328,7 @@ export function validateSimulationState(s, state, registry) {
         validateGameplaySnapshot({[id]: {inventory, skills: {}, reputation: {}}});
     }
     for(const [actor, slots] of Object.entries(s.equipment)) {person(actor); for(const [slot, key] of Object.entries(slots)) {assert(stableId(slot), "Invalid equipment slot."); validateItemKey(key);}}
-    for(const [key,c] of Object.entries(s.custody)) {assert(stableId(key) && natural(c.count) && c.count > 0 && natural(c.at) && c.at <= state.clock, "Invalid custody."); person(c.owner); person(c.holder); validateItemKey(c.key);}
+    for(const [key,c] of Object.entries(s.custody)) {assert(stableId(key) && natural(c.count) && c.count > 0 && natural(c.at) && c.at <= state.clock, "Invalid custody."); person(c.owner); person(c.holder); validateItemKey(c.key);if(c.equivalentKey!=null)validateItemKey(c.equivalentKey);}
     for(const [actor, knowledge] of Object.entries(s.knowledge)) {person(actor); for(const [key, k] of Object.entries(knowledge)) assert(stableId(key) && ["seen", "interpreted", "understood"].includes(k.stage) && typeof k.value === "string" && natural(k.at) && k.at <= state.clock && stableId(k.cause), "Invalid observed knowledge.");}
     for(const [actor, relations] of Object.entries(s.relationships)) {person(actor); for(const [target,r] of Object.entries(relations)) {person(target); assert(record(r.axes) && Array.isArray(r.memories) && r.memories.length <= 32, "Invalid directed memory."); for(const [axis,v] of Object.entries(r.axes)) assert(stableId(axis) && finite(v), "Invalid relationship axis.");}}
     for(const [id,c] of Object.entries(s.claims)) {assert(stableId(id) && ["held", "settled"].includes(c.status) && stableId(c.cause), "Invalid unique claim."); person(c.owner);}
@@ -318,6 +339,7 @@ export function validateSimulationState(s, state, registry) {
     const busy = new Set();
     for(const j of s.jobs) {
         person(j.actorId); assert(stableId(j.id) && !busy.has(j.actorId) && natural(j.due) && j.due >= state.clock && natural(j.sequence) && j.sequence <= state.sequence && stableId(j.commandId) && natural(j.revision) && j.revision > 0 && ["none", "refund", "forfeit"].includes(j.cancellation), "Invalid saved simulation job.");
+        if(j.duration!=null)assert(natural(j.duration)&&j.duration>0&&j.duration<=j.due,"Invalid saved job duration.");
         if(j.audience) {assert(Array.isArray(j.audience) && j.audience.length > 0 && new Set(j.audience).size === j.audience.length, "Invalid saved job audience.");j.audience.forEach(person);}
         const participants = j.participants || [j.actorId];
         assert(Array.isArray(participants) && participants.includes(j.actorId) && new Set(participants).size === participants.length, "Invalid reserved participants.");

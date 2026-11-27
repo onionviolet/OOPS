@@ -1,7 +1,7 @@
 import {rainCycle,isRainingOnDay} from '../src/weather_calendar.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readCanonicalText} from '../scripts/canonical_text.mjs';
 import vm from 'node:vm';
 import {Game_Time, night_time} from '../src/game_time.js';
 import {BASE_CLIMATE_PROFILE as base, PROPOSED_CLIMATE_PROFILES as proposals,
@@ -9,7 +9,7 @@ import {BASE_CLIMATE_PROFILE as base, PROPOSED_CLIMATE_PROFILES as proposals,
 
 // Exercise actual legacy formula without importing its main.js/DOM dependency.
 // Remove only module wiring; all temperature, rain and light arithmetic is live.
-const legacySource = readFileSync(new URL('../src/weather.js', import.meta.url), 'utf8')
+const legacySource = readCanonicalText(new URL('../src/weather.js', import.meta.url))
     .replace(/^import .*;\n/gm, '').replace(/export\s*\{[^}]*\};\s*$/, '');
 function legacy(time, place) {
     const ctx = vm.createContext({current_game_time: time, current_location: place, Game_Time, night_time, rain_cycle:rainCycle, isRainingOnDay});

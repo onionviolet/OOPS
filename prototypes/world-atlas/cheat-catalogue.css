@@ -1,0 +1,23 @@
+.atlas-cheats a { color: #b4ddc9; text-underline-offset: .2em; }
+.atlas-cheats a:focus-visible, .atlas-cheats summary:focus-visible {
+    outline: 2px solid #e8ce83; outline-offset: 3px;
+}
+.atlas-cheats .cheat-identity {
+    margin: 1.35rem 0 .15rem; color: #b4c9c1; font-size: .93rem;
+}
+.atlas-cheats .cheat-identity + h2 { margin: 0; font-size: clamp(2rem, 3.1vw, 3.1rem); }
+.atlas-cheats .cheat-effect { max-width: 72ch; margin: .45rem 0 1.4rem; font-size: 1.15rem; }
+.cheat-record-body { display: grid; grid-template-columns: minmax(0, 2fr) minmax(16rem, 1fr); gap: 2rem; }
+.cheat-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+.cheat-comparison > section, .cheat-record-body aside {
+    padding: .9rem 1.1rem; background: #1d3036; border-top: 2px solid #819c93;
+}
+.cheat-comparison > section + section { border-color: #d4bb7b; }
+.cheat-record-body h3 { margin: 0 0 .45rem; }
+.cheat-record-body aside { align-self: start; border-color: #58737c; }
+.cheat-record-body aside strong, .cheat-record-body code { display:block; }
+.cheat-record-body code { overflow-wrap: anywhere; color: #bdccc8; font-size: .87rem; }
+.cheat-evidence { margin-top: 1.3rem; }
+.cheat-evidence li { margin-block: .4rem; }
+@media (max-width: 64rem) { .cheat-record-body { grid-template-columns: 1fr; gap: 1rem; } }
+@media (max-width: 42rem) { .cheat-comparison { grid-template-columns: 1fr; } }

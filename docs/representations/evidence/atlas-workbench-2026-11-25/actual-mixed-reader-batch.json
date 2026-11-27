@@ -1,0 +1,35 @@
+{
+  "chapters": [
+    "lotm1c127",
+    "lotm1c128",
+    "lotm1c129"
+  ],
+  "submitted": 4,
+  "identicalExistingIds": true,
+  "results": [
+    {
+      "index": 0,
+      "key": "rule:lotm.institution.material-quota:entry:0",
+      "id": "221e0889c81cd9655cfd425fb1688bd1d853032c8d1e1e4e2ea5a5ba6af05715",
+      "route": "#workbench/handoffs/221e0889c81cd9655cfd425fb1688bd1d853032c8d1e1e4e2ea5a5ba6af05715"
+    },
+    {
+      "index": 1,
+      "key": "rule:lotm.rule.earmarked-commission-funds:entry:18",
+      "id": "977a42730945b0ba79250e106e71c8f2c0518411248ee9067218820fc86d7715",
+      "route": "#workbench/handoffs/977a42730945b0ba79250e106e71c8f2c0518411248ee9067218820fc86d7715"
+    },
+    {
+      "index": 2,
+      "key": "rule:lotm.rule.borrowed-slumber-replacement:entry:20",
+      "id": "d36ab6955de9976f57e6204e1cecd183e12acdc64f322f694b686582aecdb773",
+      "route": "#workbench/handoffs/d36ab6955de9976f57e6204e1cecd183e12acdc64f322f694b686582aecdb773"
+    },
+    {
+      "index": 3,
+      "key": "rule:lotm.craft.charm-recharge:entry:10",
+      "id": "e9d91f20f0d853fff601abafa85e8be05c5d28c52fb9ac5be3d19ada168183db",
+      "route": "#workbench/handoffs/e9d91f20f0d853fff601abafa85e8be05c5d28c52fb9ac5be3d19ada168183db"
+    }
+  ]
+}

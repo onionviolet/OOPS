@@ -1,3 +1,4 @@
+import {farmSupplyView} from './farm_supply.js';
 import {managementPresentation,managementWorldHere} from './host.js';
 import {courtyardOrganization} from './organization_source.js';
 import {organizationView,organizationText} from '../organization_view.js';
@@ -44,11 +45,14 @@ export function createManagementPanel({read,registry,command,peek}) {
  const dials=()=>({name:nameIn.value,...Object.fromEntries(Object.entries(dialSel).map(([k,sel])=>[k,sel.value]))});
  foundBtn.addEventListener('click',()=>{try{domainRegistry.command('organizations','found')(dials());nameIn.value='';message='Group founded and saved.';}catch(e){message=e.message;}render();});
  // OB7/OB12: hire a villager to tend the plot. Direct domain commands, like founding a group.
+ const catering=node('details'),cateringBody=node('div');catering.append(node('summary','Grain for Bram’s booked gathering'),cateringBody);
+ const keep=node('input','',{type:'number',min:'0',step:'1',value:'4','aria-label':'Grain to keep for household'}),orderBtn=node('button','Reserve next grain for Bram',{type:'button'}),clearBtn=node('button','Clear grain order and collect unserved food',{type:'button'}),cateringLine=node('p');cateringBody.append(node('label','Keep for household '),keep,orderBtn,clearBtn,cateringLine);
+ orderBtn.onclick=()=>{try{domainRegistry.command('farmSupply','order')({keep:Number(keep.value)});message='Grain order recorded.';}catch(e){message=e.message;}render();};clearBtn.onclick=()=>{try{domainRegistry.command('farmSupply','clear')();message='Grain order cleared.';}catch(e){message=e.message;}render();};
  const hands=node('details',''),handsBody=node('div','',{class:'expedition_card'});hands.append(node('summary','Hire help for the plot'),handsBody);
  const handCrop=node('select','',{'aria-label':'Crop to grow'});for(const c of['grain','greens'])handCrop.append(node('option',c,{value:c}));
  const handList=node('div');handsBody.append(node('label','Crop '),handList);handsBody.firstChild.append(handCrop);
  const awayHead=node('h3','Your groups',{class:'organization-away-head'});awayHead.hidden=true;
- element.append(moved,terms,notice,awayHead,overview,groupsNote,found,mine,hands,sections,history);
+ element.append(catering,moved,terms,notice,awayHead,overview,groupsNote,found,mine,hands,sections,history);
  const rows=new Map(),groups=new Map();let message='',selected=null,drawn='';
  function drawOverview(org) {
   const view=org&&organizationView(org);
@@ -91,6 +95,7 @@ export function createManagementPanel({read,registry,command,peek}) {
   terms.hidden=here;moved.hidden=here||seenMoved();awayHead.hidden=!here; // the panel keeps its registered title; away from the courtyard this names what it shows
   sections.hidden=here;history.hidden=here;
   if(/^Started: /.test(message)&&!view.sections.some(x=>x.id==='work'))message=message.replace(/^Started: (.*), [^,]+ to go\.$/,'Done: $1.'); // the job ended while the panel was open
+  const cv=farmSupplyView(snapshot.state);catering.hidden=court||!view.opened||(!cv.booked&&!['waiting','stored','finished','released'].includes(cv.phase));orderBtn.disabled=!cv.booked||!snapshot.canWrite||['waiting','stored'].includes(cv.phase)||!!(cv.program&&cv.program!=='grain');clearBtn.disabled=!snapshot.canWrite||!['waiting','stored','finished','released'].includes(cv.phase)||cv.busy;cateringLine.textContent=cv.phase==='released'?('The gathering is closed. Keep '+cv.keep+' grain for the household until you clear this order.'):cv.phase==='finished'?('Meal finished. Keep '+cv.keep+' grain for the household until you clear this order. Clearing resumes the previous market sell order.'):cv.phase==='stored'?`Mira holds one grain portion for Bram’s meal. Household reserve ${cv.keep}; the meal is still unpaid.`:cv.phase==='waiting'?`Waiting for a harvest with more than ${cv.keep} grain. Mira will hold one portion; market sales wait behind this food and household reserve.`:'Book first, then reserve a future grain portion even before it grows. Mira is the meal’s pantry custodian. The household holdback stays until you clear this order; clearing resumes existing grain sales.';
   notice.textContent=snapshot.error||message;notice.hidden=!notice.textContent;
   drawOverview(court||!view.opened?null:courtyardOrganization(snapshot.state,registry,snapshot.context));
   groupsNote.textContent=court||!view.opened?'':groupLines(groupsOf(snapshot.state)).join(' ');groupsNote.hidden=!groupsNote.textContent;

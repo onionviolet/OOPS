@@ -6,6 +6,7 @@
 // functions; no state, no clock, no save. Effects are plain JSON, so a cast pack can embed them.
 // The be seat's situation (LOTM_CAST_SITUATION in book_world_lotm_cast_host.js; copied to keep this module a leaf).
 import {isGrained,roundToGrain,grainFor,penceLabel} from './currency_subunits.js';
+import {officeFollowupFacts} from './lotm_office_followup.js';
 const SITUATION='book.lotm.tingen.canon_beside';
 export const BE_CLIENT_PREFIX='book.lotm.be.client.';
 export const BE_CLIENT_STATUS=Object.freeze(['none','paid','served_unpaid','refused']);
@@ -108,6 +109,7 @@ export function beClientFacts(state,f){
   const s=pf[key(id)];f[`lotm.be.client.${id}.status`]=BE_CLIENT_STATUS.includes(s)?s:'none';
   f[`lotm.be.client.${id}.fee`]=pf[key(id,'fee')]??0;f[`lotm.be.client.${id}.favor`]=pf[key(id,'favor')]??0;f[`lotm.be.client.${id}.owed`]=pf[key(id,'owed')]??0;
  }
+ Object.assign(f,officeFollowupFacts(state));
 }
 // Derived reading (services sold, referral standing, favor): the existing Reports and character views can quote it; nothing is saved here.
 export function beClientView(state){

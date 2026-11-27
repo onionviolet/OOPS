@@ -1,0 +1,419 @@
+{
+  "entry": "/",
+  "serverCommand": "node prototypes/world-atlas/serve.mjs",
+  "adoptedArchive": {
+    "path": "work/atlas-snapshot/snapshot.json",
+    "commit": "db24d3a92",
+    "builtAt": "2026-11-26T01:07:05.642Z"
+  },
+  "testedFiles": {
+    "prototypes/world-atlas/atlas-find-view.mjs": "7dac436ba8c6790cad9474603b6ec59ef9e1228e9a6129561b322af5e654ffc3",
+    "prototypes/world-atlas/atlas-find.mjs": "e4ca391e5a79e00af86cc62562ff5d2f6be02d98886b168f7ebd8ec77c06df40",
+    "prototypes/world-atlas/cheats-views.mjs": "c6b53236e427b3169b2b28d41d0c590795b061fe7dbbda506598d3b61a7f03d6",
+    "prototypes/world-atlas/ideas-views.mjs": "66280a15e1cb72f125999d266afd043eeed308e93eaab9520ca0f349e6e6eac3",
+    "prototypes/world-atlas/ideas.mjs": "456b0a1320dab466152e1a3b214ee26bbe648a56f9f28507c379f1b9ad810d97",
+    "prototypes/world-atlas/implementation-view.mjs": "0df2840b6db519f620d4e25bfa19eb10b6ce34bca38778a94a9e8a4d0efebcd0",
+    "prototypes/world-atlas/index.html": "b8da4459e10ecb68cbc8eb9297c0cbd5c153d0f55e848fa4b94f231295abc889",
+    "prototypes/world-atlas/serve.mjs": "f53036adde7cf2633460274d9a2e261c9cab05dfa351111a9a9e5e982485002a",
+    "work/atlas-snapshot/snapshot.json": "06448a4b85652de92fa711029e7a65b790ad682cd2451ed53e2530f70ef1d41a",
+    "prototypes/world-atlas/canvas.css": "3ca6e48b9c8a6de456303831ac809915cd04c864e2fde8524a2d856ef141a376",
+    "prototypes/world-atlas/atlas-type.css": "d1469bfcfbfd01edecb72939e4b271a7682643b7e85a77ad31cd47ff7c9591b5",
+    "styles/ui_tokens.css": "91ecc6142d8c7f7fe70d4a205ce39b7b185946e96929714087e1ad55abb05285"
+  },
+  "viewports": [
+    {
+      "width": 1366,
+      "height": 768,
+      "pageErrors": [],
+      "checks": [
+        {
+          "name": "Cheat catalogue from Library",
+          "hash": "#library/cheats",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          }
+        },
+        {
+          "name": "Runtime and variations populated",
+          "hash": "#library/cheats/index",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          }
+        },
+        {
+          "name": "Candidates populated",
+          "hash": "#library/cheats/candidates",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          }
+        },
+        {
+          "name": "Owner directory populated",
+          "hash": "#workbench/ideas",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          },
+          "visibleRows": 30
+        },
+        {
+          "name": "Boards and code index populated",
+          "hash": "#workbench/ideas/registry",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          }
+        },
+        {
+          "name": "Saved handoffs populated",
+          "hash": "#workbench/handoffs",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          },
+          "visibleRows": 12
+        },
+        {
+          "name": "Earned replays populated",
+          "hash": "#workbench/handoffs/replays",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          },
+          "titles": [
+            "Watchcraft"
+          ]
+        },
+        {
+          "name": "Redirect",
+          "hash": "#library/cheats",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          },
+          "from": "#cheats",
+          "to": "#library/cheats"
+        },
+        {
+          "name": "Redirect",
+          "hash": "#library/cheats/CTC64",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          },
+          "from": "#cheats/list/CTC64",
+          "to": "#library/cheats/CTC64"
+        },
+        {
+          "name": "Native evidence from exact cheat",
+          "hash": "#workbench/play-evidence/loaded-dice",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          }
+        },
+        {
+          "name": "Redirect",
+          "hash": "#library/cheats/candidates",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          },
+          "from": "#cheats/candidates",
+          "to": "#library/cheats/candidates"
+        },
+        {
+          "name": "Redirect",
+          "hash": "#workbench/ideas/registry",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          },
+          "from": "#ideas",
+          "to": "#workbench/ideas/registry"
+        },
+        {
+          "name": "Redirect",
+          "hash": "#workbench/ideas/registry/making-crafts-ideaboard-2026-11-19%23MKC89",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          },
+          "from": "#ideas/making-crafts-ideaboard-2026-11-19%23MKC89",
+          "to": "#workbench/ideas/registry/making-crafts-ideaboard-2026-11-19%23MKC89"
+        },
+        {
+          "name": "Redirect",
+          "hash": "#workbench/handoffs/replays",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          },
+          "from": "#workbench/implementation",
+          "to": "#workbench/handoffs/replays"
+        },
+        {
+          "name": "Global Find cheats",
+          "hash": "#find?q=Loaded+Dice",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          },
+          "query": "Loaded Dice",
+          "id": "CTC64",
+          "href": "#library/cheats/CTC64"
+        },
+        {
+          "name": "Opened Find result cheats",
+          "hash": "#library/cheats/CTC64",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          }
+        },
+        {
+          "name": "Global Find ideas",
+          "hash": "#find?q=MKC89",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          },
+          "query": "MKC89",
+          "id": "making-crafts-ideaboard-2026-11-19#MKC89",
+          "href": "#workbench/ideas/registry/making-crafts-ideaboard-2026-11-19%23MKC89"
+        },
+        {
+          "name": "Opened Find result ideas",
+          "hash": "#workbench/ideas/registry/making-crafts-ideaboard-2026-11-19%23MKC89",
+          "geometry": {
+            "viewport": 1366,
+            "document": 1366,
+            "body": 1366
+          }
+        }
+      ],
+      "captures": [
+        "cheat-catalogue-1366.png",
+        "ideas-and-backlogs-1366.png",
+        "implementation-handoffs-1366.png"
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "pageErrors": [],
+      "checks": [
+        {
+          "name": "Cheat catalogue from Library",
+          "hash": "#library/cheats",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          }
+        },
+        {
+          "name": "Runtime and variations populated",
+          "hash": "#library/cheats/index",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          }
+        },
+        {
+          "name": "Candidates populated",
+          "hash": "#library/cheats/candidates",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          }
+        },
+        {
+          "name": "Owner directory populated",
+          "hash": "#workbench/ideas",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          },
+          "visibleRows": 30
+        },
+        {
+          "name": "Boards and code index populated",
+          "hash": "#workbench/ideas/registry",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          }
+        },
+        {
+          "name": "Saved handoffs populated",
+          "hash": "#workbench/handoffs",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          },
+          "visibleRows": 12
+        },
+        {
+          "name": "Earned replays populated",
+          "hash": "#workbench/handoffs/replays",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          },
+          "titles": [
+            "Watchcraft"
+          ]
+        },
+        {
+          "name": "Redirect",
+          "hash": "#library/cheats",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          },
+          "from": "#cheats",
+          "to": "#library/cheats"
+        },
+        {
+          "name": "Redirect",
+          "hash": "#library/cheats/CTC64",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          },
+          "from": "#cheats/list/CTC64",
+          "to": "#library/cheats/CTC64"
+        },
+        {
+          "name": "Native evidence from exact cheat",
+          "hash": "#workbench/play-evidence/loaded-dice",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          }
+        },
+        {
+          "name": "Redirect",
+          "hash": "#library/cheats/candidates",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          },
+          "from": "#cheats/candidates",
+          "to": "#library/cheats/candidates"
+        },
+        {
+          "name": "Redirect",
+          "hash": "#workbench/ideas/registry",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          },
+          "from": "#ideas",
+          "to": "#workbench/ideas/registry"
+        },
+        {
+          "name": "Redirect",
+          "hash": "#workbench/ideas/registry/making-crafts-ideaboard-2026-11-19%23MKC89",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          },
+          "from": "#ideas/making-crafts-ideaboard-2026-11-19%23MKC89",
+          "to": "#workbench/ideas/registry/making-crafts-ideaboard-2026-11-19%23MKC89"
+        },
+        {
+          "name": "Redirect",
+          "hash": "#workbench/handoffs/replays",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          },
+          "from": "#workbench/implementation",
+          "to": "#workbench/handoffs/replays"
+        },
+        {
+          "name": "Global Find cheats",
+          "hash": "#find?q=Loaded+Dice",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          },
+          "query": "Loaded Dice",
+          "id": "CTC64",
+          "href": "#library/cheats/CTC64"
+        },
+        {
+          "name": "Opened Find result cheats",
+          "hash": "#library/cheats/CTC64",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          }
+        },
+        {
+          "name": "Global Find ideas",
+          "hash": "#find?q=MKC89",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          },
+          "query": "MKC89",
+          "id": "making-crafts-ideaboard-2026-11-19#MKC89",
+          "href": "#workbench/ideas/registry/making-crafts-ideaboard-2026-11-19%23MKC89"
+        },
+        {
+          "name": "Opened Find result ideas",
+          "hash": "#workbench/ideas/registry/making-crafts-ideaboard-2026-11-19%23MKC89",
+          "geometry": {
+            "viewport": 1920,
+            "document": 1920,
+            "body": 1920
+          }
+        }
+      ],
+      "captures": [
+        "cheat-catalogue-1920.png",
+        "ideas-and-backlogs-1920.png",
+        "implementation-handoffs-1920.png"
+      ]
+    }
+  ]
+}

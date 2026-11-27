@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "sourceSha256": "91053b78e5e505563a279f8f3a33895e9d3d387d409d885eab227774389037c1",
+  "packSha256": "4e1b1e4be8d9420553259132ad02ceef7b41fb6fa0f9241aa63bcb619eea5c0e",
+  "loadedPlaces": 1566,
+  "workingSet": 1570,
+  "workingSetSha256": "bf35b71d14bbe97bb2a711bf22a327db6e984c0032f317e21f72ae4ba5fb2165",
+  "callsPerSample": 3140,
+  "samplesMs": [
+    249.40930000000003,
+    226.48080000000004,
+    169.4475,
+    203.11300000000006,
+    172.89859999999976
+  ],
+  "checksum": 31640,
+  "allLookupsEqual": true,
+  "checkedWalks": 6280,
+  "allComparedWalksEqual": true,
+  "qualification": "Lookup-only local microbenchmark; not a whole-view or desktop latency claim. Concurrent full suite may affect absolute times."
+}

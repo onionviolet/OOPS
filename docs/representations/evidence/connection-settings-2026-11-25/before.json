@@ -1,0 +1,38 @@
+{
+  "viewport": "1920x1080",
+  "fixture": "tests/fixtures/perf/mid.json",
+  "before": {
+    "mode": "local",
+    "context": "play",
+    "focus": "<body onload=\"prepareGame()\"><header class=\"game-top\" id=\"game_top\" aria-label=\"Time and place\"><div class=\"game-spine\" id=\"game_spine\"><div class=\"game-status\" id=\"game_status\" role=\"group\" aria-label=\"Where and when\"><span class=\"game-status-place\" data-status-slot=\"place\" data-idle=\"false\">Villag",
+    "intro": "Profile, typography, palette and seasonal theme for native modules. Changes remain a draft until applied.",
+    "target": "Native module"
+  },
+  "opened": {
+    "mode": "workspace:customization",
+    "context": "play",
+    "focus": "<div class=\"workspace-module-header expanded-panel-heading\" tabindex=\"-1\"><button type=\"button\" data-workspace-action=\"handle\" data-module=\"customization\" class=\"workspace-drag-handle\" draggable=\"false\" title=\"Drag to reorder or dock. Arrow keys move; left/right changes dock.\" aria-label=\"Move Appea",
+    "intro": "Profile, typography, palette and seasonal theme for native modules. Changes remain a draft until applied.",
+    "target": "Native module"
+  },
+  "returned": {
+    "mode": "local",
+    "context": "play",
+    "focus": "<button type=\"button\" data-panel-path=\"customization\" data-route-id=\"customization\" title=\"Settings · Alt+S\" aria-keyshortcuts=\"Alt+s\" aria-current=\"false\">Settings</button>",
+    "intro": "Profile, typography, palette and seasonal theme for native modules. Changes remain a draft until applied.",
+    "target": "Native module"
+  },
+  "bundleSha256": "a5be4f5c093b7e2d68ce7d9dfda01191c5187dbe3121337439b60027a65051c2",
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ]
+}

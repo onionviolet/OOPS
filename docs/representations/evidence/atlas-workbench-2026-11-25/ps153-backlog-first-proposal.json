@@ -1,0 +1,34 @@
+{
+  "id": "7f5b831dd993bdc625dbfce2afb8532b13de4a797897a24ecb899a50a4989c1f",
+  "schema": "atlas-idea-handoff/1",
+  "stage": "proposed",
+  "proposal": {
+    "backlog": "docs/gm/dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#idea-61268f9dfc88e941773ba8736ad255f772a3097decf6a51f19d4c1f24662e253",
+    "change": "Read item rarity/quality, arrival and equipped state as distinct inventory cues. Keep colored quality names, optional rarity edges/glow, an earned-item arrival marker/pulse, and separate worn/favourite marks. Respect glow and reduced-effects controls. This traces OOPS proposal PS153; reference Discord stills establish colored quality/equipment cues, not a demonstrated rarity halo or pulse.",
+    "check": "Earn an item through the normal fresh Village route, then inspect native quality/rarity, arrival feedback, hover clearing and equipped mark. Use the frozen earned-rarity receipt for its exact higher-tier route and options matrix. Attach its authentic native proof and tested bundle, reopen the immutable sidecar and compare it with the checkout build. Keep supplied-tier styling evidence distinct from earned acquisition."
+  },
+  "source": {
+    "kind": "idea-owner",
+    "ownerReference": "docs/gm/dispatch/play-surface-2026-11-14/CONSIDERATIONS.md",
+    "reference": "docs/gm/dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#idea-61268f9dfc88e941773ba8736ad255f772a3097decf6a51f19d4c1f24662e253",
+    "ideaId": "61268f9dfc88e941773ba8736ad255f772a3097decf6a51f19d4c1f24662e253",
+    "documentHash": "c99263268bb9523c3d2e5f80937fa0bb2e7da28900a7de280877f2076c92b040",
+    "sourceReference": "docs/gm/dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#L463",
+    "lineStart": 463,
+    "lineEnd": 463,
+    "section": [
+      "Play surface: more to consider",
+      "Round 16, 2026-11-15: feel and finish, the Discord features, and UI for what has none",
+      "Feel and finish (proposals; polish lane)"
+    ]
+  },
+  "record": {
+    "label": "Item glow by meaning.",
+    "type": "idea",
+    "classification": "feature-proposal",
+    "entryLabel": "Proposal entry from source context",
+    "code": "PS153",
+    "excerpt": "Rarity or quality as a coloured name with a soft edge glow; a new item pulses once and keeps a dot until hovered; equipped and favourited items get a mark (☆ as in YAIR). A glow means one thing per world, with no decoration for its own sake.",
+    "route": "/idea-owner-ideas?owner=docs%2Fgm%2Fdispatch%2Fplay-surface-2026-11-14%2FCONSIDERATIONS.md&idea=61268f9dfc88e941773ba8736ad255f772a3097decf6a51f19d4c1f24662e253"
+  }
+}

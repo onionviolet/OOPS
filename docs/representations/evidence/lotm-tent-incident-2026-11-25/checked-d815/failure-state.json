@@ -1,0 +1,27 @@
+{
+  "clock": 520,
+  "elapsed": 520,
+  "profile": "lotm.early_tingen.canon_beside@1",
+  "tentFacts": {
+    "tent.readerHere": true,
+    "tent.elapsed": 520,
+    "tent.local": true,
+    "tent.open": true,
+    "tent.nextDay": false,
+    "tent.witness": false,
+    "tent.resolved": false,
+    "tent.hired": false,
+    "tent.paid": false,
+    "tent.trusted": false,
+    "tent.visible.watch": true,
+    "tent.visible.clarify": false,
+    "tent.visible.leave": false,
+    "tent.visible.referral": false,
+    "tent.visible.inquire": true,
+    "tent.visible.flyers": false
+  },
+  "playerFacts": {},
+  "completed": {},
+  "jobs": [],
+  "tentLog": []
+}

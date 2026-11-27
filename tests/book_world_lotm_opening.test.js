@@ -60,3 +60,17 @@ test('the lead view obtains one native context snapshot per read, without retain
  const {host}=hostOver(p,{context:()=>{calls++;return ctx(p);}});
  host.view();assert.equal(calls,1);host.view();assert.equal(calls,2);
 });
+
+
+test('Tingen view joins an existing native display builder and preserves unframed view bytes',async()=>{
+ const {fresh,hostOver,ctx}=await import('./lotm_helpers.js');
+ const {withDisplayFactsFrame}=await import('../src/facts_frame.js');
+ const {framedSimulationRead}=await import('../src/simulation_render.js');
+ const p=fresh();p.state.lotm.entryProfile='book.lead.be@1';p.state.lotm.runMode='canon';let builds=0;
+ const context=()=>framedSimulationRead(p.state,'native-builder',()=>{builds++;return ctx(p);},c=>({...c,facts:{...c.facts}}));
+ const {host}=hostOver(p,{context});const eager=host.view();builds=0;
+ const framed=withDisplayFactsFrame(p.state,()=>{context();const result=host.view();context();return result;});
+ assert.equal(builds,1,'the real host view joins rather than discarding the native display builder');
+ assert.deepEqual(framed,eager,'frame reuse does not change the host projection');
+ host.view();assert.equal(builds,2,'next standalone view starts a new native read phase');
+});

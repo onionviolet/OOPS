@@ -26,6 +26,8 @@ import {beDivMethodLearnEffects,beDivMethodRequires} from './book_world_lotm_div
 import {LOTM_IDS as I} from './book_world_lotm_ids.js';
 import {defineDivinations} from './cast_divination_adapter.js';
 import {lotmBeInterpretEffects} from './lotm_be_acting.js';
+import {officeLetterCommands,officeDeliveryCommands} from './lotm_office_case.js';
+import {officeFollowupCommands} from './lotm_office_followup.js';
 
 const eq=(fact,value=true,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})});
 const LESSONS=Object.freeze([
@@ -53,13 +55,13 @@ const lostObjectRow=club=>({id:BE_LOST_OBJECT.row,targetId:'lotm.div.target.taro
   {id:'ask',kind:'attempt',label:'Turn the card for the keepsake',description:'Turn over the card that stands for where the keepsake is now.',minutes:1,status:'signal',signal:'The card for the keepsake speaks of hearth and household.',report:'You turned the card for the keepsake.'},
   {id:'interpret',kind:'interpret',label:'Tell Edward where to look',description:'Read the card against his account and tell him where to look.',minutes:1,belief:'I read the keepsake as still in his own house, put away somewhere he does not usually look.',report:'You told Edward where to look for his keepsake.'}]});
 
-function command(id,{label,description,location,minutes,requires,effects,question,method,queryLabel,report,situationId,once=true}){
+function command(id,{label,description,location,minutes,requires,effects,question,method,queryLabel,report,situationId,once=true,costs=[],costText}){
  const receiptKey=`divination.${id}`,base=eq('lotm.profile.be');
  const all={all:[base,...requires]};
  return {id,revision:1,label,description,worldId:I.world,actorId:'player',group:'book_lotm',location,once,duration:minutes,
-  cancellation:'refund',visibleWhen:base,requires:all,completionRequires:all,completionCoLocated:true,completionFailure:'refund',costs:[],
+  cancellation:'refund',visibleWhen:base,requires:all,completionRequires:all,completionCoLocated:true,completionFailure:'refund',costs,
   effects:[...effects,{type:'knowledge',actor:'player',key:receiptKey,stage:'seen',value:report,basis:{kind:'observation',attributedTo:'player',situationId}}],
-  divination:{queryId:id,question,targetId:id,method,label:queryLabel,kind:'prepare',receiptKey,phaseKey:`divination.${id}.phase`,ritual:null,dial:null}};
+  divination:{queryId:id,question,targetId:id,method,label:queryLabel,kind:'prepare',receiptKey,phaseKey:`divination.${id}.phase`,...(costText?{costText}:{}),ritual:null,dial:null}};
 }
 // Commands for the loaded pack, or none when the pack lacks the office, flat or club (fixtures, other casts).
 export function lotmBeDivLearning(pack,situationId){
@@ -89,5 +91,5 @@ export function lotmBeDivLearning(pack,situationId){
  const home=command('lotm.be.club.home',{label:'Take the public carriage home',description:'Leave the Divination Club and ride the public carriage back from Howes Street to the Moretti flat.',
   location:club,minutes:25,requires:[],effects:[{type:'relocate',actor:'player',location:flat}],question:'Where next?',method:'Public carriage',queryLabel:'The Divination Club',
   report:'You rode the public carriage home from Howes Street.',situationId,once:false});
- return [...lessons,glacis,lost,...reading,home];
+ return [...lessons,glacis,lost,...reading,home,...officeLetterCommands({office,situationId,command}),...officeDeliveryCommands({office,situationId,command}),...officeFollowupCommands({office,situationId,command})];
 }

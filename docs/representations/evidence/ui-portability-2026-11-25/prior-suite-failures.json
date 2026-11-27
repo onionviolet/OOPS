@@ -1,0 +1,717 @@
+{
+  "source": "TEMP/oops-protagonist-suite-20261125.log, prior four-shard run; not a fresh whole-suite result",
+  "sourceSha256": "47b46d3500d439c8757547039e6f06953ee580b7d0d52a0d88e5c92656108132",
+  "totals": {
+    "tests": 8078,
+    "passed": 7903,
+    "failed": 141,
+    "failedFiles": 91
+  },
+  "failures": [
+    {
+      "file": "tests/books_powers_a.test.js",
+      "line": 1,
+      "test": "tests\\books_powers_a.test.js"
+    },
+    {
+      "file": "tests/cast_divination_adapter.test.js",
+      "line": 114,
+      "test": "live integration crosses native UI and real save validator in a disposable copy"
+    },
+    {
+      "file": "tests/cast_exchange_adapter.test.js",
+      "line": 58,
+      "test": "live joins preserve pending and settled exchange through native Save, reload, Export and Import"
+    },
+    {
+      "file": "tests/engine_week_seam.test.js",
+      "line": 11,
+      "test": "E21 at the seam: an engine week in one jump, in the bank's sixty-minute spends, and what it costs"
+    },
+    {
+      "file": "tests/facts_frame.test.js",
+      "line": 102,
+      "test": "fixture minutes preserve facts, contexts and create_save bytes with frame on/off"
+    },
+    {
+      "file": "tests/gear_acquisition.test.js",
+      "line": 14,
+      "test": "native stock resolves every piece once, conserves counts and reloads exact saved keys"
+    },
+    {
+      "file": "tests/gear_acquisition.test.js",
+      "line": 34,
+      "test": "shop restocks replay by saved epoch and keep independent identities through sale stock"
+    },
+    {
+      "file": "tests/gear_acquisition.test.js",
+      "line": 56,
+      "test": "victory recovers the worn affixed key without rerolling or replacing normal loot keys"
+    },
+    {
+      "file": "tests/grammar_search.test.js",
+      "line": 67,
+      "test": "backward canon test and a stated goal on the two worlds (RV2, PM3)"
+    },
+    {
+      "file": "tests/heir_inheritance.test.js",
+      "line": 113,
+      "test": "estate display resolves worked gear and unknown mixtures without leaking keys or changing estate state"
+    },
+    {
+      "file": "tests/lead_run_batch.test.js",
+      "line": 119,
+      "test": "plan requests rebuild from files with the graded-only glossary filter"
+    },
+    {
+      "file": "tests/living_gear.test.js",
+      "line": 135,
+      "test": "native item registration and decoder preserve original living weapon components and E2 copies"
+    },
+    {
+      "file": "tests/lotm_amulet_protection.test.js",
+      "line": 53,
+      "test": "the native item factory and durability preserve the exact key accepted by the gift jobs"
+    },
+    {
+      "file": "tests/mixture_adapters.test.js",
+      "line": 2,
+      "test": "native inventory decoder stacks identical vials, retains variants and knowledge-filtered descriptions"
+    },
+    {
+      "file": "tests/patient_furnace.test.js",
+      "line": 32,
+      "test": "native locked skill can quote a prepared unlock without mutating its availability"
+    },
+    {
+      "file": "tests/person_memory_route.test.js",
+      "line": 9,
+      "test": "native trait route: fresh meeting/supply fixture, interruption, amends, rendered reaction and Save/reload/Export/Import"
+    },
+    {
+      "file": "tests/place_acts.test.js",
+      "line": 192,
+      "test": "be-seat native pending and settled acts survive save, reload, export and import"
+    },
+    {
+      "file": "tests/regional_prices.test.js",
+      "line": 92,
+      "test": "a refreshing stall carries its stock: what the player sold stays, what was bought is delivered back by the cart"
+    },
+    {
+      "file": "tests/rule_routes.test.js",
+      "line": 21,
+      "test": "each 2026-11-10 rulebook routes from its modules, with no stale glob"
+    },
+    {
+      "file": "tests/seeded_streams.test.js",
+      "line": 82,
+      "test": "native lineup, loot, stock and pending fighter turns survive save/restore with Math.random forbidden"
+    },
+    {
+      "file": "tests/skill_xp_grants.test.js",
+      "line": 16,
+      "test": "native capped grants preserve ordering, uncapped restoration and parent catch-up"
+    },
+    {
+      "file": "tests/world_lead_pipeline.test.js",
+      "line": 23,
+      "test": "pipeline runs every stage in order and writes a seven-stage receipt on a synthetic two-chapter fixture"
+    },
+    {
+      "file": "tests/world_lead_pipeline.test.js",
+      "line": 39,
+      "test": "pipeline stops at the first failing stage and names it"
+    },
+    {
+      "file": "tests/worlds_ledger.test.js",
+      "line": 1,
+      "test": "tests\\worlds_ledger.test.js"
+    },
+    {
+      "file": "tests/b_coverage_ledgers.test.js",
+      "line": 15,
+      "test": "committed B ledgers equal a fresh build"
+    },
+    {
+      "file": "tests/book_power_ledgers.test.js",
+      "line": 1,
+      "test": "tests\\book_power_ledgers.test.js"
+    },
+    {
+      "file": "tests/cast_body_adapter.test.js",
+      "line": 79,
+      "test": "native sleep, waking, meals and real validator Save/reload/Export/Import"
+    },
+    {
+      "file": "tests/cast_making_adapter.test.js",
+      "line": 88,
+      "test": "live joins preserve pending and used batches through native Save, reload, Export and Import"
+    },
+    {
+      "file": "tests/cast_topic_talk.test.js",
+      "line": 106,
+      "test": "live host and save validator round-trip native topic jobs, choices and receipts"
+    },
+    {
+      "file": "tests/cheat_awakening.test.js",
+      "line": 1,
+      "test": "tests\\cheat_awakening.test.js"
+    },
+    {
+      "file": "tests/cheat_cards.test.js",
+      "line": 1,
+      "test": "tests\\cheat_cards.test.js"
+    },
+    {
+      "file": "tests/currency_subunits_save.test.js",
+      "line": 17,
+      "test": "a halfpenny purse round-trips native Save, reload, Export and Import in the Tingen seat"
+    },
+    {
+      "file": "tests/effect_grammar.test.js",
+      "line": 74,
+      "test": "the canon test runs on two worlds and lists what each is missing (EF1)"
+    },
+    {
+      "file": "tests/effect_grammar.test.js",
+      "line": 85,
+      "test": "proposals need a cause and a novelty cause; composition goes to K (PFP19, PFP24, SC6)"
+    },
+    {
+      "file": "tests/effect_grammar.test.js",
+      "line": 98,
+      "test": "the four checks name the missing law, price, exception or word"
+    },
+    {
+      "file": "tests/effect_grammar.test.js",
+      "line": 154,
+      "test": "GL2: the effect predicted from identity beats the majority guess in both worlds"
+    },
+    {
+      "file": "tests/elemental_affinities.test.js",
+      "line": 57,
+      "test": "native equipped IDs and reconstructed component gear provide real preparation"
+    },
+    {
+      "file": "tests/equipment_durability.test.js",
+      "line": 58,
+      "test": "actual native inventory, Hero equip/unequip, key decoder and equipment publisher preserve worn copy"
+    },
+    {
+      "file": "tests/gear_dimensions.test.js",
+      "line": 53,
+      "test": "real armor templates carry the dimensions: shells reduce, padding resists crits, nothing is on the wrong layer"
+    },
+    {
+      "file": "tests/gear_dimensions.test.js",
+      "line": 63,
+      "test": "worn armor changes what the native hero actually loses: percent layer after flat defense, crit chance cut"
+    },
+    {
+      "file": "tests/gear_dimensions.test.js",
+      "line": 90,
+      "test": "toughness: authored or derived from strength, and equal-strength materials wear at different rates"
+    },
+    {
+      "file": "tests/gear_dimensions.test.js",
+      "line": 131,
+      "test": "actual native trophy points and both defender classes use the same penetration law"
+    },
+    {
+      "file": "tests/here_kinds.test.js",
+      "line": 19,
+      "test": "no new module appends its own panel under Here; it declares a kind and the frame places it (PS108)"
+    },
+    {
+      "file": "tests/invention_planner_golden.test.js",
+      "line": 9,
+      "test": "Z3 immutable v1 fixture and reviewed golden digests"
+    },
+    {
+      "file": "tests/lotm_cast_week.test.js",
+      "line": 438,
+      "test": "cast boot path stays synchronous even when private fetch never resolves"
+    },
+    {
+      "file": "tests/lotm_cast_week.test.js",
+      "line": 455,
+      "test": "a pack resolving after registry construction enables validated native enrollment and travel"
+    },
+    {
+      "file": "tests/lotm_money_save.test.js",
+      "line": 17,
+      "test": "C1/G3/G4 client, pay-line and commission facts round-trip native Save, reload, Export and Import in the Tingen seat"
+    },
+    {
+      "file": "tests/material_query_cost.test.js",
+      "line": 49,
+      "test": "real recipe registration retains measured coverage and the fixed-batch contribution disposition"
+    },
+    {
+      "file": "tests/naming_items_native.test.js",
+      "line": 1,
+      "test": "tests\\naming_items_native.test.js"
+    },
+    {
+      "file": "tests/native_material_bridge.test.js",
+      "line": 17,
+      "test": "every mapped id exists in the game item definitions"
+    },
+    {
+      "file": "tests/perspective_controls.test.js",
+      "line": 8,
+      "test": "perspective control inventory covers shell routes and LOTM block families"
+    },
+    {
+      "file": "tests/shop_greeting.test.js",
+      "line": 67,
+      "test": "a stall lists its staples under current conditions and counts days to the next delivery"
+    },
+    {
+      "file": "tests/shop_greeting.test.js",
+      "line": 85,
+      "test": "PS161: a cleared place reaches the keeper before the cart; the next cart brings it and he says so"
+    },
+    {
+      "file": "tests/slot_run.test.js",
+      "line": 34,
+      "test": "two slots admit two holders and block the third"
+    },
+    {
+      "file": "tests/slot_run.test.js",
+      "line": 89,
+      "test": "--max-load holds the gate while the load average is above it, without taking a slot"
+    },
+    {
+      "file": "tests/slot_run.test.js",
+      "line": 101,
+      "test": "a nested slot_run under a held slot runs without taking another slot"
+    },
+    {
+      "file": "tests/slot_run.test.js",
+      "line": 118,
+      "test": "a soft load wait runs the command after the wait; --status lists the waiter with a reason"
+    },
+    {
+      "file": "tests/tools_domain.test.js",
+      "line": 31,
+      "test": "IP1 golden: profiles derive from native templates and rates match the native method"
+    },
+    {
+      "file": "tests/tools_domain.test.js",
+      "line": 54,
+      "test": "IP2 regression: durability off keeps native gathering identical"
+    },
+    {
+      "file": "tests/tools_domain.test.js",
+      "line": 171,
+      "test": "TQ199 opted-in native mining cracks one copy; diagnosis and targeted repair survive state roundtrips"
+    },
+    {
+      "file": "tests/trader_keyed_stock.test.js",
+      "line": 19,
+      "test": "non-opt-in fill is unchanged and ignores any seed argument absence"
+    },
+    {
+      "file": "tests/trader_keyed_stock.test.js",
+      "line": 28,
+      "test": "opt-in: same seed and day repeat exactly; unrelated draws change nothing; seed matters"
+    },
+    {
+      "file": "tests/village_lead_line.test.js",
+      "line": 99,
+      "test": "check 3 + 7: bot route reaches all five dates twice identically; HEADLESS save/export/import/reload keeps the line"
+    },
+    {
+      "file": "tests/village_obtainability.test.js",
+      "line": 5,
+      "test": "live starting stock, Village market and gather routes retain rate, tool and opening price"
+    },
+    {
+      "file": "tests/world_climate.test.js",
+      "line": 29,
+      "test": "base temperature, rain and light match weather.js across seasons, cycles and peaks"
+    },
+    {
+      "file": "tests/worm_prt_derived.test.js",
+      "line": 12,
+      "test": "committed score file equals a fresh run"
+    },
+    {
+      "file": "tests/worm_prt_derived.test.js",
+      "line": 27,
+      "test": "derived blocks sit on cape rows with no stated class, and name a scored rule"
+    },
+    {
+      "file": "tests/alloy_equipment.test.js",
+      "line": 16,
+      "test": "native Smelting 10 earns the locked alloy recipe; its material crafts the brace"
+    },
+    {
+      "file": "tests/alloy_equipment.test.js",
+      "line": 105,
+      "test": "equipped native brace with an open road offer keeps ticking, travelling and reloading"
+    },
+    {
+      "file": "tests/cast_ability_adapter.test.js",
+      "line": 78,
+      "test": "live integration crosses native UI and real save validator in a disposable copy"
+    },
+    {
+      "file": "tests/cast_card_integration.test.js",
+      "line": 6,
+      "test": "current card host integration preserves pending and settled card state through the real validator"
+    },
+    {
+      "file": "tests/cast_inference_adapter.test.js",
+      "line": 104,
+      "test": "live integration crosses native UI and real save validator in a disposable copy"
+    },
+    {
+      "file": "tests/combat_effect_semantics.test.js",
+      "line": 1,
+      "test": "tests\\combat_effect_semantics.test.js"
+    },
+    {
+      "file": "tests/coverage_report.test.js",
+      "line": 78,
+      "test": "reachability follows static, re-export and literal dynamic imports, and lists computed ones (PC14)"
+    },
+    {
+      "file": "tests/effect_host.test.js",
+      "line": 131,
+      "test": "luck and soul are P objects that wait for their owners, and no canon sentence assembles differently for them"
+    },
+    {
+      "file": "tests/effect_host.test.js",
+      "line": 177,
+      "test": "the runs check executes: it rejects what nothing can land and says when it only looked a name up"
+    },
+    {
+      "file": "tests/effect_host.test.js",
+      "line": 201,
+      "test": "the Hogwarts effect corpus lowers: acts, publishes for other owners, and keys a world must supply"
+    },
+    {
+      "file": "tests/frontier_bow.test.js",
+      "line": 129,
+      "test": "items and recipes: registered once, inputs exist, the poisoned batch conserves its arrows and spends one toxin gland"
+    },
+    {
+      "file": "tests/gear_workshop.test.js",
+      "line": 36,
+      "test": "workshop native journey: process, source effects, field repair, swap, preserved identity and material custody"
+    },
+    {
+      "file": "tests/gear_workshop.test.js",
+      "line": 62,
+      "test": "workshop atomic rejection: stale input, custody, failed save and rollback of ID/condition/tool facts"
+    },
+    {
+      "file": "tests/gear_workshop.test.js",
+      "line": 74,
+      "test": "process law: real heat, cooling, material families, independent world rules and no repeated free improvement"
+    },
+    {
+      "file": "tests/gear_workshop.test.js",
+      "line": 87,
+      "test": "a cooled shaped piece keeps its paid shaping when reheated"
+    },
+    {
+      "file": "tests/gear_workshop.test.js",
+      "line": 106,
+      "test": "same worked-item modifiers feed both equipment consumers; wear uses persist and honing cannot reroll"
+    },
+    {
+      "file": "tests/gear_workshop.test.js",
+      "line": 128,
+      "test": "rigid gem settings and commissioned native maker preserve identity, costs, sources and reforge draw boundary"
+    },
+    {
+      "file": "tests/gear_workshop.test.js",
+      "line": 145,
+      "test": "armor reforge resolves stored affixes only at commit and rolls back its native receipt owner after a failed save"
+    },
+    {
+      "file": "tests/gear_workshop.test.js",
+      "line": 154,
+      "test": "cold-brittle metal armor: a warm lining resolves the need and lasting wear differs in the saved condition"
+    },
+    {
+      "file": "tests/gear_workshop.test.js",
+      "line": 171,
+      "test": "native hide preparation accepts idle elapsed time, stamps current chronology and rejects lost stock without spending"
+    },
+    {
+      "file": "tests/gear_workshop.test.js",
+      "line": 184,
+      "test": "learned focus steadies real quench and temper results, spends its own reserve and rolls back with a failed save"
+    },
+    {
+      "file": "tests/gear_workshop.test.js",
+      "line": 211,
+      "test": "focus cannot replace heat or oil, transfer to another maker, or spend from a stale reserve"
+    },
+    {
+      "file": "tests/gear_workshop.test.js",
+      "line": 230,
+      "test": "selected inscription reroll preserves neighboring affixes and copy identity, debits stock and rolls back on quota failure"
+    },
+    {
+      "file": "tests/gear_workshop.test.js",
+      "line": 241,
+      "test": "PS249: a reroll shows its odds before paying, lands inside them, and a fresh mark can be hammered back while soft"
+    },
+    {
+      "file": "tests/gear_workshop.test.js",
+      "line": 261,
+      "test": "a traced axe keeps its fitted parts through swap and degrades the exact removed cohorts"
+    },
+    {
+      "file": "tests/gear_workshop.test.js",
+      "line": 294,
+      "test": "repeated recovery keeps a dated flat history that the native save accepts"
+    },
+    {
+      "file": "tests/heat_grades.test.js",
+      "line": 30,
+      "test": "Iron ingot recipe: logs cannot smelt, charcoal and coal can, quote consumes nothing"
+    },
+    {
+      "file": "tests/lane_review.test.js",
+      "line": 24,
+      "test": "fails when a synthetic cast name appears in tracked code"
+    },
+    {
+      "file": "tests/lotm_rites_live.test.js",
+      "line": 8,
+      "test": "R5/U3: the altar rite is performed from the panel, survives reload and import mid-run, and charges backlash once"
+    },
+    {
+      "file": "tests/material_insights.test.js",
+      "line": 44,
+      "test": "native catalog binds every final item recipe id to its own persistent unlock component"
+    },
+    {
+      "file": "tests/merge_queue.test.js",
+      "line": 124,
+      "test": "refuses when master moves underneath, and when the primary index has staged entries"
+    },
+    {
+      "file": "tests/native_save_fixtures.test.js",
+      "line": 1,
+      "test": "tests\\native_save_fixtures.test.js"
+    },
+    {
+      "file": "tests/observer_view.test.js",
+      "line": 147,
+      "test": "UI modules do not hard-code the controlled actor as \"player\" (ratchet)"
+    },
+    {
+      "file": "tests/own_hunks.test.js",
+      "line": 18,
+      "test": "commits only my hunk and leaves another session's edit in the working tree"
+    },
+    {
+      "file": "tests/person_memory_persistence.test.js",
+      "line": 13,
+      "test": "real Save, reload, Export and literal Import retain episodes, hearsay and a folded impression"
+    },
+    {
+      "file": "tests/schema_union.test.js",
+      "line": 11,
+      "test": "schema union prefers present 1.4 fields, fills silent fields, and retains duplicate locators"
+    },
+    {
+      "file": "tests/schema_union.test.js",
+      "line": 56,
+      "test": "schema union covers every row kind, keeps backup-only rows, and resolves versions newest first"
+    },
+    {
+      "file": "tests/skill_ladder.test.js",
+      "line": 27,
+      "test": "level 4 to 5 to 4 under rust, then reload: the perk follows the level, the title stays, nothing doubles"
+    },
+    {
+      "file": "tests/skill_ladder.test.js",
+      "line": 96,
+      "test": "Sleeping and Patience show the same edge row, and the sealed row is built from the real native grant"
+    },
+    {
+      "file": "tests/snapshot.test.js",
+      "line": 57,
+      "test": "frozen desktop build includes linked local assets and keeps independent bytes"
+    },
+    {
+      "file": "tests/title_training.test.js",
+      "line": 82,
+      "test": "native milestone awards once, repeat training progresses, XP reconstruction restores exact rate"
+    },
+    {
+      "file": "tests/title_training.test.js",
+      "line": 121,
+      "test": "native title replacement preserves trained competence and independent held effects"
+    },
+    {
+      "file": "tests/ui_contract.test.js",
+      "line": 6,
+      "test": "UI changes introduce no unreviewed colors, fonts, radii, spacing (UR65), control heights (UR66), layers (UR67), type roles (UR68), cssText or foreign-host insertion"
+    },
+    {
+      "file": "tests/accessory_utility.test.js",
+      "line": 68,
+      "test": "native registration, material acquisition, equipment and save-key roundtrip use existing models"
+    },
+    {
+      "file": "tests/artifact_refining.test.js",
+      "line": 59,
+      "test": "the native item factory equips the refined attack and recovery with its exact stock key"
+    },
+    {
+      "file": "tests/cast_journeys.test.js",
+      "line": 110,
+      "test": "native place-panel journey validates pending Save/reload, arrival and literal Export/Import"
+    },
+    {
+      "file": "tests/cast_whole_book_scale.test.js",
+      "line": 73,
+      "test": "journeys and acts quote locally or when pending; known people retain away topics"
+    },
+    {
+      "file": "tests/coi_potions.test.js",
+      "line": 19,
+      "test": "the recorded score is what the labels and the law give, and every miss is a named exception"
+    },
+    {
+      "file": "tests/combat_options.test.js",
+      "line": 134,
+      "test": "actual native strike hits armor with single projectile, misses with native hit roll"
+    },
+    {
+      "file": "tests/combat_options.test.js",
+      "line": 138,
+      "test": "actual native defeat awards once, duplicate dead target does not repay"
+    },
+    {
+      "file": "tests/combat_options.test.js",
+      "line": 142,
+      "test": "actual cooldown exchange consumes ammo, then break prevents scheduling another swing"
+    },
+    {
+      "file": "tests/combat_options.test.js",
+      "line": 148,
+      "test": "actual smoke exchange never invokes native damage or loot settlement"
+    },
+    {
+      "file": "tests/combat_options.test.js",
+      "line": 152,
+      "test": "actual victory break keeps next encounter pending until one explicit resume"
+    },
+    {
+      "file": "tests/combat_options.test.js",
+      "line": 157,
+      "test": "R51 native independent cooldowns retain a 4:1 speed ratio without a burst engine"
+    },
+    {
+      "file": "tests/damage_types.test.js",
+      "line": 70,
+      "test": "real native content declares types that reach the fight"
+    },
+    {
+      "file": "tests/damage_types.test.js",
+      "line": 88,
+      "test": "a real enemy takes more from the weapon its shell is weak to"
+    },
+    {
+      "file": "tests/distinct_world_materials.test.js",
+      "line": 12,
+      "test": "W1 exact treatments feed real native tool carriers and advancement; alternatives remain useful"
+    },
+    {
+      "file": "tests/effects_workshop.test.js",
+      "line": 40,
+      "test": "the effect packs are reachable from main.js"
+    },
+    {
+      "file": "tests/gear_affixes.test.js",
+      "line": 96,
+      "test": "affixes on real armor: key round trip, pipeline totals and a source row per affix"
+    },
+    {
+      "file": "tests/interaction_system.test.js",
+      "line": 84,
+      "test": "IS1/IS3 native data: every known supported category indexes without RNG and assembled armor compares real dimensions"
+    },
+    {
+      "file": "tests/interaction_system.test.js",
+      "line": 102,
+      "test": "IS4 native award and prepared-publication seams record only committed XP and exclude loading"
+    },
+    {
+      "file": "tests/lead_run_reading_review.test.js",
+      "line": 45,
+      "test": "maintenance preserves submitted bytes and refuses an upgrade that breaches a cap"
+    },
+    {
+      "file": "tests/native_rendering.test.js",
+      "line": 22,
+      "test": "native rendering shares the learned method, hides unknown sources and quotes exact stock without substituting"
+    },
+    {
+      "file": "tests/processed_materials.test.js",
+      "line": 12,
+      "test": "native material factory and actual two-holder split/merge keep independent cohort ages and source observations"
+    },
+    {
+      "file": "tests/processed_materials.test.js",
+      "line": 29,
+      "test": "actual recipe allocation partially consumes exact cohorts; new product retains all consumed histories without rewriting remaining stock"
+    },
+    {
+      "file": "tests/processed_materials.test.js",
+      "line": 50,
+      "test": "hide treatments split one pelt stock into different routes that two recipes read differently"
+    },
+    {
+      "file": "tests/processed_materials.test.js",
+      "line": 108,
+      "test": "Village forge output carries exact ingot ancestry into an equippable axe and reclaimable offcuts"
+    },
+    {
+      "file": "tests/processed_materials.test.js",
+      "line": 133,
+      "test": "smelting joins mined lots and spent fuel, and leaves a durable outcome on failure"
+    },
+    {
+      "file": "tests/processed_materials.test.js",
+      "line": 169,
+      "test": "a worked medium handle retains its log through native assembly"
+    },
+    {
+      "file": "tests/reward_keys.test.js",
+      "line": 28,
+      "test": "native location, dialogue and quest rewards use only keys process_rewards reads"
+    },
+    {
+      "file": "tests/self_registration.test.js",
+      "line": 23,
+      "test": "derivation rule sources load in order, then file name"
+    },
+    {
+      "file": "tests/structured_equipment_runtime.test.js",
+      "line": 43,
+      "test": "descriptor is accepted by the actual Hero effect consumer without consumable amplification"
+    },
+    {
+      "file": "tests/workroom_tabs.test.js",
+      "line": 83,
+      "test": "workroom_tabs.css uses tokens only"
+    },
+    {
+      "file": "tests/worm_power_ledger.test.js",
+      "line": 16,
+      "test": "committed ledger equals a fresh build from the sidecar and passes the shared validator"
+    }
+  ]
+}

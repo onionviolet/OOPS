@@ -24,12 +24,16 @@ test('pipeline runs every stage in order and writes a seven-stage receipt on a s
     mkdirSync(fixtureRoot, {recursive: true});
     const input = fixture(), out = mkdtempSync(join(tmpdir(), 'lead-pipeline-out-'));
     try {
+        const source = readFileSync(join(input, 'a1m_scenes.jsonl'), 'utf8');
         const report = run(argsFor(input, join(out, 'result')));
         assert.deepEqual(report.stages.map(s => s.stage), ['schema_union', 'merge_shards', 'build_crosswalk', 'cast_worksheet', 'conflict_contracts', 'after_actions', 'fitness_report']);
         const receipt = JSON.parse(readFileSync(join(out, 'result/pipeline_receipt.json'), 'utf8'));
         assert.equal(receipt.stages.length, 7);
         assert.ok(receipt.stages.every(stage => Object.keys(stage.inputs).length && Object.keys(stage.outputs).length));
-        assert.equal(lstatSync(join(out, 'result/schema-union-input/a1m_scenes.jsonl')).isSymbolicLink(), true, 'pipeline preserves linked unchanged input files');
+        const staged = join(out, 'result/schema-union-input/a1m_scenes.jsonl');
+        assert.equal(lstatSync(staged).isSymbolicLink(), process.platform !== 'win32', 'pipeline preserves the host staging route');
+        assert.equal(readFileSync(staged, 'utf8'), source, 'staged unchanged input preserves exact bytes');
+        assert.equal(readFileSync(join(input, 'a1m_scenes.jsonl'), 'utf8'), source, 'pipeline preserves source bytes');
         writeFileSync(join(out, 'result/cast-worksheets/stale.json'), '{}\n');
         run(argsFor(input, join(out, 'result')));
         assert.equal(existsSync(join(out, 'result/cast-worksheets/stale.json')), false, 'reruns replace stale pipeline-owned outputs');

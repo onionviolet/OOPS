@@ -1,0 +1,87 @@
+{
+  "scope": "stable replay of two interruptions only; existing current-pack fixture and normal public controls, no outcome or RNG overrides",
+  "viewport": "1920x1080",
+  "fixtureSha256": "c50ce9fd2fe90eea7b86ba820f1c63169f1d36db107948bb799b94e162a9c481",
+  "servedBundleSha256": "4d14cb3c865682abdd1428d9ddd37b627cb0f2ace8db85f055009f1c78ced84c",
+  "results": [
+    {
+      "branch": "paid-fizzle",
+      "servedBundleSha256": "4d14cb3c865682abdd1428d9ddd37b627cb0f2ace8db85f055009f1c78ced84c",
+      "before": {
+        "clock": 97440,
+        "staminaDebt": 0,
+        "mastery": 0,
+        "notes": 0,
+        "assignment": 1,
+        "marked": 0,
+        "down": false,
+        "last": null,
+        "jobs": 0
+      },
+      "after": {
+        "clock": 97440,
+        "staminaDebt": 1,
+        "mastery": 1,
+        "notes": 0,
+        "assignment": 1,
+        "marked": 0,
+        "down": false,
+        "last": "The chart-book shifted, then settled back on its shelf. You noticed where your motion slipped.",
+        "jobs": 0
+      },
+      "controls": {
+        "libraryVisible": true,
+        "homeworkVisible": true,
+        "ladderEnabled": true,
+        "castEnabled": true,
+        "copyVisible": true,
+        "copyEnabled": false,
+        "ordinaryHomeworkEnabled": true,
+        "referenceHomeworkVisible": true,
+        "referenceHomeworkEnabled": false
+      },
+      "libraryText": "Library work\n\nAn Astronomy chart-book sits too high to reach. Bring it down, copy your own reference notes, and put it back. The notes help you finish assigned Astronomy charts in half an hour.\n\nMove the library ladder · 10 min\nBring the chart-book down with Levitation\n1 stamina · about 50% to bring it down\nCopy Astronomy notes and return the book · 5 min\nBring the chart-book down from the high shelf first.",
+      "homeworkText": "Homework\nWrite your Astronomy homework · 1 h\nUse reference notes for Astronomy homework · 30 min\nCopy your Astronomy reference notes from the high-shelf chart-book first.\n1 × Astronomy homework · Your reference notes stay with you."
+    },
+    {
+      "branch": "stop-ladder",
+      "servedBundleSha256": "4d14cb3c865682abdd1428d9ddd37b627cb0f2ace8db85f055009f1c78ced84c",
+      "before": {
+        "clock": 97440,
+        "staminaDebt": 0,
+        "mastery": 0,
+        "notes": 0,
+        "assignment": 1,
+        "marked": 0,
+        "down": false,
+        "last": null,
+        "jobs": 0
+      },
+      "after": {
+        "clock": 97443,
+        "staminaDebt": 0,
+        "mastery": 0,
+        "notes": 0,
+        "assignment": 1,
+        "marked": 0,
+        "down": false,
+        "last": null,
+        "jobs": 0
+      },
+      "controls": {
+        "libraryVisible": true,
+        "homeworkVisible": true,
+        "ladderEnabled": true,
+        "castEnabled": true,
+        "copyVisible": true,
+        "copyEnabled": false,
+        "ordinaryHomeworkEnabled": true,
+        "referenceHomeworkVisible": true,
+        "referenceHomeworkEnabled": false
+      },
+      "libraryText": "Library work\n\nAn Astronomy chart-book sits too high to reach. Bring it down, copy your own reference notes, and put it back. The notes help you finish assigned Astronomy charts in half an hour.\n\nMove the library ladder · 10 min\nBring the chart-book down with Levitation\n1 stamina · about 40% to bring it down\nCopy Astronomy notes and return the book · 5 min\nBring the chart-book down from the high shelf first.",
+      "homeworkText": "Homework\nWrite your Astronomy homework · 1 h\nUse reference notes for Astronomy homework · 30 min\nCopy your Astronomy reference notes from the high-shelf chart-book first.\n1 × Astronomy homework · Your reference notes stay with you."
+    }
+  ],
+  "errors": []
+}

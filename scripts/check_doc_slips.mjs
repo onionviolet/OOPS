@@ -96,7 +96,9 @@ for (const {file, lineNo} of additions.values()) {
   }
   const negatedAccepted = /\bnot\s+(?:(?:a|an|newly|universally|yet)\s+)*accepted\b|\bunaccepted\b|\bno\b[^.;]*\bis accepted\b/i.test(text);
   // References to existing direction and in-world agreement are not adoption claims.
-  const acceptanceClaim = accepted.test(text.replace(/\baccepted(?:\/refused|\s+(?:direction|scope|vision|terms|price|release|result|contract|Yield))\b/gi, (match, offset) => /\b(?:is|are|was|were|became|now|declared|marked|considered)\s*$/i.test(text.slice(0, offset)) ? match : '').replace(/\b(?:silent|refused)\/accepted\b/gi, ''));
+  // A runtime component can accept a concrete input without adopting a product rule.
+  const claimText = text.replace(/\b(?:cancellation|parser|validator|handler|compiler|endpoint)\s+(?:already\s+)?accepted\s+(?:cast acts|commands|payloads|requests|arguments|inputs)\b/gi, '');
+  const acceptanceClaim = accepted.test(claimText.replace(/\baccepted(?:\/refused|\s+(?:direction|scope|vision|terms|price|release|result|contract|Yield))\b/gi, (match, offset) => /\b(?:is|are|was|were|became|now|declared|marked|considered)\s*$/i.test(claimText.slice(0, offset)) ? match : '').replace(/\b(?:silent|refused)\/accepted\b/gi, ''));
   const headingReference = /accepted decisions/i.test(text);
   if (acceptanceClaim && !negatedAccepted && !headingReference && !acceptanceEvidence.test(text)) {
     report(file, lineNo, 'acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line');

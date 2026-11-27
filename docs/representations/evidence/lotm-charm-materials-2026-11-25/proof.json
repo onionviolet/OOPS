@@ -1,0 +1,12 @@
+{
+  "proposalId": "221e0889c81cd9655cfd425fb1688bd1d853032c8d1e1e4e2ea5a5ba6af05715",
+  "bundleHash": "6f67513266a4b52f3ed99036aa745e1c59ccab82adabb3674291884deecb568d",
+  "viewport": "1920x1080",
+  "route": "synthetic eligible workshop maker, normal office approval/collection and personal purchase controls",
+  "officePurseDebit": 0,
+  "personalPurseDebit": 96,
+  "officeOrderObtainedBy": "normal approval action, no seeded ticket",
+  "officeAndPersonalMaterialsConsumedBy": "existing Slumber inscription",
+  "keptAfter": "save/reload/Export/literal Import after both acquisitions",
+  "state": "agent-verified, not human-reviewed"
+}

@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "bundle": "4d14cb3c865682abdd1428d9ddd37b627cb0f2ace8db85f055009f1c78ced84c",
+  "viewport": "1920x1080",
+  "fixture": "Late Fang life; existing elder at academy after ceremony, rank-two/day pins, held Moonglow and one hide; listening branch has held attached Ear Grass and three essence, manual branch has neither Gu nor essence.",
+  "results": [
+    {
+      "method": "listen",
+      "minutes": 25,
+      "paid": 20,
+      "afterExistingFeed": 18,
+      "pendingAndPaidSaveReloadExportFreshImport": true
+    },
+    {
+      "method": "search",
+      "minutes": 65,
+      "paid": 20,
+      "afterExistingFeed": 18,
+      "pendingAndPaidSaveReloadExportFreshImport": true
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,29 @@
+{
+  "task": "Ordinary Nighthawk work choice affordance",
+  "authority": "Explicit coordinator instruction following the fresh first-decision walk; no change to accepted gameplay rules",
+  "viewport": "1920x1080 desktop",
+  "sourceSeam": "book_world_lotm_merit.meritView -> existing workroom mission row",
+  "files": [
+    "src/book_world_lotm_merit.js",
+    "src/book_world_lotm_ui.js (mission row only)",
+    "tests/institution_store.test.js"
+  ],
+  "playerSentence": "Copying practises your copying hand; the watch earns its quoted merit in one start. The comparison uses actual mission time and pay.",
+  "voiceSample": "None beyond a cramped hand.",
+  "rules": [
+    "WPR1",
+    "WPR17",
+    "WPR21",
+    "UR70",
+    "UR71",
+    "UR72",
+    "UR74",
+    "PRS7",
+    "AR3",
+    "AD36",
+    "AD43"
+  ],
+  "failureScenario": "A changed watch duration or merit must not keep claiming that two copies give equal time and merit.",
+  "route": "PLAY -> Village -> Tingen crossing -> Nighthawk probationer -> report; compare branches from that UI-earned save. No world fixture or gifted mastery.",
+  "deferred": "Klein case, Atlas, future rewards, new watch unlocks, mobile and persistence changes"
+}

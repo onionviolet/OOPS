@@ -1,0 +1,125 @@
+{
+  "bundleSha256": "e0dad8c74287a13b5fb99ea452c238eb49e0253cbc29839cac61a6e04b064bd6",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "route": "Native fresh headless watch and combat prerequisite journey, then earned cave-report checkpoint → real watch → all relay handoffs and ordinary travel; separate fresh courier branch",
+  "setup": "No stat/skill/time/location grants. Dev stepping settles real played minutes. Combat prerequisite checkpoint is genuinely earned, not composed.",
+  "inputs": {
+    "millCheckpointSha256": "57c08f2f91191362858496c5f07dd091b875ab54ae3e7521ef4f87c521962cb6",
+    "courierCheckpointSha256": "9e6de7fa6d00bf221fb602603990582def0d106bb4762a20e16db38325a9392a"
+  },
+  "checks": [
+    "pending-watch Save/reload/Export/fresh file Import",
+    "actual bounded watch at 20:00; one payout",
+    "carried-receipt Save/reload/Export/fresh file Import",
+    "elder → millers → old craftsman; ordinary 30-minute trips; one receipt payout",
+    "completed-relay Save/reload/Export/fresh file Import",
+    "explicit Leave watch stops the assignment: unpaid money/standing/Perception forfeited, served Persistence retained",
+    "separate genuinely earned zero-standing courier unlocks offer, mill prerequisite still enforced"
+  ],
+  "initial": {
+    "life": {
+      "schema": 3,
+      "homeMinutes": 0,
+      "itemsBought": 0,
+      "watchDay": 359731,
+      "watchMinutes": 780,
+      "watchShifts": 2,
+      "watching": false,
+      "marketClaim": null,
+      "visitorPending": true,
+      "visitorMet": true,
+      "pamphletRead": false,
+      "parcelStep": 0,
+      "parcelStarted": false,
+      "parcelRuns": 0,
+      "runnerMealsIssued": 0,
+      "runnerMealsUsed": 0,
+      "searches": {
+        "Village": {
+          "misses": 0,
+          "found": false
+        },
+        "Shack": {
+          "misses": 0,
+          "found": false
+        }
+      },
+      "looking": false,
+      "lookPlace": null,
+      "searchProgress": 0,
+      "lastClock": 518016095,
+      "lastLocation": "Village",
+      "poisonMinutes": 0,
+      "lastHubAttempt": 518016095,
+      "hubMisses": 0,
+      "hubDay": 359730,
+      "encounter": "runner",
+      "helped": 0,
+      "declined": 0,
+      "mealClaim": null,
+      "meals": 0
+    },
+    "money": 126,
+    "rep": 34,
+    "perception": 33.39,
+    "persistence": 205.52
+  },
+  "final": {
+    "life": {
+      "schema": 3,
+      "homeMinutes": 0,
+      "itemsBought": 0,
+      "watchDay": 359733,
+      "watchMinutes": 625,
+      "watchShifts": 3,
+      "watching": false,
+      "marketClaim": null,
+      "visitorPending": true,
+      "visitorMet": true,
+      "pamphletRead": false,
+      "parcelStep": 3,
+      "parcelStarted": true,
+      "parcelRuns": 1,
+      "runnerMealsIssued": 0,
+      "runnerMealsUsed": 0,
+      "searches": {
+        "Village": {
+          "misses": 0,
+          "found": false
+        },
+        "Shack": {
+          "misses": 0,
+          "found": false
+        }
+      },
+      "looking": false,
+      "lookPlace": null,
+      "searchProgress": 0,
+      "lastClock": 518016780,
+      "lastLocation": "Village",
+      "poisonMinutes": 0,
+      "lastHubAttempt": 518016780,
+      "hubMisses": 0,
+      "hubDay": 359730,
+      "encounter": "runner",
+      "helped": 0,
+      "declined": 0,
+      "mealClaim": null,
+      "meals": 0
+    },
+    "money": 146,
+    "rep": 39,
+    "perception": 38.39,
+    "persistence": 268.02
+  },
+  "courier": {
+    "standing": 0,
+    "pamphlet": true,
+    "relayNotStarted": true,
+    "millStillRequired": true
+  },
+  "errors": []
+}

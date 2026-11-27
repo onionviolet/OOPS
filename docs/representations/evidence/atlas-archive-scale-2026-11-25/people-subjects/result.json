@@ -1,0 +1,28 @@
+{
+  "scope": "normal default Atlas; real restored HP4 people output; exact same-slice census join; no fixtures or digest rebuild",
+  "viewport": "1920x1080",
+  "snapshotSha256": "1a6bb2199238025ab26cddae81269a585646ae80fa5130f7a7ee78a29e9f49a1",
+  "matcherSha256": "fd866841591bc21a6f462228dcf61fd648a0b4170212a9b3f2d8740718a5006f",
+  "contentHash": "sha256:a27bb4d4af40f6982de150dbe6f38adf20e270ba54305619384fda74575993d5",
+  "before": {
+    "fileRows": 42,
+    "matchedRows": 37,
+    "noPublicMatch": 0,
+    "ambiguous": 0,
+    "unindexed": 5,
+    "parseFailures": 0,
+    "readFailures": 0
+  },
+  "after": {
+    "fileRows": 42,
+    "matchedRows": 41,
+    "noPublicMatch": 0,
+    "ambiguous": 0,
+    "unindexed": 1,
+    "parseFailures": 0,
+    "readFailures": 0
+  },
+  "clickedHref": "#world/hp/things/hp.organization.dursleys",
+  "collisionStillUnindexed": true,
+  "errors": []
+}

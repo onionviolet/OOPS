@@ -1,0 +1,49 @@
+{
+  "mode": "Normal adopted default Atlas/registry/immutablequeue; no synthetic sources, implementation or native proof",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "id": "0134d6eaf5d69c544143292e87f2d5f11c7dd016c2bab4a6e36acbaa9f510c44",
+  "stage": "proposed",
+  "source": {
+    "book": "wus4",
+    "world": "wus",
+    "prefix": "wus4c003",
+    "pass": "scenes",
+    "kind": "scenes",
+    "contentHash": "sha256:a8c21c259c871bebe3303c85fedacce2a2c5832c7ae2a5fedbddc6afbdf85eab",
+    "method": "manual-structured-reading",
+    "fileLines": [
+      [
+        6,
+        6
+      ]
+    ],
+    "locators": [
+      "en b4 c4 p5",
+      "en b4 c4 p6",
+      "en b4 c4 p7",
+      "en b4 c4 p9",
+      "en b4 c4 p10",
+      "en b4 c4 p11",
+      "en b4 c4 p12",
+      "en b4 c4 p13"
+    ],
+    "offset": 0
+  },
+  "record": {
+    "label": "en b4 c4 p5",
+    "type": "scene",
+    "route": "#world/wus/reader-scenes/lr.wus.shane.400402"
+  },
+  "refreshPreserved": true,
+  "sourceVersionMatches": true,
+  "defaultSourceRecordOpened": true,
+  "nativeRepresentationAbsent": true,
+  "implementationReports": 0,
+  "snapshotSha256": "d7e6e675649d2b334d1a3ad9af681d21b504cfa55a67a0473e72df5d0c72dffa",
+  "wusDigestSha256": "93e0d911d5791d1c6f271b2a837f3727d156e2cb8a4bf83f2420b51f3b39c42f",
+  "immutablePacketVerified": true,
+  "errors": []
+}

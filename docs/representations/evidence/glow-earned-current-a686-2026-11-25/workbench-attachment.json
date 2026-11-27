@@ -1,0 +1,25 @@
+{
+  "proposalId": "7f5b831dd993bdc625dbfce2afb8532b13de4a797897a24ecb899a50a4989c1f",
+  "reportId": "16e35564706bceaefc0827ad5d8408c7a01408634d9c3c114df24d6d25c06002",
+  "attachmentId": "40c387afa42b1ad797cd7c59c8c0dfb72ad4edb548972386605d3c47d5de2471",
+  "proofPath": "docs/representations/evidence/glow-earned-current-a686-2026-11-25/proof.json",
+  "proofSha256": "0d365d84faf85b6a2c5700c2051330d9d99e8a74c01c1ceace7af8fd5c7df6b0",
+  "method": "Canonical local Workbench API; saved attachment reopened and compared without another game/browser run",
+  "comparison": {
+    "id": "40c387afa42b1ad797cd7c59c8c0dfb72ad4edb548972386605d3c47d5de2471",
+    "testedBundleSha256": "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca",
+    "entry": {
+      "route": "Fresh test origin importing unmodified retained ordinarily earned Village life: existing paid113% uncommon Rat pelt cape; visible Take off -> Full item/Equip; Item glow off/on; Effects reduced; Save/reload. No acquisition or wage route replay on this build.",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "setup": "Retained actual Village wage/purchase save from the earlier frozen earned-cape proof. Origin metadata remapped to an isolated ephemeral server; save bytes unchanged at input. No fixture, grants, seed override, clock hooks, runtime edits or rebuild."
+    },
+    "proof": {
+      "status": "unchanged"
+    },
+    "status": "exact-match",
+    "currentBundleSha256": "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca"
+  }
+}

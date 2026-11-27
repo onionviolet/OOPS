@@ -1,0 +1,35 @@
+{
+  "schema": "save-gate-fixtures/1",
+  "loader": "rebuilt production browser: localStorage load, idle tick, saveProgress, browser reload, save_to_file and literal file import",
+  "fixtures": [
+    {
+      "id": "fang-first-night",
+      "file": "fang-first-night.save.json",
+      "sha256": "ea22d85a40cec94cb79b88b66e7fe0752a99608676aef845a13d87d5952d5db5",
+      "earnedInputSha256": "ea22d85a40cec94cb79b88b66e7fe0752a99608676aef845a13d87d5952d5db5",
+      "provenance": "work/fang-yuan-idle-recovery-20261126/earned-first-infusion.json; exact input identity is independently recorded in docs/representations/evidence/fang-yuan-first-night-2026-11-26/proof.json",
+      "expected": {"character": "Hero", "location": "book.ri.lead.home", "world": "book.ri.lead.world", "packId": "book.ri.lead", "packInstanceId": "book.ri.lead.run.3275721402.1", "packSnapshotHash": "sha256:c275c81d5a0d83c49a6bf054280a2c6babbcb3c32e8c57d8ea71530bc4e482d4", "stoneCount": 6, "clock": 14919}
+    },
+    {
+      "id": "klein-ch129",
+      "file": "klein-ch129.save.txt",
+      "sha256": "ebd217413f215f9413845932c942a15ba9140ec1d5f93a191f0b97fc34e4d3c0",
+      "provenance": "work/lotm-earned-replay-20261125/inputs/kj3ba-harbor-emergency-2026-11-09/completed-checkpoint.json; docs/representations/evidence/lotm-earned-frontier-2026-11-25/historical-chain.json records the exact earned ch129 checkpoint",
+      "expected": {"character": "Klein Moretti", "location": "lotm.place.kj3ba.cargo-deck", "world": "book.lotm.tingen", "completed": "book.lotm.kj3ba.hear-neil-reflect", "fact": {"key": "book.lotm.kj3ba.review-complete", "value": true}, "clock": 79256}
+    },
+    {
+      "id": "ryan-ch1",
+      "file": "ryan-ch1.save.txt",
+      "sha256": "3ba2981f1400b202bbd4c39b1afc1819af1f382ccea23c3fc73dc513feba4820",
+      "provenance": "work/ryan-baseline-import-20261126/old-save-scope.json; actual native UI Save/Export route recorded by the Ryan baseline and Atlas adoption receipts",
+      "expected": {"character": "Hero", "location": "Village", "clock": 0, "capabilityRun": "ryan", "ryanClock": 7, "ryanPhase": "complete", "continuationTab": "Ryan Romano · New Rome", "continuationAction": "morning"}
+    },
+    {
+      "id": "alden-hospital",
+      "file": "alden-hospital.save.txt",
+      "sha256": "3fdd19100b02ffabb75208b6289e850cc898dfcae29c56229835d80c53c63ab0",
+      "provenance": "work/alden-report-boundary-20261126/pre-copy-native-export.txt; hospital identity, exact historic export and its source route are recorded in ALDEN_OPENING_2026-11-26.md",
+      "expected": {"character": "Hero", "location": "book.sup.lead.hospital_room", "world": "book.sup.lead.world", "packId": "book.sup.lead", "fact": {"key": "book.sup.lead.stage", "value": "deferred"}, "clock": 1020}
+    }
+  ]
+}

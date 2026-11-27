@@ -1,6 +1,7 @@
 import {hashStreamSeed} from './hash_rng.js';
 import {assert, copy, stableId} from "./simulation_contracts.js";
 import {resolveEffectAmount} from "./power_models.js";
+import {bindRiStoneEffect} from './ri_stone_pieces.js';
 
 export {hashStreamSeed as deriveSimulationSeed};
 
@@ -27,7 +28,7 @@ export function prepareSimulationEffects(effects, facts, registry, cause, model 
             assert(id, "Create the participant before referring to it."); e[key] = id;
         }
         if(e.amount != null) e.amount = resolveEffectAmount(e.amount, facts, model);
-        return e;
+        return bindRiStoneEffect(e,facts);
     });
 }
 

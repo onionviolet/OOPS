@@ -2,6 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {linkFixtureInputSync} from './helpers/fixture_fs.mjs';
 import os from 'node:os';
 import path from 'node:path';
 import { createRequire } from 'node:module';
@@ -60,15 +61,16 @@ test('frozen desktop build includes linked local assets and keeps independent by
   const root=path.join(work,'source'),linked=path.join(work,'local-fonts');
   fs.mkdirSync(path.join(root,'dist'),{recursive:true});fs.mkdirSync(path.join(root,'resources'),{recursive:true});fs.mkdirSync(linked);
   fs.writeFileSync(path.join(root,'index.html'),'<title>OOPS</title>');fs.writeFileSync(path.join(root,'dist/bundle.js'),'// frozen');
-  fs.writeFileSync(path.join(linked,'font.woff2'),'original-font');fs.symlinkSync(linked,path.join(root,'resources/fonts'),'dir');
-  fs.symlinkSync(path.join(linked,'font.woff2'),path.join(root,'resources/individual.woff2'));
+  fs.writeFileSync(path.join(linked,'font.woff2'),'original-font');linkFixtureInputSync(linked,path.join(root,'resources/fonts'),'dir');
+  const linkFile = process.platform === 'win32' ? fs.linkSync : fs.symlinkSync;
+  linkFile(path.join(linked,'font.woff2'),path.join(root,'resources/individual.woff2'));
   const build=makeSnapshot(root,path.join(work,'profile'));
   fs.writeFileSync(path.join(linked,'font.woff2'),'later-font');
   for(const rel of ['resources/fonts/font.woff2','resources/individual.woff2']){
    assert.equal(fs.readFileSync(path.join(build.root,rel),'utf8'),'original-font');
    assert.equal(fs.lstatSync(path.join(build.root,rel)).isSymbolicLink(),false);
   }
-  fs.symlinkSync(path.join(root,'resources'),path.join(linked,'cycle'),'dir');
+  linkFixtureInputSync(path.join(root,'resources'),path.join(linked,'cycle'),'dir');
   assert.throws(()=>makeSnapshot(root,path.join(work,'profile')),/directory link cycle/);
  }finally{fs.rmSync(work,{recursive:true,force:true});}
 });

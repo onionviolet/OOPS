@@ -1,0 +1,42 @@
+{
+  "schema": "lotm-tent-source-freeze/1",
+  "bundleSha256": "b691073af3c1a5a3c1ccf49171c4d97175873f992e4b7d00e8d6b1c05eca9d2a",
+  "files": [
+    {
+      "path": "src/lotm_tent_incident.js",
+      "sha256": "83d7ac5b1b8689d0d7360b440f72c9e532f7356cad02d68b7529e5ba1e3a17a0",
+      "exactBuiltSourceMatch": true
+    },
+    {
+      "path": "src/book_world_lotm_cast_host.js",
+      "sha256": "dd9328fa2d9735b1892041ed16dc2721d463eba1b184c10ccba7ece0d5989303",
+      "exactBuiltSourceMatch": true
+    },
+    {
+      "path": "src/book_world_lotm_host.js",
+      "sha256": "fb0928a5ec11905940a8c82fec2ba72e8990f2274b190520eb36622eaa192526",
+      "exactBuiltSourceMatch": true
+    },
+    {
+      "path": "src/book_world_lotm_ui.js",
+      "sha256": "e1476e7c0db769da6b32b4918e9060c708480e3e8fdb110009026da59dc240a8",
+      "exactBuiltSourceMatch": true
+    },
+    {
+      "path": "src/perspective_controls.js",
+      "sha256": "00d3e007fb5d9c4f15d72b6ea7ac97e0de3afcc68964aab54fc97d70b615ef38",
+      "exactBuiltSourceMatch": true
+    }
+  ],
+  "test": {
+    "path": "tests/lotm_tent_incident.test.js",
+    "sha256": "1d888f80691dea67c7a5497916ca2f4c3f367fc7024e31c53df5cd35668a3dbc"
+  },
+  "sourceQualification": {
+    "preparedSha256": "395c9d9f714edf4a6c81dc6be689b00931e31aeac51fba37a3f0ae1075e1d910",
+    "paragraphs": 66,
+    "words": 1645,
+    "rawProseIncluded": false
+  },
+  "status": "source identity verified; desktop proof pending"
+}

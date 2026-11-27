@@ -1,0 +1,82 @@
+{
+  "viewport": "1366x768",
+  "actualQueue": 12,
+  "fullyVisibleEntries": 3,
+  "filterCombinations": [
+    {
+      "source": "all",
+      "status": 0,
+      "count": 12
+    },
+    {
+      "source": "all",
+      "status": 1,
+      "count": 2
+    },
+    {
+      "source": "all",
+      "status": 2,
+      "count": 10
+    },
+    {
+      "source": "all",
+      "status": 3,
+      "count": 1
+    },
+    {
+      "source": "reading",
+      "status": 0,
+      "count": 10
+    },
+    {
+      "source": "reading",
+      "status": 1,
+      "count": 2
+    },
+    {
+      "source": "reading",
+      "status": 2,
+      "count": 8
+    },
+    {
+      "source": "reading",
+      "status": 3,
+      "count": 1
+    },
+    {
+      "source": "backlog",
+      "status": 0,
+      "count": 2
+    },
+    {
+      "source": "backlog",
+      "status": 1,
+      "count": 0
+    },
+    {
+      "source": "backlog",
+      "status": 2,
+      "count": 2
+    },
+    {
+      "source": "backlog",
+      "status": 3,
+      "count": 0
+    }
+  ],
+  "checks": [
+    "compact queue without report/submission forms",
+    "linked immutable detail route",
+    "detail submission form retained",
+    "reload and return",
+    "no queue mutation",
+    "no page errors or horizontal overflow"
+  ],
+  "pageErrors": [],
+  "sourceHashes": {
+    "reading-handoffs.mjs": "95f98bacfd4ff175f3ff4800f13abfec0fa892897c5455d63bfc328289491165",
+    "reading-handoffs-view.mjs": "801a587275de4337fdf9bc6094c5a6f5d18b4cb7d880d17ddb0a28eaed201f1b",
+    "canvas.css": "2fdd5e8403f7bc4966d6f0d27b6ae4186ab67905c7d1748fa70899f9ab43655a",
+    "serve.mjs": "6e742845d0ba18ebca0aa8b490e8da0f40f2f89bf153fae275613154119136e0"
+  }
+}

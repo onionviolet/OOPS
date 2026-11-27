@@ -28,6 +28,11 @@ const paidOf = state => {const n = state?.actors?.player?.facts?.[WAGE_PAID_FACT
 const kept = (week, d = WAGE_DIALS) => {const half = d.weeklyPence.value * d.keptShare.value, before = (week - 1) * half;
     return Math.max(0, Math.min(half, d.advancePence.value - before));};
 
+export function nextWageWeek(view) {
+    const withheld = view.advance ? kept((view.closed ?? 0) + 1) : 0;
+    return {withheld, takeHome: view.weeklyPence - withheld};
+}
+
 // {eligible, started, closed, paid, owedWeeks, gross, kept, net, advanceLeft, nextAt} for the lead life; null elsewhere or before the contract.
 export function wageView(state) {
     if(state?.actors?.player?.worldId !== I.world || !known(state)[WAGE_CONTRACT_NOTE]) return null;

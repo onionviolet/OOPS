@@ -168,3 +168,193 @@ outside this comparison. Mobile follows the standing deferred priority.
 plus the named local law and fixture. It covers the in-flight restore,
 once-only fee, interrupted lesson, and landed first cut. Browser evidence
 belongs to the shared capability panel receipt.
+
+### Guarded-opening drill adoption, 2026-11-26
+
+The normal fresh route is Village → **Capability runs** → **Su Xiao · Test Hall** →
+**Begin this run**. Play the first drill, pay for and finish the hour, spar again,
+study the image's opening, then test the studied opening. The two new choices
+are **Commit to your familiar opening** and **Wait for the guard to open**.
+They face the same second image, which guards briefly and then counters.
+
+This extends the existing saved Su Xiao practice life. The sid28 p14–70 lesson
+and fee remain source-qualified; the second image, its eight-tick guard,
+recovery timings, five-minute attempts and reset practice bodies are authored.
+Committing produces a real blocked cut and the image lands at 1.6 seconds;
+waiting lands Su Xiao's cut at 1.0 seconds through the existing contest and
+body owners. Both attempts leave coins and XP unchanged. Missing the teacher
+or the completed studied drill refuses the choice without spending time.
+Both approaches and their outcomes remain in the save; older saves gain the
+new image on their first eligible attempt. No campaign or Hunter reward follows.
+
+[Native Node DOM evidence](../../representations/evidence/paradise-guarded-opening-2026-11-26/native-proof.json)
+records fresh ordinary controls through both choices, Save and Export/Import,
+clock 80, 1,000 remaining coins and 200 XP. Its SHA256 is
+`765e8c68978d5eb92654691a7a19cb3d15c488f042200b60d73c2b74c27147d4`;
+the executed isolated headless bundle is
+`db9cd782648249d45c79dceca596afae68b23dc862336fae481003ddf9dce864`.
+This is candidate native evidence, not combined-build desktop acceptance.
+Primary source matched the copied baseline before adoption. Final UTF-8 checking
+then caught three CP1252 punctuation bytes in the candidate additions. Those
+were repaired without changing mechanics; the adopted source SHA256 is
+`73f0d56cce14848d18053966c573ce14bdbaae9f3a07bd38798348b50572de27`.
+The native receipt retains the earlier candidate bytes; corrected typography
+awaits the combined desktop check.
+
+`node --test tests/paradise_sword_practice.test.js tests/paradise_second_opponent.test.js`
+passed 7/7 after adoption. The new tests compare actual landed body damage,
+equal time and unchanged purse/XP, refusal, old-save restoration and retained
+outcomes. `node --check src/world_packs/paradise_sword_practice.js` passed.
+`npm run check:docs`, scoped `git diff --check` and `npm run check:rules`
+passed after adoption. The rules command retained existing unrelated warnings.
+AR3, AR6, AR7, AD36, AD38, SKR1, SKR3, SKR21, WPR21, WPR27, PRS4 and PRS6
+apply. Target desktop 1920×1080; coordinator owns the combined build and browser
+check. Until that check, this addition remains below the AD43 floor.
+
+The separate earliest campaign starting point is
+[canon priority F02/F04](CANON_PRIORITY_PLAN_2026-10-14.md): existing qualified
+Chinese chapter 2 records NS01-C01/C02 identify injured Su Xiao's coerced
+agreement, treatment and awakening, then the issued 72-hour ruler trial.
+This identification reuses existing records; it is not a new source reread.
+F07 retains the Chinese/MTL trial-failure wording difference, so a campaign
+implementation needs an explicit witness. Neither the voluntary retained-body
+contractor branch nor this authored 2,000-coin Test Hall start replaces that
+opening. The original Wayfarer Exchange remains a third distinct route.
+
+### Su Xiao opening, 2026-11-26
+
+**Before-state and fit.** The tested Su Xiao Test Hall life was an authored
+practice start. The new optional **Beginning → Reincarnation Paradise · Su Xiao**
+starts the named protagonist before signing. It uses the existing structured
+beginning, body, knowledge, situation-clock and native job owners. The independent
+contractor, Test Hall and original Exchange remain separate. Owned source is
+[`book_paradise_lead_life.js`](../../../src/world_packs/book_paradise_lead_life.js),
+with a title status callback in the structured runtime. Registration belongs to
+the shared beginnings owner. AR3/AR6/AR7, AD36/AD38/AD43, SKR1/SKR3/SKR21,
+WPR21/WPR27, WER1–WER17 and PRS4/PRS6 apply. Desktop target1920×1080.
+
+**Source.** A fresh bounded reading checked the existing supplied English MTL
+EPUB, SHA256 `67f15d112389a7e4a1218a9f0888b358c5c8f8bd6ab339d9df4ede50c76636e6`:
+chapter1p45–77, chapter2p1–84 and chapter3p1–35. The chapter2 member hash is
+`4524de7c72c26ae509d81b3a89b8795da92a69458b2c4db521dd95e14214ec47`.
+The old Calibre path was absent; the exact previously documented ZIP remained
+available and matched the EPUB hash. Existing primary NS01-C01/C02 records
+qualify coercion and the72-hour trial; primary prose was not freshly recovered.
+The MTL adds death to trial-failure status loss, unlike those primary notes.
+This opening does not encode that disputed punishment. Raw prose stays private.
+
+**Playable boundary.** Check your injuries, ask about the missing knife and
+Hunter duties, then sign; signing before further questions is a labeled authored
+response whose missing answers remain missing. Treatment closes the same body's
+chest/calf wound flags, then forced awakening and transfer occur separately.
+The ruined house has blocked doors/windows and a roof opening. Receiving the
+world notice starts the trial clock at arrival, before reading either menu.
+Personal information and the named72-hour trial can be read in either order;
+each costs an authored minute. The status shows issue minute and remaining time
+from the same saved clock. Reading a talent notice supplies knowledge, not a
+kill, reserve or training. No assassination, mission reward, extraction or later
+route is claimed. The approximate95-minute recruitment boundary refuses a new
+signature after its time; this slice does not simulate an expiry death scene.
+
+**Proof.** `node --test tests/paradise_lead_opening.test.js
+tests/paradise_sword_practice.test.js tests/paradise_second_opponent.test.js`
+passed12/12. The new5 cases cover actual JSON/native registration, same-body
+treatment, missing answers, both panel orders and clock preservation, cancelled
+reading and late-signature refusal. `node scripts/headless/paradise_opening_route.mjs`
+passed from fresh ordinary controls, including Save/reload during recruitment,
+Save/reload after panels and literal Export/Import. The
+[native receipt](../../representations/evidence/paradise-opening-2026-11-26/native-proof.json)
+SHA256 is `152467409ae3e2dc64136ca87e6627158695ab0f356dc84114711131aa2b8057`;
+headless bundle `7bfb24cde35027e515ea30a019f975ef5bd4e78bc1fe3b8c96709011a6894cec`.
+Its clock2 retains deadline4320 and4318minutes remaining. The initial driver
+failed by clicking a collapsed panel after reload; the retained
+[diagnostic](../../representations/evidence/paradise-opening-2026-11-26/diagnostic-panel-reopen.json)
+records normal panel reopening, with no runtime workaround. Architecture and
+rules checks passed, with existing unrelated warnings. No full suite or build
+was run by this lane.
+
+The coordinator additionally played the normal desktop build`71d4c254` at
+1920×1080 through the informed-signature route and both panels. He observed issue
+minute75, remaining time decreasing from70h28 to69h57 across inspection, with no
+reset, in the actual Gray Terminal house. This is coordinator-reported evidence,
+separate from the retained headless receipt. He also found a current continuity
+gap: static opening/contract notes still say wounds remain or treatment has not
+happened beside the healed state, and the introduction retains immediate-danger
+wording. The separately tested correction was subsequently adopted, as recorded
+below. Preserved Frontier bread, clothing and coins are
+legacy possessions, not source-attested Su Xiao equipment or Paradise currency.
+
+#### Retrospective records and old-save continuity
+
+The opening description, recruitment location and initial/signature observations
+now describe their original moment. A pure Su-specific display projection also
+rephrases the held records in earlier saves without rewriting their observations,
+body or clock. Exact reviewed content/start aliases retain the original issued
+identity. The original definition fixture and two regressions verify both
+signature histories continuing after treatment, while later body/duration drift
+remains rejected. No stock, reward or new ability is supplied by this correction.
+
+The coordinator imported the genuine pre-fix post-trial export into the isolated
+normal build: PLAY reopened the Gray Terminal house; Details separated initial
+grave injury, untreated-at-signing history and healed state; trial issue minute0
+remained and time kept descending. That
+[desktop report](../../representations/evidence/paradise-opening-2026-11-26/continuity-desktop.json)
+is coordinator-observed, not a new browser run by this lane.
+
+After pr_intake captured unchanged runtime input hashes and released the primary
+tree, the scoped correction and regressions were adopted. The focused Su,
+Taylor, Alden and shared structured-beginning files passed68/68; architecture,
+rules, whitespace and normal `npm run build` passed. Existing unrelated lint,
+stale-glob and duplicate-key warnings remain. The coordinator's preceding full
+suite ended with an unrelated calendar-test harness ReferenceError; this lane
+did not rerun the full suite or claim that failure was green.
+
+The final primary bundle is byte-identical to that desktop-tested candidate:
+`12d9760f32ceb47f1c15e040587350b892192baad778bb4112eea664913b2cc3`.
+The served index is also identical. See the
+[adoption receipt](../../representations/evidence/paradise-opening-2026-11-26/continuity-adoption.json).
+The candidate server PID102736 was stopped. Private genuine exports, the cited
+candidate proof and one desktop-tested rollback build are retained; no commit
+or push was made.
+
+#### Roof conversation source handoff, 2026-11-26
+
+Read-only checks of the live Mac Source Library and both named Calibre databases
+found the held English MTL, not a Chinese edition. `library_coverage.py --series
+"Reincarnation Paradise"` returned one held edition; the Chinese-title query
+returned none. The checked research corpus retained NS01's earlier primary
+chapter3 inspection note, but no recoverable primary passage for this dialogue.
+Primary corroboration remains a concrete gap, not a new acquisition request.
+
+The held EPUB still matches `67f15d112389a7e4a1218a9f0888b358c5c8f8bd6ab339d9df4ede50c76636e6`.
+Direct reading of `EPUB/Chapter 3 The Shootout!_3.xhtml`, p33–67, matched member
+`363cd8f6be7e0c0e941944e21d950bc76c6caf7898430a5546c4b448d6e17968`.
+Paragraphs are one-based XML `p` elements, including empty ones.
+
+In this qualified translation, p38–41 show Su lowering himself to the roof
+opening, hearing shots and seeing two armed groups. P43–46 contain loudly
+exchanged territory claims: Toby is addressed by name; the challenger claims
+more guns and an ambition to leave as pirates. These are attributed statements,
+not proof of ownership, a trustworthy informant or permission to cross. P42's
+residency identification, p47's refusal prediction and p49–50's estimate of his
+own danger are Su's interpretations. A usable clue is the named dispute and
+the stated gun advantage, which can be investigated later; no safe route follows.
+P51 shows him waiting for dispersal, interrupted by a newcomer before dispersal
+is established. A bounded listen could spend authored trial time and retain the
+heard claims; it must not promise that waiting clears the area. No runtime,
+test, source acquisition or RUN change was made for this check. WPR20/WPR27,
+SKR1/SKR3/SKR21 apply.
+
+**Next contiguous interaction.** The same held English MTL chapter 3, XML paragraphs 52–74, continues from the observed arrival. Su comes down, subdues the newcomer and asks who they are. The newcomer gives a name and says they came for shelter. The playable comparison below also lets Su speak from the roof or keep watching. A name or explanation enters Su’s knowledge through an actual exchange. Both responses preserve the same trial deadline and physical person through a reload. The distance exchange and RPG calibration are authored alternatives to the source-qualified ordinary response. The separate Test Hall start is sword practice.
+
+#### The next visitor at Gray Terminal
+
+**Playtest setup (AD6, AD36, AD43).** The earlier earned rooftop export has Su watching the ruined house at trial minute 12. The held English machine translation, chapter 3 paragraphs 52–74, provides the next exchange. Compare Su coming down to confront the newcomer with calling down from the opening. At 1280×720, check what each person can see, whether they have actually spoken, who holds whom, and what remains possible afterward. Use one earned arrival for both choices. An interrupted action, a short wait, and restoring from a file should preserve that life’s body and original trial deadline.
+
+**Starting point verified.** Imported the original earned rooftop export SHA-256 `1120f3eee2c0910f8debc06056f14ecd38e772dff7e97ec5e66c8d244f9e6e2a` into native bundle `0933d7997e07ba54ec530d161de7432ff0a59f40e142e6d2aca3f913fee31355`. Su had seen the arrival and remained at the roof opening in his healed body. Three ordinary idle minutes took him from minute 12 to 15 and reduced the remaining trial from 4,308 to 4,305 minutes. The original deadline stayed at minute 4,320. Nobody changed place or custody, and the player learned nothing further during that wait. Save/reload and file Export/Import preserved the result. The encounter comparison remains in development.
+
+A second check started a fresh ordinary native game, chose Su Xiao through Beginning and confirmed arrival. The player inspected his injuries, asked about the knife and terms, signed, received treatment, transferred to the house, read the mark, climbed the roof and listened until the visitor arrived. Going straight there reached the same roof at minute 8 with 4,312 trial minutes left. Reimporting the resulting file preserved the healed body, location and clock. The earlier minute-12 route included a detour. Each route paid its own elapsed time.
+
+**Desktop encounter comparison.** In the rebuilt game at 1280×720 (bundle `d4807009d57cf672e5836f471cb745d66b874aac94ad81d196d450c4e1df354a`), imported the same earned minute-nine save for both approaches (file SHA-256 `b170cb55b7be059e0e22ac643c05e4193a44f0b16bead9a23ffd42a83488b6fd`). Speaking from above took one minute. Su stayed on the roof. Mia gave her name and said she needed shelter, and she remained free to move. After reimporting, Su dropped into the house and subdued and questioned her. This time Mia was winded and frightened, asked him not to hurt her, and the game offered **Ease your hold**. That control expired before the desktop tester used it. The two approaches change Mia's condition and Su's position even though both can teach Su her name. The exchange follows the held English machine translation; the conversation from above is an authored alternative.
+
+**Native persistence comparison.** The [redacted native proof](../../representations/evidence/paradise-newcomer-2026-11-26/native-proof.json) records four passing routes on native source bundle `5b913e45e422d025777e7c2063073cc0b356403dba6cfdc5514521f5cc5b4e2b`: both responses from the fresh minute-eight arrival and both from the inherited minute-12 rooftop export. The latter spent three ordinary idle minutes before introducing the physical newcomer. Every route then spent one watching minute and one response minute. Pending and settled Save/reload/Export/Import preserved Su's body, original minute-4,320 deadline, prior pins and the same visitor. Identity remained unknown until dialogue settled. The source response left temporary RPG conditions, NPC memory and lower trust; distance left the visitor unrestrained and uninjured. Neither response granted an ally or reward. Native persistence and desktop comparison are separate evidence scopes.

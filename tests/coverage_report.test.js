@@ -66,7 +66,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
-import {reachableFrom, walkFrom, importsOf} from '../scripts/reachable.mjs';
+import {reachableFrom, walkFrom, importsOf, relativeSourcePath} from '../scripts/reachable.mjs';
 import {computeLedgers, runCase, runCaseData, computedCounts, expectHolds} from '../scripts/coverage_report.mjs';
 
 import {applyEngineOps, createEngineWorld} from '../src/engine_world.js';
@@ -86,7 +86,7 @@ test('reachability follows static, re-export and literal dynamic imports, and li
     put('commented.js', 'export const c = 1;\n');
     put('packs/hidden.js', 'export const h = 1;\n');
     const walk = walkFrom(path.join(dir, 'main.js'));
-    const rel = new Set([...walk.reachable].map(f => path.relative(dir, f)));
+    const rel = new Set([...walk.reachable].map(f => relativeSourcePath(f, dir)));
     assert.deepEqual([...rel].sort(), ['a.js', 'lazy.js', 're.js', 'main.js', 'sub/index.js'].sort());
     // The pack loaded through a computed path is unreachable AND the gap is listed, not silent.
     assert.equal(rel.has('packs/hidden.js'), false);

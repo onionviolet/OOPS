@@ -1,0 +1,53 @@
+{
+  "description": "Genuine earlier saves restored in the native game runner. Each result survived save, reload, export and import.",
+  "cases": {
+    "cancel": {
+      "bundle": "d468e1f6ddba8a05140634b3957096bfc868265bf1ea513cab986ac875a3291c",
+      "input": "5c011ed98ed1cee8d0611d62f20dcd00afe8d530d7601082a1c4c1c1c758a324",
+      "result": {
+        "held": [
+          {
+            "id": "book.ri.lead.run.3275721402.1.half-stone.1",
+            "count": 1,
+            "remaining": 14
+          }
+        ],
+        "whole": 19,
+        "jobs": []
+      },
+      "exported": "640553c31c458473752e73f3f23638440dfdbae223e177eacdd5eab8f390d3b4"
+    },
+    "finish": {
+      "bundle": "b78b7954645a4eeb02409d34fbce8c97b38465bef1db86d5cbd10471a0cbf19e",
+      "input": "5c011ed98ed1cee8d0611d62f20dcd00afe8d530d7601082a1c4c1c1c758a324",
+      "result": {
+        "held": [
+          {
+            "id": "book.ri.lead.run.3275721402.1.half-stone.1",
+            "count": 1,
+            "remaining": 13
+          }
+        ],
+        "whole": 19,
+        "jobs": []
+      },
+      "exported": "fe2871f1d52cdb08240246fa4d59bdfb874a92c0a7d45610675aadd07169bde0"
+    },
+    "spent": {
+      "bundle": "d468e1f6ddba8a05140634b3957096bfc868265bf1ea513cab986ac875a3291c",
+      "input": "7b478e2a22c223081ef6d23e1e3571593ca00be35f39460c12b899ca4aaba804",
+      "result": {
+        "held": [
+          {
+            "id": "book.ri.lead.run.3275721402.1.half-stone.1",
+            "count": 1,
+            "remaining": 0
+          }
+        ],
+        "whole": 19,
+        "jobs": []
+      },
+      "exported": "e6b4a7413faad2c30194b78a985c7b4c8ee1700578c36b992332c246ab9dcf46"
+    }
+  }
+}

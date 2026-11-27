@@ -55,3 +55,32 @@ test('prepared-room explanation stays current and work inspection remains separa
  assert.equal(lotmTaskSummary({...view,objectActs:[{...action,eligible:false}]}).flavour,'');
  const next=lotmTaskSummary({...view,arc:{...view.arc,next:{...view.arc.next,id:'fixture.later'}}});assert.equal(next.context,'');assert.equal(next.flavour,'');
 });
+
+
+test('a second known destination preserves the main recommendation and uses current walk terms',()=>{
+ const walk={id:'fixture.market.walk',to:'fixture.market',label:'Walk to Municipal market · 2 min · Nearby',eligible:true};
+ const view={arc:{...arc,next:{id:'fixture.read',label:'Try the free reading',place:'fixture.tent'},alternatives:[{walkId:walk.id,label:'Or go straight to the market',actionLabel:'Buy mutton and vegetables'}]},moves:[walk],jobs:[]};
+ const before=structuredClone(view),model=lotmTaskSummary(view);
+ assert.equal(model.next,'Next: Try the free reading');assert.equal(model.alternatives.length,1);
+ assert.equal(model.alternatives[0].walkLabel,walk.label);assert.deepEqual(view,before);
+ assert.equal(lotmTaskSummary({...view,moves:[{...walk,eligible:false}]}).alternatives.length,0);
+ assert.equal(lotmTaskSummary({...view,moves:[]}).alternatives.length,0);
+ assert.equal(lotmTaskSummary({...view,jobs:[{id:'fixture.working',commandId:'fixture.other'}]}).alternatives.length,0);
+ assert.equal(lotmTaskSummary({...view,arc:{...view.arc,next:null,done:true}}).alternatives.length,0);
+});
+
+test('the alternative button finds the existing walk without starting travel or shopping',async()=>{
+ const {createDom}=await import('../scripts/headless/dom.mjs');
+ const {renderLotmTaskSummary}=await import('../src/ui/lotm_task_summary.js');
+ const previous=globalThis.document;globalThis.document=createDom().document;
+ try{
+  const walk={id:'fixture.market.walk',label:'Walk to Municipal market · 2 min',eligible:true};
+  const view={arc:{...arc,alternatives:[{walkId:walk.id,label:'Or go straight to the market',actionLabel:'Buy mutton and vegetables'}]},moves:[walk],jobs:[]};
+  const calls=[],before=JSON.stringify(view);
+  const section=renderLotmTaskSummary(view,{findControl:(...args)=>calls.push(args),findWork:()=>assert.fail('no work started')});
+  const option=section.querySelector('[data-lotm-task-alternative]');assert.ok(option);
+  assert.match(option.textContent,/2 min/);assert.match(option.textContent,/Buy mutton and vegetables/);
+  const button=option.querySelector('button');assert.equal(button.type,'button');assert.match(button.textContent,/Show walk/);
+  button.click();assert.deepEqual(calls,[[walk.id,{focusAction:true}]]);assert.equal(JSON.stringify(view),before);
+ }finally{if(previous===undefined)delete globalThis.document;else globalThis.document=previous;}
+});

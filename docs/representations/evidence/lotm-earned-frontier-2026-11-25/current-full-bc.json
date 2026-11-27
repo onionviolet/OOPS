@@ -1,0 +1,66 @@
+{
+  "bundle": "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca",
+  "pack": "4e1b1e4be8d9420553259132ad02ceef7b41fb6fa0f9241aa63bcb619eea5c0e",
+  "fixture": "b688f03d49435303c0d4ed2bbfd6e67176894da275109050e012136eff482f0f",
+  "steps": [
+    {
+      "id": "book.lotm.kj3bc.steady-before-questions",
+      "clock": 79985
+    },
+    {
+      "id": "book.lotm.kj3bc.press-owner",
+      "clock": 79990
+    },
+    {
+      "id": "book.lotm.kj3bc.rent-room",
+      "clock": 79996
+    },
+    {
+      "id": "book.lotm.kj3bc.raise-wall",
+      "clock": 79999
+    },
+    {
+      "id": "book.lotm.kj3bc.read-pendulum",
+      "clock": 80001
+    },
+    {
+      "id": "book.lotm.kj3bc.read-withholding",
+      "clock": 80005
+    },
+    {
+      "id": "book.lotm.kj3bc.touch-crimson-star",
+      "clock": 80007
+    },
+    {
+      "id": "book.lotm.kj3bc.open-exchange",
+      "clock": 80012
+    },
+    {
+      "id": "book.lotm.kj3bc.offer-window",
+      "clock": 80015
+    },
+    {
+      "id": "book.lotm.kj3bc.hear-history",
+      "clock": 80019
+    },
+    {
+      "id": "book.lotm.kj3bc.ask-pathways",
+      "clock": 80023
+    },
+    {
+      "id": "book.lotm.kj3bc.name-contact",
+      "clock": 80027
+    }
+  ],
+  "pending": "book.lotm.kj3bc.steady-before-questions",
+  "servedBundleSha256": [
+    "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca",
+    "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca",
+    "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca",
+    "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca",
+    "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca"
+  ],
+  "persistence": true,
+  "viewport": "1920x1080",
+  "pageErrors": 0
+}

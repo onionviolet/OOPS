@@ -1,0 +1,209 @@
+{
+  "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Open', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"button\" data-nearby-verb=\"lotm-workroom\" data-verb-key=\"lotm-workroom\u0000lotm-workroom\" title=\"Finish your current work or conversation first.\">Open</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    52 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not enabled\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+  "buttons": [
+    {
+      "text": "Tingen workroom",
+      "html": "<button type=\"button\" data-scene-focus=\"lotm-workroom\" aria-pressed=\"false\">Tingen workroom</button>"
+    },
+    {
+      "text": "blur_onCross to another world: Tingen",
+      "html": "<button type=\"button\" class=\"location_choice_dropdown choice_travel\" data-lotm-door=\"\" hidden=\"\" data-lotm-local-entry=\"false\" data-here-kind=\"act\" data-here-tab=\"actions\" role=\"button\" tabindex=\"0\" data-native-keyboard=\"true\" aria-disabled=\"false\" aria-expanded=\"false\"><i class=\"material-icons\" aria-hidden=\"true\">blur_on</i><span>Cross to another world: Tingen</span></button>"
+    },
+    {
+      "text": "← Back to Tingen supervised workroom",
+      "html": "<button id=\"center_mode_back\" type=\"button\" aria-label=\"← Back to Tingen supervised workroom\">← Back to Tingen supervised workroom</button>"
+    },
+    {
+      "text": "↕",
+      "html": "<button type=\"button\" data-workspace-action=\"handle\" data-module=\"lotm\" class=\"workspace-drag-handle\" draggable=\"false\" title=\"Drag to reorder or dock. Arrow keys move; left/right changes dock.\" aria-label=\"Move Tingen workroom\">↕</button>"
+    },
+    {
+      "text": "▾",
+      "html": "<button type=\"button\" data-workspace-action=\"collapse\" data-module=\"lotm\" title=\"Collapse Tingen workroom\" aria-label=\"Collapse Tingen workroom\" aria-expanded=\"true\">▾</button>"
+    },
+    {
+      "text": "Expand",
+      "html": "<button type=\"button\" data-workspace-action=\"expand\" data-module=\"lotm\">Expand</button>"
+    },
+    {
+      "text": "Pin",
+      "html": "<button type=\"button\" data-workspace-action=\"pin\" data-module=\"lotm\" title=\"Pin Tingen workroom\" aria-label=\"Pin Tingen workroom\" aria-pressed=\"false\">Pin</button>"
+    },
+    {
+      "text": "Earlier",
+      "html": "<button type=\"button\" data-workspace-action=\"earlier\" data-module=\"lotm\">Earlier</button>"
+    },
+    {
+      "text": "Later",
+      "html": "<button type=\"button\" data-workspace-action=\"later\" data-module=\"lotm\">Later</button>"
+    },
+    {
+      "text": "Hide",
+      "html": "<button type=\"button\" data-workspace-action=\"hide\" data-module=\"lotm\">Hide</button>"
+    },
+    {
+      "text": "←",
+      "html": "<button type=\"button\" data-workspace-action=\"float-left\" data-module=\"lotm\">←</button>"
+    },
+    {
+      "text": "↑",
+      "html": "<button type=\"button\" data-workspace-action=\"float-up\" data-module=\"lotm\">↑</button>"
+    },
+    {
+      "text": "↓",
+      "html": "<button type=\"button\" data-workspace-action=\"float-down\" data-module=\"lotm\">↓</button>"
+    },
+    {
+      "text": "→",
+      "html": "<button type=\"button\" data-workspace-action=\"float-right\" data-module=\"lotm\">→</button>"
+    },
+    {
+      "text": "Find step",
+      "html": "<button type=\"button\" data-lotm=\"plan_book.lotm.accept_allocation\" title=\"Focus the existing control without starting it.\">Find step</button>"
+    },
+    {
+      "text": "Find step",
+      "html": "<button type=\"button\" data-lotm=\"plan_book.lotm.accept_allocation_cc\" title=\"Focus the existing control without starting it.\">Find step</button>"
+    },
+    {
+      "text": "Stand a night watch over the cold room… · 60 min · earns 2 merit",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.merit_cold_room_watch\" disabled=\"\" title=\"Finish your current activity first. A participating person is unavailable or already working. · Stand a night watch over the cold room for Warden Hale · 60 min · earns 2 merit\" data-disabled-reason=\"Finish your current activity first. A participating person is unavailable or already working.\" aria-describedby=\"ui-disabled-4\">Stand a night watch over the cold room…<span class=\"action-chip\"> · 60 min · earns 2 merit</span></button>"
+    },
+    {
+      "text": "Copy a closed case file into the church… · 30 min · earns 1 merit",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.merit_case_file_copy\" disabled=\"\" title=\"Finish your current activity first. A participating person is unavailable or already working. · Copy a closed case file into the church records · 30 min · earns 1 merit\" data-disabled-reason=\"Finish your current activity first. A participating person is unavailable or already working.\" aria-describedby=\"ui-disabled-5\">Copy a closed case file into the church…<span class=\"action-chip\"> · 30 min · earns 1 merit</span></button>"
+    },
+    {
+      "text": "Do 2 assignments: Stand a night watch over… · 2 h · earns 4 merit",
+      "html": "<button type=\"button\" data-lotm=\"repeat.2.book.lotm.merit_cold_room_watch\" disabled=\"\" title=\"Finish your current activity first. A participating person is unavailable or already working. · Do 2 assignments: Stand a night watch over the cold room for Warden Hale · 2 h · earns 4 merit\" data-disabled-reason=\"Finish your current activity first. A participating person is unavailable or already working.\" aria-describedby=\"ui-disabled-6\">Do 2 assignments: Stand a night watch over…<span class=\"action-chip\"> · 2 h · earns 4 merit</span></button>"
+    },
+    {
+      "text": "Do 2 assignments: Copy a closed case file… · 1 h · earns 2 merit",
+      "html": "<button type=\"button\" data-lotm=\"repeat.2.book.lotm.merit_case_file_copy\" disabled=\"\" title=\"Finish your current activity first. A participating person is unavailable or already working. · Do 2 assignments: Copy a closed case file into the church records · 1 h · earns 2 merit\" data-disabled-reason=\"Finish your current activity first. A participating person is unavailable or already working.\" aria-describedby=\"ui-disabled-7\">Do 2 assignments: Copy a closed case file…<span class=\"action-chip\"> · 1 h · earns 2 merit</span></button>"
+    },
+    {
+      "text": "Put 4 pooled desk practice into your copying…",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.merit_spend_copying\" disabled=\"\" title=\"Finish your current activity first. · Put 4 pooled desk practice into your copying hand\" data-disabled-reason=\"The required knowledge, means or circumstances are missing. Finish your current activity first.\" aria-describedby=\"ui-disabled-8\">Put 4 pooled desk practice into your copying…</button>"
+    },
+    {
+      "text": "A recovered copy of the Sequence 8 Light… · 8 merit",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.merit_buy_sun_8_sheet\" disabled=\"\" title=\"It costs 8 merit; you hold 1. · A recovered copy of the Sequence 8 Light Supplicant formula · 8 merit\" data-disabled-reason=\"It costs 8 merit; you hold 1.\" aria-describedby=\"ui-disabled-10\">A recovered copy of the Sequence 8 Light…<span class=\"action-chip\"> · 8 merit</span></button>"
+    },
+    {
+      "text": "One lot of crystal sunflower from the evidence… · 3 merit · 2 left",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.merit_buy_sunflower_lot\" disabled=\"\" title=\"It costs 3 merit; you hold 1. · One lot of crystal sunflower from the evidence store · 3 merit · 2 left\" data-disabled-reason=\"It costs 3 merit; you hold 1.\" aria-describedby=\"ui-disabled-12\">One lot of crystal sunflower from the evidence…<span class=\"action-chip\"> · 3 merit · 2 left</span></button>"
+    },
+    {
+      "text": "Stop",
+      "html": "<button type=\"button\" data-lotm=\"cancel\" title=\"Stopping forfeits what this spent. · cost not returned\">Stop</button>"
+    },
+    {
+      "text": "Open Continuing connection",
+      "html": "<button type=\"button\" data-lotm=\"open_connection\" title=\"Resuming pauses this Tingen life in turn.\">Open Continuing connection</button>"
+    },
+    {
+      "text": "Accept the supervisor's allocated Seer dose",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.accept_allocation\" disabled=\"\" title=\"Finish your current activity first. A participating person is unavailable or already working. · no faculty yet; one pathway per life, switching is a stated cause of loss of control\" data-disabled-reason=\"Finish your current activity first. A participating person is unavailable or already working.\" aria-describedby=\"ui-disabled-13\">Accept the supervisor's allocated Seer dose</button>"
+    },
+    {
+      "text": "Decline the dose and keep your ordinary clerical…",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.decline\" disabled=\"\" title=\"Finish your current activity first. · Decline the dose and keep your ordinary clerical work\" data-disabled-reason=\"Finish your current activity first.\" aria-describedby=\"ui-disabled-14\">Decline the dose and keep your ordinary clerical…</button>"
+    },
+    {
+      "text": "Take the ordinary comparator from the supervisor's bench",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.take_comparator\" disabled=\"\" title=\"Finish your current activity first. A participating person is unavailable or already working.\" data-disabled-reason=\"Finish your current activity first. A participating person is unavailable or already working.\" aria-describedby=\"ui-disabled-15\">Take the ordinary comparator from the supervisor's bench</button>"
+    },
+    {
+      "text": "Take the supported sample lot A from the…",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.take_sampleA\" disabled=\"\" title=\"Finish your current activity first. A participating person is unavailable or already working. · Take the supported sample lot A from the supervisor's bench\" data-disabled-reason=\"Finish your current activity first. A participating person is unavailable or already working.\" aria-describedby=\"ui-disabled-16\">Take the supported sample lot A from the…</button>"
+    },
+    {
+      "text": "Take the supported sample lot B from the…",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.take_sampleB\" disabled=\"\" title=\"Finish your current activity first. A participating person is unavailable or already working. · Take the supported sample lot B from the supervisor's bench\" data-disabled-reason=\"Finish your current activity first. A participating person is unavailable or already working.\" aria-describedby=\"ui-disabled-17\">Take the supported sample lot B from the…</button>"
+    },
+    {
+      "text": "Accept the supervisor's allocated Corpse Collector dose",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.accept_allocation_cc\" disabled=\"\" title=\"Finish your current activity first. A participating person is unavailable or already working. · no faculty yet; one pathway per life, switching is a stated cause of loss of control\" data-disabled-reason=\"Finish your current activity first. A participating person is unavailable or already working.\" aria-describedby=\"ui-disabled-18\">Accept the supervisor's allocated Corpse Collector dose</button>"
+    },
+    {
+      "text": "Buy the Corpse Collector formula on Hale's terms · 5 pounds",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.buy_formula_cc\" disabled=\"\" title=\"Finish your current activity first. A participating person is unavailable or already working. · a scaled proposal; the canon price is 230\" data-disabled-reason=\"Finish your current activity first. A participating person is unavailable or already working.\" aria-describedby=\"ui-disabled-19\">Buy the Corpse Collector formula on Hale's terms<span class=\"action-chip\"> · 5 pounds</span></button>"
+    },
+    {
+      "text": "Buy a block of ordinary ice from the… · 24 pence",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.rit_buy_ice\" disabled=\"\" title=\"Return to Tingen docks. Finish your current activity first. · Buy a block of ordinary ice from the docks ice-house · 24 pence\" data-disabled-reason=\"Return to Tingen docks. Finish your current activity first.\" aria-describedby=\"ui-disabled-20\">Buy a block of ordinary ice from the…<span class=\"action-chip\"> · 24 pence</span></button>"
+    },
+    {
+      "text": "Buy blackout canvas at the docks · 60 pence",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.rit_buy_canvas\" disabled=\"\" title=\"Return to Tingen docks. Finish your current activity first.\" data-disabled-reason=\"Return to Tingen docks. Finish your current activity first.\" aria-describedby=\"ui-disabled-21\">Buy blackout canvas at the docks<span class=\"action-chip\"> · 60 pence</span></button>"
+    },
+    {
+      "text": "Call a spirit-world harpy and strike a contract · 4 pounds of offerings",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.rit_harpy_contract\" disabled=\"\" title=\"Return to Tingen probationer lodging. Finish your current activity first.\" data-disabled-reason=\"Return to Tingen probationer lodging. Finish your current activity first.\" aria-describedby=\"ui-disabled-22\">Call a spirit-world harpy and strike a contract<span class=\"action-chip\"> · 4 pounds of offerings</span></button>"
+    },
+    {
+      "text": "Bargain with a lesser spirit-world messenger · 1 pound of offerings",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.rit_messenger_pact\" disabled=\"\" title=\"Return to Tingen probationer lodging. Finish your current activity first.\" data-disabled-reason=\"Return to Tingen probationer lodging. Finish your current activity first.\" aria-describedby=\"ui-disabled-23\">Bargain with a lesser spirit-world messenger<span class=\"action-chip\"> · 1 pound of offerings</span></button>"
+    },
+    {
+      "text": "Dwell on an old injury until your hands… · 10 min",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.rit_stir_anger\" disabled=\"\" title=\"Return to Tingen probationer lodging. Finish your current activity first. · Dwell on an old injury until your hands shake · 10 min\" data-disabled-reason=\"Return to Tingen probationer lodging. Finish your current activity first.\" aria-describedby=\"ui-disabled-24\">Dwell on an old injury until your hands…<span class=\"action-chip\"> · 10 min</span></button>"
+    },
+    {
+      "text": "Play the song you love loudly until you… · 10 min",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.rit_stir_joy\" disabled=\"\" title=\"Return to Tingen probationer lodging. Finish your current activity first. · Play the song you love loudly until you laugh · 10 min\" data-disabled-reason=\"Return to Tingen probationer lodging. Finish your current activity first.\" aria-describedby=\"ui-disabled-25\">Play the song you love loudly until you…<span class=\"action-chip\"> · 10 min</span></button>"
+    },
+    {
+      "text": "Carry a sealed ledger between the Nighthawk offices · 12 pence, 20 min",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.errand_evernight\" disabled=\"\" title=\"Finish your current activity first. A participating person is unavailable or already working.\" data-disabled-reason=\"Finish your current activity first. A participating person is unavailable or already working.\" aria-describedby=\"ui-disabled-26\">Carry a sealed ledger between the Nighthawk offices<span class=\"action-chip\"> · 12 pence, 20 min</span></button>"
+    },
+    {
+      "text": "Request the vault's grade 3 sealed item",
+      "html": "<button type=\"button\" data-lotm=\"book.lotm.request_sealed_3\" disabled=\"\" title=\"Finish your current activity first. A participating person is unavailable or already working. · needs a group of three with formal-member clearance\" data-disabled-reason=\"The required knowledge, means or circumstances are missing. Finish your current activity first. A participating person is unavailable or already working.\" aria-describedby=\"ui-disabled-27\">Request the vault's grade 3 sealed item</button>"
+    },
+    {
+      "text": "Walk to Tingen probationer lodging · 2 min",
+      "html": "<button type=\"button\" data-lotm=\"lotm.move.lodging\" disabled=\"\" title=\"Finish or stop your current work first.\" aria-describedby=\"ui-disabled-29\">Walk to Tingen probationer lodging · 2 min</button>"
+    },
+    {
+      "text": "Walk to Tingen docks · 20 min",
+      "html": "<button type=\"button\" data-lotm=\"lotm.move.docks\" disabled=\"\" title=\"Finish or stop your current work first.\" aria-describedby=\"ui-disabled-31\">Walk to Tingen docks · 20 min</button>"
+    },
+    {
+      "text": "Walk to Tingen university area · 25 min",
+      "html": "<button type=\"button\" data-lotm=\"lotm.move.university\" disabled=\"\" title=\"Finish or stop your current work first.\" aria-describedby=\"ui-disabled-33\">Walk to Tingen university area · 25 min</button>"
+    },
+    {
+      "text": "",
+      "html": "<button class=\"workspace-resize-grip\" type=\"button\" data-resize=\"e\" data-module=\"lotm\" aria-label=\"Resize Tingen workroom width\"></button>"
+    },
+    {
+      "text": "",
+      "html": "<button class=\"workspace-resize-grip\" type=\"button\" data-resize=\"s\" data-module=\"lotm\" aria-label=\"Resize Tingen workroom height\"></button>"
+    },
+    {
+      "text": "",
+      "html": "<button class=\"workspace-resize-grip\" type=\"button\" data-resize=\"se\" data-module=\"lotm\" aria-label=\"Resize Tingen workroom width and height\"></button>"
+    },
+    {
+      "text": "Face the knifeman in the back lane",
+      "html": "<button type=\"button\" data-tempo=\"open:lotm.lane.knife\" title=\"A robbery, until the knife comes out. Then whether he lives is your choice. If he drops you, you wake hurt.\">Face the knifeman in the back lane</button>"
+    },
+    {
+      "text": "Tingen workroom\nYour supervisor, the bench and your lodging.",
+      "html": "<button type=\"button\" data-inspect-nearby=\"lotm-workroom\" data-nearby-kind=\"station\" aria-pressed=\"false\" title=\"Inspect Tingen workroom\"><strong>Tingen workroom</strong><small>Your supervisor, the bench and your lodging.</small></button>"
+    },
+    {
+      "text": "Open",
+      "html": "<button type=\"button\" data-nearby-verb=\"lotm-workroom\" data-verb-key=\"lotm-workroom\u0000lotm-workroom\" disabled=\"\" title=\"Finish your current work or conversation first.\">Open</button>"
+    },
+    {
+      "text": "← Tingen supervised workroom overview",
+      "html": "<button type=\"button\" data-nearby-back=\"\">← Tingen supervised workroom overview</button>"
+    },
+    {
+      "text": "Show Tingen workroom",
+      "html": "<button type=\"button\" data-workspace-action=\"restore\" data-module=\"lotm\">Show Tingen workroom</button>"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 // npm run gate:push: the gate before a push, sized to the push (Weibao 2026-11-16, approving tiered gates; AD36).
 // Run it in a clean checkout of the commit you will push. Usage:
 //   node scripts/push_gate.mjs [--base origin/master] [--full] [--list]
-// Always: check:arch, check:rules, check:docs, and the bundle rebuilt from HEAD matching dist/.
+// Always: gate:save, check:arch, check:rules, check:docs, and the bundle rebuilt from HEAD matching dist/.
 // check:flow: when the push changes what a player sees (src/, styles/, index.html, dist/, resources/).
 // Idle ceiling: on the same visible changes, the crowded fixture's idle main-thread busy share from the save probe
 // must stay under scripts/perf/budgets.json (crowded.taskBusyPct). It fails only when two runs both exceed it, so one
@@ -35,15 +35,27 @@ export function planGate(changed, {full = false} = {}) {
 }
 
 const git = args => execFileSync('git', args, {cwd: root, encoding: 'utf8'}).split('\n').filter(Boolean);
-const npm = script => spawnSync('npm', ['run', '-s', script], {cwd: root, stdio: 'inherit'}).status ?? 1;
+function npm(script) {
+    const args = ['run', '-s', script];
+    const cli = process.env.npm_execpath;
+    const result = cli
+        ? spawnSync(process.execPath, [cli, ...args], {cwd: root, stdio: 'inherit'})
+        : spawnSync('npm', args, {cwd: root, stdio: 'inherit', shell: process.platform === 'win32'});
+    if (result.error) console.error(`push gate: ${script}: ${result.error.message}`);
+    return result.status ?? 1;
+}
 
 function bundleMatches() {
     const tree = mkdtempSync(path.join(tmpdir(), 'yairpg-gate-bundle-'));
     try {
-        execFileSync('sh', ['-c', `git archive HEAD | tar -x -C "${tree}"`], {cwd: root});
-        symlinkSync(path.join(root, 'node_modules'), path.join(tree, 'node_modules'));
-        execFileSync(process.execPath, ['build.js'], {cwd: tree, stdio: 'ignore'});
-        return readFileSync(path.join(tree, 'dist/bundle.js')).equals(readFileSync(path.join(root, 'dist/bundle.js'))) ? 0 : 1;
+        execFileSync('sh', ['-c', 'git -c core.autocrlf=false -C "$YAIRPG_GATE_SOURCE" archive HEAD | tar -xf -'], {
+            cwd: tree, env: {...process.env, YAIRPG_GATE_SOURCE: root},
+        });
+        symlinkSync(path.join(root, 'node_modules'), path.join(tree, 'node_modules'), process.platform === 'win32' ? 'junction' : 'dir');
+        const bundle = path.join(tree, 'dist/bundle.js');
+        const checkedInBundle = readFileSync(bundle);
+        execFileSync(process.execPath, ['build.js'], {cwd: tree, stdio: 'ignore', env: {...process.env, BUILD_OUT: ''}});
+        return readFileSync(bundle).equals(checkedInBundle) ? 0 : 1;
     } catch (e) { console.error(`push gate: bundle rebuild failed: ${e.message}`); return 1; }
     finally { rmSync(tree, {recursive: true, force: true}); }
 }
@@ -91,9 +103,9 @@ async function main(argv) {
         if (sel.mode === 'full' || Object.keys(sel.selected).length * 2 >= total) { tests = 'full'; plan.why = 'the push reaches half the suite or more'; }
         else plan.why += ` (${Object.keys(sel.selected).length} of ${total} test files)`;
     }
-    console.log(`push gate: ${changed.length} file(s) since ${opt.base}; tests: ${tests} (${plan.why}); check:flow: ${plan.flow ? 'yes' : 'skipped, nothing a player sees changed'}`);
+    console.log(`push gate: ${changed.length} file(s) since ${opt.base}; gate:save: yes; tests: ${tests} (${plan.why}); check:flow: ${plan.flow ? 'yes' : 'skipped, nothing a player sees changed'}`);
     if (opt.list) return 0;
-    const steps = [['check:arch', () => npm('check:arch')], ['check:rules', () => npm('check:rules')], ['check:docs', () => npm('check:docs')],
+    const steps = [['gate:save', () => npm('gate:save')], ['check:arch', () => npm('check:arch')], ['check:rules', () => npm('check:rules')], ['check:docs', () => npm('check:docs')],
         ['bundle matches HEAD', bundleMatches]];
     if (plan.flow) steps.push(['check:flow', () => npm('check:flow')]);
     if (plan.flow && !opt.noIdle) steps.push(['crowded idle ceiling', idleCeiling]);

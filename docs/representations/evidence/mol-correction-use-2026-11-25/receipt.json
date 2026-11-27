@@ -1,0 +1,38 @@
+{
+  "bundleSha256": "a5be4f5c093b7e2d68ce7d9dfda01191c5187dbe3121337439b60027a65051c2",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "route": "fresh native Zorian; earned Torch lesson, failed expiring-light exercise, successful fresh-Torch exercise; no setup grants",
+  "revision": 1,
+  "reserveBefore": 6,
+  "reserveAfter": 6,
+  "reload": true,
+  "exportImport": true,
+  "laterChoice": {
+    "minutes": 8,
+    "stamina": 3,
+    "ordinaryMinutes": 15,
+    "obliqueInvocation": true,
+    "incisionsRead": true,
+    "shapingNotGranted": true
+  },
+  "applicationErrors": [],
+  "missingPrivateResources": [
+    {
+      "status": 404,
+      "path": "/resources/fonts/private/gothic-bitmap-14.woff2"
+    },
+    {
+      "status": 404,
+      "path": "/private_packs/manifest.json"
+    },
+    {
+      "status": 404,
+      "path": "/resources/fonts/private/gothic-bitmap-12.woff2"
+    }
+  ],
+  "consoleResource404s": 41,
+  "overflow": false
+}

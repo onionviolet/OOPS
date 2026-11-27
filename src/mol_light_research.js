@@ -4,6 +4,7 @@ import {bindMethod} from './method_program.js';
 // formula boundaries, and chapter 46 shows overload destabilizing a boundary.
 // The exercise, numerical budgets and oblique-light formula are YAIR proposals.
 import {MOL_IDS, MOL_LOCATIONS} from './book_world_mol_ids.js';
+import {MOL_EXAM_IDS} from './world_packs/book_mol_exam_data.js';
 
 export const MOL_LIGHT_PREFIX = 'book.mol.zorian.light';
 const PREFIX = MOL_LIGHT_PREFIX;
@@ -28,8 +29,8 @@ export const molLightConditions = shapes.map(shape=>({
     id:id(shape),revision:1,label:shape==='diffuse'?'Diffuse light':'Oblique light',stacking:'max',
 }));
 
-function command(key,label,description,requirements,effects,{costs=[],once=false,duration=0,show=[]}={}) {
-    const requires={all:[seat,atBench,...requirements]};
+function command(key,label,description,requirements,effects,{costs=[],once=false,duration=0,show=[],reason}={}) {
+    const requires={all:[seat,atBench,...requirements],...(reason?{reason}:{})};
     return {
         id:id(key),revision:1,label,description,group:'book_mol',actorId:'player',
         worldId:MOL_IDS.world,location:MOL_LOCATIONS.court,visibleWhen:{all:[eq('mol.zorianSeat'),atBench,...show]},
@@ -134,8 +135,30 @@ export const molLightCommands = [
         [witnessedSpellTrial(PREFIX,'torch',true,'Make the class invocation work first.'),
             witnessedSpellTrial(PREFIX,'shaped',true,'Produce light by shaping it directly first.')],
         [note('oblique_formula','You drew a narrow band low across the slate. The sketch gives you a formula to try, with the original Torch still available.')],{duration:15}),
+    // Authored later use of the worked correction. Reading the construct is a
+    // different route to an invocation draft; it does not teach direct shaping.
+    command('adapt_correction','Adapt your corrected formula · 8 min, 3 stamina',
+        'Use your corrected Torch example to redirect its light across the shallow cuts. Takes eight minutes and three stamina. Comparing Torch with directly shaped light remains a fifteen-minute route without this extra strain.',
+        [remembered('formula_correction','Work through the light-formula correction first.'),
+            witnessedSpellTrial(PREFIX,'torch',true,'Make the Torch invocation work first.'),
+            remembered('heading','Read the slate’s heading so you know which exercise you are adapting.')],
+        [note('oblique_formula','You adapted the corrected Torch construct to cast a narrow band across the slate. This is an invocation to test; it does not teach direct shaping.')],
+        {duration:8,once:true,costs:[{type:'vital',actor:'player',key:'stamina',amount:-3}],
+            show:[remembered('formula_correction'),eq(id('oblique_known'),false)]}),
     command('read_heading','Read the slate’s heading','Use light from either technique to read the broad lettering.',
         [eq(id('lit'),true,'Light the slate first.')],[note('heading','The broad heading names the academy practice exercise.')]),
+    // Authored application of the chapter-2 distinction: a single worked exercise,
+    // rather than a repeatable replacement for the library's broad revision sessions.
+    command('correct_formula','Correct your light-formula exercise · 5 min, 2 stamina',
+        'Set the invocation beside your class notes and correct the worked example. Keep the slate lit for five minutes. This adds one Formulas revision session; the corrected example stays with you across a restart.',
+        [remembered('torch_formula','Study the Torch invocation first.'),
+            eq(id('lit'),true,'Light the slate and keep it lit until the exercise is finished.'),
+            eq('mol.exam.revise.formulas',true,'Work on this before the Formulas paper is returned, while revision can still help.')],
+        [{type:'resource',actor:'player',key:MOL_EXAM_IDS.sessions('formulas'),amount:1},
+            note('formula_correction','You corrected the light-formula example beside your class notes. Following the invocation through its bounded construct makes the formula easier to read.')],
+        {duration:5,once:true,costs:[{type:'vital',actor:'player',key:'stamina',amount:-2}],
+            reason:'Light the slate and keep it lit for five minutes. Work before the Formulas paper is returned, while these notes can still improve your mark.',
+            show:[remembered('torch_formula'),eq(id('correction_known'),false)]}),
     ...formulaResearch,
     command('read_cut','Read the shallow cuts','Use light raking across the slate to read the incised marks.',
         [eq(id('raking'),true,'Bring light across the slate at a low angle.')],
@@ -149,5 +172,7 @@ export function molLightFacts(state) {
     const raking=active('oblique');
     const direction=state.actors?.player?.facts?.[draftKey('direction')];
     return {[id('lit')]:raking||active('diffuse'),[id('raking')]:raking,
+        [id('correction_known')]:state.simulation?.knowledge?.player?.[id('formula_correction')]?.stage==='understood',
+        [id('oblique_known')]:state.simulation?.knowledge?.player?.[id('oblique_formula')]?.stage==='understood',
         [id('draft_exists')]:Object.hasOwn(formulaAxes.direction,direction)};
 }

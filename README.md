@@ -32,6 +32,10 @@ OOPS started from the YAIR v0.6 development source. YAIR was inspired by Proto23
 
 For browser play, run `npm install`, `npm run build` and `npm run serve`, then open `http://127.0.0.1:8123`. The local server requires Python 3.
 
+On Windows installations that provide Python 3 as `python`, start the game server with `python -m http.server 8123 --bind 127.0.0.1`.
+
+To open the development World Atlas alongside the game, run `node prototypes/world-atlas/serve.mjs` and open `http://127.0.0.1:4178/#workbench/handoffs`. In **Implementation handoffs**, compare playtests with the local game build and export the routes to try in game. **Ideas and backlogs** opens the source entries. **Library → Coverage by world** ranks the saved reading measurements and opens the file counts for each world. During play, **Your journal & atlas** shows the places and routes your character has discovered.
+
 On macOS, run `npm install` and `npm run tauri:install` to build and install `Yet Another Idle RPG.app` in `~/Applications`. Run `npm run desktop` to build a snapshot of the current files and open it in the app. The desktop build requires Rust (`cargo`). See the [desktop setup guide](desktop-tauri/README.md).
 
 Game balance is still in development. Use **Export** to back up your save. The browser and desktop app keep separate saves, so use **Export** and **Import** to transfer progress between them.

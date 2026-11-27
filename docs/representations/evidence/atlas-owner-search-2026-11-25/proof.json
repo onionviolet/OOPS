@@ -1,0 +1,32 @@
+{
+  "viewport": "1366x768",
+  "query": "gear",
+  "matches": 96,
+  "ownerFilesSearched": 296,
+  "ownerFilesRead": 296,
+  "initialSearchRequests": 0,
+  "afterSubmitSearchRequests": 1,
+  "pageSize": 25,
+  "sharedSecondPage": "/#workbench/ideas/search?q=gear&offset=25&limit=25",
+  "opened": {
+    "owner": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md",
+    "id": "6d7b6de373753ef08597f4829e879e50bc563d45cab770e73aa39bc1a694b48f",
+    "code": "EI24",
+    "kind": "feature-proposal",
+    "documentHash": "7e29075fe7f3bc13723351b6641a8dd8f9636fd23d30224f9f7548c669654cda"
+  },
+  "exactCodeQuery": "N2",
+  "exactCodeMatches": 4,
+  "verified": [
+    "explicit submit without startup scan",
+    "25-row bounded results",
+    "source labels retained",
+    "another owner exact detail and reload",
+    "shareable second page and reload",
+    "exact duplicate codes across owners",
+    "oversized page refused",
+    "no page errors or overflow"
+  ],
+  "boundary": "No owner text, proposal, report or game state written. Source drift/privacy/metric regression uses removed test fixtures.",
+  "errors": []
+}

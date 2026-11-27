@@ -1,0 +1,397 @@
+[
+  {
+    "case": "probe",
+    "log": "C:\\Users\\wayba\\AppData\\Local\\Temp\\oops-earned-glow-probe-20261125.log",
+    "stage": "elder",
+    "bundleSHA256": "ae7dc5f49b193fcf41dcd70db3ac9e57ea401b891608dfdeca008758a93fa573",
+    "route": [
+      {
+        "topic": "hello",
+        "label": "Hello?"
+      },
+      {
+        "topic": "where am i",
+        "label": "Where am I?"
+      },
+      {
+        "missing": "dont remember",
+        "shown": [
+          {
+            "id": "p23 moon bed",
+            "label": "Ask about the moonlit herb bed"
+          },
+          {
+            "id": "about",
+            "label": "Who are you?"
+          },
+          {
+            "id": "ask to leave 1",
+            "label": "Great... Thank you for help, but I think I should go there then. Maybe it will help me remember more."
+          }
+        ]
+      },
+      {
+        "topic": "ask to leave 1",
+        "label": "Great... Thank you for help, but I think I should go there then. Maybe it will help me remember more."
+      },
+      {
+        "topic": "need to",
+        "label": "But I want to leave"
+      },
+      {
+        "topic": "starting gear",
+        "label": "About the spare weapon..."
+      },
+      {
+        "missing": "equipment",
+        "shown": []
+      }
+    ],
+    "initialMoney": 102
+  },
+  {
+    "case": "market",
+    "log": "C:\\Users\\wayba\\AppData\\Local\\Temp\\oops-earned-glow-market-20261125.log",
+    "stage": "automation stopped",
+    "failure": "locator.click: Timeout 5000ms exceeded.",
+    "bundleSHA256": "ae7dc5f49b193fcf41dcd70db3ac9e57ea401b891608dfdeca008758a93fa573",
+    "route": [
+      {
+        "topic": "hello",
+        "label": "Hello?"
+      },
+      {
+        "topic": "where am i",
+        "label": "Where am I?"
+      },
+      {
+        "topic": "ask to leave 1",
+        "label": "Great... Thank you for help, but I think I should go there then. Maybe it will help me remember more."
+      },
+      {
+        "topic": "need to",
+        "label": "But I want to leave"
+      },
+      {
+        "topic": "starting gear",
+        "label": "About the spare weapon..."
+      },
+      {
+        "branch": "sword",
+        "source": "ordinary elder gift at50quality"
+      }
+    ]
+  },
+  {
+    "case": "market-2",
+    "log": "C:\\Users\\wayba\\AppData\\Local\\Temp\\oops-earned-glow-market-2-20261125.log",
+    "stage": "automation stopped",
+    "failure": "locator.click: Timeout 5000ms exceeded.",
+    "bundleSHA256": "ae7dc5f49b193fcf41dcd70db3ac9e57ea401b891608dfdeca008758a93fa573",
+    "route": [
+      {
+        "topic": "hello",
+        "label": "Hello?"
+      },
+      {
+        "topic": "where am i",
+        "label": "Where am I?"
+      },
+      {
+        "topic": "ask to leave 1",
+        "label": "Great... Thank you for help, but I think I should go there then. Maybe it will help me remember more."
+      },
+      {
+        "topic": "need to",
+        "label": "But I want to leave"
+      },
+      {
+        "topic": "starting gear",
+        "label": "About the spare weapon..."
+      },
+      {
+        "branch": "sword",
+        "source": "ordinary elder gift at50quality"
+      },
+      {
+        "topic": "equipment",
+        "effect": "ordinary village market unlocked"
+      }
+    ]
+  },
+  {
+    "case": "market-3",
+    "log": "C:\\Users\\wayba\\AppData\\Local\\Temp\\oops-earned-glow-market-3-20261125.log",
+    "stage": "elder",
+    "bundleSHA256": "ae7dc5f49b193fcf41dcd70db3ac9e57ea401b891608dfdeca008758a93fa573",
+    "route": [
+      {
+        "topic": "hello",
+        "label": "Hello?"
+      },
+      {
+        "topic": "where am i",
+        "label": "Where am I?"
+      },
+      {
+        "topic": "ask to leave 1",
+        "label": "Great... Thank you for help, but I think I should go there then. Maybe it will help me remember more."
+      },
+      {
+        "topic": "need to",
+        "label": "But I want to leave"
+      },
+      {
+        "topic": "starting gear",
+        "label": "About the spare weapon..."
+      },
+      {
+        "branch": "sword",
+        "source": "ordinary elder gift at50quality"
+      },
+      {
+        "topic": "equipment",
+        "effect": "ordinary village market unlocked"
+      }
+    ],
+    "initialMoney": 102
+  },
+  {
+    "case": "final",
+    "log": "C:\\Users\\wayba\\AppData\\Local\\Temp\\oops-earned-glow-final-20261125.log",
+    "stage": "automation stopped",
+    "failure": "locator.click: Timeout 5000ms exceeded.",
+    "bundleSHA256": "ae7dc5f49b193fcf41dcd70db3ac9e57ea401b891608dfdeca008758a93fa573",
+    "route": [
+      {
+        "topic": "hello",
+        "label": "Hello?"
+      },
+      {
+        "topic": "where am i",
+        "label": "Where am I?"
+      },
+      {
+        "topic": "ask to leave 1",
+        "label": "Great... Thank you for help, but I think I should go there then. Maybe it will help me remember more."
+      },
+      {
+        "topic": "need to",
+        "label": "But I want to leave"
+      },
+      {
+        "topic": "starting gear",
+        "label": "About the spare weapon..."
+      },
+      {
+        "branch": "sword",
+        "source": "ordinary elder gift at50quality"
+      },
+      {
+        "topic": "equipment",
+        "effect": "ordinary village market unlocked"
+      }
+    ],
+    "initialMoney": 102,
+    "initialClock": "01/04/999 08:17, Summer, Mon, Day",
+    "target": {
+      "key": "{\"id\":\"Cheap leather shoes\",\"quality\":111}",
+      "name": "Cheap leather shoes",
+      "quality": 111,
+      "shownPrice": "40C",
+      "price": 400
+    }
+  },
+  {
+    "case": "final-2",
+    "log": "C:\\Users\\wayba\\AppData\\Local\\Temp\\oops-earned-glow-final-2-20261125.log",
+    "stage": "bounded-stop",
+    "bundleSHA256": "e797966bfa5b358605400dc68227cb544adf7dc58406cb5b6479c43ebf975aa5",
+    "route": [
+      {
+        "topic": "hello",
+        "label": "Hello?"
+      },
+      {
+        "topic": "where am i",
+        "label": "Where am I?"
+      },
+      {
+        "topic": "ask to leave 1",
+        "label": "Great... Thank you for help, but I think I should go there then. Maybe it will help me remember more."
+      },
+      {
+        "topic": "need to",
+        "label": "But I want to leave"
+      },
+      {
+        "topic": "starting gear",
+        "label": "About the spare weapon..."
+      },
+      {
+        "branch": "sword",
+        "source": "ordinary elder gift at50quality"
+      },
+      {
+        "topic": "equipment",
+        "effect": "ordinary village market unlocked"
+      }
+    ],
+    "initialMoney": 102,
+    "initialClock": "01/04/999 08:12, Summer, Mon, Day",
+    "reason": "No uncommon offer within real starting goods plus at most three ordinary two-hour fieldwork payouts."
+  },
+  {
+    "case": "retained",
+    "log": "C:\\Users\\wayba\\AppData\\Local\\Temp\\oops-earned-glow-retained-20261125.log",
+    "stage": "automation stopped",
+    "failure": "AssertionError [ERR_ASSERTION]: real native sale proceeds",
+    "bundleSHA256": "e797966bfa5b358605400dc68227cb544adf7dc58406cb5b6479c43ebf975aa5",
+    "inputSaveSHA256": "bc7b575146ee7ba3bbb8a68385c58248b9d06023f5db3d5efbab2d9ed0640251",
+    "route": [],
+    "initialMoney": 102,
+    "initialClock": "01/04/999 08:18, Summer, Mon, Day",
+    "target": {
+      "key": "{\"id\":\"Rat pelt cape\",\"quality\":113}",
+      "name": "Rat pelt cape",
+      "quality": 113,
+      "shownPrice": "50C",
+      "price": 500
+    },
+    "actualSaleProceeds": 193,
+    "afterSalesMoney": 295
+  },
+  {
+    "case": "work",
+    "log": "C:\\Users\\wayba\\AppData\\Local\\Temp\\oops-earned-glow-work-20261125.log",
+    "stage": "automation stopped",
+    "failure": "locator.click: Timeout 15000ms exceeded.",
+    "bundleSHA256": "e797966bfa5b358605400dc68227cb544adf7dc58406cb5b6479c43ebf975aa5",
+    "inputSaveSHA256": "62468c9fbd6c3caa9f08224bcac8ae8c9b7ff702931749f3ddfccca4f63bc911",
+    "route": [],
+    "initialMoney": 295,
+    "initialClock": "01/04/999 08:32, Summer, Mon, Day",
+    "target": {
+      "key": "{\"id\":\"Rat pelt cape\",\"quality\":113}",
+      "name": "Rat pelt cape",
+      "quality": 113,
+      "shownPrice": "50C",
+      "price": 500
+    },
+    "actualSaleProceeds": 0,
+    "afterSalesMoney": 295
+  },
+  {
+    "case": "work-2",
+    "log": "C:\\Users\\wayba\\AppData\\Local\\Temp\\oops-earned-glow-work-2-20261125.log",
+    "bundleSha256": "e797966bfa5b358605400dc68227cb544adf7dc58406cb5b6479c43ebf975aa5",
+    "inputSaveSHA256": "892dd64f5aaada940411ba2d0cd481b4ad3c65ced5a1333ea8ff209fe3458893",
+    "failure": "locator.waitFor: Timeout 15000ms exceeded.",
+    "work": {
+      "startMoney": 295,
+      "startClock": "01/04/999 08:52, Summer, Mon, Day",
+      "wallStart": "2026-11-25T23:15:55.113Z",
+      "samples": [
+        {
+          "cash": 295,
+          "accrued": 20,
+          "active": true,
+          "clock": "01/04/999 10:53, Summer, Mon, Day"
+        },
+        {
+          "cash": 295,
+          "accrued": 43,
+          "active": true,
+          "clock": "01/04/999 12:53, Summer, Mon, Day"
+        },
+        {
+          "cash": 295,
+          "accrued": 66,
+          "active": true,
+          "clock": "01/04/999 14:53, Summer, Mon, Day"
+        },
+        {
+          "cash": 295,
+          "accrued": 91,
+          "active": true,
+          "clock": "01/04/999 16:53, Summer, Mon, Day"
+        },
+        {
+          "cash": 295,
+          "accrued": 116,
+          "active": true,
+          "clock": "01/04/999 18:53, Summer, Mon, Day"
+        },
+        {
+          "cash": 411,
+          "accrued": 0,
+          "active": false,
+          "clock": "01/04/999 20:02, Summer, Mon, Day"
+        }
+      ]
+    }
+  },
+  {
+    "case": "work-3",
+    "log": "C:\\Users\\wayba\\AppData\\Local\\Temp\\oops-earned-glow-work-3-20261125.log",
+    "bundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+    "inputSaveSHA256": "a2ec0fa22243eb37bf9963bbbd4d3dc777858d98f4cf4ebead15b4c6343b255b",
+    "failure": "page.waitForFunction: Timeout 74076ms exceeded.",
+    "work": {
+      "startMoney": 411,
+      "startClock": "02/04/999 06:29, Summer, Tue, Day",
+      "wallStart": "2026-11-25T23:38:40.235Z",
+      "samples": [
+        {
+          "cash": 411,
+          "accrued": 28,
+          "active": true,
+          "clock": "02/04/999 08:31, Summer, Tue, Day"
+        },
+        {
+          "cash": 411,
+          "accrued": 56,
+          "active": true,
+          "clock": "02/04/999 10:31, Summer, Tue, Day"
+        },
+        {
+          "cash": 411,
+          "accrued": 84,
+          "active": true,
+          "clock": "02/04/999 12:31, Summer, Tue, Day"
+        }
+      ],
+      "originalWallStart": "2026-11-25T23:15:55.113Z"
+    }
+  },
+  {
+    "case": "purchase",
+    "log": "C:\\Users\\wayba\\AppData\\Local\\Temp\\oops-earned-glow-purchase-20261125.log",
+    "bundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+    "inputSaveSHA256": "ef7dce103cd39d1c1118e4ade1d87c580c49cc92f309aed62d3afc1b68a72436",
+    "failure": "locator.click: Timeout 15000ms exceeded.",
+    "carriedWork": {
+      "saved": {
+        "activity_id": "fieldwork",
+        "earnings": 84,
+        "gathering_time": 73,
+        "gathered_materials": {}
+      },
+      "startClock": "02/04/999 13:45, Summer, Tue, Day",
+      "wallStart": "2026-11-25T23:46:29.131Z",
+      "stopQuote": "(pay accrued on stopping: 11C 4W)",
+      "endMoney": 525,
+      "endClock": "02/04/999 14:33, Summer, Tue, Day",
+      "wallEnd": "2026-11-25T23:47:16.811Z"
+    },
+    "beforePurchaseMoney": 525,
+    "afterPurchaseMoney": 25
+  },
+  {
+    "case": "controls",
+    "passed": true,
+    "loadedBundleSHA256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+    "inputSaveSHA256": "5b556e8ece5df3741e9edb85e1f08dfa539c82bba6661f6ec778a8f4235b28ad",
+    "log": "C:\\Users\\wayba\\AppData\\Local\\Temp\\oops-earned-glow-controls-20261125.log"
+  }
+]

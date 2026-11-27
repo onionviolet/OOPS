@@ -9,6 +9,8 @@ import {observeCarcass,setHarvestRoutine} from './harvest.js';
 import {ensureStreams,scopedStream,armStreamCall,peekStreamDecision} from './seeded_streams.js';
 import {growthTrack,cheatKind,kindSkin,cheatVoice} from './cheat_growth.js';
 import {calendarMinutes} from './world_rhythm.js';
+import {startingInsightView,chooseStartingInsight,settleStartingInsight} from './cheat_starting_insight.js';
+import {loadedDiceValue,loadedDiceCall,loadedDiceCompletedCall} from './cheat_loaded_dice.js';
 
 export function insightMilestones(save) {
     const awake=save.cheats?.held?.['quiet-faculty']?.card.state.awakened===true;
@@ -27,7 +29,8 @@ export function insightMilestones(save) {
 }
 export function cheatProjection(save) {
     const faculty=save.cheats?.held?.['quiet-faculty'];
-    if(!faculty?.card.state.awakened)return {visible:false,cards:[],milestones:[]};
+    const startingOffer=startingInsightView(faculty?.card.state);
+    if(!faculty?.card.state.awakened)return {visible:!!startingOffer,awakened:false,startingOffer,points:faculty?.card.state.points||0,cards:[],milestones:[]};
     const state=faculty.card.state;
     const milestones=insightMilestones(save).map(m=>({...m,claimed:(state.claimed||[]).includes(m.id)}));
     const growth=growthTrack({earned:state.earned??0,points:state.points??0,spent:state.spent??0,milestones,
@@ -35,9 +38,9 @@ export function cheatProjection(save) {
     const companions=Object.values(save.cheats.held).filter(e=>e.card.ui==='status-window'&&e.card.state.awakened===true&&e.messages.length).map(e=>{
         const kind=cheatKind(e.card);
         return {id:e.card.id,name:e.card.name,skin:kindSkin(kind),voice:cheatVoice(kind,growth,{unreliable:e.card.state.unreliable===true,salt:e.messages.length}),last:e.messages.at(-1).text};});
-    return {visible:true,skin:kindSkin(cheatKind(faculty.card)),growth,companions,points:state.points??0,earned:state.earned??0,spent:state.spent??0,
+    return {visible:true,awakened:true,startingOffer,skin:kindSkin(cheatKind(faculty.card)),growth,companions,points:state.points??0,earned:state.earned??0,spent:state.spent??0,
         milestones,
-        decisions:save.decisions||[],freshness:informationFreshness(save),
+        decisions:save.decisions||[],lootCall:loadedDiceCall(save),lootCompleted:loadedDiceCompletedCall(save),freshness:informationFreshness(save),
         heirlooms:['person','chest'].flatMap(source=>Object.entries(source==='person'?save.inventories?.person?.main_character||{}:save.inventories?.storage?.player||{}).filter(([,r])=>r.count>0).map(([key,r])=>({source,key,count:r.count}))),
         methods:projectCrafting(save.crafting,Object.fromEntries(Object.entries(save.inventories?.person?.main_character||{}).map(([k,r])=>[k,r.count]))).methods,
         development:CHEAT_MODULES.find(d=>!save.cheats.held[d.id])? 'Explore the next facet · 1 insight':null,
@@ -66,6 +69,10 @@ export function planCheatAction(original, request) {
         return {...save,cheats:validateCheatState(save.cheats)};
     }
     const faculty=held(save,'quiet-faculty');
+    if(request.type==='starting-choice'){
+        chooseStartingInsight(faculty.state,request.choice,at);
+        return {...save,cheats:validateCheatState(save.cheats)};
+    }
     if(!faculty.state.awakened)throw Error('The faculty has not been recognized.');
     if(['appraise','routine'].includes(request.type)&&save.expansion?.actors?.player?.worldId!=='base.frontier')throw Error('These carcasses remain in the Frontier. Return to their location to work on them.');
     if(request.type==='claim') {
@@ -75,6 +82,7 @@ export function planCheatAction(original, request) {
     } else if(request.type==='develop') {
         if(faculty.state.points<1)throw Error('Reflect on a lived milestone to develop an insight.');
         const d=CHEAT_MODULES.find(d=>!save.cheats.held[d.id]);if(!d)throw Error('No further facet is understood yet.');
+        settleStartingInsight(faculty.state,at);
         faculty.state.points--;faculty.state.spent=(faculty.state.spent||0)+1;
         faculty.stages.push({id:d.id,at,via:'lived-insight',carried:true});
         save.cheats=grantCheat(save.cheats,moduleCard(d.id),{route:'faculty-development',at});
@@ -82,6 +90,7 @@ export function planCheatAction(original, request) {
         const card=held(save,request.id),definition=CHEAT_MODULES.find(d=>d.id===request.id);
         if(!definition||card.state.charges>=definition.state.charges)throw Error('That reserve is already full.');
         if(faculty.state.points<1)throw Error('Retain a lived insight before restoring a reserve.');
+        settleStartingInsight(faculty.state,at);
         faculty.state.points--;faculty.state.spent++;card.state.charges++;card.state.recharged++;
     } else if(request.type==='appraise') {
         const card=held(save,'true-appraisal');spend(card);
@@ -108,7 +117,7 @@ export function planCheatAction(original, request) {
         save.crafting=rebuildPattern(save.crafting,pattern,save.expansion?.actors?.player?.worldId);spend(card);
     } else if(request.type==='call') {
         const card=held(save,'loaded-dice');
-        armStreamCall(save.expansion,scopedStream('loot',save.expansion.actors.player.worldId),{value:0,via:'loaded-dice'});spend(card);
+        armStreamCall(save.expansion,scopedStream('loot',save.expansion.actors.player.worldId),{value:loadedDiceValue(request.direction),via:'loaded-dice'});spend(card);
     } else if(request.type==='peek') {
         const card=held(save,'fate-ledger');
         if(typeof request.key!=='string'||!request.key.trim()||request.key.length>240)throw Error('Name the decision to read.');

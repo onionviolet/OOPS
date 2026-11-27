@@ -1,0 +1,14 @@
+{
+  "viewport": "1920x1080",
+  "route": "Normal PLAY -> Tingen Cross -> probationer -> confirm -> report -> Work & merit",
+  "setup": "UI-earned ordinary checkpoint; no seeded fixture; only subsequent clock advancement uses test hook",
+  "bundleSha256": "6eb700098e9e89edc340b34c80434722bd52e79046e7ddbf0d736bc3a9af0f57",
+  "earnedCheckpointSha256": "1f525944b96dd36445b829a3b45acb73c26f83d23c198d03949adc58294d8733",
+  "checks": [
+    "One repeat start earns first merit after 30 minutes and starts second copy",
+    "Here reopens saved current work while occupied",
+    "Reload midway preserves final assignment; two copies settle at 60 minutes for 2 merit",
+    "Here reopens a resumed job and its actual Stop cancels current work and future repeat; Export/Import into fresh context cannot restart it"
+  ],
+  "pageErrors": []
+}

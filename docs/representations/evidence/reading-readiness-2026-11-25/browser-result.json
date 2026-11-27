@@ -1,0 +1,12 @@
+{
+  "fixture": "standalone shared view and GET projection; actual recent-four counts",
+  "viewport": "1920x1080",
+  "checks": [
+    "on-demand",
+    "twelve kinds",
+    "measured subset",
+    "stale snapshot",
+    "missing measurement"
+  ],
+  "pageErrors": []
+}

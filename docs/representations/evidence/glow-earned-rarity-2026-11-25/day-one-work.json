@@ -1,0 +1,110 @@
+{
+  "viewport": "1920x1080",
+  "setup": "fresh default game; no fixture, seed override, grants or time hooks",
+  "route": [],
+  "errors": [],
+  "bundleSHA256": "e797966bfa5b358605400dc68227cb544adf7dc58406cb5b6479c43ebf975aa5",
+  "inputSaveSHA256": "892dd64f5aaada940411ba2d0cd481b4ad3c65ced5a1333ea8ff209fe3458893",
+  "resume": "Unmodified localStorage from this proof's actual ordinary life; origin metadata moved to the new isolated server.",
+  "loadedBundleSHA256": "e797966bfa5b358605400dc68227cb544adf7dc58406cb5b6479c43ebf975aa5",
+  "stock": [
+    {
+      "key": "{\"id\":\"Rat pelt cape\",\"quality\":113}",
+      "name": "Rat pelt cape",
+      "quality": 113,
+      "shownPrice": "50C",
+      "price": 500
+    },
+    {
+      "key": "{\"id\":\"Cheap leather pants\",\"quality\":112}",
+      "name": "Cheap leather pants",
+      "quality": 112,
+      "shownPrice": "55C",
+      "price": 550
+    },
+    {
+      "key": "{\"id\":\"Leather shoes\",\"quality\":120}",
+      "name": "Leather shoes",
+      "quality": 120,
+      "shownPrice": "80C",
+      "price": 800
+    },
+    {
+      "key": "{\"components\":{\"shield_base\":\"Cheap wooden shield base\",\"handle\":\"Simple wooden shield handle\"},\"quality\":118}",
+      "name": "Cheap wooden shield",
+      "quality": 118,
+      "shownPrice": "1S 8C",
+      "price": 1080
+    },
+    {
+      "key": "{\"components\":{\"head\":\"Cheap iron axe head\",\"handle\":\"Simple wooden medium handle\"},\"quality\":108}",
+      "name": "Cheap iron axe",
+      "quality": 108,
+      "shownPrice": "1S 34C",
+      "price": 1340
+    }
+  ],
+  "initialMoney": 295,
+  "initialClock": "01/04/999 08:52, Summer, Mon, Day",
+  "saleOffers": [],
+  "target": {
+    "key": "{\"id\":\"Rat pelt cape\",\"quality\":113}",
+    "name": "Rat pelt cape",
+    "quality": 113,
+    "shownPrice": "50C",
+    "price": 500
+  },
+  "keepPlan": {
+    "key": "{\"id\":\"Rat pelt cape\",\"quality\":113}",
+    "description": "Keep exactly the remaining units through this merchant’s stock refresh, including zero after purchase. Release this plan to receive ordinary future stock. No copy or free goods are created.",
+    "paid": 0
+  },
+  "saleSettlementQuote": "nothing",
+  "afterSalesMoney": 295,
+  "actualSaleProceeds": 0,
+  "work": {
+    "startMoney": 295,
+    "startClock": "01/04/999 08:52, Summer, Mon, Day",
+    "wallStart": "2026-11-25T23:15:55.113Z",
+    "samples": [
+      {
+        "cash": 295,
+        "accrued": 20,
+        "active": true,
+        "clock": "01/04/999 10:53, Summer, Mon, Day"
+      },
+      {
+        "cash": 295,
+        "accrued": 43,
+        "active": true,
+        "clock": "01/04/999 12:53, Summer, Mon, Day"
+      },
+      {
+        "cash": 295,
+        "accrued": 66,
+        "active": true,
+        "clock": "01/04/999 14:53, Summer, Mon, Day"
+      },
+      {
+        "cash": 295,
+        "accrued": 91,
+        "active": true,
+        "clock": "01/04/999 16:53, Summer, Mon, Day"
+      },
+      {
+        "cash": 295,
+        "accrued": 116,
+        "active": true,
+        "clock": "01/04/999 18:53, Summer, Mon, Day"
+      },
+      {
+        "cash": 411,
+        "accrued": 0,
+        "active": false,
+        "clock": "01/04/999 20:02, Summer, Mon, Day"
+      }
+    ]
+  },
+  "failure": "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#action_end_earnings')\u001b[22m\n\n    at C:\\Users\\wayba\\dev\\OOPS\\tests\\feel_rarity_earned_browser.mjs:98:64",
+  "actualLifeState": "C:\\Users\\wayba\\dev\\OOPS\\work\\glow-earned-rarity-20261125\\browser-state.json"
+}

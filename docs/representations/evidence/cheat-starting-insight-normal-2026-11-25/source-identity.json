@@ -1,0 +1,45 @@
+{
+  "bundleSha256": "b691073af3c1a5a3c1ccf49171c4d97175873f992e4b7d00e8d6b1c05eca9d2a",
+  "files": [
+    {
+      "path": "src/main.js",
+      "built": "1e3829f29070c673bea71b8d663f2e57379f51973d0c92975d06e73599e542e6",
+      "current": "00e182ae2aa5905e1190816808c68b9c811fdc96c5187e3cfef74bebb8fbc531",
+      "unchanged": false
+    },
+    {
+      "path": "src/cheat_cards.js",
+      "built": "b9fba2577815c6a961746f2b73d85d1b2c9f32e7d1f652afd8f6393afe6968c5",
+      "current": "b9fba2577815c6a961746f2b73d85d1b2c9f32e7d1f652afd8f6393afe6968c5",
+      "unchanged": true
+    },
+    {
+      "path": "src/cheat_definitions.js",
+      "built": "6d95da0dd9f97ab34f3f1a29a38aba5002fb0a86c33ccff119c88d018f9e24f2",
+      "current": "6d95da0dd9f97ab34f3f1a29a38aba5002fb0a86c33ccff119c88d018f9e24f2",
+      "unchanged": true
+    },
+    {
+      "path": "src/cheat_mechanisms.js",
+      "built": "a28271ce9aade067ae0c1e91b1410cc1b4fb4e5bbbb5b371192f9e664cf4049e",
+      "current": "a28271ce9aade067ae0c1e91b1410cc1b4fb4e5bbbb5b371192f9e664cf4049e",
+      "unchanged": true
+    },
+    {
+      "path": "src/cheat_ui.js",
+      "built": "aab6dc955619f65012ffa6f674d815e553f980cae8a5f2232b332afc3e9f132e",
+      "current": "aab6dc955619f65012ffa6f674d815e553f980cae8a5f2232b332afc3e9f132e",
+      "unchanged": true
+    },
+    {
+      "path": "src/cheat_starting_insight.js",
+      "built": "6f8bec67deb16ed3c1f838343d4f38fb2b60f67b2550e80264cd53340d4bd139",
+      "current": "6f8bec67deb16ed3c1f838343d4f38fb2b60f67b2550e80264cd53340d4bd139",
+      "unchanged": true
+    }
+  ],
+  "scope": "Post-replay capture: coordinator confirmed the subsequent main.js dialogue-return hunk and rebuild happened after receiving this complete b691 PASS. No evidence is relabelled to that later build.",
+  "laterDefaultObserved": "e0dad8c74287a13b5fb99ea452c238eb49e0253cbc29839cac61a6e04b064bd6",
+  "cheatSourcesUnchanged": true,
+  "sharedFirstGameOfferStillPresent": true
+}

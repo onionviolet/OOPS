@@ -2,12 +2,11 @@
 
 ## CHECKPOINT
 
-Status: research only; nothing built. Source: Sleyca's Super Supportive, Royal Road 63759, ongoing;
+Status: the first hospital visitor-choice native slice has focused tests and normal-entry refusal/persistence desktop proof; subsequent Reports/prose compatibility repairs await rebuilt replay ([Alden receipt](../../../gm/dispatch/protagonist-foundations-2026-11-25/ALDEN_OPENING_2026-11-26.md)). Source: Sleyca's Super Supportive, Royal Road 63759, ongoing;
 314 chapters through chapter 312 (posted 2026-10-24), about 1.5M words, captured 2026-10-25 and read in
 full. Weibao's listed top favorite. Owned files: this card; private research under
 `docs/research/novels/super-supportive/` (gitignored). Queue row HQ3 in
-[SOURCE_DEEP_DIVE_QUEUE](../../../research/SOURCE_DEEP_DIVE_QUEUE_2026-10-24.md). Open gates: no
-runtime, no browser proof, no director acceptance.
+[SOURCE_DEEP_DIVE_QUEUE](../../../research/SOURCE_DEEP_DIVE_QUEUE_2026-10-24.md). Remaining scope: chapter-one rescue interaction and rebuilt replay of the subsequent Reports/prose compatibility repair. The initial refusal route was human-reviewed at 1280×720.
 
 Every row is a proposal until Weibao accepts it. Rules applied: WPR1-WPR32, AU1-AU15, WA3, WA8,
 WA11, AD1-AD5, AD35, AD37, AD38, Rulebook 2-3, sealed secrets. Canon is public; sealed slots SSV-S1

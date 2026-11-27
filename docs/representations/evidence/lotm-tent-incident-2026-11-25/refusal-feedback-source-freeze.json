@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "kind": "source-freeze-not-browser-proof",
+  "at": "2026-11-26T05:48:38.522814+00:00",
+  "files": {
+    "src/place_acts.js": "cbc36c8d51dbbec3d2b205dbe97e26353e5853056f54ee683d6280165b5a9ade",
+    "src/place_act_sequence.js": "e137181990ef25d4b3932c7ba2e43ca460d751596e9de902ee3eb6c2303764f9",
+    "src/lotm_tent_refusal.js": "dfd366087ba191a1b84fbf27063fea4c273f419a76b654bb63a33a99dfa93e1c",
+    "src/book_world_lotm_ui.js": "1738d43907b41f7eedf1361a4096d1c292188d2f66b10495ca9d8541c11d1d8d",
+    "tests/lotm_panel_gaps.test.js": "3995bf03f7973623251f3a92eb1dfc69aca0ac78f10a50c6a567ba0e94518677",
+    "tests/lotm_tent_refusal.test.js": "a35f4cee9c8282b9eb73549ea74c644143c2f56ffc68fe40953c85411e4e7512",
+    "tests/lotm_tent_native_completion.test.js": "944bc40586109b8e52dbdd96751da61fef2a61c6281ee31b03c0841c9b4842d0"
+  },
+  "checks": {
+    "nativeHost": "1/1 passed, refusal result521 then following purchase result523",
+    "coreRegressionGroup": "35/35 passed: node --test tests/lotm_panel_gaps.test.js tests/lotm_tent_refusal.test.js tests/place_act_sequence.test.js tests/place_acts.test.js (191.9s; includes isolated native persistence)",
+    "architecture": "passed",
+    "rules": "passed with existing warnings",
+    "browser": "not run; coordinator owns rebuilt built-in replay"
+  },
+  "inputQualification": "A comment clarified equal-timestamp stored-key ordering during the group; executable inputs were unchanged. Native-host final result-order assertions passed separately 1/1."
+}

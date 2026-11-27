@@ -12,11 +12,12 @@ import {LOTM_IDS as I, LOTM_LOCATIONS as L} from './book_world_lotm_ids.js';
 
 export const LOTM_LIBRARY_INQUIRY = 'study.lotm.tingen_papers';
 export const LOTM_LIBRARY_KEY = 'study.lotm.tingen_papers.writeup';
+export const LOTM_LIBRARY_REQUIREMENTS=Object.freeze({minutes:120,evidence:2,sessionMinutes:60});
 // Dials with reasons: two one-hour sittings (the back numbers are bound by year), each sitting counts as one piece of evidence.
 registerInquiry({
     id: LOTM_LIBRARY_INQUIRY, question: 'What do the Tingen papers say about how the city is kept in order?', method: 'read',
     sources: [{kind: 'place', id: 'book.lotm.tingen.reading_room', coverage: 'bound back numbers of the city papers (authored)'}],
-    need: {minutes: 120, evidence: 2}, session: {minutes: 60},
+    need: {minutes: LOTM_LIBRARY_REQUIREMENTS.minutes, evidence: LOTM_LIBRARY_REQUIREMENTS.evidence}, session: {minutes: LOTM_LIBRARY_REQUIREMENTS.sessionMinutes},
     risk: 'Taking a paper\'s notice for the whole story costs you a wasted trip or a wrong guess about who answers where.',
     outputs: [{key: LOTM_LIBRARY_KEY, stage: 'understood', value: 'You read the bound back numbers of the Tingen papers and learned how the city reports itself: notices of services, fares and fines, and which district an incident is printed under. The papers show what is public, not what the churches handle.'}],
     gate: state => state?.actors?.player?.worldId !== I.world ? 'The reading room is in Tingen.'

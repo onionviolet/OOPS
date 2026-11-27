@@ -1,0 +1,243 @@
+{
+  "schema": "loaded-dice-earned-consumption/1",
+  "status": "native-headless-case-assertions-passed-combined-end-input-guard-rejected",
+  "browserUsed": false,
+  "normalBundleSha256": "db58757be1df194ac5193c357d176c71eec4f235ff831065038d8913342b57a1",
+  "headlessInitialBundleSha256": "df6cfe6cfb58ba0ce6d598910f98cf906d1c8f476ceaf3c5913c724d52c1709f",
+  "setup": "HIGH imports the literal ordinary-life desktop earned acquisition and queued HIGH export. Ordinary and LOW independently import the untouched pre-second-development save, develop through the unnamed UI button, and respectively leave the roll ordinary or choose LOW. All then use normal travel, actual combat ticks and the new Wolf-rat carcass selected in the existing species-specific pelt controls. No outcome, enemy, item, reward, faculty or RNG-state edits.",
+  "interpretation": "The first loot decision was the carcass specimen draw, not a direct chance-based item drop. In this measured case HIGH increased pelt quality, but did not repair combat damage: all three produced one scrap pelt with integrity35. No universal favorable outcome is inferred.",
+  "scope": "Case assertions, saved outputs and native-file encode/decode passed. This was a Node DOM run, not browser acceptance or reload/import acceptance. The process ended exit1 at its final whole-tree guard after concurrent bakery UI source writes; no runtime correction or blanket whole-tree-equivalence claim follows.",
+  "sourceQualifications": {
+    "mappedSourceDriftAtStart": [
+      {
+        "file": "src/audit_remainder_facts.js",
+        "current": "bcc2b5ac5c414ef7996aa329a111f2defc3c0f091269d21f4b544ad72ef47563",
+        "built": "44713a1ae346719378cd748581e71bec53973f96fd826d299ba2c25105c2d516"
+      }
+    ],
+    "sourceDriftObservedAfterRun": [
+      {
+        "file": "src/perspective_controls.js",
+        "start": "19ddb5a799de2b0af4eeaf50a5cdd62c701fbbf8036b34597b5aed07b6cff65b",
+        "current": "6fedf0234251d329e32af1abe2032edcd0bfd87937bb66f932f0d0bedff141e1"
+      },
+      {
+        "file": "src/lotm_tent_incident.js",
+        "start": "a23db71672a4f76126712f142b76b4ec96e131933af16c15572221768c609082",
+        "current": "c0a38e0f216e39289956c60ab7ddae4fa9fd788c758ff84f9b6dfc3f6c9288f4"
+      },
+      {
+        "file": "src/lotm_circus_notice.js",
+        "start": "2086126f914b9e362b90312abba1045f60564a3d57dd3bb6fd57162e01c824b5",
+        "current": "15fc32ddb20bdee920627d1ba8ec96335381338fd2c673283ccbdd253a8c669f"
+      },
+      {
+        "file": "src/book_world_lotm_ui.js",
+        "start": "e22802df5e3f307e681387763a98492a7d4d3d70fbcd4d5b9d2d50b4087b20e2",
+        "current": "cab63818e53e5930d2b6f9b1e6d14ca68a99457a7b1c77aea311b3868f03880f"
+      }
+    ],
+    "reviewedAt": "2026-11-26T07:10:39.735Z",
+    "relevantSourcesUnchanged": [
+      {
+        "file": "src/main.js",
+        "sha256": "00e182ae2aa5905e1190816808c68b9c811fdc96c5187e3cfef74bebb8fbc531"
+      },
+      {
+        "file": "src/enemies.js",
+        "sha256": "aabac7dc4eeb2b38ae630270a301e854c5fd9ff51bcb75d3f125317bb23b00d7"
+      },
+      {
+        "file": "src/harvest.js",
+        "sha256": "bf7a6d1e8880a01ad587f70b3824a735ba777f60a02d753ff86f32c439e13782"
+      },
+      {
+        "file": "src/native_resources_domain.js",
+        "sha256": "18123557ac56671344ceca3b1f377cf28aa1203b9acc030e8a0867bd27a0226b"
+      },
+      {
+        "file": "src/seeded_streams.js",
+        "sha256": "8b02f3bf33af6f29e99269fb529b9ea2d4fde24896acfd0b56dda51c1133e92f"
+      },
+      {
+        "file": "src/cheat_cards.js",
+        "sha256": "b9fba2577815c6a961746f2b73d85d1b2c9f32e7d1f652afd8f6393afe6968c5"
+      },
+      {
+        "file": "src/cheat_mechanisms.js",
+        "sha256": "d4bec77076a2b4a9d873daa4331195d0dd8782e3d8f8055d5542f5623c33c6bd"
+      },
+      {
+        "file": "src/cheat_definitions.js",
+        "sha256": "b891d9290915d5f2d521ba1679aad98660e0c0d7a93d20af8e475bc91a7177e1"
+      },
+      {
+        "file": "src/cheat_loaded_dice.js",
+        "sha256": "06b6d96e1ed37cb797808b5b36ac04bfb61e7abdf9ba00b0dbd3813d4080e404"
+      },
+      {
+        "file": "src/cheat_host.js",
+        "sha256": "47febb522803b371ed3eeeb00307075ec9cfa2c4ddf9738ed21c61bea66523eb"
+      },
+      {
+        "file": "src/cheat_ui.js",
+        "sha256": "019cf23360eae3aa0dcbf1352a018df65ad4f196d88542f78868d982b929c7e8"
+      }
+    ]
+  },
+  "results": [
+    {
+      "direction": "ordinary",
+      "sourceInputSha256": "a9742de4f47a4b02a51b6833d1cf44f70d4cc75f8cc190c36feb6abaec6203ce",
+      "measurementSha256": "f6320683268907c01367c816c5e2e1acac68919078f8d0f7dd7930bc8baedbdb",
+      "firstDecision": {
+        "key": "harvest:Infested field:3:enemy:0:specimen",
+        "draw": 0.45699055143631995,
+        "original": null,
+        "via": null
+      },
+      "species": "Wolf rat",
+      "fightTicks": 26,
+      "startClock": 42,
+      "consumptionClock": 83,
+      "endClock": 100,
+      "startTime": {
+        "year": 999,
+        "month": 4,
+        "day": 1,
+        "hour": 8,
+        "minute": 42,
+        "day_count": 1
+      },
+      "endTime": {
+        "year": 999,
+        "month": 4,
+        "day": 1,
+        "hour": 9,
+        "minute": 40,
+        "day_count": 1
+      },
+      "output": {
+        "part": "pelt",
+        "count": 1,
+        "quality": 75,
+        "completeness": "scraps",
+        "integrity": 35
+      },
+      "skill": 0,
+      "tool": 50,
+      "charges": {
+        "revision": 1,
+        "charges": 2,
+        "used": 0,
+        "recharged": 0
+      },
+      "moneyDelta": 0,
+      "saveSha256": "033663435e622a8b1b7190ad2e9110bcca2265a745a97388c510659144bf0de0",
+      "exportSha256": "892dfdb4bab04709614870bfd7b81b0105c3225f9edc35a0bec6e96c75ac1508",
+      "errors": []
+    },
+    {
+      "direction": "low",
+      "sourceInputSha256": "a9742de4f47a4b02a51b6833d1cf44f70d4cc75f8cc190c36feb6abaec6203ce",
+      "measurementSha256": "78affd7fb6e62ba2b92ce4bab233164fd527768d12c0579d7fdda0a4c553e358",
+      "firstDecision": {
+        "key": "harvest:Infested field:3:enemy:0:specimen",
+        "draw": 0,
+        "original": 0.45699055143631995,
+        "via": "loaded-dice"
+      },
+      "species": "Wolf rat",
+      "fightTicks": 26,
+      "startClock": 42,
+      "consumptionClock": 83,
+      "endClock": 100,
+      "startTime": {
+        "year": 999,
+        "month": 4,
+        "day": 1,
+        "hour": 8,
+        "minute": 42,
+        "day_count": 1
+      },
+      "endTime": {
+        "year": 999,
+        "month": 4,
+        "day": 1,
+        "hour": 9,
+        "minute": 40,
+        "day_count": 1
+      },
+      "output": {
+        "part": "pelt",
+        "count": 1,
+        "quality": 70,
+        "completeness": "scraps",
+        "integrity": 35
+      },
+      "skill": 0,
+      "tool": 50,
+      "charges": {
+        "revision": 1,
+        "charges": 1,
+        "used": 1,
+        "recharged": 0
+      },
+      "moneyDelta": 0,
+      "saveSha256": "99c77cac5ed3e28a089edc0310a953f5d59f834e0e33ca37f157e1e7de0fa340",
+      "exportSha256": "d33b80c75fd28f535fba3f13a8c35e615e1c126320dcd8221c74b545fcdb529a",
+      "errors": []
+    },
+    {
+      "direction": "high",
+      "sourceInputSha256": "f62c051e562a46aedc420ebb2a094810c49f80054ae8ef45f75260a51984ff2e",
+      "measurementSha256": "38d618b6cd22b200da1db21e818da78e404cb6b6cb409f2cc2c1c0e7b1e6cc3e",
+      "firstDecision": {
+        "key": "harvest:Infested field:3:enemy:0:specimen",
+        "draw": 0.9999999997671694,
+        "original": 0.45699055143631995,
+        "via": "loaded-dice"
+      },
+      "species": "Wolf rat",
+      "fightTicks": 26,
+      "startClock": 42,
+      "consumptionClock": 83,
+      "endClock": 100,
+      "startTime": {
+        "year": 999,
+        "month": 4,
+        "day": 1,
+        "hour": 8,
+        "minute": 42,
+        "day_count": 1
+      },
+      "endTime": {
+        "year": 999,
+        "month": 4,
+        "day": 1,
+        "hour": 9,
+        "minute": 40,
+        "day_count": 1
+      },
+      "output": {
+        "part": "pelt",
+        "count": 1,
+        "quality": 80,
+        "completeness": "scraps",
+        "integrity": 35
+      },
+      "skill": 0,
+      "tool": 50,
+      "charges": {
+        "revision": 1,
+        "charges": 1,
+        "used": 1,
+        "recharged": 0
+      },
+      "moneyDelta": 0,
+      "saveSha256": "6e3a031d7b40f5e69b88a6b55fd6742e4b0618cb7ca82238f243278c84441ca7",
+      "exportSha256": "e9013e546da7016eb2fca434145a95fb3e1246c1337fbd23f57f6573672b5f99",
+      "errors": []
+    }
+  ]
+}

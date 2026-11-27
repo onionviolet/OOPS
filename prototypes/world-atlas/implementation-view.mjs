@@ -7,15 +7,19 @@ const link = (label, href) => {
 };
 
 export function implementationView({main, data}) {
-    main.append(el('h2', 'Implementation'));
+    main.append(el('h2', 'Earned replays'));
     for (const work of data.implementation) {
         const card = el('article', null, 'implementation-card');
         const header = el('div', null, 'implementation-heading');
         header.append(link(work.world, '#' + work.worldView), el('h3', work.title), el('p', work.outcome));
         const body = el('div', null, 'implementation-columns');
         const outcomes = el('section');
-        outcomes.append(el('h4', 'Browser-verified today'), el('p', work.verified),
-            el('h4', 'Next playtest'), el('p', work.next));
+        outcomes.append(el('h4', work.playStatus), el('p', work.playGap || work.verified));
+        if(work.playReceipt){
+            const {life,action,build}=work.playReceipt;
+            outcomes.append(el('p',life+' · '+action+' · Build '+build));
+        }
+        outcomes.append(el('h4', 'Next playtest'), el('p', work.next));
         const replay = el('section');
         replay.append(el('h4', 'Earned replay start'), el('p', work.scenario));
         const download = link('Download replay save', '/implementation/' + work.id + '/save');

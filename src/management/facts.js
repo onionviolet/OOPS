@@ -1,3 +1,4 @@
+import {farmSupplyFacts} from './farm_supply.js';
 import {I,K} from './shared.js';
 import {managementDefinitions} from './content.js';
 // Rule `not` needs a known fact. Unset courtyard actor facts read as false so
@@ -26,5 +27,5 @@ export function managementFacts(state,context={}) {
   f[`management.coins.${id}`]=a?.resources?.coins||0;
   for(const [name,key] of Object.entries(K))f[`management.stock.${id}.${name}`]=s?.owners[id]?.[key]||0;
  }
- return f;
+ return {...f,...farmSupplyFacts(state,context)};
 }

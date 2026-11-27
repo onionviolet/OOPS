@@ -9,16 +9,37 @@ export async function structuredContentHash(raw) {
 // [{from, to, reason}], meaning "content that hashes to `from` today is the same life as `to`". The declaration stays out
 // of the hash. Any further drift changes `from`, the alias stops matching, and old saves fail loudly again until someone
 // looks and re-declares (tests/lead_saves_load.test.js boots the local lead saves). Default: no aliases.
+// A reviewed pack alias may opt into preserveCurrent to retain its already-issued
+// raw content/start pair too. The saved pair is checked together; unmarked aliases
+// retain their prior behavior. Snapshot aliases use the same exact declarations.
 const hashShape=/^sha256:[a-f0-9]{64}$/;
 export function structuredIdentitySource(raw) {
     if(raw?.compatibility?.identityAliases==null)return raw;
     const compatibility={...raw.compatibility};delete compatibility.identityAliases;
     return {...raw,compatibility};
 }
+function validPreviousIdentities(editions, raw) {
+    if(editions==null)return true;
+    if(!Array.isArray(editions)||!editions.length)return false;
+    const startIds=(raw.starts||[]).map(start=>start.id).sort();
+    const seen=new Set();
+    return editions.every(edition=>{
+        if(!edition||Object.keys(edition).sort().join(',')!=='contentHash,starts'
+            ||!hashShape.test(edition.contentHash)||!Array.isArray(edition.starts)
+            ||!startIds.length||edition.starts.length!==startIds.length)return false;
+        if(edition.starts.some(start=>!start||Object.keys(start).sort().join(',')!=='id,snapshotHash'
+            ||typeof start.id!=='string'||!hashShape.test(start.snapshotHash)))return false;
+        const ids=edition.starts.map(start=>start.id).sort();
+        if(JSON.stringify(ids)!==JSON.stringify(startIds))return false;
+        const signature=JSON.stringify([edition.contentHash,edition.starts]);
+        if(seen.has(signature))return false;
+        seen.add(signature);return true;
+    });
+}
 export function structuredIdentityAliases(raw,table=new Map()) {
     const rows=raw?.compatibility?.identityAliases;
     if(rows==null)return table;
-    if(!Array.isArray(rows)||rows.some(r=>!r||!hashShape.test(r.from)||!hashShape.test(r.to)||r.from===r.to||typeof r.reason!=='string'||!r.reason||table.has(r.from)&&table.get(r.from)!==r.to))throw Error('Invalid identity alias declaration.');
+    if(!Array.isArray(rows)||rows.some(r=>!r||!hashShape.test(r.from)||!hashShape.test(r.to)||r.from===r.to||typeof r.reason!=='string'||!r.reason||r.preserveCurrent!=null&&typeof r.preserveCurrent!=='boolean'||!validPreviousIdentities(r.previousIdentities,raw)||table.has(r.from)&&table.get(r.from)!==r.to))throw Error('Invalid identity alias declaration.');
     for(const r of rows)table.set(r.from,r.to);
     return table;
 }
@@ -32,13 +53,26 @@ export function createStructuredNativeRegistration({registry,locations,items,inv
         for(const l of raw.locations)if(locations[l.id])throw Error('Structured native location collision.');
         for(const i of raw.items||[])if(items[i.id])throw Error('Structured native item collision.');
         for(const c of raw.simulation.containers||[])if(inventories[c.category]?.[c.id])throw Error('Structured native inventory collision.');
-        const contentHash=await identity(raw),localLocations={};
+        const rawContentHash=await structuredContentHash(structuredIdentitySource(raw));
+        const contentHash=aliases.get(rawContentHash)??rawContentHash,localLocations={};
+        const reviewedAlias=raw.compatibility?.identityAliases?.find(row=>row.from===rawContentHash&&row.to===contentHash);
         const staged=stageStructuredNativeObjects(raw,{availabilities,makeLocation:l=>localLocations[l.id]=makeLocation(l),makeItem,makeInventory});
+        const rawStarts=[];
         const starts=raw.starts?await Promise.all(raw.starts.map(async start=>{
             const snapshot={...start};delete snapshot.snapshotHash;
-            return {...start,snapshotHash:await structuredContentHash(snapshot)};
+            const snapshotHash=await structuredContentHash(snapshot);
+            rawStarts.push({id:start.id,snapshotHash});
+            return {...start,snapshotHash:aliases.get(snapshotHash)??snapshotHash};
         })):null;
-        const admitted={...compiled.definition,contentHash,...(starts?{starts}:{})};validateStructuredBootstrap(admitted);
+        // Keep an issued post-copy identity as one coherent pair, rather than
+        // independently accepting content and start hashes in crossed combinations.
+        const identityAlternatives=[];
+        if(reviewedAlias&&starts&&rawContentHash!==contentHash){
+            if(reviewedAlias.preserveCurrent===true)identityAlternatives.push({contentHash:rawContentHash,starts:rawStarts});
+            if(reviewedAlias.previousIdentities)identityAlternatives.push(...structuredClone(reviewedAlias.previousIdentities));
+        }
+        const admitted={...compiled.definition,contentHash,...(starts?{starts}:{}),
+            ...(identityAlternatives.length?{identityAlternatives}:{})};validateStructuredBootstrap(admitted);
         const d={...mergeStructuredPack(compiled,registry),...admitted};
         for(const [id,l]of staged.locations){const authored=raw.locations.find(row=>row.id===id);if(authored.combat){l.parent_location=localLocations[authored.combat.parentId];l.parent_location.connected_locations.push({location:l,travel_time:1});}locations[id]=l;}
         for(const [id,item]of staged.items)items[id]=item;
@@ -52,7 +86,7 @@ export function createStructuredNativeRegistration({registry,locations,items,inv
         for(const [id,item] of staged.items)items[id]=item;
         for(const [id,location] of staged.locations)locations[id]=location;
     },options);
-    register.extension=(raw,base)=>extension(raw,base);
+    register.extension=(raw,base,options)=>extension(raw,base,options);
     register.bundledInstantExtension=(raw,base)=>extension(raw,base,{bundledInstant:true});
     return register;
 }

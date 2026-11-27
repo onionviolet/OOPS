@@ -20,10 +20,11 @@
 //
 // Allow one line with a trailing comment: // names: allow <why>
 import {existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync} from 'node:fs';
-import {resolve, dirname} from 'node:path';
-import {fileURLToPath} from 'node:url';
+import {resolve, dirname, relative, sep} from 'node:path';
+import {fileURLToPath, pathToFileURL} from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const repositoryPath = file => relative(root, file).split(sep).join('/');
 const baselinePath = resolve(root, 'scripts/names_baseline.json');
 const backlogPath = resolve(root, 'docs/names/NAMES_BACKLOG.md');
 const sheetsPath = resolve(root, 'docs/names/WORLD_NAMING_SHEETS.md');
@@ -156,7 +157,7 @@ function walk(dir, acc = []) {
 export function scanTree() {
   const out = [];
   for (const p of walk(resolve(root, 'src')).sort()) {
-    const rel = p.slice(root.length + 1);
+    const rel = repositoryPath(p);
     if (/\/(srd521|pf1)\/|\/fixtures\/|\/preview\//.test(rel)) continue; // vendored rules data and UI fixtures, not content
     out.push(...scanSource(rel, readFileSync(p, 'utf8')));
   }
@@ -358,7 +359,7 @@ function writeSheets(entries, files) {
 
 function filesByWorld() {
   const m = {};
-  for (const p of walk(resolve(root, 'src'))) { const rel = p.slice(root.length + 1); if (/\/(srd521|pf1)\//.test(rel)) continue; const w = worldOf(rel); m[w] = (m[w] || '') + readFileSync(p, 'utf8'); }
+  for (const p of walk(resolve(root, 'src'))) { const rel = repositoryPath(p); if (/\/(srd521|pf1)\//.test(rel)) continue; const w = worldOf(rel); m[w] = (m[w] || '') + readFileSync(p, 'utf8'); }
   return m;
 }
 
@@ -429,7 +430,7 @@ export function applySpellings(findings, spellings, distinct = {}) {
   });
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const t0 = Date.now();
   const entries = scanTree();
   const findings = analyze(entries);

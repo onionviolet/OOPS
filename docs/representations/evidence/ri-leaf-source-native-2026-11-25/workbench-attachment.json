@@ -1,0 +1,26 @@
+{
+  "proposalId": "69772c5a2df1f201e9299ef2b923eb24fbe1093a99b4d79ad5ad8f4e27320724",
+  "reportId": "04931f697003fbcb3ff98ef4727eec33a6df681fcf8ccf9643af7a5cc07ae418",
+  "attachmentId": "4ea7903fb8de9928f597a27e7f9b34a4b1a1e787cf3bc957c083f32a5778c620",
+  "proofPath": "docs/representations/evidence/ri-leaf-source-native-2026-11-25/proof.json",
+  "proofSha256": "5578910756e4aae9087167731586643f34cf31a5f0028a75b21465845fb53d3a",
+  "comparison": {
+    "id": "4ea7903fb8de9928f597a27e7f9b34a4b1a1e787cf3bc957c083f32a5778c620",
+    "testedBundleSha256": "4d14cb3c865682abdd1428d9ddd37b627cb0f2ace8db85f055009f1c78ced84c",
+    "entry": {
+      "route": "Named composed Fang wild-Gu/rank-two/day fixture; native watch drive-off -> buy two leaves for four stones -> treat -> duplicate block -> Save/reload/Export/literal Import -> native three-hour patrol. Independent retained-paid-leaf repeat-threat fixture proves wound/cooldown refusal through59 and treatment at60 stepped game minutes.",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "setup": "Existing ri-fang-yuan-wild-gu scenario plus rank-two/day pins, four stones, held fed Moonglow, petals and waiting wolf. No leaf grant. Early life and first patrol are not earned. Native clock stepper advances paid patrol and cooldown; no claim of natural elapsed time."
+    },
+    "proof": {
+      "status": "unchanged"
+    },
+    "status": "exact-match",
+    "currentBundleSha256": "4d14cb3c865682abdd1428d9ddd37b627cb0f2ace8db85f055009f1c78ced84c"
+  },
+  "errors": [],
+  "route": "/#workbench/handoffs/69772c5a2df1f201e9299ef2b923eb24fbe1093a99b4d79ad5ad8f4e27320724"
+}

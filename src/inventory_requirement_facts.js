@@ -1,5 +1,6 @@
 import {validateItemKey} from './gameplay_transactions.js';
 import {canonicalDurabilityKey} from './absorb_e2/durability.js';
+import {isRiPieceKey} from './ri_stone_pieces.js';
 
 // An actual inventory's absent stack is zero. Unavailable inventories and
 // unrelated unknown facts remain unknown. Only selected predicates are read.
@@ -14,7 +15,7 @@ export function addInventoryRequirementFacts(facts, predicates, inventories) {
                 try {validateItemKey(key);} catch {continue;}
                 if(!inventory) {delete facts[rule.fact]; continue;}
                 facts[rule.fact] = Object.entries(inventory).reduce((n,[actual,count]) =>
-                    n + (actual === key || canonicalDurabilityKey(actual) === key ? count : 0), 0);
+                    n + (actual === key || canonicalDurabilityKey(actual) === key || isRiPieceKey(actual)&&key===JSON.stringify({id:'book.ri.lead.vital.half_stone'}) ? count : 0), 0);
             }
         }
         visit(rule.all); visit(rule.any); visit(rule.not);

@@ -4,6 +4,7 @@
 // Real inputs only (AD38, MG06 "creates no seeds or food"): every cycle takes one seed packet from the player's stock; the harvest goes into the player's stock.
 // The crop goes to storage. A standing sell order (W11-E, OB12) sells grain above a count to the Village market on the clock, at the market's own saturated
 // price; see sellSurplus. It does not use Bram's finite purse: his purse is an authored, validated resident balance (management/validation.js), the market is not.
+import {settleFarmSupply,farmSupplyKeep} from './management/farm_supply.js';
 import {registerHandJob} from './hired_hands.js';
 import {I, K} from './management/shared.js';
 import {loot_sold_count, get_loot_price_multiple, calculate_total_saturation, capped_at} from './market_saturation.js';
@@ -59,7 +60,7 @@ function sellSurplus(plan, rec, tally) {
     if(plan.state.actors.player.worldId !== 'base.frontier') return;
     const region = SELL_DIALS.region.value, read = plan.market || loot_sold_count; // read-only until something sells
     if(!read[region]) return;
-    const surplus = have(plan, K.grain) - rec.sellAbove;
+    const surplus = have(plan, K.grain) - Math.max(rec.sellAbove,farmSupplyKeep(plan.state));
     if(surplus <= 0) return;
     const tiers = read[region][GRAIN.group] || [];
     const start = calculate_total_saturation({sold_by_tier: tiers.map(t => Math.max(0, t.sold - t.recovered)), target_tier: GRAIN.tier, cap: capped_at});
@@ -97,7 +98,7 @@ registerHandJob(PLOT_JOB, {
     hire(plan, rec) { if (have(plan, K.seed) > 0) { take(plan, K.seed, 1); rec.cycleAt = rec.since; } sync(plan, rec); },
     release(plan, rec) { sync(plan, rec); },
     // Work in [from, to]. Planting needs a seed; a hand with no seed leaves the bed empty and says so. Idle hands notice seed at the end of the pass.
-    work(plan, rec, from, to, tally) { tendPlot(plan, rec, from, to, tally); sellSurplus(plan, rec, tally); },
+    work(plan, rec, from, to, tally) { const before=tally.yielded;tendPlot(plan, rec, from, to, tally);if(tally.yielded>before)settleFarmSupply(plan,null,null,{harvest:true});sellSurplus(plan, rec, tally); },
     sells: GRAIN,
     report(rec, tally, span) {
         const c = HAND_CROPS[rec.crop], parts = [];

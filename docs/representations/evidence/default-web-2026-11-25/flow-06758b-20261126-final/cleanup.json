@@ -1,0 +1,11 @@
+{
+  "stagingRemovedByRunner": true,
+  "terminatedOwnedBrowserProfilesRetained": [
+    "yairpg-owned-chrome-2CoYfS",
+    "yairpg-owned-chrome-2uSHIH",
+    "yairpg-owned-chrome-BCdQTs",
+    "yairpg-owned-chrome-BlYg7o",
+    "yairpg-owned-chrome-RymoYR"
+  ],
+  "noAlternateCleanup": "Earlier scoped cleanup requests were rejected automatically as blocked by policy. No alternate removal route attempted."
+}

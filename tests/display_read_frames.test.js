@@ -8,7 +8,7 @@ import {commitSimulationCommand,enrollSimulation,simulationFacts,simulationRuleF
 import {evaluateRule} from '../src/rules.js';
 import {WORKS as I,WORKS_KEYS as K} from '../src/field_works_content.js';
 import {previewFieldWorksCommand} from '../src/field_works_projection.js';
-import {withFactsFrame,withDisplayFactsFrame} from '../src/facts_frame.js';
+import {withFactsFrame,withDisplayFactsFrame,withFactsMutation,invalidateFactsInput} from '../src/facts_frame.js';
 import {framedSimulationRead} from '../src/simulation_render.js';
 import {worldCompletionContext,worldCompletionOwnedContext} from '../src/world_completion_facts.js';
 
@@ -76,4 +76,33 @@ test('a display pass joins an open pass over the same state and opens its own ot
     withFactsFrame(state,()=>{read(state);withDisplayFactsFrame(state,()=>read(state));withDisplayFactsFrame(other,()=>read(other));});
     assert.equal(builds,3,'same state joins; another state gets its own pass');
     read(state);assert.equal(builds,4,'no pass outlives its call');
+});
+
+
+test('projected display facts reuse the exact live ancestor builder with independent mutable dictionaries',()=>{
+ const live={clock:1,sequence:1},projected=structuredClone(live),other={clock:1,sequence:1};let builds=0;
+ const build=()=>({facts:{value:++builds}}),copy=v=>({...v,facts:{...v.facts}}),read=key=>framedSimulationRead(key,'native-context-builder',build,copy);
+ withDisplayFactsFrame(live,()=>{
+  const a=read(live);a.facts.value=999;
+  withDisplayFactsFrame(projected,()=>{assert.equal(read(live).facts.value,1);assert.equal(read(live).facts.value,1);assert.equal(read(other).facts.value,2);});
+  assert.equal(read(live).facts.value,1);assert.equal(builds,2,'live native builder runs once; unrelated input builds separately');
+ });
+ read(live);assert.equal(builds,3,'nothing survives the synchronous publication');
+});
+
+test('nested mutation bypasses all native display snapshots and invalidates ancestors even when it throws',()=>{
+ const live={clock:1,sequence:1},projected=structuredClone(live),input={value:1};let builds=0;
+ const read=()=>framedSimulationRead(live,'native-context-builder',()=>({value:input.value,build:++builds}),v=>({...v}));
+ withDisplayFactsFrame(live,()=>{
+  assert.equal(read().value,1);
+  withDisplayFactsFrame(projected,()=>{
+   assert.equal(read().build,1);
+   assert.throws(()=>withFactsMutation([input],()=>{input.value=2;assert.equal(read().value,2);input.value=3;assert.equal(read().value,3);throw Error('discarded plan');}),/discarded plan/);
+   assert.equal(read().value,3);assert.equal(read().build,4);
+   input.value=4;invalidateFactsInput(input);assert.equal(read().value,4);assert.equal(read().build,5);
+  });
+  assert.equal(read().build,5,'post-invalidation read is shared with the restored ancestor');
+  input.value=5;live.sequence++;assert.equal(read().value,5);assert.equal(read().build,6);
+  input.value=6;live.clock++;assert.equal(read().value,6);assert.equal(read().build,7);
+ });
 });

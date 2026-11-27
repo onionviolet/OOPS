@@ -35,11 +35,25 @@ export function createCheatPanel({read,act,nameItem}) {
         if(c.voice){const v=node('p',c.voice.text);v.dataset.cheatVoice=c.voice.reliable?'reliable':'unreliable';sec.append(v);if(c.voice.truth){const t=node('p',c.voice.truth);t.className='cheat-limits';sec.append(t);}}
         return sec;
     }
+    function startingCard(s){
+        const offer=s.startingOffer,sec=node('section');sec.className='panel-info';sec.dataset.startingInsight='';
+        sec.append(node('h3','A starting advantage'),node('p','One extra insight can fund an existing faculty development or restore a reserve. It waits for the same awakening as your ordinary faculty: a won fight or day 3.'));
+        sec.append(node('p',offer.choice==='extra-insight'?'You retained one extra starting insight.':offer.choice==='ordinary'?'You kept the ordinary beginning.':'Choose one extra starting insight or keep the ordinary beginning.'));
+        sec.append(node('p',offer.reason));
+        if(offer.canChoose){
+            if(offer.choice!=='extra-insight')sec.append(button('Take +1 starting insight',{type:'starting-choice',choice:'extra-insight'}));
+            if(offer.choice!=='ordinary')sec.append(button('Keep the ordinary beginning',{type:'starting-choice',choice:'ordinary'}));
+        }
+        return sec;
+    }
     function render(force=false) {
         const s=read();home.hidden=!s.visible;
+        open.textContent=s.awakened===false?'Choose your starting insight':'Explore your continuing insight';
         if(!s.visible){view.hidden=true;return;}view.hidden=false;
         if(!force&&view.classList.contains('center-mode-hidden'))return;
         const key=JSON.stringify(s);if(!force&&signature===key)return;signature=key;body.replaceChildren();
+        if(s.startingOffer)body.append(startingCard(s));
+        if(s.awakened===false){status.textContent=`Insight in reserve: ${s.points}. The faculty has not revealed its developments yet.`;return;}
         status.textContent=`Insight: have ${s.points}, earned ${s.earned}, spent ${s.spent}. Enduring developments follow the continuing self; local reserves have their own carrier.`;
         if(s.reason)body.append(node('p',s.reason));
         body.append(growthCard(s));
@@ -52,7 +66,15 @@ export function createCheatPanel({read,act,nameItem}) {
             section.append(node('h3',card.name),node('p',card.description));if(card.state.charges+card.state.used)section.append(node('p',`Charges ${card.state.charges} · used ${card.state.used}`));
             if(card.state.charges<card.state.charges+card.state.used-card.state.recharged)section.append(button('Restore 1 reserve · 1 insight',{type:'recharge',id:card.id},s.points<1||!!s.reason));
             if(card.id==='true-appraisal')for(const specimen of s.specimens)section.append(button(`Read ${specimen.species}`,{type:'appraise',...specimen},!card.state.charges||!!s.reason));
-            if(card.id==='loaded-dice')section.append(button('Commit next loot roll low · 1 charge',{type:'call'},!card.state.charges||!!s.reason));
+            if(card.id==='loaded-dice'){
+                section.append(node('p','Chance-based drops favor low values; some material traits favor high values.'));
+                if(s.lootCall)section.append(node('p',`${s.lootCall.direction==='low'?'Low':s.lootCall.direction==='high'?'High':'Chosen'} roll queued here. It stays saved until the next loot decision uses it.`));
+                if(s.lootCompleted){
+                    const used=node('p',`Completed call: ${s.lootCompleted.direction} · ${s.lootCompleted.subject}.`);used.dataset.cheatCompletedCall='';section.append(used);
+                    if(s.lootCompleted.outputs.length)section.append(node('p','Processed result: '+s.lootCompleted.outputs.map(o=>`${o.count} ${o.name}, ${o.completeness}, quality ${o.quality}%`).join('; ')+'.'));
+                }
+                section.append(button('Commit next loot roll low · 1 charge',{type:'call'},!card.state.charges||!!s.lootCall||!!s.reason),button('Commit next loot roll high · 1 charge',{type:'call',direction:'high'},!card.state.charges||!!s.lootCall||!!s.reason));
+            }
             if(card.id==='fate-ledger') {
                 const select=node('select');select.setAttribute('aria-label','Visible fate subject');
                 for(const d of s.decisions){const option=node('option',d.label);option.value=d.id;select.append(option);}

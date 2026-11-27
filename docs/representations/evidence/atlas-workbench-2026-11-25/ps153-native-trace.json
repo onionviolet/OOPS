@@ -1,0 +1,61 @@
+{
+  "proposalId": "7f5b831dd993bdc625dbfce2afb8532b13de4a797897a24ecb899a50a4989c1f",
+  "reportId": "16e35564706bceaefc0827ad5d8408c7a01408634d9c3c114df24d6d25c06002",
+  "attachmentId": "7d6dfdf73af262ab0071500a351bb50f4a23265a416dee6a033ea94056f9d98f",
+  "source": {
+    "kind": "idea-owner",
+    "ownerReference": "docs/gm/dispatch/play-surface-2026-11-14/CONSIDERATIONS.md",
+    "reference": "docs/gm/dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#idea-61268f9dfc88e941773ba8736ad255f772a3097decf6a51f19d4c1f24662e253",
+    "ideaId": "61268f9dfc88e941773ba8736ad255f772a3097decf6a51f19d4c1f24662e253",
+    "documentHash": "c99263268bb9523c3d2e5f80937fa0bb2e7da28900a7de280877f2076c92b040",
+    "sourceReference": "docs/gm/dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#L463",
+    "lineStart": 463,
+    "lineEnd": 463,
+    "section": [
+      "Play surface: more to consider",
+      "Round 16, 2026-11-15: feel and finish, the Discord features, and UI for what has none",
+      "Feel and finish (proposals; polish lane)"
+    ]
+  },
+  "consumer": {
+    "name": "Item rarity, arrival and equipped-state feedback",
+    "path": "src/ui/feel_finish.js",
+    "resolvedPath": "src/ui/feel_finish.js",
+    "sha256": "5e193246000a4b3be7f4a8de32b52e1383ead3409a15656921405e95c8852916"
+  },
+  "receipt": {
+    "path": "docs/gm/dispatch/play-surface-2026-11-14/GLOW_EARNED_RARITY_2026-11-25.md",
+    "resolvedPath": "docs/gm/dispatch/play-surface-2026-11-14/GLOW_EARNED_RARITY_2026-11-25.md",
+    "sha256": "d190e568585340bd223b5c42071d86badcd41e8293285efc3dd8727639c227bc"
+  },
+  "proofPath": "docs/representations/evidence/glow-earned-rarity-2026-11-25/proof.json",
+  "proofSha256": "a82b72b1436df98a416ca7cae8266ca0b7c43582bab69f4ef97ae44e9523947e",
+  "comparison": {
+    "id": "7d6dfdf73af262ab0071500a351bb50f4a23265a416dee6a033ea94056f9d98f",
+    "testedBundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+    "entry": {
+      "route": "Ordinary default Village life: elder sword gift and market unlock; real starter-item sale; natural fieldwork over two workdays; held 113% uncommon Rat pelt cape bought for 500 W; visible Full item → Equip; compare new/seen/worn, Item glow off and Effects reduced.",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "setup": "Actual fresh ordinary life, continued from its own unmodified saved localStorage on isolated origins. No fixture items, grants, seed override, clock hooks, runtime or dist edits. First-day work used e797966b; final natural work, actual purchase and desktop controls used current 9a960b. No complete earned rare-tier claim."
+    },
+    "proof": {
+      "status": "unchanged"
+    },
+    "status": "exact-match",
+    "currentBundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1"
+  },
+  "viewport": "1366x900",
+  "checks": [
+    "normal exact-owner search and PS153 proposal",
+    "current owner-version match before attachment",
+    "frozen consumer/receipt/proof fingerprints",
+    "reopened native sidecar with exact current/tested build comparison",
+    "exact existing backlog backlink and reload",
+    "immutable proposal and original source scope preserved",
+    "no game-code or new gameplay changes"
+  ],
+  "pageErrors": []
+}

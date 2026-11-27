@@ -2,6 +2,7 @@
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import { transform } from 'esbuild';
 
 async function walk(dir) {
@@ -35,7 +36,8 @@ export async function review({ root = process.cwd(), grants = [], paths = [] }) 
   const sources = candidates.filter((p) => p.startsWith('src/') || p.startsWith('tests/'));
   const names = new Set();
   for (const file of await walk(path.join(absRoot, 'private_packs'))) {
-    if (!file.endsWith('-cast/cast.json') && !/private_packs\/(lotm|mol)-cast\/cast\.json$/.test(file)) continue;
+    const portable=file.replace(/\\/g,'/');
+    if (!portable.endsWith('-cast/cast.json') && !/private_packs\/(lotm|mol)-cast\/cast\.json$/.test(portable)) continue;
     try { for (const n of packNames(JSON.parse(await readFile(file, 'utf8')))) names.add(n.toLocaleLowerCase()); } catch {}
   }
   let nameHits = 0, awaitHits = 0;
@@ -63,4 +65,4 @@ async function main(argv) {
   if (result.outsideGrant.length) console.log(`outside grant paths: ${result.outsideGrant.join(', ')}`);
   return result.passed ? 0 : 1;
 }
-if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname)) main(process.argv.slice(2)).then((code) => { process.exitCode = code; }).catch((e) => { console.error(`lane_review: ${e.message}`); process.exitCode = 1; });
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main(process.argv.slice(2)).then((code) => { process.exitCode = code; }).catch((e) => { console.error(`lane_review: ${e.message}`); process.exitCode = 1; });

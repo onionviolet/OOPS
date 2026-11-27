@@ -1,0 +1,64 @@
+{
+  "scope": "current default bundle; isolated byte-identical mounted cast copy; exact immutable earned ch129 save; bounded first ordinary ch130 checkpoint",
+  "inputSha256": "ebd217413f215f9413845932c942a15ba9140ec1d5f93a191f0b97fc34e4d3c0",
+  "candidatePackSha256": "4e1b1e4be8d9420553259132ad02ceef7b41fb6fa0f9241aa63bcb619eea5c0e",
+  "bundleSha256": "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623",
+  "steps": [
+    {
+      "id": "book.lotm.kj3bb.recover-cane",
+      "clock": 79258,
+      "source": "v1 ch130 P001–P018"
+    },
+    {
+      "id": "book.lotm.kj3bb.go-home",
+      "clock": 79277,
+      "source": "v1 ch130 P019–P029"
+    },
+    {
+      "id": "book.lotm.kj3bb.household-plan",
+      "clock": 79283,
+      "source": "v1 ch130 P030–P050"
+    }
+  ],
+  "status": "blocked",
+  "defaultBundleAtLaunchSha256": "4d14cb3c865682abdd1428d9ddd37b627cb0f2ace8db85f055009f1c78ced84c",
+  "admittedClock": 79256,
+  "checkpointSha256": "6a8080c30a54984495c3893fc9a8253e15b2ce1148faf5e3680d9f489d1c177b",
+  "phase": "reload",
+  "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ '85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623'\n- '4d14cb3c865682abdd1428d9ddd37b627cb0f2ace8db85f055009f1c78ced84c'\n",
+  "servedBundleSha256": [
+    "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623",
+    "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623"
+  ],
+  "applicationErrors": [],
+  "timings": [
+    {
+      "phase": "boot",
+      "ms": 38301.1709
+    },
+    {
+      "phase": "native-action",
+      "ms": 12429.9594
+    },
+    {
+      "phase": "settle",
+      "ms": 7890.990299999998
+    },
+    {
+      "phase": "native-action",
+      "ms": 7259.9214000000065
+    },
+    {
+      "phase": "settle",
+      "ms": 15330.671200000012
+    },
+    {
+      "phase": "native-action",
+      "ms": 9513.206999999995
+    },
+    {
+      "phase": "settle",
+      "ms": 16598.49320000001
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "viewport": [
+    1366,
+    768
+  ],
+  "sections": {
+    "Information and foresight": 11,
+    "Time and loops": 9,
+    "Growth and leveling": 13,
+    "Making and economy": 11,
+    "Body and soul": 16,
+    "Companions and voices": 7,
+    "Luck and fate": 8,
+    "Space and storage": 5,
+    "Social": 7,
+    "World-crossing and meta": 8
+  },
+  "comparisons": [
+    11,
+    9,
+    13,
+    11,
+    16,
+    7,
+    8,
+    5,
+    7,
+    8
+  ],
+  "searchAndReset": true,
+  "source": true,
+  "pageErrors": []
+}

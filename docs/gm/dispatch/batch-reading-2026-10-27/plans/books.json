@@ -1,5 +1,5 @@
 {
- "note": "Book registry for make_book_plans.mjs (BATCH_READING_WORKFLOW.md). Sources stay outside the repo; shard and output dirs are gitignored private folders. LOTM volume 1 was read by the older wave plans (make_wave_plans.mjs) and is not listed here.",
+ "note": "Book registry for make_book_plans.mjs (BATCH_READING_WORKFLOW.md). Sources stay outside the repo; shard and output dirs are gitignored private folders. LOTM volume 1's older wave plans (make_wave_plans.mjs) retain their original owners and prefixes. The appended lotm1 row is a separate new local-manual reading owner from 2026-11-25; it does not migrate or replace the older wave archive.",
  "gaps": [
   "Missing and unverified sources: see docs/research/LIBRARY_INDEX.md (not on disk, or unverified)."
  ],
@@ -2342,6 +2342,27 @@
    "convertWith": "scripts/lead_run/normalize_epub_chapters.py auto (Source Library book-37346841, running chapter count 1..N, source number kept as [ch N] when it differs)",
    "sourceLibraryId": "book-37346841",
    "title": "Ar'Kendrithyst"
+  },
+  {
+   "key": "lotm1",
+   "world": "lotm",
+   "lang": "zh",
+   "type": "zh-nav",
+   "source": "/Users/weiwei/Calibre Library/Ai Qian Shui De Wu Zei/Gui Mi Zhi Zhu Zui (1)/Gui Mi Zhi Zhu Zui - Ai Qian Shui De Wu Zei.epub",
+   "sourceAliases": [
+    {
+     "path": "D:/Library/Books/CN_Webnovels/诡秘之主最 (Lord of the Mysteries) -- 爱潜水的乌贼 -- StarPress Publisher -- 29a94b3a19487f86edf5227aa9dc4389 -- Anna’s Archive.epub",
+     "sha256": "6126274478a95dbe03eb904bc35c409067c7022563e52997a46e98be07b2d70d"
+    }
+   ],
+   "nav": "OEBPS/Text/nav.xhtml",
+   "book": 1,
+   "dir": "docs/research/novels/lord-of-mysteries/private/local-reading-2026-11-25",
+   "readingOwner": "new-local-manual",
+   "group": {
+    "target": 99999,
+    "max": 2
+   }
   }
  ]
 }

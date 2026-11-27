@@ -10,6 +10,7 @@ import {boot, canonicalSave, diffSaves} from '../../scripts/headless/runner.mjs'
 import {ROUTE, progress} from '../../scripts/headless/village_route.mjs';
 import {firewoodFixture, WOOD_KEY, carriedWood} from '../helpers/household_firewood_fixture.mjs';
 import {stockFirewoodAction} from '../../src/absorb_p23/household/model.js';
+import {formatDuration} from '../../src/number_format.js';
 
 const SEED = 19;
 const clockOf = game => game.internals.expansionState.clock;
@@ -65,10 +66,15 @@ function assertSamePlay(r, label) {
 const nonVacuous = (a, b, label) => assert.notEqual(a, b, `${label}: the routine changed its own slice, so equality is not trivial`);
 
 async function household(game) {
-    await game.step(1); await game.click('button[data-place-tab="options"]'); game.$('#p23_household_panel').open = true;
+    await game.step(1);
+    await openHousehold(game);
+}
+async function openHousehold(game) {
+    await game.click('button[data-place-tab="home"]');
+    if(!game.$('#p23_household_panel').open) await game.click('#p23_household_panel > summary');
 }
 async function householdAction(game, id) {
-    await game.click('button[data-place-tab="options"]'); game.$('#p23_household_panel').open = true;
+    await openHousehold(game);
     const button = game.$$('[data-household-action]').find(el => el.dataset.householdAction === id);
     assert.ok(button, `native action ${id} exists`); await game.click(button);
 }
@@ -89,7 +95,7 @@ test('household hearth routine: 200 played minutes equal 200 spent minutes (TMR4
     const r = await bothPaths(start, 200);
     nonVacuous(hearthState(start), hearthState(r.spendSnap), 'hearth');
     assertSamePlay(r, 'hearth');
-    assert.equal(r.recap.bankedMinutes, 0); assert.match(r.recap.lastSpend, /Spent 200 banked minutes/);
+    assert.equal(r.recap.bankedMinutes, 0); assert.equal(r.recap.lastSpend, 'Spent 3 h 20 min of banked time.');
 });
 
 test('woodcutting routine: 120 played minutes equal 120 spent minutes, with its random draws (TMR4)', async () => {
@@ -121,7 +127,7 @@ test('a blocking choice that opens mid-run stops the spend with the rest banked,
     const r = await bothPaths(start, 120);
     assert.ok(r.receipt.consumed > 0 && r.receipt.consumed < 120, `stopped partway (${r.receipt.consumed} of 120)`);
     assert.equal(r.recap.bankedMinutes, 120 - r.receipt.consumed, 'the rest stays banked');
-    assert.match(r.recap.lastSpend, new RegExp(`Stopped after ${r.receipt.consumed} of 120 minutes`));
+    assert.equal(r.recap.lastSpend, `Stopped after ${formatDuration(r.receipt.consumed)} of 2 h, at a choice that waits for you; the rest stays banked.`);
     nonVacuous(hearthState(start), hearthState(r.spendSnap), 'stopped hearth');
     assertSamePlay(r, 'stopped hearth');
 });

@@ -1,0 +1,43 @@
+{
+  "schema": "away-bank-equivalence-repair/1",
+  "status": "focused-headless-passed-no-browser-claim",
+  "inputHashes": {
+    "src/main.js": "1e3829f29070c673bea71b8d663f2e57379f51973d0c92975d06e73599e542e6",
+    "src/skill_records_domain.js": "41a442de85399d80ceff32b483d48036861872826bf947e98aeb351128e57b58",
+    "src/skill_records.js": "282294f7e16dccfe0947f5ff975101dde1cf68e19ad81ff6c82439dd155f62a5",
+    "tests/headless/away_bank_equivalence.test.js": "8ca1d026fc1e57b6d69d96f284ee4771fb290a0b67fe16792bb472d9a50a80e1",
+    "scripts/headless/runner.mjs": "996ee1c45c36c670cd1f6da7096a848c30b9ce79d39d746504216975006a489b",
+    "scripts/headless/village_route.mjs": "778bec2d501efc665f1abb18866a62e43927e96205f68c74a826f64063694005"
+  },
+  "before": {
+    "command": "node --test tests/headless/away_bank_equivalence.test.js",
+    "result": "1/4 before the final driver and timing corrections; household visibility failures became stale receipt copy failures, woodcutting exposed actual canonical mismatch",
+    "canonicalMismatch": {
+      "paths": [
+        "/skillRecords/tracked/Gathering mastery/idle",
+        "/skillRecords/tracked/Woodcutting/idle"
+      ],
+      "live": 8,
+      "bank": 7
+    }
+  },
+  "after": {
+    "command": "node --test tests/headless/away_bank_equivalence.test.js",
+    "exitCode": 0,
+    "passed": 4,
+    "failed": 0,
+    "durationMs": 182890.0009,
+    "cases": [
+      "hearth200 minutes",
+      "woodcutting120 minutes with random draws",
+      "blocking choice mid-run",
+      "sleeping120 requested minutes"
+    ]
+  },
+  "focusedPersistence": {
+    "command": "node --test tests/skill_records_persistence.test.js",
+    "exitCode": 0,
+    "passed": 1
+  },
+  "scope": "Current checkout inputs, source-bundled headless engine. No default rebuild, normal browser, full suite, release or natural protagonist route claimed."
+}

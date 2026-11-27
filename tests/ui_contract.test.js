@@ -1,7 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readFileSync, mkdtempSync, mkdirSync, writeFileSync, rmSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
+import {join} from 'node:path';
+import {tmpdir} from 'node:os';
 import {uiViolations,scanUiText} from './helpers/ui_contract.mjs';
 test('UI changes introduce no unreviewed colors, fonts, radii, spacing (UR65), control heights (UR66), layers (UR67), type roles (UR68), cssText or foreign-host insertion',()=>{
     const root=fileURLToPath(new URL('../',import.meta.url));
@@ -14,6 +16,9 @@ test('UI contract catches new literal styling and aliased/direct foreign panel i
     for(const text of ['x.style.cssText="padding:4px";', '.x {border-radius:4px;font-family:Arial;color:#abcdef;background:rgb(0,0,0)}', "const host=document.getElementById('message_box_div');\nhost.prepend(panel);", "document.getElementById('another-panel').append(panel);"])
         assert(scanUiText(text).length>0,text);
     assert.deepEqual(scanUiText('.x { color:var(--ui-text); }'),[]);
+    assert.deepEqual(scanUiText('.x {border-radius:var(--ui-radius);}'),[]);
+    assert.equal(scanUiText('.x {border-radius:var(--unreviewed-shape);}')[0].rule,'declaration');
+    assert.equal(scanUiText('.x {border-radius:50%;}')[0].rule,'declaration');
     // UR65: literal spacing is caught; tokens, zero, auto and percentages are not.
     for(const text of ['.x {padding:4px 6px}', '.x {margin-top:.4em}', '.x {gap:calc(var(--ui-space-2) + 3px)}', "el.style.paddingTop='4px';", "Object.assign(el.style,{margin:'.5em 0'});"])
         assert.deepEqual(scanUiText(text).map(v=>v.rule),['spacing'],text);
@@ -30,6 +35,26 @@ test('UI contract catches new literal styling and aliased/direct foreign panel i
     for(const text of ['.x {transition: width .2s}','.x {animation: pulse 900ms ease-out 1}','.x {animation-duration: 1s}'])assert.deepEqual(scanUiText(text).map(v=>v.rule),['motion'],text);
     assert.deepEqual(scanUiText('.x {transition: width var(--ui-motion-normal, .2s)} .y {transition:none;animation:none}'),[]);
     assert.deepEqual(scanUiText('button.x {min-height:var(--ui-control-sm);height:auto} .y {z-index:var(--ui-layer-popover);line-height:var(--ui-line-body);font-weight:var(--ui-weight-strong);font-size:inherit} .panel {min-height:420px}'),[]);
+});
+test('UI inventory uses portable ledger paths and excludes the token owner on every platform',()=>{
+    const root=mkdtempSync(join(tmpdir(),'oops-ui-contract-'));
+    try {
+        for(const dir of ['styles','src'])mkdirSync(join(root,dir));
+        for(const file of ['style.css','index.html'])writeFileSync(join(root,file),'');
+        writeFileSync(join(root,'styles','ui_tokens.css'),':root {--ui-accent:#abcdef;}');
+        writeFileSync(join(root,'src','example.js'),'el.style.padding="4px";');
+        const hits=uiViolations(root);
+        assert.equal(hits.length,1);
+        assert.equal(hits[0].path,'src/example.js');
+        assert.ok(hits[0].key.startsWith('src/example.js|spacing|'));
+    } finally {rmSync(root,{recursive:true,force:true});}
+});
+test('foreign-host findings identify the receiving panel, while dynamic targets remain guarded',()=>{
+    const hits=scanUiText("const actions=document.getElementById('location_actions_div');\nactions.append(panel);\ndocument.getElementById('character_combat_management')?.prepend(playerPanel);\nactions.after(section);");
+    assert.deepEqual(hits.filter(h=>h.rule==='foreign-host').map(h=>h.targets),[['location_actions_div'],['character_combat_management']]);
+    assert.equal(scanUiText('const host=document.getElementById(panelId);\nhost.append(panel);')[0].rule,'foreign-host');
+    assert.deepEqual(scanUiText('@media (max-width:1050px) {.x {padding:var(--ui-space-2);}}'),[]);
+    assert.equal(scanUiText('@media (max-width:1050px) {.x {padding:4px;}}')[0].rule,'spacing');
 });
 // UIL1 (UIM1, UIM2): every panel declares a surface type and every navigation route resolves
 // through the layout spec's route table.

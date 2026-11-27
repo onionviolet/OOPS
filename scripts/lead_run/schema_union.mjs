@@ -1,6 +1,6 @@
 // M1: union schema 1.4 people fields with pre-1.4 backups and first/second census reads.
 // Input is copied to --out; source folders are never modified.
-import {existsSync, lstatSync, mkdirSync, readFileSync, readdirSync, symlinkSync, writeFileSync} from 'node:fs';
+import {constants, copyFileSync, existsSync, lstatSync, mkdirSync, readFileSync, readdirSync, symlinkSync, writeFileSync} from 'node:fs';
 import {join, relative, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
@@ -15,7 +15,10 @@ function linkInputTree(input, out, changedFiles, relativePath = '') {
         if (entry.isDirectory()) linkInputTree(input, out, changedFiles, child);
         else if (entry.isFile()) {
             if (changedFiles.has(child)) continue;
-            symlinkSync(source, target, 'file');
+            // Windows file symlinks need extra privileges. Independent copies
+            // preserve source bytes and avoid sharing mutable hard-link content.
+            if (process.platform === 'win32') copyFileSync(source, target, constants.COPYFILE_FICLONE);
+            else symlinkSync(source, target, 'file');
         }
     }
 }
@@ -245,7 +248,8 @@ export function run(inputArg, outArg, matchText = null) {
         writeJsonl(join(out, firstFile), merged.rows);
         censusPairs.push({firstFile, secondFile: file, x1: first.length, x2: second.length, union: merged.rows.length, ambiguous: merged.ambiguous});
     }
-    // Inputs are linked read-only; only the union targets and report occupy new disk space.
+    // Unchanged inputs are linked on POSIX and copied on Windows; transformed
+    // targets are separate files in either case.
     for (const file of [...peopleReport.map(row => row.file), ...censusPairs.map(row => row.firstFile)]) {
         const target = join(out, file);
         if (existsSync(target) && lstatSync(target).isSymbolicLink()) throw new Error(`Refusing to overwrite linked union target: ${file}`);

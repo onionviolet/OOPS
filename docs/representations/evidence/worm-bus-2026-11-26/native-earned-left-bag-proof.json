@@ -1,0 +1,18 @@
+{
+  "setup": "Unedited real earned corridor export",
+  "inputSha256": "ef11bffa5f5f536cf3b77e6aeb5f4be6e65493e1f8d920665f8bf97fbe305dba",
+  "steps": [
+    "Collected one source bag; set it down in school; walked, boarded and rode home without it; no notebook observation",
+    "Native Save/reload+Export/Import; returned without bag; retrieved the same bag at its real school location",
+    "Pending inspection reload then cancellation reveals nothing; completed retry grants private observation; one bag and original insects retained"
+  ],
+  "errors": [],
+  "results": {
+    "bagCount": 1,
+    "swarm": "book.worm.lead.washroom",
+    "inspectionKnown": true,
+    "moneyUnchanged": true
+  },
+  "bundleSha256": "6cd80403907c3c913edcf3c85c02dc0e917b5a0a2e9dc2e922c2f5b7d6ef1b69",
+  "scope": "Native headless normal-entry/action/save paths; coordinator independently rebuilt identical desktop bundle."
+}

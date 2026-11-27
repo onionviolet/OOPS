@@ -5,9 +5,11 @@ const color= /#[\da-f]{3,8}\b|rgba?\([^)]*\)/gi;
 const literalSpacing=v=>/(?<![\w.-])-?(?:\d*\.)?\d*[1-9]\d*(?:\.\d+)?(?:px|em|rem)\b/.test(v.replace(/var\([^()]*(?:\([^()]*\)[^()]*)*\)/g,''));
 export function scanUiText(text) {
     const hits=[];
-    const add=(rule,snippet)=>hits.push({rule,snippet:snippet.trim()});
-    // Exact declarations, including token consumers, stay reviewable in the ledger.
-    for(const m of text.matchAll(/(?:border-radius|font-family)\s*:[^;\n}]+/g))add('declaration',m[0]);
+    const add=(rule,snippet,extra={})=>hits.push({rule,snippet:snippet.trim(),...extra});
+    // Radius uses the shared shape token. Other declarations stay reviewable in
+    // the ledger, including bespoke illustration shapes and font choices.
+    for(const m of text.matchAll(/(?:border-radius|font-family)\s*:[^;\n}]+/g))
+        if(!/^border-radius\s*:\s*var\(\s*--ui-radius\s*\)\s*(?:!important)?\s*$/.test(m[0]))add('declaration',m[0]);
     for(const m of text.matchAll(color))add('color',m[0]);
     // UR65: spacing comes from --ui-space-*; zero, auto, percentages and tokens pass.
     for(const m of text.matchAll(/(?<![\w-])(?:padding|margin|gap|row-gap|column-gap)(?:-(?:top|right|bottom|left|inline|block)(?:-(?:start|end))?)?\s*:[^;\n}"'`]+/g))
@@ -38,16 +40,24 @@ export function scanUiText(text) {
     // UR133: a blocking screen makes the whole page inert, not one region.
     for(const m of text.matchAll(/\bmain_content\??\.inert\s*=/g))add('partial-inert',m[0]);
     // Detect both direct foreign-host writes and aliases obtained by DOM lookup.
-    const hosts=new Set([...text.matchAll(/(?:const|let|var)\s+(\w+)\s*=\s*(?:document|root)\.getElementById\(/g)].map(m=>m[1]));
-    for(const line of text.split('\n'))if(/(?:getElementById\([^;]+|(?:document|root)\.querySelector\([^;]+)\??\.(?:prepend|append|appendChild)\(/.test(line)||[...hosts].filter(host=>!new RegExp(`(?:const|let)\\s+${host}\\s*=\\s*projectsHome\\(`).test(line)).some(host=>new RegExp(`\\b${host}\\??\\.(?:prepend|append|appendChild)\\(`).test(line)))add('foreign-host',line);
+    const hosts=new Map([...text.matchAll(/(?:const|let|var)\s+(\w+)\s*=\s*(?:document|root)\.getElementById\(\s*(?:['"]([^'"]+)['"])?/g)].map(m=>[m[1],m[2]]));
+    for(const line of text.split('\n')) {
+        const direct=/(?:getElementById\([^;]+|(?:document|root)\.querySelector\([^;]+)\??\.(?:prepend|append|appendChild)\(/.test(line);
+        const aliases=[...hosts].filter(([host])=>!new RegExp(`(?:const|let)\\s+${host}\\s*=\\s*projectsHome\\(`).test(line)&&new RegExp(`\\b${host}\\??\\.(?:prepend|append|appendChild)\\(`).test(line));
+        if(direct||aliases.length) {
+            const directTargets=[...line.matchAll(/getElementById\(\s*['"]([^'"]+)['"]\s*\)\??\.(?:prepend|append|appendChild)\(/g)].map(m=>m[1]);
+            const targets=[...new Set([...aliases.map(([,id])=>id),...directTargets].filter(Boolean))];
+            add('foreign-host',line,{targets});
+        }
+    }
     return hits;
 }
 export function uiViolations(root) {
     const walk=dir=>readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(join(dir,e.name)):[join(dir,e.name)]);
-    const files=[join(root,'style.css'),join(root,'index.html'),...walk(join(root,'styles')),...walk(join(root,'src'))].filter(p=>/\.(?:css|js|html)$/.test(p)&&!p.endsWith('/styles/ui_tokens.css'));
+    const files=[join(root,'style.css'),join(root,'index.html'),...walk(join(root,'styles')),...walk(join(root,'src'))].filter(p=>/\.(?:css|js|html)$/.test(p)&&relative(root,p).replace(/\\/g,'/')!=='styles/ui_tokens.css');
     const counts=new Map();
     for(const file of files)for(const hit of scanUiText(readFileSync(file,'utf8'))){
-        const path=relative(root,file),key=path+'|'+hit.rule+'|'+createHash('sha256').update(hit.snippet).digest('hex').slice(0,16);
+        const path=relative(root,file).replace(/\\/g,'/'),key=path+'|'+hit.rule+'|'+createHash('sha256').update(hit.snippet).digest('hex').slice(0,16);
         const old=counts.get(key);if(old)old.count++;else counts.set(key,{key,path,...hit,count:1});
     }
     return [...counts.values()].sort((a,b)=>a.key.localeCompare(b.key));

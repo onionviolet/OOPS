@@ -1,0 +1,25 @@
+{
+  "schema": "paradise-copy-desktop/1",
+  "date": "2026-11-26",
+  "observer": "Coordinator root, built-in background browser; reported to title lane",
+  "candidateBundleSha256": "12d9760f32ceb47f1c15e040587350b892192baad778bb4112eea664913b2cc3",
+  "input": {
+    "kind": "Genuine original-primary ordinary native post-trial export",
+    "sha256": "20ee37ba43892fb22719bccbe1fe001c4dd59ea67e1937ec5ce7a1179af4a18a"
+  },
+  "observed": [
+    "PLAY reopened the actual Gray Terminal house",
+    "Details distinguished initial grave injury, untreated-at-signing history, then healed state",
+    "Trial retained issue minute0 and continued counting down"
+  ],
+  "status": "Coordinator desktop PASS",
+  "excluded": [
+    "No new mission outcome or extraction",
+    "No rewritten saved observations or pinned identities"
+  ],
+  "cleanup": {
+    "ownedServerPid": 102736,
+    "stopped": true
+  },
+  "screenshot": "No screenshot artifact supplied to this lane"
+}

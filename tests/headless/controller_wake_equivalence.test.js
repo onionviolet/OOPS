@@ -1,8 +1,9 @@
+import {linkFixtureInput} from '../helpers/fixture_fs.mjs';
 // Deliberately outside the ordinary unit glob: this is a 349-minute full-game
 // differential harness. Run explicitly; browser performance remains separate.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtemp,mkdir,cp,readdir,symlink,readFile,writeFile} from 'node:fs/promises';
+import {mkdtemp,mkdir,cp,readdir,readFile,writeFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -14,8 +15,8 @@ async function snapshot(source,dir,candidate,packRoot,supportRoot) {
  await cp(join(source,'src'),join(dir,'src'),{recursive:true});
  await cp(join(supportRoot,'scripts'),join(dir,'scripts'),{recursive:true});
  await cp(join(supportRoot,'tests'),join(dir,'tests'),{recursive:true});
- for(const e of await readdir(root,{withFileTypes:true}))if(!['.git','src','scripts','tests','private_packs'].includes(e.name))await symlink(join(root,e.name),join(dir,e.name),e.isDirectory()?'dir':'file');
- await symlink(packRoot,join(dir,'private_packs'),'dir');
+ for(const e of await readdir(root,{withFileTypes:true}))if(!['.git','src','scripts','tests','private_packs'].includes(e.name))await linkFixtureInput(join(root,e.name),join(dir,e.name),e.isDirectory()?'dir':'file');
+ await linkFixtureInput(packRoot,join(dir,'private_packs'),'dir');
  let main=await readFile(join(dir,'src/main.js'),'utf8');
  if(!main.includes('as p5CastReady'))main+="\nexport {whenCastLoaded as p5CastReady} from './book_world_lotm_cast_days.js';\n";
  if(!main.includes('export {openStepperBatch}'))main+='\nexport {openStepperBatch};\n';

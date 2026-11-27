@@ -8,7 +8,7 @@ const baselinePath='scripts/architecture_baseline.json';
 const nodeModules=new Set(builtinModules.map(id=>id.replace(/^node:/,'')));
 // AD39/AR4: host capabilities enter through explicit operations, never host imports.
 export function hostImportViolation(from,spec) {
- const target=spec.startsWith('.')?path.normalize(path.join(path.dirname(from),spec)):spec;
+ const target=spec.startsWith('.')?path.posix.join(path.posix.dirname(from),spec):spec;
  if(spec.startsWith('node:')||nodeModules.has(spec)||spec==='electron'||spec.startsWith('electron/')||target.startsWith('desktop/')||target.startsWith('desktop-tauri/')||spec.startsWith('@tauri-apps/'))return `Host dependency in shared runtime: ${from} -> ${spec}`;
  return null;
 }
@@ -18,11 +18,12 @@ async function files(dir) {
 }
 // esbuild parses real JS. Comments, strings and template prose cannot invent edges.
 export async function importGraph(root='src', {onImport}={}) {
- const entries=await files(root),graph=new Map(entries.map(f=>[f,[]]));
+ // esbuild metadata and the checked-in baseline use slash-separated repository paths.
+ const entries=(await files(root)).map(file=>path.relative('.',file).split(path.sep).join('/')),graph=new Map(entries.map(f=>[f,[]]));
  for(const [source,specs] of await importSpecs(entries))for(const spec of specs) {
   onImport?.(source,spec);
   if(!spec.startsWith('.'))continue;
-  const target=path.normalize(path.join(path.dirname(source),spec));
+  const target=path.posix.join(path.posix.dirname(source),spec);
   if(graph.has(target))graph.get(source).push(target);
   // Unresolved legacy mod imports are terminal edges, not graph vertices.
   else if(target.startsWith(root+'/'))graph.get(source).push(target);

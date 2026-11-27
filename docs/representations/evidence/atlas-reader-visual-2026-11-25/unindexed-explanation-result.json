@@ -1,0 +1,84 @@
+{
+  "schema": "atlas-output-unindexed-proof/1",
+  "measuredAt": "2026-11-26T06:52:07.209Z",
+  "route": "#library/outputs/wus8/wus8c037/census/census",
+  "api": "/reading-output-records/wus8/wus8c037/census/census?explain=1",
+  "snapshotSha256": "b0983bb677fbea94ebd9f0652c497e5abc44ff40ac3fe3960e949763cb27fe2d",
+  "digestSha256": "93e0d911d5791d1c6f271b2a837f3727d156e2cb8a4bf83f2420b51f3b39c42f",
+  "sourceSha256": {
+    "prototypes/world-atlas/output-records.mjs": "be3d0ccd67958cc21fca33e0fdf9d1ab041c14cea9c6eea7375b41845067366d",
+    "prototypes/world-atlas/output-unindexed.mjs": "5a6c08274b5b37ed27032a21ebb0f3ecaa9b053739ba6d9cb28359be768a596c",
+    "prototypes/world-atlas/reading-output-view.mjs": "ba5717a44e703846389a408da5172ca8b28dc7276d1e104ec6fef850fa975b3e"
+  },
+  "contentHash": "sha256:4b03869d92acdd6fd2e3ffb6301a706f37e0767b444793f71bca19c22419a7e5",
+  "counts": {
+    "fileRows": 223,
+    "matchedRows": 101,
+    "noPublicMatch": 0,
+    "ambiguous": 0,
+    "unindexed": 122,
+    "parseFailures": 0,
+    "readFailures": 0
+  },
+  "unindexedExplanation": {
+    "total": 122,
+    "note": "Counts explain unindexed public rows in this selected file. Existing identities do not establish same-slice provenance or permission to merge. Withheld rows are excluded.",
+    "reasons": [
+      {
+        "id": "identity-not-qualified",
+        "label": "Exact public identity exists; link requirements not met",
+        "rows": 50
+      },
+      {
+        "id": "no-public-identity",
+        "label": "No exact identity in the public record families",
+        "rows": 72
+      }
+    ],
+    "kinds": [
+      {
+        "id": "ability",
+        "label": "ability",
+        "rows": 61
+      },
+      {
+        "id": "note",
+        "label": "note",
+        "rows": 61
+      }
+    ],
+    "groups": [
+      {
+        "reason": "identity-not-qualified",
+        "reasonLabel": "Exact public identity exists; link requirements not met",
+        "kind": "ability",
+        "kindLabel": "ability",
+        "rows": 47
+      },
+      {
+        "reason": "identity-not-qualified",
+        "reasonLabel": "Exact public identity exists; link requirements not met",
+        "kind": "note",
+        "kindLabel": "note",
+        "rows": 3
+      },
+      {
+        "reason": "no-public-identity",
+        "reasonLabel": "No exact identity in the public record families",
+        "kind": "ability",
+        "kindLabel": "ability",
+        "rows": 14
+      },
+      {
+        "reason": "no-public-identity",
+        "reasonLabel": "No exact identity in the public record families",
+        "kind": "note",
+        "kindLabel": "note",
+        "rows": 58
+      }
+    ]
+  },
+  "matchedRecordsAndFieldCoverageUnchanged": true,
+  "explanationReadMs": 14.37,
+  "browserVerified": false
+}

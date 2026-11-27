@@ -12,7 +12,7 @@ import {GU_LEAD_WALL_NIGHT} from './book_gu_lead_wall_night.js';
 export const GU_LEAD_BURIAL_GU = id('burial_gu');
 const local = name => `${GU_LEAD_BURIAL_GU}.${name}`;
 const baseHash = 'sha256:9efca86558d35ae4ca0bce01755dd50761bf4c3aee82d1cd72d8b72d50f2001c';
-const predecessorHash = 'sha256:aa002f161e9a739225b73296c069db2b534793c4275b9fe583c7bb803e718d3b';
+const predecessorHash = 'sha256:187c3e7b56e3fc7ef1d79052f2de7f542d22688800a513044808853c68a2faa3';
 const world = id('world');
 const academy = id('academy');
 const all = (...rules) => ({all: rules});
@@ -144,6 +144,6 @@ export const guLeadBurialGu = {
 
 export async function registerGuLeadBurialGu(register, base) {
     if (!register.extension || base.contentHash !== baseHash ||
-        !base.extensions?.some(e => e.id === GU_LEAD_WALL_NIGHT && e.revision === 1 && e.contentHash === predecessorHash)) return null;
+        !base.extensions?.some(e => e.id === GU_LEAD_WALL_NIGHT && e.revision === 2 && e.contentHash === predecessorHash)) return null;
     return register.extension(guLeadBurialGu, base);
 }

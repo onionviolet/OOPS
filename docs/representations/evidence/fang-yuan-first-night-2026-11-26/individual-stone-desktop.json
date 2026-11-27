@@ -1,0 +1,41 @@
+{
+  "schema": "fang-individual-stone-desktop/1",
+  "status": "passed",
+  "date": "2026-11-26",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "browser": "isolated headless Chromium via existing Session checker; built-in IAB unavailable",
+  "input": {
+    "kind": "controlled legacy three-piece fixture",
+    "sha256": "2e6502ee3f64c6c3b28b61acd9578752cb102cb722a79b4ae292a32dcfa972be",
+    "charges": [
+      14,
+      14,
+      9
+    ]
+  },
+  "testedBundleSha256": "af4b5f7a5d243dd50ee988b96de36cb79dd21733c3dbbb3c8b0f7d12d9478cfb",
+  "servedBundleSha256": [
+    "af4b5f7a5d243dd50ee988b96de36cb79dd21733c3dbbb3c8b0f7d12d9478cfb"
+  ],
+  "selectedPiece": {
+    "id": "book.ri.lead.run.3275721402.1.half-stone.3",
+    "before": 9,
+    "after": 8,
+    "sameKey": true,
+    "persistedSelection": true
+  },
+  "otherPiecesUnchanged": true,
+  "wholeStones": 19,
+  "nativeTimedDrawMinutes": 1,
+  "clockSetup": "existing native advanceTicks for one-minute timed draw; no outcome writes",
+  "saveReload": true,
+  "overflow": false,
+  "pageErrors": [],
+  "screenshots": [
+    "individual-stone-selected-1280.png",
+    "individual-stone-restored-1280.png"
+  ]
+}

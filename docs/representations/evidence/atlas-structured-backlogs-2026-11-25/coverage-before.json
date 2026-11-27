@@ -1,0 +1,1098 @@
+{
+  "owners": 101,
+  "rows": 423,
+  "zeroOwners": 39,
+  "entries": [
+    {
+      "reference": "docs/gm/artifact-collection/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "8d6bdcbaac85918b8961b13d7b1ad6566d8c37b138c794a556dfa68d56fb8863",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/audit-absorption-2026-10-07/duty/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "0323690f57c30dfecd49a70016102d6e99cc6cf3c615d77d98bb0bc4ceeed732",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/audit-implementation/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "657a0062e43b46f3b1cf41eaccedc8829c127d48a783391062c8ef678fb6ec8e",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/audit-implementation/clamping-frame/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "b38bb12fb8c6f79109a2354d9f6a6634954a613fbfff67eccee77b4d6eb902c2",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/audit-implementation/kit-reserve/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "deeaccd86414f1fa4e64532841658f7f8196f85a932bd35f49fe440e08cb3b00",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "a650db5ab4046f91a5211f01b4d3fea6d13a2bb89079230995d58fd77c227a36",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/audit-implementation/remainder/combat_objectives/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "f151b858265ad316d754a7098e54a47802728dc325572605bfdc785125ddbec8",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/audit-implementation/remainder/home/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "0af7a84a3878b67e868dcea23b95ab052359eef60bc583f86fdcd9285fcf971f",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/audit-implementation/remainder/missed-hank/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "80d1e3414f9c4ec4843169b00d1f5e77952d0b6340933c69d53d0b8ddc0beef9",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/book-world-completion-2026-10-06/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "b5c14fde327bcf34b7a1475283761b80eb1131de5a436278e953a8baf9af2d38",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/book-world-player-agency/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "de58cb309424d74c11b073c79d80485f856ed189af6a183b4712a5067544f897",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/care-worlds-2026-10-06/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "e483af333c81b10cf0c54e286a0c0a82d4bafdfba424fd4dd3780010752e06b8",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/dispatch/dependable-local-livelihood-2026-10-12/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "ba8e3514310bbacf924141dba1aa5d9fbc0f6d75af42a5994b9e7aaf76cdf843",
+      "count": 4,
+      "ids": [
+        "9c8258f3040d46bb21d01423a2317b0deee3f611db12e23232dd9eb769963fe4",
+        "f74a618440d884749a493bf1b29172892df99ea6d88ff562aaec285248138dde",
+        "f2f21c5baf04d7701c38bc489eab247f5eab394ecc335c4e0c5568c5c6f4c30f",
+        "253e6fcb8d7a23656ac57e91463b6d73a947859acfb0f9127ad59db5f0588b0d"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r1/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "d94c835e35440d69ef3d48ba9359f6114c61104c10c797635b78dca3b19d4d8d",
+      "count": 4,
+      "ids": [
+        "2a86b254d800a25e01ce440a68fde0a56fbc7b50d758063bf1066919026d97d3",
+        "39ef5ade95113880a98d0ade19d59c8706207ae51274f5ba8820fbfa84027f1d",
+        "69f1e10f3be2ea2f6305ee4e979952100cc8d535dd3c37313a4f83515b33dfa8",
+        "6a62d8951f73f7006c796c587209200aea5a494dafd032896ca2e4a9cd768556"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r2/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "3293e4c7f618d11232c2e91770a63022a54576a278922aa7801dfc11b9d7aaba",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "424598a49cc2601e4e5bd876ef25393c933bdac6800ccc17ca81cb4a717549c7",
+      "count": 5,
+      "ids": [
+        "d28c5212e8b9d96b9b6689d94059099edeb4df295c372078effa70717c9cac08",
+        "f33067db34caed6947409b88ee0fa26a195ddb757f15f826d01580027c1b35e8",
+        "4da2a2e5010f7a0293b7635dcab840cc87ab776d53402e24c9c3fea89b1c5d8b",
+        "85aab53bf2800dadabfaf0f7d5e6c3c65572a130e8ab344b23be913d51f1dd1d",
+        "2c92c0c98db73e6e9997065ce738073987c6ad9b8fb6131955d3ac916313295e"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r4/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "4f064265fd04665b0ffc69bc1338bc5af06c2ce9ce9f7c10699527b31deb65c4",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r5/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "65dba2ccb67ee1c612905d3ee473b3381a05abd39bc38b798cff31d60826922e",
+      "count": 2,
+      "ids": [
+        "710b70e2d8909be38f9da0bf88ec7965c6e53b93a5eebcda8687ac63d80beed1",
+        "7041d05b6973ee50d5440a702a45445bfc76a80c6e329a5dec4a2931d623b928"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "e57dfd3cb08c689109b1c135f552ca0ef6140883c9704efc595a9da19c0f77e5",
+      "count": 17,
+      "ids": [
+        "3367e923c42ecf9b66662d3aa38b9bc471460af8a0e41ccea221106c99cceb7f",
+        "1ee9a56c1ea6441b56301064cf0c11866e175933c769fd2fe622dc0bab735b98",
+        "718d33d6e8f3ef49dc0d97ac0d84b90f9a191f1cdcb62d181ee10a6cd4188e0e",
+        "b3862b8e20a77248c04596e169ef67aa69ce6ded296fcf4fcc492d74bbbb561f",
+        "1065a9b2eec8a23ac71286657af5052ed27d7491bdb14ec88e04cbdce1175d86",
+        "eb85097cfba74851a1206e7526720a13a71921513872f1668cc6d4e739d6a160",
+        "91856496c6c3c6214cde5206f317f5d3ab95d14f02da70a1d5bccd0b3036815b",
+        "aacadae36eca3d6e2e594320dff4aa3246e78efbcd5ba5dbf869fcbe83dc236d",
+        "caffb80a406a44e7da372533d437ff9b980dfb3c565b77a13b45f2db86088559",
+        "932559e415f0e3d1694c1fc7b3dbe9ccab93fa17865d8a415c75a19e41884c0f",
+        "0b3ffe88f2bea20c9411eb286e4c1f6d5ff4492bb3822ee02044790afef8831f",
+        "6aca0999711b70ea30875c524be16033894e2466c24e7f9d6c3bfe674fd36f22",
+        "23fce1d84fafc7752dfae44973d2cbaacf89d868edbd6517e0a3db3726efd8b7",
+        "eba10a5e67963eb00d63213bbaccc0c364d5a7e991165022c779d1db252694ad",
+        "55e0a08af34fca2ff95dded234ed1490d4cdeca2a2abf14db0c2d0f396e078d2",
+        "816f8acb0c86901ebc6ee236eab2c3f2d45cb14cfbdbf33cef5a33fb569080a4",
+        "2105ec79ebbc33ee387cfc4f2083ff9543130995bad7617a4c86bdfd6aa87902"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r7/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "a402114679106d7964ae843fc506cc391f9dd348f12f4e0c40fbc9ce7f211bc8",
+      "count": 4,
+      "ids": [
+        "fce11bdd847883d8e11ef63841ff9b866f3b34b88b4909637cd4b88383a683c7",
+        "921d08f4cc64470c3267d8ebec97885b229bb2c94135058ab8a748744ed7317d",
+        "995d52b9342b3b7f2ead06bec807e719788b1c32567d1ae4727fc9eae96f8085",
+        "7bb590280e537e3fc45ebe9f205c8764af0f7b5d250330d1b7e3706921851614"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r8/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "1b6b1efd804cad9cc17494f80663ae37444277ac94aa737d5e20bb03a27d4c4e",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/dispatch/minigames-2026-10-11/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "393ae7cf9dfdbdb5830046ae8708f0578fcc691edd7d2b464b9b833114e791e9",
+      "count": 17,
+      "ids": [
+        "0e39402821dc0a0761904d0db487ac54bf16e7ccf7102090db1e7709d6fc9546",
+        "34ed631558f228f1e6a883f1a80ec0a6895b22e01e61902d9a8f4dcedffce967",
+        "88aba80d1fc9b2398d76c9debd2b978b6ab614ebf75ddcd9bb92ec99a24beb14",
+        "41c8329ccbac2e8c566b1759502c85f743b20bb4fc0c3ed814df5d856e3058ea",
+        "096a089668f8a625544cf0365b07aeeb201fa6c8af60baec20be95db7815023d",
+        "f86746f3ac161dd6409f7d10fd65a7d8bde0621b451d5ef421538c3b11ab4c6d",
+        "e50a6a2ec430d3f3d8ec0dcb62c7e78160711feb089acf81c1e8fe757fe194ce",
+        "2eecb0ab961ec7c9c64a57ccd059494b48b664af98ee2b733838907f7102be95",
+        "e1709a90b0faf79a3b06ee340c56f083f8bc88c6e1cdebc293eaa13b7c473db6",
+        "344ed6ead7d67d40b506eba4a23d5c20083236a1f87844fa178d2c5b9086843d",
+        "b31e9c37a2291edbea03d1356f8e46e84c060917664f0167fc87e6af32f61ea1",
+        "dcb5b24c3079cbf850ce0c8746ff1371d08078f30d36ca935c025d235b63fd6e",
+        "91d4370430ec53af6948402e576ff0e0cde6dc410667e19c654bdcac1e027328",
+        "60fa34b34ffb3b71d42ae03e05a478819cfd159b494ad9c071ec4fc043ec5733",
+        "17fdc34184d01bd3ffae7ebdba8532f6cda1d07629b698a5e99368906cff250e",
+        "09f1b132e2423a96a432f3748b742dbfbfe91bba2d1dccca68f27fd0080864e5",
+        "b98ff96fe540375e6f488506ddbced9fa48c01b472d843208a7d3a6eb38db066"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/proto23-vfx-2026-10-13/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "59268bc6af7cc71d2a0a55cc6847629acf1b35d787d7e2120f2c64bb77c08b45",
+      "count": 5,
+      "ids": [
+        "d362a8ac724f79327d867d1c60dd349f74e9037ed0e1769fd9e6d1633f70a6ae",
+        "be7675634eef31925f319fc3595e0add7f0e1866ff3d36425237c909ec4c4dfd",
+        "a020771094e46bd616597bce1057c60acb62a48643acf67e202de9fe32440076",
+        "cf19e8b3c278e69a6adf61bdc6fa75a212d28b5f83903874d131c99c69c8bedf",
+        "77c199028930d776c4b2a67bf45afbf4a231ee88500853d9490c84a965768445"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/soldiers-life-world-2026-10-09/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "311c821034616215fdec3880885ba3708e7c1f9e3ef86058649af22088ed9fe2",
+      "count": 5,
+      "ids": [
+        "2f3643ccd1893d5ec74787e12bcf613b986aee36e968d408e2de092c66519a24",
+        "ee94b70be843f4ac55b49467340cc72fed6c350949b3b3ed6dc4d50bef6686e8",
+        "c1efa43aaf00de91e9480bde75112d77c688b78d944760fc47c09cfac03c64fc",
+        "1825073bd364bd140d103b843cc8618b2d897d79d0f5e2ab271ec5eb9ed7029c",
+        "9c5e9740b682863df85b5e78367b0f26f5d30069a98db3e22f2d68ebc7c57ad2"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/starts-talents-continuity-2026-10-11/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "43f34da6e99263ea096c3e214484396c400a17382c9c3fc61be8679d76968d17",
+      "count": 3,
+      "ids": [
+        "126562914d04a6563e1f129267f95baaf3984e259115febf9a3c87951de25a00",
+        "6ec396d907bef3f66ffcb197991dd23b2bdf43def307185653f7a226c923047d",
+        "2be117c0f6b6baad33cb622bfcaf1c955c52a0a68c406b95bf37d04912238a5b"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/continuation/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "ed00dcb01ff8d073459da8f6db17eea0e84af1e1b964caf585554be0b260b55b",
+      "count": 1,
+      "ids": [
+        "6b66cca435aa9a497a7e59d97d28de41809db7240f10a800d6b1aa007641e0e5"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/ui-modularity-2026-10-11/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "5795c75f7a0c94598bc2334fb67bcf8d5abd5c1f794b38881c0390a574e9676a",
+      "count": 2,
+      "ids": [
+        "66293f208d4c983b782fd02eb0bf57360fade8fead2c062177586da4b3bb9b08",
+        "a643bcd8048cd3eb74f3a2011a212b273d57849711a4665a615fab75dd6cb685"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/village-career-2026-10-09/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "50b272d0fe17bd109ecee309af3abc2baadd729233375fbd4aa390941f7b1116",
+      "count": 3,
+      "ids": [
+        "96fe46685804d154c01fd2c8d29cb0992c2f2892715c6df67c160a721d779a5a",
+        "6f17d845f3b70ad05f54772cc3274477dfba77f628c0dcee38884bf27a77ab05",
+        "279655cab2c0e3530e03a3cb1f2169e90c65354448d34d2281ecc38ab7eba2b2"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/village-choices-2026-10-09/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "9fe7016555d57542a75d7172b3ffc47520b5ffedf6fcf5fd1e29f326378f8974",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/dispatch/village-mentor-2026-10-09/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "9062b190f8d8d91e106c995cb368b582f04c6294cdaf8c509948eab98364fd19",
+      "count": 3,
+      "ids": [
+        "4b625a2e3627e5e84c353e49b6d3e2ac0652a0075ffb3fa5862b6ddd92fd9792",
+        "755d9413faf969ec249771a95aff91a7617c37f0b196fb63b6d6a66c1fe8c8a9",
+        "b8e9bf04b2779151906758c1d4dd21e686ee84bf99425040fd35e528a614c609"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/village-study-2026-10-09/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "49bbbf11048252807420d9b0ca059e46fb425e28fb9722895b810e47fd3acb2e",
+      "count": 1,
+      "ids": [
+        "f0bdd90637199ca23737a4c2a3dc9ef6b6875426c1866822ef1369ce318ab889"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/wider-gameplay-2026-10-11/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "e0766b4808523bcdfb278152e8f7548bf53835c3cf7deee9f771aaa33ff5d5f0",
+      "count": 5,
+      "ids": [
+        "73cca6ba3d3780d1bcab41e1f273caf6fa60f35333b3cb7181cab2c9e38920e1",
+        "413f09fbb8ee6b7897ed0dab968b5d8bbd9d0362fd13fb59d2cf093ac7d25a0d",
+        "707dd59a0b30ab05559692569f888e6e2c697bad0af2fc3c0795b9f0ae12c11c",
+        "815ba1b9289c56267316cea925f1e977e216077adf46cfe870e701b2875a1a82",
+        "1b49965bddaf55019eba77fc0e25fec24c7e62208330b207fed62ab2e0d946fc"
+      ]
+    },
+    {
+      "reference": "docs/gm/feature-wave/features/nested-campaign/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "3deb5d5f44368eeb26dae0043e8436f04b107556f91beeea22079bdea5506226",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/game-absorption-2026-10-06/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "8ea7ecf83aec11580c5bc7670434caadc4191b4acddf0fde21707bdd4982fcf3",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/home-social-base-2026-10-07/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "bd169245b7a7b34e76586383174e32374719fa3fdb49fe87d6809778000c9a10",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/home-social-base-2026-10-07/base/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "a8456c395c30e1a4a6c1dc92daf74853931d195a20c187cb1816f66e20586653",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/home-social-base-2026-10-07/proto23-native/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "64c16bcb65dff04225040236fe7d40efb71c32d7f3695b3e3e9d110204240597",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/home-social-base-2026-10-07/social/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "edcd77684b1d2731acf5eb74f06bded3f1f055e6e8506e3d4c3a9a06180eeb59",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/home-social-base-2026-10-07/visits/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "74e428004f4cc80c07437365e7cee43ea3dc2d0e6adb1227c37f3d37306037e0",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/life-sim-experience-2026-10-07/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "d956aa9846a166a0c97014f7f27dfd48fe33008941c37bca9cb5b7835c287bce",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/life-sim-foundation-2026-10-07/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "ef9dbd6e6620fa99db0debc4bba0f42fdff40f4474f61456a0d9a28200b8eeaa",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/nethack/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "36679355982efe7c65ee96e81571dcb3f2132c5bc1cb9467d762d16c24d9a465",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/non-factorio-absorption-2026-10-07/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "ef23d2d1cb864d284b38008a3b206c0d70c146388451c76a260432b826e33f12",
+      "count": 4,
+      "ids": [
+        "049b7ea21c40a0eb0b3b119e5d55d89fd2b6b5c56f26554ce8a215641caf683d",
+        "1fc77521e34383040b7585d4329f961679e9c8c1cd5587fbaeb585b38e31927a",
+        "1b7e652ccde0da3065951872f55b5f18977cc1d6afe89496e8354ae06acb0915",
+        "fc88f2058ed59d5834f7b0803c2b7901d803125db5b48dce583cd3271bf97cac"
+      ]
+    },
+    {
+      "reference": "docs/gm/reference-gameplay/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "09a66e660bb76185b40c8aac7d810e297bf82a3596b936064902394883dbee66",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/status-care-2026-10-06/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "20f12a1de754f241693b1965defbd9ca4520f9d23b0fc29b2a348e23589eb0e8",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/story-life-2026-10-07/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "7d12b8e0af3bd91e77d4f9b1e3f7a6c90daee7c608ef6a845add403638f6cc2a",
+      "count": 1,
+      "ids": [
+        "f9e878944b4487843c0b60021552f3468a62140a82284b4b4b992f488114b56d"
+      ]
+    },
+    {
+      "reference": "docs/gm/world-completion-2026-10-06/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "1363185fb41c66fd7726af206f4f29f226474af1b85e9b5d5b508a8fdb63b063",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/dispatch/chain-build-2026-10-14/t2/BACKLOG.md",
+      "sourceHash": "091dfa95e7bc7f35100a42d446fb31af67c338f3fddacd654f66a1fb7e840060",
+      "count": 5,
+      "ids": [
+        "eb221057f1433d6b3a94ef9f0098a9ba0d7ad95fced6567ceb394d123974e322",
+        "d2efabf589251b536acb2e4b3d3d5532f34f55b080493c5990539843add44da9",
+        "302fd181d4b3313fb0033f1de72be5fa83d7d0461779f166003bbda4e1247d12",
+        "d2d59de4f164abd5a2d9bc3eb22e68de2f7ac0e23d93255a98c0e89e49bc0d2c",
+        "6a56bfb2fb86dd926169ebe1677a88e257da4fffda4e0f692476a5fdc280c7a3"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/chain-build-2026-10-14/t3/BACKLOG.md",
+      "sourceHash": "4dcc13ee76a43284c584024e9a54463b6fa7bd6c47cba67460b5a581d39250de",
+      "count": 7,
+      "ids": [
+        "1994838e120f73ec5833745a4a0d0f22b3e9bceed5f9ef69e94383c266ddf0f8",
+        "ea3ce82e6d61581e5fb1ddc3c8f0c797caddd982cd803662ab0d8ecc9fc23773",
+        "9ded5fe01d64c7a03cbc49c46199cf54f02b665e8019fd543566284ebf883f6b",
+        "893f218f10fc02410e9bd58d2ee76d18d2c8dc600e1b4e07478c85a96f8f6d2c",
+        "7cae2c41920c76e414b8aca5e6178a86220c055af48663d304214adac94afcc8",
+        "1c5620f2bff13f3f44e6b7658a8407df0313efa442cee8676eccc8362b9b9a98",
+        "82e15b7569f5d4fde57a0acf445858a55c783b23ab176f30d78a5360e003ce4a"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r10/BACKLOG.md",
+      "sourceHash": "686c64ac22c39ad0d3654c396bb1b9a344ee4e5ad9c54553d0dc0e4f3841c21b",
+      "count": 4,
+      "ids": [
+        "515df48b3a4cbb61bbe9620f28bb6b5e06252d0d56666bac5de719f29537c798",
+        "d975e77b2ba60525ff26e0fe7abdc2679ec34cb18c56d77a27932a348d368201",
+        "552052d7f68755bd8560d19c7da12eae8c5a7dfb622d808c739196945bc09e7e",
+        "797bccc9e6c818de3293718b6de320c35171f11901ff6eeeb37b346e2092cc6d"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r11/BACKLOG.md",
+      "sourceHash": "08a8b8654797381bc3b5518314ca614e533062d21e586e2b4d3b60ed4035aaf7",
+      "count": 4,
+      "ids": [
+        "74a790c9a201f7bd55a2e996f5d48df5332947d1706ba5450f4d00a6dfe0746b",
+        "87cd16c68d9c297507db9718bec23a294ad1a306e69b71647945532e4e3e3556",
+        "f97aa18686dbcaa8a1e837a49873764864a8b20d156e722650ccd9e5561a19e5",
+        "899d26032a60740bd23c9f38249b16340edff69b9eb0ecb94c05c1dbbec735cd"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r12/BACKLOG.md",
+      "sourceHash": "748f13b4f55a019cb12d88409dbad55f5be08619065292d66a6d51b770426e25",
+      "count": 3,
+      "ids": [
+        "3beea2f106b4baee7254ac70b0e7ef84f3ba41e84b4e8f7535fcb3df342182f4",
+        "3a1f81e044570620b904fd48e76c22e5695e32ed6278f74bffeb630be2cfeb86",
+        "4a233ca853c2111ce95235a0706a40b6a241e3e5d054144c262eb3d961f7864c"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r13/BACKLOG.md",
+      "sourceHash": "64b1bf195c345e6f0c1f0675ac92bfb593b356fe2bbb9bd2df6ad2ce365e7451",
+      "count": 5,
+      "ids": [
+        "156ac0265335d3b7dd559b5766fa8591812db8bad055da440a981415a1a072a9",
+        "75f245dc542e786ed224079544f2870743ba6fb5032f601417849366e9179a76",
+        "912586d0e04b5a3847362b634b52c8a96fd32c38f4a006aa6da75fe1032df809",
+        "cedef96f7a7217329cd0428507261db5f7bf67589b4a02a2686daa26c3515e39",
+        "735e8118f91970514d2c742f56e54e1e4277bdabecd6375ea4834e98f9bfce62"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/BACKLOG.md",
+      "sourceHash": "c35fb8d939bc85ca9a3c5136abb01b6db49709c47702aafab5d42cd2c999002f",
+      "count": 19,
+      "ids": [
+        "483e3cb3f72d881379a175b834cfdf8bb37d9c85949864015c4b793d2363f985",
+        "bdc03e43cc553b7248c888e2195485908bdd2cb37443aa1f7ba8f5b337aa1e18",
+        "cbcadf988a47dedaa4396440b4a6a9c11c2662ad6ca109cd3b40537a85293d41",
+        "97c50265b06be4a05b9945e3429928cf765600a10a23274cee50224b1f6b17b5",
+        "427025788be43396a4e912e87b453b4d3d89fbeb260cb1b1ab54cf6e6d33135c",
+        "ede683275ebefecb256ae88a4c29e276a432d318f5858a0b76e98cf4dec2fcef",
+        "81fa3c1712454a40c87976f367e43cbac10925602028c628ea5308f2d14a8223",
+        "b37e14854f4adc98f50fe1a4d572c9ddb7c3148d6ad625cc13ac90062686076a",
+        "39c5bd089e1f193e33e16ecce037e0d0e8183b2e85588992e4947fb418ba398e",
+        "939999b4ad6d8235162d1b8d978dcd0eb62cea9d5885e45e9f79316a381ee9e5",
+        "200edd3be8ce27b19c6bc83dd7ca336bc6dccf75eed206508baa6d451ecc7018",
+        "2b356547e9d69ce544d0110e2fa751562f27d1da25cdc94f83acafc27f06a3d0",
+        "c6e7ea10dd86fa5027d829623c6497f1de26dac648ffb0e19b70c10dcd7e141f",
+        "d4752264f412342f4495792b3e4402b73b808718900f33f739b0f19d35a6eb18",
+        "6151f3af1753760f24af76c00a8276099636f2bead0c3e41de032ca26ecdbbc2",
+        "abd4a913082f9ef0cc2c6697d966c8a9485b23e6abd7d9e43e741fe069f3d6cf",
+        "88a3a9c7439d44474b0194be16ea13c87e164328dc8647c4bcde0553c9c7e221",
+        "611c06a611c52265d8ba3eeba938ffae0d331642d84911c943bd13bf004d32d7",
+        "68a2b2b94a4ea92afb100a544ced300090d294eb6dbdbf4dd25814154a916156"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r9/BACKLOG.md",
+      "sourceHash": "19a85fe07c5c01a84287d645771f002dcf643b1dcdb1def45def3352fe03458f",
+      "count": 11,
+      "ids": [
+        "aa3b87cdef4a20ea3adbf10cf7928935f31d1b564d74cc252405c0f854726bba",
+        "ee20f0e7b0960449552150ae61d8966a0e67b5123a78741e1115c77d3c4f3e87",
+        "f1ad1a50ba0047dfda43df59e8e70da63e6073dfdc57f26f0e507eee6b10f3e8",
+        "e63069ce0361daa6ec53e5e609c3180012b5fa8c204489aa80c13f6f14f0e8ea",
+        "47c5aaed97c306d77f853a175fa90d048ac4e7ff557526d404b50401877aca57",
+        "da308a93ff1603c55d42cdb469cdbe5c1a979e5a361c5b96651fc63c41aad7e3",
+        "a8063c5b9e9562262e274f109a8bfe047cffb355adf2c9df9e772e153e290f85",
+        "4d9fb25bf49d076cc87fb7cb73b76c7fe8c0cbac7e0a7c0e535d9aadbf2f155d",
+        "03b0122a5007949731174ef2eeeda05de440f3dd66f71889ccd442a45a484359",
+        "52cb1fd2f9f5f18615f61674645b4c5fb18c543d412735619070039fc1ade80d",
+        "3aa6b588df35ca9a59abccdbe4d2cb8056b93cdb316a7a17164661415c5ea89b"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/harvest-modules-2026-10-14/hv1/BACKLOG.md",
+      "sourceHash": "3018aa0efefb0a7ce6cc0ebab3c5cfcab990776b0ef278af9208997e8f77c706",
+      "count": 5,
+      "ids": [
+        "4d3d231b314d17b8734ce95c4bc5e21363324647a1013ad16f5dd17eb48e9a23",
+        "5e9f96927c0462fccfe319c8e2195f07538802ea5b0b343a36a614c08943d21c",
+        "1f802a0f016571281d94ce74eae702f723ad7e4b190e762a751b5f6d2d6f2a52",
+        "b2ef104abd6bc7ec7f101da457be243f68a27e186e7418a65aa6fbf05bffce74",
+        "fb1e59cee1ff166325a8ae25a3b60f45c878d151a4758b30787f6cc91f471dea"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/harvest-modules-2026-10-14/hv2/BACKLOG.md",
+      "sourceHash": "c7c5badef2290416e5b0a31cb5a90ba26566e1428d3583d696e380c3c2dfcc5f",
+      "count": 5,
+      "ids": [
+        "1046a2a8aebf6e97e0224fea78bca419517553fdeaeab0e1b4a8c27ac714d64b",
+        "9953967619070aedf3ae25917918128f54df7301960a4739ac9d19b5d3415779",
+        "f30e1dc00ea239d06c09c9e72f24ec342bb885d5b3177396a6c4ebc7c1c61b30",
+        "24462e10502b4c2979e761629094665d832f4cf3a62a9aca78474964d5ba85aa",
+        "28ec8cf534598bf93744f0eb9c0de79a948113a2ec25f807da68c39fa18351d5"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/gx1/BACKLOG.md",
+      "sourceHash": "2a53a43157c3a0ab7ba278b597550a21920995a207ea5b483d0cde53b6664f49",
+      "count": 6,
+      "ids": [
+        "bd68a74ac355e1d5063a7ba92b326ea868074271dba085e4c2211d31a8421aa2",
+        "99dcced82fa02402491d52f522d90f180a3da5c115bdbed97291ca872f459cc6",
+        "a8685e1b4a7f8cb3cd8886c351527e240acfd787714b14d33ad7f55679f3b8df",
+        "a6dc5a2f189a7ea0262d4cbe161eb3da196d2028942be72ddd46bb2021e68745",
+        "cfb2d50beaa8af458ad12a28c51639d8bb99341906b00edd41f3e9dca397f258",
+        "a9ca1f228d82df647b832d36b28d6b9f9426c0fe6893668945945441615679f2"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/gx2/BACKLOG.md",
+      "sourceHash": "9cba27eaab547ed79ee8be670135c31fe65a8c8bca29b60ec797fb4095c7423a",
+      "count": 5,
+      "ids": [
+        "5b75524772ae3b288c4ee794a6d398dfba2d7b2668eaec9748bf3c37174ff675",
+        "1d21816a168b0bac01277d7fd19ecffeb062603103536f6ce1b6a1d0eb5e419d",
+        "4caf650ee7eb47a4f33b3a10005c84cab251abc6b8b947e30117f81d4b779dc9",
+        "8909217c45a1407af4115a5160e00ede0a7dc86d061a39b9de31a1ff9ef72571",
+        "77e7bfcf52e4b0a82af569702e6d9a033284a7c9656ca06dc18b2ce8a39ce901"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/gx3/BACKLOG.md",
+      "sourceHash": "89035752e3642eff79b12dc427b438cf10c59eb7869e347f900fd99549c25b3a",
+      "count": 12,
+      "ids": [
+        "8ec284635e083413c507d9cfc9d5a100464574693e068d789fff78de15be2e2c",
+        "7b9306eb6eebf1dc9bf2c93f1eb5bab1f2e718e3a3997f7f49e70d8a13c1d774",
+        "cd921ef8c4f6ec963b212bf5761f953667874ee39c7fa06444d40861a729326b",
+        "c40d24d0e9215ed291f0408ba080b65dd753666c99ff09ec35650f76182828b6",
+        "7c5f0a08f9e856e5901f0fe5bcb1b7b7319fe0ba20b177fb23b1822c1dba1d75",
+        "eaf2d29febc2ea5347d60c6dec064858eda76746b5d3fb977e0a6d32626e6aec",
+        "72f89e5a91f329ab016bff4d5bacd54b8b923d3f1edf0fbd68c27abf909ad9d1",
+        "bd3671b19d78e6771aff347d25480b57750e4849068ce484f31f5622df6954e5",
+        "222469174eed8d8eed985a835d586494ac6708df161ec340e9fe84ddc1702b15",
+        "1717c7f6cb7c12baacbefb2caddcf6c16e07b92e87a5b2c66264f34f7d08f03e",
+        "d97410e3b46f24aeaea02b63075a7a2c78cf5e34a3ef4e54467ac28473501f95",
+        "c8f69b1be7101d0aa74a9e6d82a148c5b1eab8b534c6b414ec366e626aef8b8d"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/gx4/BACKLOG.md",
+      "sourceHash": "a7b0c00c3ffd93a4dfaa762363d67d6cac906e72e9a5bd309c0e1376cacff904",
+      "count": 5,
+      "ids": [
+        "f4f28284dd6f7568f54a7ad1865e786d06d248c28d89cde5df944389b409a37f",
+        "6bcaaf1d142f119cc7b53c31c36fb83f7879507eb86756a148f2f4a97f0ff444",
+        "a35d1a1ce801194c7ca2df2303ffc406bab730438c1e33ff4184a254d83ad2eb",
+        "f77d6980d823223d274b123d2c1fe40b08a8a20f736a6bb502df7bda79b9e36b",
+        "e2c47995476a697bf2716b992b85c569e42b8cfe522bd83599dec28b93bfa132"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/gx5/BACKLOG.md",
+      "sourceHash": "aa32fbfb82db61d97fd573b7832a2bdbc76730037d8241b4ffbae45320ca7fb8",
+      "count": 5,
+      "ids": [
+        "e7d6dafb2b57d57ccbf8b476f0ddd1474c31fdcda7fe90c5311191d38102d611",
+        "dadf6265cc823a58fa0e33d35e65647605f872dade214790063b89c15b7096c1",
+        "b8564d6e78aa4868163f578007b4d01750db3887db4d74ab932c383353b91fdf",
+        "170c468ad098cebd817d7b7fae93ee9bece3dd27cd56c6bb0c6bccbf810e3698",
+        "b4a7a228874057d1a96ddd926513f477c45a4d468a3bc3b793366e9844e20b98"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/integration/BACKLOG.md",
+      "sourceHash": "675ccb137ccc40ffdd7ae7f4656aabd8f1af0c0ea1d0c78ac4d17888a4ce40ab",
+      "count": 6,
+      "ids": [
+        "521763364bb38ff558870070111bf391c8a45b69f339411dbb55e04a5d1724d5",
+        "f15c878256b07f513d158d7da586334f649678131449e75f885ecb3f723dff99",
+        "c4488ad9693379dc1d94c5f5a667f2b9226c74daf119b212b5a370f43b246541",
+        "5a03227c5174931881fe57f7b7bf22ead7fee5bac3821a6d12227db0e8d800f3",
+        "20ec3a21d1d97ffb87d4191c0d6b62399e233ed6c73f6a8b6cdf89d47e7b6869",
+        "f3b68272540b6956e42284cedbfa2227537035c76f7ef2fcf4299b78d1cc88ea"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p1/BACKLOG.md",
+      "sourceHash": "dfaa3cb953c785667eef099a3cf0079d539f8a8ce17dc34049c2f1d8fe245a59",
+      "count": 4,
+      "ids": [
+        "af6a3ff991294e6a451d47f16136a7a7cbe507da531cb5a0e225117784c0d163",
+        "1425dba7a9b4856da07d673ed48688e338acab01a46c0985756e74e0b6943c19",
+        "e4ca6a583c05c71f2c90aa0729c4a113251dc06fb190aed28e4dcc814fcb6159",
+        "c2c41093d624498fc0fff016c7d29837f0d81248dd4532fc012f5ad2bf8acb88"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p10/BACKLOG.md",
+      "sourceHash": "50acc03b9c6201ab44e8f13f8f835ce53e83023e112f296d6052224d38832f08",
+      "count": 5,
+      "ids": [
+        "f7b8e893f27b9fec2b6e9f15e065fa07ef160f493c2ce74410d047d8292b0720",
+        "38d983093497c9af4ad59eebc3c10c21e6426fbee292338dfa3eda2aff0d90a1",
+        "3d1c1b8f049c7c3c0176be8eacaef1634932edc816b5f766f42770df7fee6542",
+        "f3a79b2b408868263cb06d251e58077b0c7696400f7612a28565ef1fd5c23c1e",
+        "7f379a1b7c25f8912a144400adce8ad437e4615d022aacd013b86738c118e25f"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p11/BACKLOG.md",
+      "sourceHash": "7f21fc4ccd3c4c451626773d8b86fe6b1a9157e2939b8b35dd7bd63f54b2c661",
+      "count": 5,
+      "ids": [
+        "4c0708a3406d0baca49f94c288949513b6ac7d5144d16f9c8ee6bb1a90801b2c",
+        "0fb3e61af3ddf1c2e4cd50c4cdf0e84a342f225a94991b58a7d1ee174825ae6a",
+        "5746d9f5a88fee372939ed9fd8edf39c9b70bc380b6d0e41a51ef08316936e22",
+        "34770467b35acbb38e2525419d3f87010cfd46e1d2247df59ef3e92387d9056a",
+        "91e75666a89168308311531aadd960a1bcca8ea1b81848c256970e9f02853b00"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p12/BACKLOG.md",
+      "sourceHash": "de253a9c48ac038d264163fc9198fbf6bd152e7c74f5d6c75b27a825c3517258",
+      "count": 12,
+      "ids": [
+        "c49c7eaa3c07a718413215ebbc9774da0ee6f1e48bd945d9618013ea7706dda0",
+        "0151336042394dff31e9f2ee4066f1a6df6255fe19ec11499363bd0633ae602a",
+        "00bc8d5f4a793b6c156ecc74710ffbdd72d5fa2bb69495ed86b01d0d76c27ef6",
+        "28ed23bccc25c69e4816de9c577d8ba5eab92c97ef395d219d1775c705c5e9e8",
+        "a81dc584645f03c389438f30a24d9cbd35d5f9fbe26d2424a79e2681c9e86496",
+        "c337715458951435ef996ede60bbac6db1175917d1de9569799ec423bb3c81a0",
+        "d86a3c26858f8383f964b29ea1a90262f5a6a43468e1b845bda37c126b30f6d1",
+        "24244e75b17d35e8aeba1c0be3700993f4505f75705685e778216fcfee791aec",
+        "20ca4ae3a27d7b0b2fa82517900d8b9959a9458b26634de8919a88d4b89df37f",
+        "6687321eb123eb0b6bce0541628117e3e3ff1d54aa5b96565857ffc907ff28a5",
+        "83897b3e0621ddaaf0633a4ee9920b99e662af5e799c34312a83229ddbf2e240",
+        "ce080fdc7bd1908377dde3e9baefdde338bd1e5b560caa492763a5718735db86"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p13/BACKLOG.md",
+      "sourceHash": "205657c52cac701d7e556979e2f1d740254a167dd87de5d56e0d9d69e7b16b77",
+      "count": 5,
+      "ids": [
+        "bf61cab843d229a8c46b626a5c14bfdb40a371df2e82def87c3bcf2d51b92ef5",
+        "eb669b163a838c9b95fcc6c9db08fec7d14f6976587ef7b5deecef30843def4c",
+        "03614d3929ec92a3f112cf4879187c8ea552c0609fc911af2d8137d3a2058fcf",
+        "55748bde8477ed79f2491d350ab526e4eb68ffec8ddc73f34a742d8fcf3fd868",
+        "8736dbaceaf2cfe02069aa8e951c190d45fd9cc5a6904c8cafef1c3e23684997"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p14/BACKLOG.md",
+      "sourceHash": "ce45c117cf4c85977d35622dcb80b4df623286d7bf0eaf411e21b86299fd412e",
+      "count": 5,
+      "ids": [
+        "6c5642ad34040bfcd4cd71cdbf8abdcba12b7ffb3bce75dfcc3eec067e61aec5",
+        "83c3478b19941c1f5998b6c7682414728e5d80036b8db75fd479a600acd0c554",
+        "e889b304bd656c25c6991fa08ab11d4e38832262c57373942ca686b4b033cbbb",
+        "ec6646e5dbcd3f16f01ccd0197920de0589d4b4d371b0ea97ba2912c4f803e4e",
+        "9fce5cc057f511d92773b31567837ea83135e7334ea8fac9ea3e520caa1822e3"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p15/BACKLOG.md",
+      "sourceHash": "3666d0c6ed0741bee610c46a5d8a6c378ef970fb5e98bf12b6a61f2afe94c964",
+      "count": 5,
+      "ids": [
+        "816ffaeb3f62272f4fe8c7c3d5398d101068d715293cd35dccdd723a648085b7",
+        "2b1be55159d408deb1a0ac25b04eef9724f8e9f7ea0b79ed529b29700a33c1a5",
+        "6db4e092bfb7ecbc6b77b18361d63b9ff3820c71d52032c624c1a6f2e933292e",
+        "2cb20502b7a8167ddac40b7fd8957f3458930a65717b64f9573a2ff23245c388",
+        "b8a1b0a5925bf07b1757dfdd23e7a83df10cba779537969087e8b0b28addc345"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p16/BACKLOG.md",
+      "sourceHash": "a09e562073c665fa9be1319c7207bd5c0495cc4f3155faef07804cad227989d5",
+      "count": 5,
+      "ids": [
+        "9f5f2c465642829f6db5732877cddcfb1edf0be82f857243b61ce152d4c3dac1",
+        "757c7dbf2463003412a0a6c3a027f4c0e8811dd05a640652d3ef9d0296643f86",
+        "ef0379521c9fbf3ea79bced1379c75c3d4494ad1b981afccd5c55e47036320f0",
+        "8630ab41e6b7c5a96ffe9164ce0dc5746a0dc7557b4a58986308221097330637",
+        "4fcb0cd944bbf6e4703c1bd44521b634be15633853b1a910d92fa17a8dd2679e"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p17/BACKLOG.md",
+      "sourceHash": "1b997ad4d947322d1b04d403b599cdf1a5873422a18babaf2646bc047e45e607",
+      "count": 5,
+      "ids": [
+        "40b31de3c49b9fa4208079eb899cfe598552701487c91638d4724d93bac40db8",
+        "f0eca287105f6a5ed7089e340d376436b641e198f92dd598cdae63007786d977",
+        "0d7851706f02137e38ca2d2edd6b5bed1ae5705461a8d465eaf06384f410a822",
+        "4fe0db855e15a149b3dff9ea74adf051da6f6e394e46754eb1d5a4a9b13c3514",
+        "c163138b6aa4ae37fe984446a44af303ab105c56e68fa74d90300304436c7d69"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p2/BACKLOG.md",
+      "sourceHash": "152260330c4fbff721077947b54cf64e654e4176a1e50e26c8489a523f866f18",
+      "count": 5,
+      "ids": [
+        "99ff386fc1c65481de4fb6a86b93acfa8b2b695af5235f0ccdf180733eb7736d",
+        "a1410d99e341c4171e4cd8d9e82ae8a167440c1049a1aaef73faac8476f885e2",
+        "9e2aebbbec27d91054ff91e9494bc425837ad817266a27d9bfd18969bc5929e5",
+        "05001b3c1988d54acf9a797cd51d0f36d59a309b70a30ac4cec32b91768f9ae6",
+        "607c2f4e73a4345619dc56a6fd7b19c17abb04f0480c4f0785070cc47605077f"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p26/BACKLOG.md",
+      "sourceHash": "c3e8e1b0ce956ffd8044bfbc341ea34b76ac6511241ed15ec81ee2d4d8ca889c",
+      "count": 5,
+      "ids": [
+        "2e856ac4737260e926be6f11931e85dc8f22413cc67558f8f56b6868398e581e",
+        "c37817359f2e0f31e2c61b3e762a88b752ad2cddb40d70c895d84da27162efe5",
+        "ab70286053114725c4d2458ae4a3cebf48dcfdfe4d50ee8b25ffe954c1dfe9cf",
+        "7e9d436ad0bda57c3ec3cb6890923249bef45a41a48a4cd1d9df1fc95dcfc37f",
+        "a93b256e65a13df0ba623d20700b38db9f310370f238b7a6385c6d65ac38cfc6"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p27/BACKLOG.md",
+      "sourceHash": "1916062b57939700d28647099702edcb6a3f74985a7665cdf5ecb02508df16fc",
+      "count": 5,
+      "ids": [
+        "a2872dfbd36567fff17da94b3428e1829c3c669905895c79bd0ec54229bbaf74",
+        "2458ef5d07b7f232879dcb99b43118874dbe518f1e34d836081987a57df4c231",
+        "610d1397bd12166c6a5ca2557ce9c0c137989a3de366aa4680bd61dcca93ce56",
+        "7b48656440a0b60d829087cf66a4e142107db39473b390dc3548ef17e0199d30",
+        "0ebad818393885dce54ac06ad24dc7e633ab15f6f4010c1d71d8ce7eb21efe74"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p28/BACKLOG.md",
+      "sourceHash": "61e98fa1e3c2cfb3005f680528935b06ca87d255d46dacc3bfeabe03ba24bb6b",
+      "count": 5,
+      "ids": [
+        "976cdfbd53197a6ea7f9cc797c2b62925986ce1ee15e7a6d69d52ab2c2197196",
+        "76963f986d8f30ec2c8e2f4c29061062105362ed23cd4b8781f1b053f46ff85e",
+        "312485bef44f082f6a4b7fc4524c55532382b0cdb23bf6176bb30049d9564efd",
+        "7c006fdde6803fc93b3920511d18cf81e28d9d8b96c6fc2d9e1f9743fba8ec5f",
+        "d1a6818917fd26645a952d8bec1045d5d8f3ad61be9bcb5586f464ede18c5dd6"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p3/BACKLOG.md",
+      "sourceHash": "af6b265c2a3ff64383549ec980fbf5ea8208d78d710e41fb733bc78b215de778",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p30/BACKLOG.md",
+      "sourceHash": "d1dcabf9ecade4e02c51202665d6dd42c0b6fb109ff0e52bfb56a08fd4d09f7c",
+      "count": 5,
+      "ids": [
+        "222def6601fb0de9f6e194eb5f9dbe0a8970aa0eb1b7d09741bbab6d3c1f12fd",
+        "09b64b6afd22f20b5eb4b9d3fa59c1ed00a68792d38095ef10c9a1aa1988aa40",
+        "9a491f6042cdb88f0a0ba24a16084fb829a823a00605932f4a65b958dc128fba",
+        "48561c6386b949fe536b444d40f7e03a2906d2ab0a5aaeaf9bf4397eda84ca02",
+        "2ba6449449dc6e007fabcb260f459273d2d4f827cd9233e51be3ffb94ce4a5c4"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p34/BACKLOG.md",
+      "sourceHash": "561beb261ad6c73dd507f9449cfc2e7765dbd1feacf71afdb31741c8c99b18ce",
+      "count": 5,
+      "ids": [
+        "30607f9aec8ff2c490fb12c7d1ea3ba339ca141cf2c0dc92dcc020df2d9eeffe",
+        "7a8241ca9dafb82f10c490dc8fe63d7dbd773527b2ea3a9bf86ee42f1d78e4a3",
+        "f1be4e426c33fca17d4f75262ac7bf63cef6c80246819f372e35b3576989d1fa",
+        "31fa11d821d4138e8cd0c768b54c5ce65b2b5b16c6025b6a85c7ad48ab5fedff",
+        "43565ca277f099908aa00b8885a5163e51574c7fbd507cd0d59be0212c313506"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p4/BACKLOG.md",
+      "sourceHash": "e4e33e13c50f1972c059e6b0add790821bf7bf7a87e5dbe416c168d8d86f6cb6",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p5/BACKLOG.md",
+      "sourceHash": "a2c395723d51459d60cfb77317f397dbfb1b40c2efc49b143379fa75cb8e04b5",
+      "count": 5,
+      "ids": [
+        "0a2c1003ba85fd3525230d30f5000519726c6923d6e699070395b463a54c758c",
+        "ae79ad81cb52d4c35f116483b61a51848069257c82ad572d0241d1895d1eedbb",
+        "99e65232335c382c6a93623995f2585b6b234f7e304010b80803b5fb3a77faea",
+        "82b50a58e4dfa5294cb0f57ddeb27b5d0386c99d93b64cf04b6787fb1cc10209",
+        "ab38aac7f78b58b37acb9f497bb99282d94fa58e74c5e7368f2b224bce4994ec"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p6/BACKLOG.md",
+      "sourceHash": "12337ec568e69f3d9c99e33812f8ffe8f2c204d200bf4750692767b11f34b7a5",
+      "count": 5,
+      "ids": [
+        "dbd1e07089f0f950ba8d87731b23dc32ba42b604845f3e45da130ba4e98f25dc",
+        "78a699bf98375c4751c9ccf7b7fe74eb51a2f87a527e078c0b14773921d6314d",
+        "de2baf055f367a780cbdcedc71e1bdc3126320a68629587867e9e7be46d08ffc",
+        "6a5181f358198f465a52417206adefd94b699b31de17a607283e61686a3fc4df",
+        "2a416b04c93369e642b447c991052f2e3b40fccb850f01a8f82b4112cb1fe32c"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p7/BACKLOG.md",
+      "sourceHash": "0ee175da303336f386a64c05a2301da33f325cb1e95efb207a138a9e2500ae9d",
+      "count": 5,
+      "ids": [
+        "56440d622cbaed789472e5388bfbfa4d1ca395f7f5f8256864fc2407ea646d45",
+        "ae3be932c2cf4f12664bc5a1ae857bf66a41a8d879d3446ddff81cefcd2c9c27",
+        "a984ef455f345796f32e9d1ff258c985306f3269bedf236f1c1480c79e524bf9",
+        "d7d0fc7c6fd75aac514adbde7f5959f7cbd9ff52001cf3c3f06dc50ee1a08d6c",
+        "d5f2781310e0a71f26d45a4e217b80073c25bea26504c39614d11ffad06e4bd3"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p8/BACKLOG.md",
+      "sourceHash": "a01c0e3344ed25226997df6127e25b612c54430076a3182c1a00927d094a48bf",
+      "count": 5,
+      "ids": [
+        "92d51a0c68a306cf1cbf42e323962afa957d00e8103a2bf42579208f21578d3c",
+        "c93828e5dbdb0137346140b51220c3e077e05a1875675baad87e58558fa0eda0",
+        "3f1554145ad2d425fad3cdac659cdd001d950e26743ab47ccf73d7956f3e5b72",
+        "8b6872fdbb24628f11c12c46fec0ec8b50e523a184146cd24224576bbac79e2d",
+        "46b5420b8b0f855f06b5409861b0f61ce83ff1c5dd8c081d712dc5df4c27ed8f"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/procgen-2026-10-13/p9/BACKLOG.md",
+      "sourceHash": "c4c621808c2b1cb1fe0255423708eb508b9f963786837a281ee72ea56df10b63",
+      "count": 5,
+      "ids": [
+        "6ab5a2015953c144e9734a271120b9597284c70049a0219bc37f821e81a093fe",
+        "4422f9861743fd7ae77075304a7a9924f118dfe8d2088b73dcaf303b1fdbcc3f",
+        "645dc25b02fed70cc0d9b2165b03f6756ab213f0ed86ce6ee47188677228e78c",
+        "cf39ed6da7cf772df7a0a90c5450c5c8a3c29c7b944dd1c7a78935c17258e69c",
+        "d9c5ea18121daa47ff8881f4e3550e8be061b1a998de16496001d541862f115f"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/research-tech-2026-10-14/slice1/BACKLOG.md",
+      "sourceHash": "8872e0cdbc9969b468af2ae2b7b247cd6cc3b3ceb56ed4b868f517aa2222ae79",
+      "count": 3,
+      "ids": [
+        "8835af6588414bc7e0e41fc2726dc5805d2f1139888efc3a2e58a855419f66a7",
+        "b4e9561b8e49956dcad852727b734ed41b17850ae9604e502a4add6c187c12f5",
+        "247118c74fb44ee8a5c4b99f317a8e6b5b7443dee3a49d232ebabdc2003d1321"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/traveler-asks-2026-10-14/ta1/BACKLOG.md",
+      "sourceHash": "c505e1dd97b6aacacbb067d0258aae25d1c7cb459dc81c8c8a846fd0bef8aab3",
+      "count": 4,
+      "ids": [
+        "131e40b4680c88084bd0d708849ae29a98bb2d5dc3d29c0f7acae7c701ef96bf",
+        "54df3e5da95a8e88877b494e3282b5ec9301a4d2dc89bc796da2f180d8db6c93",
+        "a4fb00ab745dedf6d363327acc33d4fea23536dae713b14ec7f17fbbb78a8039",
+        "fa293e9dfb3cbcb54f86c158c4158fbf14ee9d1dfe5830ab79047589ae538144"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/traveler-asks-2026-10-14/ta2/BACKLOG.md",
+      "sourceHash": "06203ff51920f83f455044a04b858aa47fdcc3133b3bbdceb8976bbdf46381f5",
+      "count": 8,
+      "ids": [
+        "28bf0721c16415e69053012429b34c20b80527426e358a713f7b28b8125db42c",
+        "86ed23c57e008266ba4d5219e19f13b83f004459b58ac5f0bfda6f8077cab26a",
+        "620dcb03c5fd3a07951510b6a406ec16845330c129badc75b59726ebc584e5e9",
+        "e6372760e31920dc192727c5086fb1a39282beb08f50e524e30a44163b6dd0be",
+        "23fdaaf34271a32b18d7b70914d08b550cba179cb12c40c655807af58440180d",
+        "9ffc1a9cb5b1492a14f19857fc25e0cb61af61df60e78787fe7684bb6b5db41b",
+        "37e74fd347800469dcc326e0ad4a6924e1e89d542bceec2742786a4df15f7cee",
+        "423951583265919a59b6bea30e085045b78669336dcd1ad71c23aa23301782c6"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/traveler-asks-2026-10-14/ta3/BACKLOG.md",
+      "sourceHash": "c1616611c124e0a337f3f71be15ae03e0a980c002dac5e69ba3aca825ecc3675",
+      "count": 5,
+      "ids": [
+        "947481ed553d8627a2e168173a333000d1559aef38a7ce3e63ca15397f64dd0c",
+        "eec15694dfe1e468ef26b5250ea943587f288e532f5228d9f4bd795fb3b2d8cb",
+        "d2a74e96f8009f101fde545ad62cb98a5150487d8907fd97eaefabd78b1696d4",
+        "c513e44f58094d9f6f54a86fb819bd06ea77eed9368b912a8c12a5656d6b156c",
+        "06a1a44effcff8a32b0683b00c75125d7e380931c7f876c7ae6dc04adb93d072"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/village-loop-2026-10-27/BACKLOG_UI_CHECKPOINT.md",
+      "sourceHash": "da7f49d45c42adc88370b21e0fc2aea6da277db7ef9b356155c8d72e906d1745",
+      "count": 24,
+      "ids": [
+        "b648e7f6bf37f58fa057168015e30b4ae2bf4d90bfd5357fc7c8358535c37dd8",
+        "c79dfa9adc3c0d9e1a550e01692979f33a73d60b404c796bedfa4a7910be59c0",
+        "b40e4b23be93be8aedd7e54b5166e1e6d0b4beb11d106891b23b7e8775e41d53",
+        "c03f646d7e75c2d7c17ecb8c10b843e12abc5d347fdd45a3e0fbc61acb989978",
+        "4e82a1eb3ba61a4d79e1bc593b8ff6c8fb988546b59515592f6c735976eb9ff5",
+        "0b94c11ecdaec3cdae1dd3c3c137ccd2bdd63ec6302914334e56c9fc7c8df058",
+        "aabdd2fa7bafe53eeedfafcf083d22f6b61dc495708dfe5f585d2a3a1fbe122e",
+        "9ae2d5d570cbff664ae9c6826c8931f37eeda72759b68dba32cf51776e8ff067",
+        "b8df2cdd178b315b297923b6092e61115e25e3781180fb2d2d58c32dd7d2bf6e",
+        "8bd610fbfdcc20749b7a6de3ab05863bd519039300dc9c4dba25a060170182b3",
+        "c3aa5d6d2e8ff70a38a7e61f3e7a0c25d6b5a0f40071ac230a9b89ba8062ac2a",
+        "5cdaf3e4b883e06ccd8ef56998b0c2d60eb73015ca16f3381ca8fca31e63c1f0",
+        "52c57f952c95f5eb793be764f531ad60c8c3554bf884e26fb9b0ff0d4b982fe6",
+        "74df08bf2f1e2eef03e2b029455c44625a1f267011377f64fc7702e3091829c8",
+        "b18d772cc02f2dd82e2c9b674e251d054f275ac0439d4fbdf0160ab9e591e317",
+        "dd399e0cdeda20808c15db0cef505929c73055ef2c1447eab3c8e7422b203bde",
+        "a1249c0c2687db4cdab5c8986be47cd5456115e530bf097444da8038dbff3247",
+        "721165c41bf7370dac67217fee66234b4ba8d71bc59c6f43665846fe913d21a6",
+        "10dcf32856935727348bba99c827c6b313b7b5f2f92e909bf28ac1afd00034b2",
+        "c9a8e35c1e8233b374b130302558a5b9e6476a767a6d21f553cafb34b0803f99",
+        "860b7b5e14e7b9186536ec4c306355eec2f310f2c84c4dbd607bbdc0e9939508",
+        "9b4e903707610415250d01452bc27bc0fc2596d40931c53825aa7c02e15fa03f",
+        "42174e0f6e692fe1466265ae54895dc0d48ab54a8acc5a6b7ed7068dd2267445",
+        "4c2f9cf2401020ddb3647d65eb2ce96a69019907ae8b98753341d36405411db3"
+      ]
+    },
+    {
+      "reference": "docs/continuity/CONTINUITY_BACKLOG.md",
+      "sourceHash": "0fea4925a3913d90a6569c3b8982376a7627adc50511090ce52d6dab7229d564",
+      "count": 9,
+      "ids": [
+        "65c9553692872d6651aeb7d783edc64ca5ce93797049519832e5e71fc6eac96b",
+        "ca6a6ecb58a9815e0d53e766c847b00325572da097c3ba639740ff576b18b6b4",
+        "26c954a82390dee424c1b090756851ff793ee91873ccd69aed23e84a15c24ff1",
+        "7985107fe478ce00f2b106eb53f5151a02cff35abdbd18986250a8a88f09cf37",
+        "781ad8947baef45bfe4c79c15a73897888c10d88022ab44a3c6bd54895aa4af0",
+        "663a163e034313b0f0cde1f41fae47a899382e9eebace7223432fa711af8a7d3",
+        "0a3416af80acb456e9cb63af9060402e9015c3cf6fb091a52343e7be235eae15",
+        "b51a450c9331e8650ae629f39ce992b0afe9c8bbaa15aca88f1d6b3e7f49c9de",
+        "82e6ab4bc5107d82e621a756bcaef80ed9227688d7291df645d25ceefcfc4e27"
+      ]
+    },
+    {
+      "reference": "docs/gm/dispatch/codex-parallel-2026-10-25/runs/d5-expansion-backlog.last.md",
+      "sourceHash": "19f67632c9616f06a214b0d3191576f21b4f42b6ca7d5f6e9fde9fa4cffcca7c",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/feedback/FEEDBACK_BACKLOG.md",
+      "sourceHash": "8c6aca3e59c94ba081ac29702eecfda068a17d651f7afd5a3c53741025b3772f",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/audit-absorption-2026-10-07/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "49043892b83fa43e428a9341a2930a35b8f9a531ca7cbf9513771729a920afc1",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/dispatch/refinement-audits-2026-10-31/MECHANISM_BACKLOG.md",
+      "sourceHash": "2eb07cca1999805b8e03579327f15b251e276e09226d325cb7b1f15737f85cb8",
+      "count": 67,
+      "ids": [
+        "3f018e396b63a79648e0e33ddf53e25e00d0cbf81a02165820252509d2cf14c9",
+        "fd0a8ed16cf7ea98660608b10880d34cb2b261f9b8b9c99a51694cedcbf84e8f",
+        "188dcd951d05b4a39405cae7af03d4c076f67f21b752064f11030556f145c622",
+        "b80aeec69507c38fb5e9c6c8fa441259571ac5d322a6ab8ada16c6ca7d434a04",
+        "4f338377ce38d1e6d766d6238d8c464d769279c6236d2ccf3d36fdedc56fb2ec",
+        "c290172349283945ebea794c89d1b26e502accf418390f6ad753a702be16fff8",
+        "c18aa2273766cb5f49e026ca356abcb03318ed32cfe630ed853da3b2d15d2fb7",
+        "517fd2ccbda66f2783edbe0eef85cb37fa84902d442ea973ba12415873d7051e",
+        "a1914c4d7ecdd6d0adb7dcd3fbb24c1cc6aed73129ac8af845711cb5dea8f75a",
+        "e60389d329e0c34e3f473c8fd8c997bd85a16676b8e1bb77e815858b126a416b",
+        "24c310884efc776b06ff87a060d25a8861d94d8999097f0d39e20ff304227208",
+        "8f147b7ecf9408420e285451168d97154c0297a51020352c593f157065864ebc",
+        "08f62bfc3ce1d11eb66356b69ba76a2ca3df165533263102cf25f065e976ca91",
+        "129f42cc843b813b73470d25a80ded5556abbe6b49a5e1d38b46e59de52cbb34",
+        "5af7c7504f70dd13d2623a3b8a92edf595f807346830b89fcb7fea7519fe22f1",
+        "d8a8a24d30d080db3a4475354ff01cfc96c8a0f9fefa84d30f4fc6a6ac16b7ab",
+        "31c9e13459226218703635c31aa20ee130a25dc69763c4f0e260285ba1f40463",
+        "46ac34b97dfac847a9f0dd250722067f0c9fbd223624cb75b8874d7402256fd8",
+        "a483700301f4c99108160086595938e8fc8389946009b8ce7b4671bb7edc2006",
+        "54bdb9a54cd2c7ba04db0915735fb8531a3c1a5933d035a27574add85abb37d0",
+        "6b5bb5354d46089f4bf51a700f0fce6537d4a46d1e5c4b452b9c3d83365877e2",
+        "58020fe6f4e23ded1ff053937af7b09c2a6d430bee725a3e76a68e52b51295c3",
+        "f724c1be62ff027f5669581376f8e5e77f1da54d7f59eb42c06bd7b023535d98",
+        "7f2196c6ebc280fd12820a908ec362e47b9dd28eb2069a74bf18bbf4a8b7e3fc",
+        "f7948ed81776faf03054d3f40e1ad6fe64d313bf9bde06fe3abc03d37f3fbf9e",
+        "ec82812baff206487f47366222d98302fa828e83a10a8f55b1ba6669aff75225",
+        "0a1db3053cabc97ac675f7319069585d2fdaeafd50a2428ab0d182b8f064d785",
+        "4d699c39a3f8fc5b86b74961d34f7d08a4c9c37081e384014cfe6f9f16b338cb",
+        "06977f6743dcc2f5c170f953a70e52fcc3b91aad23e8c0b1d484da27761bf4fc",
+        "4e0e0fcadbea4304e52dd259047696e65cbc094f96bea015eb8caf4282aab7a8",
+        "af856a58ec1d13ea23f627e83bddbd0b1080ed5e9461bc5d2f29f950d280ce3c",
+        "d43b25487416530d7054d7e93df5162c9410d290de5c2e415bf81e3a2b007fa1",
+        "9e76d10d23900d09a1f5d535e92da15029334c8ff183b26a7f124529972ad739",
+        "85d71631f2d6624621525ceded3649ef2e0b293a1e28775f68e3870ba9616821",
+        "aba264861e20e01fdb485ca4a5108a28b6507844fc62da48165a8add3ff3355c",
+        "37ff5256e7624c7850a9bdded13bb0c63b6e7e73641ec482742523c7d3afcfe7",
+        "23a430f516801b319b3d5a0c2b55ed2df67d2ded28d8fceca55e622d5bfde50b",
+        "74c51263befb3ebbcae878cfbeee7d5118d5a31f466c48f1290d1532746212a6",
+        "65d43b47ea0d222caaf72bdc1e723024cbc6d49b62c68f909c936fbb867c9ffa",
+        "5d3ceb60c4a16e8c25bd2e91afb2024d3d79eac8b378cfd5bd696f0997405561",
+        "edc8ab2139a39f85105a1f97f33d30cccda7565fb7a85a91570326e39986f5a2",
+        "cf6f68a14c1146e1f60e4b5c655795dfad4afc3e01d1f408cf5751e9625c62be",
+        "e62891f89c71873ef7b4d13a218502be8724f09970aabbeb2367138442602cef",
+        "8ba3ad1bcf29f2fdb70cfa0616044dbe194e2548597526071cb5ae76341d6f99",
+        "733d46181545b5de11519e82833faede178c9d431593de09449654e99ba3fee1",
+        "40ef2ea0cf468a7e4732d2cba178056c87d460c31b89c2f22a4e5b5250984280",
+        "37cbbd5ebee700d9ae7b4ce11d6943872dffc87046c365d6534b0766a7e349f7",
+        "993f5bcf70bbe3116b979ee3e4bd04c01c9dc539a01aaae90cb2ae769a967c55",
+        "0d3a1a272f52718fbdaf7fe7fec6143adcfc2ae8e9ac40ea9f6072592333d916",
+        "005be0e71503acbd5c7da58293d5d81adabd953e3610e21fac39652912524ee1",
+        "e64a83b73002a5f8edffa048021e0d80d0fb6f040a431a3303513effe7b047b6",
+        "42d2a91c26472420d9e07a454ab591fb2be50dea566b6cb3083c0f1845eef67b",
+        "b815602b85c8591385b06c2fa216e89e3b4c3c6d6755987384805cc2f5fb575d",
+        "49220149ac01b9fd51ba9522e39efb83a923399b291b86fcb42a9993ab94b2eb",
+        "17ede6a81da0e9077a10bec6332abb5dc13cb6102c8998750fd196f4773fab81",
+        "a9a91b68b0a0ddc241be5a779de7697ec318c6c633f2a682d96e95fa798fc8d7",
+        "5daf3c911622ccaed7ae8201b7364fa106b19f00c0e3f0d327457ef5e785f74f",
+        "2ef8d0ef22c88f7b5ab53932857c684a12c21011eb70484001ed6ccfae29803b",
+        "9b4a5f91b25b33bdec6d6b11f41de241b8cdb0c0879deb19a233633dc0a631b8",
+        "08d7c6d0e6fafa690677d2b253a47f540a614fa86693dc424768d688c6d63156",
+        "84899aa2714560dd619b4700ead01bded0f0409526d0549ead3f2d3639fa32da",
+        "e964c4bc1f8fae8416e8be5821f5c2b3a262d6e1f0077a6e6ef5f40497275fdf",
+        "faafdc2c88ff02638e2473f33c0ac86b924b7eb08b88f87bb6c9b7885c2036dc",
+        "57859ef944b8fbdbdc9e82fb769e8178f371663a570bd8ba10890d5fa0ecfa3d",
+        "30810b62a83d61bf38c2bc5fbeffe72d06afa4e63cf97b0364f788c7b7c51e4b",
+        "6c9629d7fcbc534b427bc5c22de4954d39e205496d74873b6ce4bb0a493ce929",
+        "ee7146a846aa3cc142329a8916e87a0903dc8f93cf5ceaec4eb26f0a411785bf"
+      ]
+    },
+    {
+      "reference": "docs/names/NAMES_BACKLOG.md",
+      "sourceHash": "e1170646ad599d57b1058e1e1fd4c8fe2f0cb9f0d296307c05a74e438e660ef7",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/openings/OPENINGS_BACKLOG.md",
+      "sourceHash": "5dbb9ff8d3d85037bfda4cbba578ca0abab0ab5f38394ef335937c721dc26a87",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/pacing/PACING_BACKLOG.md",
+      "sourceHash": "eb8b2492f295267a022c384727de803bec10f4b964567738b63ff418da780acb",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/book-world-completion-2026-10-06/PARADISE_ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "85832c685badb1c66fad8f2bd94f57a871b6d1651b5ce88340fd1ce7650df417",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/prose/PROSE_REWRITE_BACKLOG.md",
+      "sourceHash": "87731a4ab647e8b81fa1452b74dbe76f117b7067fda924a5c64d8bdbcbd1d99e",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "reference": "docs/gm/dispatch/absorb-2026-10-11/ACCEPTANCE_BACKLOG.md",
+      "sourceHash": "63b1189a51014c6f1bbf730ba1c2d5e684a3c68f3f582d4ad1a585de6cb48aee",
+      "count": 4,
+      "ids": [
+        "fbf1488b32fcc398b63af1f07ee2e0e0f92e6b5371358d7e57731a6bad3c3b93",
+        "0288bc084e851b7d6eff557f6c64ae140829bbd2df830c3ad6ff5508fe0c0ff2",
+        "f8663b070215868762ec455e48df4f689ce7baa7ea3d38a4f5f0c729c63fa56b",
+        "f176666e4eaa1b980ee50fd1b94fd7c85f8c07515a2d1e82361d0c1335ad9732"
+      ]
+    }
+  ]
+}

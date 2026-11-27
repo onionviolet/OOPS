@@ -1,0 +1,107 @@
+{
+  "schema": "atlas-native-evidence-desktop/1",
+  "status": "agent-verified-not-human-reviewed",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "route": "Workbench → Native play evidence; card → related cheat record → Where to play",
+  "normalDefaultSnapshot": true,
+  "currentBundleSha256": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634",
+  "roundTrips": [
+    {
+      "card": "loaded-dice",
+      "via": "Open related Atlas record → Where to play",
+      "focused": true
+    },
+    {
+      "card": "starting-insight",
+      "via": "Open related Atlas record → Where to play",
+      "focused": true
+    }
+  ],
+  "cards": [
+    {
+      "id": "village-watch-relay",
+      "status": "verified",
+      "receipts": [
+        {
+          "id": "village-watch-relay",
+          "status": "verified",
+          "buildComparison": "different",
+          "testedBundleSha256": "e0dad8c74287a13b5fb99ea452c238eb49e0253cbc29839cac61a6e04b064bd6",
+          "sha256": "0c3b7770eb6856c158b1bfdb3feb828ed0d1fa18c0e75e150c930837ebfe28ce"
+        }
+      ]
+    },
+    {
+      "id": "tingen-local",
+      "status": "verified",
+      "receipts": [
+        {
+          "id": "tingen-local-actions",
+          "status": "verified",
+          "buildComparison": "different",
+          "testedBundleSha256": "d8152afb60928749285da28f088c1750ac0ef2c2ba7e4efd7a13ab1100bb3b89",
+          "sha256": "078b63274eaf86bfec5fc5b938a40de6f13aeea57533ebd9436315ce9ebbaaa0"
+        },
+        {
+          "id": "tingen-local-boundaries",
+          "status": "verified",
+          "buildComparison": "exact",
+          "testedBundleSha256": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634",
+          "sha256": "a3ae2c9b01475781919c6c749339a7621c9f60906deb7d7c917db7f60af2d7a2"
+        }
+      ]
+    },
+    {
+      "id": "tingen-klein",
+      "status": "verified",
+      "receipts": [
+        {
+          "id": "tingen-klein-index",
+          "status": "verified",
+          "buildComparison": "exact",
+          "testedBundleSha256": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634",
+          "sha256": "9de120c2a838f43756ffa211def470335864448554d1ebc9d2a22ef52a245a0e"
+        },
+        {
+          "id": "tingen-klein-closure",
+          "status": "verified",
+          "buildComparison": "exact",
+          "testedBundleSha256": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634",
+          "sha256": "9f9e302aa54793ad3c10561342c15a5f0b50a0fa8e86697082bdc0e9a9e37a38"
+        }
+      ]
+    },
+    {
+      "id": "starting-insight",
+      "status": "verified",
+      "receipts": [
+        {
+          "id": "starting-insight",
+          "status": "verified",
+          "buildComparison": "different",
+          "testedBundleSha256": "b691073af3c1a5a3c1ccf49171c4d97175873f992e4b7d00e8d6b1c05eca9d2a",
+          "sha256": "07ee9f241b859848892e4c61328c7d3f5d4478b2c505505e66b4606a7e4098db"
+        }
+      ]
+    },
+    {
+      "id": "loaded-dice",
+      "status": "verified",
+      "receipts": [
+        {
+          "id": "loaded-dice",
+          "status": "verified",
+          "buildComparison": "exact",
+          "testedBundleSha256": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634",
+          "sha256": "7f5cd530d7d9b87b2d86410b7e93b62d7d61e67e87c7743cc60a2b3e4f7facbe"
+        }
+      ]
+    }
+  ],
+  "pageErrors": [],
+  "horizontalOverflow": false,
+  "gameBundleUnchanged": true
+}

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
-import {writeFileSync} from 'node:fs';
+import {readFileSync, writeFileSync} from 'node:fs';
 import {guLeadLife, riLeadId as id} from '../src/world_packs/book_gu_lead_life.js';
 import {GU_LEAD_SELECTION, guLeadSelection, guLeadAcademyPassageClockRequest, leadMoonlightKey} from '../src/world_packs/book_gu_lead_selection.js';
 import {GU_LEAD_REFINEMENT, guLeadRefinement, guLeadRefinementClockRequest, guLeadRefinementStatus} from '../src/world_packs/book_gu_lead_refinement.js';
@@ -36,7 +36,7 @@ import {guLeadEarGrass, guLeadEarGrassClockRequest, registerGuLeadEarGrass} from
 import {guLeadIceSoul, guLeadIceSoulClockRequest, registerGuLeadIceSoul} from '../src/world_packs/book_gu_lead_ice_soul.js';
 import {guLeadIceCrystal, registerGuLeadIceCrystal} from '../src/world_packs/book_gu_lead_ice_crystal.js';
 import {guLeadWoodCharm, guLeadWoodCharmClockRequest, registerGuLeadWoodCharm} from '../src/world_packs/book_gu_lead_wood_charm.js';
-import {guLeadWallNight, registerGuLeadWallNight} from '../src/world_packs/book_gu_lead_wall_night.js';
+import {guLeadWallNight, guLeadWallNightPrevious, registerGuLeadWallNight} from '../src/world_packs/book_gu_lead_wall_night.js';
 import {guLeadBurialGu, registerGuLeadBurialGu} from '../src/world_packs/book_gu_lead_burial_gu.js';
 import {guLeadElderHall, guLeadElderHallClockRequest, registerGuLeadElderHall} from '../src/world_packs/book_gu_lead_elder_hall.js';
 import {guLeadSecretRoom, guLeadSecretRoomClockRequest, registerGuLeadSecretRoom} from '../src/world_packs/book_gu_lead_secret_room.js';
@@ -48,7 +48,7 @@ import {createContentRegistry, createExpansionState, advanceSimulation, loadExpa
 import {compileStructuredPack, mergeStructuredPack, registerStructuredCommandExtension} from '../src/structured_pack_definitions.js';
 import {planStructuredSelection, beginStructuredCampaign, adoptStructuredExtension, structuredActionCosts} from '../src/structured_pack_runtime.js';
 import {cancelSimulationJob, commitSimulationCommand, previewSimulationCommand} from '../src/simulation.js';
-import {requireStructuredContent, validateStructuredEnvelope} from '../src/structured_pack_state.js';
+import {prepareStructuredContent, requireStructuredContent, validateStructuredEnvelope} from '../src/structured_pack_state.js';
 
 const hash = value => 'sha256:' + createHash('sha256').update(JSON.stringify(value)).digest('hex');
 function beginning() {
@@ -90,7 +90,8 @@ function beginning() {
     const iceSoul = registerStructuredCommandExtension(guLeadIceSoul, hash(guLeadIceSoul), definition, registry);
     const iceCrystal = registerStructuredCommandExtension(guLeadIceCrystal, hash(guLeadIceCrystal), definition, registry);
     const woodCharm = registerStructuredCommandExtension(guLeadWoodCharm, hash(guLeadWoodCharm), definition, registry);
-    const wallNight = registerStructuredCommandExtension(guLeadWallNight, hash(guLeadWallNight), definition, registry);
+    const wallNight = registerStructuredCommandExtension(guLeadWallNight, hash(guLeadWallNight), definition, registry,
+        undefined, {previousRevision: guLeadWallNightPrevious});
     const burialGu = registerStructuredCommandExtension(guLeadBurialGu, hash(guLeadBurialGu), definition, registry);
     const elderHall = registerStructuredCommandExtension(guLeadElderHall, hash(guLeadElderHall), definition, registry);
     const secretRoom = registerStructuredCommandExtension(guLeadSecretRoom, hash(guLeadSecretRoom), definition, registry);
@@ -228,6 +229,12 @@ function beginning() {
         moonbladePace(candidate = record) {return guLeadMoonbladeClockRequest(plan.state, candidate, moonblade);},
         refinementStatus() {return guLeadRefinementStatus(plan.state, record, context());},
         validate(candidate) {requireStructuredContent(candidate, new Map([[definition.id, definition]]), plan.state);},
+        prepareSave(save) {return prepareStructuredContent(save, new Map([[definition.id, definition]]));},
+        restoreSave(save) {
+            const loaded = this.prepareSave(save);
+            record = loaded.content_packs.structured;
+            plan = {...plan, state: loadExpansionState(loaded.expansion, registry)};
+        },
         roundTrip() {
             const saved = JSON.parse(JSON.stringify({expansion: plan.state, content_packs: {structured: record},
                 character: {bio: {race: 'human'}}, 'current location': plan.state.simulation.people.player.location}));
@@ -2040,7 +2047,7 @@ test('the later search separates sighting, custody, the prior bond, new refineme
     });
 
 
-    await t.test('the Xiong bargain, the clan notice and the first wall night spend real stones and essence', () => {
+    await t.test('the wall reserves per activation and a legacy mid-exchange save settles or refunds the same amount', () => {
         const names = name => 'wall_night.' + name;
         const play = name => work(names(name), guLeadWallNight.commands.find(c => c.id === id(names(name))).duration);
         const fact = name => life.player.facts[id(names(name))];
@@ -2075,7 +2082,32 @@ test('the later search separates sighting, custody, the prior bond, new refineme
         assert.equal(life.player.facts[id('wood_charm.aperture_stage')], 'rank_two_upper');
         assert.equal(fact('plan'), 'life_burial_recipe_pending_right_moment');
         play('answer_the_sirens');
-        play('hold_the_wall_against_a_bold_wolf');
+        const legacy = JSON.parse(readFileSync(new URL('./fixtures/gu_wall_exchange/legacy-mid-exchange.json', import.meta.url), 'utf8'));
+        life.act(names('hold_the_wall_against_a_bold_wolf'));
+        life.step(legacy.elapsed);
+        const current = structuredClone({content_packs: {structured: life.record}, expansion: life.state});
+        const job = current.expansion.simulation.jobs[0];
+        assert.deepEqual(job.costs.map(cost => cost.output), [9, 5, 5, 5]);
+        assert.equal(current.expansion.clock, legacy.clock);
+        assert.deepEqual(life.energy, legacy.energy);
+        const v1 = structuredClone(current);
+        v1.content_packs.structured.extensions.at(-1).revision = legacy.pin.revision;
+        v1.content_packs.structured.extensions.at(-1).contentHash = legacy.pin.contentHash;
+        v1.expansion.simulation.jobs[0] = legacy.job;
+        assert.deepEqual(life.prepareSave(v1), current);
+        assert.equal(v1.expansion.simulation.jobs[0].revision, 1);
+        const invalid = structuredClone(v1);
+        invalid.expansion.simulation.jobs[0].costs[0].output -= 1;
+        assert.throws(() => life.prepareSave(invalid), /exact pending extension reservation/);
+        life.restoreSave(v1);
+        life.cancel();
+        assert.equal(life.energy.reserve, 36);
+        life.restoreSave(v1);
+        life.roundTrip();
+        life.step(job.due - legacy.clock - 1);
+        assert.equal(worldFact('bold_wolf'), undefined);
+        life.step(1);
+        assert.equal(worldFact('bold_wolf'), 'killed_at_the_ladder');
         assert.equal(life.energy.reserve, 12);
         assert.equal(stock('wood_charm.water_shield_gu'), 1);
         play('recover_off_the_ladder');
@@ -2703,7 +2735,7 @@ test('the wall night continuation requires the exact installed Wood Charm pin', 
 
 
 test('the burial Gu continuation requires the exact installed wall night pin', async () => {
-    const predecessor = {id: guLeadWallNight.id, revision: 1, contentHash: hash(guLeadWallNight)};
+    const predecessor = {id: guLeadWallNight.id, revision: guLeadWallNight.revision, contentHash: hash(guLeadWallNight)};
     const pack = {contentHash: guLeadBurialGu.base.contentHash, extensions: [predecessor]};
     const register = {extension: async raw => raw};
     assert.equal(await registerGuLeadBurialGu(register, {...pack, extensions: []}), null);

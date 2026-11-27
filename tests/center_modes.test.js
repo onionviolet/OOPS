@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createCenterModes} from '../src/center_modes.js';
+import {createCenterModes, createCenterReturnLabel} from '../src/center_modes.js';
 test('identity refresh preserves the active task, return stack and stop callbacks',()=>{
  let frame,stops=0;const modes=createCenterModes((mode,depth,destination,direction)=>{frame={mode,depth,destination,direction};});
  modes.open('workspace:inventory');modes.open('crafting',()=>stops++);
@@ -52,4 +52,22 @@ test('native completion beneath inspection preserves the reference and removes t
     const modes=createCenterModes(()=>{});modes.open('reading');modes.open('workspace:inventory');
     modes.local();assert.equal(modes.mode,'workspace:inventory');modes.back();assert.equal(modes.mode,'local');
     modes.open('crafting');modes.open('workspace:journal');modes.close('crafting');assert.equal(modes.mode,'workspace:journal');modes.back();assert.equal(modes.mode,'local');
+});
+
+test('structured movement updates local return without replacing named panel destinations', () => {
+    let label;
+    const nav = createCenterReturnLabel(value => {label = value;}, () => 'Village');
+    nav.draw('workspace:beginning');
+    assert.equal(label, '← Back to Village');
+    nav.setPlace('Children’s hospital room');
+    assert.equal(label, '← Back to Children’s hospital room');
+    nav.setPlace('School corridor');
+    assert.equal(label, '← Back to School corridor');
+    nav.draw('workspace:inventory', 'Your beginning');
+    nav.setPlace('Third-floor girls’ washroom');
+    assert.equal(label, '← Back to Your beginning');
+    nav.draw('reading');
+    assert.equal(label, '← Back to Third-floor girls’ washroom · Stop reading');
+    nav.setPlace(null);
+    assert.equal(label, '← Back to Village · Stop reading');
 });

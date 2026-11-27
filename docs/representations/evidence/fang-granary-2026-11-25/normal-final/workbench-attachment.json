@@ -1,0 +1,25 @@
+{
+  "proposalId": "874949885db0b9774323b40012feb70d67cdcf4698b73f4db396ac7e12d4d550",
+  "reportId": "a31f4fd5a739498c2591e1ea9cab46703ccc4a1c1d9f6cd356fc1b1d63ae8800",
+  "attachmentId": "dcbb1c1cf9951dbd41ef498c547191cd718041c9f542675c30ae5d1edf08c8d3",
+  "comparison": {
+    "id": "dcbb1c1cf9951dbd41ef498c547191cd718041c9f542675c30ae5d1edf08c8d3",
+    "testedBundleSha256": "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca",
+    "entry": {
+      "route": "Native Fang day: cancel funded Ear Grass listening; listen or inspect by hand; patch with a held hide; present work to the existing elder; feed the held Moonglow with earned petals. Save/reload/Export/fresh Import during each investigation and after each payment.",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fixture": "Late Fang life; existing elder at academy after ceremony, rank-two/day pins, held Moonglow and one hide; listening branch has held attached Ear Grass and three essence, manual branch has neither Gu nor essence."
+    },
+    "proof": {
+      "status": "unchanged"
+    },
+    "status": "exact-match",
+    "currentBundleSha256": "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca"
+  },
+  "proofPath": "docs/representations/evidence/fang-granary-2026-11-25/normal-final/proof.json",
+  "errors": [],
+  "route": "/#workbench/handoffs/874949885db0b9774323b40012feb70d67cdcf4698b73f4db396ac7e12d4d550"
+}

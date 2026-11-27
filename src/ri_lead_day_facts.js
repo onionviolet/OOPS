@@ -1,3 +1,5 @@
+import {riBreakfastFacts} from './ri_breakfast.js';
+import {riStoneFacts} from './ri_stone_pieces.js';
 // Fang Yuan's ordinary day (lead core-flow audit, ordinary-day round, 2026-11-14; proposal under AD32). Pure: the diet table for the
 // Gu his own life holds, and the facts its day extension (world_packs/book_gu_lead_day.js) reads. Hunger is read through the one
 // needs seam via living_upkeep (LVR13): the time since a Gu's last meal is the `at` of the knowledge note its feed command writes,
@@ -7,6 +9,8 @@ import {validateDiet, dietNeed} from './living_upkeep.js';
 import {APERTURE_LAW, apertureGrade} from './gu_aperture.js';
 import {readSpoilage} from './spoilage.js';
 import {detectGuApproach} from './gu_senses.js';
+import {RI_LEAF_TREATMENT, RI_LEAF_NOTE, riLeafQuote} from './ri_leaf_treatment.js';
+import {riGranaryFacts} from './ri_granary_work.js';
 
 export const RI_LEAD_DAY = 'book.ri.lead.day';
 export const RI_DAILY_POWERS = 'book.ri.lead.daily_powers';
@@ -100,10 +104,14 @@ export const riMeatState = (state, at = state?.simulation?.knowledge?.player?.[R
 export const riSeaMinutesPerPart = aptitude => Math.ceil(60 / apertureGrade(APERTURE_LAW, aptitude).hourlyPoints);
 // The facts the day extension's commands read: per Gu, held, due (its meal window is open) and hungry (a meal missed). Absent
 // outside his life, so other lives never see them.
-export function riLeadDayFacts(state) {
+export function riLeadDayFacts(state,context={}) {
     const a = state?.actors?.player;
     if(!a || a.worldId !== 'book.ri.lead.world') return {};
-    const known = state.simulation?.knowledge?.player || {}, out = {};
+    const known = state.simulation?.knowledge?.player || {}, out = {...riGranaryFacts(state),...riBreakfastFacts(state,context),...riStoneFacts(state,context)};
+    out['book.ri.lead.first_night_choice.open'] = !!a.completed?.['book.ri.lead.refinement.infuse'] && !a.completed?.['book.ri.lead.vital.leave'];
+    out['book.ri.lead.early_recovery.open'] = !!a.completed?.['book.ri.lead.refinement.infuse'] && !a.completed?.['book.ri.lead.refinement.draw_stone'] && !known['book.ri.lead.early_recovery.ready'] && !a.completed?.['book.ri.lead.vital.leave'];
+    const treatment = riLeafQuote(state.clock, known[RI_LEAF_NOTE]?.at);
+    out[`${RI_LEAF_TREATMENT}.ready`] = treatment.outcome === 'complete' && treatment.effects.some(effect => effect.kind === 'heal' && effect.amount >= 2);
     // Patrol state as plain booleans (an unset actor fact is unknown to the rule engine, so it could never satisfy "not out").
     out[`${RI_LEAD_DAY}.on_watch`] = a.facts?.[`${RI_LEAD_DAY}.patrol_out`] === true;
     out[`${RI_LEAD_DAY}.hurt`] = a.facts?.[`${RI_LEAD_DAY}.injured`] === true;

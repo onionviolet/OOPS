@@ -1,0 +1,12 @@
+{
+  "scope": "coordinator built-in desktop observation; recorded from coordinator report, no separate browser by this lane",
+  "bundleSha256": "b9d9d7572f628b9d34cafce3ed3a2003e12d966dd195f71db3a3130ef28c5989",
+  "observed": [
+    "Ordinary Climb present in house; immediate Repeat absent",
+    "Climb reaches roof at minute 3",
+    "Lower returns to house at minute 4",
+    "Climb available again; immediate Repeat remains absent"
+  ],
+  "nativeFixtureCoverage": "three real farming jobs and three training jobs, pending save restore and input limits covered by focused tests; not a separate farm browser replay",
+  "primaryBundleAtRecordSha256": "b9d9d7572f628b9d34cafce3ed3a2003e12d966dd195f71db3a3130ef28c5989"
+}

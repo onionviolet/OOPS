@@ -1,5 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {jsonData} from '../src/simulation_contracts.js';
+
+test('invalid structured input identifies its extension and nested field', () => {
+    const row = {commands:[{requires:{any:[{reason:undefined}]}}]};
+    assert.throws(() => jsonData(row, 0, 'book.example'), /Simulation data must be JSON\. At book\.example\.commands\.0\.requires\.any\.0\.reason/);
+});
 import {createContentRegistry} from '../src/expansion_engine.js';
 import {compileStructuredPack, mergeStructuredPack, stageStructuredNativeObjects} from '../src/structured_pack_definitions.js';
 

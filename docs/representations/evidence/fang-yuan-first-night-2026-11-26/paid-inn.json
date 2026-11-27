@@ -1,0 +1,83 @@
+{
+  "schema": "fang-yuan-paid-room/1",
+  "testedBundle": "8751c15de722c1deff382507b29c841ed535f6df4772d1048f7e14c70ebc423f",
+  "scope": "Paid inn bed, room access, same-body recovery and compatibility with earlier paid-room saves.",
+  "earlierPaidRoomInput": "8dc42926d82fd20e88bc198631fe676e03009ff75b3a47d50114812e5b0e411d",
+  "earnedDepletedExportInput": "14857da33fc4da2637fd35a1095a81f369d2752ee3034733305ed37eae97dd0a",
+  "ordinaryRoute": [
+    {
+      "action": "buy_wine",
+      "scene": "grove",
+      "essence": 44,
+      "untouchedStones": 1
+    },
+    {
+      "action": "lure",
+      "scene": "grove",
+      "essence": 44,
+      "untouchedStones": 1
+    },
+    {
+      "action": "follow",
+      "scene": "crevice",
+      "essence": 44,
+      "untouchedStones": 1
+    },
+    {
+      "action": "take_worm",
+      "scene": "crevice",
+      "essence": 44,
+      "untouchedStones": 1
+    },
+    {
+      "action": "search_crevice",
+      "scene": "crevice",
+      "essence": 44,
+      "untouchedStones": 16
+    },
+    {
+      "action": "return_inn",
+      "scene": "inn",
+      "essence": 44,
+      "untouchedStones": 16
+    },
+    {
+      "action": "first_night",
+      "scene": "inn",
+      "essence": 14,
+      "untouchedStones": 14
+    }
+  ],
+  "sleepAndBreakfast": [
+    {
+      "action": "inn-sleep-save-reload-export-import-wake",
+      "clock": 15829,
+      "scene": "inn",
+      "essence": 16,
+      "stones": 14,
+      "sleeping": false,
+      "worked": 1,
+      "brother": 0
+    },
+    {
+      "action": "brother",
+      "clock": 15858,
+      "scene": "inn",
+      "essence": 17,
+      "stones": 19,
+      "sleeping": false,
+      "worked": 1,
+      "brother": 1
+    }
+  ],
+  "restoration": "Native Save/reload and literal Export/Import while sleeping. Waking after thirty world minutes kept the same inventory and prior worm-work completion. The newer household choice remained unadmitted throughout.",
+  "desktop": {
+    "browser": "built-in background browser",
+    "viewport": [
+      1280,
+      720
+    ],
+    "route": "Imported the earned paid room at 16:59. Sleep in your room at the inn entered native sleep at 15/44. After waking the reserve read 18/44; four untouched stones remained. The subsequent wine purchase took two and Local actions at the grove displayed no bed."
+  },
+  "errors": []
+}

@@ -1,0 +1,35 @@
+{
+  "scope": "derived structured immediate queue eligibility; no native command or source-pack edits",
+  "paths": [
+    {
+      "path": "src/structured_queue_repeat.js",
+      "baselineSha256": null,
+      "candidateSha256": "97eadbcc2adf7d8e534998bcad02f1eea35a73e438fba73d28c143b98dbc9fff"
+    },
+    {
+      "path": "src/structured_pack_runtime.js",
+      "baselineSha256": "f975e3b913139488d4377985cc0812c7a55fae065ecc7b93663d1392fa1ef1d5",
+      "candidateSha256": "e9fcf142bdd6f48bb10dfd94b2744263da04e296eb2707afbc6f3485cbe4f4fc"
+    },
+    {
+      "path": "src/structured_pack_ui.js",
+      "baselineSha256": "b6f65945d2e3d954fafd9ed5dbad77b96310651c053073abf18afdb8dfd6dfc4",
+      "candidateSha256": "3bc941ae44b986c9881986a08386de35eb8ae946d79feddb613dfe768c0a9922"
+    },
+    {
+      "path": "tests/structured_queue_repeat.test.js",
+      "baselineSha256": null,
+      "candidateSha256": "c40b57c2164b6e0a074d0a02f1511b1fc53b71198aedbd746e4d076210821672"
+    },
+    {
+      "path": "tests/structured_pack_runtime.test.js",
+      "baselineSha256": "87cede21addb30f05f9fd4caeaad9a5640239095f9b56ad1372de9a7576441c5",
+      "candidateSha256": "b1c38ef3651caf8cd2ab97ac470290e9099e36d24e29d0fe9d9491887188fbeb"
+    },
+    {
+      "path": "tests/structured_pack_ui.test.js",
+      "baselineSha256": "bdbd40da1373a352a0b51f0c18caabbeedb01cfd4e05298e0b396a73bf94fdaa",
+      "candidateSha256": "0076d0594a5b620739adab1572df7fd9345567a84198ae66e4ebbe329a51e7bd"
+    }
+  ]
+}

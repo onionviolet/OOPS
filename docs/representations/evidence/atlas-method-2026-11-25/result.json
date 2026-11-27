@@ -1,0 +1,38 @@
+[
+  {
+    "key": "lotm1",
+    "prefix": "lotm1c127",
+    "pass": "rules",
+    "kind": "rules",
+    "result": {
+      "status": "verified",
+      "method": "manual-structured-reading",
+      "label": "Manual structured reading",
+      "provider": "unknown",
+      "locatorScope": {
+        "from": "zh 第127章 p1",
+        "through": "zh 第127章 p64"
+      }
+    },
+    "changedBytes": "unknown",
+    "mismatchedReceiptHash": "unknown"
+  },
+  {
+    "key": "lotm1",
+    "prefix": "lotm1c127",
+    "pass": "rules",
+    "kind": "other",
+    "result": {
+      "status": "verified",
+      "method": "manual-structured-reading",
+      "label": "Manual structured reading",
+      "provider": "unknown",
+      "locatorScope": {
+        "from": "zh 第127章 p1",
+        "through": "zh 第127章 p64"
+      }
+    },
+    "changedBytes": "unknown",
+    "mismatchedReceiptHash": "unknown"
+  }
+]

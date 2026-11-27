@@ -1,7 +1,8 @@
+import {linkFixtureInput} from '../helpers/fixture_fs.mjs';
 // Private whole-book fixture: sample the eager location contract without saving
 // dormant roles. Full-game exact save comparison is opt-in with a frozen root.
 import test from 'node:test';import assert from 'node:assert/strict';
-import {readFile,mkdtemp,cp,readdir,symlink,writeFile} from 'node:fs/promises';
+import {readFile,mkdtemp,cp,readdir,writeFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';import {join,resolve} from 'node:path';import {fileURLToPath} from 'node:url';
 import {execFile} from 'node:child_process';import {promisify} from 'node:util';
 import {whereabouts} from '../../src/cast_schedule.js';
@@ -32,7 +33,7 @@ test('150 whole-book people match eager locations through sampled boundaries',as
 });
 async function snapshot(source,dir,pack){
  for(const name of ['src','scripts','tests','private_packs'])await cp(join(source,name),join(dir,name),{recursive:true});
- for(const e of await readdir(root,{withFileTypes:true}))if(!['.git','src','scripts','tests','private_packs'].includes(e.name))await symlink(join(root,e.name),join(dir,e.name),e.isDirectory()?'dir':'file');
+ for(const e of await readdir(root,{withFileTypes:true}))if(!['.git','src','scripts','tests','private_packs'].includes(e.name))await linkFixtureInput(join(root,e.name),join(dir,e.name),e.isDirectory()?'dir':'file');
  await cp(pack,join(dir,'private_packs/lotm-cast/cast.json'));
  let main=await readFile(join(dir,'src/main.js'),'utf8');
  if(!main.includes('as p5CastReady'))main+="\nexport {whenCastLoaded as p5CastReady} from './book_world_lotm_cast_days.js';\nexport {openStepperBatch};\nexport {setClockSpanModeForTests} from './clock_owner.js';\nexport const p5EnrollBe=()=>domainRegistry.command('lotm','enrollBeFresh')();\n";

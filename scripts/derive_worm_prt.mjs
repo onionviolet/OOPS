@@ -8,6 +8,7 @@
 // Baseline: the most common primary class (or stated number) among the NON-held-out stated rows; it scores every row it is asked about.
 import {readFileSync, writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
+import {readCanonicalText} from './canonical_text.mjs';
 import {fileURLToPath} from 'node:url';
 import {classSet, primaryOf, ratingOf} from './worm_prt_rules.mjs';
 
@@ -82,7 +83,7 @@ export function build() {
         derived[id] = e;
     }
     return {meta: {pass: 'docs/research/power-catalogues-2026-11-16/lanes/derive-worm.md', date: '2026-11-17', status: 'proposal (AD32)',
-        rulesCommit: '38159016a (rules and stated numbers frozen before this scorer ran)', rulesHash: createHash('sha1').update(readFileSync(new URL('../scripts/worm_prt_rules.mjs', import.meta.url))).digest('hex').slice(0, 10),
+        rulesCommit: '38159016a (rules and stated numbers frozen before this scorer ran)', rulesHash: createHash('sha1').update(readCanonicalText(new URL('../scripts/worm_prt_rules.mjs', import.meta.url))).digest('hex').slice(0, 10),
         split: 'GKM429: sha1(id)[0] < 0x33 held out', baselines: {class: `most common training primary (${basePrimary})`, rating: `most common training stated number (${baseNum})`},
         bandDefinitions: {class: 'primaryInCanonSet = the derived primary appears anywhere in the canon class set', rating: 'within1 = within one of any stated value'}},
         class: classScore, rating: ratingScore, fanTier: fanScore, derived};

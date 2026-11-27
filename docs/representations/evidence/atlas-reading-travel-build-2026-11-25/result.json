@@ -1,0 +1,118 @@
+{
+  "viewport": "1366x768",
+  "snapshotSha256": "60184212a7d92c0fc2104780e5959e4e3414b7fdfa3cc662bd8cbfbf4d26f28b",
+  "definitionProjection": {
+    "schema": "atlas-registered-travel/1",
+    "measuredAt": "2026-11-26T00:49:04.953Z",
+    "worlds": [
+      {
+        "group": "Frontier, not reached from the Village",
+        "nativeEdges": 0,
+        "relocationEdges": 2,
+        "directedEdges": 2,
+        "commands": 2,
+        "places": 2
+      },
+      {
+        "group": "Harry Potter",
+        "nativeEdges": 0,
+        "relocationEdges": 40,
+        "directedEdges": 40,
+        "commands": 42,
+        "places": 31
+      },
+      {
+        "group": "Proto23 reference",
+        "nativeEdges": 2,
+        "relocationEdges": 0,
+        "directedEdges": 2,
+        "commands": 0,
+        "places": 2
+      },
+      {
+        "group": "Reverend Insanity",
+        "nativeEdges": 0,
+        "relocationEdges": 74,
+        "directedEdges": 74,
+        "commands": 99,
+        "places": 40
+      },
+      {
+        "group": "Shadow Slave",
+        "nativeEdges": 0,
+        "relocationEdges": 4,
+        "directedEdges": 4,
+        "commands": 6,
+        "places": 4
+      },
+      {
+        "group": "Village",
+        "nativeEdges": 165,
+        "relocationEdges": 0,
+        "directedEdges": 165,
+        "commands": 0,
+        "places": 79
+      }
+    ],
+    "basis": "Registered native connections and explicit player relocation command effects between admitted native locations. Includes conditional and story-gated movement; not a current-availability or played-proof verdict.",
+    "snapshotSha256": "60184212a7d92c0fc2104780e5959e4e3414b7fdfa3cc662bd8cbfbf4d26f28b",
+    "status": "measured",
+    "source": "snapshot"
+  },
+  "travelCounts": [
+    {
+      "world": "hp",
+      "group": "Harry Potter",
+      "nativeEdges": 0,
+      "relocationEdges": 40,
+      "directedEdges": 40,
+      "commands": 42,
+      "places": 31
+    },
+    {
+      "world": "lotm",
+      "group": "Lord of the Mysteries",
+      "nativeEdges": 12,
+      "relocationEdges": 0,
+      "directedEdges": 12,
+      "commands": 0,
+      "places": 4
+    },
+    {
+      "world": "ri",
+      "group": "Reverend Insanity",
+      "nativeEdges": 0,
+      "relocationEdges": 74,
+      "directedEdges": 74,
+      "commands": 99,
+      "places": 40
+    },
+    {
+      "world": "ss",
+      "group": "Shadow Slave",
+      "nativeEdges": 0,
+      "relocationEdges": 4,
+      "directedEdges": 4,
+      "commands": 6,
+      "places": 4
+    }
+  ],
+  "results": [
+    {
+      "world": "hp",
+      "edges": 40,
+      "text": "Definitions available\nRegistered travel\n\n40 registered directed movement edges across 31 native locations · 0 native connections · 40 explicit relocation paths\n\nRegistered definitions may be conditional, gated by the story, or use travel methods beyond walking. They do not establish current access or a played travel proof.\n\nDefinition projection: 2026-11-26T00:49:04.953Z · measuredOpen registered locations"
+    },
+    {
+      "world": "ri",
+      "edges": 74,
+      "text": "Definitions available\nRegistered travel\n\n74 registered directed movement edges across 40 native locations · 0 native connections · 74 explicit relocation paths\n\nRegistered definitions may be conditional, gated by the story, or use travel methods beyond walking. They do not establish current access or a played travel proof.\n\nDefinition projection: 2026-11-26T00:49:04.953Z · measuredOpen registered locations"
+    },
+    {
+      "world": "mol",
+      "edges": 0,
+      "text": "Not projected\nRegistered travel\n\nNo registered travel edges in the available projection; this does not establish that travel is absent.\n\nRegistered definitions may be conditional, gated by the story, or use travel methods beyond walking. They do not establish current access or a played travel proof.\n\n23 cast-place projections are listed separately; a district or host label is not an edge.\n\nDefinition projection: 2026-11-26T00:49:04.953Z · measuredOpen registered locations"
+    }
+  ],
+  "pageErrors": []
+}

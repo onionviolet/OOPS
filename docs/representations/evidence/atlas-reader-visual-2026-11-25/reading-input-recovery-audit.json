@@ -1,0 +1,3706 @@
+{
+  "schema": "atlas-input-recovery-audit/1",
+  "scope": "152 historical registry entries and original named-machine metadata; separate added lotm1 excluded from prepared-input comparison",
+  "note": "No file transfer or raw source reading. Entirely absent prepared prefixes are outside current observed-prefix output denominator. Windows output-only orphans do not imply original prepared source is absent.",
+  "worlds": [
+    {
+      "world": "lotm",
+      "registeredPrepared": 607,
+      "observedPrefixes": 731,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 124,
+      "missingOutputs": 562,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 562,
+      "unattestedOutputs": 73,
+      "books": 8,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "wus",
+      "registeredPrepared": 265,
+      "observedPrefixes": 260,
+      "preparedPrefixesWithoutObservedOutput": 5,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 354,
+      "missingWithPreparedMetadata": 354,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 8,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "asl",
+      "registeredPrepared": 151,
+      "observedPrefixes": 175,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 24,
+      "missingOutputs": 264,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 264,
+      "unattestedOutputs": 0,
+      "books": 6,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "ttks5",
+      "registeredPrepared": 668,
+      "observedPrefixes": 106,
+      "preparedPrefixesWithoutObservedOutput": 562,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 212,
+      "missingWithPreparedMetadata": 212,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "ri",
+      "registeredPrepared": 736,
+      "observedPrefixes": 178,
+      "preparedPrefixesWithoutObservedOutput": 573,
+      "observedPrefixesWithoutPreparedMetadata": 15,
+      "missingOutputs": 183,
+      "missingWithPreparedMetadata": 18,
+      "missingWithoutPreparedMetadata": 165,
+      "unattestedOutputs": 1,
+      "books": 24,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "gc",
+      "registeredPrepared": 81,
+      "observedPrefixes": 89,
+      "preparedPrefixesWithoutObservedOutput": 1,
+      "observedPrefixesWithoutPreparedMetadata": 9,
+      "missingOutputs": 99,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 99,
+      "unattestedOutputs": 0,
+      "books": 2,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "ss",
+      "registeredPrepared": 495,
+      "observedPrefixes": 377,
+      "preparedPrefixesWithoutObservedOutput": 118,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 18,
+      "missingWithPreparedMetadata": 18,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 1,
+      "books": 4,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "sth",
+      "registeredPrepared": 44,
+      "observedPrefixes": 44,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 2,
+      "missingWithPreparedMetadata": 2,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "hp",
+      "registeredPrepared": 179,
+      "observedPrefixes": 179,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 7,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "mol",
+      "registeredPrepared": 106,
+      "observedPrefixes": 106,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "coi",
+      "registeredPrepared": 296,
+      "observedPrefixes": 296,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 2,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "ttks1",
+      "registeredPrepared": 60,
+      "observedPrefixes": 60,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "ttks2",
+      "registeredPrepared": 333,
+      "observedPrefixes": 333,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "ttks3",
+      "registeredPrepared": 215,
+      "observedPrefixes": 215,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "ttks4",
+      "registeredPrepared": 103,
+      "observedPrefixes": 103,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "worm",
+      "registeredPrepared": 266,
+      "observedPrefixes": 266,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "yas",
+      "registeredPrepared": 121,
+      "observedPrefixes": 120,
+      "preparedPrefixesWithoutObservedOutput": 1,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 5,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "pr",
+      "registeredPrepared": 83,
+      "observedPrefixes": 83,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 2,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "sup",
+      "registeredPrepared": 258,
+      "observedPrefixes": 258,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "rtoc",
+      "registeredPrepared": 329,
+      "observedPrefixes": 328,
+      "preparedPrefixesWithoutObservedOutput": 1,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "motf",
+      "registeredPrepared": 319,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 319,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 7,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "toa",
+      "registeredPrepared": 228,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 228,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 6,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "rg",
+      "registeredPrepared": 371,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 371,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 6,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "eld",
+      "registeredPrepared": 112,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 112,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 3,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "stc",
+      "registeredPrepared": 54,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 54,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 2,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "rak",
+      "registeredPrepared": 20,
+      "observedPrefixes": 20,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "pl",
+      "registeredPrepared": 45,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 45,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "pge",
+      "registeredPrepared": 25,
+      "observedPrefixes": 25,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "wtc",
+      "registeredPrepared": 238,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 238,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "mb",
+      "registeredPrepared": 179,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 179,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 7,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "boc",
+      "registeredPrepared": 156,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 156,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 5,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "sg",
+      "registeredPrepared": 87,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 87,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 5,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "poa",
+      "registeredPrepared": 330,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 330,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 10,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "mm",
+      "registeredPrepared": 173,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 173,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 5,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "dc",
+      "registeredPrepared": 112,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 112,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 4,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "dl",
+      "registeredPrepared": 85,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 85,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 2,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "az",
+      "registeredPrepared": 41,
+      "observedPrefixes": 41,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "hwfwm",
+      "registeredPrepared": 57,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 57,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "vs",
+      "registeredPrepared": 33,
+      "observedPrefixes": 33,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "bdm",
+      "registeredPrepared": 25,
+      "observedPrefixes": 25,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "fod",
+      "registeredPrepared": 16,
+      "observedPrefixes": 16,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "rune",
+      "registeredPrepared": 151,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 151,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "twi",
+      "registeredPrepared": 225,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 225,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    },
+    {
+      "world": "ark",
+      "registeredPrepared": 494,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 494,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "books": 1,
+      "allOriginalSourcesHeld": true
+    }
+  ],
+  "books": [
+    {
+      "world": "hp",
+      "key": "hp1",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 9,
+      "observedPrefixes": 9,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "hp",
+      "key": "hp2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 17,
+      "observedPrefixes": 17,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "hp",
+      "key": "hp3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 19,
+      "observedPrefixes": 19,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "hp",
+      "key": "hp4",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 32,
+      "observedPrefixes": 32,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "hp",
+      "key": "hp5",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 38,
+      "observedPrefixes": 38,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "hp",
+      "key": "hp6",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 30,
+      "observedPrefixes": 30,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "hp",
+      "key": "hp7",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 34,
+      "observedPrefixes": 34,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "mol",
+      "key": "mol",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 106,
+      "observedPrefixes": 106,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "ss",
+      "key": "ss",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 302,
+      "observedPrefixes": 302,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "ss",
+      "key": "ss10",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 73,
+      "observedPrefixes": 73,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "lotm",
+      "key": "lotm2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 135,
+      "observedPrefixes": 216,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 81,
+      "missingOutputs": 98,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 98,
+      "unattestedOutputs": 72,
+      "missingPrefixGroups": 9,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "lotm2",
+          "prefix": "lotm2c004",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "lotm",
+      "key": "lotm3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 125,
+      "observedPrefixes": 137,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 12,
+      "missingOutputs": 132,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 132,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 12,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "lotm3",
+          "prefix": "lotm3c004",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "lotm",
+      "key": "lotm4",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 107,
+      "observedPrefixes": 122,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 15,
+      "missingOutputs": 156,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 156,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 15,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "lotm4",
+          "prefix": "lotm4c002",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "lotm",
+      "key": "lotm5",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 102,
+      "observedPrefixes": 108,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 6,
+      "missingOutputs": 66,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 66,
+      "unattestedOutputs": 1,
+      "missingPrefixGroups": 6,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "lotm5",
+          "prefix": "lotm5c056",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "lotm",
+      "key": "lotm6",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 58,
+      "observedPrefixes": 62,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 4,
+      "missingOutputs": 44,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 44,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 4,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "lotm6",
+          "prefix": "lotm6c004",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "lotm",
+      "key": "lotm7",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 44,
+      "observedPrefixes": 49,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 5,
+      "missingOutputs": 55,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 55,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 5,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "lotm7",
+          "prefix": "lotm7c026",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "lotm",
+      "key": "lotm8",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 21,
+      "observedPrefixes": 22,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 1,
+      "missingOutputs": 11,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 11,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 1,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "lotm8",
+          "prefix": "lotm8c016",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "asl",
+      "key": "asl1",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 21,
+      "observedPrefixes": 25,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 4,
+      "missingOutputs": 44,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 44,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 4,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "asl1",
+          "prefix": "asl1c018",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "asl",
+      "key": "asl2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 21,
+      "observedPrefixes": 25,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 4,
+      "missingOutputs": 44,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 44,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 4,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "asl2",
+          "prefix": "asl2c090",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "asl",
+      "key": "asl3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 22,
+      "observedPrefixes": 29,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 7,
+      "missingOutputs": 77,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 77,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 7,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "asl3",
+          "prefix": "asl3c134",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "asl",
+      "key": "asl4",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 27,
+      "observedPrefixes": 31,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 4,
+      "missingOutputs": 44,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 44,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 4,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "asl4",
+          "prefix": "asl4c185",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "asl",
+      "key": "asl5",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 35,
+      "observedPrefixes": 37,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 2,
+      "missingOutputs": 22,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 22,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 2,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "asl5",
+          "prefix": "asl5c253",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "asl",
+      "key": "asl6",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 25,
+      "observedPrefixes": 28,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 3,
+      "missingOutputs": 33,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 33,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 3,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "asl6",
+          "prefix": "asl6c353",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "ss",
+      "key": "ss9",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 69,
+      "observedPrefixes": 1,
+      "preparedPrefixesWithoutObservedOutput": 68,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 9,
+      "missingWithPreparedMetadata": 9,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 1,
+      "representativeAbsent": [
+        {
+          "prefix": "ss9c1846",
+          "chapters": "1846-1851"
+        }
+      ],
+      "representativeMissing": [
+        {
+          "key": "ss9",
+          "prefix": "ss9c1841",
+          "pass": "rules",
+          "kind": "rules"
+        }
+      ]
+    },
+    {
+      "world": "ss",
+      "key": "ss11",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 51,
+      "observedPrefixes": 1,
+      "preparedPrefixesWithoutObservedOutput": 50,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 9,
+      "missingWithPreparedMetadata": 9,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 1,
+      "missingPrefixGroups": 1,
+      "representativeAbsent": [
+        {
+          "prefix": "ss11c2726",
+          "chapters": "2726-2730"
+        }
+      ],
+      "representativeMissing": [
+        {
+          "key": "ss11",
+          "prefix": "ss11c2721",
+          "pass": "rules",
+          "kind": "rules"
+        }
+      ]
+    },
+    {
+      "world": "coi",
+      "key": "coi",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 295,
+      "observedPrefixes": 295,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "coi",
+      "key": "coix",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 1,
+      "observedPrefixes": 1,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "lotm",
+      "key": "lotmx",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 15,
+      "observedPrefixes": 15,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "ttks1",
+      "key": "ttks1",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 60,
+      "observedPrefixes": 60,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "ttks2",
+      "key": "ttks2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 333,
+      "observedPrefixes": 333,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "ttks3",
+      "key": "ttks3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 215,
+      "observedPrefixes": 215,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "ttks4",
+      "key": "ttks4",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 103,
+      "observedPrefixes": 103,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "ttks5",
+      "key": "ttks5",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 668,
+      "observedPrefixes": 106,
+      "preparedPrefixesWithoutObservedOutput": 562,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 212,
+      "missingWithPreparedMetadata": 212,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 106,
+      "representativeAbsent": [
+        {
+          "prefix": "ttks5c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": [
+        {
+          "key": "ttks5",
+          "prefix": "ttks5c002",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "worm",
+      "key": "worm",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 266,
+      "observedPrefixes": 266,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "yas",
+      "key": "yas1",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 27,
+      "observedPrefixes": 26,
+      "preparedPrefixesWithoutObservedOutput": 1,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "yas1c000",
+          "chapters": "0-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "yas",
+      "key": "yas2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 21,
+      "observedPrefixes": 21,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "yas",
+      "key": "yas3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 26,
+      "observedPrefixes": 26,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "yas",
+      "key": "yas4",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 24,
+      "observedPrefixes": 24,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "yas",
+      "key": "yas5",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 23,
+      "observedPrefixes": 23,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "wus",
+      "key": "wus1",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 21,
+      "observedPrefixes": 21,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "wus",
+      "key": "wus2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 35,
+      "observedPrefixes": 35,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "wus",
+      "key": "wus3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 27,
+      "observedPrefixes": 27,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "wus",
+      "key": "wus4",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 37,
+      "observedPrefixes": 36,
+      "preparedPrefixesWithoutObservedOutput": 1,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 72,
+      "missingWithPreparedMetadata": 72,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 36,
+      "representativeAbsent": [
+        {
+          "prefix": "wus4c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": [
+        {
+          "key": "wus4",
+          "prefix": "wus4c003",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "wus",
+      "key": "wus5",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 38,
+      "observedPrefixes": 37,
+      "preparedPrefixesWithoutObservedOutput": 1,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 74,
+      "missingWithPreparedMetadata": 74,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 37,
+      "representativeAbsent": [
+        {
+          "prefix": "wus5c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": [
+        {
+          "key": "wus5",
+          "prefix": "wus5c003",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "wus",
+      "key": "wus6",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 37,
+      "observedPrefixes": 36,
+      "preparedPrefixesWithoutObservedOutput": 1,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 72,
+      "missingWithPreparedMetadata": 72,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 36,
+      "representativeAbsent": [
+        {
+          "prefix": "wus6c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": [
+        {
+          "key": "wus6",
+          "prefix": "wus6c003",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "wus",
+      "key": "wus7",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 37,
+      "observedPrefixes": 36,
+      "preparedPrefixesWithoutObservedOutput": 1,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 72,
+      "missingWithPreparedMetadata": 72,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 36,
+      "representativeAbsent": [
+        {
+          "prefix": "wus7c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": [
+        {
+          "key": "wus7",
+          "prefix": "wus7c003",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "wus",
+      "key": "wus8",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 33,
+      "observedPrefixes": 32,
+      "preparedPrefixesWithoutObservedOutput": 1,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 64,
+      "missingWithPreparedMetadata": 64,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 32,
+      "representativeAbsent": [
+        {
+          "prefix": "wus8c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": [
+        {
+          "key": "wus8",
+          "prefix": "wus8c003",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "gc",
+      "key": "gc1",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 36,
+      "observedPrefixes": 40,
+      "preparedPrefixesWithoutObservedOutput": 1,
+      "observedPrefixesWithoutPreparedMetadata": 5,
+      "missingOutputs": 55,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 55,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 5,
+      "representativeAbsent": [
+        {
+          "prefix": "gc1c000",
+          "chapters": "0-1"
+        }
+      ],
+      "representativeMissing": [
+        {
+          "key": "gc1",
+          "prefix": "gc1c011",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "gc",
+      "key": "gc2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 45,
+      "observedPrefixes": 49,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 4,
+      "missingOutputs": 44,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 44,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 4,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "gc2",
+          "prefix": "gc2c008",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "pr",
+      "key": "pr",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 80,
+      "observedPrefixes": 80,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "pr",
+      "key": "prb",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 3,
+      "observedPrefixes": 3,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "sup",
+      "key": "sup",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 258,
+      "observedPrefixes": 258,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri1",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 28,
+      "observedPrefixes": 28,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 34,
+      "observedPrefixes": 42,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 8,
+      "missingOutputs": 88,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 88,
+      "unattestedOutputs": 1,
+      "missingPrefixGroups": 8,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "ri2",
+          "prefix": "ri2c105",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "ri",
+      "key": "ri3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 34,
+      "observedPrefixes": 38,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 4,
+      "missingOutputs": 44,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 44,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 4,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "ri3",
+          "prefix": "ri3c226",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "ri",
+      "key": "ri4",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 32,
+      "observedPrefixes": 35,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 3,
+      "missingOutputs": 33,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 33,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 3,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "ri4",
+          "prefix": "ri4c320",
+          "pass": "scenes",
+          "kind": "scenes"
+        }
+      ]
+    },
+    {
+      "world": "ri",
+      "key": "ri5",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 33,
+      "observedPrefixes": 33,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri6",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 35,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 35,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "ri6c501",
+          "chapters": "501-503"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri7",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 34,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 34,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "ri7c601",
+          "chapters": "601-603"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri8",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 34,
+      "observedPrefixes": 1,
+      "preparedPrefixesWithoutObservedOutput": 33,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 9,
+      "missingWithPreparedMetadata": 9,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 1,
+      "representativeAbsent": [
+        {
+          "prefix": "ri8c704",
+          "chapters": "704-706"
+        }
+      ],
+      "representativeMissing": [
+        {
+          "key": "ri8",
+          "prefix": "ri8c701",
+          "pass": "rules",
+          "kind": "rules"
+        }
+      ]
+    },
+    {
+      "world": "ri",
+      "key": "ri9",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 33,
+      "observedPrefixes": 1,
+      "preparedPrefixesWithoutObservedOutput": 32,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 9,
+      "missingWithPreparedMetadata": 9,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 1,
+      "representativeAbsent": [
+        {
+          "prefix": "ri9c804",
+          "chapters": "804-806"
+        }
+      ],
+      "representativeMissing": [
+        {
+          "key": "ri9",
+          "prefix": "ri9c801",
+          "pass": "rules",
+          "kind": "rules"
+        }
+      ]
+    },
+    {
+      "world": "ri",
+      "key": "ri10",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 34,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 34,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "ri10c901",
+          "chapters": "901-903"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri11",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 32,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 32,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "ri11c1001",
+          "chapters": "1001-1004"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri12",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 32,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 32,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "ri12c1101",
+          "chapters": "1101-1103"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri13",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 27,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 27,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "ri13c1201",
+          "chapters": "1201-1203"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri14",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 27,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 27,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "ri14c1301",
+          "chapters": "1301-1304"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri15",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 26,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 26,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "ri15c1401",
+          "chapters": "1401-1404"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri16",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 26,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 26,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "ri16c1501",
+          "chapters": "1501-1504"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri17",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 27,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 27,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "ri17c1601",
+          "chapters": "1601-1604"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri18",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 33,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 33,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "ri18c1701",
+          "chapters": "1701-1703"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri19",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 33,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 33,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "ri19c1801",
+          "chapters": "1801-1803"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri20",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 32,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 32,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "ri20c1901",
+          "chapters": "1901-1903"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri21",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 31,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 31,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "ri21c2001",
+          "chapters": "2001-2004"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri22",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 33,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 33,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "ri22c2101",
+          "chapters": "2101-2103"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri23",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 34,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 34,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "ri23c2201",
+          "chapters": "2201-2203"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "ri",
+      "key": "ri24",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 12,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 12,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "ri24c2301",
+          "chapters": "2301-2303"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "rtoc",
+      "key": "rtoc",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 329,
+      "observedPrefixes": 328,
+      "preparedPrefixesWithoutObservedOutput": 1,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "rtocc000",
+          "chapters": "0-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "motf",
+      "key": "motf1",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 38,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 38,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "motf1c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "motf",
+      "key": "motf2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 44,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 44,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "motf2c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "motf",
+      "key": "motf3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 49,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 49,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "motf3c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "motf",
+      "key": "motf4",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 44,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 44,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "motf4c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "motf",
+      "key": "motf5",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 42,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 42,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "motf5c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "motf",
+      "key": "motf6",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 53,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 53,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "motf6c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "motf",
+      "key": "motf7",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 49,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 49,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "motf7c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "toa",
+      "key": "toa1",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 60,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 60,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "toa1c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "toa",
+      "key": "toa2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 46,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 46,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "toa2c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "toa",
+      "key": "toa3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 37,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 37,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "toa3c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "toa",
+      "key": "toa4",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 30,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 30,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "toa4c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "toa",
+      "key": "toa5",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 30,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 30,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "toa5c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "toa",
+      "key": "toa6",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 25,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 25,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "toa6c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "rg",
+      "key": "rg1",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 45,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 45,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "rg1c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "rg",
+      "key": "rg2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 53,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 53,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "rg2c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "rg",
+      "key": "rg3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 53,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 53,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "rg3c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "rg",
+      "key": "rg4",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 59,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 59,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "rg4c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "rg",
+      "key": "rg5",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 86,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 86,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "rg5c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "rg",
+      "key": "rg6",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 75,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 75,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "rg6c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "eld",
+      "key": "eld1",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 30,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 30,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "eld1c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "eld",
+      "key": "eld2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 36,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 36,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "eld2c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "eld",
+      "key": "eld3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 46,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 46,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "eld3c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "stc",
+      "key": "stc2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 28,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 28,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "stc2c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "stc",
+      "key": "stc3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 26,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 26,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "stc3c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "rak",
+      "key": "rak",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 20,
+      "observedPrefixes": 20,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "pl",
+      "key": "pl",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 45,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 45,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "plc001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "pge",
+      "key": "pge",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 25,
+      "observedPrefixes": 25,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "wtc",
+      "key": "wtc",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 238,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 238,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "wtcc001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "mb",
+      "key": "mb1",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 6,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 6,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "mb1c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "mb",
+      "key": "mb2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 25,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 25,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "mb2c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "mb",
+      "key": "mb3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 28,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 28,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "mb3c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "mb",
+      "key": "mb4",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 30,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 30,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "mb4c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "mb",
+      "key": "mb5",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 26,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 26,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "mb5c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "mb",
+      "key": "mb6",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 33,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 33,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "mb6c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "mb",
+      "key": "mb7",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 31,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 31,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "mb7c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "boc",
+      "key": "boc1",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 27,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 27,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "boc1c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "boc",
+      "key": "boc2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 36,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 36,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "boc2c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "boc",
+      "key": "boc3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 40,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 40,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "boc3c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "boc",
+      "key": "boc4",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 34,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 34,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "boc4c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "boc",
+      "key": "boc5",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 19,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 19,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "boc5c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "sg",
+      "key": "sg1",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 30,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 30,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "sg1c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "sg",
+      "key": "sg2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 14,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 14,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "sg2c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "sg",
+      "key": "sg3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 21,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 21,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "sg3c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "sg",
+      "key": "sg4",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 11,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 11,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "sg4c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "sg",
+      "key": "sg5",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 11,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 11,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "sg5c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "poa",
+      "key": "poa1",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 41,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 41,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "poa1c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "poa",
+      "key": "poa2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 31,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 31,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "poa2c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "poa",
+      "key": "poa3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 33,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 33,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "poa3c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "poa",
+      "key": "poa4",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 24,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 24,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "poa4c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "poa",
+      "key": "poa5",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 39,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 39,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "poa5c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "poa",
+      "key": "poa6",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 32,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 32,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "poa6c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "poa",
+      "key": "poa7",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 19,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 19,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "poa7c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "poa",
+      "key": "poa8",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 41,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 41,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "poa8c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "poa",
+      "key": "poa10",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 40,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 40,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "poa10c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "poa",
+      "key": "poa11",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 30,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 30,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "poa11c001",
+          "chapters": "1-1"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "mm",
+      "key": "mm1",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 32,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 32,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "mm1c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "mm",
+      "key": "mm2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 30,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 30,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "mm2c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "mm",
+      "key": "mm3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 43,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 43,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "mm3c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "mm",
+      "key": "mm4",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 33,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 33,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "mm4c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "mm",
+      "key": "mm5",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 35,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 35,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "mm5c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "dc",
+      "key": "dc3",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 25,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 25,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "dc3c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "dc",
+      "key": "dc4",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 23,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 23,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "dc4c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "dc",
+      "key": "dc5",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 25,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 25,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "dc5c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "dc",
+      "key": "dc6",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 39,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 39,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "dc6c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "dl",
+      "key": "dl1",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 45,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 45,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "dl1c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "dl",
+      "key": "dl2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 40,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 40,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "dl2c001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "az",
+      "key": "az",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 41,
+      "observedPrefixes": 41,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "hwfwm",
+      "key": "hwfwm",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 57,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 57,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "hwfwmc001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "sth",
+      "key": "sth",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 44,
+      "observedPrefixes": 44,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 2,
+      "missingWithPreparedMetadata": 2,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 1,
+      "representativeAbsent": [],
+      "representativeMissing": [
+        {
+          "key": "sth",
+          "prefix": "sthc029",
+          "pass": "people",
+          "kind": "people"
+        }
+      ]
+    },
+    {
+      "world": "vs",
+      "key": "vs",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 33,
+      "observedPrefixes": 33,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "bdm",
+      "key": "bdm",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 25,
+      "observedPrefixes": 25,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "fod",
+      "key": "fod2",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 16,
+      "observedPrefixes": 16,
+      "preparedPrefixesWithoutObservedOutput": 0,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [],
+      "representativeMissing": []
+    },
+    {
+      "world": "rune",
+      "key": "rune",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 151,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 151,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "runec001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "twi",
+      "key": "twi",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 225,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 225,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "twic001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    },
+    {
+      "world": "ark",
+      "key": "ark",
+      "sourceHeldOnOriginalMachine": true,
+      "registeredPrepared": 494,
+      "observedPrefixes": 0,
+      "preparedPrefixesWithoutObservedOutput": 494,
+      "observedPrefixesWithoutPreparedMetadata": 0,
+      "missingOutputs": 0,
+      "missingWithPreparedMetadata": 0,
+      "missingWithoutPreparedMetadata": 0,
+      "unattestedOutputs": 0,
+      "missingPrefixGroups": 0,
+      "representativeAbsent": [
+        {
+          "prefix": "arkc001",
+          "chapters": "1-2"
+        }
+      ],
+      "representativeMissing": []
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "status": "agent-verified-not-human-reviewed",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634",
+  "servedBundleSha256": [
+    "06758b45d2e5de05aa4e2cb6819e7cc8dc757188e73f4d51fa8dceb34b791634"
+  ],
+  "packSha256": "4e1b1e4be8d9420553259132ad02ceef7b41fb6fa0f9241aa63bcb619eea5c0e",
+  "input": {
+    "kind": "unchanged actual UI-earned ordinary-local arrival checkpoint",
+    "sha256": "32f8ff953ab080ef2dabdd75e2a8fb16650cbbfcb683ffb37b30a657cf5ee6cc",
+    "earnedOnBundleSha256": "d8152afb60928749285da28f088c1750ac0ef2c2ba7e4efd7a13ab1100bb3b89",
+    "elapsed": 520
+  },
+  "setup": "Load the authentic earned checkpoint; actual native walk controls and native test-tick time advancement, with no outcome edits.",
+  "branches": [
+    {
+      "kind": "exact-close",
+      "elapsed": 540,
+      "watchDisabled": true,
+      "unobserved": true
+    },
+    {
+      "kind": "actual-hour-elsewhere",
+      "placeReference": "lotm.place.sline-bakery",
+      "awayFrom": 522,
+      "awayUntil": 582,
+      "returnedAt": 584,
+      "unobserved": true,
+      "noTentPay": true,
+      "ordinaryInquiryVisible": true
+    }
+  ],
+  "pageErrors": [],
+  "inputUnchanged": true,
+  "packUnchanged": true
+}

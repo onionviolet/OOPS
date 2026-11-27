@@ -1,0 +1,29 @@
+{
+  "viewport": "1920x1080",
+  "scope": "actual persistent Workbench queue, normal explicit form; no inferred labels or gameplay promotion",
+  "laterProposalId": "4d1614c2ed8e24b134ba0e637d417faac6a01bd8f9875aa061af46501479cc03",
+  "earlierProposalId": "d36ab6955de9976f57e6204e1cecd183e12acdc64f322f694b686582aecdb773",
+  "relation": {
+    "id": "1048852b81706998e2e259870afff9e971ab53d0242df1ed2e2ccaa7e6704681",
+    "schema": "atlas-proposal-qualification/1",
+    "laterProposalId": "4d1614c2ed8e24b134ba0e637d417faac6a01bd8f9875aa061af46501479cc03",
+    "earlierProposalId": "d36ab6955de9976f57e6204e1cecd183e12acdc64f322f694b686582aecdb773",
+    "qualification": "The chapter-130 source qualifies the chapter-129 replacement promise for this response: Old Neil reassures Klein about the used charm and intends to approach Swain later. It supports a contextual release; it does not establish a third-party agreement, claim amount or payment.",
+    "evidence": {
+      "path": "docs/research/LOTM_CH130_BOUNDED_READING_2026-11-25.md",
+      "resolvedPath": "docs/research/LOTM_CH130_BOUNDED_READING_2026-11-25.md",
+      "sha256": "80d2713bdb15bae044b733eefd4235805da9c3468384fb55a694f0c623e3f404"
+    },
+    "files": {
+      "evidence": {
+        "status": "unchanged"
+      }
+    }
+  },
+  "originalStatementsUnchanged": true,
+  "originalStatementFiles": 29,
+  "idempotent": true,
+  "reloaded": true,
+  "bothDirectionsClicked": true,
+  "errors": []
+}

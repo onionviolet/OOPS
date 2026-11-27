@@ -33,6 +33,8 @@ test('English names: whole-word match, titles dropped from the key, a bare title
 
 test('English shard: parse, candidates, glossary hits and the name-at-locator lint', () => {
     const map = parseShard(EN);
+    assert.deepEqual(parseShard(EN.replace(/\r?\n/g, '\r\n')), map);
+    assert.equal(parseShard('=== 第1章 测试\r\np1: 你好\r\n').get('1:1'), '你好');
     assert.equal(map.lang, 'en');
     assert.equal(map.book, 2);
     assert.equal(map.get('3:1').startsWith('Anna'), true);

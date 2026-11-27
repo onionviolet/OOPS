@@ -1,0 +1,34 @@
+{
+  "referenceCount": 445,
+  "canonicalFiles": 296,
+  "filesWithStructuredRows": 231,
+  "structuredRows": 13655,
+  "kinds": {
+    "backlog-entry": 7929,
+    "feature-proposal": 3642,
+    "acceptance-check": 345,
+    "historical-note": 1136,
+    "finding": 603
+  },
+  "exactReferences": [
+    {
+      "owner": "docs/gm/dispatch/play-surface-2026-11-14/CONSIDERATIONS.md",
+      "code": "PS153",
+      "id": "61268f9dfc88e941773ba8736ad255f772a3097decf6a51f19d4c1f24662e253",
+      "handoffs": [
+        "7f5b831dd993bdc625dbfce2afb8532b13de4a797897a24ecb899a50a4989c1f"
+      ]
+    },
+    {
+      "owner": "docs/research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md",
+      "code": "N2",
+      "id": "f9dceadaf608390dd3b2a5be153162ddedc37548d8dd2ff66d985c977d673f48",
+      "handoffs": [
+        "5f0c07c35f376c6433a9967abc683ba9044ea752881f5a93cf23592ae7813f9c"
+      ]
+    }
+  ],
+  "unreadableOwners": [],
+  "queue": 8,
+  "note": "Exact citations to a currently parsed source entry only. A gameplay implementation can predate the Workbench or refer to its owner more generally."
+}

@@ -37,7 +37,7 @@ const words = s => String(s).trim().split(/\s+/).filter(Boolean).length;
 export function parseShard(text) {
     const map = new Map();
     let ch = null;
-    for (const line of text.split('\n')) {
+    for (const line of text.split(/\r?\n/)) {
         const h = headerOf(line);
         if (h) { ch = h.ch; map.lang = h.lang; map.book = h.book; continue; }
         const p = line.match(/^p(\d+): (.*)$/);

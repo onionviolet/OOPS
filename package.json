@@ -7,6 +7,7 @@
     "serve": "python3 -m http.server 8123 --bind 127.0.0.1",
     "test": "node scripts/slot_run.mjs --kind suite --slots 1 --max-load 12 --load-wait 300 -- node scripts/test_suite.mjs",
     "gate:push": "node scripts/push_gate.mjs",
+    "gate:save": "node scripts/save_gate.mjs",
     "test:raw": "node --test tests/*.test.js",
     "test:changed": "node scripts/test_changed.mjs",
     "test:budget": "node scripts/test_budget_reporter.mjs",

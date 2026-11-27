@@ -1,0 +1,24 @@
+{
+  "viewport": "1920x1080",
+  "fixture": "Synthetic isolated proposals; existing public consumer/receipt files; no actual reading coverage claim",
+  "proposalId": "e32fb0319b1d6e5d40d31f94e58994482e8ebc9615846020b11b32613f4e13f4",
+  "reportId": "9a442cb22c82687ee869e691503f27910cccc4f31794c25ea6d439a3069bef81",
+  "checks": [
+    "Direct immutable proposal route filters the queue and links back",
+    "Normal form attaches fingerprinted public files without mutating or promoting proposal",
+    "Duplicate API submission is idempotent",
+    "Scoped endpoint rejects traversal and cross-origin writes",
+    "Attachment survives normal reload",
+    "Historical fingerprint fixture labels file drift without changing proposal stage",
+    "All-handoffs link restores other immutable proposals",
+    "Queue filters distinguish outstanding work, implementation reports and changed files",
+    "Reading-record select has an explicit exact accessible name"
+  ],
+  "pageErrors": [],
+  "driftProof": "Browser uses a historical fingerprint fixture; unit tests mutate actual isolated files",
+  "sourceHashes": {
+    "reading-handoffs.mjs": "486aed86652b02288aa64184e9ab406672b576a6e8410bd2f84cb59e3bc3f75f",
+    "reading-handoffs-view.mjs": "66654d23f15af9242b7771a2fb5896a05791c099ac7d1bcc3640f986c59f3c61",
+    "serve.mjs": "546366560c45395eea5f409d951909de8f690f7f35379f154082ae1400166a19"
+  }
+}

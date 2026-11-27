@@ -321,7 +321,7 @@ const gradedOk = (dir, file) => {
 };
 const readDirJsonl = (dir, re) => {
     const out = [];
-    for (const f of execFileSync('ls', [dir]).toString().split('\n')) if (re.test(f) && !f.startsWith('sample') && gradedOk(dir, f)) out.push(...readJsonl(join(dir, f)));
+    for (const f of readdirSync(dir).sort()) if (re.test(f) && !f.startsWith('sample') && gradedOk(dir, f)) out.push(...readJsonl(join(dir, f)));
     return out;
 };
 
@@ -606,7 +606,7 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
         // Write only what this pass returned: a scenes pass must not blank the census an earlier pass wrote for the same prefix.
         for (const k of keys) writeJsonl(join(plan.privateDir, `${p}_${k}.jsonl`), rows[k]);
         if (runTools) {
-            execFileSync('node', [join(here, 'migrate_shard.mjs'), plan.privateDir, p, s.shard]);
+            execFileSync(process.execPath, [join(here, 'migrate_shard.mjs'), plan.privateDir, p, s.shard]);
             for (const k of keys) copyFileSync(join(plan.privateDir, `${p}_m13_${k}.jsonl`), join(plan.privateDir, `${p}m_${k}.jsonl`));
         }
         const suffix = runTools ? 'm' : '';

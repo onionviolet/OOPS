@@ -4,6 +4,24 @@ YAIRPG uses Anthropic Message Batches and OpenAI Batch to build source indexes o
 
 **Paid route.** Each live run needs Weibao's spending authorization and a recorded cap (AU7, [tool registry](../TOOL_REGISTRY.md)). Dry runs cost nothing. The key comes from Keychain into the driver's environment. Source text goes to the provider named in the run. Local shards and outputs stay in gitignored private folders.
 
+## Hand a reading to a gameplay implementer
+
+Start the local Atlas with `node prototypes/world-atlas/serve.mjs`. In Library → Reading outputs, choose the book, output and matched public record. Open the original paragraphs to verify the edition, chapter and mechanism. Keep private prose in the reading workspace. Record any edition or paragraph correction with the proposal so the implementer can recover the same passage.
+
+Save the proposed change and its playable check from the record, or submit several selected records from a local JSON file:
+
+```sh
+node scripts/atlas/submit_reading_handoffs.mjs --batch proposals.json
+```
+
+Each array entry names `book`, `prefix`, `pass`, `kind`, and either the record `key` or its `route` and `fileLines`. Include `contentHash` from the exported reference page to pin the reviewed file, then supply `change` and `check`. The command returns a Workbench link or an error for each entry. Successful entries keep their IDs on retry.
+
+For a local manual reading, save a receipt beside its outputs as `<prefix>_READING_RECEIPT.json`. This keeps books with the same chapter number distinct when they share a directory. Existing chapter and local receipt names remain readable. For a multi-chapter slice, record the paragraph count of each chapter in order. The Atlas checks the first and last locators, each intervening chapter's bounds and the output bytes. An examined empty output can carry the same source range.
+
+When one existing world's reading outputs change, run `node prototypes/world-atlas/refresh-reading-world.mjs <world>` against the registered inputs. It prints a standalone candidate directory and the baseline and candidate hashes. Set `ATLAS_SNAPSHOT` to the candidate's `snapshot.json` to preview it in the normal Atlas. The candidate reuses the other worlds' digests and the existing native projections. Use the full Atlas build when changing those projections or the findings columns. Readiness reports bind to the entire snapshot hash, so after adoption rerun the offline readiness measurements for the worlds whose freshness you intend to claim.
+
+In Workbench → Implementation handoffs, the implementer can attach the native consumer and implementation report, followed by a playtest receipt for the game build they exercised. **Compare playtests with this build** shows which receipts match the local bundle. Backlog ideas can enter the same queue through their exact owner entry. [Field coverage and worked examples](ATLAS_BATCH_FIELD_COVERAGE_2026-11-25.md)
+
 ## Budget
 
 AU16 (2026-11-16): label and check passes outside the book reader use `scripts/label_runner.mjs`, which shares the OpenAI batch client below, sends by batch by default and puts the most shared text first.

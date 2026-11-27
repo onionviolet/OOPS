@@ -42,7 +42,7 @@ try {
     await build({stdin:{contents:'import "./src/data/locations.js"; import "./src/data/skills.js"; export * from "fixture-main"; export {fixtureAttach} from "./src/main.js";',resolveDir:root},bundle:true,format:'esm',platform:'node',outfile,
         plugins:[{name:'fixture-presentation-only',setup(b){
             b.onResolve({filter:/^fixture-main$/},()=>({path:join(root,'src/main.js'),namespace:'fixture-main'}));
-            b.onLoad({filter:/\/src\/main\.js$/,namespace:'file'},async a=>{
+            b.onLoad({filter:/[\\/]src[\\/]main\.js$/,namespace:'file'},async a=>{
                 const source=await readFile(a.path,'utf8');
                 const names=exportsOf(source);
                 // Break main's native-model initialization cycle. Runtime calls
@@ -52,7 +52,7 @@ let api;
 function sync(){${names.map(n=>`if(typeof api.${n}!=='function') ${n}=api.${n};`).join('\n')}}
 export function fixtureAttach(value){api=value;sync();${names.map(n=>`if(typeof api.${n}==='function') ${n}=(...args)=>{sync();try{return api.${n}(...args);}finally{sync();}};`).join('\n')}}`};
             });
-            b.onLoad({filter:/\/src\/main\.js$/,namespace:'fixture-main'},async a=>{
+            b.onLoad({filter:/[\\/]src[\\/]main\.js$/,namespace:'fixture-main'},async a=>{
                 const display=await readFile(join(root,'src/display.js'),'utf8');
                 assert.ok(display.includes('function fill_character_bio()') && display.includes('function create_race_tooltip('),'biography extraction boundary changed');
                 const realBio=display.slice(display.indexOf('function fill_character_bio()'),display.indexOf('function create_race_tooltip('))
@@ -185,7 +185,7 @@ export function fixtureSetup(name, smeltingXP, craftingXP, field) {
 }
 `,resolveDir:dirname(a.path)};
             });
-            b.onLoad({filter:/\/src\/(display|.*_ui)\.js$/},async a=>{
+            b.onLoad({filter:/[\\/]src[\\/](display|.*_ui)\.js$/},async a=>{
                 const source=await readFile(a.path,'utf8');
                 return {contents:[...new Set(exportsOf(source))].map(s=>`export const ${s} = ${s==='capitalize_first_letter'?'s=>s[0].toUpperCase()+s.slice(1)':s==='skill_list'?'globalThis.document.getElementById("skill_list")':'()=>{}'};`).join('\n')};
             });

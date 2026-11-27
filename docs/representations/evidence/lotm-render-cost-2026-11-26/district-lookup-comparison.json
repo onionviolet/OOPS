@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "baselineSourceSha256": "91053b78e5e505563a279f8f3a33895e9d3d387d409d885eab227774389037c1",
+  "indexedSourceSha256": "bcc700ae6ebca095bc73ed8a464c6225d9b4b172a00d0f42c6dc3cba6bc6dc05",
+  "packSha256": "4e1b1e4be8d9420553259132ad02ceef7b41fb6fa0f9241aa63bcb619eea5c0e",
+  "actualLoadedPlaces": 1566,
+  "workingSet": 1570,
+  "callsPerSample": 3140,
+  "samplesBaselineMs": [
+    249.40930000000003,
+    226.48080000000004,
+    169.4475,
+    203.11300000000006,
+    172.89859999999976
+  ],
+  "samplesIndexedMs": [
+    0.4674999999999727,
+    0.42219999999997526,
+    0.3997999999999138,
+    1.0846999999998843,
+    2.4298999999998614
+  ],
+  "medianBaselineMs": 203.11300000000006,
+  "medianIndexedMs": 0.4674999999999727,
+  "allLookupsEqual": true,
+  "directedWalkPairsCompared": 2464900,
+  "allWalksEqual": true,
+  "parityMethod": "Original scan results computed for every endpoint once; original unchanged district-link formula supplies expected result for every optimized actual walk query.",
+  "qualification": "Warm lookup microbenchmark, not whole-view/desktop latency. Concurrent full suite may affect absolute times. Index construction is one O(pack places) pass per loaded immutable pack identity.",
+  "focusedTests": "node --test tests/lotm_districts.test.js: 10/10 passed",
+  "architecture": "passed",
+  "rules": "passed with existing warning-only lints and stale private-pack glob",
+  "whitespace": "passed",
+  "files": {
+    "src/book_world_lotm_districts.js": "bcc700ae6ebca095bc73ed8a464c6225d9b4b172a00d0f42c6dc3cba6bc6dc05",
+    "tests/lotm_districts.test.js": "c6c92dc7fd58b000f44686b822958d77c9faafa2d90c05c77c5ac74d3aa7072f",
+    "scripts/perf/lotm_district_lookup.mjs": "88853834acc8729894ce1df56dcbc41d8ea6dccd2e3f42937d485fd5c994f950"
+  }
+}

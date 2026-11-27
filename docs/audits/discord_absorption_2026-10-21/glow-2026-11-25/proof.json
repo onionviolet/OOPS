@@ -1,0 +1,156 @@
+{
+  "status": "passed",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "42f9906310975d82203faa9051ff6b544d77cc4c6bd7203cf6ab3f26f974e6f6",
+  "setup": "Disposable perf/fresh.json copy; seven native item qualities added before normal save load. No earned loot claim or DOM rarity/style injection.",
+  "setting": {
+    "label": "Item glow",
+    "default": "on",
+    "changedThroughActualControl": true
+  },
+  "on": {
+    "glow": "on",
+    "rows": [
+      {
+        "rarity": "trash",
+        "name": "Cheap leather pants",
+        "quality": "40%",
+        "boxShadow": "none",
+        "animation": "none",
+        "title": "Quality 40%: trash",
+        "color": "rgb(200, 204, 212)"
+      },
+      {
+        "rarity": "common",
+        "name": "Cheap leather pants",
+        "quality": "80%",
+        "boxShadow": "none",
+        "animation": "none",
+        "title": "Quality 80%: common",
+        "color": "rgb(255, 255, 255)"
+      },
+      {
+        "rarity": "uncommon",
+        "name": "Cheap leather pants",
+        "quality": "110%",
+        "boxShadow": "color(srgb 0.498039 0.909804 0.560784 / 0.45) 0px 0px 4px 0px inset",
+        "animation": "none",
+        "title": "Quality 110%: uncommon",
+        "color": "rgb(127, 232, 143)"
+      },
+      {
+        "rarity": "rare",
+        "name": "Cheap leather pants",
+        "quality": "140%",
+        "boxShadow": "color(srgb 0.498039 0.698039 1 / 0.45) 0px 0px 4px 0px inset",
+        "animation": "none",
+        "title": "Quality 140%: rare",
+        "color": "rgb(127, 178, 255)"
+      },
+      {
+        "rarity": "epic",
+        "name": "Cheap leather pants",
+        "quality": "180%",
+        "boxShadow": "rgb(255, 158, 209) 2px 0px 0px 0px inset, color(srgb 1 0.619608 0.819608 / 0.55) 0px 0px 6px 0px inset",
+        "animation": "none",
+        "title": "Quality 180%: epic",
+        "color": "rgb(255, 158, 209)"
+      },
+      {
+        "rarity": "legendary",
+        "name": "Cheap leather pants",
+        "quality": "220%",
+        "boxShadow": "rgb(210, 155, 255) 2px 0px 0px 0px inset, color(srgb 0.823529 0.607843 1 / 0.55) 0px 0px 6px 0px inset",
+        "animation": "none",
+        "title": "Quality 220%: legendary",
+        "color": "rgb(210, 155, 255)"
+      },
+      {
+        "rarity": "mythical",
+        "name": "Cheap leather pants",
+        "quality": "250%",
+        "boxShadow": "rgb(255, 176, 77) 2px 0px 0px 0px inset, color(srgb 1 0.690196 0.301961 / 0.55) 0px 0px 6px 0px inset",
+        "animation": "none",
+        "title": "Quality 250%: mythical",
+        "color": "rgb(255, 176, 77)"
+      }
+    ]
+  },
+  "off": {
+    "glow": "off",
+    "rows": [
+      {
+        "rarity": "trash",
+        "name": "Cheap leather pants",
+        "quality": "40%",
+        "boxShadow": "none",
+        "animation": "none",
+        "title": "Quality 40%: trash",
+        "color": "rgb(200, 204, 212)"
+      },
+      {
+        "rarity": "common",
+        "name": "Cheap leather pants",
+        "quality": "80%",
+        "boxShadow": "none",
+        "animation": "none",
+        "title": "Quality 80%: common",
+        "color": "rgb(255, 255, 255)"
+      },
+      {
+        "rarity": "uncommon",
+        "name": "Cheap leather pants",
+        "quality": "110%",
+        "boxShadow": "none",
+        "animation": "none",
+        "title": "Quality 110%: uncommon",
+        "color": "rgb(127, 232, 143)"
+      },
+      {
+        "rarity": "rare",
+        "name": "Cheap leather pants",
+        "quality": "140%",
+        "boxShadow": "none",
+        "animation": "none",
+        "title": "Quality 140%: rare",
+        "color": "rgb(127, 178, 255)"
+      },
+      {
+        "rarity": "epic",
+        "name": "Cheap leather pants",
+        "quality": "180%",
+        "boxShadow": "none",
+        "animation": "none",
+        "title": "Quality 180%: epic",
+        "color": "rgb(255, 158, 209)"
+      },
+      {
+        "rarity": "legendary",
+        "name": "Cheap leather pants",
+        "quality": "220%",
+        "boxShadow": "none",
+        "animation": "none",
+        "title": "Quality 220%: legendary",
+        "color": "rgb(210, 155, 255)"
+      },
+      {
+        "rarity": "mythical",
+        "name": "Cheap leather pants",
+        "quality": "250%",
+        "boxShadow": "none",
+        "animation": "none",
+        "title": "Quality 250%: mythical",
+        "color": "rgb(255, 176, 77)"
+      }
+    ]
+  },
+  "inventoryUnchanged": true,
+  "moneyUnchanged": true,
+  "clockUnchanged": true,
+  "pageErrors": 0,
+  "pageOverflow": 0,
+  "scope": "Static native rarity row glow, real per-browser on/off. No animation capture or live Discord crawl."
+}

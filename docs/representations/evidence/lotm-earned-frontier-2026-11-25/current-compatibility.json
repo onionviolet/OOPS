@@ -1,0 +1,33 @@
+{
+  "scope": "current default bundle; isolated byte-identical mounted cast copy; exact immutable earned ch129 save; bounded first ordinary ch130 checkpoint",
+  "inputSha256": "ebd217413f215f9413845932c942a15ba9140ec1d5f93a191f0b97fc34e4d3c0",
+  "candidatePackSha256": "4e1b1e4be8d9420553259132ad02ceef7b41fb6fa0f9241aa63bcb619eea5c0e",
+  "steps": [],
+  "status": "blocked",
+  "phase": "admission",
+  "error": "locator.selectOption: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#workspace_navigation select')\u001b[22m\n",
+  "applicationErrors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Error: The saved place and the Tingen branch body disagree.\n    at bR (http://127.0.0.1:5013/dist/bundle.js?version=v0.6-4d14cb3c8656:130:1092412)\n    at ANr (http://127.0.0.1:5013/dist/bundle.js?version=v0.6-4d14cb3c8656:130:1092993)\n    at Object.validate (http://127.0.0.1:5013/dist/bundle.js?version=v0.6-4d14cb3c8656:130:1095808)\n    at Object.validate (http://127.0.0.1:5013/dist/bundle.js?version=v0.6-4d14cb3c8656:1:93923)\n    at gy (http://127.0.0.1:5013/dist/bundle.js?version=v0.6-4d14cb3c8656:1091:36381)\n    at UOt (http://127.0.0.1:5013/dist/bundle.js?version=v0.6-4d14cb3c8656:1096:631"
+    }
+  ],
+  "timings": [
+    {
+      "phase": "boot",
+      "ms": 70932.26439999999
+    }
+  ],
+  "bundleOnDiskAtLaunchSha256": "4d14cb3c865682abdd1428d9ddd37b627cb0f2ace8db85f055009f1c78ced84c",
+  "bundleIdentityQualification": "Current checkout served by normal static route; disk SHA captured at launch, per-response served byte SHA was not retained on failed admission.",
+  "admissionEvidence": {
+    "savedTopAndBodyLocationsEqual": true,
+    "placePresentInCandidatePack": true,
+    "placeIsPlayerRelocationDestination": true,
+    "rawCandidateValidationErrors": 0,
+    "completedNativeActions": 0
+  },
+  "inputUnchangedAfterProbe": true,
+  "currentDiskBundleUnchanged": true
+}

@@ -1,5 +1,6 @@
 import {ringSpiritCard} from './cheat_growth.js';
 import {validateModuleState,moduleCard,CHEAT_MODULES} from './cheat_definitions.js';
+import {initialInsightOffer} from './cheat_starting_insight.js';
 // C0 data contract. Granting one runs no hooks.
 const CARD_KEYS = ['id', 'family', 'name', 'ui', 'terms', 'hooks', 'state', 'stages', 'observers', 'sources'];
 const PANELS = new Set(['status-window', 'death-menu', 'anchor-list', 'system-shop', 'companion-voice',
@@ -96,9 +97,9 @@ export function quietFacultyCard() {
         state: {awakened: false, points: 0, earned: 0, spent: 0, claimed: [],
             wake: {day: 3, victory: true}, firstMessage: 'An insight settles into place. What you learn need not end with this life.'}};
 }
-export function seedBeginningCheats(state, {choice = 'none', at} = {}) {
+export function seedBeginningCheats(state, {choice = 'none', at, startingOffer=false} = {}) {
     let next = validateCheatState(state);
-    if(!next.held['quiet-faculty']) next = grantCheat(next, quietFacultyCard(), {route: 'personal-faculty', at});
+    if(!next.held['quiet-faculty']) {const card=quietFacultyCard();if(startingOffer)card.state.startingOffer=initialInsightOffer();next = grantCheat(next, card, {route: 'personal-faculty', at});}
     if(['system-quests', 'surprise'].includes(choice) && !next.held['system-quests'])
         next = grantCheat(next, optionalStartCard(), {route: 'optional-start', at});
     // Premise intros call this with their kind; the ring elder is the first voiced non-system start.

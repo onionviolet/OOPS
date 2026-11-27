@@ -1,0 +1,95 @@
+{
+  "fixture": "packFightSave, 8 mixed opponents; no commands executed",
+  "viewport": "1920x1080",
+  "bundleSha256": "5c6a0b8e7da3454534b0e5e43371f5e5937ce80c35e15e7a826d63aabbfe0da5",
+  "results": [
+    {
+      "phase": "before",
+      "metrics": {
+        "roster": {
+          "x": 488.75,
+          "y": 125,
+          "w": 867.515625,
+          "h": 457,
+          "font": "14px",
+          "gap": "normal",
+          "radius": "0px"
+        },
+        "moves": {
+          "x": 488.75,
+          "y": 586,
+          "w": 867.515625,
+          "h": 113.5625,
+          "font": "14px",
+          "gap": "4px",
+          "radius": "0px"
+        },
+        "opening": null,
+        "pageWidth": 1920,
+        "viewport": 1920
+      },
+      "tokens": {
+        "hitDuration": "0.8s",
+        "gainDuration": "0.9s",
+        "itemDuration": "0.8s",
+        "hitLayer": "2",
+        "gainLayer": "3",
+        "crowdGap": "2px",
+        "potionMinHeight": "30px",
+        "potionLeading": "17.4px",
+        "openingFont": "11.9px",
+        "meterRadius": "0px"
+      }
+    },
+    {
+      "phase": "after",
+      "metrics": {
+        "roster": {
+          "x": 488.75,
+          "y": 125,
+          "w": 867.515625,
+          "h": 457,
+          "font": "14px",
+          "gap": "normal",
+          "radius": "0px"
+        },
+        "moves": {
+          "x": 488.75,
+          "y": 586,
+          "w": 867.515625,
+          "h": 113.5625,
+          "font": "14px",
+          "gap": "4px",
+          "radius": "0px"
+        },
+        "opening": null,
+        "pageWidth": 1920,
+        "viewport": 1920
+      },
+      "tokens": {
+        "hitDuration": "0.8s",
+        "gainDuration": "0.9s",
+        "itemDuration": "0.8s",
+        "hitLayer": "2",
+        "gainLayer": "3",
+        "crowdGap": "2px",
+        "potionMinHeight": "30px",
+        "potionLeading": "17.4px",
+        "openingFont": "12px",
+        "meterRadius": "0px"
+      }
+    }
+  ],
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ]
+}

@@ -29,9 +29,14 @@ test('schema union prefers present 1.4 fields, fills silent fields, and retains 
         const first = run(input, out1), second = run(input, out2);
         const people = readJsonl(join(out1, 'toy_people.jsonl'));
         assert.equal(lstatSync(join(out1, 'toy_people.jsonl')).isSymbolicLink(), false, 'union output is a real transformed file');
-        assert.equal(lstatSync(join(out1, 'pre-sv14/toy_people.jsonl')).isSymbolicLink(), true, 'untouched backup is linked');
-        assert.equal(lstatSync(join(out1, 'toy_fills.jsonl')).isSymbolicLink(), true, 'untouched shard data is linked');
+        assert.equal(lstatSync(join(out1, 'pre-sv14/toy_people.jsonl')).isSymbolicLink(), process.platform !== 'win32', 'untouched backups use the host staging route');
+        assert.equal(lstatSync(join(out1, 'toy_fills.jsonl')).isSymbolicLink(), process.platform !== 'win32', 'untouched shard data uses the host staging route');
         assert.equal(readFileSync(join(out1, 'toy_fills.jsonl'), 'utf8'), '');
+        assert.equal(readFileSync(join(out1, 'pre-sv14/toy_people.jsonl'), 'utf8'), readFileSync(join(old, 'toy_people.jsonl'), 'utf8'));
+        if (process.platform === 'win32') {
+            writeFileSync(join(out1, 'toy_fills.jsonl'), 'output-only correction\n');
+            assert.equal(readFileSync(join(input, 'toy_fills.jsonl'), 'utf8'), '', 'Windows staging cannot mutate source through a hard link');
+        }
         const same = people.filter(row => row.id === 'person.a');
         assert.equal(same.length, 1);
         assert.equal(same[0]._from.reacts, '1.4');

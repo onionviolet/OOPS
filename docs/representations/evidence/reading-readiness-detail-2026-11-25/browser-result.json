@@ -1,0 +1,35 @@
+{
+  "fixture": "standalone shared view and GET projection; newly measured actual four-chapter counts",
+  "viewport": "1366x900",
+  "normalBooks": [
+    {
+      "key": "hp1",
+      "prefixes": 9,
+      "selected": 108,
+      "fieldRows": 816
+    },
+    {
+      "key": "hp2",
+      "prefixes": 17,
+      "selected": 204,
+      "fieldRows": 1530
+    }
+  ],
+  "historicalRecentFourSha256": "501d742dfa2b33b0652cf8de8db4754e864905041818eeaac2bc33081e6539fe",
+  "liveBinding": {
+    "calculationSha256": "16ff111f501f0214716c03b07d9dc3b019242c0947e4a741da6b46f56b438617",
+    "snapshotSha256": "1a6bb2199238025ab26cddae81269a585646ae80fa5130f7a7ee78a29e9f49a1",
+    "digestSha256": "142cb5240f47420e87df5b31239575de39060815692111ce3405a563336addd6",
+    "selectedBytesSha256": "cbdfa3a81e4f60e2a1331955a55ac83538a5e65090dd39d266c61638b0016517",
+    "inputStampSha256": "a35ea0fc914abfb814cd8bb74a6ab42ad49e3f11e8f711d025a54aaa06566778"
+  },
+  "checks": [
+    "on-demand",
+    "scoped twelve-kind world table",
+    "optional book comparison",
+    "approved field counts",
+    "stale snapshot",
+    "missing measurement"
+  ],
+  "pageErrors": []
+}

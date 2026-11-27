@@ -15,6 +15,9 @@ import {RI_LEAD_DAY as DAY_ID, RI_DAY_ITEMS as IT, RI_DAY_DIETS, RI_DAY_DIALS as
     RI_DAILY_POWERS, RI_ACADEMY_ELDER, RI_MOONGLOW_SALE_NOTE} from '../ri_lead_day_facts.js';
 import {riWolfParts} from '../ri_wolf_tide.js';
 import {riPatrolWeightFact} from '../ri_lead_day_tide.js';
+import {guLeadLeafTreatment} from './book_gu_lead_leaf_treatment.js';
+import {guLeadHealerWork} from './book_gu_lead_healer_work.js';
+import {guLeadGranaryWork} from './book_gu_lead_granary_work.js';
 
 export const GU_LEAD_DAY = DAY_ID;
 // The commands that write battle merit: the alliance board's hand-ins, nothing else (PS3; tests/ri_lead_day.test.js counts them).
@@ -203,5 +206,8 @@ export async function registerGuLeadDay(register, base) {
     if(!register.bundledInstantExtension || base.contentHash !== baseHash) return null;
     const day = await register.bundledInstantExtension(guLeadDay, base);
     await register.bundledInstantExtension(guLeadDailyPowers, base);
+    await register.bundledInstantExtension(guLeadLeafTreatment, base);
+    await register.bundledInstantExtension(guLeadHealerWork, base);
+    await register.bundledInstantExtension(guLeadGranaryWork, base);
     return day;
 }

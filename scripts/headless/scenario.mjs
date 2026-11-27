@@ -1,6 +1,7 @@
 import {readFile, readdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {join, relative} from 'node:path';
+import {fileURLToPath, pathToFileURL} from 'node:url';
 import {createScenarioFacade, knownLampProjection} from '../../src/scenario_facade.js';
 
 const assertCommand = command => {if (command?.type !== 'lamp.toggle') throw Error('Unsupported scenario command.');};
@@ -26,7 +27,7 @@ export async function scenarioSourceIdentity(root, {extras = [], privatePacks = 
     const hash = createHash('sha256'), files = new Set(), optional = new Set();
     async function walk(path) {
         for (const entry of (await readdir(join(root,path), {withFileTypes:true})).sort((a,b) => a.name.localeCompare(b.name))) {
-            const p = join(path, entry.name);
+            const p = join(path, entry.name).replace(/\\/g, '/');
             if (entry.isDirectory()) await walk(p); else files.add(p);
         }
     }
@@ -38,7 +39,7 @@ export async function scenarioSourceIdentity(root, {extras = [], privatePacks = 
             for(const [path] of source.matchAll(/(?<=['"])private_packs\/[a-z0-9_-]+\/[a-z0-9_.-]+\.json(?=['"])/gi)) optional.add(path);
         }
         for (const match of source.matchAll(/['"]((?:\.\.\/)+(docs\/[^'"]+))['"]/g)) {
-            const target = relative(root, new URL(match[1], 'file://' + join(root,path)).pathname);
+            const target = relative(root, fileURLToPath(new URL(match[1], pathToFileURL(join(root, path))))).replace(/\\/g, '/');
             files.add(target);
         }
     }

@@ -1,0 +1,61 @@
+{
+  "schema": "manual-source-question-handoff/1",
+  "id": "b3e24b6e0ee24f56d436e329aa200a06936269070723e2bc9f2a4eb8bc046128",
+  "status": "proposed",
+  "record": {
+    "label": "Feeding Moonlight Gu",
+    "type": "rule",
+    "route": "#world/ri/things/ri.rule.feed-moonlight-gu"
+  },
+  "source": {
+    "book": "ri1",
+    "prefix": "ri1c021",
+    "contentHash": "sha256:bb36f0df1d89501a6b25a8880aaf8447e14909080fbcb44f9ae4a5b8a7973640",
+    "fileLines": [
+      [
+        3,
+        3
+      ]
+    ],
+    "originalMethod": "unknown"
+  },
+  "manualMethod": "manual local re-read for a new L3 consumer question; not a new provider-pass completion",
+  "chapterRead": {
+    "chapter": 23,
+    "paragraphs": [
+      1,
+      77
+    ],
+    "focus": [
+      27,
+      58
+    ],
+    "preparedEqualsEpub": true
+  },
+  "sourceHashes": {
+    "epub": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/source/ri1.epub",
+    "epubSha256": "bb27766e61f651546386e5ae4ccaee41ec64ea148a771d156f0a55532906d6f5",
+    "member": "ri1_split_022.html",
+    "memberSha256": "50cddadc078dd6c615310497e45ae94ce6ef9b6cf639212ddadb6feded67a7cf",
+    "prepared": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/reverend-insanity/private/lead-run-2026-10-29/shard_ri1_b1_ch021-023.txt",
+    "preparedSha256": "2959138dd9ca6010208be8a79559a36ab05a63758dcdb65779047f9429d804dd",
+    "all77ParagraphsMatch": true
+  },
+  "proposal": {
+    "backlog": "docs/research/FANG_PETAL_STORAGE_QUESTION_2026-11-25.md",
+    "change": "Let Fang inspect carried petal-lot ages before feeding, buy a fresh bag without refreshing old stock, and distinguish long-keeping wine. English c23 p54 states ordinary five-day storage, not spoiled-food toxicity or special preservation. Reuse the existing age/meal owners and retain aged material. Lot grouping, oldest-first choice and UI are proposed affordances; no new harmful food effect is inferred. Exact manual source hashes and historical-language correction are in the linked question note.",
+    "check": "Buy two bags on different days; Save/reload/Export/Import across five days. A fresh purchase must not reset older stock. Inspect distinct ages, feed an eligible Moonlight Gu and preserve the existing two-petal debit/due timer. Report behavior beyond ordinary freshness without inventing toxicity; wine stays distinct. Verify the unchanged matched source row against the held English chapter23 p27-29,p33,p40,p54. This tests a proposed Fang integration, not a whole new spoilage system."
+  },
+  "snapshot": {
+    "commit": "db24d3a92",
+    "builtAt": "2026-11-26T01:07:05.642Z"
+  },
+  "route": "/#workbench/handoffs/b3e24b6e0ee24f56d436e329aa200a06936269070723e2bc9f2a4eb8bc046128",
+  "checks": [
+    "exact public row/physical line3 matched",
+    "unmodified submitReadingBatch saved real packet",
+    "default queue reopened proposed packet",
+    "immutable packet bytes hash equals ID"
+  ],
+  "boundary": "No implementation, source-output/digest/snapshot adoption, raw-public book text or API spend."
+}

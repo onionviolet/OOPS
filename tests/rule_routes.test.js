@@ -18,6 +18,15 @@ test('a rule file yields its globs and code ranges', () => {
     assert.ok(!r.families.includes('AD'));
 });
 
+test('CRLF rule frontmatter and native Windows path separators retain the same routes', () => {
+    const text='---\npaths:\n  - "src/heat.js"\n---\n\nFollows STN1–STN22 and AD56.\n';
+    const lf=parseRuleFile(text),crlf=parseRuleFile(text.replaceAll('\n','\r\n'));
+    assert.deepEqual(crlf,lf);
+    const routes=[{...crlf,res:crlf.globs.map(globToRegExp)}];
+    assert.equal(routesFor('src\\heat.js',routes).length,1);
+    assert.deepEqual(routesFor('src\\heat.js',routes),routesFor('src/heat.js',routes));
+});
+
 test('each 2026-11-10 rulebook routes from its modules, with no stale glob', () => {
     const routes = loadRoutes();
     const files = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard'], {encoding: 'utf8', maxBuffer: 64 * 1024 * 1024}).split('\n');

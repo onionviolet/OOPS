@@ -1,0 +1,52 @@
+{
+  "variant": "effects-reduced",
+  "route": "fresh normal Village -> elder hello/head injury/leave/need/starting gear/dagger",
+  "earned": {
+    "text": "[weapon]\nCheap iron dagger\n[50%]\n7C 9W",
+    "rarity": "common",
+    "quality": "50%",
+    "color": "rgb(255, 255, 255)",
+    "rarityTitle": "Quality 50%: common",
+    "shadow": "none",
+    "animation": "feel-new-pulse",
+    "duration": "0s",
+    "new": true,
+    "newWord": "\"new\"",
+    "worn": false,
+    "wornMark": "none"
+  },
+  "observed": {
+    "root": {
+      "glow": "on",
+      "effects": "reduced",
+      "lookMotion": "full",
+      "systemReduced": false
+    },
+    "events": [
+      {
+        "type": "animationstart",
+        "name": "feel-new-pulse",
+        "elapsed": 0,
+        "at": 12862.59999999404
+      },
+      {
+        "type": "animationend",
+        "name": "feel-new-pulse",
+        "elapsed": 0,
+        "at": 12862.800000011921
+      }
+    ],
+    "frames": [
+      {
+        "at": 12862.59999999404,
+        "shadow": "none",
+        "duration": "0s",
+        "animations": []
+      }
+    ]
+  },
+  "quantity": 1,
+  "quality": 50,
+  "pageErrors": 0,
+  "fixture": false
+}

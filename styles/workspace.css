@@ -830,6 +830,13 @@ body #bottom_panel_div .sl_button {padding-left:var(--ui-space-3);padding-right:
 #location_related_div.center-mode-open #center_mode_content { flex: 1 1 auto; overflow: auto; min-height: 0; }
 #main_content.workspace-active .workspace-module-body:has(> #location_related_div.center-mode-open) { overflow: hidden; }
 #location_related_div.center-mode-open :is(#exit_crafting_button, #exit_trade_button, .end_dialogue_button, .backstep_dialogue_button) { display: none; }
+/* DU38: keep the two native stock panes and distinguish discarding picks from leaving. */
+#inventory_div > .trade-carried-heading {display:none;}
+#main_content[data-center-task="trade"] #inventory_div > .trade-carried-heading {display:block;}
+#main_content.workspace-active .trade-pane-heading {margin:var(--ui-space-2) 0;font-size:var(--ui-type-title);line-height:var(--ui-line-prose);color:var(--ui-text);}
+#main_content.workspace-active .trade-pending-help {margin:var(--ui-space-2) 0;font-size:var(--ui-type-small);line-height:var(--ui-line-prose);color:var(--ui-muted);}
+#main_content.workspace-active #trade_control_div > #trade_choice_help {flex-basis:100%;}
+#main_content.workspace-active #location_related_div.center-mode-open #trade_control_div > #exit_trade_button {display:block;flex-basis:100%;}
 #village_mixing_panel { box-sizing: border-box; }
 #main_content.workspace-active .workspace-module[data-module="messages"] .workspace-module-body { display: flex; flex-direction: column; max-height: calc(100dvh - 164px); }
 #main_content.workspace-active .workspace-module[data-module="messages"] #message_log_div { display: flex; flex-direction: column; flex: 1; min-height: 0 !important; }

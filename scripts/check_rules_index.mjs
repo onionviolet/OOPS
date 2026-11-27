@@ -2,7 +2,7 @@
 // Keeps docs/RULES_INDEX.md honest: register coverage, code ranges, AD
 // contiguity, cited codes and relative links/anchors. Run: npm run check:rules
 import {existsSync, readFileSync, readdirSync, statSync} from 'node:fs';
-import {dirname, resolve, relative} from 'node:path';
+import {dirname, resolve, relative, sep} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 
@@ -11,9 +11,9 @@ const docs = resolve(root, 'docs');
 const indexPath = resolve(docs, 'RULES_INDEX.md');
 const failures = [], warnings = [];
 const fail = m => failures.push(m), warn = m => warnings.push(m);
-const read = p => readFileSync(p, 'utf8');
+const read = p => readFileSync(p, 'utf8').replace(/\r\n/g, '\n');
 const index = read(indexPath);
-const rel = p => relative(root, p);
+const rel = p => relative(root, p).split(sep).join('/');
 
 const sectionOf = (text, title) => {
   const m = new RegExp(`^## ${title}[^\\n]*\\n([\\s\\S]*?)(?=^## |(?![\\s\\S]))`, 'm').exec(text);
@@ -80,12 +80,12 @@ for (const r of register) {
   for (const l of links(r[4] || '')) {
     if (/^(https?:|#)/.test(l)) continue;
     const target = resolve(docs, l.split('#')[0]);
-    if (target.startsWith(resolve(docs, 'gm', 'dispatch') + '/')) {
+    if (rel(target).startsWith('docs/gm/dispatch/')) {
       const labelled = [...(r[4] || '').matchAll(/proposal source:\s*\[[^\]]*\]\(([^)\s]+)\)/gi)].some(m => m[1] === l);
       const proposalRow = /^proposal\b/i.test(r[2] || '') && !/\b(?:accepted|standing|binding)\b/i.test(r[2] || '');
       const proposalHeader = existsSync(target) && /(?<!Register )\bStatus:\s*(?:\*\*)?proposal\b/i.test(read(target).slice(0, 4000));
       const stableRoute = links(r[4] || '').some(link => !/^(https?:|#)/.test(link) &&
-        !resolve(docs, link.split('#')[0]).startsWith(resolve(docs, 'gm', 'dispatch') + '/') &&
+        !rel(resolve(docs, link.split('#')[0])).startsWith('docs/gm/dispatch/') &&
         existsSync(resolve(docs, link.split('#')[0])));
       if (!(labelled && proposalRow && proposalHeader && stableRoute)) warn(`${name}: owner link ${l.split('#')[0]} is under docs/gm/dispatch/ (a dated working document)`);
     }

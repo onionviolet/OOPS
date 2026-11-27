@@ -1,0 +1,22 @@
+{
+  "stagingRemovedByRunner": true,
+  "profileCleanup": "Exact containment-checked PowerShell removal request rejected by automatic approval review: blocked by policy. No alternate deletion route attempted.",
+  "profiles": [
+    {
+      "profile": "yairpg-owned-chrome-u2XAYt",
+      "present": true
+    },
+    {
+      "profile": "yairpg-owned-chrome-TD0fFu",
+      "present": true
+    },
+    {
+      "profile": "yairpg-owned-chrome-ygdkQ6",
+      "present": true
+    },
+    {
+      "profile": "yairpg-owned-chrome-je1DW1",
+      "present": true
+    }
+  ]
+}

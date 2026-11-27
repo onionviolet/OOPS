@@ -1,6 +1,7 @@
 // Private HP lead cast: fetched if present (same convention as the other private supplements), merged into the lead
 // life's native definition before it is registered. No canon text lives here; with the pack absent the lead life is the
 // public stub. Locked "Not how it happened" rows and the act sequence come from the pack.
+import './hp_dormant_registration.js';
 import {hpLeadHomeCommands} from './hp_lead_home.js';
 import {definePlaceActs} from './place_acts.js';
 import {placeActStages,placeActSequenceView} from './place_act_sequence.js';

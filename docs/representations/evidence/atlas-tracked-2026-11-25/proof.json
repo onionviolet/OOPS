@@ -1,0 +1,8 @@
+{
+  "viewport": "1920x1080",
+  "route": "#world/lotm/reading/tracked%3ARA21",
+  "snapshotHash": "ac8514274ebc8fd405c7c9da4d894e2a1014882222f81dc67de13e6cf99e5f5d",
+  "state": "agent-verified, not human-reviewed",
+  "sourceInputs": "actual registry; no synthetic reader rows",
+  "errors": []
+}

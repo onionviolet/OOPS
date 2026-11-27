@@ -1,0 +1,25 @@
+{
+  "bundleSha256": "63d1fe9f73f08495158a2cb7169cfef2cb44e1ea185040ce3773780f982885f6",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "route": "fresh native Zorian; earned Torch lesson, failed expiring-light exercise, successful fresh-Torch exercise; no setup grants",
+  "revision": 1,
+  "reserveBefore": 6,
+  "reserveAfter": 6,
+  "reload": true,
+  "exportImport": true,
+  "laterChoice": {
+    "minutes": 8,
+    "stamina": 3,
+    "ordinaryMinutes": 15,
+    "obliqueInvocation": true,
+    "incisionsRead": true,
+    "shapingNotGranted": true
+  },
+  "applicationErrors": [],
+  "missingPrivateResources": [],
+  "consoleResource404s": 0,
+  "overflow": false
+}

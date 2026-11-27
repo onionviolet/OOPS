@@ -7,6 +7,8 @@ import {eq,gte,all,af,no,item,know,cmd} from './book_world_lotm_kit.js';
 import {defineInstitution,auditLedger,offerFor} from './institution_store.js';
 import {INGREDIENT_BY_NAME} from './book_world_lotm_bench.js';
 import {gainEffects,spendCosts,spendEffects,spendRequires,learnedFact,levelFact,checkpointFact,checkpointsLost,poolView,masteryPoolFacts} from './mastery_pool.js';
+import {formatDuration} from './number_format.js';
+import {copyFileCommands,copyFileFacts,copyFileView} from './lotm_copy_routine.js';
 
 const KEY='book.lotm.merit.nighthawks';
 export const meritRes={earned:`${KEY}.earned`,spent:`${KEY}.spent`,bought:rid=>`${KEY}.bought.${rid}`};
@@ -34,7 +36,22 @@ export const copyingPower=Object.freeze({id:COPYING_HAND,revision:1,label:'Copyi
 export const SPEND_STEP=4;
 // Which assignments are copying practice, and the hand's mastery each one needs (institution rows keep only their own fields).
 const PRACTICE=Object.freeze({case_file_copy:0,cited_file_copy:20});
+export function meritChoiceHint(m,copy=NIGHTHAWKS.missions.find(row=>row.id==='case_file_copy')){
+ if(m.id in PRACTICE)return `Practises your copying hand. Each completed ${formatDuration(m.minutes)} assignment earns ${m.pay} merit.`;
+ if(m.id!=='cold_room_watch')return '';
+ const starts=m.minutes/copy.minutes;
+ const comparison=Number.isInteger(starts)&&starts>1&&copy.pay*starts===m.pay?` Matching that time and merit with separate copying takes ${starts} starts.`:'';
+ return `One start covers ${formatDuration(m.minutes)} and earns ${m.pay} merit on completion.${comparison}`;
+}
 const practiceOf=m=>m.id in PRACTICE?{practice:true,mastery:PRACTICE[m.id]}:{};
+// A finite ordinary assignment uses the simulation's saved program, never a second clock.
+export function meritRepeatQuote(state,mission,appointments=[]){
+ const end=state.clock+mission.minutes*2;
+ const next=appointments.filter(a=>a.known===true&&Number.isFinite(a.at)&&a.at>state.clock).sort((a,b)=>a.at-b.at)[0];
+ const reason=next&&next.at<end?`Two assignments would run past ${next.label}. Choose a single assignment or return afterwards.`:'';
+ return {id:`repeat.2.${mission.action.id}`,label:`Do 2 assignments · ${formatDuration(mission.minutes*2)} · earns ${mission.pay*2} merit`,eligible:mission.action.eligible&&!reason,reasons:reason?[reason]:mission.action.reasons,
+  text:`Stops after the second assignment. Each completed assignment earns ${mission.pay} merit; stopping forfeits the unfinished assignment and keeps elapsed time spent.${next?` Next known appointment: ${next.label} in ${formatDuration(next.at-state.clock)}.`:''}`};
+}
 const home=all(eq('lotm.home.evernight'),eq('lotm.beyonderTrack'));
 const W=I.world;
 const practiceOutcomes=()=>[
@@ -47,7 +64,7 @@ const missionCommand=(row,{home:atHome=false}={})=>{
  const pay=[counter(meritRes.earned,m.pay),know(`merit.${m.id}`,`${m.text} Merit earned: ${m.pay}.`,'player','player','observation',U)];
  const id=atHome?`merit_${m.id}_home`:`merit_${m.id}`,label=atHome?`At your lodging: ${m.label.charAt(0).toLowerCase()+m.label.slice(1)} · ${m.minutes} min · earns ${m.pay} merit`:`${m.label} · ${m.minutes} min · earns ${m.pay} merit`;
  const place=atHome?{alone:true}:{targetId:I.supervisor};
- return cmd(id,label,atHome?L.lodging:L.workroom,{...place,once:false,requires:gate,visibleWhen:gate,duration:m.minutes,cancellation:'forfeit',
+ return cmd(id,label,atHome?L.lodging:L.workroom,{...place,once:false,automatable:true,requires:gate,visibleWhen:gate,duration:m.minutes,cancellation:'forfeit',
   effects:pay,...(m.practice?{outcomes:practiceOutcomes()}:{})});
 };
 const spendCommand=cmd('merit_spend_copying',`Put ${SPEND_STEP} pooled desk practice into your copying hand`,null,{alone:true,once:false,
@@ -55,6 +72,7 @@ const spendCommand=cmd('merit_spend_copying',`Put ${SPEND_STEP} pooled desk prac
  costs:spendCosts(W,SPEND_STEP),effects:[...spendEffects(W,COPYING_HAND,SPEND_STEP),know('merit.copying_spent',`You worked ${SPEND_STEP} of your general desk practice into copying files. The hand is sharper; the desk is less settled.`,'player','player','observation',U)]});
 // Merit is the probationer's ledger: civil staff are paid by contract and have no assignments or store (AT24).
 export const meritCommands=[
+ ...copyFileCommands({gate:all(home,eq('lotm.profile.probationer')),payment:[counter(meritRes.earned,1)],practiceOutcomes}),
  ...NIGHTHAWKS.missions.map(m=>missionCommand(m)),
  ...NIGHTHAWKS.missions.filter(m=>m.id in PRACTICE).map(m=>missionCommand(m,{home:true})),
  spendCommand,
@@ -68,6 +86,7 @@ export const meritFacts=(state,f)=>{
  f['lotm.merit.earned']=earned;f['lotm.merit.spent']=spent;f['lotm.merit.balance']=Math.max(0,earned-spent);
  for(const r of NIGHTHAWKS.store)f[`lotm.merit.left.${r.id}`]=r.stock==null?0:Math.max(0,r.stock-(res[meritRes.bought(r.id)]||0));
  masteryPoolFacts(state,f,{worldId:W});
+ copyFileFacts(state,f);
 };
 // Player-facing projection: balance, missions with their stated risk, and every store row with its refusal reasons (from the same rules the commands use).
 export const meritView=(state,f,prev)=>{
@@ -75,8 +94,8 @@ export const meritView=(state,f,prev)=>{
  const level=f[levelFact(W,COPYING_HAND)]||0,learned=!!f[learnedFact(W,COPYING_HAND)];
  const practice={learned,level,next:NIGHTHAWKS.missions.filter(m=>PRACTICE[m.id]>level).map(m=>({...m,mastery:PRACTICE[m.id]})).map(m=>({at:m.mastery,label:m.label})),pool:poolView(f,W),
   spend:{step:SPEND_STEP,loses:checkpointsLost(f,W,SPEND_STEP).map(c=>c.label),action:prev('book.lotm.merit_spend_copying')}};
- return {name:NIGHTHAWKS.name,currency:NIGHTHAWKS.currency,earned:f['lotm.merit.earned']||0,spent:f['lotm.merit.spent']||0,balance,practice,
-  missions:[...NIGHTHAWKS.missions.map(m=>({...m,action:prev(`book.lotm.merit_${m.id}`)})),...NIGHTHAWKS.missions.filter(m=>m.id in PRACTICE).map(m=>({...m,issuer:'Yourself, with Hale\'s leave',action:prev(`book.lotm.merit_${m.id}_home`)}))].filter(m=>m.action?.visible!==false),
+ return {name:NIGHTHAWKS.name,currency:NIGHTHAWKS.currency,earned:f['lotm.merit.earned']||0,spent:f['lotm.merit.spent']||0,balance,practice,copyFile:copyFileView(state,prev),
+  missions:[...NIGHTHAWKS.missions.map(m=>({...m,comparison:meritChoiceHint(m),action:prev(`book.lotm.merit_${m.id}`)})),...NIGHTHAWKS.missions.filter(m=>m.id in PRACTICE).map(m=>({...m,comparison:meritChoiceHint(m),issuer:'Yourself, with Hale\'s leave',action:prev(`book.lotm.merit_${m.id}_home`)}))].filter(m=>m.action?.visible!==false),
   store:NIGHTHAWKS.store.map(r=>({...offerFor(NIGHTHAWKS,r.id,{balance,bought:r.stock==null?0:r.stock-(f[`lotm.merit.left.${r.id}`]||0),facts:f}),action:prev(`book.lotm.merit_buy_${r.id}`)})),proposals:NIGHTHAWKS.proposals};
 };
 export function meritAssertions(state,{a,assert,natural}){

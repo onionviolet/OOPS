@@ -1,0 +1,57 @@
+{
+  "stage": "proposed",
+  "source": {
+    "book": "lotm1",
+    "world": "lotm",
+    "prefix": "lotm1c127",
+    "pass": "rules",
+    "kind": "rules",
+    "contentHash": "sha256:58be2cd31181f852298abd86922e7ee151ede9fa87e704cbb4fbc830741e60fc",
+    "method": "manual-structured-reading",
+    "fileLines": [
+      [
+        3,
+        3
+      ]
+    ],
+    "locators": [
+      "zh 第127章 p28"
+    ],
+    "offset": 0
+  },
+  "record": {
+    "label": "Low-grade charm upkeep",
+    "type": "rule",
+    "route": "#world/lotm/making/working%3Alotm.craft.charm-recharge"
+  },
+  "id": "e9d91f20f0d853fff601abafa85e8be05c5d28c52fb9ac5be3d19ada168183db",
+  "implementationReports": [
+    {
+      "id": "1e466bfbc4798e786c3fbcd24dffb60f96977b594b0460f5e9301812d6e5d006",
+      "schema": "atlas-reading-implementation/1",
+      "proposalId": "e9d91f20f0d853fff601abafa85e8be05c5d28c52fb9ac5be3d19ada168183db",
+      "consumer": {
+        "name": "Slumber charm upkeep with Old Neil",
+        "path": "src/lotm_charm_upkeep.js",
+        "resolvedPath": "src/lotm_charm_upkeep.js",
+        "sha256": "0c6d9a233aaa1a580cda6319606367a37897c3fb3a981e13f95910e44eb87ae8"
+      },
+      "playerRoute": "Native Slumber fixture: carry a faded charm to awake Old Neil, spend one spirituality and ten minutes on upkeep, then activate the returned charm. The fixture verifies two versus five minutes of sleep. Earned Klein entry remains open.",
+      "receipt": {
+        "path": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_CHARM_UPKEEP_2026-11-25.md",
+        "resolvedPath": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_CHARM_UPKEEP_2026-11-25.md",
+        "sha256": "bb0664d0adc8b412879c8ae9611a1b9603094b6cd25f0f67b3d300b8ae8d33f1"
+      },
+      "status": "implementation-report-attached",
+      "files": {
+        "consumer": {
+          "status": "unchanged"
+        },
+        "receipt": {
+          "status": "unchanged"
+        }
+      }
+    }
+  ],
+  "errors": []
+}

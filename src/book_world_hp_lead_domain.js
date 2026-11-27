@@ -1,4 +1,4 @@
-import {hpLeadTrialJournal,hpLeadJinxRows} from './hp_lead_spells.js';
+import {hpLeadTrialJournal,hpLeadJinxRows,hpLeadFeatherPractice} from './hp_lead_spells.js';
 // Read-only 'hp' panel projection for the HP lead life: the shape the slice runner and the native route
 // driver read (`arc.next`, `arc.done`), built by the shared sequence owner (place_act_sequence.js), as the
 // LOTM host does. No state, tick or save of its own. registerBookBeginnings passes the ports; the panel mounts
@@ -37,6 +37,9 @@ import {domainRegistry} from './domain_registry.js';
 import {hpStudyRows,hpStudyStart,hpStudyWriteNote} from './book_world_hp_inquiry.js';
 import {hpPositions,hpPositionLine,HP_HOUSE_FACT,HP_HOUSES} from './book_world_hp_positions.js';
 import {HP_LEAD_DAY_ITEMS} from './world_packs/book_hp_lead_day.js';
+import {HP_LIBRARY_ITEMS,HP_LIBRARY_BOOK_DOWN} from './hp_library_work.js';
+import {hpClassAgenda,hpSchoolDayRecap} from './book_world_hp_day.js';
+import {HP_TERM_OFFSET} from './hp_summer_passage.js';
 const LEAD_ID='book.hp.lead';
 const EMPTY_ARC=Object.freeze({id:`${LEAD_ID}.arc`,title:'Nothing authored yet',completed:0,total:0,done:false,next:null,aftermath:null,conclusion:null});
 const actData=()=>getHpLeadCast()?.householdActs??hpLeadHouseholdActs;
@@ -72,10 +75,16 @@ export function hpLeadProjection(state,data=actData(),locked=getHpLeadCast()?.lo
     const halloweenCharms=!!state.actors?.player?.completed?.[HP_LEAD_HALLOWEEN+'.charms'];
     const hufflepuffResult=state.simulation.knowledge?.player?.[HP_LEAD_NORBERT+'.match-result']?.value??null;
     const termResults=state.simulation.knowledge?.player?.[HP_LEAD_FINALE+'.cup-result']?.value??null;
+    const school=hpSchoolRoute(state);
+    const battle=state.simulation.sessions?.player?.nativeBattle;
+    const schoolDay=school.atSchool&&school.house&&state.actors.player.worldId===`${LEAD_ID}.world`?
+        {agenda:hpClassAgenda(state).slice(0,3),recent:hpSchoolDayRecap(state),feather:hpLeadFeatherPractice(state),libraryBookDown:state.worlds?.[`${LEAD_ID}.world`]?.facts?.[HP_LIBRARY_BOOK_DOWN]===true,inFight:!!battle&&!battle.result}:null;
+    const summer=household.done&&!school.atSchool?{date:formatCalendar(resolveWorldCalendar(state),{time:true}),
+        remaining:Math.max(0,(state.simulation.knowledge?.player?.[LEAD_ID+'.opening']?.at??state.clock)+HP_TERM_OFFSET-state.clock)}:null;
     const potionsBench=hpPotionsBench(state,readPort('character')?.getItems?.());
     if(potionsBench?.flask==='cure')potionsBench.lessonBonus=Math.round(FLASK_BONUS*100);
-    return {potionsBench,enrolled:state.actors?.player?.worldId===`${LEAD_ID}.world`,being:norbert?norbertCard(state):null,arc,schoolWeek:!!week,halloweenCharms,
-        termResults,hufflepuffResult,excursion:excursion?{id:arc.id,venue}:null,housePoints:halloweenArc?hpHalloweenHousePoints(state):null,match:matchArc?hpQuidditchMatch(state):null,reputation:reputationView(state,{known:id=>id==='book.hp.lead.ron'&&!!hpSchoolRoute(state).house}),school:hpSchoolRoute(state),ties:hpSchoolRoute(state).house?tieShownView(state):[],home:hpLeadHomeView(state,{homes:domainRegistry.project('homes'),quote:domainRegistry.command('homes','quote')??null}),lessons:hpLessonView(state),atCharmsBench:state.simulation.people.player.location===LEAD_ID+'.school_hall',trialJournal:hpLeadTrialJournal(state),jinxRows:hpLeadJinxRows(state),boardResult:state.simulation.knowledge?.player?.[LEAD_ID+'.spell_practice.last']?.value??null,exams:hpExamView(state),locked:structuredClone((excursion?excursion.locked?.[shown]:locked[shown])??[]),jobs:structuredClone(state.simulation.jobs||[])};
+    return {potionsBench,enrolled:state.actors?.player?.worldId===`${LEAD_ID}.world`,summer,being:norbert?norbertCard(state):null,arc,schoolWeek:!!week,halloweenCharms,
+        termResults,hufflepuffResult,excursion:excursion?{id:arc.id,venue}:null,housePoints:halloweenArc?hpHalloweenHousePoints(state):null,match:matchArc?hpQuidditchMatch(state):null,reputation:reputationView(state,{known:id=>id==='book.hp.lead.ron'&&!!school.house}),school,schoolDay,ties:school.house?tieShownView(state):[],home:hpLeadHomeView(state,{homes:domainRegistry.project('homes'),quote:domainRegistry.command('homes','quote')??null}),lessons:hpLessonView(state),atCharmsBench:state.simulation.people.player.location===LEAD_ID+'.school_hall',trialJournal:hpLeadTrialJournal(state),jinxRows:hpLeadJinxRows(state),boardResult:state.simulation.knowledge?.player?.[LEAD_ID+'.spell_practice.last']?.value??null,exams:hpExamView(state),locked:structuredClone((excursion?excursion.locked?.[shown]:locked[shown])??[]),jobs:structuredClone(state.simulation.jobs||[])};
 }
 // Live holdings: the purse is the player's own resource under the pack's currency key (one integer in the smallest coin,
 // shown on the pack's ladder); other holders (a vault, another person's coins) are different actors and never show here.
@@ -84,7 +93,7 @@ export function hpLeadHoldingsReaders(cast=()=>getHpLeadCast()){
     return {
         purse(state){const c=cast()?.currency,n=c&&lifeHoldings(state).resources[c.resource];
             return typeof n==='number'?ladderLabel(n,c.ladder,'an empty purse'):undefined;},
-        items(){const labels=new Map([...(cast()?.items||[]),...(getHpLeadHalloween()?.items||[]),...(getHpLeadMirror()?.items||[]),...(getHpLeadFlamel()?.items||[]),...(getHpLeadNorbert()?.items||[]),...(getHpLeadFinale()?.items||[]),...hpTableFoodItems.map(i=>({id:i.id,label:i.name})),...HP_LEAD_DAY_ITEMS].map(i=>[i.id,i.label])),rows=readPort('character')?.getItems?.()??{},out=[];
+        items(){const labels=new Map([...(cast()?.items||[]),...(getHpLeadHalloween()?.items||[]),...(getHpLeadMirror()?.items||[]),...(getHpLeadFlamel()?.items||[]),...(getHpLeadNorbert()?.items||[]),...(getHpLeadFinale()?.items||[]),...hpTableFoodItems.map(i=>({id:i.id,label:i.name})),...HP_LEAD_DAY_ITEMS,...HP_LIBRARY_ITEMS].map(i=>[i.id,i.label])),rows=readPort('character')?.getItems?.()??{},out=[];
             for(const [key,row] of Object.entries(rows)){let id;try{id=JSON.parse(key)?.id;}catch{continue;}
                 if(labels.has(id)&&(row?.count??1)>0)out.push(`${labels.get(id)}${(row?.count??1)>1?` ×${row.count}`:''}`);}
             return out;},

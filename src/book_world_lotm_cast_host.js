@@ -1,3 +1,4 @@
+import {TENT_READING,TENT_DECLINE,directGroceriesData,directGroceriesDone,tentSequenceData,tentReadingBeatReady} from './lotm_tent_refusal.js';
 import {defineBodyCare,quoteBodyCare} from './cast_body_adapter.js';
 import {settleLotmEvents,lotmRestrictions,LOTM_EVENTS_SETTLED,lotmDay} from './book_world_lotm_events.js';
 import {CITY_PREFIX,TINGEN_STATION,journeyUnderRestrictions} from './book_world_lotm_cities.js';
@@ -14,10 +15,12 @@ import {onCastLoaded,lotmCastDays,lotmCastSchedule} from './book_world_lotm_cast
 import {createSimulationRegistry} from './simulation_contracts.js';
 import {LOTM_ENERGY} from './book_world_lotm_ids.js';
 import {BE_SEER_ENERGY} from './book_world_lotm_be_seer.js';
+import {charmUpkeepFacts} from './lotm_charm_upkeep.js';
 let LOTM_CAST={people:[],places:[],placeAliases:[]};
 export let castAvailable=false;
 import {whereabouts,awayReason,compileCastSchedule,TIME_BANDS} from './cast_schedule.js';
 import {calendarMinutes} from './world_rhythm.js';
+import {castCalendar} from './lotm_cast_calendar.js';
 import {LOTM_IDS as I} from './book_world_lotm_ids.js';
 import {lotmWalkMinutes,districtOfPlace} from './book_world_lotm_districts.js';
 import {LOTM_LOCATIONS as L} from './book_world_lotm_ids.js';
@@ -36,9 +39,13 @@ import {defineCastExchanges,quoteCastExchanges} from './cast_exchange_adapter.js
 import {bindSeerBrew, seedSeerStock, SEER_BREW_BINDING} from './lotm_seer_brew.js';
 import {defineCastMaking,quoteCastMaking,validateCastMakingConsumers} from './cast_making_adapter.js';
 import {amuletTrialCommands,LEGACY_EARLY_AMULET_TRIAL} from './lotm_amulet_crafting.js';
+import {awakeForConversation,isSlumberAsleep} from './lotm_silver_charms.js';
 import {defineTopicTalks,quoteTopicTalks,pendingTopicTalkReports,settleTopicTalkReports} from './cast_topic_talk.js';
 import {collectMindMarks,applyMindMarks} from './book_world_lotm_mind.js';
 import {definePlaceActs,seedPlaceObjects,quotePlaceActs,settlePlaceActReports,pendingPlaceActReports,placeActVisitors} from './place_acts.js';
+import {bindResponseLoanCommands,responseCaseVisitors} from './lotm_charm_response.js';
+import {tentIncidentData,tentIncidentPeople,tentIncidentFacts,defineTentIncidentCommands,tentLatestStartReason} from './lotm_tent_incident.js';
+import {bakeryCustomerPack,bakeryCustomerDue,settleBakeryCustomer} from './lotm_bakery_customer.js';
 
 export const LOTM_BESIDE_PROFILE='lotm.early_tingen.canon_beside@1';
 export const lotmBeside=state=>state?.lotm?.entryProfile===LOTM_BESIDE_PROFILE;
@@ -70,10 +77,25 @@ export let castJourneyCommands=[];
 // Bind the existing native relocation capability to this world's authored routes.
 export function castJourneyContext(state,context){
  if(!lotmCastLife(state)||!castAvailable)return context;
+ context={...context,facts:{...context.facts,...tentIncidentFacts(state,castTentData)}};
+ if(context.actorId==='player'&&lotmBe(state)) {
+  context={...context,charmPresence:castCharmPresence};
+  context={...context,facts:{...context.facts,...castCharmUpkeepFacts(state,context)}};
+ }
  const locationIds=[...new Set([...castJourneyCommands.map(d=>d.journey.to),...castObjectCommands.flatMap(d=>d.effects.filter(e=>e.type==='relocate'&&e.actor==='player').map(e=>e.location))])];
  if(!locationIds.length)return context;
  return {...context,structuredNative:{bound:true,worldId:I.world,bodyId:'native.player.body',locationIds},
   facts:{...context.facts,'journey.hour':castCalendar(state).calendar.hour,'journey.money':context.external?.money||0}};
+}
+// The native completion boundary can arrive with expedition-only facts; re-read current scheduled support.
+export function castCharmUpkeepFacts(state,context={}) {
+ if(!lotmBe(state)||!castAvailable)return {};
+ return charmUpkeepFacts(state,{...context,charmPresence:castCharmPresence},{key:JSON.stringify({id:'book.lotm.slumber_charm'}),slug:'slumber'});
+}
+function castCharmPresence(state) {
+ const at=castCalendar(state),visiting=responseCaseVisitors(state,placeActVisitors(state,LOTM_CAST.householdActs));
+ // A scheduled body's saved location can outlast its presence window.
+ return (id,body)=>!peopleById.has(id)||visiting.has(id)?body.location:scheduleIndex.whereabouts(id,at).place;
 }
 export function castJourneyOffers(state,preview,options={}){
  if(!lotmBe(state)||!castAvailable)return [];
@@ -129,10 +151,22 @@ export function castMakingOffers(state,preview,options={}){
  return quoteCastMaking(state,commands,preview,options);
 }
 export let castObjectCommands=[];
+export let castTentData=null,castDirectShoppingData=null;
+let castDirectShoppingCommands=[];
+let castTentCommands=[],castObjectData=null;
 let seerMaker;
 export function castObjectOffers(state,preview,options={}){
- if(!lotmBe(state)||!castAvailable)return [];
- return quotePlaceActs(state,castObjectCommands,LOTM_CAST.householdActs,preview,options);
+ if(!lotmCastLife(state)||!castAvailable)return [];
+ // The incident is an independent encounter, not a stage in Klein's ordered
+ // source episode. Keep that episode's next-stage filter on its own commands.
+ const tentIds=new Set([...castTentCommands,...castDirectShoppingCommands].map(d=>d.id));
+ const optional=directGroceriesDone(state)&&tentIncidentFacts(state,castTentData)['tent.optionalReadingOpen']?
+  castObjectCommands.filter(d=>[TENT_READING,TENT_DECLINE].includes(d.id)):[];
+ return [...(lotmBe(state)?quotePlaceActs(state,castObjectCommands.filter(d=>!tentIds.has(d.id)),tentSequenceData(getPrivateLotmCast()?.householdActs),preview,options):[]),
+  ...quotePlaceActs(state,castTentCommands,castTentData,preview,options),
+  ...(lotmBe(state)?quotePlaceActs(state,castDirectShoppingCommands,castDirectShoppingData,preview,options):[]),
+  ...quotePlaceActs(state,optional,{acts:getPrivateLotmCast()?.householdActs?.acts||[]},preview,options)]
+  .map(o=>{const reason=tentLatestStartReason(state,o.id);return reason?{...o,eligible:false,reasons:[...o.reasons,reason]}:o;});
 }
 let talkIds=new Set(),roleIds=new Set(),scheduleIndex=compileCastSchedule([]);
 // Role records have no autonomous inner life. Explicit work or an observer
@@ -178,11 +212,13 @@ function referencedCastPeople(state){
  return ids;
 }
 function deriveCast(pack){
+ pack=bakeryCustomerPack(pack);
  LOTM_CAST=pack;peopleById=new Map(pack.people.map(p=>[p.id,p]));placesById=new Map(pack.places.map(p=>[p.id,p]));castWakes=null;roleIds=new Set(pack.people.filter(p=>p.tier==='role').map(p=>p.id));
  castSituation.label=pack.host.situation.label;
  aliases=new Map(pack.placeAliases.flatMap(a=>[[a.id,a.place],[a.indexId,a.place]]));
  CAST_PLACE_LABELS=Object.fromEntries(pack.places.filter(p=>!p.anchorOnly).map(p=>[p.id,castPlaceName(p)]));
- castSchedule=lotmCastSchedule().map(r=>({...r,actor:actorId(r.actor),place:resolveCastPlace(r.place)}));
+ castTentData=tentIncidentData(pack);
+ castSchedule=[...lotmCastSchedule(),...(castTentData?.schedule||[])].map(r=>({...r,actor:actorId(r.actor),place:resolveCastPlace(r.place)}));
  scheduleIndex=compileCastSchedule(castSchedule);
  const firstPlaces=new Map();for(const r of castSchedule)if(!firstPlaces.has(r.actor))firstPlaces.set(r.actor,r.place);
  castPeople=pack.people.filter(p=>!p.sameActorAs&&p.status!=='historical-reference').map(p=>({
@@ -196,7 +232,7 @@ function deriveCast(pack){
  castTalkCommands=pack.people.filter(p=>p.tier==='principal'&&!remoteCastPerson(p.id)).map(p=>cmd(
  `cast_talk_${p.indexId.split('.').at(-1)}`,`Talk to ${p.name} · brief greeting, no time cost`,null,
  {alone:true,once:false,targetId:p.id,coLocated:true,visibleWhen:eq('lotm.profile.beside'),
- requires:eq('lotm.profile.beside'),effects:[{type:'knowledge',actor:'player',key:`book.lotm.cast.met.${p.id}`,
+ requires:{all:[eq('lotm.profile.beside'),awakeForConversation]},effects:[{type:'knowledge',actor:'player',key:`book.lotm.cast.met.${p.id}`,
  stage:'seen',value:`You spoke with ${p.name} when you were together.`,
  basis:{kind:'observation',attributedTo:'player',situationId:LOTM_CAST_SITUATION}}]}));
  castBodyCommands=defineBodyCare(pack.bodyCare,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
@@ -210,7 +246,8 @@ function deriveCast(pack){
  castMakingCommands=[...defineCastMaking(pack.making,{worldId:I.world,group:'book_lotm',
   situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')}),...amuletTrialCommands(LOTM_CAST_SITUATION)];
  castTopicCommands=defineTopicTalks(pack.topicTalks,{worldId:I.world,group:'book_lotm',
-  situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+  situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')}).map(d=>({...d,
+   requires:{all:[d.requires,awakeForConversation]},completionRequires:{all:[d.completionRequires,awakeForConversation]}}));
  castJourneyCommands=defineJourneys(pack.journeys,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  for(const d of castJourneyCommands)if(!placesById.has(d.journey.from)||!placesById.has(d.journey.to))throw Error('Journey needs pack places.');
  castTalkCommands.push(...castTopicCommands);
@@ -220,8 +257,30 @@ function deriveCast(pack){
  castMoves=Object.fromEntries(castPlaces.filter(p=>p.travel).map(p=>[`lotm.move.${p.id}`,p.id]));
  castWalkCommands=[];walksById.clear();walkPlaces=new Map([...Object.values(L),...castPlaces.map(p=>p.id)].map(id=>[walkPart(id),id]));
  const placeInquiries=defineDivinations(pack.householdActs?.inquiries,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION});
- castObjectCommands=definePlaceActs(pack.householdActs,{worldId:I.world,group:'book_lotm',
+ castObjectCommands=definePlaceActs(tentSequenceData(pack.householdActs),{worldId:I.world,group:'book_lotm',
   situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be'),inquiries:new Map(placeInquiries.map(d=>[d.id,d]))});
+ for(const d of castObjectCommands)if([TENT_READING,TENT_DECLINE].includes(d.id)){
+  const guard={fact:'tent.refused',op:'eq',value:false,reason:'You declined the free reading and continued your errands.'};
+  const observed=d.id===TENT_DECLINE?[{fact:'tent.readingObserved',op:'eq',value:true,
+   reason:'Draw a card before answering the offer to interpret it.'}]:[];
+  d.requires={all:[d.requires,guard,...observed,{fact:'tent.optionalReadingOpen',op:'eq',value:true,reason:'The free-reading staff have left for now.'}]};d.completionRequires=d.requires;
+ }
+ const originalMarket=castObjectCommands.find(d=>d.id==='book.lotm.excursion.market');
+ if(originalMarket){
+  const guard={fact:'tent.canUseOriginalMarket',op:'eq',value:true,reason:'You already bought these groceries.'};
+  originalMarket.requires={all:[originalMarket.requires,guard]};originalMarket.completionRequires=originalMarket.requires;
+ }
+ castDirectShoppingData=directGroceriesData(pack.householdActs);
+ castDirectShoppingCommands=definePlaceActs(castDirectShoppingData,{worldId:I.world,group:'book_lotm',
+  situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+ for(const d of castDirectShoppingCommands){
+  d.once=true;
+  for(const e of d.effects)if(e.type==='knowledge')e.basis.provenance='divergent';
+ }
+ castObjectCommands=bindResponseLoanCommands(castObjectCommands);
+ castTentCommands=castTentData?defineTentIncidentCommands(castTentData,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION}):[];
+ castObjectCommands.push(...castTentCommands,...castDirectShoppingCommands);
+ castObjectData={...pack.householdActs,acts:[...(pack.householdActs?.acts||[]),...(castTentData?.acts||[]),...(castDirectShoppingData?.acts||[])]};
  bindSeerBrew(castObjectCommands, {}, {overmeasure:true});
  seerMaker=castObjectCommands.find(d=>d.id===SEER_BREW_BINDING.brewAct)?.targetId;
  for(const d of castObjectCommands)for(const e of d.effects)if(e.type==='relocate'&&e.actor==='player'&&!placesById.has(e.location))throw Error('Place-act travel needs a declared destination.');
@@ -254,13 +313,7 @@ export function installCast(registry){
  validateCastMakingConsumers(castMakingCommands,id=>registry.simulation.commands.get(id));
  installed.add(registry);
 }
-export function castCalendar(state){
- const elapsed=Math.max(0,state.clock-state.lotm.initializedAt),day=Math.floor(elapsed/1440)+1;
- // This profile starts at the opening small hours, minute 0; it owns no second timer.
- const minute=elapsed%1440;
- return {calendar:{year:Math.floor((day-1)/360),month:Math.floor((day-1)%360/30)+1,
-  day:(day-1)%30+1,day_count:day,hour:Math.floor(minute/60),minute:minute%60}};
-}
+export {castCalendar} from './lotm_cast_calendar.js';
 // The displayed clock projects the same relative clock used by waits,
 // schedules and journey hours. It does not invent a calendar date.
 export function castLocalClock(state){
@@ -297,12 +350,14 @@ const cardWindowFor=state=>({scenes:lotmCastDays().filter(d=>state.clock>=state.
 const pendingCardReports=state=>castCardRows.length>0&&dueCards(state,castCardRows,cardWindowFor(state)).length>0;
 export function castSyncDue(state){
  if(!lotmCastLife(state)||!castAvailable)return false;
+ if(bakeryCustomerDue(state,castTentData?.customer))return true;
+ if(pendingPlaceActReports(state,castTentData,I.world)||pendingPlaceActReports(state,castDirectShoppingData,I.world))return true;
  if(lotmBe(state)&&(pendingCardReports(state)||pendingActBacklash(state,castActCommands)))return true;
  if(lotmBe(state)&&(pendingPlaceActReports(state,LOTM_CAST.householdActs,I.world)||pendingTopicTalkReports(state,castTopicCommands,I.world)||pendingJourneyReports(state,castJourneyCommands,I.world)||pendingDivinationReports(state,castDivinationCommands,I.world)||pendingInferenceReports(state,castInferenceCommands,I.world)))return true;
  if(lotmBe(state)&&LOTM_CAST.householdActs?.objects?.some(r=>!state.worlds[I.world].facts[`place.act.seed.${r.id}`]))return true;
  if(missingCastBodies(state)||!castWakes||wakeEpoch!==state.lotm.initializedAt||state.clock<projectedClock||castWakes.nextWake(state.clock)===state.clock)return true;
  const day=castCalendar(state).calendar.day_count,facts=state.worlds[I.world].facts;
- const visiting=lotmBe(state)?placeActVisitors(state,LOTM_CAST.householdActs):new Set();
+ const visiting=lotmBe(state)?responseCaseVisitors(state,placeActVisitors(state,LOTM_CAST.householdActs)):new Set();
  return castPeople.some(p=>!visiting.has(p.id)&&!roleIds.has(p.id)&&!(lotmBe(state)&&p.id===LOTM_CAST.leadLife?.actorId)&&projectedPlaces.get(p.id)!=null&&state.simulation.people[p.id]&&state.simulation.people[p.id].location!==projectedPlaces.get(p.id))||
   lotmCastDays().some(row=>facts[`lotm.cast.window.${row.scene}`]!== (row.day===day));
 }
@@ -316,8 +371,9 @@ export function syncLotmCast(state){
  if(lotmBe(state))for(const id of LOTM_CAST.householdActs?.requiredPeople||[]){const person=castPeople.find(p=>p.id===id);if(person)promoted=enrollCastBody(state,person)||promoted;}
  const at=projectCastWakes(state);let changed=lotmBe(state)&&(seedPlaceObjects(state,LOTM_CAST.householdActs,I.world)||(pendingPlaceActReports(state,LOTM_CAST.householdActs,I.world)||pendingTopicTalkReports(state,castTopicCommands,I.world)||pendingJourneyReports(state,castJourneyCommands,I.world)||pendingDivinationReports(state,castDivinationCommands,I.world)||pendingInferenceReports(state,castInferenceCommands,I.world)));
  changed=promoted||changed||(lotmBe(state)&&(pendingCardReports(state)||pendingActBacklash(state,castActCommands)));
- const referenced=referencedCastPeople(state);
- const visiting=lotmBe(state)?placeActVisitors(state,LOTM_CAST.householdActs):new Set();
+ const referenced=referencedCastPeople(state),incidentPeople=new Set(tentIncidentPeople(state,castTentData));
+ for(const id of incidentPeople)referenced.add(id);
+ const visiting=lotmBe(state)?responseCaseVisitors(state,placeActVisitors(state,LOTM_CAST.householdActs)):new Set();
  for(const person of castPeople){if(!state.simulation.people[person.id]&&(projectedPlaces.get(person.id)!=null||referenced.has(person.id)))changed=enrollCastBody(state,person)||changed;
   if(roleIds.has(person.id)&&!projectedRoles.has(person.id))continue;const body=state.simulation.people[person.id];if(!body)continue;
   // In a be life the pack-selected person is driven by the player, never by
@@ -328,6 +384,8 @@ export function syncLotmCast(state){
   if(place!=null&&body.location!==place){body.location=place;castWriteCode(state,`location:${person.id}`,constraintProvenance(scheduleIndex.whereabouts(person.id,at).row||{}));changed=true;}
  }
  if(lotmBe(state))changed=seedSeerStock(state,I.world,seerMaker,{overmeasure:true})||changed;
+ changed=seedPlaceObjects(state,castTentData,I.world)||changed;
+ changed=settleBakeryCustomer(state,castTentData?.customer,(effects,cause)=>applySimulationEffects({state},effects,{actorId:'player',worldId:I.world},null,cause))||changed;
  const facts=state.worlds[I.world].facts;
  for(const row of lotmCastDays()){const key=`lotm.cast.window.${row.scene}`,value=row.day===at.calendar.day_count;
   if(facts[key]!==value){facts[key]=value;castWriteCode(state,`fact:${key}`,'canon-derived');changed=true;}}
@@ -338,7 +396,8 @@ export function castTalkPreview(state,def,preview){
  if(!lotmCastLife(state)||!talkIds.has(def?.id))return preview;
  const at=castCalendar(state),result=scheduleIndex.whereabouts(def.targetId,at);
  const playerPlace=state.simulation.people.player.location;
- if(result.place!=null&&result.place===playerPlace)return preview;
+ if(result.place!=null&&result.place===playerPlace)return isSlumberAsleep(state,def.targetId)
+  ? {...preview,eligible:false,reasons:[...preview.reasons,awakeForConversation.reason]} : preview;
  // If already at another place, use its current band. Otherwise the schedule
  // supplies the next known return. A person with no dated row stays unplaced.
  const away=result.place!=null?{place:null,nextAt:calendarMinutes(at.calendar),nextPlace:result.place}:result;
@@ -543,7 +602,7 @@ export function planLotmCastBeats(state,ledger=newBeatState(),pack=getPrivateLot
  const constraints=castConstraints(pack),strain=[];
  const actor=id=>{const resolved=pack.people.find(p=>p.id===id)?.sameActorAs||id;return lotmBe(state)&&resolved===pack.leadLife?.actorId?'player':resolved;};
  const place=id=>pack.placeAliases.find(p=>p.id===id||p.indexId===id)?.place||id;
- const due=pack.bindings.beats.filter(b=>{const d=days.get(b.scene);return d&&(d.day-1)*1440+d.from<=elapsed;});
+ const due=pack.bindings.beats.filter(b=>{const d=days.get(b.scene);return d&&(d.day-1)*1440+d.from<=elapsed&&tentReadingBeatReady(state,b,pack);});
  due.sort((a,b)=>{const x=days.get(a.scene),y=days.get(b.scene);return x.day-y.day||x.from-y.from;});
  const table=defineBeats(due.map((b,order)=>{
   const pinned=lotmBe(state)&&state.lotm.runMode==='canon'&&constraintProvenance(b)!=='fill';
@@ -641,7 +700,7 @@ export function persistLotmCastPlan(plan,persist,{reset=false,publish=()=>{},wri
  observeBeatRoutes(out.results); // deeds read the lead's route (STY33) as it resolves; via is not saved
  const saved=compactCastLedger(out.ledger,getPrivateLotmCast());
  plan.nativePatch={...plan.nativePatch,beatLedger:serializeBeatLedger(saved)};
- const objectReports=lotmBe(plan.state)?settlePlaceActReports(plan.state,LOTM_CAST.householdActs,I.world):[];
+ const objectReports=settlePlaceActReports(plan.state,lotmBe(plan.state)?castObjectData:castTentData,I.world);
  const inferenceReports=lotmBe(plan.state)?settleInferenceReports(plan.state,castInferenceCommands,I.world):[];
  const divinationReports=lotmBe(plan.state)?settleDivinationReports(plan.state,castDivinationCommands,I.world):[];
  const topicReports=lotmBe(plan.state)?settleTopicTalkReports(plan.state,castTopicCommands,I.world):[];

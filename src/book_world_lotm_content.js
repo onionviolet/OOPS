@@ -1,4 +1,6 @@
 import {isTingenAmulet} from './lotm_amulet_crafting.js';
+import {silverCharmItems,silverCharmConditions} from './lotm_silver_charms.js';
+import {bellClerk,bellClerkCommands,bellClerkController} from './lotm_soothing_bell.js';
 import {castAvailable,castWalkCommands,castPeople,castEnrollmentPeople,castTalkCommands,castSituation,LOTM_CAST_SITUATION,syncLotmCast} from './book_world_lotm_cast_host.js';
 import {applySituationEffect} from './causal_situations.js';
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K} from './book_world_lotm_ids.js';
@@ -59,7 +61,12 @@ export const LOTM_ITEM_SPECIFICATIONS=[
   ,...LOTM_BENCH_ITEMS
   ,...RITE_ITEMS
 ].map(([id,description])=>({id,name:id,description,value:1,tags:{expedition:true,book_world_lotm:true}}));
+lotmDefinitions.conditions.push(...silverCharmConditions);
+lotmDefinitions.people.push(bellClerk);
+lotmDefinitions.commands.push(...bellClerkCommands);
+lotmDefinitions.controllers.push(bellClerkController);
 const LEAD_ITEMS=[
+ ...silverCharmItems,
  ['silver_amulet_blank','Silver amulet blank','A plain silver piece ready for engraving.'],
  ['silver_trial_blank','Trial silver blank','A silver blank bought separately for inscription trials.'],
  ['silver_trial_marked','Front-marked silver','The front has been engraved and the back is still bare.'],

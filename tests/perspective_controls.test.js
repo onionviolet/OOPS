@@ -19,10 +19,10 @@ test('perspective control inventory covers shell routes and LOTM block families'
   const routeIds = [...navigation.matchAll(/\{id:\s*'([^']+)',\s*label:/g)].map(match => match[1]);
   for (const route of routeIds) assert.ok(rows.some(row => row.anchor === `[data-route-id="${route}"]`), `navigation route ${route} is tagged`);
 
-  const panel = await read('../src/book_world_lotm_ui.js');
+  const panel = (await Promise.all(['../src/book_world_lotm_ui.js','../src/ui/lotm_personal_shopping.js','../src/ui/lotm_circus_handbill.js'].map(read))).join('\n');
   const families = new Set([...panel.matchAll(/dataset\.(lotm[A-Z]\w*)/g)].map(match => match[1].replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`).replace(/^-/, '')));
   for (const family of families) assert.ok(rows.some(row => row.anchor === `[data-${family}]`), `LOTM data family data-${family} is tagged`);
-  for (const family of ['topic-person', 'topic', 'journeys', 'inferences', 'exchanges', 'ability-conflicts', 'body-care']) {
+  for (const family of ['topic-person', 'topic', 'journeys', 'inferences', 'exchanges', 'ability-conflicts', 'body-care', 'public-work-lead']) {
     assert.equal(rows.find(row => row.anchor === `[data-lotm-${family}]`)?.tag, 'in-world', `${family} belongs to this life`);
   }
   assert.ok(rows.some(row => row.anchor === '[data-lotm]'), 'dynamic LOTM command controls are tagged');

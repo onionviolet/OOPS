@@ -37,6 +37,39 @@
     margin-block: round(0.25rem, 1px) round(0.55rem, 1px);
 }
 
+#capability_runs_view .action-legibility__group {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--ui-space-1);
+}
+
+#capability_runs_view .action-legibility__card {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    align-items: start;
+    gap: var(--ui-space-1) var(--ui-space-4);
+    padding: var(--ui-space-2) var(--ui-space-panel);
+    border: 0;
+    border-block-end: var(--ui-space-hairline) solid var(--al-border);
+}
+
+#capability_runs_view .action-legibility__card > button {
+    min-width: 0;
+    min-height: var(--ui-control-md);
+    text-align: start;
+    white-space: normal;
+}
+
+#capability_runs_view .action-legibility__card > p {
+    margin: 0;
+    line-height: var(--ui-line-body);
+}
+
+#capability_runs_view .action-legibility__card > .action-legibility__status {
+    grid-column: 2;
+    font-size: var(--custom-small-size, var(--ui-type-small));
+    line-height: var(--ui-line-small);
+}
+
 .action-legibility__quote {
     margin-inline: var(--ui-space-2);
 }

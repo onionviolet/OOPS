@@ -1,0 +1,51 @@
+{
+  "schema": "ri-leaf-native-proof/1",
+  "bundleSha256": "4d14cb3c865682abdd1428d9ddd37b627cb0f2ace8db85f055009f1c78ced84c",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "route": "Named composed Fang wild-Gu/rank-two/day fixture; native watch drive-off -> buy two leaves for four stones -> treat -> duplicate block -> Save/reload/Export/literal Import -> native three-hour patrol. Independent retained-paid-leaf repeat-threat fixture proves wound/cooldown refusal through59 and treatment at60 stepped game minutes.",
+  "proposalId": "69772c5a2df1f201e9299ef2b923eb24fbe1093a99b4d79ad5ad8f4e27320724",
+  "reportId": "04931f697003fbcb3ff98ef4727eec33a6df681fcf8ccf9643af7a5cc07ae418",
+  "setup": "Existing ri-fang-yuan-wild-gu scenario plus rank-two/day pins, four stones, held fed Moonglow, petals and waiting wolf. No leaf grant. Early life and first patrol are not earned. Native clock stepper advances paid patrol and cooldown; no claim of natural elapsed time.",
+  "sourceBoundary": "Chapter102 leaf consumption/hour efficacy limit support this consumer. Rank-one plant/growing or detachment, arbitrary/combat-HP healing, personal travel carriage, source costs and a naturally earned second wound are not demonstrated. Two-stone sale and patrol wound are authored applications.",
+  "automation": "Main route passed; automation stopped parsing the native YAIR-UTF8-1 export as JSON. Corrected harness resumed the retained actual export for the independent hour branch.",
+  "results": {
+    "main": {
+      "purchase": {
+        "stonesBefore": 4,
+        "stonesAfter": 0,
+        "leavesBought": 2
+      },
+      "nativeDriveOff": {
+        "tallies": 1,
+        "injury": true
+      },
+      "afterTreatment": {
+        "leaves": 1,
+        "injury": false,
+        "treatedAt": 0
+      },
+      "persistence": "Save/reload/Export/literal Import retained paid stock, treatment note and healed wound",
+      "downstream": {
+        "nativePatrolCompleted": true,
+        "steppedMinutes": 181,
+        "leafRetained": 1
+      }
+    },
+    "cooldown": {
+      "setup": "Independent branch from actual exported treated life; one waiting-wolf fact added, then native drive-off made the second injury. No leaf, wound or treatment timestamp granted.",
+      "blockedAtMinutes": [
+        0,
+        59
+      ],
+      "blockedStock": 1,
+      "reloadAt59": true,
+      "admittedAt60": true,
+      "finalLeaves": 0,
+      "finalInjury": false
+    }
+  },
+  "errors": []
+}

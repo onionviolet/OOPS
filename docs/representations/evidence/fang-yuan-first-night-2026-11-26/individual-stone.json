@@ -1,0 +1,116 @@
+{
+  "schema": "fang-individual-stone/1",
+  "date": "2026-11-26",
+  "status": "passed",
+  "testedBundleSha256": "af4b5f7a5d243dd50ee988b96de36cb79dd21733c3dbbb3c8b0f7d12d9478cfb",
+  "buildScope": "isolated rebuilt web candidate; native runner bundles identified separately",
+  "sourceQualification": {
+    "locator": "English b1 ch18 P033–035",
+    "observed": "a previously used half-sized stone is physically handed over with five whole stones",
+    "quantity": "fifteen initial remaining parts is an authored per-piece estimate, not a universal stone capacity or a merchant denomination"
+  },
+  "physicalOwner": {
+    "schema": 1,
+    "path": "expansion.riStonePieces",
+    "stableIdentity": "independent of holder and remaining charge",
+    "inventoryKey": "original item type plus stable ri_piece identity",
+    "legacyOrigin": "unobserved provenance remains legacy-unattributed",
+    "materialization": "each legacy stack unit becomes a distinct piece; pending v1 work keeps its original contract until settlement or cancellation"
+  },
+  "desktop": {
+    "receipt": "individual-stone-desktop.json",
+    "sha256": "2fcd5e7ac6445a9a2e1bd1fd7f616e35c1b824b5b532bdf35c8d06a13f121d7f",
+    "schema": "fang-individual-stone-desktop/1",
+    "status": "passed",
+    "date": "2026-11-26",
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "browser": "isolated headless Chromium via existing Session checker; built-in IAB unavailable",
+    "input": {
+      "kind": "controlled legacy three-piece fixture",
+      "sha256": "2e6502ee3f64c6c3b28b61acd9578752cb102cb722a79b4ae292a32dcfa972be",
+      "charges": [
+        14,
+        14,
+        9
+      ]
+    },
+    "testedBundleSha256": "af4b5f7a5d243dd50ee988b96de36cb79dd21733c3dbbb3c8b0f7d12d9478cfb",
+    "servedBundleSha256": [
+      "af4b5f7a5d243dd50ee988b96de36cb79dd21733c3dbbb3c8b0f7d12d9478cfb"
+    ],
+    "selectedPiece": {
+      "id": "book.ri.lead.run.3275721402.1.half-stone.3",
+      "before": 9,
+      "after": 8,
+      "sameKey": true,
+      "persistedSelection": true
+    },
+    "otherPiecesUnchanged": true,
+    "wholeStones": 19,
+    "nativeTimedDrawMinutes": 1,
+    "clockSetup": "existing native advanceTicks for one-minute timed draw; no outcome writes",
+    "saveReload": true,
+    "overflow": false,
+    "pageErrors": [],
+    "screenshots": [
+      "individual-stone-selected-1280.png",
+      "individual-stone-restored-1280.png"
+    ]
+  },
+  "earnedLegacyNative": {
+    "status": "passed",
+    "nativeBundleSha256": "d468e1f6ddba8a05140634b3957096bfc868265bf1ea513cab986ac875a3291c",
+    "inputSha256": "dffe39348bd5f7d64632fbb7c2ff390fa6e572533b69cfe694a3eb1532b22b1a",
+    "pendingSaveSha256": "4010b8b1732c72af6621821262dd398917bab17ad855d30df277aea848a8d28c",
+    "stablePieceId": "book.ri.lead.run.3275721402.1.half-stone.1",
+    "stableKey": "{\"id\":\"book.ri.lead.vital.half_stone\",\"ri_piece\":\"book.ri.lead.run.3275721402.1.half-stone.1\"}",
+    "remaining": 14,
+    "reserve": 19,
+    "nativeInventoryMatchesSaved": true,
+    "pendingSaveReloadImport": true,
+    "cancelSamePiece": true,
+    "finalSaveImport": true,
+    "errors": [],
+    "scope": "genuine earlier accepted payout; pending and final persistence, exact-piece cancellation and one measured draw"
+  },
+  "witnessedPouchNative": {
+    "status": "passed",
+    "nativeBundleSha256": "5b913e45e422d025777e7c2063073cc0b356403dba6cfdc5514521f5cc5b4e2b",
+    "inputSha256": "14857da33fc4da2637fd35a1095a81f369d2752ee3034733305ed37eae97dd0a",
+    "pieceId": "book.ri.lead.run.3275721402.1.half-stone.1",
+    "charge": 15,
+    "origin": "witnessed-pouch",
+    "sameKeyBeforeAfterTransfer": true,
+    "pocketEmpty": true,
+    "playerCount": 1,
+    "save": true,
+    "errors": [],
+    "scope": "genuine earlier completed-work save, normal breakfast join/accept controls, identity captured in pouch before transfer; native Save"
+  },
+  "legacyCompatibility": {
+    "receipt": "legacy-piece-restoration.json",
+    "sha256": "b62eccd3e870cecfe688fa37063f770afaa428a79e293475d4cd8c54ae6ae407",
+    "scope": "genuine v1 pending cancel14/finish13 and spent0, each with save/reload/export/import; separate native hashes in receipt"
+  },
+  "checks": {
+    "focused": {
+      "tests": 101,
+      "pass": 101
+    },
+    "inventory": {
+      "tests": 9,
+      "pass": 9
+    },
+    "architecture": "passed",
+    "rules": "passed with existing warnings",
+    "rollback": "rejected storage preserves live inventory and state; retry publishes same instance key"
+  },
+  "limits": [
+    "Controlled three-piece desktop fixture is a selection test, not an earned second or third payout.",
+    "Desktop clock was paused between commands and advanced one minute through the existing native tick control.",
+    "Native and web proofs have distinct bundle hashes; no claim that an unchanged default web build contains this candidate."
+  ]
+}

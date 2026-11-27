@@ -1,9 +1,10 @@
+import {linkFixtureInput} from './helpers/fixture_fs.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtemp,cp,readdir,symlink,readFile,writeFile} from 'node:fs/promises';
+import {mkdtemp,cp,readdir,readFile,writeFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
-import {pathToFileURL} from 'node:url';
+import {pathToFileURL,fileURLToPath} from 'node:url';
 import {withFactsFrame,readFactsFrame,invalidateFactsInput} from '../src/facts_frame.js';
 import {createExpansionState,createContentRegistry} from '../src/expansion_engine.js';
 import {enrollSimulation} from '../src/simulation.js';
@@ -87,12 +88,12 @@ test('changed context fields and explicit invalidation of nested inputs refresh 
 // builds the real main.js with the existing Node DOM harness; it changes neither
 // the shared composition root nor player storage. Browser floor is separate.
 async function candidate() {
-    const root=resolve(new URL('..',import.meta.url).pathname),temp=await mkdtemp(join(tmpdir(),'yairpg-p3-test-'));
+    const root=fileURLToPath(new URL('..',import.meta.url)),temp=await mkdtemp(join(tmpdir(),'yairpg-p3-test-'));
     for(const entry of await readdir(root,{withFileTypes:true})) {
         if(entry.name==='.git')continue;
         const from=join(root,entry.name),to=join(temp,entry.name);
         if(['src','scripts'].includes(entry.name))await cp(from,to,{recursive:true});
-        else await symlink(from,to,entry.isDirectory()?'dir':'file');
+        else await linkFixtureInput(from,to,entry.isDirectory()?'dir':'file');
     }
     let source=await readFile(join(temp,'src/main.js'),'utf8');
     source += "\nexport {simulationNativeContexts};\nexport {withFactsFrame,setFactsFrameEnabledForTests} from './facts_frame.js';\nexport {simulationFacts} from './simulation_effects.js';\n";

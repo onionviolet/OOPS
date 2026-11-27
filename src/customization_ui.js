@@ -16,7 +16,7 @@ export function createCustomizationUI({container, effectsContainer, read, save, 
         const actions = document.createElement('div'); actions.className = 'customization-actions'; panel.append(actions);
         host.append(panel); return {panel, notice, body, actions};
     }
-    const appearance = surface(container, 'Appearance', 'Profile, typography, palette and seasonal theme for native modules. Changes remain a draft until applied.');
+    const appearance = surface(container, 'Appearance', 'Profile, typography, palette and seasonal theme for your panels. Changes remain a draft until applied.');
     const effectSurface = surface(effectsContainer || container, 'Effects & sound', 'Original effects for settled Work Ledger and crafting receipts, plus first skill discoveries. Sound requires a gesture.', {collapse: true});
     const {panel, body, actions} = appearance;
     const effectContext = document.createElement('p'); effectContext.className = 'customization-target-context'; effectSurface.body.prepend(effectContext);
@@ -27,7 +27,7 @@ export function createCustomizationUI({container, effectsContainer, read, save, 
     const row = (label, element) => { element.setAttribute('aria-label', label); const node = document.createElement('label'); node.append(document.createTextNode(`${label} `), element); currentFields.append(node); return element; };
     const select = (label, values) => { const element = document.createElement('select'); for (const value of values) { const option = document.createElement('option'); option.value = value; option.textContent = value || 'Whole profile'; element.append(option); } return row(label, element); };
     const input = (label, type, min, max) => { const element = document.createElement('input'); element.type = type; if (min !== undefined) element.min = min; if (max !== undefined) element.max = max; return row(label, element); };
-    const profile = select('Profile', []), module = select('Native module', ['', ...moduleIds]);
+    const profile = select('Profile', []), module = select('Panel', ['', ...moduleIds]);
     const theme = select('Seasonal theme', ['off','automatic','manual']), manualSeason = select('Manual season', ['spring','summer','autumn','winter']);
     const componentTheme = select('Component theme',Object.keys(COMPONENT_THEMES));
     const name = input('New profile name', 'text'); name.maxLength = 40;

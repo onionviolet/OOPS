@@ -1,3 +1,4 @@
+import {HP_STUDY} from './hp_study_rules.js';
 // Harry's ordinary school week (lead core-flow audit, ordinary-day round 2026-11-14, loop H1, on the shared day shape PS5; proposal
 // under AD32, ACR1, ACR6, ACR8). The five first-year subjects that had no class of their own get a weekly timetable; Charms and Potions
 // keep their Monday hour (book_world_hp_lessons.js, the class-slot duty). A class leaves a set of notes and a piece of homework comes back
@@ -86,29 +87,38 @@ export function hpDayExamInputs(gameplay, subject) {
 // timetable above and Monday's Charms and Potions (book_world_hp_lessons.js). A class taking pupils now says so; otherwise the soonest
 // start in term within the coming week. '' before the Sorting, away from school, or with no clock.
 const DAY_NAMES = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-const allClasses = () => [...HP_TIMETABLE.flatMap(r => r.slots.map(s => ({label: r.label, room: r.room, opens: s.opens}))),
-    ...Object.values(HP_LESSONS).map(l => ({label: l.label, room: `the ${l.label} classroom`, opens: l.schedule.opens}))];
-export function hpNextClass(state) {
+const allClasses = [...HP_TIMETABLE.flatMap(r => r.slots.map(s => ({id: r.id, label: r.label, room: r.room, opens: s.opens,
+    lastEntry: Math.min(s.closes - 1, s.opens + HP_DAY_DIALS.lateMinutes.value)}))),
+    ...Object.values(HP_LESSONS).map(l => ({id: l.id, label: l.label, room: `the ${l.label} classroom`, opens: l.schedule.opens,
+        lastEntry: l.schedule.closes - 1, originalLesson: true}))];
+export function hpClassAgenda(state) {
     const minute = hpLeadMinute(state);
-    if(minute == null || !sorted(state) || state?.actors?.player?.facts?.['hp.lead.atSchool'] !== true) return null;
-    const into = ((minute % WEEK) + WEEK) % WEEK, late = HP_DAY_DIALS.lateMinutes.value;
-    let best = null;
-    for(const c of allClasses()) for(const wk of [0, WEEK]) {
+    if(minute == null || !sorted(state) || state?.actors?.player?.facts?.['hp.lead.atSchool'] !== true) return [];
+    const into = minute % WEEK, upcoming = [];
+    for(const c of allClasses) for(const wk of [0, WEEK]) {
         const wait = c.opens + wk - into;
-        if(wait < -late || wait > WEEK) continue;
+        if(c.lastEntry + wk < into || wait > WEEK) continue;
         if(!inTermSafe({...state, clock: state.clock + Math.max(0, wait)})) continue;
-        if(!best || wait < best.wait) best = {...c, wait};
+        const ahead = Math.floor((minute + wait) / DAY) - Math.floor(minute / DAY);
+        const day = ahead === 0 ? 'today' : ahead === 1 ? 'tomorrow' : DAY_NAMES[Math.floor(c.opens / DAY) % 7];
+        upcoming.push({...c, wait, day, at: clock(c.opens % DAY), entryUntil: clock(c.lastEntry % DAY)});
     }
-    return best;
+    return upcoming.sort((a, b) => a.wait - b.wait);
 }
-const inWords = m => formatDuration(m);
+export const hpNextClass = state => hpClassAgenda(state)[0] ?? null;
 export function hpNextClassLine(state) {
     const c = hpNextClass(state);
     if(!c) return '';
-    const minute = hpLeadMinute(state), ahead = Math.floor((minute + c.wait) / DAY) - Math.floor(minute / DAY);
-    const at = clock(c.opens % DAY), day = ahead === 0 ? 'today' : ahead === 1 ? 'tomorrow' : DAY_NAMES[Math.floor(c.opens / DAY) % 7];
-    return c.wait <= 0 ? `${c.label} has started in ${c.room}; you can still go in until ${clock((c.opens + HP_DAY_DIALS.lateMinutes.value) % DAY)}.`
-        : `Next class: ${c.label}, ${day} at ${at} in ${c.room}, in ${inWords(c.wait)}.`;
+    return c.wait <= 0 ? `${c.label} has started in ${c.room}; you can still go in until ${c.entryUntil}.`
+        : `Next class: ${c.label}, ${c.day} at ${c.at} in ${c.room}, in ${formatDuration(c.wait)}.`;
 }
 registerPlaceDescription('book.hp.lead.school_hall', hpNextClassLine);
+
+export function hpSchoolDayRecap(state) {
+    const known = state?.simulation?.knowledge?.player || {};
+    const latest = keys => keys.map(key => known[key]).filter(note => typeof note?.value === 'string').sort((a, b) => b.at - a.at)[0];
+    return [latest(['book.hp.lead.spell.levitation.last', 'book.hp.lead.spell_practice.last', 'book.hp.lead.spell.passing.last']),
+        known['book.hp.lead.library_work.last'], known[HP_STUDY.charms.key], known[`${HP_LEAD_DAY}.last_homework`], latest([`${HP_LEAD_DAY}.last_lesson`, 'book.hp.lead.charms_last', 'book.hp.lead.potions_last'])]
+        .filter(note => typeof note?.value === 'string').sort((a, b) => b.at - a.at).map(note => note.value);
+}
 

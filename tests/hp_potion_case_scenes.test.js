@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 
 import {readLedgers, runCase, runCaseData} from '../scripts/coverage_report.mjs';
+import {reachableFrom} from '../scripts/reachable.mjs';
 import {landEffect} from '../src/effect_host.js';
 import {advanceEngineWorld, createEngineWorld} from '../src/engine_world.js';
 import {coverageCase, DRAUGHT_CASE_ID} from '../src/world_packs/hp_potion_case_scenes.js';
@@ -550,7 +551,8 @@ test('the stock-backed Hogwarts potion cases earn authored expression through th
     const row = cases.find(row => row.id === 'hp.potion.draught_of_living_death');
     assert.equal(row.state, 'runs-authored');
     assert.match(row.source, /oldid=1992923; HPPE006; HPPE007; HPPE008; HPPE009; HPPE010; HPPE011; HPPE012; HPPE088$/);
-    for (const candidate of cases) assert.equal((await runCase(candidate)).state, 'runs-authored');
+    const reachable = reachableFrom();
+    for (const candidate of cases) assert.equal((await runCase(candidate, {reachable})).state, 'runs-authored');
 
     const data = coverageCase(DRAUGHT_CASE_ID);
     const noUptake = structuredClone(data);

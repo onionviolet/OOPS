@@ -1,0 +1,22 @@
+{
+  "schema": "atlas-native-evidence-source/1",
+  "files": [
+    {
+      "path": "prototypes/world-atlas/atlas-native-evidence.mjs",
+      "sha256": "d2c4f561ea0e9f860e2f1d183f8a33e6babf97319eafce5ac2d617780983274f"
+    },
+    {
+      "path": "prototypes/world-atlas/atlas-native-evidence-view.mjs",
+      "sha256": "c14b1a7ae96c47e2d749c045f32c78b5b5124d4c120bb73181951f3746510ad4"
+    },
+    {
+      "path": "prototypes/world-atlas/prove-native-evidence.mjs",
+      "sha256": "34ef344e000943e373db869efbbd094c81c28807a49dbf332479026054ba7687"
+    },
+    {
+      "path": "tests/atlas_native_evidence.test.js",
+      "sha256": "b04c0f0d14f435d26b88b6d804a0b9df8515ef6bf0d61c7871d0805a78d32e33"
+    }
+  ],
+  "note": "One post-browser metadata wording narrowed Klein final persistence scope; route and renderer unchanged. Focused backend tests rerun5/5."
+}

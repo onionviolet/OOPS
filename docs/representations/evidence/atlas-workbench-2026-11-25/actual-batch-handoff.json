@@ -1,0 +1,52 @@
+{
+  "handoff": {
+    "index": 0,
+    "key": "rule:lotm.rule.earmarked-commission-funds:entry:17",
+    "id": "977a42730945b0ba79250e106e71c8f2c0518411248ee9067218820fc86d7715",
+    "route": "#workbench/handoffs/977a42730945b0ba79250e106e71c8f2c0518411248ee9067218820fc86d7715"
+  },
+  "source": {
+    "book": "lotm1",
+    "world": "lotm",
+    "prefix": "lotm1c128",
+    "pass": "rules",
+    "kind": "rules",
+    "contentHash": "sha256:25174469c0858b062e2f588914c29f05e82e033e4cbc20f030f8f8adbe841166",
+    "method": "manual-structured-reading",
+    "fileLines": [
+      [
+        6,
+        6
+      ]
+    ],
+    "locators": [
+      "zh 第128章 p41"
+    ],
+    "offset": 0
+  },
+  "record": {
+    "label": "Separate committed funds from shopping money",
+    "type": "rule",
+    "route": "#world/lotm/things/lotm.rule.earmarked-commission-funds"
+  },
+  "readingMethod": {
+    "status": "verified",
+    "method": "manual-structured-reading",
+    "label": "Manual structured reading",
+    "provider": "unknown",
+    "locatorScope": {
+      "from": "zh 第128章 p1",
+      "through": "zh 第128章 p83"
+    }
+  },
+  "stage": "proposed",
+  "duplicateReturnedSameId": true,
+  "errors": [],
+  "directLocalExport": {
+    "schema": "atlas-reading-references/1",
+    "recordKey": "rule:lotm.rule.earmarked-commission-funds:entry:17",
+    "matchedSavedHandoff": true,
+    "requiredBrowser": false,
+    "readerProposalAcceptedWithoutEditing": true
+  }
+}

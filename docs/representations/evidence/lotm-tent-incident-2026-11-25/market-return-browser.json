@@ -1,0 +1,20 @@
+{
+  "schema": "lotm-market-return-browser/1",
+  "date": "2026-11-26",
+  "bundleSha256": "ab3094e7e5684929fa0951142b856d184335acb186eb3ce5942358ea072bd300",
+  "checkpointSha256": "67aff563ebd4003ead68711d926314cba7ac17f9f73a9a495061948316904ba6",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "startMinute": 519,
+  "openingMinute": 520,
+  "firstReadingStoppedMinute": 521,
+  "readingCompletedMinute": 526,
+  "replyCompletedMinute": 528,
+  "replyBeforeDraw": false,
+  "replyAfterInterruptedReading": false,
+  "replyAfterCompletedReading": true,
+  "paidFee": 0,
+  "nextHouseholdTask": "Unpack the shopping at home"
+}

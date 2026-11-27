@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "bundle": "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca",
+  "bundleSha256": "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca",
+  "servedBundleSha256": "a6863a9d600d192a9c50102a1f0762472172c9f003f747f20807e640dd43c8ca",
+  "route": "Native Fang day: cancel funded Ear Grass listening; listen or inspect by hand; patch with a held hide; present work to the existing elder; feed the held Moonglow with earned petals. Save/reload/Export/fresh Import during each investigation and after each payment.",
+  "viewport": "1920x1080",
+  "fixture": "Late Fang life; existing elder at academy after ceremony, rank-two/day pins, held Moonglow and one hide; listening branch has held attached Ear Grass and three essence, manual branch has neither Gu nor essence.",
+  "results": [
+    {
+      "method": "listen",
+      "minutes": 25,
+      "paid": 20,
+      "afterExistingFeed": 18,
+      "pendingAndPaidSaveReloadExportFreshImport": true
+    },
+    {
+      "method": "search",
+      "minutes": 65,
+      "paid": 20,
+      "afterExistingFeed": 18,
+      "pendingAndPaidSaveReloadExportFreshImport": true
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,23 @@
+{
+  "bundleSha256": "0f6b81ae3403ac45fe9af83166549e661db16a619d58ffb78e5bbab952a89734",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "route": "Fresh game, Play, Capability runs, Hogwarts, Begin this run",
+  "light": [
+    0,
+    0,
+    4,
+    4,
+    0,
+    4
+  ],
+  "checks": [
+    "Nox in an unlit room",
+    "Lumos then Save and reload",
+    "Nox extinguishes retained light",
+    "Lumos still works"
+  ],
+  "pageErrors": []
+}

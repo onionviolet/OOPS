@@ -191,3 +191,25 @@ test('mental delivery changes the failure dial without changing the selected str
     assert.equal(chance(12,'mental'),0.2);
     assert.equal(chance(12,'spoken'),0);
 });
+import {HP_STUDY} from '../src/hp_study_rules.js';
+import {hpLeadFeatherPractice, hpLeadAdditionalSpellFacts, HP_LIFT_BOARD_COMMAND} from '../src/hp_lead_spells.js';
+
+test('Harry uses his own library understanding in feather, passing and board casts, without inventing more practice', () => {
+    const before = stateAt(HP_LEVITATION, 0), after = structuredClone(before);
+    after.simulation.knowledge = {player: {[HP_STUDY.charms.key]: {stage: 'understood', value: 'Understood the motion', at: 1}}};
+    const feather = hpLeadChanceFact(hpLeadSpellCommands[0].id);
+    const board = `spell.${HP_LIFT_BOARD_COMMAND}.failChance`;
+    const passing = Object.keys(hpLeadAdditionalSpellFacts(before))[0];
+    for (const key of [feather, board, passing, `${HP_SPELL_PRACTICE}.trial.spoken.guided.tilt.chance`]) {
+        assert.ok(Math.abs(hpLeadSpellFacts(after)[key] - Math.max(0, hpLeadSpellFacts(before)[key] - HP_STUDY.bonus)) < 1e-9, key);
+    }
+    assert.equal(hpLeadFeatherPractice(after).chance, hpLeadFeatherPractice(before).chance + 10, 'the quote reads the same improved cast chance');
+    assert.equal(hpLeadFeatherPractice(after).tries, 0, 'understanding does not add practice');
+    const borrowed = structuredClone(after);
+    borrowed.simulation.knowledge.player[HP_STUDY.charms.key].stage = 'interpreted';
+    assert.equal(hpLeadSpellFacts(borrowed)[feather], hpLeadSpellFacts(before)[feather], 'a copied note is not personal understanding');
+    after.simulation.powers.player[HP_LEVITATION].mastery = 12;
+    assert.equal(hpLeadSpellFacts(after)[feather], 0, 'understanding cannot produce negative outcome weights');
+    after.simulation.powers.player[HP_LEVITATION].mastery = 2;
+    assert.equal(hpLeadSpellFacts(after)[`${HP_SPELL_PRACTICE}.trial.mental.guided.tilt.chance`], 1, 'reading does not bypass the silent-casting fluency requirement');
+});

@@ -29,6 +29,9 @@ const bindings = {
         ability: {chapters: [150], observed: 'The outer water shield breaks under Thunderclap and its Gu becomes dull.',
             authored: 'The loan uses rank two, stops five lightning damage and recovers from a break after twenty minutes.',
             value: {fuel: 'primeval', cost: 1, effect: {kind: 'water-guard', magnitude: 5}}},
+        leadActivation: {chapters: [150], observed: 'The Gu raises an outer water shield against lightning.',
+            authored: 'Nine parts of primeval essence per activation on the lead-life scale.',
+            value: {fuel: 'primeval', cost: 9}},
     },
     'white-jade': {
         ability: {chapters: [150], observed: 'White Jade reduces the effect of the remaining electricity but does not soften the fall.',
@@ -233,6 +236,9 @@ const bindings = {
                 stageFuel: {upper: {costFactor: 0.4, magnitudeFactor: 4 / 3}},
             },
         },
+        leadActivation: {chapters: [106], observed: 'Moonglow Gu produces a stronger Moonblade.',
+            authored: 'Five parts of primeval essence per Moonblade on the lead-life scale.',
+            value: {fuel: 'primeval', cost: 5}},
     },
     'liquor-worm': {
         traits: {

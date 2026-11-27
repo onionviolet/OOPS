@@ -1,3 +1,4 @@
+import {configureRiFirstNightBed,prepareRiFirstNightSleep,continueRiFirstNightSleep,settleRiFirstNightSleep} from './ri_first_night_bed.js';
 import './timer_coalesce.js'; // first: stale interval ticks from a busy boot run once (G18 follow-up)
 import {MISTGLASS_ARTIFACT} from './artifact_refining.js';
 import {isTingenAmulet} from './lotm_amulet_crafting.js';
@@ -23,7 +24,7 @@ import {mountProto23Shell} from './proto23_shell.js';
 import {quoteJourney, setJourneyPace, villageRoadPace} from './journey_quote.js';
 import {makeItemCardReader} from './item_card_reader.js';
 import {mountWorkspaceNavigation} from './workspace_navigation.js';
-import {createVillageWorkspace, placeExits, heardName} from './village_workspace.js'; import {mountDayStrip} from './ui/day_strip.js';
+import {createVillageWorkspace, placeExits, heardName, canOpenCurrentWorkStation} from './village_workspace.js'; import {mountDayStrip} from './ui/day_strip.js';
 import {projectPlaceTypes} from './place_types_projection.js';
 import {get_location_type_penalty} from './models/location.js';
 import {projectsHome,openProjects} from './projects_drawer.js';
@@ -88,7 +89,7 @@ import {settleObservedDrops,validateDropObservations} from './absorb_p23/known_d
 import {mountKnownMethodChains,mountKnownNumber,formatKnownNumber} from './absorb_p23/known_detail/presentation.js';
 import {createKnownItemHotkeys,mountKnownItemBinding,mountKnownItemHotkeyList} from './absorb_p23/known_detail/hotkeys.js';
 import {skillExpansionPresentation} from './skill_expansion_host.js';
-import {setNativeObservedDropReader, setKnownClearTextReader} from './display.js';
+import {setNativeObservedDropReader, setKnownClearTextReader, reset_message_log_for_life} from './display.js';
 let p23DropObservations,loadedDisplayPreferences;
 
 import {structuredLifeEnded,reconcileStructuredLifePlan,structuredLifeView,archiveStructuredLife,publishIndependentStructuredLife,listStructuredLifeArchives} from './structured_life_runtime.js';
@@ -390,8 +391,8 @@ import {syncAuthoredRegistration, applyAuthoredState, resetAuthoredState, AUTHOR
 import {createAuthoredSiteUI} from './authored_site_ui.js';
 import {createStructuredNativeRegistration} from './structured_native_registration.js';
 import {admittedExtensionCommands} from './structured_pack_extensions.js';
-import {beginStructuredCampaign,planStructuredSelection,structuredCampaignView,adoptStructuredExtension} from './structured_pack_runtime.js';
-import {requireStructuredContent,requireStructuredSelection} from './structured_pack_state.js';
+import {beginStructuredCampaign,planStructuredSelection,structuredCampaignView,adoptStructuredExtension,replacesStructuredReportLife} from './structured_pack_runtime.js';
+import {prepareStructuredContent,requireStructuredContent,requireStructuredSelection} from './structured_pack_state.js';
 import {previewStructuredRenewal,commitStructuredRenewal} from './structured_renewal.js';
 import {createStructuredPackPanel} from './structured_pack_ui.js';
 import {registerBookBeginnings,bookPassageClockRequest} from './book_world_beginning_registration.js';
@@ -400,7 +401,7 @@ import {createStructuredBeginningChoices} from './structured_beginning_choice.js
 import {nativeStructuredEquipmentTemplate} from './structured_equipment_runtime.js';
 import {readWornEquipment} from './worn_equipment_comparison.js';
 import {createContentPackPanel} from './content_pack_ui.js';
-import {SafeLocation as OptionalPackLocation} from './models/location.js';
+import {SafeLocation as OptionalPackLocation,LocationHousing} from './models/location.js';
 import {createStartProbe} from './start_probe_ui.js';
 import {mountNewGameBeginning} from './new_game_beginning.js';
 const optionalPacks=new Map();
@@ -1850,6 +1851,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
     }
     stageRevealKnowledge(plan,readInventoryOwner(character.getItems()),character.money,materialInsightContext());
     readFrame?.invalidate(); // Staged actor bindings begin a new read phase.
+    domainRegistry.command('ri_stone_pieces','prepare')?.(plan);
     const stagedGameplay = nativeGameplay.stageBindings(plan.gameplay,plan.state);
     const actorBindings = stagedGameplay.actors;
     const unlockAdapter = unlocks => [
@@ -1910,7 +1912,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
     // Every owned domain is durable before native state is published. Rendering
     // happens afterward and never applies rewards.
     readFrame?.invalidate();
-    expansionState = plan.state;
+    if(replacesStructuredReportLife(expansionState,plan))reset_message_log_for_life();expansionState = plan.state;
     if(Object.hasOwn(plan.nativePatch||{},'harvest'))setHarvestOwner(plan.nativePatch.harvest);if(Object.hasOwn(plan.nativePatch||{},'crafting'))setCraftingOwner(plan.nativePatch.crafting);
     localDateLog.commit(nextLocalCalendar);
     if(plan.pacingNext){setPacingState(plan.pacingNext);pacingMinute=plan.pacingTarget;pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();}
@@ -2117,6 +2119,7 @@ function structuredContext() {
         nativeBody:{...currentNativeBody(),form:character.getRace(),lifeStage:character.getBioComponent().age},inventoryOwners:structuredInventoryOwners(),equipment:readNativeEquipment({player:character}),external:{money:character.money},gameplay:gameplaySnapshot(),vitals:Object.fromEntries(Object.entries(contexts).map(([id,c])=>[id,c.vitals])),
         nativeReady:!active_effects.Recovering,
         structuredNative: optionalPackState.structured?{...optionalPackState.structured,bound:true}:null,
+        locationLabel:current_location?.name,
         facts:{...contexts.player.facts,location:current_location?.id,'skill.Crafting':character.getTotalSkillLevel('Crafting')},busy:!!current_activity||!!current_game_action||!!current_combat||!!current_dialogue||is_sleeping||is_reading||is_in_trade()};
 }
 function readStructuredCampaign() {
@@ -2155,6 +2158,8 @@ function commandStructuredCampaign(command) {
             if(command.type==='adopt-extension'){
                 const result=adoptStructuredExtension(expansionState,d,record,command,context);plan=result.plan;
                 next=packSaveState({...optionalPackState,structured:result.record},packDefinitionsForSave());plan.nativePatch={content_packs:next};
+            } else if(command.type==='ri-stone-select'){
+                plan=domainRegistry.command('ri_stone_pieces','select')(expansionState,context,command.key);
             } else if(command.type==='renewal'){
                 plan=commitStructuredRenewal(expansionState,d,context,expansionState.sequence);
             } else if(command.type==='craft-trial'){
@@ -2170,7 +2175,7 @@ function commandStructuredCampaign(command) {
                 plan=cancelSimulationJob(expansionState,expeditionRegistry,command.jobId,context,expansionState.sequence);
             } else throw Error('Unsupported local action.');
         }
-        persistExpansion(plan);if(next)optionalPackState=next;structuredNotice='';structuredPanel?.render(true);
+        persistExpansion(plan);if(next)optionalPackState=next;structuredNotice='';settleRiFirstNightSleep(command);structuredPanel?.render(true);
     }catch(error){structuredNotice=error.message;throw error;}
 }
 
@@ -3967,6 +3972,7 @@ function do_resting() {
 }
 
 function do_sleeping() {
+    if(!continueRiFirstNightSleep()){end_sleeping();return;}
     if(!residenceSleepAllowed()){end_sleeping();log_message('Your lodging term has ended. Renew or use another resting place; your belongings remain yours.','notification');return;}
     if(full_stats.health < full_stats.max_health) {
         const sleeping_heal_ammount = p00SleepingMultiplier()*furnitureRecovery(readFurnitureBonuses(), Math.round(Math.max(full_stats.max_health * 0.04, 5) * (1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level) * (1 + 3*character.getTotalSkillLevel("Regeneration")/skills["Regeneration"].max_level)));
@@ -3988,6 +3994,7 @@ function do_sleeping() {
 function start_sleeping() {
     if(!residenceSleepAllowed())return;
     if(expeditionOccupiesPlayer()) return;
+    if(is_sleeping||!prepareRiFirstNightSleep())return;
     interruptP23NativeWork();
     start_sleeping_display();
     is_sleeping = true;
@@ -4573,6 +4580,9 @@ function start_dialogue(npc_id) {
 function end_dialogue() {
     current_dialogue = null;
     remove_from_content_stack(content_stack_removal_options.TOP);
+    // The native action box was rebuilt; restore its committed owner panels
+    // immediately, including while the clock is paused.
+    renderTickPanels();
 }
 
 function reload_normal_location() {
@@ -6705,7 +6715,7 @@ function load(save_data) {
     restoringNativeSave = true;
     try{
         try {
-            try {requireStructuredContent(save_data.content_packs?.structured,structuredPacks,save_data.expansion);requireStructuredSelection(save_data.content_packs?.pendingStructured,structuredPacks);}
+            try {const compatible=prepareStructuredContent(save_data,structuredPacks);requireStructuredSelection(compatible.content_packs?.pendingStructured,structuredPacks);save_data=compatible;}
             catch(error){suspendedStructuredSave=structuredClone(save_data);throw error;}
             syncAuthoredSite(save_data.content_packs?.authored?.draft??null);
             save_data = preparePackSave(save_data,packDefinitionsForSave());
@@ -8709,6 +8719,7 @@ function simulateTick() {
         if(!deferWhileHidden(renderTickPanels,renderTickPanels))renderTickPanels();
         if(!advancedMinutes || nativeLifeEnded()) {awakenOptionalStart(); return;}
 
+        try {
         if(!deferWhileHidden(renderExportReward,renderExportReward))renderExportReward();
 
         const curr_day = current_game_time.day_count;
@@ -9149,6 +9160,12 @@ function simulateTick() {
 
         game_stats.total_playtime += 1/tickrate;
         if(++title_check_ticks >= 5*tickrate) {title_check_ticks = 0; refresh_titles();}
+        } finally {
+            // Native XP lands after the joined-clock domain tick. Observe it at
+            // this same boundary, independently of when a render batch closes.
+            // This zero-minute capture neither advances idle time nor renders.
+            domainRegistry.command('skillRecords','observeProgress')?.();
+        }
 
     //uses time_adjustment based on time_variance_accumulator for more precise overall stabilization
     //(instead of only stabilizing relative to previous tick, it stabilizes relative to sum of deviations)
@@ -9514,7 +9531,21 @@ const loadedOptionalPacks=await loadContentPacks({registry:expeditionRegistry,lo
 for(const [id,definition] of loadedOptionalPacks)if(definition.schema===1)optionalPacks.set(id,definition);
 if(foundationProbeEnabled)await registerStructuredNative(createFoundationStartContent());
 for(const make of [createLocalLivelihoodContent,createWarmHandStartContent,createLanternLoanStartContent,createSlakeBenchStartContent])await registerStructuredNative(make());
-await registerBookBeginnings(registerStructuredNative,beginningChoices,{state:()=>expansionState,read:readStructuredCampaign,command:commandStructuredCampaign});
+await registerBookBeginnings(registerStructuredNative,beginningChoices,{registry:expeditionRegistry,state:()=>expansionState,calendarMinute:()=>calendarMinutes(current_game_time),read:readStructuredCampaign,command:commandStructuredCampaign});
+configureRiFirstNightBed({
+    locations,availabilities,makeHousing:options=>new LocationHousing(options),
+    read:()=>({state:expansionState,record:optionalPackState.structured,locationId:current_location?.id,
+        nativeAlive:character.is_alive===true,restoring:restoringNativeSave,
+        writable:ownsSave&&!foundationSaveBlocked&&!lifeStorageFailure&&!importProbeToken,
+        busy:()=>!!(current_activity||current_game_action||current_combat||current_dialogue||is_reading||is_in_trade()||nativeOccupationReason()),
+        sleeping:is_sleeping}),
+    view:readStructuredCampaign,command:commandStructuredCampaign,startSleep:()=>start_sleeping(),
+    log:text=>log_message(text,'notification'),
+    refreshLocal:()=>{
+        if(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade())update_displayed_location_identity(current_location);
+        else reload_normal_location();
+    }
+});
 configureCraftingDomain({actor:()=>character,read:()=>({body:currentNativeBody(),mind:character.getFullStats().intuition,inventory:Object.fromEntries(Object.entries(character.getItems()).map(([k,r])=>[k,r.count])),clock:calendarMinutes(current_game_time),skill:character.getTotalSkillLevel('Literacy'),world:expansionState.actors.player.worldId,location:current_location?.id,blocked:harvestBlockReason(),root:streamSeed(expansionState,STREAMS.craft,'crafting.frontier@1')}),
     itemOwners:()=>[character,character.getItems(),character.getLevelableComponent(),item_log,favourite_items,favourite_consumables,global_flags,availabilities,...Object.values(skills).map(s=>s.getAvailabilityComponent()),which_skills_affect_skill,...nativeCraftQuestOwners(quests,active_quests)],assertSpend:key=>assertNativeItemDisposition(expansionState,key),addSkillXp:(skill,xp)=>add_xp_to_skill({skill:skills[skill],xp_to_add:xp,use_bonus:false,cap_gained_xp:false}),
     addItem:(key,count)=>character.addToInventory([{item_key:key,count}]),removeItem:(key,count)=>character.removeFromInventory([{item_key:key,item_count:count}]),
@@ -9628,7 +9659,7 @@ if(newGameBeginning) {
                 worldId:start.provenance.worldId,kind:'beginning',text:`Start layers: ${start.provenance.layers.map(l=>l.id).join(', ')}. Seed: ${start.provenance.seed}`});
         }
         const choice = newGameBeginning.cheatChoice();
-        seedCheatBeginning({choice, at: cheatCalendarTime()});
+        seedCheatBeginning({choice, at: cheatCalendarTime(), startingOffer:true});
         {const grants=startProbe?.selected()?.snapshot.grants;if(grants?.length)setCheatState(applyStartGrants(cheatState,grants,{at:cheatCalendarTime()}).state);}
         lifeRecord = appendLifeMilestone(lifeRecord, {year: current_game_time.year,
             at: lifeCalendarMinute(current_game_time), worldId: 'base.frontier', kind: 'beginning',
@@ -9804,7 +9835,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         quest:domainRegistry.project('cheats'),claim:()=>commandCheat({type:'system-claim'}),stats: character.getFullStats(), titles: titleView(character.titles, readTitleCounters()).filter(row => row.held).map(row => row.name)}),
         onKnown: () => {
             // Appearance names this module only after its persisted discovery.
-            const select = document.querySelector('#customization_host select[aria-label="Native module"]');
+            const select = document.querySelector('#customization_host select[aria-label="Panel"]');
             if(select && !select.querySelector('option[value="status-window"]')) {
                 const option = document.createElement('option'); option.value = 'status-window'; option.textContent = 'Status window'; select.append(option);
             }
@@ -9994,8 +10025,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         const authored=(current_location?.npcs||[]).filter(id=>{const p=NPCRegistry.get(id);return p.canBeDisplayed(get_context())&&p.getDialogueComponent().canBeDisplayed(get_context())&&(inVillage||Object.keys(p.getAvailableTextlines(get_context())).length+Object.keys(p.getAvailableActions(get_context())).length>0);}).map(id=>({id,name:inVillage?NPCRegistry.get(id).getName({is_mofu_mofu_enabled:global_flags.is_mofu_mofu_enabled}):heardName(NPCRegistry.get(id).getDialogueComponent().getStartingText({is_mofu_mofu_enabled:global_flags.is_mofu_mofu_enabled}))||NPCRegistry.get(id).getName({is_mofu_mofu_enabled:global_flags.is_mofu_mofu_enabled}),role:NPCRegistry.get(id).tags.trader?'Merchant':inVillage?'Village neighbor':'',met:id==='villageElder'?metVillageElder():true,traits:[],relationship:null}));
         const dealing=current_trader?{id:current_trader,name:NPCRegistry.get(current_trader).getName({is_mofu_mofu_enabled:global_flags.is_mofu_mofu_enabled}),role:'Merchant',met:true,traits:[],relationship:null}:null;
         const people=[...authored,...travelers,...(dealing&&!authored.some(p=>p.id===dealing.id)?[dealing]:[])],things=inVillage?[{id:'homes',name:'Homes',description:'Residence rights, furnishings, storage and optional home beginnings.'},{id:'mixing',name:'Village mixing counter',description:'Mix and observe your own ingredients.'},...(document.querySelector('.choice_craft')?[{id:'crafting',name:'Crafting stations',description:'Benches and tools for making things.'}]:[]),{id:'herbal-experiments',name:'Village common herb verge',description:'Gather common herbs and inspect your carried materials and preparations.'},...(domainRegistry.project('gear_workshop')?.discovered?[{id:'gear-workshop',name:'Gear workshop',description:'Inspect and work on carried gear: fittings, treatment, repair, reforge and salvage.'}]:[]),{id:'projects',name:'Projects',description:'Read optional proposals before opting in.'}]:(current_location?.stations||[]);
-        const busy=!!(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()||nativeOccupationReason());
-        const exits=placeExits(current_combat?null:current_location,get_context(),travel_times,{now:current_game_time});const actions=[...exits.map(e=>({id:e.id,target:e.id,label:e.act,disabled:false,reason:''})),...people.map(p=>({id:`talk:${p.id}`,target:p.id,label:p.met||!p.status?`Talk with ${p.name.split(',')[0].replace(/^The /,'the ')}`:'Meet traveler',disabled:busy,reason:busy?'Finish your current work or conversation first.':''})),...things.map(t=>({id:t.id,target:t.id,label:t.id==='projects'?'Open Projects':`Open ${t.name}`,disabled:t.id!=='projects'&&busy,reason:busy?'Finish your current work or conversation first.':''}))];
+        const nativeBusy=!!(current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()),busy=nativeBusy||!!nativeOccupationReason();
+        const exits=placeExits(current_combat?null:current_location,get_context(),travel_times,{now:current_game_time});const actions=[...exits.map(e=>({id:e.id,target:e.id,label:e.act,disabled:false,reason:''})),...people.map(p=>({id:`talk:${p.id}`,target:p.id,label:p.met||!p.status?`Talk with ${p.name.split(',')[0].replace(/^The /,'the ')}`:'Meet traveler',disabled:busy,reason:busy?'Finish your current work or conversation first.':''})),...things.map(t=>{const disabled=t.id!=='projects'&&busy&&!canOpenCurrentWorkStation(t,expansionState,{location:current_location?.id,nativeBusy,commands:expeditionRegistry.simulation.commands});return {id:t.id,target:t.id,label:t.id==='projects'?'Open Projects':`Open ${t.name}`,disabled,reason:disabled?'Finish your current work or conversation first.':''};})];
         const weatherNode=document.getElementById('weather_div'),weatherLabel=weatherNode?.querySelector('.material-icons')?.textContent.trim()==='ac_unit'?'Snow':is_raining()?'Rain':'Dry',temperatureText=weatherNode?.querySelector('span:not(.material-icons):not(.temperature_tooltip)')?.textContent||'';
         const {enemies,heroAttackNext}=readNativeCadence(current_combat?.defenders_ui_slot,current_combat?.attackers_ui_slot),enemy=enemies[0]||null;
         return {inVillage,worldId:expansionState.actors.player.worldId,calendar:readLocalCalendar(),skyPhase:current_game_time.getTimeOfDay(),weatherWords:readLocalWeatherWords(),place:current_location?.name||current_location?.id||'',placeTypes:projectPlaceTypes(current_location?.types,{stageOf:(type,stage)=>location_types[type]?.stages?.[stage],penalty:get_location_type_penalty,statName:stat=>stat_names[stat]??stat}),clock:`${current_location?.name||current_location?.id} · ${current_game_time.toString()} · ${current_game_time.getTimeOfDaySimple()} · ${weatherLabel} · ${temperatureText}`,people,things,exits,actions,dialogue:current_dialogue||current_trader,enemy,enemies,heroAttackNext,history:expansionState,services:inVillage?[{id:'waypost-clerk',name:'Waypost supply clerk',role:'Supply clerk',met:true,traits:[],relationship:null}]:[]};

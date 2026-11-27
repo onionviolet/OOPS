@@ -24,7 +24,8 @@ export function createContinuationUI({read,command}) {
         const b=node('button',label,'action_button');b.type='button';b.dataset.connectionTab=id;
         b.onclick=()=>{section=id;pending?.remove();pending=null;render(true);};tabs.append(b);
     }
-    const run=async action=>{if(submitting)return;submitting=true;view.setAttribute('aria-busy','true');for(const b of view.querySelectorAll('[data-continuation-action]'))b.disabled=true;try {message.textContent='Checking the connection…';await command(action);message.textContent='The connection is recorded.';}catch(e){message.textContent=e.message;}finally{submitting=false;view.removeAttribute('aria-busy');signature='';render(true);}};
+    const restoreActionFocus=id=>{if(id)[...body.querySelectorAll('[data-continuation-action]')].find(n=>n.dataset.continuationAction===id&&!n.disabled)?.focus({preventScroll:true});};
+    const run=async action=>{if(submitting)return;const focusedAction=body.contains(document.activeElement)?document.activeElement.dataset.continuationAction:null;submitting=true;view.setAttribute('aria-busy','true');for(const b of view.querySelectorAll('[data-continuation-action]'))b.disabled=true;try {message.textContent='Checking the connection…';await command(action);message.textContent='The connection is recorded.';}catch(e){message.textContent=e.message;}finally{const restore=document.activeElement===document.body;submitting=false;view.removeAttribute('aria-busy');signature='';render(true);if(restore)restoreActionFocus(focusedAction);}};
     const button=(text,action,disabled=false,reason='')=>{
         const b=node('button',text,'action_button');b.type='button';b.dataset.continuationAction=action;b.disabled=disabled;b.dataset.disabledReason=reason;
         b.onclick=()=>run(action);return b;
@@ -41,15 +42,17 @@ export function createContinuationUI({read,command}) {
         };return b;
     };
     function render(force=false) {
-        const s=read();home.hidden=!s.created;status.textContent=s.available?`${s.life} · ${s.research.checkpoint?'later checkpoint learned':'investigating possible return points'}`:'Quiet faculty · establish a baseline';
+        const s=read();home.hidden=!s.created;status.textContent=s.available?`${s.life} · ${s.research.checkpoint?'later checkpoint learned':'investigating possible return points'}`:'Quiet faculty · mark your starting point';
         const key=JSON.stringify(s);if(!force&&key===signature)return;signature=key;
         // Do not replace a review confirmation while game time advances.
         if(pending?.isConnected&&!force)return;
+        const focusedAction=body.contains(document.activeElement)?document.activeElement.dataset.continuationAction:null;
+        try {
         const opened=new Set([...body.querySelectorAll('details[open]')].map(n=>n.dataset.connectionDisclosure));
         body.replaceChildren();pending=null;
         for(const b of tabs.children)b.setAttribute('aria-pressed',String(b.dataset.connectionTab===section));
-        summary.textContent=s.available?`${s.life} · ${s.arrivalPaused?'arrival paused':'one continuing self'}`:'Your past is preserved. An adoption baseline marks now; it does not invent an earlier arrival.';
-        if(!s.available) {body.append(button(s.legacy?'Establish baseline at this moment':'Recognize the initial connection','enroll',!s.canWrite||!!s.reason,s.reason));return;}
+        summary.textContent=s.available?`${s.life} · ${s.arrivalPaused?'arrival paused':'one continuing self'}`:'Your past is preserved. Marking this moment gives you a starting point; it does not invent an earlier arrival.';
+        if(!s.available) {body.append(button(s.legacy?'Mark this moment as your starting point':'Recognize the initial connection','enroll',!s.canWrite||!!s.reason,s.reason));return;}
         const reason=s.reason||(!s.canWrite?'Use the writable game tab.':'');
         // Continuing an arrival needs only a writable save: a resumed life in a travel-only world (Tingen) cannot rewind but must be able to go on.
         if(s.arrivalPaused)body.append(button('Continue this life from the paused boundary','continue',!s.canWrite,!s.canWrite?'Use the writable game tab.':''));
@@ -86,6 +89,11 @@ export function createContinuationUI({read,command}) {
         for(const m of s.mastery)memories.append(node('p',`${m.skill}: ${Math.round(m.xp)} learned XP · ${m.usable?'compatible knowledge':'remembered; bodily effects not transferred'}`));
         for(const m of s.memories.slice(-12).reverse())memories.append(node('p',`${m.lifeLabel} · remembered: ${m.event.text}`));if(section==='memory'){memories.open=true;body.append(memories);}
         for(const n of body.querySelectorAll('details'))if(opened.has(n.dataset.connectionDisclosure))n.open=true;
+        } finally {
+            // Clock updates replace these controls. Keep the keyboard on the same
+            // operation, including when Investigate changes to Pause investigation.
+            restoreActionFocus(focusedAction);
+        }
     }
     const decorations=decorateActionComponents(view);render();
     return {render,destroy(){decorations.destroy();home.remove();view.remove();}};

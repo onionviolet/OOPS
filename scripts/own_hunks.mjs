@@ -29,9 +29,13 @@ if (cmd === 'snapshot') {
       const before = join(tmp, 'before'), after = join(tmp, 'after');
       writeFileSync(before, git('cat-file', 'blob', readFileSync(snapFile, 'utf8').trim()));
       writeFileSync(after, readFileSync(resolve(root, p)));
-      const d = spawnSync('diff', ['-u', '--label', `a/${p}`, '--label', `b/${p}`, before, after], {encoding: 'utf8'});
+      const d = spawnSync('git', ['diff', '--no-index', '--no-ext-diff', '--', before, after], {encoding: 'utf8'});
+      if(d.error)throw d.error;
       if (d.status === 0) { console.log(`no change in ${p}`); continue; }
-      const patch = join(tmp, 'p.patch'); writeFileSync(patch, d.stdout);
+      if(d.status!==1)throw Error(`cannot compare own hunks: ${d.stderr}`);
+      const body=d.stdout.replace(/^diff --git .*$/m,()=>`diff --git ${JSON.stringify('a/'+p)} ${JSON.stringify('b/'+p)}`)
+        .replace(/^--- .*$/m,()=>`--- ${JSON.stringify('a/'+p)}`).replace(/^\+\+\+ .*$/m,()=>`+++ ${JSON.stringify('b/'+p)}`);
+      const patch = join(tmp, 'p.patch'); writeFileSync(patch, body);
       const ap = spawnSync('git', ['-C', root, 'apply', '--cached', '--recount', patch], {encoding: 'utf8'});
       if (ap.status !== 0) { console.error(`your hunks do not apply to HEAD's ${p} (another session edited the same lines):\n${ap.stderr}`); process.exit(1); }
     }

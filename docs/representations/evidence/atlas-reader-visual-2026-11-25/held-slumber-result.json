@@ -1,0 +1,33 @@
+{
+  "viewport": "1920x1080",
+  "route": "/#world/lotm/making/lotm.item.slumber-charm",
+  "snapshotSha256": "fa9879e516c42bf82d8c8b293b7fca4f24ecff9a2067b7ee1004491cb76639a2",
+  "sourceRowFile": "src/lotm_craft_rows.js",
+  "sourceRowSha256": "b88b863c5324690b5bd8e5e1f541c10cded270a14564ea52be2f2549d2ff9d7b",
+  "rendererSha256": "cd9a96a3f46618a65f97cf5fee405542049dad3fbd8f7dd7cde22e2185785518",
+  "actualBatchShards": 0,
+  "runtimeBindings": {
+    "make": true,
+    "use": true,
+    "upkeep": false
+  },
+  "headings": [
+    "Slumber charm",
+    "What it does",
+    "How to make it",
+    "How to use it",
+    "People",
+    "Places",
+    "Scenes"
+  ],
+  "checks": [
+    "Fresh complete snapshot build passed",
+    "Normal direct Slumber Making route",
+    "Held source row, zero synthetic or collected batch shards",
+    "Making/use/people/place/source sections visible",
+    "Craft/use command bindings exist; maintenance remains missing",
+    "No page errors"
+  ],
+  "errors": [],
+  "buildSummary": "{\"out\":\"C:\\\\Users\\\\wayba\\\\AppData\\\\Local\\\\Temp\\\\atlas-held-slumber-4KikXW\\\\snapshot.json\",\"commit\":\"db24d3a92\",\"books\":{},\"village\":79,\"others\":100,\"sources\":{\"yair\":61,\"proto23\":0,\"arkivia\":0},\"mechanics\":97,\"progress\":\"2026-11-14\",\"findings\":0,\"recipes\":257,\"gameMaking\":87,\"timings\":{\"books\":0.314,\"native\":3.71,\"yair\":0.227,\"proto23\":0.084,\"arkivia\":0.061,\"mechanics\":0.325,\"progress\":0.001,\"findings\":0.11,\"recipes\":0.121,\"gameMaking\":0.215},\"failures\":[]}"
+}

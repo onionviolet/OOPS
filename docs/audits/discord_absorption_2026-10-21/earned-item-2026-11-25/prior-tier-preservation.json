@@ -1,0 +1,10 @@
+{
+  "status": "unchanged",
+  "historicalBundleSha256": "42f9906310975d82203faa9051ff6b544d77cc4c6bd7203cf6ab3f26f974e6f6",
+  "files": {
+    "item-glow-off-1920.jpg": "bfa284c1b1d480d2deb9405be4dd7d7037945c6f3597c2561b577979f365678d",
+    "item-glow-on-1920.jpg": "91b3b87df5591f83eb8037f6e110daa0ddc7924ae3682d5301476058e89d3ea1",
+    "item-glow-setting-1920.jpg": "f799a356f7af75746355982c8bfeae64b31a81e6072e4d53d60ccec42e4f7eb3",
+    "proof.json": "7ffb17a0a88cc55358087fd089f47c6b44931d55545d21fba4c2e7bbe48b01f5"
+  }
+}

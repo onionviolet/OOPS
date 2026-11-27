@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "kind": "source-freeze-not-browser-proof",
+  "at": "2026-11-26T05:59:09.389574+00:00",
+  "files": {
+    "src/lotm_tent_refusal.js": "8326579c0763096a5357013a5cf804a7d8b2d60ef9da286a8d89561578b981b1",
+    "src/lotm_tent_incident.js": "2acf83dc9841a3416aa30cfced10a60ea0e12edc4e0d98a1e4cb36e1a72b2b17",
+    "src/book_world_lotm_cast_host.js": "83c3d5ca90ad9ee09e6aa3708ee74e8e39f218d47368ad8b177de99c28589069",
+    "src/book_world_lotm_host.js": "0b20b6754a25bfdfb743908ab6db98f34521c4ce1bbe4530069467fe92b2fa47",
+    "src/book_world_lotm_ui.js": "8f7ff3409b544b72cb562957264f6564b2d1038fd6635e83683554b708306110",
+    "tests/lotm_tent_refusal.test.js": "a39ca6f811b3b108fe8eaffb13d718052f65e02518a38f2b4427760dd390200e",
+    "tests/lotm_tent_native_completion.test.js": "0b346fa5c880dcf41293cae9552707ba1c68424d0e8ba3acc505d413d5e5b788"
+  },
+  "commandId": "book.lotm.excursion.market_direct",
+  "route": "Unchanged earned post-bread426 input -> native walk market2min -> existing grocery purchase copied as direct native job5min/16p -> normal return; later tent reading remains available with actual staff/window support.",
+  "checks": {
+    "sixFileGroup": "39/39 passed before final105staff admission refinement",
+    "finalTwoFiles": "7/7 passed on final source in23.6s",
+    "rules": "passed with existing warnings; last refinement adds existing schedule/calendar read imports and no player prose change",
+    "architecture": "passed on exact final source",
+    "whitespace": "passed",
+    "browser": "not run; coordinator owns normal rebuilt built-in replay"
+  },
+  "sourceScope": "Existing KJ2 qualification English v1 ch4 P035\u2013ch5 P048; ordering route is authored. Original purchase costs/effects/report copied unchanged.",
+  "compatibility": "Original market/reading/refusal commands and source pack retained; distinct direct completed receipt, no new runMode/save envelope. Legacy original-market receipt retains old beat admission, direct receipt does not.",
+  "fixtureNote": "Expanded native-host fixture now has separate bakery/market/tent and actual seller body. Existing child deadline20s became45s to cover added direct/open/closed routes; final run23.2s."
+}

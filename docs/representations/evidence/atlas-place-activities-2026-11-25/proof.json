@@ -1,0 +1,24 @@
+{
+  "snapshot": "work/atlas-snapshot/snapshot.json",
+  "snapshotSha256": "b6bbd9a4891b0f783110a02fbe645dfb826abddfddb020b281816a564d19c549",
+  "viewports": [
+    "1366x768",
+    "1920x1080"
+  ],
+  "source": "adopted snapshot plus current exact native command projection; no cast mount, synthetic rows or game-state setup",
+  "activityIds": [
+    "lotm.craft.slumber-practice-approval.approve",
+    "lotm.craft.slumber-office-materials.collect"
+  ],
+  "verified": [
+    "activity search finds reception",
+    "source context route and reload",
+    "Slumber making route",
+    "authored/fixture/access boundaries",
+    "unplaced workshop retained",
+    "other source place not promoted",
+    "empty search",
+    "no page errors or overflow"
+  ],
+  "errors": []
+}

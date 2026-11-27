@@ -1,0 +1,9 @@
+{
+  "scope": "shared structured local-place navigation correction; 32 focused checks passed; desktop rebuild pending",
+  "hashes": {
+    "src/center_modes.js": "f7251f10723746f891cb8471b877eb8fc645f228bc71ff5b5bfd3b9c6b14d807",
+    "src/structured_pack_ui.js": "b6f65945d2e3d954fafd9ed5dbad77b96310651c053073abf18afdb8dfd6dfc4",
+    "tests/center_modes.test.js": "3f5be32b253e75bb7997f89c77c33b662a86e1780c944634f54f49690d876178",
+    "tests/structured_pack_ui.test.js": "bdbd40da1373a352a0b51f0c18caabbeedb01cfd4e05298e0b396a73bf94fdaa"
+  }
+}

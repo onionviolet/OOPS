@@ -1,0 +1,95 @@
+{
+  "fixture": "Synthetic canonical batch fixture; not source coverage",
+  "metrics": [
+    {
+      "phase": "before",
+      "route": "scene",
+      "height": 1080,
+      "width": 1920,
+      "scroll": 1920
+    },
+    {
+      "phase": "before",
+      "route": "outputs",
+      "height": 1080,
+      "width": 1920,
+      "scroll": 1920
+    },
+    {
+      "phase": "before",
+      "route": "person",
+      "height": 1080,
+      "width": 1920,
+      "scroll": 1920
+    },
+    {
+      "phase": "before",
+      "route": "scene",
+      "height": 768,
+      "width": 1366,
+      "scroll": 1366
+    },
+    {
+      "phase": "before",
+      "route": "outputs",
+      "height": 768,
+      "width": 1366,
+      "scroll": 1366
+    },
+    {
+      "phase": "before",
+      "route": "person",
+      "height": 768,
+      "width": 1366,
+      "scroll": 1366
+    },
+    {
+      "phase": "after",
+      "route": "scene",
+      "height": 1080,
+      "width": 1920,
+      "scroll": 1920
+    },
+    {
+      "phase": "after",
+      "route": "outputs",
+      "height": 1080,
+      "width": 1920,
+      "scroll": 1920
+    },
+    {
+      "phase": "after",
+      "route": "person",
+      "height": 1080,
+      "width": 1920,
+      "scroll": 1920
+    },
+    {
+      "phase": "after",
+      "route": "scene",
+      "height": 768,
+      "width": 1366,
+      "scroll": 1366
+    },
+    {
+      "phase": "after",
+      "route": "outputs",
+      "height": 768,
+      "width": 1366,
+      "scroll": 1366
+    },
+    {
+      "phase": "after",
+      "route": "person",
+      "height": 768,
+      "width": 1366,
+      "scroll": 1366
+    }
+  ],
+  "cssSha256": "e2796cc8d87686244a97aebdc54bc7fe18fc8a2d8d61ee31afc82340be7c8b56",
+  "snapshotSha256": "50e0996e4ec9501aedd3b18f2485f2cb1386a0d6f01351d85b202aaaca3effc8",
+  "checks": [
+    "All 12 before/after route/viewport captures loaded their target record or table",
+    "All 12 document scroll widths equal viewport widths"
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "schema": "atlas-route-export-proof/1",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "route": "/#workbench/handoffs",
+  "bundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+  "moduleSha256": "13f3304aa623835c289b475e53d0d0ad90a9ebbfedc0769908a3eca7fe6673c2",
+  "counts": {
+    "handoffsCompared": 9,
+    "handoffsLoaded": 9,
+    "exact": 3,
+    "other": 10,
+    "unverified": 0
+  },
+  "examples": [
+    {
+      "id": "5a7c2d8333dd67df6f1ef9dac6d2d605397b454b80bf5bbb0e04b0a1be31bb25",
+      "consumer": "src/hp_library_work.js",
+      "playerRoute": "At Hogwarts (book.hp.lead.school_hall), use the prepared school-day route after real Charms/wand actions: retrieve the chart-book by ladder or Levitation, copy/return it and use notes for Astronomy homework. Fixture persistence passed; normal fresh entry stops at the day-32 gate and missing private supplement, so an earned opening-to-library route remains unverified.",
+      "sourceStatus": "unchanged",
+      "playtests": [
+        {
+          "id": "b5acd1dcd32eb2e7e9dc0562cffcc66dac922de1f311d9140a49d246eef38e51",
+          "proof": {
+            "path": "docs/representations/evidence/atlas-workbench-2026-11-25/harry-library-native-proof.json",
+            "sha256": "edf62f179f827adc266115bf85581056c0ab4dca50c4ebcfab10354530874f6a"
+          },
+          "testedBundleSha256": "d803bcd7105c173bf64e4e2153c71f79c67312dd9e1bc05490ce062c7d49827f",
+          "comparison": "different-build"
+        },
+        {
+          "id": "bb342cc938f7337a26a78854fd00ea5596253a997357899741eef89fcedb697d",
+          "proof": {
+            "path": "docs/representations/evidence/harry-summer-2026-11-25/proof.json",
+            "sha256": "f19c2577417c058280e26394cd6945956be2208dbfd840e8b7cd6095d5044edd"
+          },
+          "testedBundleSha256": "c869f0d2c060a81af5ed0c04c75f9bdbca4d0f1bff2ff0147fd1a8489f44b408",
+          "comparison": "different-build"
+        },
+        {
+          "id": "d89266495fa727ee6d07630ed7c2d69a12ca589e371e8808318c14b68cf530ca",
+          "proof": {
+            "path": "docs/representations/evidence/harry-library-current-pack-2026-11-25/proof.json",
+            "sha256": "fb8a984b6f41a4ca1940f03fa981f05e217f711675c52eeaa2a5897142ba35c7"
+          },
+          "testedBundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+          "comparison": "exact-match"
+        }
+      ]
+    },
+    {
+      "id": "08dbd9d46ed006a4f34eb8a0d708c9f85cd71019bd3de7ac80906308ec410b95",
+      "consumer": "src/lotm_charm_materials.js",
+      "playerRoute": "After the amulet workshop commission, visit Blackthorn reception, request a Slumber practice packet, collect the office materials against its signed order, then take them to the silver workshop for inscription. Once the local allocation is spent, the supplier still sells the same materials for eight soli. Verified with eligible workshop history in a native fixture.",
+      "sourceStatus": "unchanged",
+      "playtests": [
+        {
+          "id": "3347a8fdb894f593ee54468c38e661a8b93bf19b946273a4e0b250b03dea27cc",
+          "proof": {
+            "path": "docs/representations/evidence/lotm-charm-materials-2026-11-25/proof.json",
+            "sha256": "91e552f9400386c41fea6c2b656d8124b408168a7acfe4775943960a6ae61b60"
+          },
+          "testedBundleSha256": "6f67513266a4b52f3ed99036aa745e1c59ccab82adabb3674291884deecb568d",
+          "comparison": "different-build"
+        }
+      ]
+    },
+    {
+      "id": "16e35564706bceaefc0827ad5d8408c7a01408634d9c3c114df24d6d25c06002",
+      "consumer": "src/ui/feel_finish.js",
+      "playerRoute": "Retained normal Village life: starter sale and natural fieldwork fund the actual 113% uncommon cape; visible Full item → Equip. Hover clears arrival while rarity halo remains. Item glow off and reduced Effects keep quality color. Initial-day and final purchase/control builds are distinguished in the frozen receipt. No earned rare+ or favourite-mark run is claimed.",
+      "sourceStatus": "unchanged",
+      "playtests": [
+        {
+          "id": "7d6dfdf73af262ab0071500a351bb50f4a23265a416dee6a033ea94056f9d98f",
+          "proof": {
+            "path": "docs/representations/evidence/glow-earned-rarity-2026-11-25/proof.json",
+            "sha256": "a82b72b1436df98a416ca7cae8266ca0b7c43582bab69f4ef97ae44e9523947e"
+          },
+          "testedBundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+          "comparison": "exact-match"
+        }
+      ]
+    }
+  ],
+  "initialRows": [
+    {
+      "top": 346.046875,
+      "bottom": 481.203125
+    },
+    {
+      "top": 481.203125,
+      "bottom": 616.359375
+    },
+    {
+      "top": 616.359375,
+      "bottom": 751.515625
+    }
+  ],
+  "firstThreeRows": [
+    {
+      "top": 346.046875,
+      "bottom": 503.90625
+    },
+    {
+      "top": 503.90625,
+      "bottom": 661.765625
+    },
+    {
+      "top": 661.765625,
+      "bottom": 819.625
+    }
+  ],
+  "initialFullyVisible": 3,
+  "comparedFullyVisible": 2,
+  "comparisonWithoutExport": [
+    {
+      "top": 346.046875,
+      "bottom": 503.90625
+    },
+    {
+      "top": 503.90625,
+      "bottom": 661.765625
+    },
+    {
+      "top": 661.765625,
+      "bottom": 819.625
+    }
+  ],
+  "comparisonRequests": 1,
+  "mutatingRequests": 0,
+  "errors": [],
+  "verified": [
+    "hidden before comparison",
+    "actual GET comparison exported",
+    "user download parsed",
+    "three existing manual gameplay routes retained",
+    "export preserves comparison row positions",
+    "no overflow",
+    "no mutation requests"
+  ],
+  "boundary": "Existing adopted Atlas snapshot and public local queue. This is navigation/export proof, not a new game playthrough or verification of reported prerequisites."
+}

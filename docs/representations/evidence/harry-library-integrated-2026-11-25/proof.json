@@ -1,0 +1,25 @@
+{
+  "schema": "native-library-proof/1",
+  "bundleSha256": "4d14cb3c865682abdd1428d9ddd37b627cb0f2ace8db85f055009f1c78ced84c",
+  "servedBundleSha256": "4d14cb3c865682abdd1428d9ddd37b627cb0f2ace8db85f055009f1c78ced84c",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "route": "hp-library-astronomy composed after real Charms/wand commands; real Astronomy class and homework; both retrieval methods; Save/reload/Export/file Import",
+  "fixture": "Preserved genuine current-pack supported hp-term-jinx school composition, real Charms/class-wand preparation, documented Wednesday 22:59 clock-only setup. Not earned opening-to-school progression.",
+  "setup": "Fresh browser origin on integrated current default build. Actual Astronomy class, ladder and Levitation retrieval, chart notes and homework, Save/reload/Export/file Import; browser-loaded bundle bytes verified.",
+  "fixtureSha256": "c50ce9fd2fe90eea7b86ba820f1c63169f1d36db107948bb799b94e162a9c481",
+  "basePackContentHash": "sha256:f9cfc3e531af70cd0cab095801b536ac60d52f4bdb0369dddcdce623d4760d5d",
+  "observedResult": {
+    "route": "hp-library-astronomy composed after real Charms/wand commands; real Astronomy class and homework; both retrieval methods; Save/reload/Export/file Import",
+    "servedBundleSha256": "4d14cb3c865682abdd1428d9ddd37b627cb0f2ace8db85f055009f1c78ced84c",
+    "manualMinutes": 15,
+    "homeworkMinutes": 30,
+    "magicTries": 2,
+    "notes": 2,
+    "marked": 1,
+    "errors": []
+  },
+  "resultSha256": "ca914ac042973910e339a972edb39a2cf1cd9781c4e8518bfb85fa4a51bdad05"
+}

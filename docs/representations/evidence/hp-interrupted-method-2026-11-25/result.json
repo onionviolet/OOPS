@@ -1,0 +1,104 @@
+{
+  "scope": "read-only existing current-pack school fixture on actual default build; no earned opening-to-school or human-usability claim",
+  "viewport": "1920x1080",
+  "fixtureSha256": "c50ce9fd2fe90eea7b86ba820f1c63169f1d36db107948bb799b94e162a9c481",
+  "results": [
+    {
+      "branch": "paid-fizzle",
+      "attempts": 1,
+      "before": {
+        "clock": 97440,
+        "notes": 0,
+        "assignment": 1,
+        "marked": 0,
+        "down": false,
+        "mastery": 0,
+        "staminaDebt": 0,
+        "last": null,
+        "jobs": []
+      },
+      "after": {
+        "clock": 97440,
+        "notes": 0,
+        "assignment": 1,
+        "marked": 0,
+        "down": false,
+        "mastery": 1,
+        "staminaDebt": 1,
+        "last": "The chart-book shifted, then settled back on its shelf. You noticed where your motion slipped.",
+        "jobs": []
+      },
+      "controls": {
+        "libraryVisible": true,
+        "homeworkVisible": true,
+        "ladder": true,
+        "cast": true,
+        "copyVisible": true,
+        "copyEnabled": false,
+        "ordinaryHomework": true
+      },
+      "libraryText": "Library work\n\nAn Astronomy chart-book sits too high to reach. Bring it down, copy your own reference notes, and put it back. The notes help you finish assigned Astronomy charts in half an hour.\n\nMove the library ladder · 10 min\nBring the chart-book down with Levitation\n1 stamina · about 50% to bring it down\nCopy Astronomy notes and return the book · 5 min\nBring the chart-book down from the high shelf first.",
+      "finished": {
+        "clock": 97485,
+        "notes": 1,
+        "assignment": 0,
+        "marked": 1,
+        "down": false,
+        "mastery": 1,
+        "staminaDebt": 0,
+        "last": "You copied the worked chart in your own notes and put the library book back. Your reference notes help with Astronomy homework.",
+        "jobs": []
+      }
+    },
+    {
+      "branch": "stop-ladder",
+      "attempts": 0,
+      "before": {
+        "clock": 97440,
+        "notes": 0,
+        "assignment": 1,
+        "marked": 0,
+        "down": false,
+        "mastery": 0,
+        "staminaDebt": 0,
+        "last": null,
+        "jobs": []
+      },
+      "after": {
+        "clock": 97443,
+        "notes": 0,
+        "assignment": 1,
+        "marked": 0,
+        "down": false,
+        "mastery": 0,
+        "staminaDebt": 0,
+        "last": null,
+        "jobs": []
+      },
+      "controls": {
+        "libraryVisible": true,
+        "homeworkVisible": true,
+        "ladder": true,
+        "cast": true,
+        "copyVisible": true,
+        "copyEnabled": false,
+        "ordinaryHomework": true
+      },
+      "libraryText": "Library work\n\nAn Astronomy chart-book sits too high to reach. Bring it down, copy your own reference notes, and put it back. The notes help you finish assigned Astronomy charts in half an hour.\n\nMove the library ladder · 10 min\nBring the chart-book down with Levitation\n1 stamina · about 40% to bring it down\nCopy Astronomy notes and return the book · 5 min\nBring the chart-book down from the high shelf first.",
+      "finished": {
+        "clock": 97503,
+        "notes": 0,
+        "assignment": 0,
+        "marked": 1,
+        "down": false,
+        "mastery": 0,
+        "staminaDebt": 0,
+        "last": null,
+        "jobs": []
+      }
+    }
+  ],
+  "errors": [],
+  "bundleOnDiskAtCompletionSha256": "4d14cb3c865682abdd1428d9ddd37b627cb0f2ace8db85f055009f1c78ced84c",
+  "buildIdentityQualification": "Bundle on disk at completion only. The default rebuild occurred near this probe; served bytes were not captured per branch. Use stable-result.json for exact served-build interruption checks."
+}

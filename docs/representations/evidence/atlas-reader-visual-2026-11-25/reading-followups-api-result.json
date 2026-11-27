@@ -1,0 +1,1024 @@
+{
+  "mode": "Normal default server GET; saved count-only reports, no output parse",
+  "results": [
+    {
+      "world": "hp",
+      "reason": "unindexed",
+      "total": 199,
+      "status": "measured",
+      "availability": "available",
+      "first": [
+        {
+          "key": "hp5",
+          "prefix": "hp5c031",
+          "pass": "census",
+          "kind": "census",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 1,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 193,
+            "matchedRows": 176,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 17,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unindexed"
+          ],
+          "route": "#library/outputs/hp5/hp5c031/census/census"
+        },
+        {
+          "key": "hp5",
+          "prefix": "hp5c007",
+          "pass": "texture",
+          "kind": "places",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 1,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 20,
+            "matchedRows": 8,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 12,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unindexed"
+          ],
+          "route": "#library/outputs/hp5/hp5c007/texture/places"
+        }
+      ],
+      "next": [
+        {
+          "key": "hp6",
+          "prefix": "hp6c005",
+          "pass": "census",
+          "kind": "census",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 1,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 116,
+            "matchedRows": 106,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 10,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unindexed"
+          ],
+          "route": "#library/outputs/hp6/hp6c005/census/census"
+        },
+        {
+          "key": "hp3",
+          "prefix": "hp3c012",
+          "pass": "census",
+          "kind": "census",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 1,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 94,
+            "matchedRows": 87,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 7,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unindexed"
+          ],
+          "route": "#library/outputs/hp3/hp3c012/census/census"
+        }
+      ]
+    },
+    {
+      "world": "hp",
+      "reason": "missing",
+      "total": 0,
+      "status": "measured",
+      "availability": "available",
+      "first": []
+    },
+    {
+      "world": "hp",
+      "reason": "unattested",
+      "total": 0,
+      "status": "measured",
+      "availability": "available",
+      "first": []
+    },
+    {
+      "world": "hp",
+      "reason": "partial",
+      "total": 0,
+      "status": "measured",
+      "availability": "available",
+      "first": []
+    },
+    {
+      "world": "hp",
+      "reason": "errors",
+      "total": 0,
+      "status": "measured",
+      "availability": "available",
+      "first": []
+    },
+    {
+      "world": "mol",
+      "reason": "unindexed",
+      "total": 104,
+      "status": "measured",
+      "availability": "available",
+      "first": [
+        {
+          "key": "mol",
+          "prefix": "molc019",
+          "pass": "census",
+          "kind": "census",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 1,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 61,
+            "matchedRows": 49,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 12,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unindexed"
+          ],
+          "route": "#library/outputs/mol/molc019/census/census"
+        },
+        {
+          "key": "mol",
+          "prefix": "molc047",
+          "pass": "texture",
+          "kind": "places",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 1,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 19,
+            "matchedRows": 8,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 11,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unindexed"
+          ],
+          "route": "#library/outputs/mol/molc047/texture/places"
+        }
+      ],
+      "next": [
+        {
+          "key": "mol",
+          "prefix": "molc024",
+          "pass": "census",
+          "kind": "census",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 1,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 71,
+            "matchedRows": 62,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 9,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unindexed"
+          ],
+          "route": "#library/outputs/mol/molc024/census/census"
+        },
+        {
+          "key": "mol",
+          "prefix": "molc061",
+          "pass": "people",
+          "kind": "people",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 1,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 25,
+            "matchedRows": 17,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 8,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unindexed"
+          ],
+          "route": "#library/outputs/mol/molc061/people/people"
+        }
+      ]
+    },
+    {
+      "world": "mol",
+      "reason": "missing",
+      "total": 0,
+      "status": "measured",
+      "availability": "available",
+      "first": []
+    },
+    {
+      "world": "mol",
+      "reason": "unattested",
+      "total": 0,
+      "status": "measured",
+      "availability": "available",
+      "first": []
+    },
+    {
+      "world": "mol",
+      "reason": "partial",
+      "total": 0,
+      "status": "measured",
+      "availability": "available",
+      "first": []
+    },
+    {
+      "world": "mol",
+      "reason": "errors",
+      "total": 0,
+      "status": "measured",
+      "availability": "available",
+      "first": []
+    },
+    {
+      "world": "ri",
+      "reason": "unindexed",
+      "total": 264,
+      "status": "measured",
+      "availability": "available",
+      "first": [
+        {
+          "key": "ri8",
+          "prefix": "ri8c701",
+          "pass": "census",
+          "kind": "census",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 1,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 154,
+            "matchedRows": 127,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 27,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unindexed"
+          ],
+          "route": "#library/outputs/ri8/ri8c701/census/census"
+        },
+        {
+          "key": "ri3",
+          "prefix": "ri3c276",
+          "pass": "census",
+          "kind": "census",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 1,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 121,
+            "matchedRows": 98,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 23,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unindexed"
+          ],
+          "route": "#library/outputs/ri3/ri3c276/census/census"
+        }
+      ],
+      "next": [
+        {
+          "key": "ri9",
+          "prefix": "ri9c801",
+          "pass": "census",
+          "kind": "census",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 1,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 94,
+            "matchedRows": 73,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 21,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unindexed"
+          ],
+          "route": "#library/outputs/ri9/ri9c801/census/census"
+        },
+        {
+          "key": "ri5",
+          "prefix": "ri5c423",
+          "pass": "census",
+          "kind": "census",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 1,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 251,
+            "matchedRows": 234,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 17,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unindexed"
+          ],
+          "route": "#library/outputs/ri5/ri5c423/census/census"
+        }
+      ]
+    },
+    {
+      "world": "ri",
+      "reason": "missing",
+      "total": 183,
+      "status": "measured",
+      "availability": "available",
+      "first": [
+        {
+          "key": "ri2",
+          "prefix": "ri2c105",
+          "pass": "people",
+          "kind": "other",
+          "counts": {
+            "expected": 1,
+            "selected": 0,
+            "inspected": 0,
+            "missing": 1,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 0,
+            "matchedRows": 0,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 0,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "missing"
+          ],
+          "route": "#library/outputs/ri2/ri2c105/people/other"
+        },
+        {
+          "key": "ri2",
+          "prefix": "ri2c105",
+          "pass": "people",
+          "kind": "people",
+          "counts": {
+            "expected": 1,
+            "selected": 0,
+            "inspected": 0,
+            "missing": 1,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 0,
+            "matchedRows": 0,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 0,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "missing"
+          ],
+          "route": "#library/outputs/ri2/ri2c105/people/people"
+        }
+      ],
+      "next": [
+        {
+          "key": "ri2",
+          "prefix": "ri2c105",
+          "pass": "rules",
+          "kind": "other",
+          "counts": {
+            "expected": 1,
+            "selected": 0,
+            "inspected": 0,
+            "missing": 1,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 0,
+            "matchedRows": 0,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 0,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "missing"
+          ],
+          "route": "#library/outputs/ri2/ri2c105/rules/other"
+        },
+        {
+          "key": "ri2",
+          "prefix": "ri2c105",
+          "pass": "rules",
+          "kind": "rules",
+          "counts": {
+            "expected": 1,
+            "selected": 0,
+            "inspected": 0,
+            "missing": 1,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 0,
+            "matchedRows": 0,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 0,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "missing"
+          ],
+          "route": "#library/outputs/ri2/ri2c105/rules/rules"
+        }
+      ]
+    },
+    {
+      "world": "ri",
+      "reason": "unattested",
+      "total": 1,
+      "status": "measured",
+      "availability": "available",
+      "first": [
+        {
+          "key": "ri2",
+          "prefix": "ri2c105",
+          "pass": "census",
+          "kind": "census",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 0,
+            "missing": 0,
+            "partial": 1,
+            "unattested": 1,
+            "parsedRows": 0,
+            "matchedRows": 0,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 0,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unattested",
+            "partial"
+          ],
+          "route": "#library/outputs/ri2/ri2c105/census/census"
+        }
+      ]
+    },
+    {
+      "world": "ri",
+      "reason": "partial",
+      "total": 1,
+      "status": "measured",
+      "availability": "available",
+      "first": [
+        {
+          "key": "ri2",
+          "prefix": "ri2c105",
+          "pass": "census",
+          "kind": "census",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 0,
+            "missing": 0,
+            "partial": 1,
+            "unattested": 1,
+            "parsedRows": 0,
+            "matchedRows": 0,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 0,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unattested",
+            "partial"
+          ],
+          "route": "#library/outputs/ri2/ri2c105/census/census"
+        }
+      ]
+    },
+    {
+      "world": "ri",
+      "reason": "errors",
+      "total": 0,
+      "status": "measured",
+      "availability": "available",
+      "first": []
+    },
+    {
+      "world": "lotm",
+      "reason": "unindexed",
+      "total": 1217,
+      "status": "measured",
+      "availability": "available",
+      "first": [
+        {
+          "key": "lotm5",
+          "prefix": "lotm5c105",
+          "pass": "census",
+          "kind": "census",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 1,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 97,
+            "matchedRows": 57,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 40,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unindexed"
+          ],
+          "route": "#library/outputs/lotm5/lotm5c105/census/census"
+        },
+        {
+          "key": "lotm5",
+          "prefix": "lotm5c187",
+          "pass": "census",
+          "kind": "census",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 1,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 175,
+            "matchedRows": 135,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 40,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unindexed"
+          ],
+          "route": "#library/outputs/lotm5/lotm5c187/census/census"
+        }
+      ],
+      "next": [
+        {
+          "key": "lotm6",
+          "prefix": "lotm6c113",
+          "pass": "census",
+          "kind": "census",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 1,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 114,
+            "matchedRows": 76,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 38,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unindexed"
+          ],
+          "route": "#library/outputs/lotm6/lotm6c113/census/census"
+        },
+        {
+          "key": "lotm5",
+          "prefix": "lotm5c003",
+          "pass": "census",
+          "kind": "census",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 1,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 205,
+            "matchedRows": 168,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 37,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unindexed"
+          ],
+          "route": "#library/outputs/lotm5/lotm5c003/census/census"
+        }
+      ]
+    },
+    {
+      "world": "lotm",
+      "reason": "missing",
+      "total": 562,
+      "status": "measured",
+      "availability": "available",
+      "first": [
+        {
+          "key": "lotm2",
+          "prefix": "lotm2c004",
+          "pass": "people",
+          "kind": "other",
+          "counts": {
+            "expected": 1,
+            "selected": 0,
+            "inspected": 0,
+            "missing": 1,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 0,
+            "matchedRows": 0,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 0,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "missing"
+          ],
+          "route": "#library/outputs/lotm2/lotm2c004/people/other"
+        },
+        {
+          "key": "lotm2",
+          "prefix": "lotm2c004",
+          "pass": "people",
+          "kind": "people",
+          "counts": {
+            "expected": 1,
+            "selected": 0,
+            "inspected": 0,
+            "missing": 1,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 0,
+            "matchedRows": 0,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 0,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "missing"
+          ],
+          "route": "#library/outputs/lotm2/lotm2c004/people/people"
+        }
+      ],
+      "next": [
+        {
+          "key": "lotm2",
+          "prefix": "lotm2c004",
+          "pass": "rules",
+          "kind": "other",
+          "counts": {
+            "expected": 1,
+            "selected": 0,
+            "inspected": 0,
+            "missing": 1,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 0,
+            "matchedRows": 0,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 0,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "missing"
+          ],
+          "route": "#library/outputs/lotm2/lotm2c004/rules/other"
+        },
+        {
+          "key": "lotm2",
+          "prefix": "lotm2c004",
+          "pass": "rules",
+          "kind": "rules",
+          "counts": {
+            "expected": 1,
+            "selected": 0,
+            "inspected": 0,
+            "missing": 1,
+            "partial": 0,
+            "unattested": 0,
+            "parsedRows": 0,
+            "matchedRows": 0,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 0,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "missing"
+          ],
+          "route": "#library/outputs/lotm2/lotm2c004/rules/rules"
+        }
+      ]
+    },
+    {
+      "world": "lotm",
+      "reason": "unattested",
+      "total": 73,
+      "status": "measured",
+      "availability": "available",
+      "first": [
+        {
+          "key": "lotm2",
+          "prefix": "s2",
+          "pass": "census",
+          "kind": "census",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 0,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 1,
+            "parsedRows": 0,
+            "matchedRows": 0,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 0,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unattested"
+          ],
+          "route": "#library/outputs/lotm2/s2/census/census"
+        },
+        {
+          "key": "lotm2",
+          "prefix": "s2",
+          "pass": "people",
+          "kind": "other",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 0,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 1,
+            "parsedRows": 0,
+            "matchedRows": 0,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 0,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unattested"
+          ],
+          "route": "#library/outputs/lotm2/s2/people/other"
+        }
+      ],
+      "next": [
+        {
+          "key": "lotm2",
+          "prefix": "s2",
+          "pass": "people",
+          "kind": "people",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 0,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 1,
+            "parsedRows": 0,
+            "matchedRows": 0,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 0,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unattested"
+          ],
+          "route": "#library/outputs/lotm2/s2/people/people"
+        },
+        {
+          "key": "lotm2",
+          "prefix": "s2",
+          "pass": "rules",
+          "kind": "other",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 0,
+            "missing": 0,
+            "partial": 0,
+            "unattested": 1,
+            "parsedRows": 0,
+            "matchedRows": 0,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 0,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unattested"
+          ],
+          "route": "#library/outputs/lotm2/s2/rules/other"
+        }
+      ]
+    },
+    {
+      "world": "lotm",
+      "reason": "partial",
+      "total": 1,
+      "status": "measured",
+      "availability": "available",
+      "first": [
+        {
+          "key": "lotm5",
+          "prefix": "lotm5c132",
+          "pass": "census",
+          "kind": "census",
+          "counts": {
+            "expected": 1,
+            "selected": 1,
+            "inspected": 0,
+            "missing": 0,
+            "partial": 1,
+            "unattested": 1,
+            "parsedRows": 0,
+            "matchedRows": 0,
+            "withheldRows": 0,
+            "ambiguousRows": 0,
+            "unindexedRows": 0,
+            "parseErrors": 0,
+            "readErrors": 0
+          },
+          "reasons": [
+            "unattested",
+            "partial"
+          ],
+          "route": "#library/outputs/lotm5/lotm5c132/census/census"
+        }
+      ]
+    },
+    {
+      "world": "lotm",
+      "reason": "errors",
+      "total": 0,
+      "status": "measured",
+      "availability": "available",
+      "first": []
+    },
+    {
+      "world": "ark",
+      "reason": "unindexed",
+      "total": 0,
+      "status": "measured",
+      "availability": "available",
+      "first": []
+    },
+    {
+      "world": "ark",
+      "reason": "missing",
+      "total": 0,
+      "status": "measured",
+      "availability": "available",
+      "first": []
+    },
+    {
+      "world": "ark",
+      "reason": "unattested",
+      "total": 0,
+      "status": "measured",
+      "availability": "available",
+      "first": []
+    },
+    {
+      "world": "ark",
+      "reason": "partial",
+      "total": 0,
+      "status": "measured",
+      "availability": "available",
+      "first": []
+    },
+    {
+      "world": "ark",
+      "reason": "errors",
+      "total": 0,
+      "status": "measured",
+      "availability": "available",
+      "first": []
+    }
+  ],
+  "badQueriesRejected": true,
+  "countsUnchanged": {
+    "expected": 53652,
+    "selected": 51958,
+    "inspected": 51883,
+    "missing": 1694,
+    "partial": 3,
+    "unattested": 75,
+    "parsedRows": 1004330,
+    "matchedRows": 943691,
+    "withheldRows": 16061,
+    "ambiguousRows": 0,
+    "unindexedRows": 44578,
+    "parseErrors": 0,
+    "readErrors": 0
+  },
+  "snapshotAnd44DigestsUnchanged": true
+}

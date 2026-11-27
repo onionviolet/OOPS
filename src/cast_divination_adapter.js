@@ -99,6 +99,7 @@ function energyCostText(state,actorId,e){
  return `${energyCharge(o.policy,e)} ${o.policy.label}; ${o.policy.strainPerUse} strain (pool ${o.reserve} of ${o.policy.capacity})`;
 }
 export function divinationCostText(state, command, costs) {
+ if(text(command.divination?.costText))return command.divination.costText;
  return costs.map(e=>e.type==='energy'?energyCostText(state,command.actorId,e):`${e.key||e.type}: ${e.amount}`).join('; ')
   ||(command.divination.cost===null?'cost not recorded':'No stock spent.');
 }

@@ -1,0 +1,45 @@
+{
+  "viewport": "1366x900",
+  "currentBundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+  "viewSha256": "4f8389dca0c3da97ff18937c74da96cebcfeaf39b8f5292ce0fdd14a970f16f3",
+  "results": [
+    {
+      "case": "ps153",
+      "reference": "docs/gm/dispatch/play-surface-2026-11-14/CONSIDERATIONS.md#idea-61268f9dfc88e941773ba8736ad255f772a3097decf6a51f19d4c1f24662e253",
+      "handoffs": 1,
+      "reports": 1,
+      "playtests": 1,
+      "statuses": [
+        "exact-match"
+      ],
+      "loadedQueueRequests": 1
+    },
+    {
+      "case": "harry-n2",
+      "reference": "docs/research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md#idea-f9dceadaf608390dd3b2a5be153162ddedc37548d8dd2ff66d985c977d673f48",
+      "handoffs": 1,
+      "reports": 1,
+      "playtests": 2,
+      "statuses": [
+        "different-build",
+        "different-build"
+      ],
+      "loadedQueueRequests": 1
+    },
+    {
+      "case": "unrelated-n2",
+      "reference": "docs/audits/IDEAS_LEFT_INVENTORY_2026-10-25.md#idea-6d3e7e4fc1c23b6e8c580845fb0fc9d8f9a9b01c0a01a509c76eafdf15a88d83",
+      "handoffs": 0,
+      "reports": 0,
+      "playtests": 0,
+      "noInheritanceFromSameCode": true
+    }
+  ],
+  "historicalEvidenceUnchanged": {
+    "docs/representations/evidence/atlas-workbench-2026-11-25/ps153-native-trace.json": "9248e37ccb5b2965666eae25727dcf201a0fd0d1b0f5a67385e5bbaa81e25479",
+    "docs/representations/evidence/atlas-workbench-2026-11-25/ps153-native-consumer-playtest-1366.png": "9b8e8e0796d1e76a9aa76cd68153bb6a62d7e45810f83f7d12ad53500559e812",
+    "docs/representations/evidence/atlas-workbench-2026-11-25/harry-native-playtest-attachments.json": "4e457631adb5da63fd05d5b734b1d5ebaafdd234dea35592ad54abbf51939aca",
+    "docs/gm/dispatch/play-surface-2026-11-14/HARRY_LIBRARY_WORK_2026-11-25.md": "3b821d732abffad3155867dc73004ca5c8d0951b8defa66d598523a2e57647b1"
+  },
+  "pageErrors": []
+}

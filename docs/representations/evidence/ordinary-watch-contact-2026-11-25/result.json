@@ -1,0 +1,20 @@
+{
+  "viewport": "1920x1080",
+  "route": "Fresh ordinary PLAY -> Village crossing -> probationer -> report; all branches use that earned checkpoint, no fixture or gifted contact",
+  "bundleSha256": "fa27a75e1398fd84bb1bf2068902d0044caaea1ff32f96331f5f6e7c3c5d5f96",
+  "checks": [
+    "Actual60min watch earns merit; present-Hale handover teaches a reported contact with no extra coin reward/time",
+    "Existing20min walk,24pence endorsement and20min/18pence native errand pay actual purse; Save/reload and literal Export/Import preserve note and outcome",
+    "Independent route actually walks25min, reads2×60min papers and applies notes1min; same public contact with no completed watch",
+    "One-hour copying alternative retains2merit and mastery4 without inventing the watch handover"
+  ],
+  "watch": {
+    "minutes": 60,
+    "purseBeforeJob": 480,
+    "purseAfterJob": 474
+  },
+  "directory": {
+    "minutes": 146
+  },
+  "pageErrors": []
+}

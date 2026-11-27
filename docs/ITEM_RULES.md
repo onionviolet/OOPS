@@ -82,6 +82,12 @@ Owners and neighbours (linked, not restated): Rulebook 5; MR1, MR3, MR5, MR30–
 4. Check the card for leaks at each appraisal level (ITM16); an item whose id or template name tells the truth gets an identity so screens show the reading (ITM23).
 5. Tests: the inventory, acquisition, durability and equipment-stat tests; browser proof at the desktop viewport (AD43); save, reload and import when keys change.
 
+## Physical resources
+
+**ITM24.** When two pieces could lead to different play, preserve the facts that distinguish them through use, transfer, interruption and save restoration. A primeval stone holds essence; Fang Yuan’s aperture separately holds the essence he has drawn. Drawing from one piece changes that piece. A loaned tool can likewise keep its lender and wear, and a flask its contents and remaining amount. Item actions read those facts and show what the character can tell. Keep estimates labelled until the character can measure them.
+
+The default is a stack or lot while its members are interchangeable. Separate an individual when its state or history matters, and let the player choose when choosing a different piece changes the outcome. The relevant distinctions depend on the world. A stack count can still summarize a collection of distinguishable pieces on screen. Accepted standing direction for itemization on 2026-11-26. [Request](gm/USER_VISION_LOG_2026-11.md#individual-physical-resources)
+
 ## Open details
 
 - Identity is opt-in through the global durability switch; five key shapes exist (ITM1, ITM2).

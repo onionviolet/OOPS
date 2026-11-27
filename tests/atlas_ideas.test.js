@@ -313,3 +313,8 @@ test('search CLI prints a composite id and locator in text and JSON', () => {
     assert.equal(json[0].id, 'making-crafts-ideaboard-2026-11-19#MKC89');
     assert.equal(json[0].kind, 'idea-board');
 });
+
+test('Windows checkout newlines retain list ideas and their line locators', () => {
+    const lf = '# Craft ideas\n\n- **MKC89 · A workpiece is a real thing.** Keep the workpiece.\n';
+    assert.deepEqual(scanIdeas(lf.replaceAll('\n','\r\n')), scanIdeas(lf));
+});

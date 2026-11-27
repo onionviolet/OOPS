@@ -1,0 +1,24 @@
+{
+  "viewport": "1920x1080",
+  "fixture": "tests/fixtures/perf/mid.json",
+  "route": "fixture setup, controls thereafter",
+  "bundleSha256": "1ce744bc82d02171f51ad3f9d0365317f24325fcd451f0146c4c59a35945b117",
+  "checks": [
+    "Idle clock update retains investigation focus",
+    "Enter starts investigation and retains Pause focus",
+    "Research progress retains Pause focus",
+    "Enter pauses investigation and retains focus"
+  ],
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ]
+}

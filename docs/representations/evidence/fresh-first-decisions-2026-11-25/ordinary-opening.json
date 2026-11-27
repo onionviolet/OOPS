@@ -1,0 +1,496 @@
+{
+  "text": "Village\n01/04/999 08:00, Mon · ☼ Day\n☀\nSummer\nDry\n14.7 °C · comfortable\nToday: nothing planned\nNo work running\nSaving available.\nPin\nYou\nLv 0\n60/60 hp\n0/10 xp\n40/40 stamina\nSTR\n12.0\nAGL\n8.0\nDEX\n10.0\nINT\n10.0\nDefense\n1.0\nMagic\n0.0\nAttack\n1.2\nSpeed\n1.0 /s\nCrit %\n5%\nCrit\n×1.3\nAP\n32\nEP\n25\nAttributes ›\nGear · 0\nCondition\n\nNo active effects\n\nBody · Human\nAll\n2\nGear\n1\nUse\n1\nOther\n0\n★\n0\nInventory\n10C 2W\nFind / filter:\nName ↑\n▾\nStale bread\n×5\n2C\n[legs]\nCheap leather pants\n[40%]\n4C 6W\nVillage\n\nMedium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north.\n\nMore about this place\nActions\nHome\nOptions\nVillage practice and familiar ground\nLocal life · 3 of 6 ready\nwork_outline Find work\nMix at the Village counter\nActions\nCrafting\nMixing\nKeys\nHere\nPeople here · 2\nOld Hesk, the village elder\nVillage neighbor\nTalk\nDunstan, the village trader\nMerchant\nTalk\nThings here · 5\nWaypost supply clerk\nSupply clerk\nHomes\nResidence rights, furnishings, storage and optional home beginnings.\nOpen\nVillage mixing counter\nMix and observe your own ingredients.\nOpen\nVillage common herb verge\nGather common herbs and inspect your carried materials and preparations.\nOpen\nGear workshop\nInspect and work on carried gear: fittings, treatment, repair, reforge and salvage.\nOpen\nWays out · 2\nWild willow stand\n5 min away\nGo\nTingen\nAnother world · a new life there\nCross\nReports\nView:\nAll reports\n▾\nLatest\nRight now\n\nNext step: Talk to Old Hesk, the village elder.\nIn Around you: Old Hesk, the village elder, then \"Talk with Old Hesk\".\n\nShow me\n[ Home · 01/04/999, Summer, Mon ]Started a new quest: Lost memoryYour name is set in the You panel header. Click it to rename.\nGrowth\nEvents\nCrafting\nCombat\nLoot\nReady\nStory\nWorld\nStats\nCondition\nInventory\nTravelers\nProjects\nLedger\nOrganizations\nWorlds\nBeginning\nCapability runs\nConnection\nSettings\nAll panels…\nFamily qualities\nProjects\nStudy · Ask around for someone to teach you\nVitals\nStats\nCondition\nTools\nGear workshop\nInventory\nEquipment comparison\nItem details · Select an item in Inventory\nPhandalin\nYour journal\nDev pins\nReturn to the mark\nStories and history\nVows and tempering\nRune bench\nKnown things\nNaming and achievements\nDeeds\nLives and inheritance\nYour beginning\nRemembered years\nReports\nLedger\nHomes and belongings\nHome at a glance\nVillage experiments\nGathering at a glance\nStanding and ledger\nPotioneering\nRiverside exploration\nCapability runs\nSpills and smoke\nWhere I am\nTingen workroom\nSpellbook · not here\nOther worlds · No added world is open yet. A crossing fr…\nOrganizations · Market courtyard\nPatrol & custody\nTravelers\nNeighbors\nLocal actions\nAround you\nScene\nAppearance\nEffects & sound\nYour own rules\nPreview of your changes\nYour own places\nContinuing connection\nFind\nSave\nExport\nImport\nMenu\n▾",
+  "buttons": [
+    {
+      "text": "14.7 °C · comfortable",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "No work running",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Pin",
+      "id": ""
+    },
+    {
+      "text": "",
+      "id": "loading_screen_play_button"
+    },
+    {
+      "text": "You",
+      "id": ""
+    },
+    {
+      "text": "Collapse Vitals",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "STR\n12.0",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "AGL\n8.0",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "DEX\n10.0",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "INT\n10.0",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Defense\n1.0",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Magic\n0.0",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Attack\n1.2",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Speed\n1.0 /s",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Crit %\n5%",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Crit\n×1.3",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "AP\n32",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "EP\n25",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Attributes ›",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Gear · 0",
+      "id": ""
+    },
+    {
+      "text": "Condition",
+      "id": ""
+    },
+    {
+      "text": "Collapse Condition",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Body · Human",
+      "id": ""
+    },
+    {
+      "text": "All\n2",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Gear\n1",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Use\n1",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Other\n0",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "★\n0",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Nothing to clear",
+      "id": "",
+      "disabled": true
+    },
+    {
+      "text": "Inventory",
+      "id": ""
+    },
+    {
+      "text": "Collapse Inventory",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Find / filter:\nName ↑\n▾",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "More about this place",
+      "id": ""
+    },
+    {
+      "text": "Actions",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Home",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Options",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Village practice and familiar ground",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Local life · 3 of 6 ready",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "work_outline Find work",
+      "id": ""
+    },
+    {
+      "text": "Mix at the Village counter",
+      "id": "village_mixing_open",
+      "disabled": false
+    },
+    {
+      "text": "Actions",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Crafting",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Mixing",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Keys",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Here",
+      "id": ""
+    },
+    {
+      "text": "Collapse Around you",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Old Hesk, the village elder\nVillage neighbor",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Talk",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Dunstan, the village trader\nMerchant",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Talk",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Waypost supply clerk\nSupply clerk",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Homes\nResidence rights, furnishings, storage and optional home beginnings.",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Open",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Village mixing counter\nMix and observe your own ingredients.",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Open",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Village common herb verge\nGather common herbs and inspect your carried materials and preparations.",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Open",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Gear workshop\nInspect and work on carried gear: fittings, treatment, repair, reforge and salvage.",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Open",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Wild willow stand\n5 min away",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Go",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Tingen\nAnother world · a new life there",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Cross",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Reports",
+      "id": ""
+    },
+    {
+      "text": "View:\nAll reports\n▾",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Latest",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Collapse Reports",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Show me",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Growth",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Events",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Crafting",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Combat",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Loot",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Ready",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Story",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "World",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Stats",
+      "id": "",
+      "route": "preparation",
+      "disabled": false
+    },
+    {
+      "text": "Condition",
+      "id": "",
+      "route": "condition",
+      "disabled": false
+    },
+    {
+      "text": "Inventory",
+      "id": "",
+      "route": "belongings",
+      "disabled": false
+    },
+    {
+      "text": "Travelers",
+      "id": "",
+      "route": "village-travelers",
+      "disabled": false
+    },
+    {
+      "text": "Projects",
+      "id": "",
+      "route": "projects",
+      "disabled": false
+    },
+    {
+      "text": "Ledger",
+      "id": "",
+      "route": "ledger",
+      "disabled": false
+    },
+    {
+      "text": "Organizations",
+      "id": "",
+      "route": "organizations",
+      "disabled": false
+    },
+    {
+      "text": "Worlds",
+      "id": "",
+      "route": "optional-worlds",
+      "disabled": false
+    },
+    {
+      "text": "Beginning",
+      "id": "",
+      "route": "beginning",
+      "disabled": false
+    },
+    {
+      "text": "Capability runs",
+      "id": "",
+      "route": "capability-runs",
+      "disabled": false
+    },
+    {
+      "text": "Connection",
+      "id": "",
+      "route": "continuation",
+      "disabled": false
+    },
+    {
+      "text": "Settings",
+      "id": "",
+      "route": "customization",
+      "disabled": false
+    },
+    {
+      "text": "All panels…\nFamily qualities\nProjects\nStudy · Ask around for someone to teach you\nVitals\nStats\nCondition\nTools\nGear workshop\nInventory\nEquipment comparison\nItem details · Select an item in Inventory\nPhandalin\nYour journal\nDev pins\nReturn to the mark\nStories and history\nVows and tempering\nRune bench\nKnown things\nNaming and achievements\nDeeds\nLives and inheritance\nYour beginning\nRemembered years\nReports\nLedger\nHomes and belongings\nHome at a glance\nVillage experiments\nGathering at a glance\nStanding and ledger\nPotioneering\nRiverside exploration\nCapability runs\nSpills and smoke\nWhere I am\nTingen workroom\nSpellbook · not here\nOther worlds · No added world is open yet. A crossing fr…\nOrganizations · Market courtyard\nPatrol & custody\nTravelers\nNeighbors\nLocal actions\nAround you\nScene\nAppearance\nEffects & sound\nYour own rules\nPreview of your changes\nYour own places\nContinuing connection",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Find",
+      "id": "",
+      "disabled": false
+    },
+    {
+      "text": "Save",
+      "id": "save_button",
+      "disabled": false
+    },
+    {
+      "text": "Export",
+      "id": "save_to_file_button",
+      "disabled": false
+    },
+    {
+      "text": "Menu\n▾",
+      "id": "",
+      "disabled": false
+    }
+  ]
+}

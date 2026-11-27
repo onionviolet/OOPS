@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Lint dated dispatch receipts for their evidence front matter.
 import {readdirSync, readFileSync} from 'node:fs';
-import {dirname, join, resolve, relative} from 'node:path';
+import {dirname, join, resolve, relative, sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -68,7 +68,8 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   const args = process.argv.slice(2);
   if (args.length && (args[0] !== '--files' || args.length < 2)) throw new Error('Usage: check_receipts.mjs [--files <path> ...]');
   const legacyPaths = new Set(JSON.parse(readFileSync(join(root, 'scripts/receipt_legacy_paths.json'), 'utf8')).paths);
-  const paths = args.length ? args.slice(1).map(file => relative(root, resolve(file))) : findReceipts(dispatchRoot).map(file => relative(root, file));
+  const files = args.length ? args.slice(1) : findReceipts(dispatchRoot);
+  const paths = files.map(file => relative(root, resolve(file)).split(sep).join('/'));
   const candidates = selectReceipts(paths, legacyPaths, file => readFileSync(join(root, file), 'utf8'), args.length > 0);
   const failures = candidates.flatMap(file => lintReceipt(relative(root, file), readFileSync(file, 'utf8')));
   for (const failure of failures) console.error(`${failure.file}:${failure.line}: ${failure.reason}`);

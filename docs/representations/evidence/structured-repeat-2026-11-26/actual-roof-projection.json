@@ -1,0 +1,16 @@
+{
+  "climb": {
+    "id": "book.su.lead.roof.climb",
+    "once": false,
+    "from": "book.su.lead.house",
+    "to": "book.su.lead.roof.opening",
+    "queueRepeatable": false
+  },
+  "lower": {
+    "id": "book.su.lead.roof.withdraw",
+    "duration": 0,
+    "queueRepeatable": false
+  },
+  "commandBytesUnchanged": true,
+  "sourceContentSha256": "a046712386248d203e4776365ab03eaf0f52235fe342038eb36877d631dbc795"
+}

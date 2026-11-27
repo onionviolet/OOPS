@@ -1,0 +1,67 @@
+{
+  "version": "after",
+  "bundle": "d36707e5b8032b425293d5a278bf3e183709be84370e1794c90bdff173d06fa6",
+  "stylesheet": {
+    "file": "styles/workroom_tabs.css",
+    "sha256": "c9330dfc419642eeb731681fcf5564f1f12d1c3b4edeb92749411b98d5ec3212"
+  },
+  "fixture": "27c4c7284ea73f0155d9f6f03d78c9105f3e18f9bff5310505ce2f1ab95ffe49",
+  "runs": [
+    {
+      "width": 1366,
+      "height": 768,
+      "result": {
+        "clock": 80825,
+        "money": 774,
+        "pay": 1,
+        "work": 1,
+        "learned": [
+          "divination.lotm.be.lesson.chart"
+        ],
+        "rent": {
+          "stage": "seen",
+          "value": "Rent paid: 5 soli 6 pence for one week.",
+          "at": 80825,
+          "cause": "book.lotm.dues"
+        }
+      },
+      "persisted": false,
+      "pageErrors": [],
+      "captures": [
+        "after-1366-rest.png",
+        "after-1366-active.png",
+        "after-1366-ended.png"
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "result": {
+        "clock": 80825,
+        "money": 774,
+        "pay": 1,
+        "work": 1,
+        "learned": [
+          "divination.lotm.be.lesson.chart"
+        ],
+        "rent": {
+          "stage": "seen",
+          "value": "Rent paid: 5 soli 6 pence for one week.",
+          "at": 80825,
+          "cause": "book.lotm.dues"
+        }
+      },
+      "persisted": true,
+      "pageErrors": [],
+      "captures": [
+        "after-1920-rest.png",
+        "after-1920-active.png",
+        "after-1920-ended.png"
+      ]
+    }
+  ],
+  "persistence": {
+    "exportSha256": "cfe6ca5dee42786222e8cd44b26c808fa1d670e5c0daec493623b57f602315cc",
+    "import": "The same desktop export was imported in a separate fresh origin with a longer automation wait."
+  }
+}

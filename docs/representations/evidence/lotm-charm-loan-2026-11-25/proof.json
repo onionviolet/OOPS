@@ -1,0 +1,20 @@
+{
+  "proposalId": "d36ab6955de9976f57e6204e1cecd183e12acdc64f322f694b686582aecdb773",
+  "bundleHash": "027e28270ce0a49f2165716fea2164622695e6404005d191a379b4a13ad0de6c",
+  "viewport": "1920x1080",
+  "route": "named prerequisite fixture with one actual Old Neil charm, ordinary borrow/return/burn/craft/replacement controls",
+  "lenderStockBefore": 1,
+  "borrowedStockAfterBurn": 0,
+  "obligationAfterBurn": true,
+  "lenderReplacementAfterSettlement": 1,
+  "obligationAfterSettlement": false,
+  "earmarkRecheck": {
+    "cashBefore": 1000,
+    "cashAfter": 904,
+    "intended": 960,
+    "revised": 800,
+    "availableAfterRevision": 104
+  },
+  "keptAfter": "save/reload/Export/literal Import while borrowed, after burn, after craft, and after replacement",
+  "state": "agent-verified, not human-reviewed"
+}

@@ -1,0 +1,31 @@
+# LOTM Slumber charm
+
+| Preflight | Scope |
+| --- | --- |
+| Reading and authority | One Slumber loop in Klein’s Tingen life, from the atlas candidate. AD5, AD6, AD36, AD38, AD42, AD43 and AD49 apply. |
+| Player sentence | “The silver takes the inscription. You put the finished charm away.” A failed attempt to use it says “You need a finished Slumber charm.” Workshop voice sample (PRS4, PRS6–PRS7) from the amulet trial: “The runner brings two silver blanks from the stall. You set them aside for trials.” |
+| Ordinary route and mechanism | Use the commission’s prepared desk and workshop notes. Order a rectangular blank and ritual supplies, inscribe, then carry the charm until you choose where to throw it. A throw can burn the charm even when nobody is in reach. |
+| Fit and ring | LOTM act compiler and silver workshop checks, native items and spirituality, timed conditions and cast conversation. Producer, use, failure, save and existing Tingen UI. AR3, AR10, AR14, AR19, MR10, MR13, MR32, WPR5, UR70–UR75. |
+| Screen | Tingen Here and Notebook, 1920×1080 desktop. The existing rite controls show means and costs, the conversation control shows why you cannot speak, and Notebook holds the observed result. Mobile deferred. |
+| Ownership and failure check | The act compiler, bindings and workshop helpers, cast host, LOTM content registration, and the simulation settlement call. Check that activation before inscription spends nothing, that an absent person stays awake, and that a sleeping conversation partner becomes available again after expiry. The atlas and the other Tingen host, domain, UI and work-day edits remain with their owners. |
+
+The [Slumber source row](../../../../src/lotm_craft_rows.js) records rectangular silver, ritual-assisted inscription, a burning charm, nearby people falling asleep, and reduced exposure for the thrower. The story locators are Chinese ch127, 128, 133 and 198. The 8 soli order, one blank and one bundled packet, one spirituality at inscription and at use, 35/12/1-minute actions, five-minute sleep and room-scale exposure are authored dials. In this slice, a person-shaped body in reach falls asleep, while the thrower at the edge can keep acting. An already sleeping body keeps its existing wake time. The source describes more varied responses. The shop instructions and access through the earlier amulet commission are authored routes into the method.
+
+The separate throw makes timing and company matter. If you still need to speak to someone nearby, talk before you throw or wait until they wake. Here shows the cost and why the conversation is blocked. Notebook records who visibly fell asleep. A held charm uses the existing inventory and an active sleep uses the existing timed-condition save, with no schema bump or migration. Older saves acquire neither by loading.
+
+- **Soothing.** Reuse the held-item and local-exposure path. A first consumer could let a distressed person slow a specific dangerous action while its cause persists. The spirit response has its own source evidence and needs its own consumer.
+- **Dream.** Keep a separate item and meditation step. Read the subject’s current sleep when the dream charm is used, then resolve entry and questioning separately. The [unbound dream rite](../../../../src/lotm_rite_rows.js) records a case where entry succeeds and questioning gains nothing further.
+
+The [atlas candidate](../../../research/WORLD_ATLAS_IDEABOARD_2026-11-22.md) supplies the earlier coverage finding. Its proposed reader-ID alias, an earned Klein replay, unused-charge maintenance, and stronger targets or close-range self-sleep remain open. The [amulet checkpoint](../cross-world-systems-2026-11-07/CHECKPOINT.md#four-arcs-resumed-on-authorized-credits) supplies earlier workshop evidence and does not certify Slumber.
+
+| Receipt · 2026-11-24 | Evidence |
+| --- | --- |
+| FLR1 Build | `npm run build` passed in an isolated copy of the shared checkout at `db24d3a92` plus local work, with LF restored in the copied Ink artifact and notice. Bundle SHA-256 `f4ba3a0613c5041cbe60bd03f170a9daa2c4d92fe83902337e510074a15820b6`. The seven owned source files matched the build inputs. |
+| FLR2 Route | [Synthetic Slumber workshop](../../../../tests/lotm_slumber_browser.mjs), rebuilt headless Chrome, fresh origin, 1920×1080. Fixture setup supplies the commissioned desk, lead spirituality and local people. The player pays for the supplies, inscribes and throws through normal controls. MCP limitation reported because the private cast is absent and the MCP cannot mount this synthetic pack. |
+| FLR3 Shown | The button quotes stock, spirituality and time, and explains a missing charm. Notebook shows the burn, the thrower’s drowsiness and the nearby person falling asleep. |
+| FLR4 Used | The nearby person’s timed sleep blocks the existing conversation. After five minutes the conversation opens and settles. The person in the other room stays awake. A later throw in that room burns without a target after the person leaves, even though their last recorded location is still there. Zero page errors or horizontal overflow. |
+| FLR5 Kept | Save, reload, Export and literal file Import preserve the paid costs, sleep deadline and observed result. Imported sleep still blocks conversation and then expires. A second, unused charm survives its own save and reload. |
+| FLR6 Labelled | Agent-verified on a named synthetic fixture, not human-reviewed. The real Klein journey and private reader alias remain unverified. |
+| Change surface | No composition-root or save registration changes. Three LOTM commands, three items and one timed condition, with the existing simulation settlement and cast conversation guards. |
+| Checks | Focused source, compiler, amulet and atlas projection tests 30/30. The normalized architecture scan found zero new cycle edges. The standard Windows architecture check failed on path separators. `check:rules` stopped at existing rules-index and local-path findings. The existing cast-topic suite passed nine checks and hit a Windows symlink restriction in its live-host test. `git diff --check` passed. |
+| Scratch | The headless browser and server exited. Automatic command review rejected deletion of the isolated build’s Windows dependency junction, so the temporary build and retry scratch remain under the local temp directory. |

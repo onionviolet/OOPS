@@ -1,0 +1,32 @@
+{
+  "snapshot": {
+    "builtAt": "2026-11-26T01:07:05.642Z",
+    "commit": "db24d3a92",
+    "failures": []
+  },
+  "archiveOutputOnlyKeys": 67,
+  "results": [
+    {
+      "viewport": [
+        1366,
+        768
+      ],
+      "visionThemes": 13,
+      "sections": 6,
+      "noHorizontalOverflow": true,
+      "playedRoute": "fang-first-night",
+      "pageErrors": 0
+    },
+    {
+      "viewport": [
+        1920,
+        1080
+      ],
+      "visionThemes": 13,
+      "sections": 6,
+      "noHorizontalOverflow": true,
+      "playedRoute": "fang-first-night",
+      "pageErrors": 0
+    }
+  ]
+}

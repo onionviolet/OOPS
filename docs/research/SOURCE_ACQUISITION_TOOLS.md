@@ -14,22 +14,24 @@ isolated environments and current readiness. It also routes Discord, REA,
 engine-specific extraction and verification tooling; the transport contract
 below remains the owner for this novel/fanwork acquisition route.
 
+External Source Library owners below use exact `source-library/document ID` locators in the [tracked tool registry](../../scripts/toolsets/registry.json). Run `python scripts/toolsets.py show source-library` from the checkout (`python3` on the Mac); `resolved_documents` returns each local path, presence and current digest without launching the app. `YAIR_TOOLS_CODE` selects the sibling-repository directory. [Owner discovery and provenance](../TOOL_REGISTRY.md#external-owner-documents) preserve the original Mac identities and distinguish dated inventory hashes from current files. The external repository is absent at this Windows host's default root. Missing owner bodies remain unavailable; their contents and tool readiness cannot be inferred from these locators.
+
 Source Library 0.6.0 embeds a reader inside the app, with Read and saved
 positions, plus paged local/JNovel/Suwayomi browsing and source/series/chapter
 selection. JNovel volume links stay explicit browser handoffs. As of 2026-10-22
 Read opens Kavita's EPUB/PDF/CBZ reader; Komga's reader remains the fallback for
 EPUBs Kavita cannot parse (about half of the current 130). Committed in
 zlibrary-research, not yet live in the running app until its platform restarts.
-[Kavita reader and evidence](/Users/weiwei/code/zlibrary-research/docs/KAVITA_READER_0_6_1.md),
-[Komga integration](/Users/weiwei/code/zlibrary-research/docs/INTEGRATED_READER_0_6_0.md).
+[Kavita reader and evidence locator](../../scripts/toolsets/registry.json) (`source-library/kavita-0.6.1`),
+[Komga integration locator](../../scripts/toolsets/registry.json) (`source-library/komga-0.6.0`).
 
 For the proposed combined book/comic/manga platform, see the
 [source media comparison and integration plan](SOURCE_MEDIA_ACQUISITION_SCOUT_2026-10-21.md).
 It distinguishes provider downloaders, collection managers and readers. The
 selected existing-books/Suwayomi/Komga/CLU stack is now implemented in
-[Source Library 0.5.0](/Users/weiwei/code/zlibrary-research/docs/SOURCE_LIBRARY_0_5_0.md),
+[Source Library 0.5.0 locator](../../scripts/toolsets/registry.json) (`source-library/platform-0.5.0`),
 with real provider/file tests and a shared platform download ledger. The
-[0.5.2 light-novel expansion](/Users/weiwei/code/zlibrary-research/docs/LIGHT_NOVEL_SOURCES_0_5_2.md)
+[0.5.2 light-novel expansion locator](../../scripts/toolsets/registry.json) (`source-library/novels-0.5.2`)
 adds the nineteen user-supplied source/directory/crawler references, JNovel
 catalogue search and local EPUB/PDF/CBZ imports. Elscione's automatic browser
 route returned 403 and is persistently stopped; its download implementation has
@@ -57,7 +59,7 @@ MangaPill currently [says it removed its manhwa](https://mangapill.com/).
 
 The [Keiyoushi index](https://github.com/keiyoushi/extensions/blob/repo/index.json)
 still supplies individual JARs. Reuse the
-[existing Suwayomi install route](/Users/weiwei/code/zlibrary-research/docs/SUWAYOMI_EXTENSIONS_2026-10-22.md).
+[existing Suwayomi install-route locator](../../scripts/toolsets/registry.json) (`source-library/suwayomi-2026-10-22`).
 The next check for a new extension is one exact series match, its public episode
 list and one readable CBZ import through Source Library. This scout verified
 catalogue evidence. It did not install extensions, fetch pages or change the queue.
@@ -101,7 +103,7 @@ unchanged; unresolved edition bindings and interrupted jobs are explicit.
 | Tool | Actual capability / entry point |
 |---|---|
 | Local library and prepared sources | Read-only Calibre/EPUB discovery first. Registry IDs `calibre`, `saved-sources` and `epub-prepare`; extraction and reading remain separate. |
-| Source Library / Z-Library research fork | `/Users/weiwei/code/zlibrary-research`, [current profile](/Users/weiwei/code/zlibrary-research/docs/YAIRPG.md). Registry IDs `source-library`, `source-library-services`, `source-library-bootstrap`, `zlibrary`, `zlibrary-mcp`, `epub-prepare`. Twenty-six MCP tools include eight unified platform operations alongside eighteen compatibility research tools. Prefer `platform_download` for the shared ledger. Launch is not registration or authentication. |
+| Source Library / Z-Library research fork | Original Mac repository `/Users/weiwei/code/zlibrary-research`; [project-profile locator](../../scripts/toolsets/registry.json) `source-library/project-profile`. Resolve its current local path through `show source-library`. Registry IDs `source-library`, `source-library-services`, `source-library-bootstrap`, `zlibrary`, `zlibrary-mcp`, `epub-prepare`. Twenty-six MCP tools include eight unified platform operations alongside eighteen compatibility research tools. Prefer `platform_download` for the shared ledger. Launch is not registration or authentication. |
 | Personal fork | `/Users/weiwei/code/lncrawl-polite`; read its `AGENTS.md` and `README_POLITE.md`. |
 | Isolated polite CLI | `.venv-polite/bin/python -m lncrawl polite` from that repository. Current CLI accepts a Fanqie book ID and matching local reference font; it is not a general URL downloader. Use `--help` for current arguments. |
 | Reusable transport | `lncrawl.polite.transport.Client`; source at `/Users/weiwei/code/lncrawl-polite/lncrawl/polite/transport.py`. Existing HTML adapters can use this without importing the upstream scraper. |

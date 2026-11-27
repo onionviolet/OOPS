@@ -1,9 +1,24 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {mkdtempSync,writeFileSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
 import {defineGrammar, fitGrammar, assemble} from '../src/procedural_grammar.js';
 import {searchParts, previewValue, backwardCanonTest} from '../src/grammar_search.js';
 import {searchEffectsForGoal, knowledgeFrom} from '../src/effect_checks.js';
 import {effectWorlds} from '../scripts/grammar_canon_effects.mjs';
+import {hpEffectRows} from './fixtures/procedural_grammar/effect_worlds.mjs';
+
+test('spellbook table headings and rows have the same meaning with LF or CRLF',()=>{
+    const dir=mkdtempSync(join(tmpdir(),'hp-effect-lines-'));
+    const text='### Shield family\n| `fixture` | Test shield | Raises a barrier |\n';
+    try{
+        const lf=join(dir,'lf.md'),crlf=join(dir,'crlf.md');
+        writeFileSync(lf,text);writeFileSync(crlf,text.replaceAll('\n','\r\n'));
+        assert.deepEqual(hpEffectRows(crlf),hpEffectRows(lf));
+        assert.deepEqual(hpEffectRows(crlf),[{id:'hp:fixture',family:'Shield family',names:'Test shield',lead:'Raises a barrier'}]);
+    }finally{rmSync(dir,{recursive:true,force:true});}
+});
 
 // A toy dish: base, method given base, extras; the name is derived.
 const dish = defineGrammar({id: 'toy.dish', revision: 1,

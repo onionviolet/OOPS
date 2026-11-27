@@ -38,13 +38,15 @@ export function statusReserveWords(state) {
 let reserveReader = () => statusReserveWords(readPort('expansion'));
 export function setReserveReader(fn) { reserveReader = typeof fn === 'function' ? fn : reserveReader; }
 
-// Owners return a navigation callback only while their work is running. Opening
-// work must focus its status, never activate the adjacent cancellation control.
+// Owners offer navigation for running work or paused work that needs attention.
+// An opener can decline if its destination is no longer available.
 const workTargets = new Set();
 export function registerWorkTarget(read) { workTargets.add(read); return () => workTargets.delete(read); }
 export function openRunningWork() {
-    const open = [...workTargets].map(read => read()).find(Boolean);
-    if (open) { open(); return; }
+    for (const read of workTargets) {
+        const open = read();
+        if (open && open() !== false) return;
+    }
     const target = () => document.getElementById('action_status_div') || document.getElementById('workspace_current_work');
     if (!target()?.checkVisibility()) centerModes().showHere();
     requestAnimationFrame(() => {

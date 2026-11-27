@@ -1,0 +1,102 @@
+{
+  "bundle": "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623",
+  "pack": "4e1b1e4be8d9420553259132ad02ceef7b41fb6fa0f9241aa63bcb619eea5c0e",
+  "fixture": "ebd217413f215f9413845932c942a15ba9140ec1d5f93a191f0b97fc34e4d3c0",
+  "steps": [
+    {
+      "id": "book.lotm.kj3bb.recover-cane",
+      "clock": 79258
+    },
+    {
+      "id": "book.lotm.kj3bb.go-home",
+      "clock": 79277
+    },
+    {
+      "id": "book.lotm.kj3bb.household-plan",
+      "clock": 79283
+    },
+    {
+      "id": "book.lotm.kj3bb.prepare-dream-charm",
+      "clock": 79295
+    },
+    {
+      "id": "book.lotm.kj3bb.finish-watch",
+      "clock": 79715
+    },
+    {
+      "id": "book.lotm.kj3bb.ask-ademisaul",
+      "clock": 79724
+    },
+    {
+      "id": "book.lotm.kj3bb.read-elizabeth",
+      "clock": 79729
+    },
+    {
+      "id": "book.lotm.kj3bb.enter-dream",
+      "clock": 79736
+    },
+    {
+      "id": "book.lotm.kj3bb.close-reading",
+      "clock": 79738
+    },
+    {
+      "id": "book.lotm.kj3bb.report-to-dunn",
+      "clock": 79743
+    },
+    {
+      "id": "book.lotm.kj3bb.set-off-with-artifact",
+      "clock": 79901
+    },
+    {
+      "id": "book.lotm.kj3bb.enter-ruins",
+      "clock": 79904
+    },
+    {
+      "id": "book.lotm.kj3bb.hold-off-wraith",
+      "clock": 79906
+    },
+    {
+      "id": "book.lotm.kj3bb.restore-reach",
+      "clock": 79907
+    },
+    {
+      "id": "book.lotm.kj3bb.hold-range",
+      "clock": 79908
+    },
+    {
+      "id": "book.lotm.kj3bb.read-stairs",
+      "clock": 79910
+    },
+    {
+      "id": "book.lotm.kj3bb.open-trapdoor",
+      "clock": 79913
+    },
+    {
+      "id": "book.lotm.kj3bb.inspect-coffin",
+      "clock": 79918
+    },
+    {
+      "id": "book.lotm.kj3bb.arrange-rotation",
+      "clock": 79925
+    },
+    {
+      "id": "book.lotm.kj3bb.question-town",
+      "clock": 79981
+    },
+    {
+      "id": "book.lotm.kj3bb.inspect-portrait",
+      "clock": 79983
+    }
+  ],
+  "pending": "book.lotm.kj3bb.recover-cane",
+  "servedBundleSha256": [
+    "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623",
+    "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623",
+    "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623",
+    "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623",
+    "85eaa1cbdfef5da02674fdc83def168c7c4b484d4a8ee77fae5b89e274a37623"
+  ],
+  "persistence": true,
+  "viewport": "1920x1080",
+  "pageErrors": 0
+}

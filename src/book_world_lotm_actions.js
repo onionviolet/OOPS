@@ -15,6 +15,7 @@ import {brewCommands,brewFlags,brewFacts} from './book_world_lotm_brew.js';
 import {benchCommands,benchFlags,benchFacts} from './book_world_lotm_bench.js';
 import {ritualCommands,ritualFlags,ritualFacts} from './book_world_lotm_ritual.js';
 import {meritCommands,meritFacts,copyingPower} from './book_world_lotm_merit.js';
+import {watchLeadCommands,watchLeadFacts} from './book_world_lotm_watch_lead.js';
 import {causeCommands,causeSteadyCommand,causeFlags,causeFacts} from './book_world_lotm_causes.js';
 import {brokerCommands,lotFlags,brokerFacts} from './book_world_lotm_broker.js';
 import {clearanceCommands,clearanceFacts,LOTM_ROLE_OF} from './book_world_lotm_clearance.js';
@@ -85,6 +86,7 @@ const baseCommands=[
  ...benchCommands,
  ...ritualCommands,
  ...meritCommands,
+ ...watchLeadCommands,
  ...districtCommands,
  ...lifeCommands,
  ...clearanceCommands,
@@ -152,7 +154,7 @@ export function lotmFacts(state,ctx={}){
  for(const P of allRows){const others=allRows.filter(Q=>Q!==P),othersChosen=chosenRows.filter(Q=>Q!==P),srcOf=Q=>Q.key==='seer'?I.source:Q.base,held=Q=>(inv[K[Q.holds.base]]||0)>0||(inv[K[Q.holds.next]]||0)>0;
   f[`lotm.other.${P.pid}.allocated`]=othersChosen.some(Q=>flag(flagOf(Q,'allocated'))||flag(flagOf(Q,'brew.started')));f[`lotm.other.${P.pid}.ingested`]=othersChosen.some(Q=>flag(flagOf(Q,'ingested'))||!!state.actors?.player?.sources?.[srcOf(Q)]);
   f[`lotm.block.${P.pid}.switching`]=f[`lotm.other.${P.pid}.allocated`]||f[`lotm.other.${P.pid}.ingested`];f[`lotm.block.${P.pid}.wrongPotion`]=others.some(held);}
- f['lotm.pathChosen']=rows.some(([a,i,b])=>flag(a)||flag(i)||flag(b));f['lotm.ingestedAny']=rows.some(([,i])=>flag(i));brewFacts(state,f);benchFacts(state,f,{inv,brokerInv:ctx.gameplay?.[I.broker]?.inventory||{}});ritualFacts(state,f,{inv});meritFacts(state,f);
+ f['lotm.pathChosen']=rows.some(([a,i,b])=>flag(a)||flag(i)||flag(b));f['lotm.ingestedAny']=rows.some(([,i])=>flag(i));brewFacts(state,f);benchFacts(state,f,{inv,brokerInv:ctx.gameplay?.[I.broker]?.inventory||{}});ritualFacts(state,f,{inv});meritFacts(state,f);watchLeadFacts(state,f);
  const profile=enrolled?profileKeyOf(state):null;
  for(const k of Object.keys(LOTM_PROFILES))f[`lotm.profile.${k}`]=profile===k;
  for(const d of LOTM_DISTRICTS)f[`lotm.home.${d.id}`]=!!profile&&LOTM_PROFILES[profile].home===d.id;

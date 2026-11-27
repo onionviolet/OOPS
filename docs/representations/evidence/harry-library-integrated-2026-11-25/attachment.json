@@ -1,0 +1,28 @@
+{
+  "proposal": "5f0c07c35f376c6433a9967abc683ba9044ea752881f5a93cf23592ae7813f9c",
+  "report": "5a7c2d8333dd67df6f1ef9dac6d2d605397b454b80bf5bbb0e04b0a1be31bb25",
+  "attached": {
+    "id": "56dbeb8cc7585d4e7e9f54d683a0e244c430bffd465b4384b38fbf8dea7a1e0c",
+    "proposalId": "5f0c07c35f376c6433a9967abc683ba9044ea752881f5a93cf23592ae7813f9c",
+    "reportId": "5a7c2d8333dd67df6f1ef9dac6d2d605397b454b80bf5bbb0e04b0a1be31bb25",
+    "status": "native-playtest-attached"
+  },
+  "check": {
+    "id": "56dbeb8cc7585d4e7e9f54d683a0e244c430bffd465b4384b38fbf8dea7a1e0c",
+    "testedBundleSha256": "4d14cb3c865682abdd1428d9ddd37b627cb0f2ace8db85f055009f1c78ced84c",
+    "entry": {
+      "route": "hp-library-astronomy composed after real Charms/wand commands; real Astronomy class and homework; both retrieval methods; Save/reload/Export/file Import",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "setup": "Fresh browser origin on integrated current default build. Actual Astronomy class, ladder and Levitation retrieval, chart notes and homework, Save/reload/Export/file Import; browser-loaded bundle bytes verified.",
+      "fixture": "Preserved genuine current-pack supported hp-term-jinx school composition, real Charms/class-wand preparation, documented Wednesday 22:59 clock-only setup. Not earned opening-to-school progression."
+    },
+    "proof": {
+      "status": "unchanged"
+    },
+    "status": "exact-match",
+    "currentBundleSha256": "4d14cb3c865682abdd1428d9ddd37b627cb0f2ace8db85f055009f1c78ced84c"
+  }
+}

@@ -7,7 +7,8 @@ import {element as el} from '/canvas.mjs';
 const PAGE = 50;
 const n = v => Number(v).toLocaleString('en-US');
 const get = async url => {const r = await fetch(url); if (!r.ok) throw Error(await r.text() || r.statusText); return r.json();};
-const STATUSES = [['', 'All'], ['proposal', 'Proposal'], ['working-default', 'Working default'], ['implemented', 'Implemented']];
+const STATUSES = [['', 'All'], ['proposal', 'Proposal'], ['working-default', 'Working default'], ['implemented', 'Built with a source match']];
+const sourceStatus = new Map(STATUSES);
 const KIND_LABEL = {'catalogue-source': 'Catalogue source', 'library-family': 'Library family', 'cosmology-placement': 'Cosmology placement', 'world-variant': 'By world', 'scenario-lever': 'Scenario lever'};
 
 // Same tokens as codex-views (already in canvas.css); nothing new.
@@ -26,6 +27,7 @@ const CSS = `
 .cheats-pager{display:flex;gap:.5rem;align-items:center;margin-top:.5rem}
 .cheats-detail dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.3rem .8rem;margin:.4rem 0}.cheats-detail dd{margin:0;overflow-wrap:anywhere;color:var(--canvas-ink);font-weight:400}
 .cheats-col.cheats-detail{max-height:none;overflow:visible}
+.cheats-detail a{color:#e2f1bd;text-underline-offset:.15em}
 .cheats-detail h3{margin:1.1rem 0 .35rem}.cheats-detail h4{margin:.7rem 0 .2rem}.cheats-detail dd p{margin:0 0 .2rem}.cheats-detail dd{min-width:0}
 .cheats-detail dt{color:var(--canvas-muted)}.cheats-detail ul{margin:.2rem 0;padding-left:1.1rem}.cheats-detail code{overflow-wrap:anywhere}
 .cheats-missing{color:var(--canvas-muted);font-style:italic}
@@ -45,12 +47,14 @@ const where = l => `${l.link ?? l.file}${l.line ? ':' + l.line : ''}`;
 
 export function statusLine(s) {
     const b = s.counts.byStatus;
-    return `${n(s.counts.cheats)} cheats · ${n(s.counts.variations)} variations · ${n(s.counts.withDefinition)} with a definition in src · ${n(b.implemented)} implemented · ${n(b['working-default'])} working default · ${n(b.proposal)} proposal · ${n(s.counts.candidates)} candidates`;
+    return `${n(s.counts.cheats)} cheats · ${n(s.counts.variations)} variations · ${n(s.counts.withDefinition)} with a definition in src · ${n(b.implemented)} built with a source match · ${n(b['working-default'])} working default · ${n(b.proposal)} proposal · ${n(s.counts.candidates)} candidates`;
 }
 
 function showCatalogue(host, r) {
     host.replaceChildren(); host.dataset.key = r.key;
-    host.append(el('strong', `${r.id} · ${r.name}`));
+    const record = el('a', `${r.id} · ${r.name}`);
+    record.href = '#library/cheats/' + r.id;
+    host.append(record);
     const ev = r.runtime;
     const runtime = el('div');
     if (ev.definition) runtime.append(el('p', `Definition: ${ev.definition.id} in ${ev.definition.file}`));
@@ -59,9 +63,7 @@ function showCatalogue(host, r) {
     if (ev.unverifiedIds.length) runtime.append(el('p', `Named by the catalogue, not found as a definition or card: ${ev.unverifiedIds.join(', ')}`));
     if (!runtime.childNodes.length) runtime.append(missing('no runtime id named or found'));
     host.append(dl([
-        ['Status', r.status], ['Catalogue says', r.docStatus], ['Runtime evidence', runtime],
-        ['Family', r.family ? `${r.family.code}. ${r.family.title}` : null], ['What it does', r.what], ['Backing', r.backing],
-        ['Worlds and sources', r.worlds], ['Engine hooks', r.hooks], ['Usual limits', r.limits],
+        ['Play status', r.playStatus], ['Proof gap', r.playGap||null], ['Source classification', sourceStatus.get(r.status)], ['Catalogue says', r.docStatus], ['Runtime evidence', runtime],
     ]));
     host.append(el('h3', 'Rule references'));
     const rules = r.rules.cht.map(x => `${x.code}${x.text ? ': ' + x.text : ''} (${x.how})`).concat(r.rules.other);
@@ -79,23 +81,24 @@ function showCatalogue(host, r) {
         }
         host.append(ul);
     }
-    host.append(el('h3', 'Catalogue row'), el('p', `${r.locator.file}:${r.locator.line}`), el('p', r.source.text));
+    host.append(el('h3', 'Catalogue locator'), el('p', `${r.locator.file}:${r.locator.line}`));
 }
 function showCandidate(host, r) {
     host.replaceChildren(); host.dataset.key = r.key;
     host.append(el('strong', `${r.code ? r.code + ' · ' : ''}${r.name}`));
     host.append(dl([
-        ['Status', 'candidate (not in the catalogue)'], ['Found by', r.detector === 'coded' ? 'a coded entry that says cheat' : 'a table with a Cheat column'],
+        ['Play status', r.playStatus], ['Found by', r.detector === 'coded' ? 'a coded entry that says cheat' : 'a table with a Cheat column'],
         ['Where', where(r.locator)], ['Heading', r.locator.heading], ['Also in', r.alsoAt.length ? r.alsoAt.map(where).join('; ') : null], ['Docs carrying it', n(r.docsCount)],
         ['Worlds', r.worlds], ['Closest catalogue row', r.resembles ? `${r.resembles.id} ${r.resembles.name} (inferred, overlap ${r.resembles.score})` : null],
     ]));
     host.append(el('h3', 'Row text'), el('p', r.excerpt));
 }
 
-export async function cheatsView({main, tab = 'list', focus = null, go}) {
+export async function cheatsView({main, tab = 'index', focus = null}) {
     style();
     main.replaceChildren();
     const root = el('section', null, 'cheats'); root.setAttribute('aria-label', 'Cheat log');
+    root.append(el('h2', tab === 'candidates' ? 'Cheat candidates' : 'Runtime and variations'));
     main.append(root);
     const loading = el('p', 'Loading the cheat log…', 'cheats-missing'); root.append(loading);
     let sum;
@@ -138,7 +141,7 @@ export async function cheatsView({main, tab = 'list', focus = null, go}) {
         for (const r of page.rows) {
             const li = el('li'), b = el('button'); b.type = 'button'; b.setAttribute('aria-pressed', String(r.key === view.selected));
             b.append(el('span', r.kind === 'candidate' ? `${r.code ? r.code + ' ' : ''}${r.name}` : `${r.id} ${r.name}`),
-                el('small', r.kind === 'candidate' ? `in ${n(r.docsCount)} doc${r.docsCount === 1 ? '' : 's'}` : r.status));
+                el('small', r.playStatus));
             const open = () => {view.selected = r.key; for (const x of list.querySelectorAll('button')) x.setAttribute('aria-pressed', String(x === b)); (r.kind === 'candidate' ? showCandidate : showCatalogue)(detailHost, r);};
             b.onclick = open; li.append(b); list.append(li);
             if (focus && r.id === focus && view.selected !== r.key) open();

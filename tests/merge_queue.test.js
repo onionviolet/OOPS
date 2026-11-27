@@ -123,10 +123,10 @@ test('a path dirty in the primary gets a three-way sync, never an overwrite', ()
 
 test('refuses when master moves underneath, and when the primary index has staged entries', () => {
   // The stub build commits to master in the primary while the queue is checking.
-  const dir = makeRepo();
-  writeFileSync(join(dir, 'package.json'), readFileSync(join(dir, 'package.json'), 'utf8').replace(
-    /"build": "[^"]*"/, `"build": "git -C ${dir} commit -q --allow-empty -m race"`));
-  git(dir, 'commit', '-q', '-am', 'stub build moves master');
+  const dir = makeRepo('node race.cjs');
+  writeFileSync(join(dir,'race.cjs'),`require('node:child_process').execFileSync('git',['-C',${JSON.stringify(dir)},'commit','-q','--allow-empty','-m','race']);`);
+  git(dir,'add','race.cjs');
+  git(dir, 'commit', '-q', '-m', 'stub build moves master');
   branch(dir, 'late', {'b.txt': 'late\n'});
   const r = queue(dir, '--apply', 'late');
   assert.equal(r.status, 1);

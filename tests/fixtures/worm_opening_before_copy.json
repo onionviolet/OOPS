@@ -1,0 +1,417 @@
+{
+  "schema": 2,
+  "id": "book.worm.lead",
+  "revision": 1,
+  "title": "Worm · Taylor after the washroom assault",
+  "description": "Gestation 1.1: you have already practiced directing insects for three months. The assault has ended. Decide what to do with the insects gathered around you.",
+  "compatibility": {
+    "legacy": "preserve-dormant",
+    "origin": "mandatory"
+  },
+  "capabilities": [
+    "jobs"
+  ],
+  "world": {
+    "id": "book.worm.lead.world",
+    "label": "Worm · Taylor Hebert"
+  },
+  "locations": [
+    {
+      "id": "book.worm.lead.washroom",
+      "label": "Third-floor girls’ washroom",
+      "underRoof": true,
+      "description": "Your clothing is wet and your glasses remain streaked. This was where the insects gathered around you."
+    },
+    {
+      "id": "book.worm.lead.corridor",
+      "label": "School corridor",
+      "underRoof": true,
+      "description": "The washroom door is behind you. You can go back before leaving school."
+    },
+    {
+      "id": "book.worm.lead.outside",
+      "label": "Beyond the washroom window",
+      "underRoof": false,
+      "description": "The insects can leave through the window and the small gaps in the room."
+    }
+  ],
+  "sources": [],
+  "starts": [
+    {
+      "id": "book.worm.lead.start",
+      "locationId": "book.worm.lead.washroom",
+      "description": "Begin after the assault, not at the start of the chapter. You are Taylor Hebert. The insects have gathered without your intending a public display. One-minute actions are authored pacing; no insect count or new power unlock is implied.",
+      "body": {
+        "id": "book.worm.lead.body",
+        "ownerId": "player",
+        "controllerId": "player",
+        "form": "human",
+        "lifeStage": "adolescent",
+        "hands": 2,
+        "mobile": true
+      },
+      "effects": [
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "book.worm.lead.insects_known",
+          "stage": "understood",
+          "value": "The insects gathered here respond to your direction."
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "book.worm.lead.practice",
+          "stage": "understood",
+          "value": "You have practiced directing insects privately for three months. You can direct individuals or select a group."
+        },
+        {
+          "type": "knowledge",
+          "actor": "player",
+          "key": "book.worm.lead.aftermath",
+          "stage": "understood",
+          "value": "The girls have left. Your clothes are soaked; cleaning your glasses has left streaks. Your bag may be damaged."
+        }
+      ]
+    }
+  ],
+  "simulation": {
+    "people": [
+      {
+        "id": "book.worm.lead.insects",
+        "revision": 1,
+        "label": "Gathered insects",
+        "worldId": "book.worm.lead.world",
+        "location": "book.worm.lead.washroom",
+        "inventory": "simulation",
+        "provision": false
+      }
+    ],
+    "energies": [],
+    "commands": [
+      {
+        "id": "book.worm.lead.disperse",
+        "revision": 1,
+        "label": "Send the insects out",
+        "description": "Direct the gathered insects out through the window and gaps. This follows the chapter’s choice. You remain by the door while they leave.",
+        "group": "structured_local",
+        "worldId": "book.worm.lead.world",
+        "actorId": "player",
+        "location": "book.worm.lead.washroom",
+        "audience": [
+          "$actor"
+        ],
+        "duration": 1,
+        "requires": {
+          "all": [
+            {
+              "fact": "actor.life",
+              "op": "eq",
+              "value": "alive"
+            },
+            {
+              "fact": "native.ready",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "native.alive",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "body.ownerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.controllerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.mobile",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        "completionRequires": {
+          "all": [
+            {
+              "fact": "actor.life",
+              "op": "eq",
+              "value": "alive"
+            },
+            {
+              "fact": "native.ready",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "native.alive",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "body.ownerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.controllerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.mobile",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        "completionCoLocated": true,
+        "cancellation": "refund",
+        "completionFailure": "refund",
+        "costs": [],
+        "effects": [
+          {
+            "type": "relocate",
+            "actor": "book.worm.lead.insects",
+            "location": "book.worm.lead.outside"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "book.worm.lead.dispersed",
+            "stage": "understood",
+            "value": "You hold the doorway as the insects leave through the window and gaps. The gathered insects are outside now."
+          }
+        ],
+        "once": true,
+        "targetId": "book.worm.lead.insects",
+        "coLocated": true,
+        "participants": [
+          "$target"
+        ]
+      },
+      {
+        "id": "book.worm.lead.leave",
+        "revision": 1,
+        "label": "Step into the corridor",
+        "description": "Leave the room as it stands. Going before dispersing the insects is an authored alternative to the chapter. No witness or reaction is assumed.",
+        "group": "structured_local",
+        "worldId": "book.worm.lead.world",
+        "actorId": "player",
+        "location": "book.worm.lead.washroom",
+        "audience": [
+          "$actor"
+        ],
+        "duration": 1,
+        "requires": {
+          "all": [
+            {
+              "fact": "actor.life",
+              "op": "eq",
+              "value": "alive"
+            },
+            {
+              "fact": "native.ready",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "native.alive",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "body.ownerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.controllerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.mobile",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        "completionRequires": {
+          "all": [
+            {
+              "fact": "actor.life",
+              "op": "eq",
+              "value": "alive"
+            },
+            {
+              "fact": "native.ready",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "native.alive",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "body.ownerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.controllerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.mobile",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        "completionCoLocated": true,
+        "cancellation": "refund",
+        "completionFailure": "refund",
+        "costs": [],
+        "effects": [
+          {
+            "type": "relocate",
+            "actor": "player",
+            "location": "book.worm.lead.corridor"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "book.worm.lead.corridor_visit",
+            "stage": "understood",
+            "value": "You step into the corridor. The washroom door is behind you. You can still go back."
+          }
+        ]
+      },
+      {
+        "id": "book.worm.lead.return",
+        "revision": 1,
+        "label": "Go back into the washroom",
+        "description": "Return to the room. Leaving did not send the insects away for you.",
+        "group": "structured_local",
+        "worldId": "book.worm.lead.world",
+        "actorId": "player",
+        "location": "book.worm.lead.corridor",
+        "audience": [
+          "$actor"
+        ],
+        "duration": 1,
+        "requires": {
+          "all": [
+            {
+              "fact": "actor.life",
+              "op": "eq",
+              "value": "alive"
+            },
+            {
+              "fact": "native.ready",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "native.alive",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "body.ownerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.controllerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.mobile",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        "completionRequires": {
+          "all": [
+            {
+              "fact": "actor.life",
+              "op": "eq",
+              "value": "alive"
+            },
+            {
+              "fact": "native.ready",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "native.alive",
+              "op": "eq",
+              "value": true
+            },
+            {
+              "fact": "body.ownerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.controllerId",
+              "op": "eq",
+              "value": "player"
+            },
+            {
+              "fact": "body.mobile",
+              "op": "eq",
+              "value": true
+            }
+          ]
+        },
+        "completionCoLocated": true,
+        "cancellation": "refund",
+        "completionFailure": "refund",
+        "costs": [],
+        "effects": [
+          {
+            "type": "relocate",
+            "actor": "player",
+            "location": "book.worm.lead.washroom"
+          }
+        ]
+      }
+    ]
+  },
+  "presentation": {
+    "people": {
+      "book.worm.lead.insects": {
+        "introductionKnowledgeKey": "book.worm.lead.insects_known"
+      }
+    },
+    "status": [
+      {
+        "id": "book.worm.lead.practice_status",
+        "label": "Private practice",
+        "knowledgeKey": "book.worm.lead.practice"
+      },
+      {
+        "id": "book.worm.lead.dispersal_status",
+        "label": "Insects sent outside",
+        "knowledgeKey": "book.worm.lead.dispersed"
+      },
+      {
+        "id": "book.worm.lead.corridor_status",
+        "label": "Leaving the room",
+        "knowledgeKey": "book.worm.lead.corridor_visit"
+      }
+    ]
+  }
+}

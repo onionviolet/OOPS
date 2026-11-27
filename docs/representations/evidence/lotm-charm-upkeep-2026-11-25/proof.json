@@ -1,0 +1,13 @@
+{
+  "route": "synthetic aged Slumber workshop, normal native controls",
+  "viewport": "1920x1080",
+  "bundleHash": "d2ba7f143317736ecc2e49deb200c0949c81bc945583ce78be5047bd82fa28cd",
+  "fadedMinutes": 2,
+  "renewedMinutes": 5,
+  "upkeepMinutes": 10,
+  "upkeepSpirituality": 1,
+  "stockBefore": 1,
+  "stockAfter": 1,
+  "keptAfter": "save/reload/Export/literal Import",
+  "state": "agent-verified, not human-reviewed"
+}

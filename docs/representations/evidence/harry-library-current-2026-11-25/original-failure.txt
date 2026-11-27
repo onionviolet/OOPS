@@ -1,0 +1,114 @@
+Library proof failure locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('#loading_screen_play_button')
+    - locator resolved to <div class="fade_in" id="loading_screen_play_button">Play...?</div>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <section id="structured_recovery">…</section> intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <section id="structured_recovery">…</section> intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    57 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <section id="structured_recovery">…</section> intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+
+    at openFixture (<checkout>\scripts\fixture_browser.cjs:48:55)
+    at async <checkout>\tests\hp_library_work_browser.cjs:24:9 {
+  log: [
+    "  - waiting for locator('#loading_screen_play_button')",
+    '    - locator resolved to <div class="fade_in" id="loading_screen_play_button">Play...?</div>',
+    '  - attempting click action',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is visible, enabled and stable',
+    '      - scrolling into view if needed',
+    '      - done scrolling',
+    '      - <section id="structured_recovery">…</section> intercepts pointer events',
+    '    - retrying click action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is visible, enabled and stable',
+    '      - scrolling into view if needed',
+    '      - done scrolling',
+    '      - <section id="structured_recovery">…</section> intercepts pointer events',
+    '    - retrying click action',
+    '      - waiting 100ms',
+    '    57 × waiting for element to be visible, enabled and stable',
+    '       - element is visible, enabled and stable',
+    '       - scrolling into view if needed',
+    '       - done scrolling',
+    '       - <section id="structured_recovery">…</section> intercepts pointer events',
+    '     - retrying click action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}
+locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('#loading_screen_play_button')
+    - locator resolved to <div class="fade_in" id="loading_screen_play_button">Play...?</div>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <section id="structured_recovery">…</section> intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <section id="structured_recovery">…</section> intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    57 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <section id="structured_recovery">…</section> intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+
+    at openFixture (<checkout>\scripts\fixture_browser.cjs:48:55)
+    at async <checkout>\tests\hp_library_work_browser.cjs:24:9 {
+  log: [
+    "  - waiting for locator('#loading_screen_play_button')",
+    '    - locator resolved to <div class="fade_in" id="loading_screen_play_button">Play...?</div>',
+    '  - attempting click action',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is visible, enabled and stable',
+    '      - scrolling into view if needed',
+    '      - done scrolling',
+    '      - <section id="structured_recovery">…</section> intercepts pointer events',
+    '    - retrying click action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is visible, enabled and stable',
+    '      - scrolling into view if needed',
+    '      - done scrolling',
+    '      - <section id="structured_recovery">…</section> intercepts pointer events',
+    '    - retrying click action',
+    '      - waiting 100ms',
+    '    57 × waiting for element to be visible, enabled and stable',
+    '       - element is visible, enabled and stable',
+    '       - scrolling into view if needed',
+    '       - done scrolling',
+    '       - <section id="structured_recovery">…</section> intercepts pointer events',
+    '     - retrying click action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}

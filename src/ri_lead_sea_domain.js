@@ -11,13 +11,33 @@ import {registerDomain} from './domain_registry.js';
 import {RI_LEAD_DAY, riSeaMinutesPerPart} from './ri_lead_day_facts.js';
 
 const WORLD = 'book.ri.lead.world', ESSENCE = 'book.ri.lead.primeval';
-let anchor = null;
-const keeping = state => Object.keys(state.simulation?.knowledge?.player || {}).some(k => k.startsWith(`${RI_LEAD_DAY}.`));
+let anchor = null, innSleepBodyId = null;
+const keeping = state => {
+    if(innSleepBodyId&&state.actors?.player?.worldId===WORLD
+        &&state.simulation?.people?.player?.body?.id===innSleepBodyId)return true;
+    const known=state.simulation?.knowledge?.player||{};
+    if(Object.keys(known).some(k=>k.startsWith(`${RI_LEAD_DAY}.`)))return true;
+    if(['started','departed','stone_recovered','stone_started'].some(n=>known[`book.ri.lead.first_night_choice.${n}`]))return true;
+    const start=known['book.ri.lead.early_recovery.started'],end=known['book.ri.lead.early_recovery.ready'];
+    return !!start&&!known['book.ri.lead.refinement.recovery']&&(!end||end.at===state.clock);
+};
+// Called by native paid-room Sleep after its access/work guards. Older earned
+// rooms need no household knowledge note; their elapsed recovery starts here.
+export function beginRiInnSleepRecovery(state) {
+    const body=state?.simulation?.people?.player?.body;
+    if(state?.actors?.player?.worldId!==WORLD||!body?.id||body.ownerId!=='player'
+        ||body.controllerId!=='player'||!Number.isSafeInteger(state.clock)||state.clock<0
+        ||!state.simulation.energies?.player?.[ESSENCE])return false;
+    const active=keeping(state);
+    innSleepBodyId=body.id;
+    if(!active||anchor==null||anchor>state.clock)anchor=state.clock;
+    return true;
+}
 // Pure settlement, exported for tests: {reserve, anchor} after `now`, for a pool of `capacity` parts that gains one part each `per` minutes.
 export function settleSea({reserve, capacity, anchor: from, now, per}) {
     if(from == null || from > now || reserve >= capacity) return {reserve, anchor: now};
     const parts = Math.floor((now - from) / per), add = Math.min(parts, capacity - reserve);
-    return {reserve: reserve + add, anchor: add < parts ? now : from + parts * per};
+    return {reserve: reserve + add, anchor: reserve + add >= capacity ? now : from + parts * per};
 }
 export function stageSea(plan) {
     const state = plan?.state, e = state?.simulation?.energies?.player?.[ESSENCE];
@@ -29,6 +49,9 @@ export function stageSea(plan) {
 }
 const valid = slice => slice?.schema === 1 && Number.isSafeInteger(slice.at) && slice.at >= 0;
 registerDomain({id: 'ri_lead_sea', initialState: () => null,
-    save: () => anchor == null ? undefined : {schema: 1, at: anchor},
-    load: slice => {anchor = valid(slice) ? slice.at : null;},
+    save: () => anchor == null ? undefined : {schema: 1, at: anchor,
+        ...(innSleepBodyId?{innSleepBodyId}:{})},
+    load: slice => {anchor = valid(slice) ? slice.at : null;
+        innSleepBodyId=valid(slice)&&typeof slice.innSleepBodyId==='string'&&slice.innSleepBodyId
+            ?slice.innSleepBodyId:null;},
     stage: stageSea});

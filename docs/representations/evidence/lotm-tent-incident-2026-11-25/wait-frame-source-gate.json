@@ -1,0 +1,52 @@
+{
+  "schema": "lotm-wait-frame-source-gate/1",
+  "status": "focused source checks passed; IAB performance comparison pending",
+  "runtimeSources": {
+    "src/book_world_lotm_host.js": "243c171be6b7e484ef1757a2471f05842d7024429b07b23f879e126f095b9ea7",
+    "src/facts_frame.js": "752105a307b564975ee2404361133e62f5bcea710c22501712ee643e3d37bd7f",
+    "src/simulation_render.js": "d9685235a6b62f820348ff6c9c81bca0c06b6e3e6f4e7fe3fb27b412f8b629ca"
+  },
+  "candidate": ".lane-builds/tingen-wait-profile-frame-20261125",
+  "bundleSha256": "003fbaff996cf6ec70a1cce54bb056f630d81c54ddebf6f37c7dbefb119fae09",
+  "checks": [
+    {
+      "command": "node --test --test-name-pattern=\"display pass|projected display|nested mutation|lead view\" tests/display_read_frames.test.js tests/book_world_lotm_opening.test.js",
+      "pass": 4,
+      "exit": 0
+    },
+    {
+      "command": "node --test --test-name-pattern=\"Tingen view|lead view\" tests/book_world_lotm_opening.test.js",
+      "pass": 2,
+      "exit": 0
+    },
+    {
+      "command": "node --test --test-name-pattern=\"identity inputs|nested writer|predicate-specific|inventory and effect|changed context|large input|planning frames|binding/publication|mutable actor\" tests/facts_frame.test.js tests/planning_read_frame.test.js",
+      "pass": 9,
+      "exit": 0
+    },
+    {
+      "command": "node --test --test-name-pattern=\"^(?!fixture minutes)\" tests/facts_frame.test.js tests/planning_read_frame.test.js",
+      "pass": 13,
+      "exit": 0,
+      "note": "Actual Node execution included native fixture parity despite intended name filter; all fresh/mid-wait/beside branches completed, no test skipped or weakened.",
+      "nativeParity": true
+    },
+    {
+      "command": "npm run check:arch",
+      "exit": 0,
+      "note": "Existing main +10 lines and205 grandfathered cyclic edges; no main changes from this slice."
+    },
+    {
+      "command": "npm run check:rules",
+      "exit": 0,
+      "note": "Existing warning-only9lint hits and1stale glob."
+    },
+    {
+      "command": "git diff --check -- src/book_world_lotm_host.js src/facts_frame.js src/simulation_render.js tests/display_read_frames.test.js tests/book_world_lotm_opening.test.js",
+      "exit": 0
+    }
+  ],
+  "semantics": "Read-only exact-key ancestor reuse; copied returned dictionaries; no reuse during nested writes; conservative active-frame invalidation on explicit mutation and failure; clock/sequence invalidation.",
+  "nativeParity": "Contexts/facts and create_save match across current frame modes on fresh, mid-wait and ordinary beside with real mounted pack; saved_at is the accepted wall timestamp exception.",
+  "browserUsedByThisLane": false
+}

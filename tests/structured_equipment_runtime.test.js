@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readCanonicalText} from '../scripts/canonical_text.mjs';
 import {validateStructuredEquipmentDefinition,nativeStructuredEquipmentTemplate,projectStructuredEquipment} from '../src/structured_equipment_runtime.js';
 
 const key=JSON.stringify({id:'original.coat'});
@@ -43,7 +43,7 @@ test('legacy metadata absence leaves existing equipment and save input unchanged
 test('descriptor is accepted by the actual Hero effect consumer without consumable amplification',()=>{
  // Importing Hero boots the UI singleton graph. Execute its exact pure method
  // body with only its declared tag dependency instead of booting a fake DOM.
- const source=readFileSync(new URL('../src/models/hero.js',import.meta.url),'utf8');
+ const source=readCanonicalText(new URL('../src/models/hero.js',import.meta.url));
  const method=source.match(/    getEffectWithBonuses\(active_effect\) \{([\s\S]*?)\n    \}\n/);
  assert.ok(method);
  const consume=new Function('active_effect','skill_consumable_tags',method[1]);

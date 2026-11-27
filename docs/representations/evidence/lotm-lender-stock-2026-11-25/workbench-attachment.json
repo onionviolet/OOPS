@@ -1,0 +1,28 @@
+{
+  "proposalId": "d36ab6955de9976f57e6204e1cecd183e12acdc64f322f694b686582aecdb773",
+  "reportId": "eec20e674e6f538d2fe0c267324a60cac350943801c75371cd41d34c6818798e",
+  "consumer": {
+    "name": "Old Neil’s lendable Slumber stock from supplied mentor making",
+    "path": "src/lotm_charm_lender_stock.js",
+    "resolvedPath": "src/lotm_charm_lender_stock.js",
+    "sha256": "9dbab6fe966a815d964e4d43a00310383809aa9de0bd0674cf861c649b0846d6"
+  },
+  "receipt": {
+    "path": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_LENDER_STOCK_2026-11-25.md",
+    "resolvedPath": "docs/gm/dispatch/procedural-crafting-2026-11-11/LOTM_LENDER_STOCK_2026-11-25.md",
+    "sha256": "60344bdf90dd85f94b0f9893206e4a661d1fd0b0e066c0fe5a1dc6670638afe7"
+  },
+  "playerRoute": "Klein in Tingen: finish the workshop amulet commission → order Slumber supplies at the silver workshop → awake Old Neil in the Blackthorn armory → supply him to make a lendable Slumber charm → borrow. Return unused, or later craft and return a replacement. The native proof starts with zero charms in a prerequisite actor fixture; naturally reached cast entry remains unverified.",
+  "priorReportIds": [
+    "1e824cf32a6d1d77b8fde809367912c1f8fcb7bb366ebb73a7ad87576b207b17"
+  ],
+  "preservedProposal": true,
+  "preservedPriorReports": true,
+  "reloaded": true,
+  "viewport": "1920x1080",
+  "currentFilesMatch": true,
+  "proofPath": "docs/representations/evidence/lotm-lender-stock-2026-11-25/proof.json",
+  "checkoutBuildSha256": "58a6029b2fa7ad2ed84897b8a939de4e667238d434b06f7e5311d9c6670b0bbd",
+  "route": "#workbench/handoffs/d36ab6955de9976f57e6204e1cecd183e12acdc64f322f694b686582aecdb773",
+  "state": "actual persistent queue, normal form, agent-verified"
+}

@@ -312,7 +312,7 @@ export const LAYOUT_SPEC = Object.freeze({
         {id: 'optional-worlds', label: 'Worlds', key: 'w', target: 'optional-worlds'},
         {id: 'beginning', label: 'Beginning', key: 'g', target: 'beginning'},
         {id: 'capability-runs', label: 'Capability runs', key: 'u', target: 'capability-runs', open: 'control', select: 'capability_runs_open'},
-        {id: 'continuation', label: 'Connection', key: 'y', target: 'continuation', select: 'continuation_open'},
+        {id: 'continuation', label: 'Connection', key: 'y', target: 'continuation', open: 'control', select: 'continuation_open'},
         {id: 'customization', label: 'Settings', key: 's', target: 'customization'},
     ].map(Object.freeze)),
 });

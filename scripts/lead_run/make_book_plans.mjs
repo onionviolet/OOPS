@@ -12,6 +12,7 @@ import {fileURLToPath} from 'node:url';
 import {pdfChapters, epubChapterMembers, epubParagraphs, htmlBlocks, epubSpine, blockChapters, BOOK_TAIL, shardTextEn} from './prepare_shard_en.mjs';
 import {chapterLinks, volumeRuns, shardText, textChapters} from './prepare_shard.mjs';
 import {requestsFromPlan, estimateCost, passDone} from './batch_lib.mjs';
+import {resolveBookSource} from './book_source.mjs';
 export {passDone};
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -141,7 +142,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     if (schema && !['1.4', '1.5'].includes(schema)) throw new Error(`--schema supports 1.4 or 1.5, got ${schema}`);
     const ceilings = Object.fromEntries((flag('--ceiling') || '').split(',').filter(Boolean).map(x => x.split('=')).map(([w, u]) => [w, Number(u)]));
     const byWorld = {}, report = [];
-    for (const b of registry.books.filter(x => !keys || keys.has(x.key))) {
+    for (const entry of registry.books.filter(x => !keys || keys.has(x.key))) {
+        const b = {...entry, source: resolveBookSource(entry) || entry.source};
         const priv = join(root, b.dir);
         // A source kept in another format (a .mobi) is converted once, into the private folder, with Calibre's ebook-convert; the original is untouched.
         if (!existsSync(b.source) && b.convertFrom && existsSync(b.convertFrom)) { mkdirSync(dirname(b.source), {recursive: true}); execFileSync(EBOOK_CONVERT, [b.convertFrom, b.source], {stdio: 'ignore'}); }

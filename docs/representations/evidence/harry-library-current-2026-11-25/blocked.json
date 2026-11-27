@@ -1,0 +1,10 @@
+{
+  "outcome": "blocked-at-initial-play-before-library-actions",
+  "currentBundleSha256": "9a960b6694049fb0da8063c09e6245254469cebeaa20c96c8793a7f54f8e9fc1",
+  "fixtureSha256": "2167cc7990ff902b1dbc281d3946e962fa76314f26d49d4e7c23c5f1388bb5f6",
+  "savedBasePin": "sha256:660dedbf984a5469f8f51f9dfa07d16c80dbe30977805cc3f8cf0384758cbcac",
+  "currentRestoredCastCanonicalPin": "sha256:f9cfc3e531af70cd0cab095801b536ac60d52f4bdb0369dddcdce623d4760d5d",
+  "observedFailure": "Existing openFixture initial Play click timed out because #structured_recovery intercepted pointer events.",
+  "successfulResultCreated": false,
+  "nativeReceiptAttached": false
+}

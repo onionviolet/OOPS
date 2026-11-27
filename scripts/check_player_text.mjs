@@ -82,21 +82,17 @@ export function scanDurations(name, source) {
   return hits;
 }
 
-export function scanTree() {
-  const hits = [];
-  // Round 5: subfolders too (src/absorb_c2/local_life.js leaked "native food poisoning" unseen). Dev-only previews stay out.
-  const names = readdirSync(resolve(root, 'src'), {recursive: true}).map(String)
+function runtimeFiles() {
+  return readdirSync(resolve(root, 'src'), {recursive: true}).map(f => String(f).replaceAll('\\', '/'))
     .filter(f => f.endsWith('.js') && !f.startsWith('ui/preview/')).sort();
-  for (const name of names) {
-    hits.push(...scanSource(`src/${name}`, readFileSync(resolve(root, 'src', name), 'utf8')));
-  }
-  return hits;
+}
+
+export function scanTree() {
+  return runtimeFiles().flatMap(name => scanSource(`src/${name}`, readFileSync(resolve(root, 'src', name), 'utf8')));
 }
 
 export function scanTreeDurations() {
-  const names = readdirSync(resolve(root, 'src'), {recursive: true}).map(String)
-    .filter(f => f.endsWith('.js') && !f.startsWith('ui/preview/')).sort();
-  return names.flatMap(name => scanDurations(`src/${name}`, readFileSync(resolve(root, 'src', name), 'utf8')));
+  return runtimeFiles().flatMap(name => scanDurations(`src/${name}`, readFileSync(resolve(root, 'src', name), 'utf8')));
 }
 
 function writeBacklog(hits) {

@@ -1,0 +1,28 @@
+{
+  "schema": "archival-native-proof/1",
+  "bundleSha256": "d803bcd7105c173bf64e4e2153c71f79c67312dd9e1bc05490ce062c7d49827f",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "route": "hp-library-astronomy composed after real Charms/wand commands; real Astronomy class and homework; both retrieval methods; Save/reload/Export/file Import",
+  "fixture": "Composed hp-library-astronomy fixture after real Charms lesson and practice-wand commands. Clock-only setup reached Wednesday 22:59 before the tested Astronomy/library route.",
+  "setup": "Archival metadata normalization of the original successful run, not a new playtest. Exact tested bundle and viewport are recorded in the unchanged frozen receipt. Normal opening-to-library was not claimed in this earlier run.",
+  "originalResult": {
+    "path": "docs/representations/evidence/harry-library-2026-11-25/result.json",
+    "sha256": "fd2975988bf41cb5bcced9950d50e42d28f9326bde6614f740b4b055dbe9e829"
+  },
+  "frozenReceipt": {
+    "path": "docs/gm/dispatch/play-surface-2026-11-14/HARRY_LIBRARY_WORK_2026-11-25.md",
+    "sha256": "3b821d732abffad3155867dc73004ca5c8d0951b8defa66d598523a2e57647b1"
+  },
+  "observedResult": {
+    "route": "hp-library-astronomy composed after real Charms/wand commands; real Astronomy class and homework; both retrieval methods; Save/reload/Export/file Import",
+    "manualMinutes": 15,
+    "homeworkMinutes": 30,
+    "magicTries": 2,
+    "notes": 2,
+    "marked": 1,
+    "errors": []
+  }
+}

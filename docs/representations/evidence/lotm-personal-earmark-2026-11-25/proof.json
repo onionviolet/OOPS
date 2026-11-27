@@ -1,0 +1,15 @@
+{
+  "proposalId": "977a42730945b0ba79250e106e71c8f2c0518411248ee9067218820fc86d7715",
+  "bundleHash": "d8fd161dbe7773c6cf4722e43bb343366a2780fcfe3335fb2171abc664706689",
+  "viewport": "1920x1080",
+  "route": "named eligible workshop fixture, normal intention and purchase controls",
+  "nativePurseBefore": 1000,
+  "nativePurseAfter": 904,
+  "intentionAtPurchase": 960,
+  "shortfall": 56,
+  "revisedIntention": 800,
+  "revisedAvailable": 104,
+  "materials": "one existing silver blank and one ritual packet, consumed by existing Slumber inscription",
+  "keptAfter": "save/reload/Export/literal Import after purchase and revision",
+  "state": "agent-verified, not human-reviewed"
+}

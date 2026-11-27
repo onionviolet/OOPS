@@ -12,8 +12,13 @@ export const CUSTOMIZATION_MODULES = ['ledger', 'crafting', 'local-actions', 'vi
 export const EFFECT_MODULES = ['ledger', 'crafting', 'skills'];
 const LUMINOUS_PALETTE = {background:'#07162d', text:'#d5f7ff', accent:'#7fe7e8'};
 const LUMINOUS_MESSAGES_PALETTE = {background:'#231735', text:'#eee5ff', accent:'#bca4ff'};
-const GRAPHITE_PALETTE = {background:'#1e1e1e', text:'#eeeeee', accent:'#518ae0'}; // DK2 (2026-11-22): darker, by Arkivia's measures
-const GRAPHITE_MESSAGES_PALETTE = {background:'#1e1e1e', text:'#eeeeee', accent:'#b9a0d8'}; // DK2: Reports on the same dark ground; colour lives in the line kinds
+function graphiteBackground(token) {
+    const value = typeof document === 'undefined' ? '' : getComputedStyle(document.documentElement).getPropertyValue(token).trim();
+    // Keep the persisted RGB format for older profiles, color inputs and headless saves.
+    return /^#[\da-f]{6}$/i.test(value) ? value : '#' + (30).toString(16).repeat(3);
+}
+const GRAPHITE_PALETTE = {background:graphiteBackground('--graphite-stage'), text:'#eeeeee', accent:'#518ae0'};
+const GRAPHITE_MESSAGES_PALETTE = {background:graphiteBackground('--graphite-log'), text:'#eeeeee', accent:'#b9a0d8'};
 const THEME_PALETTES = {luminous: LUMINOUS_PALETTE, graphite: GRAPHITE_PALETTE};
 // The Neutral look that was the default before 2026-10-29. Saves whose only
 // profile still equals it are upgraded to Luminous Gothic on load.
@@ -186,6 +191,9 @@ function qualifyNativeTabs(node) {
         }
     }
 }
+function gothicFamily(size) {
+    return size >= 10 && size <= 22 ? `"OOPS Gothic Bitmap ${size}", var(--ui-font-gothic)` : 'var(--ui-gothic-outline)';
+}
 export function applyCustomizationProfile(state, {season, moduleNodes = {}} = {}) {
     const valid = validateCustomizationState(state);
     const entries = moduleNodes instanceof Map ? moduleNodes.entries() : Object.entries(moduleNodes);
@@ -197,11 +205,11 @@ export function applyCustomizationProfile(state, {season, moduleNodes = {}} = {}
         node.dataset.componentTheme = settings.componentTheme || 'neutral';
         node.dataset.customizationSeason = settings.resolvedSeason || 'off';
         const font = settings.typography.font;
-        const family = {system: 'var(--ui-font-system)', serif: 'Georgia, serif', mono: 'monospace', gothic: `"OOPS Gothic Bitmap ${settings.typography.size}", var(--ui-font-gothic)`}[font];
+        const family = {system: 'var(--ui-font-system)', serif: 'Georgia, serif', mono: 'monospace', gothic: gothicFamily(settings.typography.size)}[font];
         // Small Gothic labels need their own native strike, rather than a
         // fractional scaling of the body strike's pixel grid.
         const smallSize = Math.round(settings.typography.size * .85);
-        const smallFamily = font === 'gothic' ? `"OOPS Gothic Bitmap ${smallSize}", var(--ui-font-gothic)` : family;
+        const smallFamily = font === 'gothic' ? gothicFamily(smallSize) : family;
         const vars = {'--custom-font': family, '--custom-prose-font': family, '--custom-size': `${settings.typography.size}px`, '--custom-small-font': smallFamily, '--custom-small-size': `${smallSize}px`, '--custom-spacing': `${settings.spacing}px`, '--custom-background': settings.palette.background, '--custom-text': settings.palette.text, '--custom-accent': settings.palette.accent};
         node.dataset.typographyFont = font;
         Object.assign(vars, componentThemeTokens(settings));

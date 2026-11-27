@@ -1,0 +1,18 @@
+{
+  "bundleHash": "58a6029b2fa7ad2ed84897b8a939de4e667238d434b06f7e5311d9c6670b0bbd",
+  "viewport": "1920x1080",
+  "route": "zero-charms native actor fixture, actual purchase, supplied paid mentor making, loan and earned replenishment",
+  "startingCharms": 0,
+  "mentorFeePence": 12,
+  "mentorMinutes": 12,
+  "suppliesCostPence": 96,
+  "cancelledMaking": "cash and both materials refunded, elapsed6minutes retained, no stock or mentor fee granted",
+  "feeReceivedByActualMentor": 12,
+  "earnedSourceStock": 1,
+  "playerCouldPersonallyInscribeInitially": false,
+  "repaymentBecomesLendable": true,
+  "secondLoanAndUnusedReturnConserved": 1,
+  "endingCash": 796,
+  "keptAfter": "save/reload/Export/literal Import mid-making, after earned stock, after repaid and reused stock",
+  "state": "agent-verified, not human-reviewed"
+}

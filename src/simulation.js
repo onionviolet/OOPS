@@ -1,4 +1,6 @@
+import {domainRegistry} from './domain_registry.js';
 import {actionModifiers} from './harm_state.js';
+import {normalizeResponseLoanPlan,isResponseLoanJob} from './lotm_charm_response.js';
 import {takenUseReason,settleTakenPowers} from './power_taking.js';
 import {hashStreamSeed as hash, xorshift32} from './hash_rng.js';
 import {createWakeQueue} from './wake_queue.js';
@@ -37,6 +39,7 @@ import {cloneData, person, participant, simulationFacts, simulationFactsFor, app
 import {previewPowerModel, resolveEffectAmount, fluencyDuration} from "./power_models.js";
 import {prepareSimulationEffects, resolveOutcomeWeights} from "./simulation_resolution.js";
 import {reserveAmuletCosts,settledAmuletEffects} from './lotm_amulet_crafting.js';
+import {settledSilverCharmEffects} from './lotm_silver_charms.js';
 import {advanceConstructs,nextConstructBoundary} from './temporary_construct.js';
 import {advanceKeeperRainbow,nextKeeperRainbowBoundary} from './world_packs/book_gu_keeper_sustained.js';
 import {advanceKeeperDrain,nextKeeperDrainBoundary} from './gu_keeper_propagation.js';
@@ -50,6 +53,14 @@ const domain = () => ({facts: {}, resources: {}, completed: {}, sources: {}, tec
 // Base duration, shortened by the actor's repetitions of the command's method
 // when the command declares a fluency curve. Read before this run is counted.
 function commandDuration(state, d, actorId) {
+    if(d.durationRecovery) {
+        const {energyId,minutesPerPart,anchorKnowledge}=d.durationRecovery;
+        const energy=state.simulation?.energies?.[actorId]?.[energyId];
+        if(!energy)return d.duration;
+        const start=anchorKnowledge&&state.simulation?.knowledge?.[actorId]?.[anchorKnowledge];
+        const remainder=start?Math.max(0,state.clock-start.at)%minutesPerPart:0;
+        return Math.max(1,(energy.policy.capacity-energy.reserve)*minutesPerPart-remainder);
+    }
     const anchor = d.durationSinceKnowledge && state.simulation?.knowledge?.[actorId]?.[d.durationSinceKnowledge];
     if(anchor) return Math.max(1, d.duration - (state.clock - anchor.at));
     return fluencyDuration(d.duration || 0, d.fluency, state.simulation?.powers?.[actorId]?.[d.powerId]?.executions || 0);
@@ -131,7 +142,7 @@ function previewCommand(state, registry, commandId, context, rehearse, knownFact
     // Legacy/native conditions.js remains context-only and imports no domains.
     const harm = context.actorId === 'player' && context.harmSave && context.harmActionClass
         ? actionModifiers(context.harmSave,context.harmActionClass) : null;
-    const reasons = [...ruleReason(d.requires, facts)];
+    const reasons = [...ruleReason(d.requires, facts),...domainRegistry.commandGuardReasons(state,d,context)];
     if (harm && !harm.allowed) reasons.push(harm.blockedBy.reason);
     // Expose axes to the existing numeric expression resolver. Commands opt in
     // through their own formulas; these are multipliers/offsets, not odds.
@@ -236,7 +247,7 @@ function startCommand(out, registry, commandId, context, immediatePreview, conte
     const frozenContext = {actorId: context.actorId, targetId: context.targetId || null, partyIds: copy(s.party)};
     // Frozen effects read facts only through formula amounts (preview effects are
     // already resolved). Build them here, before costs, only when one exists.
-    const formula = [...preview.effects, ...(d.outcomes || []).flatMap(o => o.effects || [])].some(e => e?.amount != null && typeof e.amount !== "number");
+    const formula = [...preview.effects, ...(d.outcomes || []).flatMap(o => o.effects || [])].some(e => e?.type==='riStoneDraw'||e?.amount != null && typeof e.amount !== "number");
     if(!formula && context.targetId) person(state, context.targetId);
     const facts = formula ? simulationFacts(state, context, registry) : {};
     applySimulationEffects(out, preview.costs, context, registry, cause, {spending: true});
@@ -275,6 +286,7 @@ function startCommand(out, registry, commandId, context, immediatePreview, conte
     const job = {id: cause, sequence: state.sequence, commandId: d.id, revision: d.revision, actorId: context.actorId, targetId: context.targetId || null,
         due: state.clock + preview.duration, effects, costs: copy(preview.costs), cancellation: d.cancellation || "none", siteId: d.siteId || null,
         claim: d.claim || null, label: d.label, roll, outcomeId, context: frozenContext, participants: commandParticipants(d,context,s)};
+    if(d.durationRecovery)job.duration=preview.duration;
     if(d.reservationReturns === 1 || ["original_frontier","repositories","feature_objects","feature_society","tidemark","subtlety_relay","nested_campaign","nested_chains","nested_life","book_paradise","book_paradise_npc","book_mol","book_mol_npc","book_paradise_campaign","book_paradise_campaign_npc","reference_gameplay","nethack_fieldcraft","audit_fixture","audit_lesson","remainder_livelihood","remainder_home","remainder_offers","remainder_consequences","remainder_combat_fit","remainder_combat_objectives","causal_story","causal_story_npc","game_absorption_assay"].includes(d.group)) {s.schema=Math.max(s.schema,4);job.reservationReturns = 1;}
     if(d.completionRequires || d.completionCoLocated != null) {
         s.schema = Math.max(s.schema, 4);
@@ -348,6 +360,7 @@ function completeJob(out, job, registry, contexts = {}, beforeJob=null) {
             if(program?.commandId === job.commandId) {program.status = "paused"; program.reason = support.failure === 'refund' ? "Accepted work lost its required source, contact or consent; reserved inputs returned." : "Accepted work lost its required support; the disclosed paid effort remains spent."; if(support.failure === 'refund') program.remaining++;}
             if(["original_frontier.work_cave_protected","original_frontier.work_forest_protected"].includes(job.commandId)) state.actors.player.facts["original_frontier.control.encounterConsumed"] = false;
             applySimulationEffects(out,agreedDutyStoppedEffects(state,job),job.context,registry,failureCause);
+            if(isResponseLoanJob(job.commandId))normalizeResponseLoanPlan(out,{cause:job.id});
             log(s, state.clock, `${job.label} stopped: required support was lost; ${support.failure === 'refund' ? 'reserved inputs returned' : 'disclosed paid costs remain spent'} and no result awarded.`, job.id);
             s.log.at(-1).audience = copy(job.audience || [job.actorId]);
             return;
@@ -356,7 +369,9 @@ function completeJob(out, job, registry, contexts = {}, beforeJob=null) {
     const nativeEffectContext=job.effects.some(needsNativeEffectContext)?{...contexts[job.actorId],...job.context,external:out.external,gameplay:out.gameplay,vitals:out.vitals}:null;
     const effectContext=nativeEffectContext||wcContext||(['proto23','book_care_npc','book_paradise_npc','book_mol','book_mol_npc','book_paradise_campaign','book_paradise_campaign_npc','causal_story','causal_story_npc'].includes(completionGroup)?{...contexts[job.actorId],...job.context,...(['book_mol','book_mol_npc'].includes(completionGroup)?{molAcceptedJob:job}:{}),
             ...(['book_paradise_campaign','book_paradise_campaign_npc'].includes(completionGroup)?{paradiseCampaignAcceptedJob:job}:{}),external:out.external,gameplay:out.gameplay,vitals:out.vitals,vitalsByActor:out.vitals,equipment:out.equipment}:job.context);
-    applySimulationEffects(out, settledAmuletEffects(job,state), effectContext, registry, job.id);
+    const charmEffects=settledSilverCharmEffects(job,state,registry,contexts[job.actorId]?.charmPresence,out.gameplay[job.actorId]?.inventory||{});
+    applySimulationEffects(out, charmEffects?[...job.effects,...charmEffects]:settledAmuletEffects(job,state), effectContext, registry, job.id);
+    if(isResponseLoanJob(job.commandId))normalizeResponseLoanPlan(out,{cause:job.id});
     if(job.claim && s.claims[job.claim]?.status === "held") applySimulationEffects(out, [{type: "claim", operation: "settle", key: job.claim}], job.context, registry, job.id);
     const actor = state.actors[job.actorId]; actor.completed[job.commandId] = (actor.completed[job.commandId] || 0) + 1;
     recordCausalStoryJobCompletion(out,job,registry);

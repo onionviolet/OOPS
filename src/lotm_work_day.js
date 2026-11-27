@@ -1,19 +1,27 @@
 // D1 (SFC10, drafts 2026-11-15, "build both"): Klein's work day as rows under the Find work verb and one "Pay and debts"
-// ledger. Both read book_world_lotm_wage.js wageView, the single owner of the pay facts (AR3); nothing here writes. Rent and
-// a shift act have no mechanism yet, so they are not drawn (the draft's rent row waits for one).
+// ledger. Pay reads wageView and office shifts link to the existing workroom controls through the host's shift quote.
 import {wageView, wageWords, WAGE_DIALS} from './book_world_lotm_wage.js';
 import {formatDuration} from './number_format.js';
 
 // Ready rows (ready_rows.js shape). Drawing pay is ready when a week has closed; before the first draw it is ready too
 // (the terms are his to accept); otherwise it rests with the time to the next week.
-export function lotmWorkRows(state, {collect, open} = {}) {
+export function lotmWorkRows(state, {collect, open, shift, openShift} = {}) {
     const v = wageView(state);
     if (!v) return [];
+    const rows = (shift && !shift.doneToday ? shift.kinds : []).map(k => ({
+        id: `shift-${k.id}`, label: k.label, verb: 'work', state: k.eligible ? 'ready' : 'near',
+        ...(k.eligible ? {detail: k.say} : {gap: k.reason}),
+        open: openShift && (() => openShift(k.id))
+    }));
     const base = {id: 'lotm-wage', label: 'Draw the weekly pay', verb: 'work', open};
-    if (!v.started) return [{...base, state: 'ready', detail: `${wageWords(v.weeklyPence)} a week from Mrs. Orianna; open to start`}];
-    if (v.owedWeeks) return [{...base, state: 'ready', act: collect,
-        detail: `${wageWords(v.net)} for ${v.owedWeeks === 1 ? 'one week' : `${v.owedWeeks} weeks`}${v.kept ? `, ${wageWords(v.kept)} kept against the advance` : ''}`}];
-    return [{...base, state: 'rest', gap: `next pay in ${formatDuration(v.nextIn)}`, detail: `next pay in ${formatDuration(v.nextIn)}`}];
+    if (!v.started) rows.push({...base, state: 'ready', detail: `${wageWords(v.weeklyPence)} a week from Mrs. Orianna; open to start`});
+    else if (v.owedWeeks) rows.push({...base, state: 'ready', act: collect,
+        detail: `${wageWords(v.net)} for ${v.owedWeeks === 1 ? 'one week' : `${v.owedWeeks} weeks`}${v.kept ? `, ${wageWords(v.kept)} kept against the advance` : ''}`});
+    else {
+        const nextPay = `next pay in ${formatDuration(v.nextIn)}`;
+        rows.push({...base, state: 'rest', gap: nextPay, detail: nextPay});
+    }
+    return rows;
 }
 
 // The ledger: one row per week from the first draw until the advance is cleared (or one past the last closed week),

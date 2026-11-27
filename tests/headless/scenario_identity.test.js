@@ -31,3 +31,18 @@ test('scenario identity changes when nested source or enabled optional pack byte
     assert.notEqual((await identity()).sourceSha256, pack.sourceSha256);
     assert.equal((await identity()).inputFiles, initial.inputFiles);
 });
+
+
+test('scenario identity follows imported document bytes through native paths with spaces and a hash', async t => {
+    const root = await mkdtemp(join(tmpdir(), 'oops scenario # '));
+    t.after(() => rm(root, {force:true, recursive:true}));
+    for (const dir of ['src/deep', 'docs', 'locales', 'stories', 'styles', 'scripts/headless']) await mkdir(join(root, dir), {recursive:true});
+    for (const file of ['index.html','style.css','package.json','package-lock.json','build.js']) await writeFile(join(root, file), '');
+    await writeFile(join(root, 'src/deep/consumer.js'), "import rule from '../../docs/rule.json';");
+    await writeFile(join(root, 'docs/rule.json'), '{"cost":1}');
+    const before = await scenarioSourceIdentity(root);
+    await writeFile(join(root, 'docs/rule.json'), '{"cost":2}');
+    const after = await scenarioSourceIdentity(root);
+    assert.notEqual(before.sourceSha256, after.sourceSha256);
+    assert.equal(before.inputFiles, after.inputFiles);
+});

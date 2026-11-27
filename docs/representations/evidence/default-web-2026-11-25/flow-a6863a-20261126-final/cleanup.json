@@ -1,0 +1,8 @@
+{
+  "stagingRemovedByRunner": true,
+  "ownedBrowserTerminationWarnings": [
+    "yairpg-owned-chrome-OKzIo0",
+    "yairpg-owned-chrome-oa1Zxm"
+  ],
+  "status": "Retained Windows-locked profiles reported by the normal runner. No alternate removal attempted after the earlier task-specific automatic cleanup rejection."
+}

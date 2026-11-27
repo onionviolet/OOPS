@@ -14,6 +14,9 @@ import {fileURLToPath} from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const DEFAULT_ENTRY = path.join(root, 'src/main.js');
+// Public source identifiers use repository separators; the walk's absolute
+// filesystem paths stay native for fs operations and Set membership.
+export const relativeSourcePath = (file, base = root) => path.relative(base, file).split(path.sep).join('/');
 const SRC_EXT = /\.m?js$/;
 
 // Blank out comments and keep string contents, so `// import('x')` in a comment is not followed.
@@ -92,7 +95,7 @@ export const isReachable = (file, entry = DEFAULT_ENTRY) => reachableFrom(entry)
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const args = process.argv.slice(2);
-    const rel = p => path.relative(root, p);
+    const rel = p => relativeSourcePath(p);
     const {reachable, computedImports, unresolved} = walkFrom();
     const files = srcFiles();
     const isIdx = args.indexOf('--is');
