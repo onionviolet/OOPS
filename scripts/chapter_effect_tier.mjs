@@ -4,6 +4,7 @@
 // ledger has its own blocker vocabulary (PWC5), so the capability maps to the nearest slug the ledger already defines and the note
 // keeps the reader's word. Reads docs/coverage/chapter_tier_labels.json (section effect_unknown, from scripts/chapter_effect_labels.mjs).
 // Every ledger builder calls foldChapterEffect on its rows, so a rebuild keeps the fold.
+// For Gu, a second-read sentence can also replace a wiki-family classification with no executed case.
 import {readFileSync, existsSync} from 'node:fs';
 
 const cov = new URL('../docs/coverage/', import.meta.url);
@@ -53,12 +54,21 @@ export function slugFor(ledger, cap) {
 export const chapterEffect = (ledger, id) => section()[ledger]?.[id]?.effect ?? null;
 
 export function foldChapterEffect(ledger, row) {
-    const e = row.state === 'blocked:effect-unknown' ? section()[ledger]?.[row.id] : null;
+    const e = section()[ledger]?.[row.id];
     if (!e?.effect) return row;
+    const fromFamily = ledger === 'gu_kinds' && e.secondRead === 'agree' && !row.case
+        && (row.state.startsWith('runs-') || (row.state === 'catalogued' && row.typed));
+    if (row.state !== 'blocked:effect-unknown' && !fromFamily) return row;
     const {verb, object, target, time, at, speaker} = e.effect;
     const runs = e.blocked === 'none', slug = runs ? null : slugFor(ledger, e.blocked);
     const sentence = `effect ${verb}.${object}/${target}/${time} at ${at} (${speaker})`;
     const tail = runs ? '; the sentence alone runs it' : `; needs ${e.blocked}${slug === e.blocked ? '' : `, held under the ledger's ${slug}`}`;
-    const note = `${(row.note ?? '').trim()} Chapter tier (PWC27, Luna over chapter text, unchecked): ${sentence}${tail}. ${e.second === 'confirmed' ? ' Second reader (Haiku 5.5) states the same verb and object: confirmed.' : e.second ? ' Second reader (Haiku 5.5) differs or finds nothing: review-only.' : ' One reader only.'} Former state: ${row.state}.${runs ? '' : ` Missing: ${slug}.`}`.trim();
-    return {...row, state: runs ? 'catalogued' : `blocked:${slug}`, note};
+    const tier = e.secondRead === 'agree' ? 'PWC27, chapter passage checked by a second reader' : 'PWC27, Luna over chapter text, unchecked';
+    const review = e.secondRead === 'agree' ? '' : e.second === 'confirmed' ? ' Second reader (Haiku 5.5) states the same verb and object: confirmed.' : e.second ? ' Second reader (Haiku 5.5) differs or finds nothing: review-only.' : ' One reader only.';
+    const reason = e.blockedReason ? ` Missing rule: ${e.blockedReason}.` : '';
+    const former = fromFamily ? 'catalogued' : row.state;
+    const note = `${(row.note ?? '').trim()} Chapter tier (${tier}): ${sentence}${tail}.${review ? ` ${review}` : ''} Former state: ${former}.${runs ? '' : ` Missing: ${slug}.`}${reason}`.trim();
+    if (!fromFamily) return {...row, state: runs ? 'catalogued' : `blocked:${slug}`, note};
+    const {typed, ...withoutFamilyState} = row;
+    return {...withoutFamilyState, state: runs ? 'catalogued' : `blocked:${slug}`, mechanisms: ['G'], note};
 }

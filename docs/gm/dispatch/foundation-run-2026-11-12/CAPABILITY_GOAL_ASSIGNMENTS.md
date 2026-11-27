@@ -182,3 +182,11 @@ Checks: `node --test tests/contest_choice.test.js tests/contest.test.js tests/co
 Learned: a naive look-ahead loses to the hand-written chooser and is far too slow, so the Vagrus shape (TR13) needs a short horizon and a bounded step seam from the contest owner before it is tried again. Request to that owner: a candidate-simulation seam that takes the substrate rules and a horizon. Until then the policy rows and the spread harness stand on their own, and the fun check (N2) can run with hand-written policies.
 
 Open: fold decision for `src/contest_choice.js` and its test (the scored chooser can be left out of the fold); `advancePolicy` duplicates the chooser's cursor logic and has no caller; worktree `/Users/weiwei/code/yair-contest-choice` and branch `codex/contest-choice` stay until that decision.
+
+### Kill rule changed in the contest (2026-11-14)
+
+Weibao (2026-11-14): "fists can kill too". `src/contest.js` `checkEnds` now kills on any downing blow in a lethal law unless the striker has `wants.subdue` or the move says `lethal: false`; a regression is in `tests/contest.test.js`, and the hunt spread test in `tests/contest_choice.test.js` no longer treats "killed against knocked out" as the difference between blades and fists.
+
+For the fight-view chat: `tests/fight_three_trials.test.js` (yours, uncommitted) expects Wang Er `knocked_out` when Fang Yuan finishes by hand in trial 2. Under the new rule that ending is `killed` unless Fang Yuan is given `wants: {subdue: true}`. The file was left untouched by this chat.
+
+Update, later on 2026-11-14: the combat lane landed as `929031a4f` and its owner changed trial 2 to hold either ending and follow it in the text. With the rule in place, the fight, view and contest files run 58 of 58 (`fight_three_trials`, `gu_fight_entry`, `fight_pause`, `fight_view`, `scene_layer`, `contest`, `contest_choice`). The rule change itself is still uncommitted, not built, and the full suite has not been run on it.

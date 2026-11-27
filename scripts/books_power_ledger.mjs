@@ -15,6 +15,7 @@ import {fileURLToPath} from 'node:url';
 import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES} from '../src/effect_grammar.js';
 import {attachItemBoundRows} from './item_bound_ledgers.mjs';
 import {attachFormRows} from './form_transformation_ledgers.mjs';
+import {attachDivinationRows} from './divination_ledgers.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const PRIVATE = '/Users/weiwei/code/yet-another-idle-rpg/docs/research/power-catalogues-2026-11-16/private/';
@@ -236,7 +237,7 @@ export function buildLedger(book, side) {
     });
 }
 async function build(book) {
-    const rows = await attachFormRows(await attachItemBoundRows(buildLedger(book, read(sidecarPath(book)))));
+    const rows = await attachDivinationRows(await attachFormRows(await attachItemBoundRows(buildLedger(book, read(sidecarPath(book))))));
     writeFileSync(ledgerPath(book), `${rows.map(r => JSON.stringify(r)).join('\n')}\n`);
     console.log(book, JSON.stringify({rows: rows.length, states: tally(rows.map(r => r.state))}));
 }

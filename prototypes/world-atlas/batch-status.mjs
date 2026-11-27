@@ -1,6 +1,6 @@
 // Batch reading state per reading key: which passes have a plan, an estimate, a submitted batch (receipt) and a collected summary.
 // Reads plan JSON and the receipt/summary/estimate files beside each plan's outDir. Labels, counts and dollars only.
-import {readFileSync, readdirSync, existsSync} from 'node:fs';
+import {readFileSync, readdirSync, existsSync, statSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {join} from 'node:path';
 
@@ -10,7 +10,7 @@ const json = p => {try {return JSON.parse(readFileSync(p, 'utf8'));} catch {retu
 
 export function readBatches(keys) {
     const dir = join(root, PLANS);
-    const byKey = new Map(keys.map(k => [k, {key: k, plans: 0, estimated: 0, submitted: 0, collected: 0, usdEstimate: 0, passes: {}, runs: []}]));
+    const byKey = new Map(keys.map(k => [k, {key: k, plans: 0, estimated: 0, submitted: 0, collected: 0, usdEstimate: 0, latestCollectedAt: 0, passes: {}, runs: []}]));
     const keyOf = label => [...byKey.keys()].filter(k => label === k || label.startsWith(k + '-') || label.startsWith(k + '_')).sort((a, b) => b.length - a.length)[0];
     const outFiles = new Map();
     for (const name of readdirSync(dir).filter(n => n.endsWith('.json') && n !== 'books.json')) {
@@ -33,7 +33,11 @@ export function readBatches(keys) {
         row.plans++;
         if (est) {row.estimated++; row.usdEstimate += Number(est.usdBatch) || 0;}
         if (state === 'submitted' || state === 'collected') row.submitted++;
-        if (state === 'collected') row.collected++;
+        if (state === 'collected') {
+            row.collected++;
+            const stamp = statSync(join(plan.outDir, plan.label + '_summary.json'), {throwIfNoEntry: false})?.mtimeMs ?? 0;
+            row.latestCollectedAt = Math.max(row.latestCollectedAt, stamp);
+        }
         const pass = plan.pass || 'unknown', p = row.passes[pass] ||= {planned: 0, estimated: 0, submitted: 0, collected: 0};
         p.planned++; if (est) p.estimated++; if (state !== 'planned' && state !== 'estimated') p.submitted++; if (state === 'collected') p.collected++;
     }

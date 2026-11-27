@@ -1,0 +1,67 @@
+{
+  "tag": "after",
+  "bundle": "ba2674141e6a47d3",
+  "origin": "http://127.0.0.1:58788/?test_hooks=1",
+  "ri": {
+    "blocked": {
+      "label": "Moonblade · 5",
+      "reason": "Moonblade · 5\nThe Moonglow Gu is hungry and will not cut. Feed it first. 5 beats · 4 essence · Moonglow Gu throws a crescent of moonlight.\nThe Moonglow Gu is hungry and will not cut. Feed it first.",
+      "preview": "Preview · Moonblade\n\n5 beats | 4 essence\n\nMoonglow Gu throws a crescent of moonlight. A thrown crescent of light from the Moonglow Gu. Four parts a throw (the contest pack's moonglow_blade row, ch122-123). On a hit it can kill.\n\nThe Moonglow Gu is hungry and will not cut. Feed it first."
+    },
+    "spent": {
+      "fight": 43,
+      "status": "Green-copper primeval essence 43/44",
+      "log": [
+        "Both sides see each other at once.",
+        "You use Black Boar fist on A large lightning wolf: it lands, for 5.8.",
+        "A large lightning wolf misses."
+      ]
+    }
+  },
+  "lotm": {
+    "before": {
+      "stakes": {
+        "preset": "mugging",
+        "label": "Robbery",
+        "lethal": false,
+        "disarm": null,
+        "stopAt": 0,
+        "text": "A robbery in a back lane. He wants your purse, not your life, and keeps a knife under his coat. Hurt him and it may come out.",
+        "stakes": "your purse",
+        "why": "WS3: open fights in Tingen are rare and dangerous. A drawn knife makes it a fight that can kill; a plea can take it back. A death in a Tingen lane brings the police."
+      },
+      "card": "Tingen back lane · A knifeman in the back lane\n\nTingen back lane: 1 opponent standing.\n\nThey are caught off guard.\n\nYour move · You → The knifeman\n\nOpponents · 1\nThe knifeman\n\nCondition\nFresh\n\nAtk ~12, from a rumour\n\nIt looks stronger than you.\n\n10/10 stamina\n\nHe wants your purse, not your life. Hurt him and the knife may come out.\n\n? Not sized up\n? Intent unread\nRobbery · not deadly · Normal Stance · Ask me · Fight on\nQuick strike · 3\nHeavy swing · 6\nBrace · 2\nTend a wound · 5\nGo for the kill · 1\nFight on\nOne careful turn\nYield · 2\nBack away · 4\nPreview · Quick strike\n\n3 beats | Damage · bludgeoning 100%\n\nA fast, light blow. Cheap in time, small in harm. A downing blow knocks out."
+    },
+    "after": {
+      "stakes": {
+        "preset": "mugging",
+        "label": "Robbery",
+        "lethal": true,
+        "disarm": null,
+        "stopAt": 0,
+        "text": "A robbery in a back lane. He wants your purse, not your life, and keeps a knife under his coat. Hurt him and it may come out.",
+        "stakes": "your purse",
+        "why": "WS3: open fights in Tingen are rare and dangerous. A drawn knife makes it a fight that can kill; a plea can take it back. A death in a Tingen lane brings the police.",
+        "cue": "The knifeman drew a knife."
+      },
+      "card": "Tingen back lane · A knifeman in the back lane\n\nTingen back lane: 1 opponent standing.\n\nYour move · You → The knifeman\n\nOpponents · 1\nThe knifeman\n\nCondition\nFresh\n\nAtk ~12 ~3.3\n\nIt looks stronger than you.\n\n3/10 stamina\n\nHe wants your purse, not your life. Hurt him and the knife may come out.\n\n? Not sized up\n? Intent unread\n◼ takes normal bludgeoning\nRobbery · now deadly · Normal Stance · Ask me · Fight on\nThe knifeman drew a knife.\nQuick strike · 3\n\nYou hit The knifeman in the head for 1 bludgeoning. The knifeman makes it a fight to the death. The knifeman uses Knife thrust on you: it lands, for 5.6.\n\nHeavy swing · 6\nBrace · 2\nTend a wound · 5\nAsk them not to kill · 2\nFight on\nOne careful turn\nYield · 2\nBack away · 4\nPreview · Quick strike\n\n3 beats | Damage · bludgeoning 100%\n\nA fast, light blow. Cheap in time, small in harm. In this fight a downing blow can kill, a fist included.",
+      "cueVisible": true,
+      "log": [
+        "The knifeman misses.",
+        "You hit The knifeman on the arm for 0.6 bludgeoning.",
+        "You hit The knifeman in the body for 0.9 bludgeoning.",
+        "The knifeman misses.",
+        "You hit The knifeman on the arm for 0.7 bludgeoning.",
+        "The knifeman misses.",
+        "You hit The knifeman in the body for 0.8 bludgeoning.",
+        "You miss.",
+        "The knifeman misses.",
+        "You hit The knifeman in the head for 1 bludgeoning.",
+        "The knifeman makes it a fight to the death.",
+        "The knifeman uses Knife thrust on you: it lands, for 5.6."
+      ]
+    }
+  },
+  "pageerrors": [],
+  "status": "PASS"
+}

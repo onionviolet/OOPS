@@ -68,9 +68,7 @@ export function resumeEngine() {
     for(const timer of pending.values()) arm(timer);
 }
 export function runEngineTicks(n) {
-    if(!testHooksEnabled) throw new Error('Test hooks are disabled.');
-    const wasPaused = paused;
-    pauseEngine();
+    const release = suspendEngine();
     let ticks = 0, callbacks = 0, boundary = null;
     try {
         while(ticks < n || (boundary !== null && [...pending.values()].some(t => t.due <= boundary))) {
@@ -84,5 +82,5 @@ export function runEngineTicks(n) {
             if(timer.kind === 'tick' && ++ticks === n) boundary = virtualNow;
         }
         return {ticks, callbacks};
-    } finally {if(!wasPaused) resumeEngine();}
+    } finally {release();}
 }

@@ -9,6 +9,9 @@ export function originalFrontierFacts(state,context,registry) {
     const person=s?.people[context.actorId || 'player'], target=s?.people[context.targetId], ta=state.actors[context.targetId];
     const stock=context.gameplay?.player?.inventory || {};
     for(const [id,level] of Object.entries(context.nativeSkillLevels || {})) f[`native.skill.${id}.level`]=level;
+    // A routine can finish and re-quote before the native skill component publishes its new level.
+    if(f['native.skill.Perception.level']===5 && context.gameplay?.player?.skills?.Perception?.xp>=context.facts?.['native.perceptionLevelSixXP'])
+        f['native.skill.Perception.level']=6;
     if(registry)Object.assign(f,techniqueFacts(actor,registry,context));
     f['originalFrontier.playerHandsUsable']=(s?.people.player?.body?.hands ?? 2)>=2&&!f['body.handsTender'];
     f['originalFrontier.unloadedBody']=!(stock[wood]||stock[kit]);

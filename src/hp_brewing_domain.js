@@ -16,7 +16,7 @@ export function configureHpBrewingDomain(operations) {
     native = operations;
     panel?.render();
 }
-const writeReason = () => !native?.persist || !native?.writable?.() ? 'Saving is paused, so you can\'t use the Polyjuice bench right now.' : null;
+const writeReason = () => !native?.persist || !native?.writable?.() ? 'Saving is paused, so you can\'t use the practice bench right now.' : null;
 function publish(next, summary, materials = []) {
     if(materials.length && (!native?.itemOwners || !native?.removeExact)) throw Error('The native material transaction is not available.');
     const transaction = beginNativeCraftTransaction({owners: materials.length ? native.itemOwners() : [],
@@ -110,7 +110,7 @@ export function quote(req) {
     if(reason) return {eligible: false, reason};
     if(req?.type === 'begin') return state ? {eligible: false, reason: 'You\'ve already set up the bench.'} : {eligible: true, summary: 'Set up a bench and a small purse.'};
     if(!state && req?.type === 'potionWorking') return quoteAction(begin({seed: 0, now: c.now}), c, req);
-    if(!state) return {eligible: false, reason: 'Set up the Polyjuice bench first.'};
+    if(!state) return {eligible: false, reason: 'Set up the practice bench first.'};
     if(req?.type === 'foreignUse') return {eligible: false, reason: foreignUseReason(req)};
     try {
         const actual = requestContext(req, c);
@@ -134,7 +134,7 @@ export function execute(req) {
         const out = commit(begin({seed, now: c.now}), c, req);
         return publish(out.state, out.summary);
     }
-    if(!state) throw new Error('Set up the Polyjuice bench first.');
+    if(!state) throw new Error('Set up the practice bench first.');
     if(req?.type === 'foreignUse') throw new Error(foreignUseReason(req));
     const actual = requestContext(req, c), out = commit(state, actual, req);
     checkAdmission(out.state, actual);

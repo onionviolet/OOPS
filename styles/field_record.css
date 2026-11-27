@@ -1,0 +1,89 @@
+.field-record {
+    color: var(--sem-record-text);
+    background: var(--sem-record-bg);
+    border: 1px solid var(--sem-record-edge);
+    min-width: 0;
+    overflow-wrap: anywhere;
+    text-align: start;
+    line-height: var(--ui-line-body);
+}
+.field-record-location {
+    padding: var(--ui-space-2) var(--ui-space-4);
+    background: var(--sem-record-band);
+    border-bottom: 3px dotted var(--sem-record-dot);
+}
+.field-record-location small {
+    margin-inline-start: var(--ui-space-5);
+    color: var(--p23-muted, var(--sem-record-text));
+}
+.field-record > header {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: var(--ui-space-1) var(--ui-space-5);
+    padding: var(--ui-space-1) var(--ui-space-4);
+    border-bottom: 1px solid var(--sem-record-edge);
+    margin: 0;
+}
+.field-record > header small { font-size: inherit; }
+.field-record > header h3 {
+    margin: 0;
+    font: inherit;
+}
+.field-record-state {
+    text-align: center;
+    padding: var(--ui-space-1) var(--ui-space-4);
+    border-bottom: 1px dashed var(--sem-record-dash);
+}
+.field-record > p { margin: 0; padding: var(--ui-space-2) var(--ui-space-4); }
+.field-record[data-dwelling] > p { text-align: center; }
+.field-record dl {
+    display: grid;
+    grid-template-columns: minmax(8em, 2fr) 3fr;
+    margin: 0;
+    border-top: 1px dashed var(--sem-record-dash);
+}
+.field-record dt,.field-record dd { margin: 0; padding: var(--ui-space-1) var(--ui-space-4); border-bottom: 1px dashed var(--sem-record-dash); }
+.field-record nav { display: flex; gap: var(--ui-space-2); flex-wrap: wrap; padding: var(--ui-space-2) var(--ui-space-4); }
+.field-index { display:grid; grid-template-columns:minmax(8em, 1fr) minmax(0,2fr); gap:var(--ui-space-3); align-items:start; }
+.field-index[hidden] { display: none; }
+.field-index .field-list { display:flex; flex-direction:column; gap:var(--ui-space-1); max-height:24em; overflow:auto; min-width:0; }
+.field-list button { display:block; text-align:start; white-space:normal; overflow-wrap:anywhere; padding:var(--ui-space-2) var(--ui-space-4); }
+.field-list button[aria-pressed=true] { box-shadow:inset .22em 0 var(--sem-item); }
+@container (max-width: 400px) { .field-index { grid-template-columns:minmax(0,1fr); } .field-index .field-list { max-height:9em; } }
+.field-record .ui-panel-shortcuts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(min(8em,100%),1fr));
+    gap: var(--ui-space-2);
+    padding: var(--ui-space-3) var(--ui-space-4);
+    background: var(--sem-record-footer);
+}
+.field-record .ui-panel-shortcuts button {
+    min-height: var(--ui-control-md);
+    border-inline-start: .2em solid var(--sem-item);
+    text-align: start;
+}
+
+/* Domestic creature inspection, in the same ink as the dwelling record. */
+.creature-record {
+    border:1px solid var(--sem-record-edge); background:var(--sem-record-bg);
+    color:var(--sem-record-text); line-height:var(--ui-line-compact); text-align:start;
+}
+.creature-record[hidden] { display:none; }
+.creature-record > summary { background:var(--sem-record-band); }
+.creature-record summary {
+    display:flex; align-items:center; gap:var(--ui-space-3); list-style:none;
+    margin:0; min-height:var(--ui-control-sm); padding:0 var(--ui-space-2);
+    border-block-end:1px solid var(--sem-record-edge);
+}
+.creature-record summary::-webkit-details-marker { display:none; }
+.creature-record summary::before {
+    content:'+'; display:inline-grid; place-items:center; flex:0 0 1.05em; height:var(--ui-type-body);
+    color:var(--sem-record-bg); background:var(--sem-record-text); margin:0;
+}
+.creature-record [open] > summary::before, .creature-record[open] > summary::before { content:'−'; }
+.creature-record .creature-branch { margin:0 0 0 var(--ui-space-5); border-inline-start:1px solid var(--sem-record-dash); }
+.creature-record .creature-branch-body { padding:var(--ui-space-1) var(--ui-space-3) var(--ui-space-2) var(--ui-space-7); }
+.creature-record .creature-branch-body p { margin:0; }
+.creature-expression { margin-inline-start:auto; color:var(--sem-item); }
+.creature-expression::after { content:'=･ ω ･='; }
+.creature-expression[data-expression="content"]::after { content:'=^ ω ^='; }
+.creature-expression[data-expression="sheltering"]::after { content:'=– ω –='; }
+.creature-history { color:var(--p23-muted, var(--sem-record-text)); }

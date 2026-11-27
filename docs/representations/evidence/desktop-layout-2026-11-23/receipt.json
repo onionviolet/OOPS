@@ -1,0 +1,427 @@
+{
+  "before": {
+    "village": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "type": "14px",
+      "logType": "21px",
+      "profile": "graphite",
+      "goth21": true,
+      "profilePx": "21px",
+      "hereText": "21px",
+      "hereParent": "journal",
+      "here": [
+        696,
+        25,
+        300,
+        572
+      ],
+      "log": [
+        998,
+        57,
+        281,
+        708
+      ],
+      "roster": null,
+      "first": null,
+      "move": null,
+      "gap": null,
+      "filterFooter": [
+        1006,
+        644,
+        273,
+        142
+      ],
+      "pageOverflow": 0,
+      "reports": [],
+      "header": "Reports\nView:\nAll reports\n▾\nLatest",
+      "filterClips": true,
+      "visibleExits": 0
+    },
+    "bench": {
+      "view": true,
+      "here": [
+        696,
+        25,
+        300,
+        572
+      ],
+      "returned": true,
+      "returnFocus": true
+    },
+    "open": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "type": "14px",
+      "logType": "21px",
+      "profile": "graphite",
+      "goth21": true,
+      "profilePx": "21px",
+      "hereText": "21px",
+      "hereParent": "journal",
+      "here": null,
+      "log": [
+        922,
+        57,
+        357,
+        708
+      ],
+      "roster": [
+        322,
+        142,
+        583,
+        600
+      ],
+      "first": [
+        323,
+        143,
+        581,
+        70
+      ],
+      "move": [
+        416,
+        751,
+        161,
+        41
+      ],
+      "gap": 538,
+      "filterFooter": [
+        930,
+        687,
+        349,
+        70
+      ],
+      "pageOverflow": 0,
+      "reports": [
+        [
+          "2 new",
+          null,
+          "rgb(238, 238, 238)"
+        ]
+      ],
+      "header": "Reports\nView:\nAll reports\n▾\nLatest",
+      "filterClips": true,
+      "visibleExits": 0
+    },
+    "duel": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "type": "14px",
+      "logType": "21px",
+      "profile": "graphite",
+      "goth21": true,
+      "profilePx": "21px",
+      "hereText": "21px",
+      "hereParent": "journal",
+      "here": null,
+      "log": [
+        922,
+        57,
+        357,
+        708
+      ],
+      "roster": [
+        322,
+        -171,
+        583,
+        600
+      ],
+      "first": [
+        323,
+        -170,
+        581,
+        127
+      ],
+      "move": [
+        416,
+        438,
+        161,
+        41
+      ],
+      "gap": 481,
+      "filterFooter": [
+        930,
+        687,
+        349,
+        70
+      ],
+      "pageOverflow": 0,
+      "reports": [
+        [
+          "2 new",
+          null,
+          "rgb(238, 238, 238)"
+        ],
+        [
+          "You hit Mara in the body for 0.7 bludgeoning.",
+          null,
+          "rgb(196, 196, 196)"
+        ],
+        [
+          "You hit Mara in the head for 1.3 bludgeoning.",
+          null,
+          "rgb(196, 196, 196)"
+        ],
+        [
+          "You know how hard Mara hits now: about 3.",
+          null,
+          "rgb(196, 196, 196)"
+        ],
+        [
+          "Mara copied your Load-bearing Step (lease, ends in 6 h).",
+          null,
+          "rgb(196, 196, 196)"
+        ],
+        [
+          "Mara hits you on the arm for 2.5 physical.",
+          null,
+          "rgb(196, 196, 196)"
+        ],
+        [
+          "You hit Mara in the head for 1.3 bludgeoning.",
+          null,
+          "rgb(196, 196, 196)"
+        ],
+        [
+          "Mara misses.",
+          null,
+          "rgb(196, 196, 196)"
+        ]
+      ],
+      "header": "Reports\nView:\nAll reports\n▾\nLatest",
+      "filterClips": true,
+      "visibleExits": 0
+    },
+    "errors": [
+      {
+        "op": -1,
+        "kind": "console",
+        "text": "No such element with availability as \"recipe\" -> \"undefined\""
+      },
+      {
+        "op": -1,
+        "kind": "console",
+        "text": "No such element with availability as \"item\" -> \"Ledger workshop cache\""
+      },
+      {
+        "op": -1,
+        "kind": "console",
+        "text": "No such element with availability as \"item\" -> \"Sealed survey parcel\""
+      }
+    ]
+  },
+  "after": {
+    "village": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "type": "14px",
+      "logType": "21px",
+      "profile": "graphite",
+      "goth21": true,
+      "profilePx": "21px",
+      "hereText": "21px",
+      "hereParent": "actions",
+      "here": [
+        264,
+        119,
+        488,
+        429
+      ],
+      "log": [
+        998,
+        57,
+        281,
+        708
+      ],
+      "roster": null,
+      "first": null,
+      "move": null,
+      "gap": null,
+      "filterFooter": null,
+      "pageOverflow": 0,
+      "reports": [],
+      "header": "Reports\nFilters\n▾\nLatest",
+      "filterClips": false,
+      "visibleExits": 2
+    },
+    "bench": {
+      "view": true,
+      "here": null,
+      "returned": true,
+      "returnFocus": true
+    },
+    "open": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "type": "14px",
+      "logType": "21px",
+      "profile": "graphite",
+      "goth21": true,
+      "profilePx": "21px",
+      "hereText": "21px",
+      "hereParent": "actions",
+      "here": null,
+      "log": [
+        922,
+        57,
+        357,
+        708
+      ],
+      "roster": [
+        322,
+        142,
+        583,
+        137
+      ],
+      "first": [
+        323,
+        143,
+        581,
+        70
+      ],
+      "move": [
+        416,
+        288,
+        161,
+        41
+      ],
+      "gap": 75,
+      "filterFooter": null,
+      "pageOverflow": 0,
+      "reports": [
+        [
+          "Both sides see each other at once.",
+          null,
+          "rgb(196, 196, 196)"
+        ],
+        [
+          "Mara misses.",
+          "quiet",
+          "rgb(196, 196, 196)"
+        ]
+      ],
+      "header": "Reports\nFilters\n▾\nLatest",
+      "filterClips": false,
+      "visibleExits": 0
+    },
+    "duel": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "type": "14px",
+      "logType": "21px",
+      "profile": "graphite",
+      "goth21": true,
+      "profilePx": "21px",
+      "hereText": "21px",
+      "hereParent": "actions",
+      "here": null,
+      "log": [
+        922,
+        57,
+        357,
+        708
+      ],
+      "roster": [
+        322,
+        142,
+        583,
+        137
+      ],
+      "first": [
+        323,
+        143,
+        581,
+        127
+      ],
+      "move": [
+        416,
+        288,
+        161,
+        41
+      ],
+      "gap": 18,
+      "filterFooter": null,
+      "pageOverflow": 0,
+      "reports": [
+        [
+          "Both sides see each other at once.",
+          null,
+          "rgb(196, 196, 196)"
+        ],
+        [
+          "Mara misses.",
+          "quiet",
+          "rgb(196, 196, 196)"
+        ],
+        [
+          "You hit Mara in the body for 0.7 bludgeoning.",
+          "dealt",
+          "rgb(156, 227, 235)"
+        ],
+        [
+          "You hit Mara in the head for 1.3 bludgeoning.",
+          "dealt",
+          "rgb(156, 227, 235)"
+        ],
+        [
+          "You know how hard Mara hits now: about 3.",
+          null,
+          "rgb(196, 196, 196)"
+        ],
+        [
+          "Mara copied your Load-bearing Step (lease, ends in 6 h).",
+          null,
+          "rgb(196, 196, 196)"
+        ],
+        [
+          "Mara hits you on the arm for 2.5 physical.",
+          "taken",
+          "rgb(255, 178, 186)"
+        ],
+        [
+          "You hit Mara in the head for 1.3 bludgeoning.",
+          "dealt",
+          "rgb(156, 227, 235)"
+        ],
+        [
+          "Mara misses.",
+          "quiet",
+          "rgb(196, 196, 196)"
+        ]
+      ],
+      "header": "Reports\nFilters\n▾\nLatest",
+      "filterClips": false,
+      "visibleExits": 0
+    },
+    "filterKeyboard": true,
+    "errors": [
+      {
+        "op": -1,
+        "kind": "console",
+        "text": "No such element with availability as \"recipe\" -> \"undefined\""
+      },
+      {
+        "op": -1,
+        "kind": "console",
+        "text": "No such element with availability as \"item\" -> \"Ledger workshop cache\""
+      },
+      {
+        "op": -1,
+        "kind": "console",
+        "text": "No such element with availability as \"item\" -> \"Sealed survey parcel\""
+      }
+    ]
+  }
+}

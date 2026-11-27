@@ -1,0 +1,26 @@
+{
+  "bundleSha256": "e58a349c6d8049d177adba0f38f9af94c528747a65e9cd4b421c85e61d7d5e12",
+  "viewport": "1920x1080",
+  "checks": [
+    {
+      "case": "Hogwarts",
+      "originalLovePotionMinutes": 32,
+      "firstRoute": "school arrival",
+      "persistence": true
+    },
+    {
+      "case": "Hogwarts controls",
+      "reversed": "no change",
+      "mucus": "slower flow",
+      "treacle": "cleared Alihotsy"
+    },
+    {
+      "case": "Cyoria",
+      "firstRoute": "Zorian arrival and move to workshop",
+      "reversed": "no change",
+      "worked": "cleared irritation",
+      "recalled": true,
+      "persistence": true
+    }
+  ]
+}

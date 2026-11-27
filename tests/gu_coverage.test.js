@@ -303,7 +303,7 @@ test('the Future Self ledger requires a live river course change to stop the sec
 
 test('both Gu ledgers cover their denominators with no unclassified row (MS1, CV2-CV4)', () => {
     assert.equal(kinds.length, 1466);
-    assert.equal(moves.length, 23 + 753 + 2);
+    assert.equal(moves.length, 23 + 753 + 2 + 1); // + combined-investigation, the authored B5 case (2026-11-24)
     for (const rows of [kinds, moves]) {
         assert.equal(new Set(rows.map(row => row.id)).size, rows.length, 'ids are unique');
         for (const row of rows) {
@@ -330,7 +330,9 @@ test('legacy chapter-checked working rows still quote through the Gu working law
 });
 
 test('every wiki-layer runs row runs on an ability derived from its labels', () => {
-    const rows = kinds.filter(entry => entry.layer === 'wiki' && (entry.typed ?? entry.state).startsWith('runs')); // typed: the label a no-case row kept (PSA25)
+    // typed: the label a no-case row kept (PSA25). A row with its own case (a WA9 handoff, e.g. the B3 Lotus pilot) runs
+    // through runCase, which the case test covers, not through a label-derived ability.
+    const rows = kinds.filter(entry => entry.layer === 'wiki' && !entry.case && (entry.typed ?? entry.state).startsWith('runs'));
     assert.ok(rows.length > 300);
     for (const row of rows) {
         const ability = derivedAbilityFrom(row);

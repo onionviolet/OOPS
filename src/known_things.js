@@ -1,3 +1,4 @@
+import {fieldRecord} from './ui/field_record.js';
 import {searchLabel} from './ui/search_field.js';
 import {registerDomain} from './domain_registry.js';
 import {definePanel} from './panel_kit.js';
@@ -6,7 +7,8 @@ import {expandWorkspaceModule} from './workspace_layout.js';
 import {registerPaletteSource} from './command_palette.js';
 import {registerChangeCounter} from './change_badges.js';
 import {current_location} from './runtime_state.js';
-import {node, createTabs, syncList, visibleRenderer, plural} from './reference_kit.js';
+import {node, createTabs, visibleRenderer, plural} from './reference_kit.js';
+import {knownRecipeVariants, knownUseLinks} from './recipe_connections.js';
 
 // SX1: Known things. One searchable reference over what the player has already met: creatures
 // fought, books begun, items found and places reached. It reads the records the Bestiary, the
@@ -24,17 +26,17 @@ export const KINDS = Object.freeze([
 // Pure: records in, rows out, so the same projection serves the panel and the palette.
 export function projectKnownThings({kills = {}, enemies = {}, bookProgress = {}, bookItems = {}, found = {}, itemTemplates = {}, places = []}) {
     const byName = (a, b) => a.name.localeCompare(b.name);
-    const creatures = Object.entries(kills).filter(([, n]) => n > 0).map(([id, n]) => ({key: `creature:${id}`, name: enemies[id]?.name || id, detail: `${plural(n, 'defeat')}`})).sort(byName);
+    const creatures = Object.entries(kills).filter(([, n]) => n > 0).map(([id, n]) => ({key: `creature:${id}`, name: enemies[id]?.name || id, description: enemies[id]?.description, detail: `${plural(n, 'defeat')}`})).sort(byName);
     const books = Object.entries(bookProgress).filter(([, b]) => b && b.accumulated_time > 0).map(([name, b]) => {
         const done = b.required_time > 0 && b.accumulated_time >= b.required_time;
         const pct = b.required_time > 0 ? Math.min(99, Math.floor(100 * b.accumulated_time / b.required_time)) : 0;
-        return {key: `book:${name}`, name: bookItems[name]?.name || name, detail: done ? 'Finished' : `${pct}% read`};
+        return {key: `book:${name}`, name: bookItems[name]?.name || name, description: bookItems[name]?.description, detail: done ? 'Finished' : `${pct}% read`};
     }).sort(byName);
-    const items = Object.entries(found).filter(([, row]) => row && row.number > 0).map(([id, row]) => ({key: `item:${id}`, name: itemTemplates[id]?.name || id, detail: `${row.number.toLocaleString()} found`})).sort(byName);
+    const items = Object.entries(found).filter(([, row]) => row && row.number > 0).map(([id, row]) => ({key: `item:${id}`, name: itemTemplates[id]?.name || id, description: itemTemplates[id]?.description, detail: `${row.number.toLocaleString()} found`})).sort(byName);
     // Several places can share a name and parent (four "practice yard" rows); one reads as one place.
     const seenPlace = new Set();
     const placesRows = places.filter(p => { const k = `${p.name}|${p.detail}`; return seenPlace.has(k) ? false : (seenPlace.add(k), true); })
-        .map(p => ({key: `place:${p.id}`, name: p.name, detail: p.detail})).sort(byName);
+        .map(p => ({key: `place:${p.id}`, name: p.name, detail: p.detail, here: !!p.here})).sort(byName);
     return {creatures, books, items, places: placesRows};
 }
 
@@ -72,31 +74,73 @@ function readRecordsNow() {
     for (const [id, location] of Object.entries(r.locations || {})) {
         if (here && !here.has(id)) continue;
         let unlocked = false; try { unlocked = !!location.isUnlocked?.(); } catch { unlocked = false; }
-        if (unlocked) places.push({id, name: location.name || id, detail: location.parent_location ? `In ${location.parent_location.name}` : 'Region'});
+        if (unlocked) places.push({id, here: id === current_location?.id, name: location.name || id, detail: location.parent_location ? `In ${location.parent_location.name}` : 'Region'});
     }
     return projectKnownThings({kills: r.enemy_killcount, enemies: r.enemy_templates, bookProgress: r.book_stats, bookItems: r.item_templates, found: r.item_log?.items, itemTemplates: r.item_templates, places});
 }
 
 export const matches = (row, query) => !query || `${row.name} ${row.detail || ''}`.toLowerCase().includes(query.toLowerCase());
 
+function showItemUses(card, itemId) {
+    const records = readPort('records');
+    if (!records?.recipes || !records.item_log?.is_known(itemId)) return;
+    const variants = knownRecipeVariants(records.recipes, id => records.item_log.is_known(id), records.item_templates);
+    const uses = knownUseLinks(records.item_templates[itemId], variants);
+    if (!uses.length) return;
+    const section = node('section', null, {'aria-label': 'Known uses'});
+    section.append(node('h4', 'Known uses'));
+    for (const {label, target} of uses) {
+        section.append(node('button', label, {type: 'button', 'data-known-recipe': target}));
+    }
+    card.append(section);
+}
+
 const hasAny = () => Object.values(readRecords()).some(rows => rows.length > 0);
 
 function createKnownThingsPanel() {
     const panel = node('section', null, {id: 'known_things_panel', class: 'reference-panel expedition_panel'});
     panel.dataset.surfaceType = 'reference';
-    const intro = node('p', 'Everything you have met, in one place. Search narrows the list; nothing here changes the game.');
     const search = node('input', null, {type: 'search', placeholder: 'Search what you have met', 'aria-label': 'Search known things'});
     const status = node('p', '', {role: 'status', 'aria-live': 'polite'}); status.className = 'reference-empty';
-    const list = node('ul', null, {'aria-label': 'Matches'});
+    const board = node('div', null, {class:'field-index'});
+    const list = node('div', null, {class:'field-list', role:'group', 'aria-label':'Matching records'});
+    const sheet = node('div');
+    board.append(list, sheet);
+    const selection = new Map();
     const tabs = createTabs({label: 'Kinds of known things', tabs: KINDS, onSelect: () => render(true)});
     const people = node('button', 'Open People', {type: 'button'}); people.title = 'People you know are kept in the People panel';
     people.onclick = () => expandWorkspaceModule('known-people');
-    panel.append(node('h2', 'Known things'), intro, tabs.bar, searchLabel(search, 'Search'), status, list, people);
+    panel.append(node('h2', 'Known things'), tabs.bar, searchLabel(search, 'Search'), status, board, people);
     let records = readRecords();
     const render = visibleRenderer(panel, () => { records = readRecords(); return {tab: tabs.active(), q: search.value, records}; }, view => {
         const kind = KINDS.find(k => k.id === view.tab), rows = view.records[view.tab] || [], shown = rows.filter(row => matches(row, view.q));
-        syncList(list, shown, rows.length ? 'Nothing you have met matches that.' : kind.empty);
-        status.textContent = rows.length ? `${shown.length} of ${plural(rows.length, kind.label.toLowerCase().replace(/s$/, ''))}` : '';
+        const chosen = shown.find(r => r.key === selection.get(kind.id)) || shown[0];
+        function inspect(row) {
+            selection.set(kind.id, row.key);
+            for (const b of list.children) b.setAttribute('aria-pressed', String(b.dataset.key === row.key));
+            const labels = {creatures:['Creature','Encounters'], places:['Place','Location'], items:['Item','Found'], books:['Book','Reading']};
+            const [type, label] = labels[kind.id];
+            const nameRole = {places:'place', items:'item', books:'item'}[kind.id];
+            const facts = [[label, row.detail, nameRole]];
+            if (row.here) facts.push(['Position','You are here']);
+            const card = fieldRecord(panel.ownerDocument, {kind:type, name:row.name, nameRole,
+                description:typeof row.description === 'string' ? row.description : '', facts});
+            if (kind.id === 'items') showItemUses(card, row.key.slice('item:'.length));
+            sheet.replaceChildren(card);
+        }
+        const old = new Map([...list.children].map(b => [b.dataset.key, b]));
+        const nodes = shown.map(row => {
+            const b = old.get(row.key) || node('button',row.name,{type:'button'});
+            b.textContent = row.name;
+            b.dataset.key = row.key;
+            b.onclick = () => inspect(row);
+            return b;
+        });
+        if (nodes.length !== list.children.length || nodes.some((b,i) => list.children[i] !== b)) list.replaceChildren(...nodes);
+        board.hidden = !chosen;
+        if (chosen) inspect(chosen); else sheet.replaceChildren();
+        status.textContent = rows.length ? `${shown.length} of ${plural(rows.length, kind.label.toLowerCase().replace(/s$/, ''))}` : kind.empty;
+        if (rows.length && !shown.length) status.textContent = 'No matches.';
     });
     search.addEventListener('input', () => render(true));
     panel.openAt = (tab, query = '') => { tabs.select(tab); search.value = query; render(true); };

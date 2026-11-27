@@ -72,6 +72,19 @@
 .canvas-box.is-current, .canvas-swatch.current { border-color: #ace79e; background: #2a6139; color: #f3ffe9; }
 .canvas-box[aria-pressed=true] { outline: 2px solid #e2f1bd; outline-offset: 2px; z-index: 1; }
 .canvas-box:focus-visible { outline: 3px solid #edbd7c; outline-offset: 2px; z-index: 2; }
+.canvas-box .canvas-subtitle { display: block; margin-top: .18rem; color: var(--canvas-muted); font-size: .72rem; font-weight: 500; }
+.box-canvas[data-canvas-kind="codex-map"] { height: clamp(36rem, calc(100dvh - 13rem), 68rem); }
+.box-canvas[data-canvas-kind="codex-map"] .canvas-box[data-group="ledger"] { border-color: #a5c8e0; }
+.box-canvas[data-canvas-kind="codex-map"] .canvas-box[data-group="blocker"] { border-color: #d9ad89; }
+.box-canvas[data-canvas-kind="codex-map"] .canvas-plane { will-change: transform; }
+.codex-map-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: .5rem 1rem; }
+.codex-map-head h2 { margin-bottom: 0; }
+.codex-map-head p { margin: 0; }
+.codex-map-status { margin: .65rem 0; }
+.codex-map-list { margin: .7rem 0 1rem; }
+.codex-map-list ul { columns: 2; }
+.codex-map-list li { break-inside: avoid; }
+@media (max-width: 800px) { .box-canvas[data-canvas-kind="codex-map"] { grid-template-columns: 1fr; height: auto; } .box-canvas[data-canvas-kind="codex-map"] .canvas-viewport { min-height: 30rem; } .codex-map-list ul { columns: 1; } }
 .canvas-current { margin-top: 2px; font-size: 10px; font-weight: 500; }
 .canvas-dots { position: absolute; display: flex; gap: 2px; top: -11px; left: 5px; }
 .canvas-dot {
@@ -239,14 +252,15 @@
         display: flex;
         flex-direction: column;
     }
-    body:has(.box-canvas) > header {
+    /* One header layout on every page: title, snapshot and section nav share a row. */
+    body > header {
         display: flex;
         align-items: center;
         gap: 1.5rem;
         flex-wrap: wrap;
         width: 100%;
     }
-    body:has(.box-canvas) > header h1 { margin: 0; }
+    body > header h1 { margin: 0; }
     main:has(.box-canvas) {
         display: flex;
         flex-direction: column;
@@ -551,3 +565,34 @@ body > header > nav { grid-column:1 / -1; grid-row:2; }
 .atlas-find-pager { align-items:center; gap:.7rem; margin-top:1.3rem; }
 .atlas-find-page :focus-visible,.atlas-find-global :focus-visible { outline:3px solid #ebc682; outline-offset:3px; }
 @media (max-width:1000px) { body > header { grid-template-columns:1fr; } .atlas-find-global { grid-column:1; grid-row:3; } }
+.atlas-heading { display: flex; align-items: baseline; gap: 1rem 2rem; flex-wrap: wrap; justify-content: space-between; }
+.atlas-freshness { font-size: .86rem; color: #bccbc2; }
+.atlas-freshness p { margin: .35rem 0; }
+.atlas-freshness output { display: block; margin: .45rem 0; }
+.atlas-data-error { color: #ffbf9e; }
+.implementation-card { background: #172622; border: 1px solid #4c6858; max-width: 66rem; }
+.implementation-heading { background: #20372c; border-bottom: 1px solid #4c6858; padding: 1.25rem 1.5rem; }
+.implementation-heading h3 { font-size: 2rem; margin: .3rem 0 .6rem; }
+.implementation-card p { max-width: 58ch; margin: .4rem 0; }
+.implementation-card a { color: #cee7b9; text-underline-offset: .2em; }
+.implementation-card a:focus-visible { outline: 2px solid #edbd7c; outline-offset: 3px; }
+.implementation-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.implementation-columns section { padding: 1.1rem 1.5rem; }
+.implementation-columns section + section { border-inline-start: 1px solid #4c6858; }
+.implementation-columns h4 { margin: .15rem 0; }
+.implementation-columns p + h4 { margin-top: 1rem; }
+.implementation-download {
+    display: inline-block;
+    margin: .55rem 0 .15rem;
+    padding: .35rem .7rem;
+    background: #294735;
+    border: 1px solid #7c9e78;
+    border-radius: .25rem;
+    font-weight: 600;
+}
+.implementation-columns code { display: block; overflow-wrap: anywhere; margin-top: .65rem; font-size: .8rem; }
+.implementation-references { border-top: 1px solid #4c6858; gap: .5rem 1.35rem; padding: .65rem 1.5rem; }
+@media (max-width: 740px) {
+    .implementation-columns { grid-template-columns: 1fr; }
+    .implementation-columns section + section { border-inline-start: 0; border-top: 1px solid #4c6858; }
+}

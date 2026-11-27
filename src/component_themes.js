@@ -1,5 +1,7 @@
 // Original cosmetic directions. No world, actor or command authority.
 export const COMPONENT_THEMES = {
+    // Graphite (Weibao, 2026-11-21): the Luminous Gothic frame and type in the flat dark greys of Arkivia's palette.
+    graphite: {label: 'Graphite', radius: 'var(--ui-radius)', heading: 'var(--ui-font-gothic)'},
     luminous: {label: 'Luminous Gothic', radius: 'var(--ui-radius)', heading: 'var(--ui-font-gothic)'},
     neutral: {label: 'Neutral', background: '#202a32', text: '#f1f4f5', accent: '#a9c8bd', radius: 'var(--ui-radius)', heading: 'var(--ui-font)'},
     arcane: {label: 'Arcane', background: '#292637', text: '#f4f0e7', accent: '#e1c783', radius: 'var(--ui-radius)', heading: 'var(--ui-font)'},

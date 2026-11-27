@@ -220,6 +220,9 @@ export function readingPipeline({main, data, controls, finder, list, button, clo
                 }[id];
                 side.append(el('p', facts));
                 if (id === 'read') readingRanges(side, data, w.id);
+                if (id === 'read' && data.findings?.worlds.some(world => world.world === w.id && world.read)) {
+                    side.append(button('Open collected findings', () => {location.hash = `world/${w.id}/things`;}));
+                }
                 if (id === 'inGame' && w.consumer?.cast) side.append(button('Open places', () => {location.hash = `world/${w.id}/places`;}));
                 if (id === 'inGame' && w.located) side.append(button('Open registered locations', () => {location.hash = `world/${w.id}/locations`;}));
                 if (id === 'walkable') {

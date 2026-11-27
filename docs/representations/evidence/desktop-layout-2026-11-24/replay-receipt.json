@@ -1,0 +1,372 @@
+{
+  "bundleSha256": "b7049bdc9e8633b34ee40d3d025d79c4deb410e23fb79956bc5d8b2fb7ee02de",
+  "viewport": [
+    1280,
+    800
+  ],
+  "font": "Gothic",
+  "fontSize": "21px",
+  "road": {
+    "setup": "Field-workshop and road contest prerequisites prepared from repository fixture",
+    "play": {
+      "trace": [
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab"
+      ],
+      "stillFighting": false
+    },
+    "end": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "text": "21px",
+      "mode": "local",
+      "place": "Village",
+      "worldPlace": "Village",
+      "result": "won",
+      "activeFight": null,
+      "back": false,
+      "focus": "Village",
+      "reportLines": [
+        "You hit Mara in the body for 0.7 bludgeoning.",
+        "Mara tries to back away, but is cut off; the turn costs a free blow.",
+        "You hit Mara on the leg for 0.6 bludgeoning.",
+        "You miss.",
+        "You hit Mara in the body for 0.7 bludgeoning.",
+        "Mara tries to back away, but is cut off; the turn costs a free blow.",
+        "You hit Mara in the body for 0.9 bludgeoning.",
+        "You hit Mara on the arm for 0.7 bludgeoning.",
+        "Mara goes down.",
+        "Mara's road contest. You: standing. Them: Mara: down. Spent: Stamina 36 of 40. Hurt: Health 34.8 of 60.",
+        "3 new"
+      ],
+      "loot": [],
+      "redirection": null
+    },
+    "errors": [
+      {
+        "op": -1,
+        "kind": "console",
+        "text": "No such element with availability as \"recipe\" -> \"undefined\""
+      },
+      {
+        "op": -1,
+        "kind": "console",
+        "text": "No such element with availability as \"item\" -> \"Ledger workshop cache\""
+      },
+      {
+        "op": -1,
+        "kind": "console",
+        "text": "No such element with availability as \"item\" -> \"Sealed survey parcel\""
+      }
+    ]
+  },
+  "hogwarts": {
+    "setup": "Earned Hogwarts W7 checkpoint",
+    "route": "Notebook encounter list",
+    "play": {
+      "trace": [
+        "body_bind",
+        "body_bind"
+      ],
+      "stillFighting": false
+    },
+    "end": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "text": "21px",
+      "mode": "local",
+      "place": "Hogwarts, the Great Hall",
+      "worldPlace": "book.hp.lead.school_hall",
+      "result": "won",
+      "activeFight": null,
+      "back": false,
+      "focus": "Hogwarts, the Great Hall",
+      "reportLines": [
+        "[ School days · Day 43 here (calendar date not known) ]",
+        "Deed done: Across the Threshold. Cross from one world into another.",
+        "They are caught off guard.",
+        "You use Petrificus Totalus on Draco Malfoy, and it misses.",
+        "Draco Malfoy uses Snatch the wand on you, and it misses.",
+        "You use Petrificus Totalus on Draco Malfoy: it lands.",
+        "Draco Malfoy is bound and cannot fight on.",
+        "Malfoy in the corridor. You: standing. Them: Draco Malfoy: bound. Hurt: Unhurt.",
+        "3 new"
+      ],
+      "loot": [],
+      "redirection": null
+    },
+    "errors": []
+  },
+  "wolfPack": {
+    "setup": "Earned Fang Yuan checkpoint with petals, Moonglow Gu and full essence prepared",
+    "route": "Notebook encounter list",
+    "startingSize": 5,
+    "play": {
+      "trace": [
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep"
+      ],
+      "stillFighting": true
+    },
+    "end": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "text": "21px",
+      "mode": "tempo-combat",
+      "place": "Clan academy",
+      "worldPlace": "book.ri.lead.academy",
+      "result": null,
+      "activeFight": "tempo",
+      "back": false,
+      "focus": "ESweep",
+      "reportLines": [
+        "Lightning wolf B hits you in the body for \n3.1\nphysical.",
+        "Lightning wolf A misses.",
+        "Lightning wolf E misses.",
+        "Lightning wolf D misses.",
+        "Lightning wolf C stumbles; the move comes to nothing.",
+        "Lightning wolf B misses.",
+        "Lightning wolf D misses.",
+        "Lightning wolf B misses.",
+        "Lightning wolf A misses.",
+        "Lightning wolf E stumbles; the move comes to nothing.",
+        "Lightning wolf D misses."
+      ],
+      "loot": [],
+      "redirection": null
+    },
+    "afterLossBack": null,
+    "preparedWin": {
+      "setup": "Opened five-wolf battle restored with wounded wolves to isolate the final clear; resolved with game controls",
+      "progress": {
+        "remaining": 4,
+        "layout": {
+          "viewport": [
+            1280,
+            800
+          ],
+          "text": "21px",
+          "mode": "tempo-combat",
+          "place": "Clan academy",
+          "worldPlace": "book.ri.lead.academy",
+          "result": null,
+          "activeFight": "tempo",
+          "back": false,
+          "focus": "ESweep",
+          "reportLines": [
+            "You finish it, as you meant to.",
+            "You hit Lightning wolf A on the leg for 0.5 bludgeoning (critical).",
+            "Lightning wolf is dead.",
+            "You miss.",
+            "Lightning wolf C hits you in the body for \n5\nphysical.",
+            "Lightning wolf B misses.",
+            "Lightning wolf E hits you on the arm for \n5.1\nphysical.",
+            "Your hands are shaken.",
+            "Lightning wolf B hits you in the body for \n2.9\nphysical.",
+            "Lightning wolf D stumbles; the move comes to nothing.",
+            "11 new"
+          ],
+          "loot": [],
+          "redirection": null
+        }
+      },
+      "play": {
+        "trace": [
+          "sweep",
+          "sweep",
+          "sweep",
+          "sweep"
+        ],
+        "stillFighting": false
+      },
+      "end": {
+        "viewport": [
+          1280,
+          800
+        ],
+        "text": "21px",
+        "mode": "local",
+        "place": "Clan academy",
+        "worldPlace": "book.ri.lead.academy",
+        "result": "won",
+        "activeFight": null,
+        "back": false,
+        "focus": "Clan academy",
+        "reportLines": [
+          "Lightning wolf is dead.",
+          "Lightning wolf D misses.",
+          "Lightning wolf D stumbles; the move comes to nothing.",
+          "You miss.",
+          "Lightning wolf D misses.",
+          "You finish it, as you meant to.",
+          "You hit Lightning wolf D on the arm for 0.4 bludgeoning.",
+          "Lightning wolf is dead.",
+          "Looted Hidden lightning wolf eye\nx5\nHand in at alliance board · +10 merit",
+          "Looted Lightning wolf hide\nx5\nSell at stalls · 1 stone",
+          "Looted Wolf meat · jin\nx30\nSell at kitchens · 1 stone\nMore uses"
+        ],
+        "loot": [
+          "Hidden lightning wolf eye",
+          "Lightning wolf hide",
+          "Wolf meat · jin"
+        ],
+        "redirection": null
+      }
+    },
+    "errors": []
+  },
+  "zeroKillDefeatConfirmation": {
+    "setup": "Opened five-wolf fight restored with the player at 2 HP",
+    "exercised": {
+      "trace": [
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab",
+        "jab"
+      ],
+      "stillFighting": true
+    },
+    "down": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "text": "21px",
+      "mode": "tempo-combat",
+      "place": "Clan academy",
+      "worldPlace": "book.ri.lead.academy",
+      "result": null,
+      "activeFight": "tempo",
+      "back": false,
+      "focus": "AQuick strike",
+      "reportLines": [
+        "EARLIER",
+        "Deed done: Across the Threshold. Cross from one world into another.",
+        "Both sides see each other at once.",
+        "[ Gu Yue · 16 October, year 1, Autumn ]",
+        "Deed done: Across the Threshold. Cross from one world into another."
+      ],
+      "loot": [],
+      "redirection": null
+    },
+    "afterBack": null,
+    "errors": []
+  },
+  "observations": [
+    "The normal-health pack run and the independent 2 HP fixture both show Invalid inventory count in the fight card; no defeat commits.",
+    "Pack loot verifies ×5 eye, ×5 hide and ×30 jin meat in the prepared clear."
+  ]
+}

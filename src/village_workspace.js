@@ -19,6 +19,7 @@ import {formatCalendar} from './world_calendar.js';
 import {upcomingStripNode} from './upcoming_strip_ui.js';
 import {sayReason} from './locked_control.js';
 import {placeInStatus,setStatusText} from './ui/status_line.js';
+import {semanticInk} from './ui/semantic_ink.js';
 const factHelp=label=>({'Attack':'Damage per connected attack, before your damage reduction.','Defense':'Damage reduction.','Speed':'Attack rate, in attacks per second.','Hit you':'This opponent’s chance to connect against you. Shield block is separate.','Evade you':'This opponent’s chance to evade your attack.','You hit them':'Your native chance to connect against this inspected opponent, before damage reduction or block. Inspection does not select an attack target.','Attack rating':'Native attack points, a rating rather than a percentage.','Evasion rating':'Native evasion points, a rating rather than a percentage.'})[label]||'';
 const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
 
@@ -35,7 +36,7 @@ export function sceneClock(frame) {
     if(!Object.hasOwn(frame,'calendar'))return {date:parts[1]||'',season:parts[1]?.split(',')[1]?.trim(),phase:parts[2],weather:parts[3],temperature:parts[4],description:''};
     const local=frame.calendar,home=frame.worldId==='base.frontier';
     return {date:local?`${home?'':local.label+' · '}${formatCalendar(local,{time:true})}`:'Calendar unknown here',
-        season:local?.seasonId,phase:home?parts[2]:null,
+        season:local?.seasonId,phase:home?(frame.skyPhase??parts[2]):null,
         weather:frame.weatherWords??(home?parts[3]:''),temperature:home?parts[4]:null,
         description:home?'Home calendar · day/month/year; 30-day months. Summer is months 4–6.':local?`${local.label} calendar${local.format==='numeric'?' · day/month/year':''} · ${local.description}`:'No local calendar is known here.'};
 }
@@ -56,7 +57,13 @@ export function createVillageWorkspace({read,act,placeDetail}) {
     const scene=node('section');scene.id='village_scene';
     const clock=node('p'),people=node('div'),things=node('div'),groups=node('div');
     people.className='scene-chips';things.className='scene-chips';
-    clock.className='scene-location-header';const placeName=node('strong'),conditions=node('span'),calendar=node('span'),placeTags=node('span');conditions.className='scene-conditions';calendar.className='scene-calendar';placeTags.className='scene-place-tags';clock.append(placeName,placeTags,conditions);const placeFooter=node('div');placeFooter.className='scene-place-footer';placeFooter.append(calendar);
+    clock.className='scene-location-header';const placeName=semanticInk(node('strong'),'place'),conditions=node('span'),calendar=node('span'),placeTags=node('span');conditions.className='scene-conditions';calendar.className='scene-calendar';placeTags.className='scene-place-tags';clock.append(placeName,placeTags,conditions);const placeFooter=node('div');placeFooter.className='scene-place-footer';placeFooter.append(calendar);
+    const dateText=node('span');
+    const seasonChip=semanticInk(node('span'),'season'), seasonGlyph=node('span'), seasonLabel=node('span');
+    const phaseChip=semanticInk(node('span'),'time');
+    seasonGlyph.setAttribute('aria-hidden','true');
+    seasonChip.append(seasonGlyph,seasonLabel);
+    calendar.append(dateText,seasonChip,phaseChip);
     // PS107, PS108 (Weibao, 2026-11-15; replaces R21's groups-under-Options): each panel under Here goes to the home of its
     // kind (src/ui/here_kinds.js). Activity groups are chips at the top of Actions, settings are Options, gear care, home
     // and the workshop ledger get their own tabs, a crossing joins Ways out. PS109: Options names no count; a setting asks nothing.
@@ -140,17 +147,21 @@ export function createVillageWorkspace({read,act,placeDetail}) {
         for(const[index,opp]of order.entries()){
             if(opp.nodeType){if(enemyCards.children[index]!==opp)enemyCards.insertBefore(opp,enemyCards.children[index]||null);continue;}
             let card=enemyCardNodes.get(opp.id);
-            if(!card){card=node('article');card.className='enemy-card';card.dataset.enemyCard=opp.id;card.dataset.combatSubject=opp.id;
-                const name=node('button'),hp=node('p'),cycle=node('progress'),facts=node('dl');
+            if(!card){card=node('article');card.className='enemy-card combat-opponent-row';card.dataset.enemyCard=opp.id;card.dataset.combatSubject=opp.id;
+                const name=node('button'),hp=node('p'),cycle=node('progress'),cycleRow=node('div'),next=node('span','Next'),facts=node('dl');
                 name.type='button';name.dataset.inspectEnemy=opp.id;name.className='enemy-card-name';bindSubjectGesture(name,()=>name.dataset.inspectEnemy,()=>{selectedEnemy=opp.id;render();});
                 hp.className='enemy-card-health';hp.append(node('span'));cycle.max=100;cycle.className='enemy-card-cycle';facts.className='enemy-card-facts';facts.nodes=new Map();
-                card.append(name,hp,cycle,facts);enemyCardNodes.set(opp.id,card);}
+                cycleRow.className='enemy-cycle-row';next.className='attack-next';next.hidden=true;cycleRow.append(cycle,next);
+                card.append(name,hp,cycleRow,facts);enemyCardNodes.set(opp.id,card);}
             if(enemyCards.children[index]!==card)enemyCards.insertBefore(card,enemyCards.children[index]||null);
-            const[name,hp,cycle,facts]=card.children,inspected=opp.id===target.id,known=knowledgeOf(opp),kin=named.get(opp.name)||[opp],nth=kin.indexOf(opp)+1,label=count>1&&kin.length>1?`${opp.name}, ${nth} of ${kin.length}`:opp.name,shown=layout.grouped?opp.letter:opp.name,health=healthText(opp),fill=healthFill(opp);
+            const[name,hp,cycleRow,facts]=card.children,[cycle,next]=cycleRow.children,inspected=opp.id===target.id,known=knowledgeOf(opp),kin=named.get(opp.name)||[opp],nth=kin.indexOf(opp)+1,label=count>1&&kin.length>1?`${opp.name}, ${nth} of ${kin.length}`:opp.name,shown=layout.grouped?opp.letter:opp.name,health=healthText(opp),fill=healthFill(opp);
             setText(name,shown);setAttr(name,'data-letter',layout.grouped?'':count>1?opp.letter:'');setAttr(card,'data-slot',opp.slot);setAttr(name,'aria-pressed',inspected);setAttr(name,'aria-label',`Inspect opponent ${label}${opp.defeated?', defeated':''}`);setTitle(name,`Inspect ${label}. Inspection does not change attack targeting. ${KNOWLEDGE_LABEL[known]}`);
             setText(hp.firstChild,health);setAttr(hp,'data-health-known',fill!=null);setTitle(hp,opp.defeated?`Defeated · ${opp.health?.text||''}`.trim():health);card.style.setProperty('--roster-health',`${fill??0}%`);
             if(inspected){name.dataset.effectAnchor='opponent-name';hp.dataset.effectAnchor='opponent-health';}else{name.removeAttribute('data-effect-anchor');hp.removeAttribute('data-effect-anchor');}
-            cycle.hidden=opp.defeated||opp.cycle==null;cycle.value=opp.cycle||0;setAttr(cycle,'aria-label',`${label} attack cycle`);setTitle(cycle,'Attack cycle · native progress');
+            cycle.hidden=opp.defeated||opp.cycle==null;cycle.value=opp.cycle||0;
+            const hideNext=cycle.hidden||!opp.attackNext;
+            if(next.hidden!==hideNext) next.hidden=hideNext;
+            setAttr(cycle,'aria-label',`${label} attack cycle${next.hidden?'':', acts next'}`);setTitle(cycle,'Attack cycle · native progress');
             setAttr(card,'data-inspected',inspected);setAttr(card,'data-kind-hue',hueOf(opp.name));setAttr(card,'data-defeated',!!opp.defeated);setAttr(card,'data-knowledge',known);
             facts.hidden=!comparing;if(comparing)renderFacts(facts,facts.nodes,opp.facts||[],false);
         }
@@ -180,7 +191,7 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
     definePanel({id:'focus',title:'Focus',role:'character',node:focus,home,defaultDock:'center',after:'time',eligible:()=>true});
     const fighting=()=>home.dataset.parity==='r3'&&home.dataset.parityCombat==='true';
     // A lone opponent is already whole in the Opponent panel; the list is for choosing among two or more.
-    const crowd=()=>fighting()&&standing>=OPPONENT_LIST_FROM;
+    const crowd=()=>fighting()&&standing>=OPPONENT_LIST_FROM&&home.dataset.combatLanes!=='native';
     definePanel({id:'opponents',title:'Opponents',role:'character',node:opponentsView,home,defaultDock:'center',after:'local-actions',eligible:crowd,discovered:fighting,
         settings:[{key:'letters',label:'Opponent letters',description:'Show A, B, C beside opponents of the same name. Off by default: hover a report line to find its opponent.',options:[['off','Off'],['hover','On hover'],['always','Always']],default:'off'}]});
     // R22c (FC12): hovering or focusing a combat line marks its opponent's row in the current wave,
@@ -212,7 +223,10 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
         placeTags.hidden=!types.length;if(focused)placeTags.querySelector(`[data-place-type="${CSS.escape(focused)}"]`)?.focus();
     }
     function render(){
-        const frame=read();if(frame.place!==lastPlace){selected=null;selectedEnemy=null;lastInspectedEnemy=null;lastPlace=frame.place;placeTab='actions';}
+        const frame=read();
+        const heroNext=document.querySelector('.native-hero-cycle .attack-next');
+        if(heroNext && heroNext.hidden===!!frame.heroAttackNext) heroNext.hidden=!frame.heroAttackNext;
+        if(frame.place!==lastPlace){selected=null;selectedEnemy=null;lastInspectedEnemy=null;lastPlace=frame.place;placeTab='actions';}
         const view=projectVillageScene({overview:{title:frame.place,clockText:frame.clock,people:frame.people,things:frame.things,actions:frame.actions}});
         // This adapter reads the existing public native clock projection. It does
         // not compute weather/season or alter their world rules.
@@ -222,7 +236,7 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
         const header=sceneClock(frame),{date,season}=header;
         setText(placeName,frame.place);
         {const account=placeAccount(document.getElementById('location_description_div')?.textContent||'');setText(headName,frame.place);setText(headLead,account.lead);headLead.hidden=!account.lead;setText(headMoreBody,account.rest);headMore.hidden=!account.rest;}
-        const conditionRows=[['season',season],['weather',header.weather],['temperature',header.temperature]].filter(([,value])=>value);
+        const conditionRows=[['weather',header.weather],['temperature',header.temperature]].filter(([,value])=>value);
         const temperature=parity&&(!frame.worldId||frame.worldId==='base.frontier')?readTemperature():null;
         const nativeTemperatureState=temperature?.cold?'cold_temperature':'normal_temperature';
         const conditionSignature=JSON.stringify([conditionRows,temperature]);
@@ -231,8 +245,8 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
             // Reuse the temperature button so ticking weather never replaces keyboard focus.
             const previous=conditions.querySelector('[data-condition=temperature]');
             const badges=conditionRows.filter(([kind])=>kind!=='temperature').map(([kind,value])=>{
-                const symbol=kind==='season'?({'Spring':'❀','Summer':'☀','Autumn':'❧','Fall':'❧','Winter':'❄'}[value]||'◈'):({'Rain':'☂','Snow':'❄'}[value]||'');
-                const badge=node('span');if(symbol){const icon=node('span',symbol);icon.setAttribute('aria-hidden','true');badge.append(icon,document.createTextNode(' '));}badge.append(document.createTextNode(value));badge.dataset.conditionValue=value.toLowerCase();badge.dataset.condition=kind;const said=value+(kind==='weather'?(frame.weatherWords!=null?': the local climate, shown for its feel.':': this weather changes nothing here yet.'):': the season on the calendar.');badge.title=said;badge.dataset.say=said;badge.tabIndex=0;badge.setAttribute('aria-label',said);return badge;
+                const symbol={'Rain':'☂','Snow':'❄'}[value];
+                const badge=node('span');if(symbol){const icon=node('span',symbol);icon.setAttribute('aria-hidden','true');badge.append(icon,document.createTextNode(' '));}badge.append(document.createTextNode(value));badge.dataset.conditionValue=value.toLowerCase();badge.dataset.condition=kind;const said=value+(frame.weatherWords!=null?': the local climate, shown for its feel.':': this weather changes nothing here yet.');badge.title=said;badge.dataset.say=said;badge.tabIndex=0;badge.setAttribute('aria-label',said);return badge;
             });
             if(temperature){const badge=previous||node('button');badge.type='button';badge.dataset.condition='temperature';badge.dataset.contextPreview='temperature';badge.dataset.temperatureState=nativeTemperatureState;
                 setText(badge,temperature.label);setTitle(badge,temperature.description);badges.push(badge);
@@ -243,7 +257,15 @@ setAttr(detail,'data-facts',layout.facts);setAttr(detail,'data-knowledge',knowle
             for(const [index,badge]of badges.entries())if(conditions.children[index]!==badge)conditions.insertBefore(badge,conditions.children[index]||null);
         }
 
-        setText(calendar,[season?date.replace(', '+season,''):date,header.phase?((/night/i.test(header.phase)?'☾ ':'☼ ')+header.phase):''].filter(Boolean).join(' · '));setTitle(calendar,header.description);calendar.dataset.timeOfDay=header.phase?(/night/i.test(header.phase)?'night':'day'):'unknown';
+        setText(dateText,season?date.replace(', '+season,''):date);
+        seasonChip.hidden=!season;
+        setAttr(seasonChip,'data-season',season?.toLowerCase()??'');
+        setText(seasonGlyph,({Spring:'春',Summer:'夏',Autumn:'秋',Fall:'秋',Winter:'冬'})[season]??'');
+        setText(seasonLabel,season??'');
+        phaseChip.hidden=!header.phase;
+        setAttr(phaseChip,'data-sky-phase',header.phase?.toLowerCase()??'');
+        setText(phaseChip,({Dawn:'Sunrise',Dusk:'Sunset'})[header.phase]??header.phase??'');
+        setTitle(calendar,header.description);
         // Direction B (PS53): the status line under the top bar is the one home of the place, the time and the weather in
         // every view. This view still renders them (one authority) and hands the nodes over; without the line they stay here.
         setStatusText('place',frame.place);

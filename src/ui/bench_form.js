@@ -7,8 +7,9 @@ import {kitElement, kitRow, useKitDocument} from './kit.js';
 const el = (doc, tag, cls, text) => kitElement(tag, cls, text); // drawn while useKitDocument(doc) holds
 
 /**
- * form: {inputs:[row], capacity:{used, max, unit, reason}, clashes:[row], chance:[row], after:[row], cost?: string}
+ * form: {inputs:[row], capacity:{used, max, unit, reason}, clashes:[row], chance:[row], after:[row], cost?: string, next?:[nextRow]}
  * row: {label, fact, from?, state?, data?} (kitRow fields). An empty part says so instead of vanishing (PS251).
+ * nextRow (MKC5, src/making_next.js): a row with run, or disabled with its reason in `from`. A form without `next` draws five parts.
  */
 export function renderBenchForm(doc, form) {
     useKitDocument(doc);
@@ -22,6 +23,17 @@ function part(doc, id, title, rows, empty) {
     if (rows.length) sec.append(...rows.map(r => kitRow(r)));
     else sec.append(el(doc, 'p', 'bench-form__empty', empty));
     return sec;
+}
+
+/** MKC5: the Next part on its own, for a bench that keeps its own layout (the gear workshop) but shares the loop's last step. */
+export function renderBenchNext(doc, rows, empty = 'Make something to see where it can go.') {
+    useKitDocument(doc);
+    try { return nextPart(doc, rows, empty); } finally { useKitDocument(null); }
+}
+
+function nextPart(doc, rows, empty) {
+    return part(doc, 'next', 'Next', rows.map(({run, disabled, title, ...row}) =>
+        ({...row, action: {run, disabled: !!disabled, title: title || row.from || row.label}})), empty);
 }
 
 function draw(doc, form) {
@@ -42,6 +54,7 @@ function draw(doc, form) {
     root.append(part(doc, 'clashes', 'Clashes', form.clashes, 'Nothing here pulls against anything else.'));
     root.append(part(doc, 'chance', 'How sure', form.chance, 'Choose what goes in to see how sure the result is.'));
     root.append(part(doc, 'after', 'After', form.after, 'Nothing changes yet.'));
+    if (form.next) root.append(nextPart(doc, form.next, 'Carve or make something to see where it can go.'));
     if (form.cost) root.append(kitRow({label: form.cost, fact: 'paid whatever comes of it', className: 'bench-form__cost'}));
     return root;
 }

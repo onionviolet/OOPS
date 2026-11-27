@@ -5,7 +5,7 @@ import {readFile, writeFile, mkdir, stat} from 'node:fs/promises';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {createRequire} from 'node:module';
-import {encodeSaveFile} from '../../src/save_files.js';
+import {decodeSaveFile, encodeSaveFile} from '../../src/save_files.js';
 import {keeperDiets} from '../../src/world_packs/book_gu_keeper.js';
 import {starvation} from '../../src/living_upkeep.js';
 const {launchChrome} = createRequire(import.meta.url)('../ui_helpers.cjs');
@@ -45,8 +45,20 @@ const skillDigest=levels=>({...levels,person:Object.fromEntries(Object.entries(l
 const digest=s=>({record:s.content_packs?.structured,actors:s.expansion.actors,simulation:s.expansion.simulation,clock:s.expansion.clock,
     keeperFacts:s.expansion.worlds[id('world')]?.facts,location:s['current location'],inventory:s.inventories,skills:skillDigest(s.levels)});
 const load=async literal=>{await Promise.all([p.waitForEvent('load'),p.evaluate(text=>window.load_progress(text),literal)]);await play();await open();};
-const roundTrip=async name=>{const before=await save(),expected=digest(before);await writeFile(path.join(out,name+'-before.json'),JSON.stringify(before,null,2));await p.reload();await play();assert.deepEqual(digest(await save()),expected,name+' reload');
-    const literal=await p.evaluate(()=>window.save_to_file());assert.equal(typeof literal,'string');await load(literal);assert.deepEqual(digest(await save()),expected,name+' literal Import');result.checks.push(name+': Save/reload/Export/literal Import equal');};
+const earlierReports = () => p.locator('#message_box_div .report-earlier:not(.report-earlier-head)').allTextContents();
+const roundTrip=async name=>{
+    const before=await save(),expected=digest(before);await writeFile(path.join(out,name+'-before.json'),JSON.stringify(before,null,2));
+    await p.reload();await play();
+    if(giantHandWardOnly) assert.deepEqual(await earlierReports(), before.reports_dock?.lines ?? [], name+' Reports after reload');
+    const reloaded=await save();
+    assert.deepEqual(digest(reloaded),expected,name+' reload');
+    const literal=await p.evaluate(()=>window.save_to_file());assert.equal(typeof literal,'string');await load(literal);
+    if(giantHandWardOnly) {
+        const exported = decodeSaveFile(literal, before['game version']);
+        assert.deepEqual(await earlierReports(), exported.reports_dock?.lines ?? [], name+' Reports after literal Import');
+    }
+    assert.deepEqual(digest(await save()),expected,name+' literal Import');result.checks.push(name+': Save/reload/Export/literal Import equal');
+};
 const step=n=>p.evaluate(n=>window.advanceTicks(n),n);
 const act=async n=>{await p.locator(`[data-structured-action="${id(n)}"]`).click();await p.waitForFunction(command=>{try{return window.simulationTestHooks.snapshot().expansion.simulation.jobs.some(j=>j.commandId===command);}catch{return false;}},id(n));};
 const instant=async n=>{const before=(await save()).expansion.actors.player.completed[id(n)]||0;await p.locator(`[data-structured-action="${id(n)}"]`).click({noWaitAfter:true});await p.waitForFunction(({command,before})=>{try{return window.simulationTestHooks.snapshot().expansion.actors.player.completed[command]>before;}catch{return false;}},{command:id(n),before});};
@@ -1957,7 +1969,30 @@ async function runGiantHandVariants() {
 
 async function runGiantHandWard() {
     const hand = name => instant1(`giant_hand.${name}`);
-    const ward = name => instant1(`giant_hand_ward.${name}`);
+    const timings = result.wardTimings = {steps: [], actions: []};
+    const ward = async name => {
+        await open();
+        const command = id(`giant_hand_ward.${name}`);
+        await p.evaluate(command => {
+            window.wardPaintMs = null;
+            const mark = event => {
+                if(!event.isTrusted || event.target.closest('[data-structured-action]')?.dataset.structuredAction !== command) return;
+                document.removeEventListener('click', mark, true);
+                requestAnimationFrame(() => requestAnimationFrame(now => {window.wardPaintMs = now - event.timeStamp;}));
+            };
+            document.addEventListener('click', mark, true);
+        }, command);
+        await instant0(`giant_hand_ward.${name}`);
+        await p.waitForFunction(() => Number.isFinite(window.wardPaintMs));
+        timings.actions.push({action: name, clickToPaintOpportunityMs: await p.evaluate(() => window.wardPaintMs)});
+    };
+    const timedStep = async minutes => {
+        timings.steps.push(await p.evaluate(minutes => {
+            const started = performance.now();
+            const receipt = window.advanceTicks(minutes);
+            return {ticks: receipt.ticks, wallMs: performance.now() - started};
+        }, minutes));
+    };
     const button = name => p.locator(`[data-structured-action='${id(`giant_hand_ward.${name}`)}']`);
     const admit = name => p.locator(`[data-structured-extension='${id(name)}']`).click({noWaitAfter:true});
     const line = p.locator('[data-gu="giant-hand-ward"]');
@@ -1967,8 +2002,8 @@ async function runGiantHandWard() {
     await admit('giant_hand'); await hand('enter');
     await hand('buy_red'); await hand('buy_red'); await hand('buy_materials');
     await hand('borrow_older'); await hand('prepare_phantoms'); await hand('borrow_group');
-    await step(10); await hand('release_phantoms'); await hand('prepare_myriad');
-    await step(20); await hand('finish_myriad');
+    await timedStep(10); await hand('release_phantoms'); await hand('prepare_myriad');
+    await timedStep(20); await hand('finish_myriad');
     await hand('return_older'); await admit('giant_hand_ward');
     assert.match(await line.innerText(), /force 4 of 6 needed.*the ward holds/);
     assert.equal(await button('ward_self').isDisabled(), true);

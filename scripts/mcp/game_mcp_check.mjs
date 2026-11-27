@@ -146,6 +146,30 @@ async function fasterTime(c) {
     await c.tool('game_close', {sessionId: 'days'});
 }
 
+async function stepReceipt(c) {
+    const sessionId = 'step-receipt';
+    await c.tool('game_new', {sessionId, scenario: 'perf-fresh', seed: 5});
+    const before = await c.tool('game_look', {sessionId, view: 'compact'});
+    const receipt = await c.tool('game_step', {sessionId, minutes: 5, view: 'receipt'});
+    assert.equal(receipt.view, 'receipt');
+    assert.equal(receipt.stopReason, 'requested time reached');
+    assert.equal(receipt.advance.advanced, 5);
+    assert.notDeepEqual(receipt.time, before.time);
+    assert.equal(receipt.pageErrors, 0);
+    assert.equal(receipt.reports.scope, 'reports');
+    assert.ok(receipt.reports.latest.length <= 3);
+    assert.ok(!Object.hasOwn(receipt, 'screen') && !Object.hasOwn(receipt, 'actions'));
+    const stale = await c.rpc('tools/call', {name: 'game_click', arguments: {sessionId, index: 0}});
+    assert.equal(stale.result.isError, true, 'a receipt invalidates prior action indices');
+    const delta = await c.tool('game_look', {sessionId, view: 'compact'});
+    assert.equal(delta.baseline, false, 'a receipt preserves the caller’s compact baseline');
+    assert.deepEqual(delta.time, receipt.time);
+    const boundary = await c.tool('game_step', {sessionId, until: 'event', view: 'receipt'});
+    assert.equal(boundary.stopReason, boundary.advance.reason ?? 'event boundary reached');
+    await c.tool('game_close', {sessionId});
+    console.log(JSON.stringify({slice: 'step-receipt', result: 'PASS', receiptBytes: JSON.stringify(receipt).length}));
+}
+
 // The timeout bounds one game day of stepping, not a whole call: with a timeout shorter than the step, a
 // multi-day step still finishes because the worker reports each day (2026-11-19, PERF_AND_DEVTOOLS_REVIEW O26).
 async function longStepHeartbeat() {
@@ -440,6 +464,8 @@ try {
         await fasterTime(c);
         await longStepHeartbeat();
         console.log(JSON.stringify({slice: 'faster-time', result: 'PASS'}));
+    } else if(process.argv.includes('--step-receipt-only')) {
+        await stepReceipt(c);
     } else if(process.argv.includes('--freeze-only')) {
         await frozenAndNative(c);
     } else if(process.argv.includes('--fixtures-only')) {
@@ -552,6 +578,7 @@ try {
     assert.equal(noted.ledgerEntries, 1);
     assert.match(readFileSync(LEDGER, 'utf8'), /screenshot of the village/);
     await fasterTime(c);
+    await stepReceipt(c);
     await longStepHeartbeat();
     await loopReload(c);
     await seededScenarios(c);

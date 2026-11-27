@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Applies the chapter tier (scripts/chapter_effect_tier.mjs, PWC27) to the committed ledgers in place, for the ledgers whose builders
-// need private replies this checkout may not hold. Idempotent: only `blocked:effect-unknown` rows with a chapter sentence change, and
+// need private replies this checkout may not hold. Idempotent: rows with a newly applicable chapter sentence change, and
 // the builders apply the same function on a rebuild. Usage: node scripts/chapter_effect_fold.mjs [--check]
 import {readFileSync, writeFileSync} from 'node:fs';
 import {foldChapterEffect} from './chapter_effect_tier.mjs';

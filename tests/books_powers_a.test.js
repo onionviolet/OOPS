@@ -9,6 +9,7 @@ import {BOOKS, buildLedger, SHEET, GRAMMAR, SPEAKERS, SLUGS, CLASS_MAPS, sidecar
 import {parseLedger} from '../scripts/coverage_report.mjs';
 import {attachItemBoundRows} from '../scripts/item_bound_ledgers.mjs';
 import {attachFormRows} from '../scripts/form_transformation_ledgers.mjs';
+import {attachDivinationRows} from '../scripts/divination_ledgers.mjs';
 
 for (const book of Object.keys(BOOKS)) {
     const side = JSON.parse(readFileSync(sidecarPath(book), 'utf8'));
@@ -17,7 +18,7 @@ for (const book of Object.keys(BOOKS)) {
     const prefix = {ss: 'ss.', sl: 'sl.', orv: 'orv.', rt: 'rt.'}[book];
 
     test(`${book}: the committed ledger equals a rebuild from the committed sidecar`, async () => {
-        assert.deepEqual(rows, JSON.parse(JSON.stringify(await attachFormRows(await attachItemBoundRows(buildLedger(book, side))))));
+        assert.deepEqual(rows, JSON.parse(JSON.stringify(await attachDivinationRows(await attachFormRows(await attachItemBoundRows(buildLedger(book, side)))))));
     });
 
     test(`${book}: every row is classified, ids are unique and prefixed, the shared validator passes, blocked rows name a known slug`, () => {

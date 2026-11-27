@@ -5,10 +5,23 @@
 import {TALISMAN_MINUTES, runeGrammar} from './pledges_content.js';
 import {readPair} from './rune_grammar.js';
 import {formatDuration} from './number_format.js';
+import {nextRows} from './making_next.js';
 
 const cap = s => s[0].toUpperCase() + s.slice(1);
 
-export function runeBenchForm(r, strip, wood) {
+// MKC5: where what this bench made can go now. `charged` is the worn charged strip; `routes` is {found, open} (making_next.js).
+// No routes, no Next part: a caller that only previews the strip keeps the five parts.
+export function runeBenchNext(r, charged, routes) {
+    const worn = r.talisman && r.minutesLeft > 0;
+    return nextRows([
+        worn && {label: 'Fight while the tablet is worn', fact: `${formatDuration(r.minutesLeft)} left`, panel: 'local-actions'},
+        charged?.charges > 0 && {label: 'Fight with the charged strip', fact: `${charged.charges} of ${charged.maxCharges} charges`, panel: 'local-actions'},
+        (worn || charged) && {label: 'Work the blade you fight with', fact: 'forge, temper or reforge it at the gear workshop', panel: 'gear-workshop',
+            reason: 'Visit a forge to work on gear.'},
+    ], routes);
+}
+
+export function runeBenchForm(r, strip, wood, {charged = null, routes = null} = {}) {
     const gross = strip.length * r.perRune, covered = Math.min(gross, r.release.talisman || 0), spend = gross - covered;
     const pairs = strip.slice(1).map((b, i) => ({a: strip[i], b, effect: r.knownPair(strip[i], b)}));
     const worn = r.talisman && r.minutesLeft > 0;
@@ -32,5 +45,6 @@ export function runeBenchForm(r, strip, wood) {
 
     return {inputs, clashes, chance, after,
         capacity: {used: strip.length, max: r.maxLength, unit: 'runes', reason: `a wood tablet takes ${r.maxLength} runes in a row`},
+        ...(routes && {next: runeBenchNext(r, charged, routes)}),
         cost: strip.length ? (covered ? `Replacing the worn tablet covers ${covered}; spend ${spend} wood` : `Spend ${spend} wood`) : ''};
 }

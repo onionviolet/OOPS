@@ -1,0 +1,39 @@
+// Mock FTL5/FTL7 capture: Fang Yuan's composed day plus a Moonglow Gu, open the wolf pack, shoot each variant.
+import {readFile, mkdir} from 'node:fs/promises';
+const W = process.cwd();
+const {Session, buildBundle, serve} = await import(W + '/scripts/playtest/lib.mjs');
+const [savePath, outDir] = process.argv.slice(2);
+const save = JSON.parse(await readFile(savePath, 'utf8'));
+save.inventories.person.main_character[JSON.stringify({id: 'book.ri.lead.moonglow.moonglow_gu'})] = {count: 1};
+await mkdir(outDir, {recursive: true});
+const bundle = await buildBundle();
+const server = await serve(bundle.dir);
+const variants = (process.env.VARIANTS || 'today,5,7,5r,7r').split(',');
+for (const v of variants) {
+  for (const width of [1920, 1280]) {
+    const height = width === 1920 ? 1080 : 800;
+    const ftl = v.replace('r', ''), stub = v.endsWith('r') ? '&mock_scene=rain,fog,dark' : '';
+    const url = server.url + (ftl === 'today' ? '' : `&mock_ftl=${ftl}`) + stub;
+    const s = new Session({url, seed: 87, wall: Date.UTC(2026, 10, 21, 13), opTimeout: 60000});
+    await s.start(); await s.open(save);
+    const p = s.page;
+    await p.setViewportSize({width, height});
+    await p.addStyleTag({content: '*{animation:none!important;transition:none!important;caret-color:transparent!important}'});
+    await p.evaluate(() => window.simulationTestHooks.resume?.());
+    await p.waitForTimeout(800);
+    const label = 'Hold a gap in the wall against a wolf pack';
+    const hit = await p.evaluate(label => { const b = [...document.querySelectorAll('button')].find(b => b.textContent.trim() === label); b?.click(); return !!b; }, label);
+    if (!hit) throw new Error('no encounter button');
+    await p.waitForTimeout(1500);
+    await p.locator('#fight_situation[data-fight-mode="tempo"]').waitFor({timeout: 20000});
+    await p.waitForTimeout(1200);
+    const file = `${outDir}/ftl-${v}-${width}.png`;
+    await p.screenshot({path: file});
+    const top = await p.evaluate(() => document.getElementById('game_status')?.innerText.replace(/\s+/g, ' '));
+    const head = await p.evaluate(() => document.querySelector('#fight_situation .scene-card-header')?.innerText.replace(/\s+/g, ' '));
+    console.log(v, width, 'top:', top, '| header:', head, '| errors:', s.errors.length, s.errors.slice(0, 2).map(e => e.text.slice(0, 160)).join(' ; '));
+    await s.close();
+  }
+}
+server.close(); await bundle.dispose();
+process.exit(0);

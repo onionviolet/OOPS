@@ -1,3 +1,5 @@
+import {fieldRecord} from './ui/field_record.js';
+import {semanticInk} from './ui/semantic_ink.js';
 import {formatMoneyText} from './number_format.js';
 import {denominationsKnown,moneyText} from './reveal_chain.js';
 import {renderWarehouse} from './home_warehouse.js';
@@ -23,7 +25,7 @@ export function createHomePanel({read,quote,execute}) {
     start.dataset.homeBeginnings='';start.append(el('summary','Choose a home beginning'),el('p','Optional fresh beginnings. Read the body, home rights and starting goods before choosing. The ordinary Village beginning remains available.'),startBody);
     market.append(el('summary','Village home supplier and lodging'),marketBody);history.append(el('summary','Home history'),historyBody);
     const shortcuts=el('nav');shortcuts.className='ui-panel-shortcuts';shortcuts.setAttribute('aria-label','Residence sections');
-    building.append(el('summary','Build a home from the land'),buildingBody);panel.append(title,intro,summary,homes,shortcuts,detail,building,start,market,history,notice);
+    building.append(el('summary','Build a home from the land'),buildingBody);panel.append(title,intro,summary,homes,detail,building,start,market,history,notice);
     let signature='',selected='',view,shopSelection='',shopNode=null,nameDrafts=new Map(),depositSelections=new Map();
     const buttons=new Map();
     function action(parent,id,label,request) {
@@ -46,9 +48,18 @@ export function createHomePanel({read,quote,execute}) {
         const c=view.context,h=view.homes.find(h=>h.id===selected);
         if(h) {
             const p=P[h.id],local=view.here?.id===h.id,usable=homeUsable(h,c);
-            detail.append(el('h3',h.name),el('p',`${homeDescription(h)} ${h.owner==='player'?'Title: yours.':`Owner: ${h.tenure==='rented'?'your host':'the household'}. Your occupancy is separate from title.`}`),el('p',`${local?'You are here.':`Visit ${p.location} through the native travel list.`} ${usable?'Home services available for this body.':'Home services currently unavailable for this body or lodging term.'}`));
+            const comfort=homeComfort(h);
+            const furnishings=Object.values(h.fixtures).map(row=>F[JSON.parse(row.key).id]);
+            const featured=furnishings.reduce((best, item)=>!best||item.price>best.price?item:best,null);
+            const dwelling=fieldRecord(panel.ownerDocument,{kind:'Dwelling Details',name:h.name,nameRole:'place',
+                location:{name:p.location,here:local},state:comfort.label,description:homeDescription(h),facts:[
+                ['Highest-priced furnishing',featured?.name||'None installed','item'],
+                ['Tenure',h.tenure],['Owner',h.owner==='player'?'You':h.tenure==='rented'?'Your host':'The household','person'],
+                ['Comfort',comfort.score],['Stored goods',Object.values(h.stock).reduce((a,b)=>a+b,0)+' / '+homeCapacity(h),'item'],
+                ['Services',usable?'Available to this body':'Unavailable for this body or lodging term','state']
+            ]});
+            detail.append(dwelling);
             if(p.period) {const meter=createMeterBar();meter.update({id:'home-rent',kind:'pool',label:'Prepaid lodging',value:Math.max(0,h.paidUntil-c.clock),max:Math.max(p.period,h.paidUntil-c.clock),note:'Time left on your lodging. Renew it yourself; running out adds no debt and keeps your goods.'});detail.append(meter.node);action(detail,'renew:'+h.id,`Renew lodging · ${moneyText(p.price)} a day`,{type:'renew',home:h.id});}
-            const comfort=homeComfort(h);detail.append(el('p',`${comfort.label} · ${comfort.score} furnishing and room comfort. Furnishing details show each active benefit.`));
             action(detail,'primary:'+h.id,'Make this your main residence',{type:'primary',home:h.id});
             if(h.id==='shack'&&h.tenure==='shared')action(detail,'deed:shack','Buy the Shack deed · 60 coins',{type:'deed',home:'shack'});
             if(h.owner==='player'&&h.tenure==='owned') {const label=el('label','Home name '),input=el('input');input.value=nameDrafts.get(h.id)??h.name;input.oninput=()=>nameDrafts.set(h.id,input.value);input.maxLength=60;input.setAttribute('aria-label','Home name');label.append(input);const rename=el('button','Name your home');rename.type='button';rename.dataset.homeRename='';rename.disabled=!local||!usable||!view.ready;rename.onclick=()=>{try{execute(quote({type:'rename',home:h.id,name:input.value}));nameDrafts.delete(h.id);notice.textContent='Home name saved.';render();}catch(e){notice.textContent=e.message;}};detail.append(label,rename);}
@@ -56,7 +67,7 @@ export function createHomePanel({read,quote,execute}) {
             if(local&&usable&&h.fixtures.incense)detail.append(el('p',c.meditationKnown?'Quiet practice ready: use the meditation activity here.':'Quiet practice space fitted. Learn Meditation to use it here.'));
             const furniture=section(detail,'Furnishings and selected slots');
             if(!Object.keys(h.fixtures).length)furniture.append(el('p','No furnishings yet. Carry one here to install it.'));
-            for(const [slot,row]of Object.entries(h.fixtures)){const f=F[JSON.parse(row.key).id];furniture.append(el('p',`${slot}: ${f.name} · ${row.owner==='player'?'yours':'provided by owner'}. ${f.description}`));action(furniture,`remove:${h.id}:${slot}`,'Pack '+f.name,{type:'remove',home:h.id,slot});}
+            for(const [slot,row]of Object.entries(h.fixtures)){const f=F[JSON.parse(row.key).id];const entry=el('p',`${slot}: `);entry.append(semanticInk(el('span',f.name),'item'),document.createTextNode(` · ${row.owner==='player'?'yours':'provided by owner'}. ${f.description}`));furniture.append(entry);action(furniture,`remove:${h.id}:${slot}`,'Pack '+f.name,{type:'remove',home:h.id,slot});}
             for(const [key,n]of Object.entries(c.inventory))if(F[JSON.parse(key).id])action(furniture,`install:${h.id}:${key}`,`Install ${F[JSON.parse(key).id].name} · ${n} carried`,{type:'install',home:h.id,key});
             renderWarehouse({host:detail,view,home:h,el,action});
             const stock=section(detail,`Residence storage · ${h.name} · ${Object.values(h.stock).reduce((a,b)=>a+b,0)}/${homeCapacity(h)}`);
@@ -93,10 +104,11 @@ export function createHomePanel({read,quote,execute}) {
         if(c.location===HOME_SITE||view.here)action(buildingBody,'weave_lining','Weave dry lining · 3 dry grass bundles · 8 min',{type:'weave_lining'});
         renderHomeWork({view,body:buildingBody,detail,h,el,section,action});
         shortcuts.replaceChildren();
-        for(const [label,match]of [['Household','Family, staff'],['Storage','Private storage'],['Furnishings','Furnishings'],['Rooms','Homeowner repairs']]){
+        for(const [label,match]of [['Hearth','Hearth and companion'],['Household','Family, staff'],['Storage','Residence storage'],['Furnishings','Furnishings'],['Rooms','Homeowner repairs'],['Guest room','Guest room and lodging'],['Worker room','Worker room and rota'],['Shelter','Shelter work and moving']]){
             const target=[...detail.querySelectorAll('details')].find(n=>n.firstElementChild?.textContent.startsWith(match));
             if(target){const b=el('button',label);b.type='button';b.dataset.homeSection=label;b.onclick=()=>{target.open=true;target.firstElementChild.focus({preventScroll:true});target.scrollIntoView({block:'start',behavior:'instant'});};shortcuts.append(b);}
         }
+        if(h)detail.querySelector('.field-record').append(shortcuts);
         start.hidden=!view.fresh;
         if(view.fresh)action(startBody,'ordinary','Keep your ordinary beginning',{type:'ordinary'});
         if(view.fresh)for(const [id,p]of Object.entries(S)){startBody.append(el('p',p.text));action(startBody,'start:'+id,'Begin as '+p.label,{type:'start',profile:id});}

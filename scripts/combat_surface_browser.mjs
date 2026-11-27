@@ -4,7 +4,7 @@
 // Export and Import. Checks damage types on moves, in the log and on the opponent card, and the dev readout.
 // Usage: node scripts/combat_surface_browser.mjs <out-dir>. Builds its own bundle; no user save is touched.
 import {createServer} from 'node:http';
-import {readFile, writeFile, mkdtemp, mkdir} from 'node:fs/promises';
+import {readFile, writeFile, mkdtemp, mkdir, rm} from 'node:fs/promises';
 import {createRequire} from 'node:module';
 import {tmpdir} from 'node:os';
 import {join, resolve, extname, dirname} from 'node:path';
@@ -72,6 +72,7 @@ const card = () => page.evaluate(() => {
         you: s.querySelector('.versus-side--you')?.innerText, opponents: [...s.querySelectorAll('.versus-card')].map(c => c.getAttribute('aria-label')),
         typeChips: [...s.querySelectorAll('.versus-chip--type')].map(c => ({text: c.textContent, type: c.dataset.damageType, source: c.dataset.source})),
         moves: [...s.querySelectorAll('.scene-card-option')].map(o => o.innerText.replace(/\s+/g, ' ')),
+        reportsLog: [...document.querySelectorAll('#message_box_div > *')].filter(n => n.checkVisibility()).map(n => n.innerText),
         log: [...s.querySelectorAll('.fight-situation-log li')].map(n => n.textContent), dev: [...s.querySelectorAll('.fight-situation-dev li')].map(n => n.textContent),
         aims: [...s.querySelectorAll('[data-fight-aim]')].map(b => ({aim: b.dataset.fightAim, disabled: b.disabled, pressed: b.getAttribute('aria-pressed'), top: Math.round(b.getBoundingClientRect().top)})),
         aimReason: s.querySelector('.fight-situation-aims span')?.textContent.trim() || '',
@@ -124,9 +125,12 @@ try {
     const done = JSON.parse(await save());
     report.finished = {session: done.expansion.simulation.sessions.player ?? null, tempoLast: done.expansion.actors.player.facts['tempo.lastResult'], cardHidden: !(await card())};
 } catch (e) { report.failure = e.message; await page?.screenshot({path: join(OUT, 'tempo-failure.png')}).catch(() => {}); }
-finally { report.errors = errors; await context?.close().catch(() => {}); await browser.close().catch(() => {}); server.close(); }
+finally { report.errors = errors; await context?.close().catch(() => {}); await browser.close().catch(() => {}); server.close(); await rm(bundleDir, {recursive: true, force: true}); }
 await writeFile(join(OUT, 'journey.json'), JSON.stringify(report, null, 1) + '\n');
-const ok = !report.failure && report.open?.visible && report.afterMoves?.typeChips.length && report.afterMoves.log.some(l => /slashing|piercing|bludgeoning/.test(l))
+// Reports mode deliberately has no card-local log. Require a visible typed hit in the active log destination.
+const typedHit = [...(report.afterMoves?.log || []), ...(report.afterMoves?.reportsLog || [])].some(l => /hit.*(?:slashing|piercing|bludgeoning)/i.test(l));
+const pricedMoves = report.open?.moves.some(l => /Quick strike.*3 beats/.test(l)) && report.open?.moves.some(l => /Heavy swing.*6 beats/.test(l));
+const ok = !report.failure && report.open?.visible && pricedMoves && report.afterMoves?.typeChips.length && typedHit
     && report.dev?.length && !/Who acts next|Quick strike/.test(report.afterImport?.oldPanel || '') && report.reloadIdentical && report.importIdentical && report.afterReload && report.afterImport && !errors.length;
-console.log(ok ? 'PASS' : 'FAIL', JSON.stringify({bundleHash, open: report.open?.box, chips: report.afterMoves?.typeChips, reload: report.reloadIdentical, import: report.importIdentical, failure: report.failure, errors: errors.length}));
+console.log(ok ? 'PASS' : 'FAIL', JSON.stringify({bundleHash, open: report.open?.box, chips: report.afterMoves?.typeChips, reload: report.reloadIdentical, import: report.importIdentical, typedHit, pricedMoves, failure: report.failure, errors: errors.length}));
 process.exitCode = ok ? 0 : 1;

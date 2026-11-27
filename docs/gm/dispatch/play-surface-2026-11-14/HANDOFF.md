@@ -16,6 +16,12 @@ The play-surface wave (2026-11-14 to 2026-11-16) closes here, as Weibao asked: "
 | Row style, presets, fight log | Display › Look | Try them in play. Classic is the original look. |
 | Klein's rent arrears after a move | daily-loops' audit note on 2d408371a | Proposal: old-flat arrears carry over as weeks, priced at the current week's rent. Keep the old price instead, if that reads better. |
 
+## Current visual-reference follow-through, 2026-11-20
+
+Read the [updated visual sheet and disposition table](../../../research/DISCORD_VISUAL_REFERENCE_SHEET_2026-11-20.md#current-disposition-of-every-reference--november-20-update) before applying the older lane list. The [latest direction](../../USER_VISION_LOG_2026-11.md#responsive-animated-and-expressive-ui-2026-11-20) allows animation, tactile response, small emoticons/reactions and ambient detail for pleasure and atmosphere. It corrects the earlier motion-for-change restriction; these do not need to add a decision or a simulation. The image sheet accounts for VR01–VR19, distinguishes existing mechanisms from missing runtime proof and names the owning seams. Research has not implemented or closed those runtime items.
+
+The parent retains `prototypes/world-atlas` and `prototypes/creature-desk`; existing runtime owners retain their areas. First proposed comparison: successful refuel and pet/play response through the current household host, followed by one real making action and one actor/creature response. Judge feel and personality as well as legibility; keep effects-off/reduced motion, focus, exact result and return checks. This is a shared file handoff, not a claim that another chat has received a message or started work.
+
 ## Open work by lane (each with a handover)
 
 | Lane | Open items, in order | Done check |
@@ -25,7 +31,7 @@ The play-surface wave (2026-11-14 to 2026-11-16) closes here, as Weibao asked: "
 | feature-ui | PS250–PS251 enchanting bench from `src/rune_grammar.js`; Learning now stall reasons; D2 Klein's Beyonder tab; D4 Refine bench; D3 exams in Quests; the bench layout proposal | Bench in play, kit-drawn |
 | daily-loops | Klein's streets (event owner in 0e20e2160) if unfinished; rent by home; D5 patrol count and merit ledger (needs saved history); Harry's further days | A playable day per lead, ending in "Next:" links |
 | discord-features | DU38 two-pane trade (after the item sheet is on the kit); F34 per-fight yield in Reports; the walk map remembering its open state | Surfaces in play with browser proof |
-| feel-finish | Effects following the OS; an animated mock; per-world rarity glow meaning | Look choices registered, defaults unchanged |
+| feel-finish | Apply the November 20 responsive/expressive direction: tactile clicks, local subject reactions and animated actions, plus ambient detail. Reuse existing effects and settings; take VR03/14/16/18/19 as the first proposed comparison. | Real-action before/after, static/reduced/full treatment, stable targets and durable result; existing state/receipt owners retained |
 | foundation-run | Klein's acting slice (its resume block) | Committed with `lotm_be_acting.js` and importers |
 | ui-drafting (done) | D1–D12 drafts await builds by feature-ui and ui-cohesion; PS216 handover used | See `docs/audits/UI_SURFACE_COVERAGE_2026-11-15.md` resume line |
 
@@ -61,3 +67,19 @@ Weibao: "then we can start ideaboarding after handing off all the rest ideas". T
 | I7 | An unusual life: a second-order role (a raised Gu, Klein's informant, a house-elf) on the same screens with a very different day. |
 
 Questions: Q1 which lead feels complete first, or all three evenly; Q2 deeper leads or a fourth world to prove the systems carry; Q3 new features or cohesion on what exists.
+
+## Codex review of the Gothic combat layout (2026-11-19)
+
+**Start with [PS343 and its browser receipt](CONSIDERATIONS.md#ps343--a-shared-opponent-section-for-the-cave-and-the-road-contest).** Review the shared opponent layout and recommend the smallest improvement that makes both fights easier to read. This handoff is for design review. Treat proposed changes as options for Weibao.
+
+**Baseline.** The local shared checkout at `/Users/weiwei/code/yet-another-idle-rpg` was dirty at `96b0b8d04`. The source changes are in that working tree. Read `src/village_workspace.js` for the native roster, `src/ui/combat_versus.js` and `src/combat_situation_ui.js` for the duel, and `styles/combat_versus.css` for their shared rows. Preserve unrelated edits. The captured build used bundle `v0.6-392f9ab2b6b6` and stylesheet `v0.6-393a7e8a82c7`. The preview answered at `http://127.0.0.1:58589/` at handoff. If it has stopped, rebuild with `node prototypes/live-layout/serve.mjs --rev WORKTREE --fixture mid --text-size 21` and use its new origin. Check for drift before comparing the rebuilt UI against the captures.
+
+**Evidence.** The four screenshots and the `native.json` and `duel.json` receipts are in `/Users/weiwei/.codex/visualizations/2026/11/18/01a1f085-3f61-7ae2-9a7e-18c7630a8478/shared-opponents/`. The local replay scripts are `/tmp/oops-shared-native.mjs` and `/tmp/oops-shared-duel.mjs`. Each takes the preview origin and an output directory. Pass `21` as the duel script's third argument. They use disposable browser profiles. The live replay verified a first wolf defeat, continued auto-fighting, Withdraw, and Rat-step after Mara became Hurt and missed. The 54 focused tests and rules check passed. The architecture check reports the existing two-line `src/main.js` overage. Product acceptance remains open.
+
+**Review in this order.**
+
+1. At 1920×1080 and 1800×1072 with 21px Gothic, open the four captures. Check whether you can immediately identify the surviving rat, the opponent being inspected, and the next attack. Check the defeated label and its contrast. Both names stay Wolf rat and stable positions carry identity. Keep one Withdraw and Reports next to the fight.
+2. On Mara, check whether Condition, stamina, readiness, and Opening are independently readable. Exact enemy HP remains gated by what the encounter reveals. Check that Ready, the reason Rat-step is available, and the move preview read as one decision. See whether the repeated location and opponent count can make room for stronger cues.
+3. Compare the default stacked roster against one genuinely different arrangement, such as a compact overview with the inspected details below. Judge what an extra row, ally, or long opponent name would cost at 21px. Keep the native continuous clock and the duel's action-by-action control. Consider a future tempo hand-back cue only where the engine knows why it stopped.
+
+**Done when** the review gives one ranked recommendation, a concrete advantage over the current captures, and a browser acceptance check for each scene. Cite what is visible in the captures and distinguish what would require a new replay. Keep any engine merger, new disclosure rules, and cross-world rollout as later decisions.

@@ -1,5 +1,7 @@
 import {localMoneyLabel, localPurseLabel, coinPricesHere} from './ui/local_money_label.js';
+import {locationMapMarks, locationMapDanger} from './ui/map_marks.js';
 import {bookFinishLines} from './book_finish_lines.js';
+import {quoteJourney, journeyTitle} from './journey_quote.js';
 import {keptShopKeys} from './shop_locks.js';
 import {gearItemFactsHtml} from './gear_item_facts.js';
 import {craftBatchGoal} from './craft_batch_goal.js';
@@ -40,6 +42,7 @@ import {nativeSkillDiscovery} from './skill_discovery_native.js';
 
 import {game_options, current_location, active_effects, last_location_with_bed, last_combat_location, faved_stances, selected_stance, global_flags, unlocked_beds, favourite_consumables, travel_times, favourite_items} from "./runtime_state.js";
 import {can_work, enough_time_for_earnings} from "./activity_time.js";
+import {patrolPayText,WATCHCRAFT_PRACTICE} from './village_career.js';
 import {readLocalWeatherWords, get_current_book, get_context, canConsumeNativeCraftingItem, nativeWorkLedgerChance, nativeWorkLedgerQuality} from "./native_view.js";
 import {translate} from "./native_translation.js";
 import { activities } from "./activities.js";
@@ -56,7 +59,7 @@ import { expo, format_reading_time, stat_names, round_item_price, format_working
 //import { stances } from "./combat_stances.js";
 import { reportTags } from "./ui/report_filters.js";
 import { channelNote } from "./channels.js";
-import { watchSkillColumn, fullNameOnHover } from "./ui/skill_row.js";
+import { watchSkillColumn, fullNameOnHover, shortCount } from "./ui/skill_row.js";
 import { inventoryNameParts, inventoryControls } from "./ui/inventory_row.js";
 import { rankOf } from "./faction_rank.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
@@ -1204,7 +1207,7 @@ export function setNativeLogBufferReader(reader) {
     // One control per line: a voiced line's Open goes to the panel its useful part names.
     const panelId=details.panelId||voice?.panel||({message_combat:'combat',message_loot:'belongings',message_crafting:'crafting'}[group_to_add])||({skill_raised:'skills',skill_unlocked:'skills',activity_unlocked:'local-actions',location_unlocked:'local-actions'}[message_type]);
     if(panelId){
-        const link=document.createElement('button');link.type='button';link.className='notice-panel-link';link.textContent='Open';
+        const link=document.createElement('button');link.type='button';link.className='notice-panel-link';link.textContent=details.panelLabel||'Open';
         link.title=voice?.panel===panelId?'Open the panel this line names':'Open related panel';link.dataset.noticePanel=panelId;
         link.onclick=()=>{if(panelId==='crafting'){if(document.querySelector('.choice_craft'))window.openCraftingWindow();}else if(!expandWorkspaceModule(panelId))openWorkspaceModule(panelId);};message.append(link);
     }
@@ -2677,13 +2680,19 @@ function create_location_choices({location, category, is_combat = false}) {
                     }
                 }
             }
-            const {gathering_time_needed} =  location.activities[key].getActivityEfficiency();
-            job_tooltip_content += `Pays ${format_money(location.activities[key].get_payment())} per every ` +  
-                    `${format_working_time(gathering_time_needed)} worked`;
+            const job = location.activities[key];
+            const {gathering_time_needed} = job.getActivityEfficiency();
+            const patrol = location.id === 'Village' && key === 'patrolling' ? get_context().villagePatrol : null;
+            const basePay = job.get_payment();
+            const duration = format_working_time(gathering_time_needed);
+            job_tooltip_content += patrol
+                ? 'Leaving before the full round earns no pay.'
+                : `Pays ${format_money(basePay)} per every ${duration} worked`;
             insert_HTML(job_tooltip, job_tooltip_content);
             activity_div.appendChild(job_tooltip);
     
-            insert_HTML(activity_div, `<i class="material-icons location_choice_icon">check_box_outline_blank</i> ` + location.activities[key].starting_text);
+            insert_HTML(activity_div, `<i class="material-icons location_choice_icon">check_box_outline_blank</i> ` + job.starting_text);
+            if (patrol) activity_div.append(document.createTextNode(` · ${duration} · ${patrolPayText(basePay, patrol.nextBonus)}`));
             choice_list.push(activity_div);
         });
     } else if (category === "train") {
@@ -2760,7 +2769,7 @@ function create_location_choices({location, category, is_combat = false}) {
                 const action = document.createElement("div");
                 let action_html_content = "";
                 
-                const travel_time = format_time({time: {minutes: travel_times[location.id][location.connected_locations[i].location.id]}});
+                const travel_time = quoted_travel_time(action, travel_times[location.id][location.connected_locations[i].location.id]);
 
                 if(location.connected_locations[i].location.tags.safe_zone) {// check again if connected location is normal or combat
                     action.classList.add("travel_normal");
@@ -2791,7 +2800,7 @@ function create_location_choices({location, category, is_combat = false}) {
             let action_html_content = "";
             action.classList.add("travel_normal", "action_travel", "location_choice");
 
-            const travel_time = format_time({time: {minutes: travel_times[location.id][location.parent_location.id]}});
+            const travel_time = quoted_travel_time(action, travel_times[location.id][location.parent_location.id]);
             let travel_time_text = "";
             if(travel_time) {
                 travel_time_text = " [" + travel_time + "]";
@@ -2816,7 +2825,7 @@ function create_location_choices({location, category, is_combat = false}) {
             let action_html_content = "";
             action.classList.add("action_travel", "travel_normal", "location_choice");
 
-            const travel_time = format_time({time: {minutes: travel_times[location.id][last_bed.id]}});
+            const travel_time = quoted_travel_time(action, travel_times[location.id][last_bed.id]);
             
             if(!is_combat) {
                 action_html_content += `<i class="material-icons location_choice_icon">check_box_outline_blank</i> `
@@ -2919,7 +2928,7 @@ function create_fast_travel_choices() {
 
         const action = document.createElement("div");
         let action_html_content = "";
-        const travel_time = format_time({time: {minutes: travel_times[current_location.id][available_fast_travel[i]]}});
+        const travel_time = quoted_travel_time(action, travel_times[current_location.id][available_fast_travel[i]]);
 
         if(locations[available_fast_travel[i]].tags.safe_zone) {
         
@@ -2955,7 +2964,31 @@ function create_fast_travel_choices() {
 
         choice_list.push(action);
     }
-    const map = fastTravelMapBlock({hereId: current_location.id, distances: travel_times[current_location.id] || {}, exits: (current_location.connected_locations || []).map(c => ({id: c.location.id, minutes: travel_times[current_location.id]?.[c.location.id]})), known: id => !!locations[id]?.canBeStarted?.(get_context()), label: id => locations[id]?.name ?? id, onGo: id => window.change_location({location_id: id})}); if(map) choice_list.push(map); return choice_list; // PS164
+    const context = get_context(), hereId = current_location.id;
+    const distances = travel_times[hereId] || {};
+    const neighbors = id => (locations[id].parent_location ? [locations[id].parent_location] :
+        (locations[id].connected_locations || []).map(route => route.location)).map(place => place.id);
+    const known = id => !!locations[id]?.canBeStarted?.(context);
+    const describe = id => ({
+        marks: locationMapMarks(locations[id], {
+            activities, available: entry => entry.isUnlocked(),
+            trader: id => {const npc = NPCRegistry.get(id); return npc.tags.trader && npc.canBeDisplayed(context);},
+        }),
+        danger: locationMapDanger(locations[id], enemy_templates, id => enemy_killcount[id] > 0),
+    });
+    const map = fastTravelMapBlock({hereId, distances, neighbors, describe, known,
+        exits: neighbors(hereId).map(id => ({id, minutes: distances[id]})),
+        label: id => locations[id]?.name ?? id, onGo: id => window.change_location({location_id:id})});
+    if (map) choice_list.push(map);
+    return choice_list;
+}
+
+// AK17: travel rows show the quoted walk (what change_location charges), with its causes and arrival in the hover.
+function quoted_travel_time(action, base_minutes) {
+    const quote = Number.isFinite(base_minutes) && base_minutes > 0 ? quoteJourney(base_minutes, {now: current_game_time}) : null;
+    if(!quote) return format_time({time: {minutes: base_minutes}});
+    action.title = journeyTitle(quote, minutes => format_time({time: {minutes}}));
+    return format_time({time: {minutes: quote.minutes}}) + `, arrive ${quote.arriveAt.text}`;
 }
 
 function remove_fast_travel_choice({location_id}) {
@@ -5055,6 +5088,12 @@ function start_activity_display(current_activity) {
 
     action_div.appendChild(action_status_div);
     action_div.appendChild(action_xp_div);
+    if (['meditating','patrolling'].includes(current_activity.id) && get_context().villagePatrol) {
+        const watchcraft = document.createElement('div');
+        watchcraft.id = 'village_watchcraft_activity';
+        watchcraft.hidden = true;
+        action_div.append(watchcraft);
+    }
 
     if(current_activity.gathering_time_needed != 1) {
         const action_progress_bar_max = document.createElement("div");
@@ -5082,10 +5121,47 @@ function start_activity_display(current_activity) {
     update_displayed_ongoing_activity(current_activity);
 }
 
+function updateVillageWatchcraftActivity(current_activity) {
+    const line = document.getElementById('village_watchcraft_activity');
+    if (!line) return;
+    const patrol = get_context().villagePatrol;
+    if (!patrol) return;
+    if (current_activity.id === 'patrolling') {
+        const base = current_activity.get_payment();
+        const total = Math.max(0, base + patrol.activeBonus + patrol.teachingAdjustment);
+        const text = patrol.activeBonus
+            ? `Watchcraft · Sector scanning in use · Full round: ${patrolPayText(base, patrol.activeBonus, total)}.`
+            : `Full round: ${patrolPayText(base, 0)}.`;
+        if (line.textContent !== text) line.textContent = text;
+        line.hidden = false;
+        return;
+    }
+    line.hidden = !patrol.showHandoff;
+    if (!patrol.showHandoff || line.firstChild) return;
+    const earned = document.createElement('p');
+    earned.textContent = `Watchcraft earned · Sector scanning rehearsed ${WATCHCRAFT_PRACTICE}/${WATCHCRAFT_PRACTICE}`;
+    earned.setAttribute('role','status');
+    const next = document.createElement('button');
+    next.type = 'button';
+    next.id = 'village_watchcraft_handoff';
+    next.textContent = patrol.kitDue ? 'Finish rehearsal and open Patrol & custody' : 'Finish rehearsal and find work';
+    next.onclick = () => {
+        if (!patrol.kitDue) open_location_dropdowns.add('Find work');
+        window.end_activity();
+        if (patrol.kitDue) openWorkspaceModule('patrol');
+        else {
+            expandWorkspaceModule('local-actions');
+            document.querySelector('[data-activity="patrolling"]')?.focus();
+        }
+    };
+    line.append(earned,next);
+}
+
 function update_displayed_ongoing_activity(current_activity) {
     if(deferSimulationRender(update_displayed_ongoing_activity, () => {if(document.getElementById('action_xp_div')) update_displayed_ongoing_activity(...arguments);})) return;
     const base_activity = activities[current_activity.activity_name];
 
+    updateVillageWatchcraftActivity(current_activity);
     if(base_activity.type === "JOB") {
         set_HTML(document.getElementById("action_end_earnings"), `(pay accrued on stopping: ${format_money(current_activity.earnings)})`);
         const time_info_div = document.getElementById("time_for_earnings_div");
@@ -5469,11 +5545,11 @@ function update_displayed_skill_bar(skill, leveled_up=true) {
 
     if (skill.getCurrentXP() !== "Max") {
         skill_bar_divs[skill.category][skill.skill_id].children[0].classList.remove("skill_bar_capped");
-        skill_bar_divs[skill.category][skill.skill_id].children[0].children[0].children[1].innerText = `${100*Math.floor(skill.getCurrentXP()/skill.getXPToNextLvl()*1000)/1000}%`; // upstream's short label; the tooltip line says "XP to the next level"
+        skill_bar_divs[skill.category][skill.skill_id].children[0].children[0].children[1].innerText = `${shortCount(skill.getCurrentXP())}/${shortCount(skill.getXPToNextLvl())}`; // SKC1: counts in short form inside the bar; the hover keeps the exact numbers
         // GTL6: practice banked past the single-gain cap, per world (GTR16, GTR21).
         const digesting = domainRegistry.project('skill_overflow', 'bank', skill.skill_id) || 0;
         const xp_line = skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[0];
-        xp_line.innerText = `${expo({number: skill.getCurrentXP()})} / ${expo({number: skill.getXPToNextLvl()})} XP to the next level` + (digesting > 0 ? ` · digesting ${expo({number: digesting})}` : '');
+        xp_line.innerText = `Level ${skill.getDefaultSkillXP().current_level} of ${skill.max_level}. ${expo({number: skill.getCurrentXP()})} / ${expo({number: skill.getXPToNextLvl()})} XP to the next level` + (digesting > 0 ? ` · digesting ${expo({number: digesting})}` : '');
         xp_line.title = digesting > 0 ? domainRegistry.project('skill_overflow', 'row')?.reason || '' : '';
 
     } else {
@@ -5513,7 +5589,7 @@ function update_displayed_skill_level(skill) {
 
     const skillXP = skill.getDefaultSkillXP();
 
-    let html_content = `${skill.getName()} : level ${skillXP.current_level}/${skill.max_level}`;
+    let html_content = `${skill.getName()} ${skillXP.current_level}`; // SKC1: one line, "Patience 3"; the cap is in the hover
     const bonus = character.getBonusSkillLevels()[skill.skill_id];
     if(bonus != 0) {
         html_content += ` <b>[${bonus>0?"+":""}${bonus}]</b>`;

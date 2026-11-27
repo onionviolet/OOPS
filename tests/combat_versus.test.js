@@ -6,6 +6,7 @@ import {DUEL_BOARD, BRAWL_BOARD} from '../src/ui/preview/fixtures/combat.js';
 
 class Element {
     constructor(tag, doc) {this.tagName = tag; this.ownerDocument = doc; this.dataset = {}; this.children = []; this.attrs = {}; this.className = ''; this._text = ''; this.props = {};
+        this.classList = {add: cls => { this.className += ` ${cls}`; }};
         this.style = {setProperty: (k, v) => { this.props[k] = v; }};}
     get textContent() {return this._text + this.children.map(c => c.textContent).join('');}
     set textContent(v) {this._text = v; this.children = [];}
@@ -16,7 +17,7 @@ class Element {
     has(cls) {return this.className.split(/\s+/).includes(cls);}
     find(pred, out = []) {for (const c of this.children) {if (pred(c)) out.push(c); c.find(pred, out);} return out;}
 }
-const makeDocument = () => {const doc = {createElement: tag => new Element(tag, doc)}; return doc;};
+const makeDocument = () => {const doc = {createElement: tag => new Element(tag, doc), createDocumentFragment: () => new Element('#fragment', doc)}; return doc;};
 const you = (current, extra = {}) => ({name: 'You', health: {current, max: 40}, speed: 0.8, defense: 2, minDamageShare: .05, damageTaken: 1, sideSize: 1, ...extra});
 const duel = () => fightSituation(DUEL_BOARD, you(14), {place: 'Reed causeway'}).versus;
 const brawl = () => fightSituation(BRAWL_BOARD, you(5), {place: 'Sunken lane'}).versus;
@@ -40,6 +41,26 @@ test('one card per opponent in slot order, drawn through the host document', () 
     renderVersusRow(host, duel());
     assert.equal(host.children.length, 1);
     assert.equal(host.children[0].dataset.opponents, '1');
+});
+
+test('the shared opponent roster keeps condition and opening in the row and shows details for the inspected fighter', () => {
+    const doc = makeDocument(), host = doc.createElement('div'), playerHost = doc.createElement('div');
+    const versus = brawl(), mara = versus.opponents[1];
+    mara.hp = {text: 'Hurt', fraction: null, qualitative: true};
+    mara.opening = true;
+    mara.stamina = {current: 5, max: 12, text: '5/12 stamina'};
+    const inspected = [];
+    const root = renderVersusRow(host, versus, {playerHost, inspectedId: mara.id, onInspect: id => inspected.push(id)});
+    const rows = cards(root);
+    assert.deepEqual(rows.map(row => row.dataset.combatSubject), versus.opponents.map(o => o.id));
+    assert.deepEqual(rows.filter(row => row.dataset.inspected === 'true'), [rows[1]]);
+    assert.equal(rows[1].find(n => n.has('versus-condition'))[0].textContent, 'ConditionHurt');
+    assert.equal(rows[1].find(n => n.has('fight-opening'))[0].textContent, 'Opening');
+    assert.equal(rows[1].find(n => n.has('versus-bar--hp')).length, 0);
+    assert.equal(rows[1].find(n => n.has('versus-bar--stamina')).length, 0);
+    assert.match(root.find(n => n.has('versus-opponent-details'))[0].textContent, /5\/12 stamina/);
+    rows[0].find(n => n.dataset.fightInspect)[0].onclick();
+    assert.deepEqual(inspected, [versus.opponents[0].id]);
 });
 
 test('unknown opponent reads Atk ? and ?/? hp inside an empty track (PS130, PS297) with no meter and an unsized threat word', () => {

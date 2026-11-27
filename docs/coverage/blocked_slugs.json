@@ -79,6 +79,7 @@
   "rank-unknown",
   "revival-on-death",
   "role-cannot-run",
+  "roles-partial",
   "roles-unchecked",
   "roles-unknown",
   "sentient-agent",
@@ -103,6 +104,7 @@
  "distinct": {
   "divination": "senses hidden information; the law reads what is hidden",
   "divination-fate": "bends or foretells an outcome set by fate or destiny (a standing condition or a doom), a different law from reading hidden facts",
+  "roles-partial": "An incomplete Gu move recipe with at least one chapter slot confirmed by a second reader. Identify the remaining roles and activation order before promoting the recipe.",
   "roles-unchecked": "Gu move whose roles a wiki label named and a second reader confirmed, no chapter check yet; roles-unknown has no roles at all",
   "roles-unknown": "Gu move with no named component or order yet; needs a chapter pass first. One ledger, so a lookup, not a law (PWC66)",
   "soul-state": "a condition of the soul (damaged, shattered, reforged, held)",

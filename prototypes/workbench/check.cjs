@@ -9,6 +9,8 @@ const out=process.env.WORKBENCH_EVIDENCE||path.join(__dirname,'evidence');fs.mkd
  const context=await browser.newContext({viewport:{width:1366,height:768},reducedMotion:'reduce',acceptDownloads:true});
  const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
  await page.goto(url+'?study=recipes');await page.getByRole('status').filter({hasText:'Ready'}).waitFor();
+ assert.equal(await page.locator('#viewport').inputValue(),'1920x1080');
+ await page.locator('#viewport').selectOption('1366x768');
  const frame=()=>page.frames().find(f=>f!==page.mainFrame());
  const capture=async(name,variant,text,scenario='crowded',width=1366,height=768)=>{
    const direct=await context.newPage();await direct.setViewportSize({width,height});

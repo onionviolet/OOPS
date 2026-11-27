@@ -205,8 +205,9 @@ export function fixtureSetup(name, smeltingXP, craftingXP, field) {
         assert.equal(row.expansionError,'');assert.equal(row.foundationSaveBlocked,false);
         assert.deepEqual(row.ticks,[1,1,1]);
         assert.equal(row.travelLocation,'Shack');assert.equal(row.unequippedTick,1);
-        assert.equal(row.after,row.before+15);
-        assert.equal(row.calendarAfter.minute,row.calendarBefore.minute+15);
+        // 5 one-minute ticks plus the Village-Shack walk: 10 base minutes x1.25 timber-load (the fixture carries 30 logs; journey_quote.js, AK17) = 13.
+        assert.equal(row.after,row.before+18);
+        assert.equal(row.calendarAfter.minute,row.calendarBefore.minute+18);
         const reload=await import(pathToFileURL(outfile).href+'?equipped-reload');reload.fixtureAttach(reload);
         assert.equal(reload.load(saved).warnings,false);
         assert.equal(reload.character.getEquipment().amulet.getInventoryKey(),row.equipment.player.amulet);

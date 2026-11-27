@@ -8,7 +8,11 @@ not select a recipe layout, replace the accepted Proto23 baseline, or authorize
 unrelated production changes. [UI rules](UI_RULES.md) still govern player-facing
 surfaces. Earlier independent prototypes remain historical experiments.
 
-## Open it
+## Start a new mock
+
+Start at MW9. Find the owning view or layout, branch the real change and compare it with the current game on the same fixture. Check whether the working tree contains relevant uncommitted UI changes before choosing a base. For gear placement, the [live layout launcher](../prototypes/live-layout/README.md) already supplies gear and busy-Journal fixtures. Check Equip and return focus with the surrounding panels visible. Use the shared workbench when the review needs its mirrored controls, scenarios or exports.
+
+## Open the shared workbench
 
 From the repository root:
 
@@ -45,10 +49,10 @@ for the preview host design; MW9 below is the default way to build a mock.
 
 | Code | Requirement | Reason |
 | --- | --- | --- |
-| MW1 | Start with a question, a representative player task, surface/home, target viewport, fixture provenance and exclusions. Put these in the study manifest and display them under Task & limits. | A polished screen should answer an actual unsettled question. |
-| MW2 | Use the shared workbench for new interactive comparisons. Reuse pinned YAIR tokens, components and public projections where useful. State exactly which parts are real, simulated or absent. Use a focused pane study only when its question does not depend on surrounding composition, and label that limit. | Avoid unrelated skins and mocks that promise mechanics they do not have. |
+| MW1 | Start with a question, a representative player task, surface/home, target viewport, fixture provenance and exclusions. Record these with the mock. Workbench studies display their manifest under Task & limits. | A polished screen should answer an actual unsettled question. |
+| MW2 | Use the shared workbench when its comparison controls serve the study. Mount MW9 variants from the real owning code and identify the source revision for pinned inputs. State exactly which parts are real, simulated or absent. For a question independent of the surrounding composition, a focused pane study can show the relevant interaction. Label its limits. | Avoid unrelated skins and mocks that promise mechanics they do not have. |
 | MW3 | Compare alternatives against the same state. Layout changes preserve selected subject, query, stock, history and available scroll/focus anchors. Compare mode mirrors interactions in either pane without replaying the gameplay command. Scenario changes and Reset explicitly restore the fixture. | Avoid one alternative receiving better data, a fresh inventory or an easier task. |
-| MW4 | Keep viewport size, text size and display scale separate. Default to 1920×1080 (1366×768 retired 2026-10-19); include other desktop sizes and real 14/17.5/21px text where relevant. Fit preview is labelled and useful for overview. Readability evidence uses actual-size browser rendering/captures. | A scaled thumbnail cannot establish readable large text. |
+| MW4 | Keep viewport size, text size and display scale separate. Lead with the populated workspace at 1920×1080 and actual size. Use 1280×800 as a secondary small-window stress check. Include other desktop sizes and actual 14/17.5/21px text where relevant. Label fit previews with their scale. Readability evidence uses actual-size browser rendering and captures. | A scaled thumbnail cannot establish readable large text. |
 | MW5 | Exercise the journey, not just the opening image: find, inspect, act, read result, return and resume. Include relevant crowded, long-name, unknown, unavailable and failure states. Use keyboard and Back/Esc, preserve the log and current work. | Empty fixtures and screenshots miss navigation and changing-state defects. |
 | MW6 | Isolate from personal gameplay startup, saves, credentials and production storage. Reduced studies use disposable in-memory fixtures. Under the 2026-10-26 current-shell correction, native studies may start a frozen bundle with fixture storage on a fresh disposable loopback origin; use an explicit/manual clock unless time itself is under study. Never import sealed truths into a public fixture. | Review should be reversible, reproducible and safe for the director to play. |
 | MW7 | Export a review with fixture state, build revision, viewport, text and limitations. Keep evidence with the experiment. Record recommendations separately from human selection and native integration. Accepted choices go in the existing feature owner and PROJECT summary. | Passing checks or exporting a file does not establish visual acceptance. |
@@ -79,7 +83,7 @@ only this synthetic state and explicitly says the proposal is unreviewed.
 Nothing persists automatically across reloads. Review exports are evidence,
 not game-save files. This version does not import review exports.
 
-## Add another study
+## Add a study that needs workbench controls
 
 Use this structure rather than forking the workbench chrome:
 

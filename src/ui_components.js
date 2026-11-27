@@ -109,6 +109,8 @@ export function decorateInventoryList({id='inventory_content_div',label='invento
             }
         }
         const text=inventory?`${visible} / ${rows.length} stacks · ${units} items`:`${visible} / ${rows.length} ${noun}`;count.title=inventory?'Matching stacks and units after category, name, kind and quality filters.':'Matching '+noun+'; collapsed groups keep their entries.';if(count.textContent!==text)count.textContent=text;
+        // SKC2 (UR178): a list that is not narrowed says nothing; the count shows only while a search or filter hides rows.
+        if(!inventory)count.hidden=visible===rows.length;
         if(id==='skill_list'){
             const searching=!!search.value.trim();
             for(const group of list.querySelectorAll('.skill_category_div')){

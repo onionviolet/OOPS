@@ -379,6 +379,190 @@ This round maps named prior material rather than declaring earlier ideas newly i
 
 Residue: per-world source qualification, actual current producer/state/result wiring, pacing and total-length targets, generic generated quests, offline/absence policy implementation, source-game timing benchmarks and human play feel. This round read saved project owners; it read no new book chapters, acquired nothing, launched no agents and ran no gameplay/build/browser/save checks. Design text and rule clarification are not playable delivery. Documentation checks and preservation results are recorded in the project log at close.
 
+## Run shapes: short identities, death as a door and bounded careers, 2026-11-22
+
+Weibao asked about playthrough styles beyond the standard Proto23/YAIR shape: "something where identities are more subject to change? death is death and then death leads to different identities and possibilities", or "being a normal soldier, working to become a space marine and then participating in a war and dying", and whether implementation difficulty scales out of reach. Follow-ups: "consider the different gameplay loop that would happen and the stuff required to make it work and actually fun with identities being less long term?" and "Or if we should consider making this idea make more sense?" **Everything below is a proposal under AD32.** Foundations first (2026-11-11) keeps its order; nothing here is queued.
+
+### A second axis, not more pursuits
+
+LPS1–LPS14 say what a life pursues. This round is about **run shape**: how long one identity lasts, what death does, and what carries the player's investment across identities. The two axes combine (a short-lived courier, a bounded soldier career, a chain of scholars). The rules already cover most pieces: links between starts (LK1–LK10, LG1–LG2 in [intro flow](../INTRO_FLOW_CONSIDERATIONS_2026-10-13.md#lk-kinds-of-link-between-starts)), run mode as a property of the life (STY4, STY32), run-ending threats with a continuation (AD50), the lives list (UR87), [selves and echoes](../SELVES_AND_ECHOES.md), and heirs as a start option rather than main line (2026-10-30).
+
+| ID | Shape | Long thread (what persists) | Existing basis |
+|---|---|---|---|
+| LRS1 | **Open life** (Proto23/YAIR today): one identity, open-ended, forgiving recovery | The character | Current default |
+| LRS2 | **Mortal arc:** one life with a chosen ending condition (a war, an expedition, an age); ends with an epilogue | The told story and its traces | STY4 run mode, AD50 announced end, north star "death and remains" |
+| LRS3 | **Chain of lives in one world:** death hands play to a new identity in the same continuing world | The world, plus whatever the link carries | LK1/LK2/LK6, LG1, `die:` + `fresh`/`branch:` commands |
+| LRS4 | **Soul chain:** the carrier is a soul or memory, so knowledge (and perhaps the cheat) passes; body and standing do not | The soul's knowledge | LK5 echo, LK9 loop, MoL restart, SELVES_AND_ECHOES |
+| LRS5 | **Unit as protagonist:** a regiment, crew, sect or household is the long-lived character; members die and the seat moves within it | The group, its record and reputation | LK1 successor in office, CBD144 per-seat war report |
+| LRS6 | **Many faces, one life:** identity changes without death (aliases, personas, burned covers), each with its own reputation and ties | The person behind the masks | LPS12, Klein's personas in LOTM canon |
+| LRS7 | **Anthology of a place or object** (unusual): play whoever holds the inn, or whoever finds the sword, across eras | The place or the object | LK7, LK8 |
+
+### The loop when identities are short
+
+With LRS1 the reward is the slow growth of one person. Shorten the identity and the reward has to move to the long thread, or each death just deletes progress. The loop becomes:
+
+1. **Choose the next identity** from real people in the world (a draft of two or three locals, each with circumstances, ties and a reason to act). This choice is the new heart of the game.
+2. **Live a dense, compressed life.** Routine early-life work is abstracted (ACR rules); the start lands where decisions begin (advanced and inherited starts, WER).
+3. **Push a goal that outlives you:** win the war, raise the regiment's name, finish the research, keep the inn open.
+4. **Die by a readable cause** that was announced and avoidable (AD50), never a hidden roll.
+5. **See the consequences:** an epitaph from the log, who mourns, what the war report says about you, what your death changed.
+6. **Meet your own traces in the next life:** the grave, the notes you left, the old squadmate now a sergeant, the debt someone still owes.
+
+### What it needs to be fun
+
+| ID | Requirement | Why | Failure if missing |
+|---|---|---|---|
+| F1 | **The long thread visibly grows** across lives (world changes, group record, soul knowledge) | Investment needs a home | Every death feels like a wipe |
+| F2 | **The early game is short on repeat** | Idle pacing plus repeated starts equals repeated grind | Players stop dying on purpose and stop playing |
+| F3 | **Death is legible and forewarned** (AD50, recovery strictness as a separate dial) | Loss is accepted when it was a gamble you saw | Feels arbitrary, save-scumming |
+| F4 | **Each identity plays differently** (body, standing, ties, means) | Novelty pays for repetition | A reskin of the last life |
+| F5 | **Traces are specific and few** (LPI7) | A named sergeant beats a generic +5% | Bookkeeping instead of story |
+| F6 | **Carry rules resist exploits** (LG1 declares what passes, LG2 costs) | If dying is the strongest move, players cycle deaths | Suicide farming |
+| F7 | **The UI does not reset per life** (UR87 lives list, one grammar) | Relearning screens every life is friction | Each new body feels like a new game install |
+
+### What it costs
+
+Verified in `src/continuation_state.js` `restore`: switching lives copies the target life's snapshot wholesale and carries over only `cheats`, preferences, `world_packs` (OD5) and compatible mastery. Household, `npc_lives`, `generated_people`, village and work records come from the snapshot. The commands `die:`, `restart:`, `fresh`, `branch:`, `resume:` and the deaths ledger exist.
+
+| ID | Tier | What | Cost |
+|---|---|---|---|
+| R1 | Exists | Loop restart (MoL), fresh start, branch to another world after a final death | Wiring and UI only |
+| R2 | Low (inferred) | LRS6 personas inside one life: reputation and ties keyed by identity | One owner for "who they think you are"; no save split |
+| R3 | Medium | LRS2 mortal arc: an ending condition as a run-mode property, an epilogue report; a war told per seat (CBC40, CBD144, FK9 preset) | New report and end condition; no new engine |
+| R4 | High | LRS3/LRS4/LRS5 in the *same continuing* world: the next identity meets the dead one's house, friends and grave | Split save state into world-owned and life-owned slices, extending what OD5 did for `world_packs`. This is the real cost, and it is a foundation question, not a content one |
+| R5 | Highest | A war you fight through as a simulated campaign with a squad of allies | Ally choosers (sizing audit G7), battles beyond the 400-meeting contest budget (CFC16), province-scale war, which lives in the province-war repo |
+
+So difficulty scales with **how much of the world must outlive the character**, not with how dramatic the premise is. The soldier-to-augmented-trooper-to-war arc is R3 if the war is told and the life ends with an epilogue, and R5 only if every battle is simulated.
+
+### Making the idea make more sense
+
+Recommended framing: **identities can be short; one thread must be long, and the run declares which one.** Pick the thread at start (world, soul, group, place, mask), and LG1 follows from it: a soul thread carries knowledge, a group thread carries record and standing, a world thread carries only what was left behind. This also answers the 2026-10-30 cheat rule cleanly: the cheat follows whoever is played unless the declared thread is the soul that holds it.
+
+The soldier idea reads best as LRS5 (the regiment is the protagonist, troopers come and go) or LRS2 (one trooper's career with a known end). As LRS3 it inherits R4's cost for little extra fun. Build it in an original military-sci-fi world rather than a recreation of an existing franchise's marines.
+
+**ACCOUNT FOR NOW:** any future save work on continuation should keep world-owned versus life-owned state in mind; R4 is cheaper if new slices declare their owner from the start (one line per slice in SAVES.md).
+
+**LATER / DELEGATE, no dispatch:** cheapest proofs, in order: LRS2 as a bounded run in an existing world with an epilogue (R3), then LRS6 personas in the LOTM lead life (R2), which canon already supports. Suggested capability: one sonnet-level agent with design judgment; done check is a rebuilt browser run that ends a life and shows the epilogue and its traces.
+
+**Open decision (Q1):** when a short identity dies, should the next one keep the cheat and knowledge (soul thread), or start with only what the world remembers (world thread)? This picks between LRS4 and LRS3 and sets what R4 must carry.
+
+Same-person restarts (LK9, the MoL shape) are worked through in [same-person loops](DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md#same-person-same-scenario-the-loop-as-a-run-shape-2026-11-22-proposals-ad32).
+
+Evidence: synthesis over the named owners plus one code read of `restore`. Fun, pacing and exploit resistance are unverified until played.
+
+## When the world happens to you: external forces and attachment to identity, 2026-11-22
+
+Weibao, answering Q2 (knowledge-only or knowledge-plus-skill loops): "Guess it depends on the situation and what makes sense? What gives most future possibility and more?" Then: "have a life be majorly effectable by external events? like conscripted to do x or why? how attached to the specific identity we are playing under we should be and more? more to consider?" Proposals under AD32 except where noted; AD56 lets ideas that widen play act as working defaults.
+
+### Q1 and Q2 answered: the carrier decides
+
+His answer is recorded as direction: no global choice. What carries across a death or a loop follows the actual carrier (AD6 means decide; SLR20 already says skill carry follows the faculty's carrier and clock). Knowledge carries whenever the mind or soul carries; trained skill carries only when it lives in that carrier (a soul technique, a memory of method) and not in the body; the cheat follows whoever holds its binding. This keeps every option open per world, which is the most future possibility, and it answers both Q1 (soul or world thread) and Q2 (knowledge or skill) without a new rule.
+
+### A life the world can move
+
+Today most lives are driven from inside: the player picks the pursuit. The idea is the reverse case, where a large outside event redirects the life. Existing basis: threats grow through their own causes (USER_VISION), non-lore seats meet big events where their causes hold (STY32), run-ending threats are announced and usable (AD50), war is settled by terms with the player often behind the line (CBC40), failures become new circumstances (LPI6). Conscription itself is only an entry kind so far (WC3 in [intro flow](../INTRO_FLOW_CONSIDERATIONS_2026-10-13.md)).
+
+| ID | Force | What it takes | What it can open |
+|---|---|---|---|
+| EXF1 | **Levy or conscription** | Time, place, choice of work | Training, a new cast, pay, rank, the soldier arc |
+| EXF2 | **Plague, quarantine** | Movement, trade, people | Healing work, scarcity trades, a closed town as a dense loop |
+| EXF3 | **Famine or price shock** | Savings, food, margins | Smuggling, new crops, patrons who owe you |
+| EXF4 | **Eviction, enclosure, a landlord's sale** | Home, land | Migration, a new district, a claim to fight |
+| EXF5 | **Regime change, purge, new law** | Standing, safety, papers | New offices, hidden identities (LRS6), exile |
+| EXF6 | **Arrest or false accusation** | Freedom, reputation | Prison life, investigation, debts to whoever frees you |
+| EXF7 | **Capture or bondage** | Almost everything | Escape, a new skill set, a long climb (Kenshi's enslaved start) |
+| EXF8 | **Arranged marriage, adoption, apprenticeship by decision of others** | Choice of household | A family with its own goals |
+| EXF9 | **Summons, recruitment test, a sect or church choosing you** | The old life | A power path (LOTM summons rows already exist) |
+| EXF10 | **Windfall, inheritance, a patron's notice** (positive) | Obscurity, sometimes safety | Means, envy, obligations |
+| EXF11 | **The protagonist's story passing through** | Whatever their plot breaks | Meeting the book from the side (STY32) |
+
+### What makes it fun instead of punishing
+
+| ID | Requirement | Reason |
+|---|---|---|
+| EXF12 | **Forewarned in steps:** rumour, notice, enforcement, each with lead time | A shock you saw coming is a decision; one you didn't is a punishment (AD50) |
+| EXF13 | **Exits with prices, not a forced cutscene:** comply, qualify for an exemption, pay or send a substitute, hide, flee, change identity, fight it | Agency inside constraint is the game. History supplies real exits: the US 1863 draft allowed a substitute or a $300 commutation fee; British impressment drove sailors to hide or carry protection papers (general knowledge, not re-checked this session) |
+| EXF14 | **Reach has a cause:** the levy takes men of an age in this district, the purge takes this faction | Being chosen should be explainable and sometimes avoidable by who you are or where you live |
+| EXF15 | **The forced situation is itself playable:** barracks life, a quarantined street, a prison, each a dense small world | The loss of the old life pays for itself only if the new one has play |
+| EXF16 | **It leaves marks, not just a gap:** scars, veteran ties, pensions, trauma, a grudge, skills | Marks make the identity feel lived (LPI7) |
+| EXF17 | **Cadence through the storyteller:** a few large forces per life, not constant disruption | Too frequent is chaos; too rare and it never matters |
+| EXF18 | **A world-pressure dial**, separate from danger and recovery strictness | USER_VISION already separates danger from recovery; how often the world overrides your plans is a third axis |
+
+### Focused case: conscription
+
+1. **Day -14:** tavern talk of a war; prices for boots rise. The rumour reads the real war state.
+2. **Day -7:** a posted levy with criteria (age, district, exemptions for clergy, guild masters, sole earners).
+3. **Choices:** comply; get an exemption through an institution (`institution_access.js`, the papers you hold); pay or find a substitute; marry, ordain or take a protected job; hide or flee into a new identity (LRS6); bribe the clerk.
+4. **In service:** the regiment's routine runs as duties (`duties_domain.js` already holds cycle-based duties, Klein's weekly claim is the first); rank and standing through the institution store and faction rank; deployment and battle mostly told per seat (CBC40, CBD144), with chosen moments played.
+5. **Exit:** discharge, desertion, injury, capture (EXF7), death (a mortal arc, LRS2), or promotion into a career the player now wants. The augmented-trooper path from the run-shapes round fits here: an offer made inside service, not a start menu choice.
+
+Cost reading: no new engine for the levy itself. It needs a world-level event with eligibility over people (who the levy reaches, which reads `generated_people`/`npc_lives`), a forewarning chain, exits as ordinary actions and a regiment as an institution with duties. The expensive parts are the same as before: simulated battles (R5) and a world that remembers you after death (R4).
+
+### How attached to the identity should we be
+
+Recommended view: **attach to the person, never protect them.** Attachment comes from history and ties, not from permanence or control. A character who was conscripted, survived and came home changed is more the player's own than one who chose every step. So external forces increase attachment when they are survivable, forewarned and leave marks.
+
+| ID | Attachment level | Fits |
+|---|---|---|
+| EXF19 | **Deep:** one identity is the game; forces change it but rarely end it (forgiving default) | LRS1, book protagonists |
+| EXF20 | **Held loosely:** the person matters while alive; a thread outlives them | LRS3–LRS5, mortal arcs |
+| EXF21 | **Many faces:** attachment to the self behind changing names | LRS6, Klein's personas |
+| EXF22 | **None to the body, all to the knowledge** | Loops (SPL1) |
+
+The run declares its level at start, like the long thread. The UI should keep what makes this person them visible (name, marks, ties, what they want), so a redirected life still reads as the same person.
+
+### Prior art (general knowledge, not re-read this session)
+
+Crusader Kings 3 and Pentiment (lives shaped over decades by events outside one person's control); This War of Mine and Papers, Please (agency inside a crushing situation); Kenshi (start enslaved or broke, climb out); King of Dragon Pass and The Banner Saga (a group pushed by events); BitLife (life events including a draft); RimWorld's storyteller (cadence, already reflected in STY). In fiction: All Quiet on the Western Front, Catch-22, and the Sharpe novels (a conscript's long rise).
+
+**ACCOUNT FOR NOW:** a world event that reaches people by eligibility is the missing piece shared by EXF1–EXF9. It should reuse institutions, duties and the storyteller rather than add a "life event" table.
+
+**LATER / DELEGATE, no dispatch:** when a selected world has a war or plague in its timeline, build one forewarned force with three priced exits and one playable forced situation. Suggested capability: one sonnet-level agent; done check is a rebuilt browser run where the levy notice arrives, one exit is taken and the save round-trips.
+
+**Open decision (Q3):** should large forces be able to override a life by default at a moderate world-pressure level, or stay rare until a run opts in?
+
+## New identities in the same world and timeline without endless authoring, 2026-11-22
+
+Weibao: "how to generate new identities within the same world and same timeline without needing to code everything till infinity?" Proposals under AD32.
+
+**Answer first.** Author the world, not the people. A playable identity is a *composition* of parts the world already has, and the expensive thing is each new **kind** of life (a role with new verbs), never each new **instance**. Grow the verbs and the identity space grows by multiplication.
+
+### What already exists (verified by code read)
+
+- `src/start_records.js` `resolveStart(world, choices, seed)` composes a start from per-axis layers. Each axis can be locked, rolled or hidden; rolls are seeded; a conflicting layer rerolls only its own axes; the result is validated and keeps provenance. This is a combinatorial identity generator, today used for starts.
+- `src/seat_profiles.js` has five seats (`be`, `beside`, `follow`, `bystander`, `ordinary`) that scope what a life may do.
+- `src/generated_people.js` names and seeds people, but has only three Village traveller templates.
+- Rules: people carry detail by tier (WA43), recurring roles are archetypes built once (WA46), every entity sits on a presence rung (WA22), dated whereabouts (WA23), a start enters the random pool only when its content loads, its first action works and its save round-trips (WQ1), the lead's path is not the world (ST13).
+
+### How it works
+
+| ID | Piece | What it does | Authored once per |
+|---|---|---|---|
+| IDG1 | **Axes of a life** | Place, household, role, age and body, ties, want, pressure, one hook | World (the axis list) |
+| IDG2 | **Archetypes, not people** | A clerk, a dockhand, a novice nun: services, schedule, verbs, wages, institution (WA46) | Role, reused by every person in that role |
+| IDG3 | **Promote, don't invent** | The next identity is an existing crowd or role-tier person raised to principal tier; missing fields derive from their role, household and place on first look, then freeze (seeded) | Nothing; the person was already there |
+| IDG4 | **The timeline supplies the plot** | A new identity meets the world's dated events where their causes reach that person: the levy, the price spike, the protagonist's plot passing through (STY32, EXF) | World events, once |
+| IDG5 | **Want, pressure, tie** | Three small draws give the first hour direction: a need (rest, belonging, purpose already exist), an outside pressure from IDG4, a person who matters | Short tables per world |
+| IDG6 | **One specific trace** | A debt, an object, a secret, a link to a named person, a scar from last year's fever (npc_lives hardship) | Short tables; history fills the rest |
+| IDG7 | **Capability filter** | The draft only offers people whose role's verbs exist at their place (WQ1). Unplayable lives stay NPCs | Nothing; it reads what is built |
+| IDG8 | **Canon fence** | Named canon people keep authored records; generated people live in the off-path ring (ST13) and pass the continuity check | Already in place (CTR) |
+
+Arithmetic, as illustration: 30 archetypes × 12 districts × 8 household kinds × age bands × want/pressure/tie draws gives tens of thousands of distinct starts from a few hundred authored rows. The capability filter cuts that to the lives that play, which grows every time a new verb ships.
+
+### Where "infinity" really creeps in
+
+1. **New verbs per role.** A smuggler needs smuggling. Fix: order roles by how many lives one verb set unlocks (a clerk verb set opens every clerk in every district) and keep mechanisms first.
+2. **Prose per person.** Fix: life records are lossy and never an authority (`life_record.js`); bios and voice lines can be drafted offline by a local model lane into packs and linted (DWF83 pattern), while mechanics stay deterministic.
+3. **Remembering after death.** Continuing the same world after a death still needs the world-owned versus life-owned save split (R4). Generation does not remove that cost.
+4. **Sameness.** Combinatorial lives blur when the parts are thin. Fix: few axes with strong differences (body, standing, ties, means) beat many cosmetic ones (F4).
+
+### An unusual option: the world picks the next identity
+
+Instead of a menu, the next identity is whoever your last life touched most: the apprentice you taught, the rival who ruined you, the child you pulled from the river, the clerk who stamped your levy papers (LK6 causal link). It needs no extra authoring (it reads relationships and the life record) and makes each new identity matter. Dial: menu, causal pick, or a draft of three where one is causal.
+
+**ACCOUNT FOR NOW:** extend `resolveStart` toward "resolve a person": axes that read an existing person's fields first and roll only what is missing. That keeps one composition path for starts, successors and promoted NPCs.
+
+**LATER / DELEGATE, no dispatch:** one world (Tingen is the likely first, with the most institutions and archetypes) gets an ordinary-life draft of three promoted locals through the capability filter. Suggested capability: one sonnet-level agent; done check is a rebuilt browser run that offers three locals, plays one through a first action and round-trips the save.
 ## What OOPS should play like and where to spend the next pass, 2026-11-24
 
 **Proposal.** OOPS plays best as an idle progression RPG about building a life inside a world with its own rules. Pick a pursuit, let familiar work build skill or stock, and step in when a discovery, person, or risk changes the plan. The payoff of mastery is a new option: a better way to earn, a person willing to teach, a place you can survive, a working you can adapt, or an obligation you can finally afford to drop. Long grinds belong here. A player who loves optimizing income, practice, and recovery can do that for weeks. Compress the repeated handling once the player has chosen the method and terms. Keep exact rates and room to tune them. [Standing time and progression direction](../USER_VISION.md#time-and-progression) · [Activity rules ACR1–ACR8 and ACR12](../ACTIVITY_ABSTRACTION_RULES.md)

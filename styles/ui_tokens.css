@@ -1558,6 +1558,27 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > select > optio
 }
 /* R22b (SU6) areas at the primary target now live in the layout spec (UM8, `grids`). */
 
+/* UR177: shared ink for facts, plus the record and calendar materials. */
+:root {
+ --sem-record-bg: #00142c; --sem-record-band: linear-gradient(100deg, #0c204f, #23253f);
+ --sem-record-footer: #002c57; --sem-record-text: #bcfefe;
+ --sem-record-edge: #4444cc; --sem-record-dash: #7b68ee; --sem-record-dot: #2357ec;
+ --sem-state-label: #ff6347; --sem-state: #ffa500; --sem-prose: #f4a460;
+ --sem-item: #5f9ea0; --sem-place: #bcfefe; --sem-person: #ffa500;
+ --sem-summer-fill: #114411; --sem-summer-ink: #00ff00;
+ --sem-sunrise-fill: #bf495f; --sem-sunrise-ink: #ffef33;
+ --sem-day-fill: #163c56; --sem-day-ink: #bcfefe;
+ --sem-sunset-fill: #52274f; --sem-sunset-ink: #ffc68e;
+ --sem-night-fill: #282653; --sem-night-ink: #d1ceff;
+}
+.material-icons.walk-map-pip {border-radius:50%;}
+[data-semantic-ink="state-label"] {color:var(--sem-state-label);}
+[data-semantic-ink="state"] {color:var(--sem-state);}
+[data-semantic-ink="prose"] {color:var(--sem-prose);}
+[data-semantic-ink="item"] {color:var(--sem-item);}
+[data-semantic-ink="place"] {color:var(--sem-place);}
+[data-semantic-ink="person"] {color:var(--sem-person);}
+
 /* GU10 (Round 12): High contrast, a per-browser display setting (display_settings.js `contrast`).
    It redefines the same tokens every panel already reads, on every element with !important so the
    per-role tints, the Vivid scheme and player palettes cannot lift it. Black surfaces, white text,
@@ -1577,6 +1598,11 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > select > optio
  --p23-detail-fill: #000000 !important; --p23-detail-slot-fill: #000000 !important; --p23-preview-fill: #000000 !important; --p23-context: #1a1a1a !important; --p23-hover-fill: #333333 !important;
  --p23-critical: #ff7a7a !important; --p23-gain: #5dff8a !important; --p23-loss: #ff7a7a !important; --p23-new: #ffe14d !important;
  --sem-gain: #5dff8a !important; --sem-loss: #ff7a7a !important; --sem-money: #ffe14d !important; --sem-blocked: #ff9d57 !important;
+ --sem-record-bg: #000 !important; --sem-record-band: #000 !important; --sem-record-footer: #000 !important;
+ --sem-record-text: #fff !important; --sem-record-edge: #fff !important; --sem-record-dash: #fff !important; --sem-record-dot: #fff !important;
+ --sem-item: #a9f6ef !important; --sem-place: #fff !important; --sem-person: #ffe14d !important;
+ --sem-state-label: #ff9d57 !important; --sem-prose: #ffe9d4 !important;
+ --sem-summer-fill: #000 !important; --sem-sunrise-fill: #000 !important; --sem-day-fill: #000 !important; --sem-sunset-fill: #000 !important; --sem-night-fill: #000 !important;
 }
 :root[data-display-contrast="high"] body { background-color: #000000; color: #ffffff; }
 :root[data-display-contrast="high"] :focus-visible { outline: 3px solid #ffe14d; outline-offset: 1px; }
@@ -1589,8 +1615,8 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > select > optio
  --ui-font-prose: var(--ui-font-gothic);
  --ui-luminous-radius: 0;
 }
-#main_content.workspace-active .customization-module[data-component-theme="luminous"],
-.theme-preview .customization-module[data-component-theme="luminous"] {
+#main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]),
+.theme-preview .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) {
  --ui-shadow: 0 0 12px color-mix(in srgb, var(--theme-accent) 18%, transparent);
  --ui-luminous-glow: 0 0 9px color-mix(in srgb, var(--theme-accent) 48%, transparent);
  --ui-luminous-edge: inset 0 1px color-mix(in srgb, var(--theme-accent) 65%, transparent), 0 0 14px color-mix(in srgb, var(--theme-accent) 22%, transparent);
@@ -1605,80 +1631,80 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > select > optio
  line-height: 1.45;
 }
 /* Surrounding shell frames consume their module's established colors, not a new palette. */
-#main_content.workspace-active .workspace-module:has(.customization-module[data-component-theme="luminous"]) {
+#main_content.workspace-active .workspace-module:has(.customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"])) {
  border: 1px solid var(--ui-hairline) !important;
  box-shadow: 0 0 15px color-mix(in srgb, var(--ui-teal) 38%, transparent), inset 0 0 0 1px color-mix(in srgb, var(--ui-text) 12%, transparent) !important;
 }
-#main_content.workspace-active .workspace-module:has(.customization-module[data-component-theme="luminous"]) > .workspace-module-header {
+#main_content.workspace-active .workspace-module:has(.customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"])) > .workspace-module-header {
  border-bottom: 1px solid var(--ui-hairline);
  background: linear-gradient(90deg, var(--ui-navy), var(--ui-teal)) !important;
 }
-#main_content.workspace-active .workspace-module:has(.customization-module[data-component-theme="luminous"]) > .workspace-module-header strong {
+#main_content.workspace-active .workspace-module:has(.customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"])) > .workspace-module-header strong {
  font-family: var(--ui-font-gothic); font-size: var(--shell-context-size, var(--ui-type-body)); font-weight: 600;
  text-transform: none; letter-spacing: .025em; color: var(--ui-text);
  text-shadow: 0 0 9px color-mix(in srgb, var(--ui-text) 42%, transparent);
 }
-#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(h2,h3,h4,.scene-location-header > strong,.shell-stat-group > strong) {
+#main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) :is(h2,h3,h4,.scene-location-header > strong,.shell-stat-group > strong) {
  font-family: var(--custom-font); font-weight: 600; letter-spacing: .025em;
  color: var(--theme-accent); text-shadow: var(--ui-luminous-glow);
 }
-#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(p,.log-original,.log-compact,.log-occurrences,.item_description,.skill_description,.ui-disabled-reason,.customization-explanation,.customization-draft-status,.meter-bar-note,.al-detail,.al-summary) {
+#main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) :is(p,.log-original,.log-compact,.log-occurrences,.item_description,.skill_description,.ui-disabled-reason,.customization-explanation,.customization-draft-status,.meter-bar-note,.al-detail,.al-summary) {
  font-family: var(--custom-prose-font, var(--custom-font)); text-shadow: none; line-height: 1.5;
 }
-#main_content.workspace-active .customization-module[data-component-theme="luminous"][data-typography-font="gothic"] :is(.stat_value,.character_stat_value,.inventory_item_count,.item_count,.meter-bar-value,.log-value,.log-repeat,.scene-calendar,.scene-glyph,pre) {
+#main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"])[data-typography-font="gothic"] :is(.stat_value,.character_stat_value,.inventory_item_count,.item_count,.meter-bar-value,.log-value,.log-repeat,.scene-calendar,.scene-glyph,pre) {
  font-family: var(--ui-font-numeric); font-variant-numeric: tabular-nums; text-shadow: none;
 }
-#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(.meter-bar,.stat_slot_div,.inventory_item_control,.skill_bar_div,.action_div,.recipe_div) {
+#main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) :is(.meter-bar,.stat_slot_div,.inventory_item_control,.skill_bar_div,.action_div,.recipe_div) {
  border-bottom-color: var(--ui-luminous-rule); line-height: 1.45;
 }
-#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(button,select,input,textarea,.activable_buttons > :is(div,button),.recipe_name,.action_travel,.start_dialogue,.start_activity,.dialogue_textline) {
+#main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) :is(button,select,input,textarea,.activable_buttons > :is(div,button),.recipe_name,.action_travel,.start_dialogue,.start_activity,.dialogue_textline) {
  font-family: var(--custom-font); border-radius: var(--ui-luminous-radius);
  border-color: var(--ui-luminous-rule); background-image: none;
  transition: border-color var(--ui-motion-fast) var(--ui-motion-ease), box-shadow var(--ui-motion-fast) var(--ui-motion-ease);
 }
-#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(button,select,summary,[tabindex],.inventory_item_control,.recipe_name):hover {
+#main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) :is(button,select,summary,[tabindex],.inventory_item_control,.recipe_name):hover {
  box-shadow: var(--ui-luminous-glow); border-color: var(--theme-accent);
 }
-#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is([aria-selected="true"],.selected_recipe,.active_selection_button,[aria-pressed="true"]) {
+#main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) :is([aria-selected="true"],.selected_recipe,.active_selection_button,[aria-pressed="true"]) {
  box-shadow: inset 0 -2px var(--theme-accent), var(--ui-luminous-glow);
 }
-#main_content.workspace-active .customization-module[data-component-theme="luminous"] :focus-visible {
+#main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) :focus-visible {
  outline: 2px solid var(--theme-focus) !important; outline-offset: 2px; box-shadow: var(--ui-luminous-glow);
 }
-#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(button:disabled,[aria-disabled="true"],.action_unavailable,.activity_unavailable) {
+#main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) :is(button:disabled,[aria-disabled="true"],.action_unavailable,.activity_unavailable) {
  text-shadow: none; box-shadow: none; border-style: dashed; opacity: 1;
 }
-#main_content.workspace-active .customization-module[data-component-theme="luminous"] :is(#proto23_item_detail,.customization-panel,.recipe_tooltip,.skill_tooltip,.item_tooltip) {
+#main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) :is(#proto23_item_detail,.customization-panel,.recipe_tooltip,.skill_tooltip,.item_tooltip) {
  border: 1px solid var(--theme-border); box-shadow: var(--ui-luminous-edge);
  background: var(--theme-surface) !important; color: var(--theme-surface-text) !important;
 }
-#main_content.workspace-active #proto23_item_detail.customization-module[data-component-theme="luminous"] {
+#main_content.workspace-active #proto23_item_detail.customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) {
  border-inline-start: 2px solid var(--theme-accent); box-shadow: var(--ui-luminous-edge);
 }
-#main_content.workspace-active #message_log_div.customization-module[data-component-theme="luminous"] {
+#main_content.workspace-active #message_log_div.customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) {
  --ui-log-fill: linear-gradient(110deg, var(--theme-bg), color-mix(in srgb, var(--theme-bg) 90%, var(--theme-accent)));
  background: var(--ui-log-fill) !important;
 }
-#main_content.workspace-active #message_log_div.customization-module[data-component-theme="luminous"] .message_common {
+#main_content.workspace-active #message_log_div.customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) .message_common {
  line-height: 1.5; padding-block: round(.2em, 1px); border-bottom-color: var(--ui-luminous-rule);
 }
-#main_content.workspace-active .customization-module[data-component-theme="luminous"] .meter-bar-track {
+#main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) .meter-bar-track {
  height: 5px; border-inline: 1px solid var(--theme-border); box-shadow: 0 0 6px color-mix(in srgb, var(--theme-accent) 20%, transparent);
 }
-#main_content.workspace-active .customization-module[data-component-theme="luminous"] .meter-bar-fill {
+#main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) .meter-bar-fill {
  background-image: linear-gradient(180deg, color-mix(in srgb, currentColor 20%, transparent), transparent);
 }
 /* Quiet keeps the static luminous frame but suppresses reactions/transitions; Off and
    high contrast remove blur. No animation or cosmetic draw participates in gameplay. */
-:root:is([data-effects="off"],[data-display-contrast="high"]) #main_content.workspace-active .customization-module[data-component-theme="luminous"],
-:root:is([data-effects="off"],[data-display-contrast="high"]) #main_content.workspace-active .customization-module[data-component-theme="luminous"] *,
-:root:is([data-effects="off"],[data-display-contrast="high"]) #main_content.workspace-active .workspace-module:has(.customization-module[data-component-theme="luminous"]),
-:root:is([data-effects="off"],[data-display-contrast="high"]) #main_content.workspace-active .workspace-module:has(.customization-module[data-component-theme="luminous"]) > .workspace-module-header strong {
+:root:is([data-effects="off"],[data-display-contrast="high"]) #main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]),
+:root:is([data-effects="off"],[data-display-contrast="high"]) #main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) *,
+:root:is([data-effects="off"],[data-display-contrast="high"]) #main_content.workspace-active .workspace-module:has(.customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"])),
+:root:is([data-effects="off"],[data-display-contrast="high"]) #main_content.workspace-active .workspace-module:has(.customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"])) > .workspace-module-header strong {
  box-shadow: none !important; text-shadow: none !important; transition: none !important;
 }
-:root[data-effects="reduced"] #main_content.workspace-active .customization-module[data-component-theme="luminous"] * {transition: none !important;}
+:root[data-effects="reduced"] #main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) * {transition: none !important;}
 @media (prefers-reduced-motion: reduce) {
- #main_content.workspace-active .customization-module[data-component-theme="luminous"] * {transition: none !important;}
+ #main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) * {transition: none !important;}
 }
 
 /* Local private MS Gothic collection, face 0. The original Office font stays untouched.
@@ -1690,30 +1716,30 @@ body:has(#main_content[data-parity="r3"]) #workspace_navigation > select > optio
 }
 /* Rarity comes from the native known rarity span, never the selected/focused row.
    The solid glyph remains sharp; a faint halo sits behind that same hue. */
-#main_content.workspace-active .customization-module[data-component-theme="luminous"] [data-rarity]:not([data-rarity="common"]):not([data-rarity="trash"]) {
+#main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) [data-rarity]:not([data-rarity="common"]):not([data-rarity="trash"]) {
  text-shadow: 0 0 7px color-mix(in srgb, currentColor 55%, transparent);
  border-bottom: 1px solid currentColor; text-underline-offset: .15em;
 }
 /* The existing shell already derives its context font/colors from local actions.
    Carry that same owner into the adjacent known-subject scene and chrome. */
-#main_content.workspace-active:has(#location_related_div[data-component-theme="luminous"][data-typography-font="gothic"]) :is(#village_scene,.nearby-context-view) {
+#main_content.workspace-active:has(#location_related_div:is([data-component-theme="luminous"],[data-component-theme="graphite"])[data-typography-font="gothic"]) :is(#village_scene,.nearby-context-view) {
  font-family: var(--shell-context-font, var(--ui-font-gothic));
 }
-#main_content.workspace-active:has(#location_related_div[data-component-theme="luminous"]) .nearby-context-view {
+#main_content.workspace-active:has(#location_related_div:is([data-component-theme="luminous"],[data-component-theme="graphite"])) .nearby-context-view {
  background: linear-gradient(115deg, var(--shell-user-fill), color-mix(in srgb, var(--shell-user-fill) 92%, var(--shell-user-accent)));
 }
-#main_content.workspace-active:has(#location_related_div[data-component-theme="luminous"]) .nearby-context-view :is(h2,h3,summary) {
+#main_content.workspace-active:has(#location_related_div:is([data-component-theme="luminous"],[data-component-theme="graphite"])) .nearby-context-view :is(h2,h3,summary) {
  text-shadow: 0 0 9px color-mix(in srgb, var(--shell-user-accent) 45%, transparent);
 }
-body:has(#main_content #location_related_div[data-component-theme="luminous"][data-typography-font="gothic"]) #workspace_navigation :is(button,select) {
+body:has(#main_content #location_related_div:is([data-component-theme="luminous"],[data-component-theme="graphite"])[data-typography-font="gothic"]) #workspace_navigation :is(button,select) {
  font-family: var(--ui-font-gothic);
 }
 :root:is([data-effects="off"],[data-display-contrast="high"]) .nearby-context-view * {text-shadow: none !important; box-shadow: none !important;}
 
-:root[data-display-contrast="high"] #main_content.workspace-active .customization-module[data-component-theme="luminous"] {
+:root[data-display-contrast="high"] #main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) {
  --custom-background: var(--theme-bg) !important; --custom-text: var(--theme-text) !important; --custom-accent: var(--theme-accent) !important;
 }
-:root[data-display-contrast="high"] #main_content.workspace-active .customization-module[data-component-theme="luminous"] [data-rarity] {color: var(--theme-text) !important;}
+:root[data-display-contrast="high"] #main_content.workspace-active .customization-module:is([data-component-theme="luminous"],[data-component-theme="graphite"]) [data-rarity] {color: var(--theme-text) !important;}
 
 /* The supplied 10–22px strikes contain Latin UI glyphs. Smaller sizes use the outline. */
 :root {
@@ -2010,4 +2036,13 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
     --fight-field-timing: #d36ad3;
     --fight-field-hinder: #d4acef;
     --fight-field-focus: #9be2e0;
+}
+
+/* Graphite (Weibao, 2026-11-21): flat dark greys after Arkivia's palette; consumed by styles/skin_graphite.css. */
+:root {
+ /* DK2 (Weibao 2026-11-22, "a more dark arkivia style"): one step darker, the violet log slab gone, a blue-violet edge for controls. */
+ --graphite-page: #161616; --graphite-panel: #262626; --graphite-stage: #1e1e1e; --graphite-deep: #121212; --graphite-raised: #2c2c2c;
+ --graphite-hover: #3a3a3a; --graphite-line: #444444; --graphite-text: #eeeeee; --graphite-muted: #a0a0a0; --graphite-rule: #333333; --graphite-shadow: #0c0c0c;
+ --graphite-link: #518ae0; --graphite-money: #cccc55; --graphite-band: #2a2230; --graphite-band-text: #ccccff; --graphite-log: #1e1e1e; --graphite-edge: #3a3a8a;
+ --graphite-health: #44bb44; --graphite-energy: #bb4444; --graphite-xp: #4444bb;
 }

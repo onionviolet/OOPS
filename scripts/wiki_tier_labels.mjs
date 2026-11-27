@@ -5,7 +5,7 @@
 // split (GKM429) is fixed by hash: a row whose sha1(id) starts below 0x33 (about a fifth) is held out, and
 // any later rule fitted to these labels (function words, diet defaults, route words) fits on the rest and
 // reports held-out agreement apart. The ledgers fold every row because their tables were not fitted here.
-// Usage: node scripts/wiki_tier_labels.mjs
+// Usage: node scripts/wiki_tier_labels.mjs [--gu-kinds-only]
 import {readFileSync, writeFileSync, existsSync} from 'node:fs';
 import {HP_POTION_EFFECTS, assemblePotionEffect} from '../src/world_packs/brew_effects_pack.js';
 import {createHash} from 'node:crypto';
@@ -40,6 +40,152 @@ export function normaliseRank(text) {
     return {rank: Math.min(...nums), basis: nums.length > 1 ? 'wiki-tier-lowest' : 'wiki-tier-stated'};
 }
 
+// Reviewed wiki effects for the 2026-11-24 Gu blockers (PC7). Map the stated operation, not the name.
+// A gap names the missing operation and its likely owner. It supplies no executable function.
+const guEffectFamilies = {'fierce-wind': 'amplify'};
+const guEffectGaps = [
+    ["K", "No standalone effect stated. The source names a formation, recipe or killer-move role.", [
+        'permanence', 'fight', 'candidate:crescent-moon-gu',
+        'candidate:derivation-gu', 'candidate:formation-heart-gu', 'candidate:profound-ice-gu',
+        'candidate:qi-flow-gu', 'candidate:star-shoot-gu', 'fandom:Careful_Gu',
+        'fandom:Tortoise_Head_Gu', 'fandom:Sun_and_Moon_Temple', 'fandom:Fire_Crow_Gu',
+        'fandom:Effect_Gu', 'fandom:Heaven_Qi_Gu', 'fandom:Sweat',
+    ]],
+    ["K", "Bind or release a durable restraint or confinement with its own exit conditions.", [
+        'reputation-restriction', 'fandom:Ghost_Hitting_Wall',
+    ]],
+    ["W", "Transfer multiple holders to a sealed space and release them on an outcome or timeout.", [
+        'candidate:battle-space-gu',
+    ]],
+    ["A/L", "Bind a living creature’s obedience to the controller through its soul and handle its death.", [
+        'candidate:bear-enslavement-gu', 'candidate:bull-enslavement-gu', 'candidate:dog-enslavement-gu',
+        'candidate:fox-enslavement-gu', 'candidate:tiger-enslavement-gu', 'candidate:wolf-enslavement-gu',
+    ]],
+    ["L", "Change a holder’s body or appearance without substituting physical strength or healing.", [
+        'candidate:black-hair-gu', 'candidate:blue-face-gu', 'candidate:demon-ferret-blood',
+        'candidate:demon-ferret-bone', 'fandom:Big_Immortal_Gu',
+    ]],
+    ["K/L", "Repair a damaged Gu through a composed working.", [
+        'candidate:bone-bamboo-gu',
+    ]],
+    ["F", "Store time and debit it to shorten a refinement.", [
+        'candidate:day-gu',
+    ]],
+    ["A", "Create and manage typed thoughts, wills or intents with their own persistence and behavior.", [
+        'candidate:deliberate-will-gu', 'candidate:malicious-thought-gu', 'candidate:malicious-will-gu',
+        'candidate:play-will-gu', 'fandom:Flash_Inspiration_Gu', 'fandom:Evil_Intent_Gu',
+        'fandom:Reckless_Intent_Gu', 'fandom:Changing_Intent_Gu', 'fandom:Cold_Intent_Gu',
+        'fandom:Chaotic_Intent_Gu', 'fandom:Keep_Will_Gu', 'fandom:New_Will_Gu',
+        'fandom:Kind_Thought_Gu', 'fandom:Longing_Thought_Gu', 'fandom:Evil_Thought_Gu',
+        'fandom:Obsessed_Thought_Gu', 'fandom:Affection_Gu',
+    ]],
+    ["A", "Modify thought generation and collision in a field that drains lifespan.", [
+        'wisdom',
+    ]],
+    ["A", "Modify or store a holder’s emotion, intent, focus or mental capacity.", [
+        'candidate:djinn-heart-gu', 'candidate:emotion-poetry-gu', 'candidate:harmony-gu',
+        'candidate:self-love-immortal-gu', 'fandom:Four_Tasks_At_Once_Gu',
+    ]],
+    ["G/L", "Store and retrieve inventory, essence or a living Gu from a container with capacity and custody.", [
+        'candidate:earth-treasury-flower-gu', 'candidate:earth-treasury-flower-king-gu', 'candidate:fish-bubble-gu',
+        'candidate:flowerbud-gu', 'candidate:primeval-elder-gu', 'candidate:tusita-flower',
+    ]],
+    ["N", "Write, persist and recall information through a storage carrier.", [
+        'candidate:east-window-gu', 'candidate:vine-information-gu', 'candidate:bookworm',
+    ]],
+    ["L", "Convert consumed qi into nourishment or change reproductive state.", [
+        'candidate:eat-fragrance-immortal-gu', 'candidate:estrus-gu',
+    ]],
+    ["L", "Change lifespan or stop aging.", [
+        'candidate:eternal-gu',
+    ]],
+    ["W/K", "Create an autonomous formation operator that can modify its working.", [
+        'candidate:formation-spirit-immortal-gu',
+    ]],
+    ["W/L", "Produce a material or food as an output of the Gu’s conversion or growth.", [
+        'candidate:fuel-oil-gu', 'candidate:rice-bag-grass-gu', 'fandom:Wine_Sack_Flower_Gu',
+        // fandom:Heavenly_Essence_Treasure_Monarch_Lotus removed 2026-11-24: it produces primeval essence (ri:ch463:p2),
+        // which the Gu grammar's add-essence sentence already runs (B3 pilot case src/world_packs/gu_lotus_essence_case.js).
+    ]],
+    ["W", "Assemble matter into a durable structure, terrain feature or puppet.", [
+        'candidate:giant-mountain-puppet-gu', 'candidate:large-lizard-house-gu', 'candidate:mush-room-gu',
+        'candidate:pine-island-gu', 'candidate:small-swamp-gu', 'fandom:House_Type_Gu',
+    ]],
+    ["W/K", "Modify a tribulation already in progress.", [
+        'candidate:heavens-envy-gu',
+    ]],
+    ["K/G", "Copy another Gu’s identity and executable ability with an explicit strength difference.", [
+        'candidate:imitation-gu',
+    ]],
+    ["N", "Route a message to recipients through a carrier with travel or reply rules.", [
+        'candidate:longevity-edict', 'candidate:star-letter-gu', 'fandom:Messenger_Dove_Gu',
+    ]],
+    ["N/L", "Let the user communicate in the target species’ language.", [
+        'candidate:monkey-language-gu',
+    ]],
+    ["W/G", "Sever a wild Gu’s connection to its governing essence supply.", [
+        'candidate:primeval-break-gu',
+    ]],
+    ["W", "Identify and resize the target’s quantity while retaining the target’s identity.", [
+        'candidate:quantity-change-gu',
+    ]],
+    ["A/L", "Bind, fuse or contain souls and represent the resulting custody or survival state.", [
+        'candidate:soul-chain-gu', 'candidate:soul-combination-gu', 'candidate:spirit-incubating-flea',
+    ]],
+    ["A/L", "Create a body duplicate with its own agency and a defined share of the source’s power.", [
+        'candidate:split-shadow-immortal-gu', 'fandom:Perfect_Pair',
+    ]],
+    ["W", "Install a delayed, persistent resource-producing site.", [
+        'candidate:spring-egg-gu',
+    ]],
+    ["W", "Manifest a sit-on support surface with its own lifetime.", [
+        'candidate:star-cloud-bed-gu',
+    ]],
+    ["G/L", "Open an additional aperture and represent its cultivation state.", [
+        'candidate:third-aperture-gu',
+    ]],
+    ["F", "Refine one or more Gu from an existing Gu or reverse an earlier refinement.", [
+        'candidate:zombie-heart-gu', 'fandom:Revert_Gu', 'fandom:Prodigal_Son_Gu',
+    ]],
+    ["W/A", "Add luck or sever a luck relationship and have the change affect later draws.", [
+        'candidate:break-luck', 'fandom:Dog_Shit_Luck_Immortal_Gu',
+    ]],
+    ["G/L", "Convert essence and advance a cultivation rank by changing the aperture wall.", [
+        'fandom:Man-Beast_Life_Burial_Gu',
+    ]],
+    ["Evidence", "The source explicitly gives the form no active ability.", [
+        'fandom:White_Chrysalis',
+    ]],
+    ["W/K", "Exempt a specific Gu operation from the local heavenly restriction.", [
+        'fandom:One%27s_Own_Way_Gu',
+    ]],
+    ["W", "Materialize new objects or turn a dream object into a real one.", [
+        'fandom:Iron_Bone_Broad_Axe', 'fandom:Become_Real',
+    ]],
+    ["W", "Anchor a moment for a compatible working or change the local rate of time.", [
+        'fandom:Time_Anchor_Gu', 'fandom:Months_Pass_Like_Years',
+    ]],
+    ["A/K", "Create or resolve a durable alliance agreement with its own terms and expiry.", [
+        'fandom:Hundred_Years_Harmony', 'fandom:Care_Immortal_Gu',
+    ]],
+    ["W/L", "Rewind the state of an individual Gu, including a destroyed Gu.", [
+        'fandom:Gu_as_Before_Gu',
+    ]],
+    ["N/W", "Record a formation and later replay its layout or wiring.", [
+        'fandom:Formation_Chart_Immortal_Gu',
+    ]],
+    ["F/W", "Convert dao marks into refinement material and apply that material to a Gu or formation.", [
+        'fandom:Water_Refinement_Immortal_Gu',
+    ]],
+    ["G/N", "Keep information and seal higher-ranked living Gu in a common carrier.", [
+        'fandom:Letter_Seal_Gu',
+    ]],
+    ["G/L", "Install water-path dao marks and project them into species-specific aptitude.", [
+        'fandom:Water_Source_Gu',
+    ]],
+].flatMap(([owner, rule, ids]) => ids.map(id => [id, {owner, rule}]));
+const guEffectGapById = new Map(guEffectGaps);
+
 const gu = {};
 for (const [id, row] of Object.entries(read('gu_kinds'))) {
     const r = row.reply;
@@ -62,7 +208,24 @@ for (const [id, row] of Object.entries(read('gu_kinds'))) {
     if (dietPass[id]) label.dietDefault = {category: dietPass[id].category, food: dietPass[id].food,
         basis: 'authored default (GKM440, Luna; 12 of 44 stated foods share its category)'};
     for (const key of ['effect', 'food', 'feeding_interval', 'starving', 'activation_cost', 'refinement']) if (at(r[key])) label[`${key}At`] = at(r[key]);
+    if (label.effectAt && guEffectFamilies[id]) Object.assign(label, {effectFamily: guEffectFamilies[id],
+        effectFamilyBasis: 'wiki-tier-effect-reviewed'});
+    const gap = guEffectGapById.get(id);
+    if (label.effectAt && gap) {
+        delete label.effectFamily;
+        delete label.effectFamilyBasis;
+        label.effectFamilyGap = gap;
+    }
     gu[id] = label;
+}
+const file = `${root}docs/coverage/wiki_tier_labels.json`;
+const writeLabels = labels => writeFileSync(file, JSON.stringify(labels).replace(/},"/g, '},\n"') + '\n');
+if (process.argv.includes('--gu-kinds-only')) {
+    const prior = JSON.parse(readFileSync(file, 'utf8'));
+    prior.gu_kinds = sorted(gu);
+    writeLabels(prior);
+    console.log(`wiki tier: ${Object.keys(gu).length} Gu kind labels`);
+    process.exit(0);
 }
 
 const norm = s => (s ?? '').toLowerCase().replace(/[’']/g, "'").replace(/\s+(immortal\s+)?gu\.?$/, '').trim();
@@ -204,7 +367,7 @@ for (const [id, row] of Object.entries(existsSync(`${priv}hp_ingredients_luna.js
     ingredients[id] = label;
 }
 out.hp_ingredients = sorted(ingredients);
-writeFileSync(`${root}docs/coverage/wiki_tier_labels.json`, JSON.stringify(out, null, 0).replace(/},"/g, '},\n"') + '\n');
+writeLabels(out);
 const count = (obj, f) => Object.values(obj).filter(f).length;
 console.log(JSON.stringify({gu: Object.keys(gu).length, guRank: count(gu, l => l.rank), guFunction: count(gu, l => l.function), guFunctionGuess: count(gu, l => l.functionGuess), guEffectFamily: count(gu, l => l.effectFamily), guDiet: count(gu, l => l.dietDefault), movesAgree: count(moves, l => l.secondRead === 'agree'),
     moves: Object.keys(moves).length, movesWithComponents: count(moves, l => l.components), movesAllMatched: count(moves, l => l.components?.every(c => c.kind)),

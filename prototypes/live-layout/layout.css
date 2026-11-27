@@ -1,0 +1,161 @@
+/* Only the preview launcher mounts this switcher. The game keeps its own navigation. */
+#layout-lab {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+    gap: var(--ui-space-2);
+    white-space: nowrap;
+    color: var(--ui-text);
+    font: inherit;
+    font-synthesis: none;
+}
+#layout-lab select {
+    color: inherit;
+    background: var(--ui-navy);
+    font: inherit;
+}
+
+/* The compact summary uses the native card's model and the full card remains
+   available through the ordinary Full item control. */
+#proto23_item_detail:has(.item-card[data-item-card-compact]) > p,
+#proto23_item_detail:has(.item-card[data-item-card-compact]) .shell-item-fulltext {
+    display: none;
+}
+.item-card[data-item-card-compact] {
+    border: 0;
+    padding: var(--ui-space-2) var(--ui-space-3);
+}
+.item-card-changes {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.item-card-changes > li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--ui-space-hairline) var(--ui-space-2);
+    padding-block: var(--ui-space-hairline);
+    border-block-end: var(--ui-space-hairline) solid var(--p23-quiet-line);
+}
+.item-card-changes .item-card-delta {
+    padding: 0;
+    white-space: nowrap;
+}
+.item-card-changes [data-direction="better"] .item-card-delta {color: var(--p23-gain);}
+.item-card-changes [data-direction="worse"] .item-card-delta {color: var(--p23-loss);}
+
+/* Dock into the existing Journal column. Only the comparison body scrolls;
+   the equipped action and Full item stay available. */
+:root[data-preview-layout="item-journal"]
+#main_content.workspace-active[data-parity="r3"] [data-region="journal"] #quests_box_div {
+    block-size: auto;
+    max-block-size: 263px; /* The native Quests height becomes its scroll cap. */
+    overflow-y: auto;
+}
+:root[data-preview-layout="item-journal"]
+#main_content.workspace-active[data-parity="r3"] [data-region="journal"] > [data-module="shell-detail"] {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0 !important;
+}
+:root[data-preview-layout="item-journal"]
+#main_content.workspace-active[data-parity="r3"] [data-region="journal"] > [data-module="shell-detail"] > .workspace-module-body {
+    display: flex;
+    overflow: hidden;
+}
+:root[data-preview-layout="item-journal"]
+#main_content.workspace-active[data-parity="r3"] [data-region="journal"] #proto23_item_detail {
+    overflow: hidden;
+}
+
+/* Full item gives the description one scroller and keeps its controls above
+   the native Back row. Long provenance or large text cannot bury Equip. */
+:root[data-preview-layout^="item-"] #center_mode_content > .expanded-panel-view:has(> #proto23_item_detail) {
+    display: flex;
+    flex-direction: column;
+    block-size: 100%;
+    min-block-size: 0;
+    overflow: hidden;
+}
+:root[data-preview-layout^="item-"]
+#main_content.workspace-active[data-parity="r3"] #center_mode_content #proto23_item_detail {
+    display: flex;
+    flex: 1 1 0;
+    block-size: auto;
+    min-block-size: 0;
+    overflow: hidden;
+}
+:root[data-preview-layout^="item-"]
+#main_content.workspace-active[data-parity="r3"] #center_mode_content .shell-item-description {
+    flex: 1 1 0;
+    overflow: auto;
+}
+
+/* Keep the current rail and idle composition. Use the spare action area
+   for the native item detail only while ordinary local actions are visible. */
+@supports (reading-flow: flex-visual) {
+    :root[data-preview-layout="item-below"]
+    #main_content.workspace-active[data-parity="r3"][data-layout-context="idle"][data-parity-item="true"]
+    [data-region="actions"]:not(:has(#location_related_div.center-mode-open)):has(> [data-module="shell-detail"]:not([hidden])) {
+        display: flex;
+        flex-direction: column;
+        reading-flow: flex-visual;
+    }
+    :root[data-preview-layout="item-below"]
+    #main_content.workspace-active[data-parity="r3"][data-layout-context="idle"][data-parity-item="true"]
+    [data-region="actions"]:not(:has(#location_related_div.center-mode-open)) > [data-module="shell-detail"] {
+        order: 3;
+        flex: 0 1 auto !important;
+        border-left: 0;
+    }
+    :root[data-preview-layout="item-below"]
+    #main_content.workspace-active[data-parity="r3"][data-layout-context="idle"][data-parity-item="true"]
+    [data-region="actions"]:not(:has(#location_related_div.center-mode-open)):has(> [data-module="shell-detail"]:not([hidden]))
+    > [data-module="local-actions"] {
+        flex: 0 0 auto !important;
+        max-block-size: 45% !important;
+    }
+    :root[data-preview-layout="item-below"]
+    #main_content.workspace-active[data-parity="r3"][data-layout-context="idle"][data-parity-item="true"]
+    [data-region="actions"]:not(:has(#location_related_div.center-mode-open)):has(> [data-module="shell-detail"]:not([hidden]))
+    > [data-module="pane-navigation"] {
+        order: 4;
+    }
+}
+
+/* Memory is a companion of the open Return to the mark view. Its real list
+   lives in exactly one place and moves only on the player's toggle. */
+.rewind-preview-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--ui-space-2);
+    margin-block-start: var(--ui-space-4);
+}
+.rewind-preview-disclosure {
+    margin-block-start: var(--ui-space-2);
+}
+.rewind-preview-readout {
+    overflow: auto;
+    min-block-size: 0;
+    padding: var(--ui-space-2) var(--ui-space-3);
+}
+.rewind-preview-readout ul:empty,
+.rewind-preview-readout:has(li) .rewind-preview-empty {
+    display: none;
+}
+#main_content .rewind-preview-companion {
+    display: none;
+}
+:root[data-rewind-memory-placement="journal"]:has(#center_mode_content #rewind_panel)
+#main_content [data-region="journal"] > .rewind-preview-companion:has(li) {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    min-block-size: 0;
+}
+.rewind-preview-companion > h3 {
+    margin: 0;
+    font: inherit;
+}

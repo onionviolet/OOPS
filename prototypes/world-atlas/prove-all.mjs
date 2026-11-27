@@ -39,6 +39,36 @@ try {
     const shot = name => page.screenshot({path: join(out, name)});
     const inspector = async c => (await c.locator('.canvas-inspector').innerText()).replace(/\n+/g, ' | ');
 
+    check('Workbench links implementation proof and an importable earned scenario', async () => {
+        await page.goto(base + '/#workbench/implementation');
+        const card = page.getByRole('article').filter({hasText:'Watchcraft'});
+        await card.getByRole('heading', {name:'Watchcraft', exact:true}).waitFor();
+        const replay = card.getByRole('link', {name:'Download replay save'});
+        const res = await page.request.get(new URL(await replay.getAttribute('href'), base).href);
+        assert.equal(res.status(), 200);
+        const text = await res.text(), prefix = 'YAIR-UTF8-1:';
+        assert.ok(text.startsWith(prefix));
+        const save = JSON.parse(Buffer.from(text.slice(prefix.length), 'base64').toString('utf8'));
+        assert.equal(save.village_career.completed, 2);
+        assert.equal(save.village_career.returned, 2);
+        assert.equal(save.village_career.watchcraft.practiceMinutes, 5);
+        assert.equal(save.village_career.watchcraft.used, false);
+        for (const label of ['Vision and next-day playtest', 'Village career code', 'Watchcraft browser receipt']) {
+            const ref = card.getByRole('link', {name:label});
+            assert.equal((await page.request.get(new URL(await ref.getAttribute('href'), base).href)).status(), 200);
+        }
+        await page.locator('.atlas-freshness summary').click();
+        await page.getByText('Progress report ·', {exact:false}).waitFor();
+        await shot('implementation-watchcraft.png');
+        await page.setViewportSize({width:1280,height:800});
+        try {
+            assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+            await shot('implementation-watchcraft-1280.png');
+        } finally {
+            await page.setViewportSize({width:1920,height:1080});
+        }
+    });
+
     check('worlds index lists the source games', async () => {
         const c = await canvas('worlds', 'worlds');
         for (const t of ['Yet Another Idle RPG', 'Proto23 (original)', 'Arkivia']) assert.ok(await c.locator('.canvas-box', {hasText: t}).count(), t);

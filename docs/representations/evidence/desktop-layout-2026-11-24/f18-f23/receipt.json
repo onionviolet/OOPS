@@ -1,0 +1,213 @@
+{
+  "bundleSha256": "160a3444c83149be3bcfba8344794c66557cddf8ff95c0b2bf5e1fb2e2a6f633",
+  "focusedTests": 137,
+  "routes": {
+    "road": {
+      "hash": "160a3444c83149be3bcfba8344794c66557cddf8ff95c0b2bf5e1fb2e2a6f633",
+      "result": {
+        "viewport": [
+          1920,
+          1080
+        ],
+        "text": "21px",
+        "place": "Village",
+        "result": "won",
+        "mode": "local",
+        "notes": [
+          "You hit Mara in the body for 0.8 bludgeoning.",
+          "You hit Mara in the body for 0.9 bludgeoning.",
+          "You hit Mara in the body for 0.7 bludgeoning.",
+          "Mara tries to back away, but is cut off; the turn costs a free blow.",
+          "You hit Mara in the body for 0.8 bludgeoning.",
+          "You hit Mara in the body for 0.7 bludgeoning.",
+          "Mara tries to back away, but is cut off; the turn costs a free blow.",
+          "You hit Mara on the leg for 0.6 bludgeoning.",
+          "You miss.",
+          "You hit Mara in the body for 0.7 bludgeoning.",
+          "Mara tries to back away, but is cut off; the turn costs a free blow.",
+          "You hit Mara in the body for 0.9 bludgeoning.",
+          "You hit Mara on the arm for 0.7 bludgeoning.",
+          "Mara goes down.",
+          "Mara respects you more after the contest."
+        ],
+        "loot": [],
+        "details": 1,
+        "back": false
+      },
+      "errors": [
+        {
+          "op": -1,
+          "kind": "console",
+          "text": "No such element with availability as \"recipe\" -> \"undefined\""
+        },
+        {
+          "op": -1,
+          "kind": "console",
+          "text": "No such element with availability as \"item\" -> \"Ledger workshop cache\""
+        },
+        {
+          "op": -1,
+          "kind": "console",
+          "text": "No such element with availability as \"item\" -> \"Sealed survey parcel\""
+        }
+      ]
+    },
+    "hogwarts": {
+      "hash": "160a3444c83149be3bcfba8344794c66557cddf8ff95c0b2bf5e1fb2e2a6f633",
+      "result": {
+        "viewport": [
+          1920,
+          1080
+        ],
+        "text": "21px",
+        "place": "book.hp.lead.school_hall",
+        "result": "won",
+        "mode": "local",
+        "notes": [
+          "[ School days · Day 43 here (calendar date not known) ]",
+          "Deed done: Across the Threshold. Cross from one world into another.",
+          "They are caught off guard.",
+          "You use Petrificus Totalus on Draco Malfoy, and it misses.",
+          "Draco Malfoy uses Snatch the wand on you, and it misses.",
+          "You use Petrificus Totalus on Draco Malfoy: it lands.",
+          "Draco Malfoy is bound and cannot fight on."
+        ],
+        "loot": [],
+        "details": 1,
+        "back": false
+      },
+      "errors": []
+    },
+    "pack": {
+      "hash": "160a3444c83149be3bcfba8344794c66557cddf8ff95c0b2bf5e1fb2e2a6f633",
+      "result": {
+        "wide": {
+          "viewport": [
+            1920,
+            1080
+          ],
+          "text": "21px",
+          "place": "book.ri.lead.academy",
+          "result": null,
+          "mode": "tempo-combat",
+          "notes": [
+            "[ Gu Yue · 16 October, year 1, Autumn ]",
+            "Deed done: Across the Threshold. Cross from one world into another.",
+            "Both sides see each other at once.",
+            "Saved the game manually"
+          ],
+          "loot": [],
+          "details": 0,
+          "back": false
+        },
+        "narrow": {
+          "viewport": [
+            1280,
+            800
+          ],
+          "text": "21px",
+          "place": "book.ri.lead.academy",
+          "result": null,
+          "mode": "tempo-combat",
+          "notes": [
+            "[ Gu Yue · 16 October, year 1, Autumn ]",
+            "Deed done: Across the Threshold. Cross from one world into another.",
+            "Both sides see each other at once.",
+            "Saved the game manually"
+          ],
+          "loot": [],
+          "details": 0,
+          "back": false
+        },
+        "defeat": {
+          "viewport": [
+            1920,
+            1080
+          ],
+          "text": "21px",
+          "place": "book.ri.lead.academy",
+          "result": "lost",
+          "mode": "tempo-combat",
+          "notes": [
+            "[ Gu Yue · 16 October, year 1, Autumn ]",
+            "Deed done: Across the Threshold. Cross from one world into another.",
+            "You miss.",
+            "Lightning wolf D misses.",
+            "You know how hard Lightning wolf hits now: about 2.",
+            "Lightning wolf E hits you on the arm for 1.8 physical.",
+            "You are down.",
+            "Defeated. You recover at Clan academy."
+          ],
+          "loot": [],
+          "details": 1,
+          "back": true,
+          "outcome": "Defeated · Badly hurt · Recover at Clan academy"
+        },
+        "clear": {
+          "viewport": [
+            1920,
+            1080
+          ],
+          "text": "21px",
+          "place": "book.ri.lead.academy",
+          "result": "won",
+          "mode": "local",
+          "notes": [
+            "You hit Lightning wolf C in the body for 0.6 bludgeoning.",
+            "Lightning wolf is dead.",
+            "Lightning wolf D hits you in the body for 3.9 physical (critical).",
+            "Lightning wolf E hits you in the body for 4.7 physical (critical).",
+            "Lightning wolf D hits you in the head for 7.6 physical.",
+            "Your eyes are shaken.",
+            "Lightning wolf E hits you on the arm for 2.1 physical.",
+            "You sweep across the front.",
+            "You hit Lightning wolf D on the leg for 0.4 bludgeoning.",
+            "Lightning wolf is dead.",
+            "You hit Lightning wolf E in the body for 0.6 bludgeoning.",
+            "Lightning wolf is dead.",
+            "Looted Hidden lightning wolf eye x5",
+            "Looted Lightning wolf hide x5",
+            "Looted Wolf meat · jin x30"
+          ],
+          "loot": [
+            "Hidden lightning wolf eye",
+            "Lightning wolf hide",
+            "Wolf meat · jin"
+          ],
+          "details": 0,
+          "back": false
+        },
+        "pending": {
+          "viewport": [
+            1920,
+            1080
+          ],
+          "text": "21px",
+          "place": "book.ri.lead.academy",
+          "result": null,
+          "mode": "tempo-combat",
+          "notes": [
+            "[ Gu Yue · 16 October, year 1, Autumn ]",
+            "Deed done: Across the Threshold. Cross from one world into another.",
+            "You sweep across the front.",
+            "You miss.",
+            "You hit Lightning wolf B in the body for 0.6 bludgeoning.",
+            "Lightning wolf is down and helpless.",
+            "Lightning wolf D misses.",
+            "You know how hard Lightning wolf hits now: about 2.",
+            "Lightning wolf E hits you on the arm for 1.8 physical.",
+            "Lightning wolf C hits you on the leg for 1.4 physical.",
+            "Lightning wolf A stumbles; the move comes to nothing.",
+            "Lightning wolf E misses.",
+            "Lightning wolf C misses."
+          ],
+          "loot": [],
+          "details": 0,
+          "back": false
+        },
+        "exportImport": true
+      },
+      "errors": []
+    }
+  }
+}

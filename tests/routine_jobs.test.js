@@ -16,6 +16,7 @@ import {REPOSITORY_ABSORPTION_ITEMS as Q} from '../src/repository_absorption_con
 import {beginSociety,commitSocietyAction} from '../src/feature_expansion_society_host.js';
 import {SOCIETY_ITEMS as S} from '../src/feature_expansion_society.js';
 import {persistExpansionPlan} from '../src/expansion_persistence.js';
+import {FRONTIER_COMPARISON, originalFrontierPresentation} from '../src/original_frontier_campaign_host.js';
 
 // Controlled SOURCE fixtures only. Fixture money/materials/body/location are not native acquisition evidence.
 const body={id:'native.player.body',form:'human',ownerId:'player',controllerId:'player',hands:2,mobile:true};
@@ -35,6 +36,25 @@ const repo=(p,id)=>commitRepositoryAbsorption(p.state,registry,{id},ctx(p));
 const view=p=>repositoryAbsorptionPresentation(p.state,registry,ctx(p));
 function courier(){let p=base();p=beginRepositoryAbsorption(p.state,registry,ctx(p));p=repo(p,'repositories.decline');p=advance(p,2);p=advance(repo(p,'repositories.lesson'),3);
  p.gameplay.player.inventory={[Q.kit]:8,[Q.pellet]:8};return p;}
+
+test('a Frontier comparison stops on the XP that settles at the same routine boundary', () => {
+ const start=base();
+ const p=enrollSimulation(start.state,registry,ctx(start));
+ p.state.actors.player.facts['original_frontier.freight.introduced']=true;
+ p.state.actors.player.facts['original_frontier.explore.dossier']=true;
+ p.gameplay.player.skills.Perception={xp:4122.53,enabled:true,parent:null};
+ const evidence={nativeSkillLevels:{Perception:5},facts:{location:'Village','native.perceptionLevelSixXP':4126.53}};
+ const running=setSimulationProgram(p.state,registry,FRONTIER_COMPARISON,2,ctx(p,evidence));
+ const done=advance(reload(running),5,evidence);
+ assert.equal(done.gameplay.player.skills.Perception.xp,4126.53);
+ assert.equal(done.state.actors.player.completed[FRONTIER_COMPARISON],1);
+ assert.equal(done.state.simulation.programs.player.status,'paused');
+ assert.equal(done.state.simulation.programs.player.remaining,1);
+ assert.equal(done.state.simulation.jobs.some(j=>j.commandId===FRONTIER_COMPARISON),false);
+ const view=originalFrontierPresentation(done.state,registry,ctx(done,evidence));
+ assert.equal(view.program.canResume,false);
+ assert.match(view.program.nextReason,/Perception six/);
+});
 
 test('SOURCE reserve 4 and held 3 reserve nothing and add no polling; released 2 starts one frozen batch',()=>{
  let p=reserve(opened(4));assert.equal(cursor(p).stockHold,true);assert.equal(workPlanNextBoundary(p.state),Infinity);assert.equal(p.state.simulation.jobs.length,0);

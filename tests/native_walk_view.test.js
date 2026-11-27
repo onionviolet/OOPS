@@ -39,3 +39,24 @@ test('PS164: the walking map comes back open after a redraw once the player open
         assert.equal(build().open, false, 'closing it sticks too');
     } finally { globalThis.document = previous; }
 });
+
+test('the route diagram draws only known direct edges while preserving a further travel control', async () => {
+    const {walkTopology} = await import('../src/ui/walk_topology.js');
+    const neighbors = id => ({
+        Village: ['Shack', 'Eastern mill', 'Infested field', 'Secret grove'],
+        Shack: ['Village', 'Forest road'],
+        'Forest road': ['Shack'],
+    }[id] || []);
+    const view = nativeWalkView({hereId:'Village',distances,exits,known,neighbors});
+    const diagram = walkTopology(view.graph, view.neighbors);
+    assert.deepEqual(diagram.layers, [
+        ['Village'], ['Shack','Eastern mill','Infested field'], ['Forest road'],
+    ]);
+    assert.deepEqual(diagram.edges, [
+        {from:'Village',to:'Shack',both:true},
+        {from:'Village',to:'Eastern mill'},
+        {from:'Village',to:'Infested field'},
+        {from:'Shack',to:'Forest road',both:true},
+    ]);
+    assert.equal(view.graph.find(place => place.id === 'Forest road').moveId, 'travel:Forest road');
+});

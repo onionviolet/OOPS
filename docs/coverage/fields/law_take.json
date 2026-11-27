@@ -3,63 +3,52 @@
  "split": "sha1(split:id) mod 5 = 0 held out",
  "slugs": {
   "area-field": {
-   "rows": 2921,
+   "rows": 2933,
    "labelled": 1431,
-   "taken": 245,
-   "takeRate": 0.084,
-   "distinctCases": 47,
+   "taken": 476,
+   "takeRate": 0.162,
+   "distinctCases": 112,
    "blocked": {
-    "no stated sentence": 1281,
+    "no stated sentence": 1293,
     "read as not an area effect": 278,
-    "end.vitality has no world account": 11,
-    "time delayed has no pulse model": 22,
-    "block.vitality has no world account": 3,
-    "remove.thing has no world account": 14,
-    "add.force has no world account": 167,
-    "time triggered has no pulse model": 70,
-    "alter.force has no world account": 57,
-    "conceal.thing has no world account": 7,
-    "block.essence has no world account": 10,
-    "transform.moisture has no world account": 3,
-    "move.position has no world account": 50,
+    "add.force has no world account": 189,
+    "alter.force has no world account": 60,
+    "transform.moisture has no world account": 4,
     "block.mind has no world account": 8,
     "move.force has no world account": 20,
-    "alter.mind has no world account": 64,
+    "alter.mind has no world account": 72,
     "conceal.information has no world account": 14,
-    "block.position has no world account": 21,
     "conceal.light has no world account": 23,
     "alter.heat has no world account": 20,
-    "move.thing has no world account": 18,
     "remove.force has no world account": 7,
     "bind.thing has no world account": 8,
     "time none has no pulse model": 66,
-    "add.thing has no world account": 14,
-    "alter.position has no world account": 8,
+    "sustained creation needs a distinct identity per pulse": 4,
     "alter.relation has no world account": 4,
     "bind.relation has no world account": 6,
     "alter.moisture has no world account": 13,
     "remove.law has no world account": 2,
-    "block.force has no world account": 64,
-    "transform.thing has no world account": 19,
+    "block.force has no world account": 71,
+    "transform.thing has no world account": 20,
     "bind.position has no world account": 13,
-    "alter.working has no world account": 16,
+    "alter.working has no world account": 17,
     "end.working has no world account": 4,
-    "block.thing has no world account": 17,
     "block.working has no world account": 22,
-    "alter.law has no world account": 21,
-    "alter.form has no world account": 4,
-    "block.sound has no world account": 12,
+    "alter.law has no world account": 22,
+    "alter.form has no world account": 6,
+    "bind.force has no world account": 5,
     "sense.mind has no world account": 3,
-    "add.mind has no world account": 10,
-    "sense.information has no world account": 19,
+    "add.mind has no world account": 12,
+    "sense.information has no world account": 20,
     "block.information has no world account": 11,
-    "block.light has no world account": 4,
+    "add.information has no world account": 14,
+    "remove.working has no world account": 1,
     "add.relation has no world account": 2,
+    "release.essence has no world account": 3,
     "alter.light has no world account": 8,
     "alter.information has no world account": 4,
-    "alter.time has no world account": 5,
+    "alter.time has no world account": 6,
     "transform.working has no world account": 1,
-    "end.thing has no world account": 6,
     "add.working has no world account": 4,
     "add.none has no world account": 2,
     "transform.heat has no world account": 2,
@@ -68,19 +57,18 @@
     "bind.law has no world account": 1,
     "sense.vitality has no world account": 1,
     "remove.mind has no world account": 2,
+    "release.sound has no world account": 1,
     "sense.position has no world account": 1,
     "remove.memory has no world account": 2,
-    "release.essence has no world account": 2,
-    "block.moisture has no world account": 1,
     "end.mind has no world account": 2,
-    "block.heat has no world account": 6,
     "transform.information has no world account": 3,
     "move.sound has no world account": 3,
-    "move.moisture has no world account": 5,
+    "alter.lifespan has no world account": 2,
+    "move.moisture has no world account": 6,
     "transform.light has no world account": 1,
     "transform.vitality has no world account": 3,
     "bind.vitality has no world account": 1,
-    "transform.force has no world account": 3,
+    "transform.force has no world account": 4,
     "sense.force has no world account": 1,
     "alter.vitality has no world account": 2,
     "alter.sound has no world account": 2,
@@ -92,25 +80,22 @@
     "release.force has no world account": 3,
     "move.working has no world account": 1,
     "alter.essence has no world account": 1,
-    "bind.working has no world account": 1,
+    "bind.working has no world account": 2,
     "move.heat has no world account": 1,
     "transform.memory has no world account": 1,
-    "bind.force has no world account": 4,
     "copy.information has no world account": 1,
     "move.light has no world account": 2,
     "remove.soul has no world account": 1,
-    "add.information has no world account": 13,
     "end.force has no world account": 1,
     "block.time has no world account": 1,
     "block.law has no world account": 2,
-    "alter.lifespan has no world account": 1,
     "add.form has no world account": 1,
     "move.information has no world account": 1,
     "remove.information has no world account": 1,
     "conceal.essence has no world account": 1,
     "sense.thing has no world account": 1,
-    "bind.mind has no world account": 1,
-    "end.position has no world account": 1
+    "add.luck has no world account": 1,
+    "bind.mind has no world account": 1
    },
    "dials": {
     "time": {
@@ -124,30 +109,30 @@
     }
    },
    "leaning": {
-    "taken": 245,
-    "noDefault": 51,
-    "oneDefault": 194,
+    "taken": 476,
+    "noDefault": 95,
+    "oneDefault": 381,
     "twoPlus": 0,
     "byField": {
      "sentence": {
-      "label": 245
+      "label": 476
      },
      "time": {
-      "label": 245
+      "label": 476
      },
      "anchor": {
-      "stated": 245
+      "stated": 476
      },
      "who": {
-      "fill": 51,
-      "default": 194
+      "default": 381,
+      "fill": 95
      }
     },
-    "statedSample": 4
+    "statedSample": 3
    },
    "heldOutTake": {
-    "n": 46,
-    "taken": 46
+    "n": 571,
+    "taken": 85
    },
    "scores": [
     {
@@ -159,7 +144,7 @@
     },
     {
      "id": "law.area-field.time-default",
-     "n": 203,
+     "n": 217,
      "exact": 80,
      "baseline": 80,
      "verdict": "fails-baseline"
@@ -181,14 +166,14 @@
    ]
   },
   "form-transformation": {
-   "rows": 2019,
+   "rows": 2046,
    "labelled": 1317,
    "taken": 1307,
-   "takeRate": 0.647,
+   "takeRate": 0.639,
    "distinctCases": 10,
    "blocked": {
     "read as not a form change": 136,
-    "no stated sentence": 360,
+    "no stated sentence": 387,
     "move.position is another law": 15,
     "transform.thing is another law": 14,
     "add.force is another law": 21,
@@ -267,7 +252,7 @@
     "statedSample": 2
    },
    "heldOutTake": {
-    "n": 274,
+    "n": 429,
     "taken": 274
    },
    "scores": [

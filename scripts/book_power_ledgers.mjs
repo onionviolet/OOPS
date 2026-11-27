@@ -18,6 +18,7 @@ import {foldChapterEffect} from './chapter_effect_tier.mjs';
 import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES} from '../src/effect_grammar.js';
 import {attachItemBoundRows} from './item_bound_ledgers.mjs';
 import {attachFormRows} from './form_transformation_ledgers.mjs';
+import {attachDivinationRows} from './divination_ledgers.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const PRIMARY = '/Users/weiwei/code/yet-another-idle-rpg/';
@@ -315,7 +316,7 @@ export function buildLedger(side) {
     });
 }
 async function build(b) {
-    const rows = await attachFormRows(await attachItemBoundRows(buildLedger(jread(sidecarPath(b)))));
+    const rows = await attachDivinationRows(await attachFormRows(await attachItemBoundRows(buildLedger(jread(sidecarPath(b))))));
     writeFileSync(ledgerPath(b), rows.map(r => JSON.stringify(r)).join('\n') + '\n');
     const c = {}; for (const r of rows) c[r.state.split(':')[0] + (r.state.startsWith('blocked') ? '' : '')] = (c[r.state.split(':')[0]] ?? 0) + 1;
     console.log(JSON.stringify({book: b, rows: rows.length, states: c}));

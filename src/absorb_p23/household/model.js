@@ -23,6 +23,7 @@ const catHabitat = (homeId, adopted) => ({
 const cat = a => a.lifecycle?.individuals[a.creatureId];
 const experience = a => cat(a)?.experience.player;
 const catBond = a => experience(a)?.bond ?? a.bond;
+const MOSS_COAT = 'brindled';
 
 function enrollMoss(a, homeId) {
     const doorstep = catHabitat(homeId, false);
@@ -30,7 +31,7 @@ function enrollMoss(a, homeId) {
         species: 'house_cat', habitat: doorstep, delta: 1});
     const found = acquireCreature(state, {revision: state.revision, cohortId: HOUSEHOLD.animalId,
         destination: catHabitat(homeId, a.adopted), keeper: a.adopted ? 'player' : null,
-        clock: a.metAt, growthMinutes: HOUSEHOLD.growMinutes, traits: {coat: 'brindled'}});
+        clock: a.metAt, growthMinutes: HOUSEHOLD.growMinutes, traits: {coat: MOSS_COAT}});
     a.creatureId = found.id;
     a.lifecycle = found.state;
     cat(a).experience.player = {bond: a.bond, lastAt: a.lastInteraction,
@@ -74,7 +75,7 @@ export function householdAnimalView(state, c) {
     const smoky = state.hearth?.smoke > 0;
     const posture = smoky ? 'Moss waits outside the smoky room.' : !a.adopted ? 'Moss watches you from the doorway.' :
         state.hearth?.fuelMinutes > 0 ? 'Moss curls up beside the warm hearth.' : 'Moss settles near your usual resting place.';
-    return {name: HOUSEHOLD.name, mood: a.mood, bond: catBond(a), metAt: a.metAt,
+    return {name: HOUSEHOLD.name, coat: cat(a)?.traits?.coat ?? MOSS_COAT, mood: a.mood, bond: catBond(a), metAt: a.metAt, interactions:a.interactions,
         knownMinutes: a.ageMinutes, playVisits: a.playVisits || 0,
         preference: a.playVisits > 0 ? a.playObject==='yarn'?'Likes chasing the yarn ball.':'Likes chasing a trailing cloth.' : null, posture};
 }
@@ -208,7 +209,7 @@ export function planHousehold(state, event, c) {
             s.animal = {id: HOUSEHOLD.animalId, metAt: c.clock, bond: 10, interactions: 1,
                 lastInteraction: c.clock, ageMinutes: 0, mood: 'curious', adopted: false, lastGiftAt: c.clock, gifts: 0};
             enrollMoss(s.animal, s.homeId);
-            notices.push('Moss, a young brindled cat, sniffs your hand and remembers it.'); break;
+            notices.push(`Moss, a young ${MOSS_COAT} cat, sniffs your hand and remembers it.`); break;
         case 'pet': case 'play':
             check(a && c.animalKnown === true && h.smoke === 0, 'Moss must be known and safely here');
             check(c.clock >= a.lastInteraction + 5, 'Give Moss five played minutes between visits.');

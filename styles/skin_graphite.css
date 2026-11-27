@@ -1,0 +1,93 @@
+/* Graphite (Weibao, 2026-11-21): the Luminous Gothic frame and type in flat dark greys after Arkivia's palette.
+   Flat fills and no glow. Colour is kept for meaning: blue for what you can act on, gold for money and time,
+   violet for Reports, green, red and blue for the vitals. Structure is shared with Luminous in ui_tokens.css. */
+:root:has(.customization-module[data-component-theme="graphite"]),
+:root:has(.customization-module[data-component-theme="graphite"]) #main_content.workspace-active,
+:root:has(.customization-module[data-component-theme="graphite"]) #game_status {
+ --ui-navy: var(--graphite-stage); --ui-teal: var(--graphite-panel); --ui-text: var(--graphite-text); --ui-hairline: var(--graphite-line); --ui-accent: var(--graphite-money);
+ --ui-fill: var(--graphite-panel); --ui-panel-fill: var(--graphite-panel); --ui-log-fill: var(--graphite-log); --ui-reading-fill: var(--graphite-stage);
+ --ui-button-fill: var(--graphite-raised); --ui-button-disabled-fill: var(--graphite-stage); --ui-tooltip-fill: var(--graphite-shadow); --ui-meter-track-bg: var(--graphite-deep); --ui-shadow: none;
+ --ui-glow-affordance: none; --ui-glow-active: inset 0 -2px var(--graphite-link); --ui-glow-discovery: none;
+ --workspace-surface: var(--graphite-panel); --workspace-header: var(--graphite-raised); --workspace-border: var(--graphite-rule); --workspace-accent: var(--graphite-link); --workspace-button: var(--graphite-raised);
+ --shell-r2-blue: var(--graphite-panel); --shell-r2-teal: var(--graphite-panel); --shell-r2-context: var(--graphite-raised); --shell-r2-purple: var(--graphite-log);
+ --shell-r2-line: var(--graphite-line); --shell-r2-selection: var(--graphite-hover); --shell-r2-log-fill: var(--graphite-log);
+ --p23-context: var(--graphite-raised); --p23-blue: var(--graphite-stage); --p23-teal: var(--graphite-panel); --p23-text: var(--graphite-text); --p23-frame: var(--graphite-shadow); --p23-line: var(--graphite-line);
+ --p23-region-fill: var(--graphite-panel); --p23-log-fill: var(--graphite-log); --p23-inventory-fill: var(--graphite-panel); --p23-detail-fill: var(--graphite-raised);
+ --p23-detail-slot-fill: var(--graphite-stage); --p23-preview-fill: var(--graphite-raised); --p23-message-fill: var(--graphite-log); --p23-message-line: var(--graphite-line);
+ --p23-health-fill: var(--graphite-health); --p23-xp-fill: var(--graphite-xp); --p23-energy-fill: var(--graphite-energy); --p23-mana-fill: var(--graphite-link);
+ --p23-hover-fill: var(--graphite-hover); --p23-track: var(--graphite-deep); --p23-health-track: var(--graphite-deep); --p23-dark-value: var(--graphite-deep);
+ --p23-selected: var(--graphite-hover); --p23-muted: var(--graphite-muted); --p23-stat-band: var(--graphite-raised); --p23-quiet-line: var(--graphite-rule); --p23-detail-border: var(--graphite-line);
+ --sem-record-bg: var(--graphite-stage); --sem-record-band: var(--graphite-band); --sem-record-footer: var(--graphite-deep); --sem-record-text: var(--graphite-band-text); --sem-record-edge: var(--graphite-line);
+}
+:root:has(.customization-module[data-component-theme="graphite"]) body { background: var(--graphite-page); }
+#main_content.workspace-active .customization-module[data-component-theme="graphite"] {
+ --ui-luminous-glow: none; --ui-luminous-edge: none; --ui-luminous-rule: var(--graphite-rule);
+ background: var(--theme-bg) !important;
+}
+#main_content.workspace-active #message_log_div.customization-module[data-component-theme="graphite"] {
+ --ui-log-fill: var(--theme-bg); background: var(--theme-bg) !important;
+}
+#main_content.workspace-active .workspace-module:has(.customization-module[data-component-theme="graphite"]) {
+ border-color: var(--graphite-rule) !important; box-shadow: none !important;
+}
+#main_content.workspace-active .workspace-module:has(.customization-module[data-component-theme="graphite"]) > .workspace-module-header {
+ background: var(--graphite-raised) !important; border-bottom-color: var(--graphite-rule);
+}
+#main_content.workspace-active .workspace-module:has(.customization-module[data-component-theme="graphite"]) > .workspace-module-header strong {
+ text-shadow: none;
+}
+#main_content.workspace-active .customization-module[data-component-theme="graphite"] .meter-bar-track {
+ height: auto; box-shadow: none; border-inline: 0;
+}
+#main_content.workspace-active .customization-module[data-component-theme="graphite"] .meter-bar-fill { background-image: none; }
+#main_content.workspace-active .customization-module[data-component-theme="graphite"] :is(button,select,summary,[tabindex],.inventory_item_control,.recipe_name):hover {
+ background-color: var(--graphite-hover); box-shadow: none;
+}
+#main_content.workspace-active:has(#location_related_div[data-component-theme="graphite"]) .nearby-context-view {
+ background: var(--shell-user-fill, transparent);
+}
+#main_content.workspace-active:has(#location_related_div[data-component-theme="graphite"]) .workspace-module-body:has(> #current_focus > .nearby-context-view), #current_focus:has(> .nearby-context-view) { padding: 0 !important; }
+#main_content.workspace-active:has(#location_related_div[data-component-theme="graphite"]) .nearby-context-view :is(h2,h3,summary) { text-shadow: none; }
+/* The Vivid display scheme tints each panel role; under Graphite every role takes the same flat greys. */
+:root:has(.customization-module[data-component-theme="graphite"]),
+:root:has(.customization-module[data-component-theme="graphite"]) .workspace-module {
+ --vivid-page: var(--graphite-page) !important; --vivid-text: var(--graphite-text) !important; --vivid-muted: var(--graphite-muted) !important;
+ --vivid-accent: var(--graphite-link) !important; --vivid-focus: var(--graphite-link) !important; --vivid-control: var(--graphite-raised) !important;
+ --vivid-control-hover: var(--graphite-hover) !important; --vivid-surface: var(--graphite-panel) !important; --vivid-header: var(--graphite-raised) !important;
+ --vivid-edge: var(--graphite-line) !important; --workspace-surface: var(--graphite-panel) !important; --ui-panel-fill: var(--graphite-panel) !important;
+}
+#main_content.workspace-active .workspace-module[data-module="messages"]:has(.customization-module[data-component-theme="graphite"]) { --ui-panel-fill: var(--graphite-log) !important; }
+/* Seamless (Weibao, 2026-11-21): panels meet edge to edge like Arkivia's, with no page showing between them.
+   One dark hairline marks each seam; the bars top and bottom touch the board. */
+:root:has(.customization-module[data-component-theme="graphite"]) body { margin: 0; }
+:root:has(.customization-module[data-component-theme="graphite"]) #main_content.workspace-active { margin: 0; height: 100vh !important; box-sizing: border-box; }
+:root:has(.customization-module[data-component-theme="graphite"]) #main_content.workspace-active .workspace-board { gap: 0; padding: 0; }
+:root:has(.customization-module[data-component-theme="graphite"]) #main_content.workspace-active .parity-region {
+ border: 0 !important; border-inline-end: 1px solid var(--graphite-shadow) !important; border-block-end: 1px solid var(--graphite-shadow) !important; box-shadow: none !important;
+}
+:root:has(.customization-module[data-component-theme="graphite"]) #main_content.workspace-active .parity-region .workspace-module { border: 0 !important; }
+/* Inside Here, lists read as one stack of rows split by hairlines instead of boxes inside boxes. */
+#main_content.workspace-active:has(#location_related_div[data-component-theme="graphite"]) .nearby-context-view :is(.nearby-context-split,.nearby-context-list) { gap: 0; }
+#main_content.workspace-active:has(#location_related_div[data-component-theme="graphite"]) .nearby-context-view section { border: 0; border-block-end: 1px solid var(--graphite-shadow); }
+#main_content.workspace-active:has(#location_related_div[data-component-theme="graphite"]) .nearby-context-view .nearby-row { gap: 0; border-block-end: 1px solid var(--graphite-shadow); }
+#main_content.workspace-active:has(#location_related_div[data-component-theme="graphite"]) .nearby-context-view .nearby-row button { border: 0; }
+/* DK2 (Weibao 2026-11-22): Arkivia's flat controls. A button is its panel's ground with a thin blue-violet edge; hover lifts the
+   ground, the edge stays. Bars keep their saturated fills (DK4). The stat grid stays plain, as Arkivia's does. */
+#main_content.workspace-active .customization-module[data-component-theme="graphite"] :is(button,select,.start_activity,.action_travel,.start_dialogue,.recipe_name):not(.meter-bar *):not([data-attribute-preview]):not([data-attribute-preview] *) {
+ background-color: var(--graphite-raised); border: 1px solid var(--graphite-edge) !important; box-shadow: none; text-shadow: none;
+}
+/* SKC2 (Weibao 2026-11-22, "improve/condense the skills collumn the same way done for the others"): skills read as one
+   stack of hairline rows, like Here. No green box per bar, no indent, small category labels, and the find row loses its word
+   (the field says "Find skill"). The fill is the reading; the name and counts sit on it (SKC1). */
+#main_content.workspace-active .customization-module[data-component-theme="graphite"] .skill_bar_max {
+ border: 0 !important; border-block-end: 1px solid var(--graphite-shadow) !important; width: auto; margin: 0; background: var(--graphite-stage);
+}
+#main_content.workspace-active .customization-module[data-component-theme="graphite"] .skill_bar_current { background-color: var(--graphite-health); opacity: .38; }
+#main_content.workspace-active .customization-module[data-component-theme="graphite"] .skill_div[data-practising] .skill_bar_current { opacity: .6; }
+#main_content.workspace-active .customization-module[data-component-theme="graphite"] .skill_category_div {
+ padding: var(--ui-space-1) 0 0; border-bottom: 0; font-size: var(--ui-type-small); color: var(--graphite-muted); letter-spacing: .02em;
+}
+#main_content.workspace-active .customization-module[data-component-theme="graphite"] .skill_category_div .skill_dropdown_icon { font-size: inherit; vertical-align: -2px; }
+#main_content.workspace-active .customization-module[data-component-theme="graphite"] .skill_category_div [data-skill_category_skills] { font-size: var(--ui-type-body); color: var(--graphite-text); margin-top: var(--ui-space-1); }
+#main_content.workspace-active .customization-module[data-component-theme="graphite"] .ui-list-tools:has(+ #skill_list) > label { font-size: 0; }
+#main_content.workspace-active .customization-module[data-component-theme="graphite"] .ui-list-tools:has(+ #skill_list) > label input { font-size: var(--ui-font-size, 14px); width: 100%; }

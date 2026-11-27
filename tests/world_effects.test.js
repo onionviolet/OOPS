@@ -5,10 +5,11 @@ import {
     readQuantity, resolveRef, substratePort, readScarcity, SUBSTRATE_REVISION,
 } from '../src/world_substrate.js';
 import {applyEffect, resolveTargets, EFFECT_VERBS, W_OBJECT_OF} from '../src/world_effects.js';
+import {FORCE_QUANTITY} from '../src/force_effects.js';
 import {EFFECT_VERBS as P_VERBS, EFFECT_OBJECTS as P_OBJECTS} from '../src/effect_grammar.js';
 import {WORLD_QUANTITIES as Q, WORLD_PROPERTIES as P} from '../src/world_quantities.js';
 
-const allQ = Object.values(Q), allP = Object.values(P);
+const allQ = [...Object.values(Q), FORCE_QUANTITY], allP = Object.values(P);
 // A pack that only declares vocabulary, so a world can carry any shared name.
 const vocab = {id: 'w.vocabulary', quantities: allQ, properties: allP};
 const rules = composeSubstrate({packs: [vocab]});
@@ -224,7 +225,7 @@ test('E8 canon sentences lower to acts: the boundary P composes on', () => {
 test('E9 one verb list with P, every P object mapped, and release and end answer bind, conceal and sustained effects', () => {
     assert.deepEqual([...EFFECT_VERBS].sort(), [...P_VERBS].sort(), 'W runs exactly the verbs P composes');
     assert.deepEqual(Object.keys(W_OBJECT_OF).sort(), Object.keys(P_OBJECTS).sort(), 'every P object has a W reading or a named owner');
-    for (const w of Object.values(W_OBJECT_OF).filter(v => v && !v.includes(':') && v !== 'position')) assert.ok(Q[w], `${w} is W vocabulary`);
+    for (const w of Object.values(W_OBJECT_OF).filter(v => v && !v.includes(':') && v !== 'position')) assert.ok(rules.quantities.has(w), `${w} is W vocabulary`);
     let w = act(hall(), {verb: 'bind', mark: 'oath', target: {shape: 'holder', id: 'mage'}}).world;
     w = act(w, {verb: 'release', mark: 'oath', target: {shape: 'holder', id: 'mage'}}).world;
     assert.deepEqual(w.holders.mage.properties.marks, []);

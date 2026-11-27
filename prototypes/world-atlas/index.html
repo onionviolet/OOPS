@@ -21,8 +21,8 @@ header,main{max-width:none;padding-inline:clamp(.8rem,2vw,2rem)}
 .atlas-workspace:has(.atlas-stop:only-of-type) .atlas-plane{min-height:25em}
 @media(max-width:750px){.atlas-workspace{grid-template-columns:1fr}.atlas-plane{min-width:480px}.atlas-workspace aside{max-height:none}}
 .map-scale{display:flex;justify-content:flex-end;align-items:center;gap:.4rem;margin-top:.35rem}.map-scale button{padding:.1em .6em}.map-scale output{font-variant-numeric:tabular-nums}.atlas-stop{max-width:13rem}
-</style><link rel="stylesheet" href="/styles/ui_tokens.css"><link rel="stylesheet" href="/styles/material_icons.css"><link rel="stylesheet" href="/canvas.css"><link rel="stylesheet" href="/atlas-type.css">
-<header><h1>World atlas</h1><nav aria-label="Atlas sections"></nav></header><div class="atlas-trail" aria-label="Where you are"></div><main id="main"><p id="atlas-loading" role="status">Loading world records…</p></main>
+</style><link rel="stylesheet" href="/styles/ui_tokens.css"><link rel="stylesheet" href="/styles/material_icons.css"><link rel="stylesheet" href="/field-record.css"><link rel="stylesheet" href="/canvas.css"><link rel="stylesheet" href="/atlas-type.css">
+<header><div class="atlas-heading"><h1>World atlas</h1><div id="atlas-snapshot"></div></div><nav aria-label="Atlas sections"></nav></header><div class="atlas-trail" aria-label="Where you are"></div><main id="main"><p id="atlas-loading" role="status">Loading world records…</p></main>
 <script>
 function atlasLoadError() {
     const status = document.getElementById('atlas-loading');
@@ -55,8 +55,14 @@ import {renderCheatCatalogue} from '/cheat-catalogue-view.mjs';
 import {ideaOwners} from '/idea-owners-view.mjs';
 import {cardWorldTrial} from '/card-world-trial.mjs';
 import {sourceGamePage, scenesView, mechanicsView, progressView, SOURCE_GAMES} from '/atlas-views.mjs';
+import {implementationView, snapshotStatus} from '/implementation-view.mjs';
 import {transferView} from '/transfer-view.mjs';
 import {findingsView, thingsView, makingView, readerScenesView, readerCreatureShelf} from '/things-views.mjs';
+import {codexView} from '/codex-views.mjs';
+import {cheatsView, changesView} from '/cheats-views.mjs';
+import {ideasView} from '/ideas-views.mjs';
+import {draftsView} from '/workbench-views.mjs';
+import {codexMapView} from '/codex-map.mjs';
 import {creatureMarks, creatureOverview, creatureShelf, creatureNeighborhood, libraryEdges} from '/creature-layout.mjs';
 
 const main=document.querySelector('main'), nav=document.querySelector('nav');
@@ -65,12 +71,13 @@ const button=(label,fn)=>{const b=el('button',label);b.type='button';b.onclick=f
 const list=rows=>{const ul=el('ul');for(const r of rows)ul.append(el('li',r));return ul};const listOf=list;
 const detail=(title,value)=>{const d=el('details');d.append(el('summary',title),el('pre',value));return d};
 const data=await (await fetch('/data')).json();data.bookIndex={};
+snapshotStatus(document.getElementById('atlas-snapshot'), data);
 const mapDecorations=data.mapMarksAvailable ? import('/map-marks.js') : null;
 let creatureRecordModule;
 function loadCreatureRecord(){
  if(!data.creatureRecordAvailable)return null;
  if(!creatureRecordModule){
-  const style=el('link');style.rel='stylesheet';style.href='/field-record.css';document.head.append(style);
+  if(!document.querySelector('link[href="/field-record.css"]')){const style=el('link');style.rel='stylesheet';style.href='/field-record.css';document.head.append(style);}
   creatureRecordModule=import('/creature-record.js');
  }
  return creatureRecordModule;
@@ -109,14 +116,14 @@ for(const world of WORLDS)if(data.placeActivities?.[world.id]?.length&&!world.vi
 for(const world of WORLDS)if(!world.source&&!world.views.includes('rules'))world.views.push('rules');
 const worldById=new Map(WORLDS.map(w=>[w.id,w]));
 const VIEW_LABELS={things:'Things',people:'People',groups:'Groups',making:'Making',powers:'Powers',findings:'Reader findings',source:'Source map',scenes:'Scenes','reader-scenes':'Reader scenes',overview:'Where things stand',mechanics2:'Mechanics',transfer:'Send to the game',places:'Places',locations:'Registered locations',districts:'Walk districts',encounter:'Cyoria encounter',reading:'Reading',
- pipeline:'Reading pipeline',shelves:'Library shelves',mechanics:'Mechanic readiness',kinds:'Creatures and kinds','reader-creatures':'From the readers',observations:'Identified target',site:'Village site workshop'};
+ pipeline:'Reading pipeline',shelves:'Library shelves',mechanics:'Mechanic readiness',kinds:'Creatures and kinds','reader-creatures':'From the readers',observations:'Identified target',site:'Village site workshop',implementation:'Implementation',list:'Catalogue',candidates:'Candidates',drafts:'Drafts'};
 VIEW_LABELS.outputs='Reading outputs';
 VIEW_LABELS.coverage='Coverage by world';
 VIEW_LABELS.campaigns='Campaign evidence';
 VIEW_LABELS.vision='Vision coverage';
 VIEW_LABELS.rules='World rules';VIEW_LABELS.cheats='Cheat catalogue';
 const SECTIONS=[{id:'worlds',label:'Worlds'},{id:'find',label:'Find'},{id:'library',label:'Library',views:['pipeline','outputs','coverage','campaigns','rules','cheats','shelves','mechanics']},
- {id:'creatures',label:'Creatures',views:['kinds','reader-creatures','observations']},{id:'progress',label:'Progress',views:['overview','vision','findings','mechanics2']},{id:'workbench',label:'Workbench',views:['transfer','handoffs','ideas','card-trial','play-evidence','site']}];
+ {id:'creatures',label:'Creatures',views:['kinds','reader-creatures','observations']},{id:'progress',label:'Progress',views:['overview','vision','findings','mechanics2']},{id:'workbench',label:'Workbench',views:['implementation','transfer','handoffs','ideas','card-trial','play-evidence','site','drafts']},{id:'codex',label:'Codex'},{id:'cheats',label:'Cheats',views:['list','candidates']},{id:'ideas',label:'Ideas'},{id:'changes',label:'Changes'}];
 VIEW_LABELS.handoffs='Implementation handoffs';
 VIEW_LABELS.ideas='Ideas and backlogs';
 VIEW_LABELS['card-trial']='Card-world trial';
@@ -130,6 +137,10 @@ function route(){
  const routePath=raw.split('?')[0];
  const parts=routePath.split('/');
  const [section='worlds',a,b,c]=parts;
+ if(section==='codex-map')return {section:'codex',map:true};
+ if(section==='codex')return {section:'codex',ledger:/^[a-z0-9_]+$/.test(a||'')?a:'gu_kinds',focus:b?decodeURIComponent(b):null};
+ if(section==='ideas')return {section:'ideas',focus:a?decodeURIComponent(a):null};
+ if(section==='cheats')return {section:'cheats',view:a==='candidates'?'candidates':'list',focus:/^CTC\d+$/.test(b||'')?b:null};
  if(section==='world'&&worldById.has(a)){const w=worldById.get(a);return {section:'worlds',world:w,view:w.views.includes(b)?b:w.views[0],focus:c?decodeURIComponent(c):null}}
  const s=SECTIONS.find(x=>x.id===section)||SECTIONS[0];
  return {section:s.id,view:s.views?.includes(a)?a:s.views?.[0],bookKey:s.id==='library'&&a==='outputs'?b:null,
@@ -163,8 +174,13 @@ function showPage(){
  if(r.view==='play-evidence')return nativePlayEvidenceView({main});
  if(r.world)return worldView(r.world,r.view,{...shared,focus:r.focus});
  if(r.section==='worlds')return worldsIndex();
+ if(r.section==='codex'&&r.map)return codexMapView({...shared,go});
+ if(r.section==='codex')return codexView({...shared,ledger:r.ledger,focus:r.focus,go});
+ if(r.section==='ideas')return ideasView({...shared,focus:r.focus,go});
+ if(r.section==='cheats')return cheatsView({...shared,tab:r.view,focus:r.focus,go});
+ if(r.section==='changes')return changesView(shared);
  ({pipeline:()=>readingPipeline(shared),coverage:()=>readingSurvey(shared),campaigns:()=>campaignSequencingView(shared),rules:()=>worldRulesView({...shared,worldId:r.ruleWorld,focus:r.ruleFocus}),cheats:()=>renderCheatCatalogue(main,r.cheatId),outputs:()=>r.output?readingOutputRecords(shared,r.output):readingOutputs({...shared,bookKey:r.bookKey}),shelves:()=>libraryShelves(shared),mechanics:()=>mechanicReadiness(shared),
-   kinds:()=>library(r.entityId),'reader-creatures':()=>readerCreatureShelf(shared),observations:target,site:editor,overview:()=>progressView(shared),findings:()=>findingsView(shared),mechanics2:()=>mechanicsView(shared),transfer:()=>transferView(shared),handoffs:()=>readingHandoffs({...shared,handoffId:r.handoffId}),ideas:()=>ideaOwners(shared),'card-trial':()=>cardWorldTrial(shared)})[r.view]();
+   kinds:()=>library(r.entityId),'reader-creatures':()=>readerCreatureShelf(shared),observations:target,site:editor,overview:()=>progressView(shared),findings:()=>findingsView(shared),mechanics2:()=>mechanicsView(shared),transfer:()=>transferView(shared),handoffs:()=>readingHandoffs({...shared,handoffId:r.handoffId}),implementation:()=>implementationView(shared),drafts:()=>draftsView({...shared,go}),ideas:()=>ideaOwners(shared),'card-trial':()=>cardWorldTrial(shared)})[r.view]();
 }
 function worldView(w,view,shared){
  if(view==='rules')return worldRulesView({...shared,worldId:w.id==='ri'?'reverend-insanity':w.id==='hp'?'book.hp':w.id});

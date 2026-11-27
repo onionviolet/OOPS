@@ -75,7 +75,7 @@ export function createTechniquePanel({registry, read, command, answer, cancel}) 
         const discovery=projectTechniqueDiscovery({id:RAT_STEP,label:'Rat-step',record,eligible:facts[`technique.${RAT_STEP}.executable`],hint:knownLead?{known:true,id:'field-edge-notes',label:'Movement observations',text:'Watch visible movement at the field edge.'}:null});
         panel.hidden=!discovery&&!active&&!job;
         heading.textContent = record?.observed ? "Rat-step" : "Movement observations";
-        introduction.textContent = record?.observed ? "Observe the pattern, understand it, practice, then make it your own. Rat-step opens a footwork approach under Routes & supplies."
+        introduction.textContent = record?.observed ? "Hold through the feint. Step wide of the lunge. In a move-by-move fight, Rat-step lets you answer a missed blow. At full proficiency, you recover one beat sooner after the counter or when backing away. Find the crossing under Routes & supplies."
             : "Watch movement at the field edge. Further notes appear after an observation.";
         progress.hidden = !record?.observed;
         progress.textContent = record?.observed ? ["Observed", record?.understood ? `Understood via ${UNDERSTANDING_ORIGINS[understandingOrigin(record)]}` : "Not understood",

@@ -106,6 +106,9 @@ const LEAD_WORLD=/\.lead\.world$/;
 // The idle line under Here and the open-on-own-panel rule both ask this, so a lead with no holdings is not left on an empty Here.
 export const livesOwnLife=world=>!!world&&(!!ownHoldings(world)||LEAD_WORLD.test(world));
 export function seatAllowsPanel(state,panel){
+ // The ordinary Hogwarts arrival owns a local workroom behind this shared panel.
+ // Harry's lead life keeps its own first-year class panel instead.
+ if(panel.id==='hp-polyjuice'&&state?.actors?.player?.worldId==='book.hp.school.world')return true;
  if(seatOf(state)!=='be'){
   const world=state?.actors?.player?.worldId;
   if(!world)return true;

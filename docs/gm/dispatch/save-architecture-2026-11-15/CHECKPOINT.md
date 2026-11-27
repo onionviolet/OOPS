@@ -1,17 +1,17 @@
 # Save architecture checkpoint (2026-11-15)
 
 ```receipt
-build: n/a
-route: n/a
-state: built
-viewport: n/a (no player-facing change)
+build: 43898bea62e4f46e8e2d1a1c68956e34bcde0a58e8221ee67503cc1240d786eb
+route: fixture(perf crowded and fresh; frontier-hunt-ready; combat surface tempo journey)
+state: browser-verified
+viewport: 1920x1080
 persistence: unchanged
-tests: full suite 7,664 pass, 0 fail, 30 skipped on HEAD plus e44e565f6's changes in a clean worktree; save parts 4/4; check:arch main.js -19
+tests: full suite 7,685 pass, 0 fail, 30 skipped on HEAD plus this chat's changes in a clean worktree; focused tempo and known-routes 221/221; display gate 4/4; known routes UI 2/2; combat surface journey PASS (reload, import, 0 errors)
 review: diff-scoped
-surface: save parts module, owner table for hand-written save keys, save cost and probe scripts (e44e565f6)
+surface: save parts module, save probes, display gate on the known-routes and tempo panels
 ```
 
-Owner chat: the architecture and save review session. Design and measurements live in
+Owner chat: the architecture and save review session. Covers S0/S1 (committed e44e565f6) and the first O21 slice. Design and measurements live in
 [the review](../../../audits/ARCHITECTURE_AND_SAVE_REVIEW_2026-11-15.md) (rounds 2 to 4). Rules: AR1, AR3, AR6, AR9, AR10, AR15, AD36, AD43.
 
 ## Writer reservation (AR15)
@@ -40,3 +40,27 @@ Owner chat: the architecture and save review session. Design and measurements li
 - `node scripts/perf/save_probe.mjs --rev HEAD` and `--profile`: reports quoted in the review, round 4.
 - `npm test` (full) in a clean worktree of HEAD plus this chat's changes alone: 7,694 tests, 7,664 pass, 0 fail, 30 skipped. Worktree removed after.
 - Not run: in-checkout `npm run build` (another lane has `index.html` modified); browser save, reload, Export and Import (no save format or persistence behavior changed).
+
+## O21 first slice: display gate (2026-11-15)
+
+Target: desktop 1920x1080, no visible change; the same panels show the same content, with less idle work while they are off screen. Deferred: the other pollers (32 files), topic-driven refresh migration, F13 per-world facts.
+
+- `src/display_gate.js`: `createDisplayGate(element)` decides whether a per-tick redraw runs. On screen, or unknown, it always runs. Off screen it runs on a command-sequence change, a `workspace-presentation-change`, a return to screen, or the 3 s fallback dial. `setText` skips unchanged text writes.
+- `src/known_routes_ui.js`: render gated (key from `main.js`: `expansionState.sequence`, one line edited, no growth); unchanged text no longer rewritten.
+- `src/tempo_fight_domain.js`: refresh and its 1 s timer gated before the slot search and view build.
+- Tests: `tests/display_gate.test.js` (4); `tests/known_routes_ui.test.js` gains the discovery case: off screen, a route learned by a command reveals the panel at once, and a quiet tick reads nothing.
+
+Measured (`node scripts/perf/save_probe.mjs --profile`, HEAD and working tree back to back, crowded fixture, 15 s idle):
+
+| | HEAD | With gate |
+| --- | --- | --- |
+| Refinement presentation (known routes) | 4.5% | 1.2% |
+| Tempo view and slot search | 6.0% | 1.5% |
+| `checkVisibility` | 4.7% | 0.3% |
+| Script busy | 29.1% | 26.3% |
+| Task busy | 51.8% | 47.0% |
+| Long tasks per 15 s (fresh fixture) | 15 | 2 |
+
+Browser: panel states identical on HEAD and the gated build for the mid and crowded fixtures (load, +5 s, Notebook shown); `frontier-hunt-ready` shows `#tempo_fight_panel` with "Hunt the boar" in its Notebook tab; the combat surface journey (start a tempo contest, play moves, reload, import) passes. The known-routes panel shows no routes in any available fixture, so its visible path is covered by the unit case, not a browser walk.
+
+Found in passing: `node scripts/fixture_browser.cjs frontier-hunt-ready` fails on pure HEAD in a fresh worktree ("No clickable element with text /village elder\s*Village neighbor$/") while the main checkout passes from its fixture cache, so the fixture recipe has drifted from HEAD. Not caused by this slice.

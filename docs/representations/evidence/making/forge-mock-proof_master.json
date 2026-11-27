@@ -1,0 +1,62 @@
+{
+ "clicks": 31,
+ "log": [
+  [
+   "after sword 1",
+   {
+    "clicks": 11,
+    "stages": [
+     [
+      "cold",
+      2
+     ],
+     [
+      "tempered",
+      1
+     ]
+    ]
+   }
+  ],
+  [
+   "after sword 2",
+   {
+    "clicks": 21,
+    "stages": [
+     [
+      "cold",
+      1
+     ],
+     [
+      "tempered",
+      1
+     ],
+     [
+      "tempered",
+      1
+     ]
+    ]
+   }
+  ],
+  [
+   "after sword 3",
+   {
+    "clicks": 31,
+    "stages": [
+     [
+      "tempered",
+      1
+     ],
+     [
+      "tempered",
+      1
+     ],
+     [
+      "tempered",
+      1
+     ]
+    ]
+   }
+  ]
+ ],
+ "errs": []
+}

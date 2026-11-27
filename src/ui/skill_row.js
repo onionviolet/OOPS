@@ -22,3 +22,14 @@ export function fullNameOnHover(list) {
         if (name.scrollWidth > name.clientWidth + 1) name.title = name.textContent.trim(); else name.removeAttribute('title');
     });
 }
+
+// SKC1 (Weibao 2026-11-22, a one-line skill list as the reference: "Sleeping 19: 4k/7k"): progress counts in short form
+// inside the bar. Under 1000 a whole number (one decimal under 10); then k, M and B with one decimal under 10.
+export function shortCount(value) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return String(value);
+    const a = Math.abs(n), sign = n < 0 ? '-' : '';
+    const one = (x, unit) => sign + (x < 10 ? String(Math.floor(x * 10) / 10) : String(Math.floor(x))) + unit;
+    if (a < 1000) return a < 10 ? one(a, '') : sign + String(Math.floor(a));
+    for (const [size, unit] of [[1e9, 'B'], [1e6, 'M'], [1e3, 'k']]) if (a >= size) return one(a / size, unit);
+}

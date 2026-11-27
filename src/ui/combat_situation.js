@@ -207,10 +207,11 @@ export function tempoSituation(view, {place = '', worldId = null, dev = false} =
     const byId = new Map(f.foes.map(o => [o.id, o]));
     for (const o of base.versus.opponents) {
         const foe = byId.get(o.id);
-        o.hp = {text: foe.hurt[0].toUpperCase() + foe.hurt.slice(1), fraction: Number.isFinite(foe.hp) && foe.maxHp > 0 ? foe.hp / foe.maxHp : null};
+        o.hp = {text: foe.hurt[0].toUpperCase() + foe.hurt.slice(1), fraction: null, qualitative: true};
         o.stamina = bar(foe.stamina, foe.maxStamina, 'stamina');
         o.means = meansText(foe.means);
         o.ready = foe.down ? null : foe.ready ?? null;
+        o.opening = f.ratStepOpening === o.id;
         o.wants = foe.wants || null; // what they want, as far as you can tell (PS41)
         o.sense = foe.sense || null; // PS236: what you can see of it, in words
         o.last = lastLineFor(f.lines || [], foe.name); // PS222: its own latest line, for the card

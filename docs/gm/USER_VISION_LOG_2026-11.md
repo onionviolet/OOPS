@@ -1796,11 +1796,51 @@ Weibao, after Round 8 (PWC47-PWC52) and the missing-books ranking (M1-M11, DL122
 - Book lanes may run Anna's and Z-Library pulls for the ranked wishlist rows (the missing-books top ten, the Warhammer rows DL75 and DL133, and the replacement rows the qpdf rewrite cannot fix) without a per-file ask, while WARP is on. This replaces the per-file yes for those rows on this date.
 - Unchanged: the [run procedure](../research/DOWNLOAD_WISHLIST_2026-10-30.md#how-annas-and-z-library-runs-use-this-list-2026-11-04) and the quota guards AR52-AR55 in [source acquisition tools](../research/SOURCE_ACQUISITION_TOOLS.md) (check the route is not intercepted, Anna's before Z-Library with no blind fallback, real file sizes, verify each file); no purchases, no account creation, no CAPTCHA or bot-check bypass; a write-back with DL code, size and checksum for every file. If WARP drops, the run stops.
 
+## The making loop in every world, typed by capability, 2026-11-19
+
+Weibao, asked which world gets the first full making loop: "Make it applicable to all of them, just consioder different types in different worlds due to having different capabilities and more?"
+
+Recorded in the [making crafts ideaboard](../MAKING_CRAFTS_IDEABOARD_2026-11-19.md#one-loop-in-every-world-round-2-2026-11-19) as round 2 (MKC33-MKC40, proposals). The direction itself is that one making loop covers every world and the kind of making differs by each world's laws, rather than one world going first. The spine, kinds and build order are proposals.
+
+## Making as five forms embedded in the scene, 2026-11-20
+
+Weibao, after round 6's one bench layout: "it can be 5 different embedded screens in the scene based on the UI cohesion rules stuff?"
+
+Recorded in the [making crafts ideaboard](../MAKING_CRAFTS_IDEABOARD_2026-11-19.md#round-7-2026-11-20-five-forms-embedded-in-the-scene) as round 7 (MKC96-MKC105, proposals): five forms (shape, mix, pattern and rite, living, design) on round 6's frame, embedded on each station's row in Here at three depths. Q10 asks him to confirm the grouping.
+
 ## UI cohesion rules, 2026-11-19
 
 Weibao: "Ui cohesion rules and more for future UI implementation and more?"
 
 Recorded as UR163–UR176 in the [UI rules](../UI_RULES.md#cohesive-by-construction-2026-11-19), distilled from play-surface rounds 23 to 36 (PS243–PS337), which had stayed proposals in a dispatch file no UI lane is routed to. UR167 (YAIR's form first, combat included) and UR169 (looks as player choices) restate his 2026-11-16 and 2026-11-15 direction. UR163–UR166, UR168, UR170 and UR172–UR175 are working defaults under AD56. UR171 and UR176 are process rules and stay proposals. The path rule `.claude/rules/player-ui.md` and the small-fix checklist point at them.
+
+## Estimated opponent numbers and one fight view, 2026-11-19
+
+Weibao: "We should remove rules in the way, for learned opponent numvers, we can estimate a certain number can we not? or should we give true numbers?" and then: "Go ahead, build PS297 and amend AD8". On treatment: "Maybe we can give every opponent the same treatement but maybe without the same care?" On settings: "We should eventually gate settings as features to unlock if the settings be giving advantage?"
+
+- **AD8 amended.** Opponent numbers start as estimates (a range or `~`) and sharpen with what you learn. `?` stays only for what you have no basis to guess, and own stats stay exact. Exact enemy numbers may be a setting. The 2026-10-16 direction ("Learn them is good") stands; estimates are how learning shows.
+- **One fight view (PS297).** Every fight, a wave or a duel, draws its opponents in YAIR's Opponent box. The duel's moves join the Actions list, and target joins the stance fold. Every opponent gets the same form; a minor one carries less detail.
+- **Settings that give an advantage** (exact enemy numbers, for one) may later become features unlocked in play. This is direction for later; no gate is built yet.
+
+Working record: [UI harmony review, round 8](../audits/UI_HARMONY_REVIEW_2026-11-19.md).
+
+## The fight sits beside the hero, 2026-11-20
+
+Weibao: "it feels like combat should take up a bigger space, and be next to the hp/ our stats panel, and then the atatack options and stuff can be placed below their Hp and stuff?"
+
+- In any fight, the Opponent box takes the column beside Hero, larger than before. The fight's moves (attack options, stance fold, Fight on, Back away or Withdraw) sit directly under the opponents' hp, in the same box.
+- This holds for a wave and a duel alike.
+
+Working record: [UI harmony review, round 9](../audits/UI_HARMONY_REVIEW_2026-11-19.md).
+
+## Responsive, animated and expressive UI, 2026-11-20
+
+Weibao, after the Discord visual reference review: "Ui that reflects player action and more like the hearth? Or the climbing thing? So the Ui can be more animated in genera;? Pop ups emoticons on the ui from clickign things? More subtle detail like those?" He also asked: "Stuff and preconceptions that held us back before?" After the explanation, he requested: "update and address everyhthing wesaw accordingly? Stuff from the imagages we are missing in our own stuff?"
+
+- Carry the image review forward with responsive actions, expressive subject reactions, small transient symbols/emoticons and ambient detail in scope. Pleasing or tactile presentation can justify itself without introducing a new decision or mechanic. The hearth and climbing references are examples of different scales, not a requirement to put a scene or gauge everywhere.
+- Correct the restrictive readings of prose-first, calm hierarchy, stable controls and shared forms. These do not prescribe static text, ban ambient motion or require every activity to look like the same form. Presentation can depict an action without a new physical simulation.
+- Keep factual claims grounded in the world and observer: a decorative flourish grants no reward; a claimed relationship change, mood, danger or item result follows the actual owner. Stable targets, keyboard actions, reduced motion and effects settings remain supported.
+- Direction is adopted in DESIGN DSG3/5 and UI rules UR91/139/146/165. Concrete effects, durations, glyphs and assignments in the [visual reference sheet](../research/DISCORD_VISUAL_REFERENCE_SHEET_2026-11-20.md) remain implementation proposals. Every image finding has a disposition and owning seam there; source inspection and illustrative prototypes do not count as runtime delivery.
 
 ## Reference pictures are the floor, 2026-11-20
 
@@ -1810,6 +1850,160 @@ Weibao, reviewing the Discord-picture implementation: it "lacks the coloring dif
 
 Weibao, after the drift reviews showed every lane's fix blocked by `main.js` at 10117 lines against a 10115 baseline: "we can realign the limits accordingly, remove limits and stuff until we finish implementing the Ui and more?" Offered raise-with-headroom or removal; he chose "Remove the ratchet". `scripts/check_architecture.mjs` no longer fails on line growth or a raised line baseline; it still prints counts, and the main-import and cycle checks stay on. To restore after the UI work: put the two checks back in `checkBaseline` and run `npm run check:arch -- --shrink`.
 
+## Power shapes and the realism dial liked, 2026-11-20
+
+Weibao, on PO1-PO5 (power states, action/toggle/passive shapes, perception powers that reveal, prepared combinations, telegraphed enemy powers) and RL1-RL4 (realism in the rules, not the clicks; a survivable first lesson; lore numbers with abstract display; fiddly realism behind a dial): "I like these, save". Recorded as his liking of the direction, kept as proposals under AD32 until a slice builds them: [walkthrough UI note](dispatch/play-surface-2026-11-14/PROTAGONIST_WALKTHROUGH_UI_ELEMENTS_2026-11-20.md#powers-other-aspects-and-the-realism-dial-discussion-2026-11-20). Next he asked to work on power shapes first, and on showing allies, summons and creatures without duplicating the HP view.
+
+## Combat moves in separate rows by source, 2026-11-20
+
+Shown a mock of one strip ordered by source (A) against separate rows by source (B), Weibao asked "seperate by source makes most sense righy? more to consider?" and then chose "Lock in B". Combat moves sit in rows by where they come from: Body and weapon, Powers, Items, each with a fixed label column. This replaces the one-row strip from the third combat pass. Defaults RS1 to RS7 are in the [walkthrough note](dispatch/play-surface-2026-11-14/PROTAGONIST_WALKTHROUGH_UI_ELEMENTS_2026-11-20.md#item-6-rows-by-source-leaning-b-discussion-2026-11-20).
+
+## Terms row added to combat moves, 2026-11-20
+
+After a comparison with other games (Undertale's Mercy, Pokémon's Run), Weibao chose "Add Terms row". Combat moves get a fourth row, Terms, beside Body and weapon, Powers and Items. It holds Back away, Yield, Spare, Take alive and Ask, moved out of Body, and is the home for future talk or intimidate moves. It shows when the fight's terms allow any of them. Details are RS8 in the [walkthrough note](dispatch/play-surface-2026-11-14/PROTAGONIST_WALKTHROUGH_UI_ELEMENTS_2026-11-20.md#correction-and-other-games-2026-11-20).
+
+### Fighter list grows before it scrolls, 2026-11-21
+
+Weibao: "this looks good but doesnt seem to fit what we have right now", then "Yes, add it". The combat move rows are refitted to the card's existing style (FT1 to FT8), and the fighter list now uses the empty space under the card before scrolling (FT9). Its height is set when the fight opens and held for the whole fight, so the move buttons keep their place. Brief: `docs/gm/dispatch/play-surface-2026-11-14/SOL_COMBAT_FEEL_PASS_2026-11-20.md` item 12.
+
+### Pack fold sent; condensing; stacked bar for mass combat, 2026-11-21
+
+Weibao: "Send it, for ui stuff". Identical foes fold into one row and split out once they differ (ST2 to ST7), sent to the combat feel pass with a condensing step (CD2, CD3, CD5) after an Arkivia developer's "realised I can just reduce padding". Weibao also raised a stacked bar for mass combat: one bar in layers, hits land on the outer layer, with multi-hit to reach past it. Recorded as a mechanic proposal, MS1 to MS10, in the walkthrough note; not yet decided.
+
+### Arkivia code read; implement now; stats in daily life, 2026-11-21
+
+Weibao: "consider feature and ui implementation from https://just-pointless.github.io/arkivia/ Does higher speed stat make travel faster? check game code". Arkivia's Speed does not affect travel; Walking skill, load and energy do. Then: "Save and then we can implement right now, are there other protolikes out there? We should make stats apply to daily life too?" Saved as AK16 to AK21, DL1 to DL3 and SG1 to SG5 in the [walkthrough elements doc](dispatch/play-surface-2026-11-14/PROTAGONIST_WALKTHROUGH_UI_ELEMENTS_2026-11-20.md#arkivia-source-read-travel-stats-and-daily-life-discussion-2026-11-21). Building now: one journey quote so the exit label, the charged minutes and an arrival time agree (AK17). Stats in daily life is open: DL1 is accepted direction (BHR16) awaiting wiring; DL2 or DL3 awaits his pick.
+
+### Fighter state word on the left; layered bars, 2026-11-21
+
+Weibao: "maybe we dont need to center text describing their state?", then "Yes, send it" after the in-game mock. The state word on fighter health bars moves to the bar's left edge (combat feel pass FT10). He also asked for a crowd stacked into one bar and the same style for foes with several bars; the layered bar is mocked (`docs/representations/evidence/combat-pack-mock-2026-11-21/`, round 2) and recorded as LB1 to LB8 in the walkthrough note. That part is a proposal, not decided.
+
+### Inspiration from peers; a visual feel of our own, 2026-11-21
+
+Weibao: "in what way should we be inspired by their Uis and more?" and "Can we give ourselves a unique visual feel much like Yair and Arkvia do so for themselves?" Answered as VI1 to VI5 in the [walkthrough elements doc](dispatch/play-surface-2026-11-14/PROTAGONIST_WALKTHROUGH_UI_ELEMENTS_2026-11-20.md#a-visual-feel-of-our-own-discussion-2026-11-21): take the peers' restraint (one stage, a colour grammar, one voice), not their look; Luminous Gothic (DSG2) stays the base. Proposals, not decisions.
+
+### Identity not limited to earlier ideas, 2026-11-21
+
+Weibao: "we dont need to limit ourselves to specifc design ideas thus far". Four directions mocked on one moment (ID1 Luminous Gothic tidied, ID2 almanac, ID3 observatory, ID4 diorama) plus a subjective-lens layer (ID5); the recommendation is ID2 with a ledger mode, in the [walkthrough elements doc](dispatch/play-surface-2026-11-14/PROTAGONIST_WALKTHROUGH_UI_ELEMENTS_2026-11-20.md#wider-directions-not-limited-to-luminous-gothic-2026-11-21). Proposal; DSG2 stays accepted until he changes it.
+
+### Graphite default look, 2026-11-21
+
+Weibao, after the four identity directions: "baseline makes the most sense, can we use the dark palate of arkivia?" Built as the Graphite theme: the Luminous Gothic frame, layout and bitmap face (ID1) in Arkivia's flat dark greys (page #222244, panels #333333, stage #222222, a #332233 clock band, blue #518ae0 for actions, green, red and blue vitals), with no glow. Graphite is the new default; an untouched Luminous or Neutral default profile moves to it once on load, and Luminous Gothic stays selectable. DSG2 updated. [Screenshot](../representations/evidence/identity/graphite-village-1920.png).
+
+### Graphite panels meet seamlessly, 2026-11-21
+
+Weibao, on Graphite: "what if we make each one more seamless next to the other?" Under Graphite the panels now meet edge to edge as in Arkivia: no page colour between them, no panel frames, one dark hairline per seam, and the board touches the top and bottom bars. Inside Here, people, things and ways out read as one stack of rows split by hairlines instead of boxes inside boxes. Luminous keeps its framed panels. [Screenshot](../representations/evidence/identity/graphite-seamless-1920.png).
+
+### Colour may carry meaning alone, 2026-11-21
+
+Weibao, on the fight top line options: "Remove "rule for colour always has words behind it," identify other rules that might be useless for u?" Removed from UR37, the UI_RULES principles line, UR108, UR102 (UI_RULES.md), P7 and IM7 (PRESENTATION_AND_FOURTH_WALL.md). Existing labels stay where agents read them (Game MCP finds controls by text and aria). Other rules that may not serve a single player are listed for his choice in the [walkthrough note](dispatch/play-surface-2026-11-14/PROTAGONIST_WALKTHROUGH_UI_ELEMENTS_2026-11-20.md) (FTL section); none removed without his yes.
+
+## Run shapes, loops and external forces (2026-11-22)
+
+Weibao asked about playthrough styles beyond the Proto23/YAIR shape (identities that change, death leading to new identities, a soldier's career ending in a war), restarting as the same person, and lives redirected by outside events such as conscription. Asked whether loops should carry knowledge only or knowledge plus skill: "Guess it depends on the situation and what makes sense? What gives most future possibility and more?" Recorded reading: no global choice; what carries follows the actual carrier (AD6, SLR20). The rest is proposals: [run shapes](../research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md#run-shapes-short-identities-death-as-a-door-and-bounded-careers-2026-11-22), [same-person loops](../research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md#same-person-same-scenario-the-loop-as-a-run-shape-2026-11-22-proposals-ad32), [external forces](../research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md#when-the-world-happens-to-you-external-forces-and-attachment-to-identity-2026-11-22).
+
+
+## Workspace review viewport and fit (2026-11-24)
+
+Weibao asked to make 1920×1080 the default workspace review because 1280×800 makes small problems easy to see while obscuring larger layout issues and what normal play looks like. Keep the smaller viewport for focused stress checks. He also asked about scaling the entire workspace to fit small displays. That is a candidate to compare with compact controls at the chosen text size. [UI rules](../UI_RULES.md#getting-anywhere-and-seeing-it-without-much-scrolling)
+
+## What OOPS should borrow or change to realize the vision (2026-11-24)
+
+> save this audit idea "consider what aspects our version of the game will need to change in comparison with the others for it to achieve my vision? What it needs to first be inspired/take into?" long term since it seems really effective, can we distill tihs idea into a skill or somehting?
+
+Saved as the reusable `$vision-comparison-audit` skill. The [design divergence review](../reviews/OOPS_DESIGN_DIVERGENCE_2026-11-24.md) and the [companion mechanics audit](../research/OOPS_EXISTING_MECHANICS_AND_DONORS_2026-11-24.md) are the worked example. Their gameplay recommendations remain proposals.
+
+## What should bring us back to OOPS? (2026-11-24)
+
+Weibao opened the discussion:
+
+> what is our true goal? ask my any questions to help make the plans more straightforward and unclear things claer, consider the fact that I might not know what I want for the true goal or scope quite yet
+
+On returning to play (Q1), an imagined play story (Q2), crossing worlds (Q3), and the appeal of building OOPS (Q4):
+
+> Q1 I guess coming back being able to explore an new area or do a new thing? Or discovering part of the game? Being surpsied?
+>
+> Q2 Im not quite sure actually, this question might need to be more clear
+>
+> Q3 It would be cool for that to be possible, for there to be the possibilityh for quite literally almost anythng if you set your goal towards it perhaps, to be suprised by and enjoy face the unknown possibilites and more?
+>
+> Q4 Maybe seeing a UI get better and better, making possibilities only seen in novels and more, brought to life?
+>
+> KNowing one day, if technology or skills get good enough, I can recreate the game in a more interactive and beyon?
+
+After Q2 was reframed as what would make him want to play beyond a 20-minute session:
+
+> COnsider the goals of YAIR and proto 23 if those are even gleanable
+>
+> Q2, perhaps numbers going up xD
+>
+> we can look into reddit and more to consider what other people thing, we might even find similar questions asked before?
+>
+> How can we save everything thus far?
+
+The [goal discovery writeup](../reviews/OOPS_GOAL_DISCOVERY_2026-11-24.md) records the working interpretation, comparison evidence and follow-up question. The goal and scope are provisional.
+
+## Atlas audience, foundations milestone and look (2026-11-24)
+
+Asked through the goal-discovery questions after the atlas platform rounds ([note](../reviews/WORLD_ATLAS_PLATFORM_2026-11-24.md)):
+
+- Who the atlas serves first: "Both equally" (Weibao browsing and deciding, and agents picking up work).
+- Which first foundations milestone would feel like progress (deep in play, wide coverage, one world complete): "Not sure yet".
+- How distinctive the design language should be: "Polished and broad? more to consider? Some sort of identity somewhere but thats low priority".
+
+Working reading, provisional: build atlas rows and actions once, with a human page and an agent-readable route over the same data; learn the foundations milestone by running one deep slice and one wide pass side by side; the design grammar aims for consistent polish across every surface first, with identity as a later layer.
+
+## Weak rules W1–W7 reconciled (2026-11-24)
+
+Weibao, asked "Should I start the owner-led cleanup of weak rules W1–W7?" ([audit §2](../audits/OOPS_DIRECTION_AND_WEAK_RULES_2026-11-24.md#2-weak-rules-ranked-by-likely-harm)): "Yes, W1–W7". Same method as the colour removal above: keep the useful outcome, remove the accidental ban. Each rule keeps its code and carries a dated "Reworded" line. W8–W22 are untouched.
+
+- W1 (DSG3, UR165, UR166): the leftover "colour with words/symbols" wording now says colour may carry meaning alone (UR37); existing labels stay.
+- W2 (P own-number bullet, UR151): the old "own numbers need an in-world status window" bullet is retired with AD8 as successor; UR151's earned views no longer list "a stat as a description" and say own stats stay exact.
+- W3 (DSG12, DSG16, UR12): the fallback is the active skin (Graphite by default), not Luminous; UR12's baseline is composition, with fills following the skin.
+- W4 (UR3, merged UR77): the 20/5/4/7 counts are diagnostic dials judged by journey and space, with no "Weibao's yes" gate; the Also clause keeps UR77's Proposal status and the first sentence stays Accepted.
+- W5 (UR178): the word budgets are defaults; a choice-critical explanation stays visible beside its control and may exceed them.
+- W6 (UR100): a shared-primitive change samples meaningfully different consumers; a local change covers the states and world dresses it reaches; the shared kit owns reusable state fixtures.
+- W7 (UR176): the blind panel is an optional design experiment; baselines cover the look choices the change affects, not a cross-product. Neighbour and real-font comparison stay.
+
+## Contradictory rules retired (2026-11-24)
+
+Weibao: "lets remove rules accordingly that are contradictory, and leave current defaults as current defaults". Same owner-led method as W1–W7: where a rule contradicts a current default or a later dated direction, the current default wins and the old clause carries a dated "Reworded"/"Merged" line naming what it was. Codes, rows and history stay; protections kept (truthful preview and commit, one state owner, observer filtering, stable targets, save compatibility, candidate identity, scoped proof). Rows W8–W22 of [audit §2](../audits/OOPS_DIRECTION_AND_WEAK_RULES_2026-11-24.md#2-weak-rules-ranked-by-likely-harm):
+
+- W8 (UR11, DSG1): reworded. "Never shrink the log" lost to UR145 (a region sizes to its content); Reports stays full height by default with room to read whole.
+- W9 (UR144): merged with UR69/UR145/UR146. Neighbours may lend space at settled moments, not while reading or on ticks.
+- W10 (UR7): reworded. "Raw unframed text" became shared type, row and control roles; framing follows grouping (DSG1, seamless Graphite).
+- W11 (UR119): left. Row anatomy is a kit default with a columns dial; no settled line contradicts it.
+- W12 (UR124): reworded. "Dial: None" became a pane-local return per UR41; centre replacements keep the bottom Back bar and Esc.
+- W13 (UR92): left. It already derives history from settled events with a depth dial; no direction requires an archive.
+- W14 (UR94): left. A critique prompt, not a gate that contradicts anything.
+- W15 (UR6/65/163): left. UR65, UR131 and UR163 already carry the exceptions; the ratchet is a built quality check.
+- W16 (DSG6–10): left. Pointers to governing rules, no competing authority.
+- W17 (UR102): merged with UR149. Peer choices compared side by side may each carry equal prominence.
+- W18 (P X2–X6, P4, TX4, IM2): left. Budgets and intensity ladders are already named dials by B435; IM2 is an unbuilt lint.
+- W19 (TX9, TX10): reworded. One effect per line is a default (B435); glyph meaning is scoped to a role or world vocabulary (TX6, DSG4). TX2 left: its plain line is an accessible name, not a visible sentence.
+- W20 (TX11, bluff tell): reworded. Source cues and tells follow what the observer's means can see (B435).
+- W21 (P5, TX7, IM5): reworded. The return reel is opt-in; visibility follows the actual surface; the tap equivalent waits for mobile, "nothing relies on hover alone" stays.
+- W22 (IM10): reworded. Old saved effect ids stay resolvable through aliases or migration; names may change (AD45).
+
+## Proposal reconciliation Q1–Q4 answered, B1–B5 started (2026-11-24)
+
+Weibao, answering the [reconciliation](../audits/PROPOSAL_RECONCILIATION_2026-11-24.md#decision-packet)'s offer to start B1 or answer Q1–Q5 first: "Start all of them up till Q5". The working reading, recorded as the agent's interpretation: start build items B1–B5, and take the recommended answers to Q1–Q4. Q5 (paid reads for the residue) stays open until B1 and B2 report the residue.
+
+- Q1: one Gu gap-to-proof cycle is the atlas pilot, using the corrected evidence ladder (case, reachability, player action and persistence as separate fields).
+- Q2: the atlas renderer grows its own canvas plus a page web (T1+T4), sharing pure grammar pieces. Revisit on a measured workload.
+- Q3: engine-only foundation waves count. Tie-in waves report player outcomes; engine waves report held-out capability and a named future consumer.
+- Q4: `gu_moves` gains a partial-recipe state for moves whose sources name some slots.
+
+## Tabletop progression: fidelity, dice views and carried methods (2026-11-24)
+
+Weibao asked how easy TTRPG-style progression (D&D, Cyberpunk and others) would be in OOPS, then about UI, player choice, quick-time events and game-master work. Asked four questions in the [tabletop progression proposal](../research/tabletop-library-2026-10-14/TABLETOP_PROGRESSION_AND_GM_PROPOSAL_2026-11-24.md), he answered:
+
+- Q1, rules fidelity (faithful 5e or 5e-flavored): "maybe it depends on the world?" Agent reading: each world sets its own fidelity to its source rules, consistent with each world choosing its own systems (2026-10-30) and AD46.
+- Q2, dice shown by default or kept in the inspector: "sure, can alkso make it a option or ability to unlock to see, can both be possible". Agent reading: both routes coexist. A world sets whether rolls show by default; an option, earned faculty or cheat can reveal them anywhere, in line with earned precise views (UR151).
+- Q3, quick-time events: he asked "what do QTEs stand for?" No decision; the reaction-window recommendation in the proposal stays a proposal.
+- Q4, whether D&D levels and cyberware travel with the traveler: "depends on the methods and more?" Agent reading: what carries over follows how each method works (knowledge with the traveler, a body faculty with the body, a world-bound source only where an equivalent exists), consistent with "things work by how they work" (2026-10-17).
+
+He also asked "what about proper game master psosibiltiies and more? do we have no material to work of fwith and expose a constraint of this type of deleloppment? it requires someone to create the events and more?" The answer and the existing owners are in the proposal's GM section. He then said "Yes, record both" to recording these answers and saving the proposal.
 ## Standing World Atlas goal, 2026-11-24
 
 Weibao: “Yeah do people next. I want to click someone and see who they are, what they do, where and when I can find them, who they know, and their linked scenes. Keep the short In OOPS line.” Then: “make this a long standing goal and work on them accordingly”.

@@ -15,6 +15,7 @@ import {formatDuration} from './number_format.js';
 import {fnv1a} from './hash_rng.js';
 import {testHooksEnabled} from './simulation_clock.js';
 import {decodeMemory, decodeClaims, encodeMemory} from './person_memory.js';
+import {mountEchoTrial, useEchoTrial, validateEchoTrial} from './rewind_echo.js';
 
 let store = K.freshStore(), panel = null, lastLines = [], lastError = '';
 const specs = new Map();
@@ -159,14 +160,20 @@ export const commands = {
     },
     // Branching: go back to a kept line; the line you leave becomes a branch in turn.
     switchBranch(id, captureId) { return commands.rewind(id, {capture: captureId}); },
+    echoTrial(action) {
+        const result = useEchoTrial(store.echoTrial, action, ports.clock());
+        if (result.ok) store = {...store, echoTrial: result.trial};
+        render();
+        return result.ok;
+    },
     read: () => structuredClone(store),
     index: restoreIndex,
     event(name) { safely(() => { for (const s of specs.values()) if (K.anchorDue(s, store, {clock: ports.clock(), events: [name]})) markNow(s, s.markLabel ?? 'your mark'); render(); }); },
 };
 
 registerDomain({id: 'rewind', deps: [], initialState: () => null,
-    save: () => K.isFreshStore(store) && !Object.keys(store.anchors).length ? undefined : structuredClone(K.validateStore(store)),
-    validate: slice => { if (slice != null) K.validateStore(slice); },
+    save: () => K.isFreshStore(store) && !Object.keys(store.anchors).length && !store.echoTrial ? undefined : structuredClone(K.validateStore(store)),
+    validate: slice => { if (slice != null) { K.validateStore(slice); validateEchoTrial(slice.echoTrial); } },
     migrate: slice => { if (slice == null) return K.freshStore(); if (slice.schema > K.REWIND_SCHEMA) throw Error('This save has rewinds from a newer game version.'); return slice; },
     load: slice => { store = slice ?? K.freshStore(); lastLines = []; lastError = ''; render(); },
     // The registry's tick carries game minutes (AR3: no second timer): moving anchors advance here.
@@ -202,13 +209,15 @@ function createPanel() {
     const mark = node('button', 'Set the mark here', {type: 'button'}), back = node('button', 'Return to the mark', {type: 'button'});
     mark.onclick = () => { commands.mark(RETURN_TO_MARK.id); };
     back.onclick = () => { commands.rewind(RETURN_TO_MARK.id); };
-    root.append(node('h2', 'Return to the mark'), terms, status, mark, back, lines, echoes);
+    const trial = mountEchoTrial(commands.echoTrial);
+    root.append(node('h2', 'Return to the mark'), terms, status, mark, back, lines, echoes, trial.root);
     root.render = () => {
         const q = commands.quote(RETURN_TO_MARK.id), held = pinFor(spec(RETURN_TO_MARK.id));
         terms.textContent = q.terms;
         const wait = q.eligible ? '' : ` ${q.reason}`;
         status.textContent = lastError || (held ? `Your mark is ${formatDuration(Math.max(0, ports.clock() - held.at))} behind you.${wait}` : q.reason);
         back.disabled = !q.eligible;
+        trial.render(store.echoTrial, ports.clock());
         lines.replaceChildren(...lastLines.map(l => node('li', l)));
         echoes.replaceChildren(...Object.entries(store.echoes).map(([who, rows]) => node('li', `${who} ${K.AWARENESS.includes(rows.at(-1).level) ? ({deja_vu: 'felt it was familiar', fragments: 'kept fragments', full: 'remembers'})[rows.at(-1).level] : ''} (${rows.length}).`)));
     };

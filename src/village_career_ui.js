@@ -1,7 +1,25 @@
 import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule, openWorkspaceModule} from './workspace_layout.js';
 import {decorateActionComponents} from './ui_components.js';
-import {CAREER_RANKS,KIT_DEBT,villagePromotionRequirements,villageColleagueMemory,WATCHCRAFT_BOOK,WATCHCRAFT_BONUS,WATCHCRAFT_PRACTICE, recruitMemory, TEACHING_TERMS} from './village_career.js';
+import {CAREER_RANKS,KIT_DEBT,villagePromotionRequirements,villageColleagueMemory,WATCHCRAFT_BOOK,WATCHCRAFT_BONUS,WATCHCRAFT_PRACTICE,PATROL_BASE_PAY,patrolPayText, recruitMemory, TEACHING_TERMS} from './village_career.js';
 const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
+
+function watchcraftNext(state, study) {
+    if (state.loan?.status === 'active') {
+        if (study.executable) return `Finish this round for ${patrolPayText(PATROL_BASE_PAY,WATCHCRAFT_BONUS)}. Leaving early pays nothing.`;
+        return study.known && !study.practiced
+            ? 'Finish this round for 50 coins. Rehearse Watchcraft before the next round to earn the report bonus.'
+            : 'Finish this round for 50 coins. The report bonus requires learned and rehearsed Watchcraft when you take the kit.';
+    }
+    if (state.loan) {
+        return state.debt
+            ? 'Settle the kit debt with Tessa before taking another patrol.'
+            : 'Return the lantern and baton to Tessa. A returned kit from a completed shift counts toward promotion.';
+    }
+    if (study.nextPatrol) return `Find work → Patrol. Borrow Tessa’s lantern and baton to put Watchcraft to work. A full round pays ${patrolPayText(PATROL_BASE_PAY,WATCHCRAFT_BONUS)}.`;
+    if (study.known) return 'Rehearse Watchcraft for five meditation minutes, then take another patrol. Until you rehearse, a full round pays 50 coins.';
+    if (state.rank >= 1) return 'Learn Watchcraft from Tessa in person or from her notes, then rehearse it during Village meditation.';
+    return 'Finish two patrols and return both kits. As a Dependable worker, you can ask Tessa to teach you Watchcraft.';
+}
 // Lives inside the native center menu, including the ongoing patrol display.
 export function createVillageCareerControls({read,resolve,promote,notes,readNotes,practice,mentor,tutor}) {
     const panel=node('section');panel.id='village_career_controls';
@@ -21,11 +39,10 @@ export function createVillageCareerControls({read,resolve,promote,notes,readNote
             requirements.textContent=s.rank===2?'Mentor: all three career ranks earned.':`Next: ${CAREER_RANKS[s.rank+1]}. ${unmet.length?unmet.join(' '):'All requirements met. Ask Tessa for your promotion.'}`;
             const controls=[],disabled=!v.canWrite||v.busy;held=!v.canWrite?'Finish current work in the writable game tab.':v.busy?'Finish your current activity, work or occupation first.':'';
             const w=v.study;
-            study.textContent=`Watchcraft: known ${w.known?'yes':'no'} · practiced ${w.practiced?'yes':`no (${w.practiceMinutes}/${WATCHCRAFT_PRACTICE} meditation minutes)`} · executable now ${w.executable?'yes, loaned lantern and baton held on this round':'no'}.`;
-            outcome.textContent=s.loan?.status==='active'?(w.executable?`This full round: 50 coins + ${WATCHCRAFT_BONUS} for a clear report = 60 coins. Leaving early pays nothing.`:'This full round: 50 coins. No watchcraft bonus: you don\'t have the lantern and baton this round.'):
-                w.nextPatrol?`Next full patrol with the loaned lantern and baton: 60 coins. Without that kit, watchcraft won't work.`:
-                s.debt?'Next patrol blocked by kit debt. Return the kit or pay before borrowing another.':
-                'Next full patrol: 50 coins. Read Tessa’s notes or learn from her in person, then rehearse calm sector scanning during five minutes of Village meditation for the tool-dependent report bonus.';
+            study.textContent=w.executable?'Watchcraft ready on this round · loaned lantern and baton held.'
+                :w.practiced?'Watchcraft rehearsed · ready when you borrow the patrol kit.'
+                :w.known?`Watchcraft learned · ${w.practiceMinutes}/${WATCHCRAFT_PRACTICE} meditation minutes rehearsed.`:'Watchcraft still to learn.';
+            outcome.textContent=watchcraftNext(s,w);
             junior.hidden=s.rank<2;
             junior.textContent=s.rank===2?`${recruitMemory(s)}${s.recruit?.soloRemaining?` ${s.recruit.covering?'Covered shift':'Solo round'}: ${s.recruit.soloRemaining}/120 minutes left. Pays ${s.recruit.covering?50:10} coins on return; progresses only while you are in Village.`:''}`:'';
             if(s.rank===2) {
@@ -44,6 +61,8 @@ export function createVillageCareerControls({read,resolve,promote,notes,readNote
                         if(s.recruit.favors)controls.push(action('village_recruit_cover','Spend 1 favor · Iona covers 120-minute shift · +50 coins · no player career credit',()=>mentor('cover'),disabled));
                     }
                     if(s.recruit.tuition==='offered') {
+                        junior.textContent+=' You can accept or decline the five coins here.';
+                        if(s.recruit.favors)junior.textContent+=' Iona’s agreed shift favor remains available.';
                         controls.push(action('village_tuition_accept','Accept Iona’s tuition · +5 coins from her first solo stipend',()=>mentor('tuition:accepted'),disabled));
                         controls.push(action('village_tuition_decline','Decline Iona’s tuition · no coins or obligation',()=>mentor('tuition:declined'),disabled));
                     }

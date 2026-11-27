@@ -65,3 +65,23 @@
 .nearby-context-view[data-here="true"][data-selected="false"] .nearby-context-list {display:block;}
 .nearby-context-view[data-here="true"] > p:last-child {display:none;}
 #current_focus > .nearby-context-view[data-here="true"] {height:auto;}
+
+/* Village board: grouped landmarks use the same known subjects and action buttons as Here. */
+.nearby-context-view[data-village-board=true][data-selected=false] .nearby-context-list {
+ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,13em),1fr)); gap:var(--ui-space-3); align-items:start;
+}
+.nearby-context-view[data-village-board=true][data-selected=false] .nearby-context-list > section {
+ grid-column:auto;grid-row:auto;background:var(--p23-blue);border:1px solid var(--ui-hairline);padding:var(--ui-space-3);
+}
+.nearby-context-view[data-village-board=true] .nearby-context-list > section > h3 {
+ color:var(--p23-quantity);border-bottom:1px solid var(--ui-hairline);padding-bottom:var(--ui-space-2);margin-top:0;
+}
+.nearby-context-view[data-village-board=true][data-selected=false] .nearby-row {border-bottom:1px dotted var(--ui-hairline);}
+@container (min-width:28em) {
+ .nearby-context-view[data-village-board=true][data-selected=false] .nearby-context-list {
+    grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto 1fr;
+ }
+ .nearby-context-view[data-village-board=true][data-selected=false] [data-nearby-group=people] {grid-area:1/1;}
+ .nearby-context-view[data-village-board=true][data-selected=false] [data-nearby-group=services] {grid-area:1/2/span 2;}
+ .nearby-context-view[data-village-board=true][data-selected=false] [data-nearby-group=exits] {grid-area:2/1;}
+}

@@ -54,7 +54,8 @@ export function stageReportLine(plan, line) {
 
 // Pure: the rows the card shows, or none once the log has enough lines of its own.
 // UIC146: where the place header already shows the date and hour, the card keeps only the day's note.
-export function dockRows({logLines, next, today, headerHasClock = false}) {
+export function dockRows({logLines, next, today, headerHasClock = false, fight = null}) {
+    if (fight) return [{kind: 'fight', text: fight}];
     // The next step stays here once the log fills: sending it back under the top strip pushed every panel down (UR144).
     const rows = [];
     if (next) rows.push({kind: 'next', label: 'Next step', text: next.line, hint: next.how});
@@ -100,17 +101,24 @@ function mount() {
         let today = null; try { today = todayDigest(); } catch { today = null; }
         const fresh = stream.querySelectorAll(':scope > :not(.report-earlier)').length;
         empty.hidden = stream.children.length > EMPTY_NOTE_UNTIL;
-        const rows = dockRows({logLines: fresh, next, today, headerHasClock: !!document.querySelector('#game_status .scene-calendar')?.offsetParent || village && !!document.querySelector('#village_scene .scene-calendar')?.offsetParent});
+        const fight = document.getElementById('main_content')?.dataset.fightReport;
+        const rows = dockRows({logLines: fresh, fight, next, today, headerHasClock: !!document.querySelector('#game_status .scene-calendar')?.offsetParent || village && !!document.querySelector('#village_scene .scene-calendar')?.offsetParent});
         // The banner under the top strip moves here while a next step exists, so the frame below it never shifts.
-        if (nextCard) nextCard.style.display = rows.some(r => r.kind === 'next') ? 'none' : '';
-        const key = JSON.stringify(rows);
+        if (nextCard) nextCard.style.display = fight || rows.some(r => r.kind === 'next') ? 'none' : '';
+        const hasNavigation = !!fight && !!stream.querySelector('[data-report-session-only]');
+        if (!fight) delete log.dataset.fightNavigation;
+        else if (!log.dataset.fightNavigation) log.dataset.fightNavigation = 'quiet';
+        const key = JSON.stringify([rows, hasNavigation]);
         if (key === signature) return;
         signature = key; card.hidden = !rows.length; card.replaceChildren();
         if (!rows.length) return;
-        const title = document.createElement('strong'); title.textContent = 'Right now'; card.append(title);
+        const title = document.createElement('strong'); title.textContent = fight ? 'Combat' : 'Right now'; card.append(title);
         for (const row of rows) {
             const line = document.createElement('p'); line.dataset.dockRow = row.kind;
-            const label = document.createElement('b'); label.textContent = `${row.label}: `; line.append(label, row.text);
+            if (row.label) {
+                const label = document.createElement('b'); label.textContent = `${row.label}: `; line.append(label);
+            }
+            line.append(row.text);
             if (row.hint) { const hint = document.createElement('small'); hint.textContent = row.hint; line.append(document.createElement('br'), hint); }
             card.append(line);
             if (row.kind === 'next') {
@@ -120,12 +128,25 @@ function mount() {
                 card.append(show);
             }
         }
+        if (hasNavigation) {
+            const toggle = document.createElement('button');
+            toggle.type = 'button'; toggle.textContent = 'Show navigation notices';
+            toggle.setAttribute('aria-pressed', String(log.dataset.fightNavigation === 'all'));
+            toggle.onclick = () => {
+                const show = log.dataset.fightNavigation !== 'all';
+                log.dataset.fightNavigation = show ? 'all' : 'quiet';
+                toggle.setAttribute('aria-pressed', String(show));
+            };
+            card.append(toggle);
+        }
     };
     render();
     setInterval(render, 1000);
     // AT25: a timer alone left the Now line stale after a 1440-minute step (timers are throttled in a hidden or
     // headless page). Any change to the log, or the page coming back into view, repaints at once.
     new MutationObserver(render).observe(stream, {childList: true});
+    const root = document.getElementById('main_content');
+    if (root) new MutationObserver(render).observe(root, {attributes: true, attributeFilter: ['data-fight-report']});
     // Save slices load before the workspace stamps the restored world's id.
     new MutationObserver(showEarlier).observe(document.documentElement, {attributes: true, attributeFilter: ['data-world']});
     document.addEventListener('visibilitychange', render);

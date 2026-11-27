@@ -100,7 +100,8 @@ export function mountPinnedBand({status = () => document.getElementById('game_st
         const around = document.querySelector('.nearby-context-view');
         const name = around?.dataset.place || '', summary = around?.dataset.placeSummary || '';
         // With nothing to count, the status line's place name already says it all.
-        place.hidden = !pins.place || !!around?.checkVisibility?.() || !summary;
+        const fight = document.getElementById('main_content')?.dataset.combatLanes;
+        place.hidden = !pins.place || !!fight || !!around?.checkVisibility?.() || !summary;
         const words = `This place: ${summary}`;
         if (!place.hidden && place.textContent !== words) place.textContent = words;
     }

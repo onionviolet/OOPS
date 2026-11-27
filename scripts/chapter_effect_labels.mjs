@@ -6,8 +6,9 @@
 // Scores put the scoring cohort (rows that already hold a wiki-, claim- or model-tier effect sentence) against that sentence,
 // held-out rows (GKM429, sha1(id)[0] < 0x33) apart. Usage: node scripts/chapter_effect_labels.mjs
 import {readFileSync, writeFileSync, existsSync} from 'node:fs';
-import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES} from '../src/effect_grammar.js';
+import {EFFECT_VERBS, EFFECT_OBJECTS, EFFECT_TARGETS, EFFECT_TIMES, VERB_ACCEPTS} from '../src/effect_grammar.js';
 import {LEDGERS, SPEAKERS, CAPABILITIES} from './chapter_effect_pass.mjs';
+import {createHash} from 'node:crypto';
 
 const root = new URL('..', import.meta.url).pathname;
 const src = process.env.LABEL_SOURCE_ROOT ? `${process.env.LABEL_SOURCE_ROOT.replace(/\/$/, '')}/` : '/Users/weiwei/code/yet-another-idle-rpg/';
@@ -69,6 +70,46 @@ for (const ledger of Object.keys(LEDGERS)) {
     yieldTable[ledger] = {effectUnknownRows: blockedRows, zeroHitRows: blockedRows - sent, sent, gainedSentence: gained, readerStatedNothing: none, rejected, requestErrors: errors, catalogued: capCount.none ?? 0,
         blockedAfter: sorted(Object.fromEntries(Object.entries(capCount).filter(([k]) => k !== 'none')))};
 }
+// The located second reads use the same sentence vocabulary. The scores above still describe the batch.
+const checkedGu = [
+    ['candidate:east-window-gu', 'add', 'information', 'bound', 'lasting', 'ri:ch548:p81', 'demonstration',
+        'item-state', 'persist written information on the Gu and read it back into another holder'],
+    ['candidate:relic-gu', 'transform', 'form', 'self', 'lasting', 'ri:ch1796:p57', 'demonstration',
+        'power-interaction', 'consume the matching-rank Gu and advance the aperture one stage'],
+    ['saga:red-steel-relic-gu', 'transform', 'form', 'self', 'lasting', 'ri:ch145:p44', 'character_claim',
+        'power-interaction', 'consume the matching-rank Gu and advance the aperture one stage'],
+    ['saga:white-silver-relic-gu', 'transform', 'form', 'self', 'lasting', 'ri:ch111:p7', 'character_claim',
+        'power-interaction', 'consume the matching-rank Gu and advance the aperture one stage'],
+    ['saga:yellow-gold-relic-gu', 'transform', 'form', 'self', 'lasting', 'ri:ch358:p56', 'demonstration',
+        'power-interaction', 'consume the matching-rank Gu and advance the aperture one stage'],
+    ['saga:purple-crystal-relic-gu', 'transform', 'form', 'self', 'lasting', 'ri:ch475:p43', 'narrator',
+        'power-interaction', 'consume the matching-rank Gu and advance the aperture one stage'],
+    ['candidate:calamity-beckoning-gu', 'move', 'working', 'self', 'instant', 'ri:ch567:p3', 'narrator',
+        'power-interaction', 'retarget an active tribulation from its original holder to the user'],
+    ['candidate:demonic-blood-skull-gu', 'transform', 'form', 'self', 'lasting', 'ri:ch194:p80', 'demonstration',
+        'power-interaction', 'use collected clan blood to raise the aperture’s aptitude and capacity'],
+    ['wisdom', 'transform', 'mind', 'area', 'sustained', 'ri:ch637:p82', 'narrator',
+        'mind-state', 'speed thought generation and collision inside the light while draining lifespan'],
+    ['fandom:Time_Anchor_Gu', 'bind', 'relation', 'marked', 'lasting', 'ri:ch1810:p44', 'narrator',
+        'time-manipulation', 'place a River of Time marker for another compatible working to read'],
+    ['candidate:wolf-swallow-gu', 'bind', 'thing', 'bound', 'sustained', 'ri:ch464:p55', 'demonstration',
+        'spatial-storage', 'hold items inside a Gu and preserve their custody'],
+    ['candidate:primeval-elder-gu', 'bind', 'thing', 'bound', 'sustained', 'ri:ch422:p8', 'narrator',
+        'spatial-storage', 'store and retrieve primeval stones against the Gu’s capacity'],
+    ['candidate:battle-space-gu', 'move', 'position', 'bound', 'instant', 'ri:ch584:p14', 'character_claim',
+        'portal-space', 'move both combatants into a sealed space and release them on victory or timeout'],
+];
+const gu = ledgers.gu_kinds ??= {};
+for (const [id, verb, object, target, time, at, speaker, blocked, blockedReason] of checkedGu) {
+    if (!VERB_ACCEPTS[verb]?.includes(EFFECT_OBJECTS[object]) || !EFFECT_TARGETS.includes(target)
+        || !EFFECT_TIMES.includes(time) || !SPEAKERS.includes(speaker) || !CAPABILITIES.includes(blocked)) {
+        throw Error(`invalid reviewed Gu effect: ${id}`);
+    }
+    const label = gu[id] ??= {heldOut: createHash('sha1').update(id).digest()[0] < 0x33};
+    delete label.second;
+    Object.assign(label, {effect: {verb, object, target, time, at, speaker}, blocked, blockedReason, secondRead: 'agree'});
+}
+ledgers.gu_kinds = sorted(gu);
 const file = `${root}docs/coverage/chapter_tier_labels.json`;
 const out = json(file);
 out.effect_unknown = {meta: {pass: 'docs/research/power-catalogues-2026-11-16/README.md#pwc27-effect-unknown-from-chapters-2026-11-17-proposals', model: 'gpt-6-luna (low effort, batch)', date: '2026-11-17',

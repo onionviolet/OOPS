@@ -1,0 +1,155 @@
+--- a/src/ui/item_card.js
++++ b/src/ui/item_card.js
+@@ -13,10 +13,47 @@
+     try { return drawItemCard(host, model, opts); } finally { useKitDocument(null); }
+ }
+ 
+-function drawItemCard(host, model, {idPrefix = 'item-card'} = {}) {
++function drawItemCard(host, model, {idPrefix = 'item-card', compact = false} = {}) {
+     const doc = host.ownerDocument, root = el(doc, 'article', 'item-card');
+     root.dataset.role = 'item'; root.dataset.appraisal = model.level;
+     root.setAttribute('aria-label', `${model.name} item card`);
++
++    if (compact) {
++        root.dataset.itemCardCompact = '';
++        const slot = model.slot.replaceAll('_', ' ');
++        const meta = [slot];
++        if (model.facets.quality === 'known' && model.quality != null) meta.push(`${model.quality}% quality`);
++        if (model.facets.condition === 'known' && model.condition) meta.push(model.condition.text);
++        if (model.count > 1) meta.push(`×${model.count}`);
++        root.append(el(doc, 'p', 'item-card-note', meta.join(' · ')));
++        if (model.facets.stats !== 'known') {
++            root.append(el(doc, 'p', 'item-card-unknown', 'Its effects are unknown to you.'));
++        } else {
++            root.append(el(doc, 'p', 'item-card-versus', model.worn
++                ? `Replacing ${model.worn.name}${model.worn.quality == null ? '' : ` · ${model.worn.quality}% quality`}` : 'Slot empty'));
++            const changes = model.rows.filter(row => row.direction !== 'same');
++            if (changes.length) {
++                const list = el(doc, 'ul', 'item-card-changes');
++                for (const row of changes.slice(0, 3)) {
++                    const change = el(doc, 'li');
++                    change.dataset.direction = row.direction;
++                    const multiplier = row.unit === '×';
++                    const delta = row.delta;
++                    const signed = delta < 0 ? `−${Math.abs(delta)}` : `+${delta}`;
++                    const value = `${multiplier ? `×${row.baseline} → ×${row.value}` : signed} · ${row.direction}`;
++                    change.append(el(doc, 'span', '', `${row.label}${multiplier ? ' multiplier' : ''}`),
++                        el(doc, 'span', 'item-card-delta', value));
++                    list.append(change);
++                }
++                root.append(list);
++                if (changes.length > 3) root.append(el(doc, 'p', 'item-card-note', `${changes.length - 3} more in Full item`));
++            } else {
++                root.append(el(doc, 'p', 'item-card-note', model.note || 'No change to known stats.'));
++            }
++        }
++        host.replaceChildren(root);
++        return root;
++    }
+ 
+     // Header: kind chips. Quality is a word and a number; condition and count sit beside it.
+     const head = el(doc, 'header', 'item-card-head');
+--- a/src/proto23_shell.js
++++ b/src/proto23_shell.js
+@@ -123,7 +123,7 @@
+     const detail=node('section',null,'shell-item-detail');detail.id='proto23_item_detail';
+     const title=node('strong'),meta=node('p'),body=node('div',null,'shell-item-description'),controls=node('div',null,'shell-item-actions');
+     detail.append(title,meta,body,controls);
+-    let selected=null,signature='',playerSignature='',detailIdentity='';
++    let selected=null,signature='',playerSignature='',detailIdentity='',returnItemKey=null;
+     const originalLogLabels=new Map(),originalNoticeLabels=new Map();
+     function syncNoticeLabels(){const parity=active()&&document.getElementById('main_content').dataset.parity==='r3';for(const link of document.querySelectorAll('#message_box_div .notice-panel-link')){if(parity){if(!originalNoticeLabels.has(link))originalNoticeLabels.set(link,{text:link.textContent,title:link.title});const label=({'skills':'Skills','belongings':'Inventory','crafting':'Crafting','local-actions':'Here','records':'Journal','condition':'Condition'})[link.dataset.noticePanel]||'Related panel';const text=label+' ›';if(link.textContent!==text)link.textContent=text;const description='Open '+label+' · current panel';if(link.title!==description)link.title=description;if(link.getAttribute('aria-label')!==description)link.setAttribute('aria-label',description);}else if(originalNoticeLabels.has(link)){const old=originalNoticeLabels.get(link);link.textContent=old.text;link.title=old.title;link.removeAttribute('aria-label');originalNoticeLabels.delete(link);}}for(const link of originalNoticeLabels.keys())if(!link.isConnected)originalNoticeLabels.delete(link);}
+     function syncLogLabels(){const parity=active()&&document.getElementById('main_content').dataset.parity==='r3';for(const[id,label]of [['message_show_unlocks','Growth'],['message_show_events','Events'],['message_show_crafting','Crafting'],['message_show_combat','Combat'],['message_show_loot','Loot'],['message_show_background','World']]){const control=document.getElementById(id);if(!control)continue;if(parity){if(!originalLogLabels.has(control))originalLogLabels.set(control,control.textContent);if(control.textContent!==label)control.textContent=label;}else if(originalLogLabels.has(control)){control.textContent=originalLogLabels.get(control);originalLogLabels.delete(control);}}}
+@@ -287,6 +287,7 @@
+     function chooseSlot(id){selected={slot:id};signature='';render();updateWorkspace();showDetailsIfHidden();}
+     function choose(row){
+         hidePreview();
++        returnItemKey=row.dataset.character_item ?? null;
+         selected=row.classList.contains('equipment_slot_div')?{slot:row.id.replace(/_slot$/,'')}:{key:row.dataset.character_item};
+         signature='';render();updateWorkspace();
+     }
+@@ -414,7 +415,9 @@
+         if(!selected)return;
+         const row=rowForSelection();
+         const comparison=selected.key?compareWorn?.(selected.key):null;
+-        const next=JSON.stringify([selected,row?.innerHTML,frame.reason,root.dataset.parity,root.dataset.parityExpanded,comparison]);if(next===signature)return;signature=next;
++        const layout = document.documentElement.dataset.previewLayout;
++        const compact = ['item-beside', 'item-below', 'item-journal'].includes(layout) && !detail.closest('#center_mode_content');
++        const next=JSON.stringify([selected,row?.innerHTML,frame.reason,root.dataset.parity,root.dataset.parityExpanded,comparison,compact]);if(next===signature)return;signature=next;
+         const slot=selected.slot&&frame.equipment.find(s=>s.id===selected.slot);
+         const occupied=!selected.slot||!!slot?.name&&!row?.classList.contains('equipment_slot_empty');
+         const tooltip=occupied?row?.querySelector('.item_tooltip'):null;
+@@ -425,14 +428,14 @@
+         meta.title=selected.slot?'Follows the current item in this equipment slot.':'Follows this exact carried stack.';
+         body.replaceChildren();
+         const card=!selected.slot&&selected.key&&tooltip?readItemCard?.(selected.key):null;
+-        if(card){const holder=node('div');renderItemCard(holder,card);body.append(holder);const full=node('details',null,'shell-item-fulltext');full.append(node('summary','Full description'),descriptionCopy(tooltip));body.append(full);}
++        if(card){const holder=node('div');renderItemCard(holder,card,{compact});body.append(holder);const full=node('details',null,'shell-item-fulltext');full.append(node('summary','Full description'),descriptionCopy(tooltip));body.append(full);}
+         else if(tooltip)body.append(descriptionCopy(tooltip));
+         else if(selected.slot&&!occupied){
+             const fitting=[...document.querySelectorAll('#inventory_content_div > [data-character_item]')].filter(n=>n.dataset.item_slot===selected.slot);
+             body.append(node('p',fitting.length?'Choose carried equipment for this slot:':'No carried equipment fits this slot. Find or buy fitting gear, then inspect it here.'));
+             for(const candidate of fitting)body.append(action(candidate.querySelector('.item_name')?.textContent||'Inspect held gear',()=>choose(candidate)));
+         }else body.append(node('p',selected.slot?'Choose a held item to equip in this slot.':'This item is no longer in your inventory.'));
+-        if(comparison){
++        if(comparison && (!compact || !card)){
+             const section=node('section',null,'worn-comparison');section.append(node('strong',`If worn · compared with ${comparison.baselineName}`),node('p',comparison.note));
+             const format=n=>String(Math.round(n*1000)/1000);
+             for(const r of comparison.rows)section.append(node('p',`${r.label}: ${format(r.current)} → ${format(r.worn)} (Δ ${r.delta>0?'+':''}${format(r.delta)})`));
+@@ -455,7 +458,21 @@
+         }));
+         (root.dataset.parity==='r3'?more:controls).append(action('Compare equipment ›',()=>expandWorkspaceModule('equipment-comparison')));
+         if(root.dataset.parity==='r3'&&!detail.closest('#center_mode_content'))controls.append(action('Full item ›',()=>expandWorkspaceModule('shell-detail')));
+-        controls.append(action('Close item',()=>{if(detail.closest('#center_mode_content'))centerModes().back();selected=null;signature='';updateWorkspace();}));if(root.dataset.parity==='r3')controls.append(more);
++        controls.append(action('Close item', () => {
++            if (detail.closest('#center_mode_content')) centerModes().back();
++            selected = null;
++            signature = '';
++            updateWorkspace();
++            const item = [...document.querySelectorAll('#inventory_content_div > [data-character_item]')]
++                .find(candidate => candidate.dataset.character_item === returnItemKey && candidate.checkVisibility());
++            const fallback = document.querySelector('[data-module="belongings"] .control-box-button');
++            const target = item ?? fallback;
++            returningPreviewFocus = true;
++            try { target?.focus({preventScroll: true}); target?.scrollIntoView({block: 'nearest'}); }
++            finally { returningPreviewFocus = false; }
++            returnItemKey = null;
++        }));
++        if(root.dataset.parity==='r3')controls.append(more);
+         inventoryComposition.render(rowForSelection());
+     }
+     document.addEventListener('workspace-presentation-change',()=>{hideContext();hidePreview();render();updateWorkspace();});
+--- a/src/workspace_layout.js
++++ b/src/workspace_layout.js
+@@ -333,7 +333,9 @@
+     // UM9: each region names the main box placed in it, so region-wide looks follow the box.
+     const mainBoxes=Object.entries(LAYOUT_SPEC.boxes).filter(([,def])=>!def.companion).map(([box,def])=>[box,parityRegion(def.lead)]);
+     for(const [id,region] of Object.entries(owner.regions))setData(region,'mainBox',mainBoxes.filter(([,at])=>at===id).map(([box])=>box).join(' '));
+-    setData(owner.root,'parityItem',String(!!registry.get('shell-detail')?.eligible()));
++    const itemUnderJournal = document.documentElement.dataset.previewLayout === 'item-journal'
++        && placementContext() === 'idle' && !owner.root.dataset.centerTask;
++    setData(owner.root,'parityItem',String(!itemUnderJournal && !!registry.get('shell-detail')?.eligible()));
+     // Companions the player placed beside the actions show there even where the context would not
+     // recommend them (WX11); shell_composition.js reads this list.
+     setAttribute(owner.root,'data-shell-companions-placed',Object.entries(currentPlacement()?.companions||{}).filter(([,slot])=>slot==='actions').map(([box])=>LEADS[box]).join(' '));
+@@ -359,7 +361,10 @@
+         if (focused?.isConnected && document.activeElement !== focused && !focused.closest('[hidden]')) focused.focus({preventScroll:true});
+         return;
+     }
+-    owner.layout.modules.forEach(state => {
++    const panelOrder = itemUnderJournal
++        ? [...owner.layout.modules.filter(state => state.id !== 'shell-detail'), ...owner.layout.modules.filter(state => state.id === 'shell-detail')]
++        : owner.layout.modules;
++    panelOrder.forEach(state => {
+         const module = registry.get(state.id); if (module.critical) { state.hidden = false; state.collapsed = false; } makeShell(module);
+         module.node.classList.remove('workspace-user-hidden','workspace-discovery-hidden');
+         if(module.expanded){module.shell.hidden=true;syncPanelHeader(module,state,module.eligible()!==false);return;}
+@@ -405,7 +410,7 @@
+             setStyle(shell, 'top', `${dragging ? owner.gesture.y : Math.max(bounds.top,Math.min(state.y,bounds.bottom))}px`);
+         }else {setStyle(shell, 'left', ''); setStyle(shell, 'top', '');}
+         const d = owner.narrow ? 'center' : state.dock;
+-        const region=owner.root.dataset.parity==='r3'?parityRegion(state.id):null;
++        const region=owner.root.dataset.parity==='r3'?(itemUnderJournal&&state.id==='shell-detail'?'journal':parityRegion(state.id)):null;
+         const destination=owner.context==='authoring'&&['current-work','customization-preview'].includes(state.id)?owner.contextBar:region?owner.regions[region]:owner.docks[d];
+         const key=destination===owner.contextBar?'context':region||d,index=counts[key]||0;counts[key]=index+1;
+         if (destination.children[index] !== shell) destination.insertBefore(shell, destination.children[index] || null);

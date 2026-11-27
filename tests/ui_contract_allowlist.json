@@ -5808,6 +5808,46 @@
       "snippet": "line-height: 1.45",
       "count": 1,
       "reason": "Reviewed 2026-11-25: potion inputs and observation records use 1.45 times their small type. Existing --ui-line-prose is based on body type and changes the rendered leading; retain this exact component-specific leading."
+    },
+    {
+      "key": "src/customization_profiles.js|color|0ab9b7707742f7dc",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#222222",
+      "count": 1,
+      "reason": "Graphite default palette presets (Weibao, 2026-11-21): profile palettes are validated #RRGGBB data, like the Luminous presets above; the shell colours live in styles/ui_tokens.css."
+    },
+    {
+      "key": "src/customization_profiles.js|color|184ca653a0f22031",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#2b2430",
+      "count": 1,
+      "reason": "Graphite default palette presets (Weibao, 2026-11-21): profile palettes are validated #RRGGBB data, like the Luminous presets above; the shell colours live in styles/ui_tokens.css."
+    },
+    {
+      "key": "src/customization_profiles.js|color|2bed946ce60b5219",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#b9a0d8",
+      "count": 1,
+      "reason": "Graphite default palette presets (Weibao, 2026-11-21): profile palettes are validated #RRGGBB data, like the Luminous presets above; the shell colours live in styles/ui_tokens.css."
+    },
+    {
+      "key": "src/customization_profiles.js|color|3d4e1c37ac490ed2",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#eeeeee",
+      "count": 2,
+      "reason": "Graphite default palette presets (Weibao, 2026-11-21): profile palettes are validated #RRGGBB data, like the Luminous presets above; the shell colours live in styles/ui_tokens.css."
+    },
+    {
+      "key": "src/customization_profiles.js|color|40aa9287474f44a5",
+      "path": "src/customization_profiles.js",
+      "rule": "color",
+      "snippet": "#518ae0",
+      "count": 1,
+      "reason": "Graphite default palette presets (Weibao, 2026-11-21): profile palettes are validated #RRGGBB data, like the Luminous presets above; the shell colours live in styles/ui_tokens.css."
     }
   ]
 }

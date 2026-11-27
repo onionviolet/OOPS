@@ -225,6 +225,19 @@ export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct})
    section.append(s6);}
   // W1a: the Potions bench (shared craft engine rows); shown at school, a shut brew says what it needs (UR70-UR75).
   if(v.school?.atSchool&&schoolExtras){const s5=node('section');s5.className='ui-panel-section';s5.dataset.hpBench='';s5.append(node('h3','Potions bench'));
+   const brew=v.potionsBench;
+   if(brew){
+    const status=node('p',brew.heat ? `${brew.heat}. Your ingredients are already in the brew.` : 'Use the school cauldron and fire. Either preparation takes 40 minutes.');
+    status.dataset.hpBrewStatus='';s5.append(status);
+    if(!brew.heat){
+     const stock=node('ul');stock.setAttribute('aria-label','Ingredients carried and required');
+     for(const i of brew.inputs)stock.append(node('li',`${i.label} · ${i.have} carried / ${i.need} needed`));
+     s5.append(stock);
+    }
+    if(brew.flasks.length)s5.append(node('p',`Ready to hand in · ${brew.flasks.join(', ')}`));
+    if(brew.handIn)s5.append(node('p',brew.handIn));
+    if(brew.lessonBonus)s5.append(node('p',`The accepted cure adds up to ${brew.lessonBonus} percentage points to your chance in Potions class.`));
+   }
    for(const j of campaign.jobs||[]){if(!hpLeadMakingCommands.some(c=>c.id===j.commandId))continue;const line=node('p',`${j.label} · ${j.remaining} min left`);s5.append(line);if(j.cancellable){const b=node('button','Stop this preparation');b.type='button';b.dataset.hpProcedureCancel=j.id;b.onclick=()=>{try{command({type:'cancel',jobId:j.id});notice='Completed steps are kept. You can try this step again.';}catch(e){notice=e.message;}render();};s5.append(b);}}
    let route=null; // PS11: two brews share their first step, so each route is named above its steps
    for(const c of hpLeadMakingCommands){const a=(campaign.actions||[]).find(x=>x.id===c.id);if(!a)continue;
@@ -232,7 +245,11 @@ export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct})
     const row=node('div');row.dataset.panelRow='';const s=shortActionLabel(c.procedure?`${a.label} · ${a.duration} min`:a.label),b=node('button',s.text);b.type='button';b.dataset.hpMake=c.id;
     b.disabled=!a.eligible||!campaign.canWrite||!!v.jobs.find(j=>j.commandId===c.id);if(s.chip)b.append(node('span',` · ${s.chip}`));
     b.onclick=()=>{try{command({type:'action',id:c.id});notice='';}catch(e){notice=e.message;}render();};
-    row.append(b,node('p',a.eligible?(a.description||''):(a.reasons||[]).join(' ')));if(c.procedure&&a.eligible)row.append(node('p',c.costs.length?`Uses ${c.making.costText}.`:'Uses the batch you have already prepared.'));s5.append(row);}
+    const reasons=(a.reasons||[]).filter(r=>r!=='Insufficient, stale or unavailable item quantity. Refresh the trade.');
+    row.append(b,node('p',a.eligible?(a.description||''):reasons.join(' ')||'The needed ingredients or flask are unavailable.'));
+    if(a.eligible && c.procedure?.restart)row.append(node('p','Uses the ingredients listed above.'));
+    if(a.eligible && c.making.stage==='use')row.append(node('p',`Uses ${c.making.costText}.`));
+    s5.append(row);}
    if(s5.childElementCount>1)section.append(s5);}
   // LT8: tie-gated talks (person_ties offers as native commands). Shown once at school; a shut one says what opens it (UR70-UR75).
   if(v.school?.atSchool&&schoolExtras){const s4=node('section');s4.className='ui-panel-section';s4.dataset.hpFriends='';s4.append(node('h3','Friends'));

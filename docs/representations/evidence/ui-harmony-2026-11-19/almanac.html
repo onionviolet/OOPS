@@ -1,0 +1,79 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Almanac page</title>
+<style>
+@font-face{font-family:G;src:url(../../../../resources/fonts/private/gothic-bitmap-21.woff2)}
+@font-face{font-family:G14;src:url(../../../../resources/fonts/private/gothic-bitmap-16.woff2)}
+:root{--ink:#e6e2d4;--dim:#9a968a;--faint:#6a675e;--rule:#4a4740;--acc:#f0c040;--hurt:#e06a5a;--ok:#9ad08a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1920px;height:1080px;background:#121314;color:var(--ink);font:21px/1.5 G,monospace;overflow:hidden;padding:28px 56px}
+.mast{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--rule);padding-bottom:8px}
+.mast .t{font-size:42px;letter-spacing:.06em}
+.sc{font-family:G14,monospace;font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.cols{display:grid;grid-template-columns:400px 1fr 520px;gap:0;margin-top:18px;height:880px}
+.cols>div{padding:0 32px;border-left:1px solid var(--rule)}
+.cols>div:first-child{border-left:0;padding-left:0}.cols>div:last-child{padding-right:0}
+h4{font-family:G14,monospace;font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:normal;margin:18px 0 6px;border-bottom:1px solid var(--rule);padding-bottom:2px}
+h4:first-child{margin-top:0}
+.big{font-size:42px;line-height:1.1}
+.row{display:flex;justify-content:space-between}
+.k{color:var(--dim)}.f{color:var(--faint)}.a{color:var(--acc)}.r{color:var(--hurt)}.g{color:var(--ok)}
+.pips{letter-spacing:.15em}
+.mv{display:grid;grid-template-columns:40px 1fr 110px;padding:5px 0;border-bottom:1px dotted var(--rule)}
+.mv.hot{color:var(--acc)}
+.log p{padding:2px 0;font-size:19px}
+.log p.k{font-style:normal}
+.drop{float:left;font-size:63px;line-height:.9;margin:4px 8px 0 0;color:var(--acc)}
+.foot{position:absolute;bottom:22px;left:56px;right:56px;border-top:1px solid var(--rule);padding-top:6px;display:flex;gap:36px}
+</style></head><body>
+<div class="mast"><span class="t">Mara’s Road Contest</span><span class="sc">Village · Monday 1 April 999 · 09:20 · Summer, 17°</span><span class="sc">Beat 14 · your move</span></div>
+<div class="cols">
+ <div>
+  <h4>You</h4>
+  <div class="row"><span class="big">57</span><span class="k" style="align-self:end">of 60 hp</span></div>
+  <div class="row"><span>Stamina</span><span>30 / 40</span></div>
+  <div class="row"><span>Attack</span><span class="a">ready · clock waits</span></div>
+  <div class="row"><span>Stance</span><span>Normal</span></div>
+  <div class="row"><span>Strikes</span><span>bludgeoning</span></div>
+  <div class="row"><span>Rat-step</span><span class="a">ready</span></div>
+  <h4>Figures</h4>
+  <div class="row"><span class="k">Atk</span><span>11.0</span><span class="k">Spd</span><span>0.9</span><span class="k">Def</span><span>1.0</span></div>
+  <div class="row"><span class="k">Hit</span><span>85%</span><span class="k">Eva</span><span>15%</span><span class="k">Crit</span><span>8%</span></div>
+  <h4>On hand</h4>
+  <p>Stale bread, five <span class="k">— eat, 2 beats</span></p>
+  <p>Iron sword <span class="k">— worn</span></p>
+  <h4>Should you lose</h4>
+  <p class="k">Bruises only. She keeps the purse and copies one of your steps for six hours.</p>
+ </div>
+ <div>
+  <h4>The terms</h4>
+  <p><span class="drop">T</span>he first to land three clean hits, or to make the other yield, takes the purse of 12c and the other's respect. You have landed <b class="a">two</b>; she has landed none. Backing away counts as a forfeit.</p>
+  <h4>Across from you</h4>
+  <div class="row"><span class="big">Mara</span><span class="a" style="align-self:end">Hurt · Opening</span></div>
+  <p class="pips">condition ■■■□□ <span class="k">· stamina spent · hits about 3 · reach longer than yours</span></p>
+  <p class="f">Not sized up. Intent unread.</p>
+  <h4>Your move</h4>
+  <div class="mv hot"><span>1</span><span>Rat-step counter <span class="k">— her blow went wide</span></span><span style="text-align:right">3 beats</span></div>
+  <div class="mv"><span>2</span><span>Quick strike</span><span style="text-align:right">3 beats</span></div>
+  <div class="mv"><span>3</span><span>Heavy swing</span><span style="text-align:right">6 beats</span></div>
+  <div class="mv"><span>4</span><span>Brace</span><span style="text-align:right">2 beats</span></div>
+  <div class="mv"><span>5</span><span>Tend a wound</span><span style="text-align:right">5 beats</span></div>
+  <div class="mv"><span>6</span><span class="k">Yield · Back away · Hand to auto</span><span style="text-align:right"></span></div>
+  <h4>Should you take the Rat-step</h4>
+  <p>Step inside her reach and strike before she recovers. If it lands it is your third clean hit, and <span class="g">the contest is yours</span>. The opening closes when she next acts.</p>
+ </div>
+ <div class="log">
+  <h4>As it happened</h4>
+  <p>Mara misses.</p>
+  <p class="a">You catch her on the head. 1.4</p>
+  <p>Mara misses.</p>
+  <p>You find her ribs, hard. 1.3, critical</p>
+  <p class="k">You now know how hard she hits: about 3.</p>
+  <p class="r">She answers to your body. 3.1</p>
+  <p>You miss.</p>
+  <p>Mara misses, and is open.</p>
+  <h4>Elsewhere</h4>
+  <p class="k">The watch takes volunteers until ten.</p>
+  <p class="k">A courier left a pamphlet on Village roads.</p>
+ </div>
+</div>
+<div class="foot"><span class="sc">Stats</span><span class="sc">Condition</span><span class="sc">Inventory</span><span class="sc">Journal</span><span class="sc">Notebook</span><span class="sc">People</span><span class="sc" style="margin-left:auto">Find · Save · Menu</span></div>
+</body></html>

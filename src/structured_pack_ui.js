@@ -3,6 +3,7 @@ import {getDisplaySetting,subscribeDisplaySettings} from './display_settings.js'
 import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule, expandWorkspaceModule} from './workspace_layout.js';
 import {setText} from './dom_sync.js';
 import {registerOwnedWorkPanel} from './adventure_notebook.js';
+import {registerWorkTarget} from './ui/status_line.js';
 import {registerReady} from './ready_rows.js';
 import {nextLinks} from './ui/next_steps.js';
 import {verbOf} from './ui/action_verbs.js';
@@ -164,7 +165,7 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
                 for(const job of view.jobs){
                     let row=jobRows.get(job.id);
                     if(!row){const card=node('section',work);card.className='action-legibility__card action-legibility__work';card.dataset.structuredJob=job.id;
-                        const text=node('p',card),progress=node('progress',card),cancel=button('Cancel '+job.label,{structuredCancel:job.id},{type:'cancel',jobId:job.id},false);card.append(cancel);row={card,text,progress,cancel};jobRows.set(job.id,row);}
+                        const text=node('p',card),progress=node('progress',card),cancel=button('Cancel '+job.label,{structuredCancel:job.id},{type:'cancel',jobId:job.id},false);text.tabIndex=-1;card.append(cancel);row={card,text,progress,cancel};jobRows.set(job.id,row);}
                     setText(row.text,`${job.label} · ${view.pauseReason?view.pauseReason+' ':!view.canWrite?'Paused until saving is restored. ':'Running. '}${job.remaining} played minutes remaining.`);
                     row.progress.hidden=!(job.duration>0);row.progress.max=job.duration;row.progress.value=Math.max(0,Math.min(job.duration,job.duration-job.remaining));row.progress.setAttribute?.('aria-label',job.label+' progress');
                     setText(row.cancel,'Cancel '+job.label);row.cancel.hidden=!job.cancellable;row.cancel.disabled=!view.canWrite;
@@ -192,7 +193,7 @@ export function createStructuredPackPanel({read,command,changed,localActions=nul
                     // UIC191: one row per thing (UR158). The heading only repeated the button's words, so the button is the row's name;
                     // the clock and the inputs sit beside the button, one step away, as upstream's plain rows do (UIC130 human time).
                     setText(row.heading,action.label);row.heading.hidden=true;setText(row.description,action.description||'');
-                    setText(row.quote,`${same.has(action.label)&&action.description?action.description+' · ':''}${action.duration>0?formatDuration(action.duration):'At once'}${action.costs.length?' · uses '+action.costs.join(', '):''}`);
+                    setText(row.quote,`${same.has(action.label)&&action.description?action.description+' · ':''}${action.duration>0?formatDuration(action.duration):'At once'}${action.costs.length?' · needs '+action.costs.join(', '):''}`);
                     const pending=view.jobs.find(j=>j.commandId===action.id);setText(row.state,pending?(view.pauseReason?view.pauseReason+' ':!view.canWrite?'Paused. ':'Running. ')+formatDuration(pending.remaining)+' to go.':action.completed>0?'Settled completions: '+action.completed+'.':action.eligible?'Available.':'Unavailable.');
                     setText(row.duration,'Takes '+(action.duration>0?`${formatDuration(action.duration)}.`:'no time.'));
                     setText(row.costs,'Inputs: '+(action.costs.length?action.costs.join(', ')+'.':'None quoted.'));
@@ -246,7 +247,7 @@ trim(jobRows,new Set(view.active?view.jobs.map(j=>j.id):[]));
         const k='ri'+JSON.stringify(m);if(k!==guKey){guKey=k;guTab.replaceChildren();renderRiGuTab(guTab,m);}return true;}}):null;
     const releaseReady=registerReady({id:'life-day',label:'Your day',rows:()=>{const v=lastView;if(!v?.active)return [];
         return v.actions.filter(a=>!a.once||a.eligible||a.completed===0).map(a=>{
-            const detail=`${a.duration>0?formatDuration(a.duration):'At once'}${a.costs.length?' · uses '+a.costs.join(', '):''}`,open=()=>expandWorkspaceModule('beginning');
+            const detail=`${a.duration>0?formatDuration(a.duration):'At once'}${a.costs.length?' · needs '+a.costs.join(', '):''}`,open=()=>expandWorkspaceModule('beginning');
             // PS120: each row names its verb (the pack's own, else read from the act), and every row opens, rest included.
             const verb=verbOf(a);
             if(a.eligible&&v.canWrite)return {id:a.id,label:a.label,verb,state:'ready',detail,open,act:()=>run({type:'action',id:a.id}),uses:uses(a.costs)};
@@ -255,5 +256,12 @@ trim(jobRows,new Set(view.active?view.jobs.map(j=>j.id):[]));
         });}});
     // G10: a life's own timed work stays with the life. Without an owner the Notebook claimed it and took the centre on every press (as UIC182 for the courtyard).
     const releaseWork=registerOwnedWorkPanel(work=>lastView?.actions.some(a=>a.id===work.commandId)||lastView?.jobs.some(j=>j.id===work.id)?'structured_pack_panel':null);
-    render();registerWorkspaceModule({id:'beginning',title:'Your beginning',node:panel,home:'right',eligible:()=>!panel.hidden});const offDial=subscribeDisplaySettings(()=>render(true)),timer=setInterval(()=>{if(moved())render();},250);return {render,destroy(){setStructuredCenterPlace(null);offDial();clearInterval(timer);releaseWork();releaseReady();releaseGuTab?.();unregisterWorkspaceModule('beginning');panel.remove();story.remove();}};
+    const releaseTarget=registerWorkTarget(()=>lastView?.jobs.length?()=>{
+        expandWorkspaceModule('beginning');
+        requestAnimationFrame(()=>{
+            const status=jobRows.get(lastView?.jobs[0]?.id)?.text;
+            status?.focus({preventScroll:true});status?.scrollIntoView({block:'nearest'});
+        });
+    }:null);
+    render();registerWorkspaceModule({id:'beginning',title:'Your beginning',node:panel,home:'right',eligible:()=>!panel.hidden});const offDial=subscribeDisplaySettings(()=>render(true)),timer=setInterval(()=>{if(moved())render();},250);return {render,destroy(){setStructuredCenterPlace(null);offDial();clearInterval(timer);releaseTarget();releaseWork();releaseReady();releaseGuTab?.();unregisterWorkspaceModule('beginning');panel.remove();story.remove();}};
 }

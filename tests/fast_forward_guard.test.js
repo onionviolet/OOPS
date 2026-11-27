@@ -7,6 +7,7 @@ function host({pauseFails=false,tickFails=false}={}){
   const state={clock:0};let ticks=0;
   const ctx=vm.createContext({fastForwarding:null,stepperSaves:null,expansionState:state,performance,setTimeout,MessageChannel,
     testHooksEnabled:true,stepping:()=>false,resumeEngine(){},pauseEngine(){if(pauseFails)throw new Error('pause failed');},
+    suspendEngine(){if(pauseFails)throw new Error('pause failed');return ()=>{};},
     openStepperBatch:()=>()=>0,domainRegistry:{command:()=>()=>{}},
     runEngineTicks:n=>{if(tickFails)throw new Error('tick failed');ticks+=n;state.clock+=n;return {ticks:n,callbacks:n};}});
   vm.runInContext(owner+'\nglobalThis.ff=fastForward;globalThis.step=advanceTicks;',ctx);

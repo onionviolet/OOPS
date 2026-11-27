@@ -76,3 +76,13 @@ What does not exist: one standing gate that loads saves captured at earlier comm
 5. **D5. Confirm or revert the `AGENTS.md` browser-routing edit.** Recommend confirm only if it matches what you told Codex on 2026-11-25. Otherwise `git checkout AGENTS.md`. It stays uncommitted until you answer.
 
 Also noticed, no decision needed yet: the Atlas grew to about 100 prototype files after the advice to keep it small ([USER_VISION](USER_VISION.md#standing-ui-priority-2026-10-13) and the [Atlas goal](research/WORLD_ATLAS_IDEABOARD_2026-11-22.md#standing-world-atlas-goal) still govern). It is committed as one concern so it can be reviewed or shelved separately.
+
+## Origin merge, 2026-11-26
+
+After the reconcile commits landed on local `master`, `origin/master` was found 42 commits ahead (2026-11-24 16:05 to 20:18, author "Weibao", Mac host). Merged with `git merge origin/master` (history of both sides kept; backup branch `backup/pre-origin-merge-2026-11-26`). Not pushed.
+
+- **Source of the 42 commits:** the Mac checkout `/Users/weiwei/code/yet-another-idle-rpg`. It holds one commit not on origin (`988ce5913`, spell held-out blind lexicon v2, 2026-11-24 20:33) and two untracked paths (`away-bank-evidence/`, `docs/gm/dispatch/spell-intent-ranking-2026-11-24/`). No other OOPS clone exists on this PC. Nothing was changed on the Mac.
+- **Code conflicts:** `src/main.js`, `src/structured_pack_ui.js`, `src/ui/status_line.js`, `src/book_world_hp_lead_domain.js`, `src/book_world_beginning_registration.js`, `tests/combat_options.test.js` and the Atlas files (`index.html`, `serve.mjs`, `build.mjs`, `canvas.css`, `library-views.mjs`, `reader-findings.mjs`) were combined so both sides' behavior survives.
+- **Overlapping features kept side by side, not chosen between:** the running-work click in the status line (local `setWorkStatusJump`, origin `registerWorkTarget`/`openRunningWork`, now chained), and three Atlas surfaces built twice (local Library "Cheat catalogue", Workbench "Ideas and backlogs" and "Implementation handoffs"; origin top-level "Cheats", "Ideas" and Workbench "Implementation"). Weibao decides which survives.
+- **Owner docs:** `AGENTS.md` takes origin's short form; the local browser-routing edit of 2026-11-25 moved into `docs/gm/AGENT_WORKFLOWS.md#safety`. `PROJECT.md` keeps the local focus block and the origin pointer to the archived LOTM delivery index.
+- **Regenerated:** `dist/bundle.js`, `dist/bundle.js.map`, `index.html` version stamps (`npm run build`).

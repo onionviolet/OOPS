@@ -242,6 +242,19 @@ new stale citations, readers collected since. Fed by the dated snapshots and the
 **WA17 · Batch run watch.** The seven running reader drivers as a live strip: step, batch ids, measured
 spend against the $40 ledger, stop-rule state. Today that lives in log files.
 
+**WA23 · Evidence per recipe slot (added 2026-11-24, from I1 of the [community research](RI_COMMUNITY_ANSWERS_2026-11-24.md)).**
+A killer move's dossier (WA12) gets one fold per slot: the Gu, its role (core, support, unnamed), the variant,
+the locator, and whether the source states an order. Unnamed supports stay visible as open slots. Authored
+values go on a separate scratch recipe, so a tested guess never reads as canon. Reason: whole-row blockers
+such as `roles-unknown` (651 Gu move rows) hide usable facts. Chapter 1561 names four cores and 14 supports
+for one Myriad Self configuration, and an umbrella row flattens several versions of a move into one.
+
+**WA24 · "Check this passage" before paying for a read (added 2026-11-24, from I2).** A gap card (WA8) takes
+a chapter and a name or alias and opens the matching local passages for a second reader, each tagged as an
+explicit fact, a bare mention, a name collision ("Life Gu" inside "Remnant life Gu") or a character's
+hypothesis. Paid reads are offered after that check. Reason: the [Gu blocker audit](../audits/GU_UNKNOWN_BLOCKERS_SAMPLE_2026-11-24.md)
+found collisions and already-answered rows that a paid pass would have bought again.
+
 ## More: stretch and unusual
 
 **WA18 · Time scrubber.** A slider over the book's chapters or in-world days. Places, people and workings
@@ -274,6 +287,52 @@ The smallest useful bundle is WA1 on LOTM only (the theme table plus a toggle), 
 four gap sources the snapshot already has. Both live in `things-views.mjs`, `library-views.mjs` and `canvas.css`,
 and both can be proven with the existing `prove-all.mjs` screenshots at 1920×1080.
 
+**Picked 2026-11-24: WA23 and WA24.** Weibao: "add the I1 and I2 ideas to the atlas ideaboard, can we start work
+by coordinating the codex and sending them out to work on those?" Two Codex lanes build the data and tooling
+outside `prototypes/world-atlas/`: a slot-evidence file and builder for WA23, and a local passage checker for
+WA24. Briefs are in [atlas-slots-passages-2026-11-24](../gm/dispatch/atlas-slots-passages-2026-11-24/). The atlas
+platform session owns the atlas UI and wires both in.
+
+## Implementation workspace proposal (2026-11-24)
+
+Use the World Atlas as the place to find a world, choose a playable improvement, and return to its evidence.
+The library and readers own source findings. The game and its packs own behavior. The idea index and lane
+checkpoints own proposals and work state. The scenario registry and task receipts own replay and proof.
+The Atlas joins those records by their existing IDs and links back to their owners.
+
+**F1 · A fresh build can still show old evidence.** The default local snapshot was built November 22 UTC
+on `f7b037688`. A scratch build on the November 24 working tree at `db24d3a92` exited 0 with zero
+projection failures. Both read the November 14 Progress Atlas report. The snapshot records HEAD, so it
+does not identify which working-tree edits contributed. The server loads most projections at startup.
+Show the snapshot date and dirty-tree state, the date of each imported report, and any unavailable inputs.
+Refresh with the existing batch builder and reload the served snapshot.
+
+**F2 · Source and game are already connected in specific places.** Making links reader workings to game
+rows and distinguishes recorded data from bound commands. A bound command still needs a play receipt to
+establish what a player can reach and use. The placement Workbench can produce a scratch pack and a diff.
+Keep that candidate pattern for content types that already have a compiler. For runtime changes, hand off
+through the owning module and existing task record. See the [translation layer record](ATLAS_TRANSLATION_LAYER_PROPOSAL_2026-11-20.md).
+
+### First useful pass
+
+1. **Refresh and show provenance.** Build on demand and at the end of a relevant reading or delivery task.
+   Show changed source rows, new runtime bindings and new play receipts separately where the inputs support
+   those distinctions. A stale report or an unmapped item stays visible.
+2. **Add a Workbench implementation view using WA8 and WA12.** A short list of active work links each
+   player outcome to its world or shared system, source or design record, game owner, current gap, named
+   scenario and proof. Reuse IDs from those owners. A proposal can link to an idea before a lane exists.
+   A shared system can appear under multiple worlds with distinct player routes and outcomes.
+3. **Pilot on Watchcraft.** Show the verified rehearsal, skilled patrol and report as existing play.
+   Link the [browser receipt](../audits/WATCHCRAFT_HANDOFF_REPLAY_2026-11-24.md) and surface the open
+   next-day question from the [vision review](../reviews/OOPS_DESIGN_DIVERGENCE_2026-11-24.md#round-4--why-come-back-tomorrow).
+   Register the earned pre-patrol starting point through the existing scenario registry. From the Atlas,
+   a developer should be able to find that start, replay the patrol and another evening, and locate the
+   evidence and the intended next change from the same card.
+
+After the pilot, check the same view against Hogwarts potion preparation or an active foundation case.
+Expand by adding links as work is picked up. For older records, backfill where a missing link blocks a
+real decision. Refresh and show changed inputs before building a historical diff view (WA16). The
+[project build order](../../PROJECT.md#current-focus) continues to determine which work is active.
 ### Reading coverage by chapter range, November 25
 
 Preflight (AD34, AD36, PRF5, PRF7). In the 1920×1080 developer Atlas, open a world's Reading lane and select Read. Inspect a reading pass by book key and chapter range, then follow the collected records. The existing shard registry and pass-completion rules own the evidence. Exercise missing, partial and completed output with the record fixture. Older snapshots retain their aggregate counts. Mobile layout and paid reading are outside this desktop slice.

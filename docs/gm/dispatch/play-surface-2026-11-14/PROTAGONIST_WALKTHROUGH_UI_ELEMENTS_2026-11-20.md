@@ -665,6 +665,15 @@ Weibao chose the baseline (ID1) with Arkivia's dark palette. Shipped as the Grap
 
 Seams (same day): under Graphite the panels meet edge to edge with a single hairline per seam, and Here's lists are hairline-split rows instead of nested boxes ([screenshot](../../../representations/evidence/identity/graphite-seamless-1920.png)).
 
+**Darker, and actually on screen (DK1 to DK5, 2026-11-22).** Weibao: "consider making the default a more dark arkivia style". Graphite already is the default for a new player (`DEFAULT_LOOK`, `src/customization_profiles.js`, uncommitted in the primary checkout). His fight frames still show navy Luminous because a save keeps its look. The one-time move to Graphite only fires for a save whose look was never touched (`upgradeUntouchedCustomization`). The capture fixtures and his own saves carry a changed profile, so they stay navy.
+- **DK1 (recommended). Every save moves to Graphite once.** Old saves are disposable and he is the only player. Luminous stays selectable under Display › Look, and a profile he built by hand is kept as a second profile rather than overwritten.
+- **DK2 (recommended). Darker, by Arkivia's measures.** Panels sit on #1e1e1e to #262626 under a #222 page, with no box frames: one hairline per seam, as Graphite seams already do. Text #eee. Buttons are flat with a thin blue-violet edge (Arkivia's #3a3a8a). Colour is kept for meaning: the vitals, gold for money, blue for actions. Reports drops its violet slab for the same dark ground, and the colour moves into the line kinds (END6).
+- **DK3. Arkivia's log form for fights.** Short centred lines ("Wolf → 4", "You missed") with the number coloured by who took it. The long sentence goes on hover (END7, UR178).
+- **DK4. Bars read Arkivia's way.** Saturated fill, centred "HP 7/10" text, no frame. The hero bars are close already; skills now match (SKC1).
+- **DK5 (unusual). The top band takes the sky.** The status line is tinted by time of day and weather (VI4), the one place colour carries the mood on an otherwise grey page.
+
+Recommendation: DK1 and DK2 now, DK3 with the fight log, DK5 later. Not decided.
+
 ### Bringing a target to the front (TF1 to TF6, 2026-11-21; built: "implement entirely")
 
 Weibao: "Maybe we can reorganize by being able to target a specific one and bringing one up to the front?", then "lets consider implementations and then decide on the best one". Read from the main checkout while the combat feel lane is mid-pass: the fold (`foldTempoRoster`), FT9 sizing (`sizeRoster`) and the FT4 harm preview (`bindHarmPreview`) are in its uncommitted work. The chosen target is `inspectedOpponent`, held by the card and not saved; the engine falls back to `target(b, 'player')`.
@@ -697,3 +706,468 @@ What Arkivia does, from Weibao's picture: Reports is a flat feed with one fact p
 - **BT6. Unusual option: say lost time as a scene.** Instead of a count, one diegetic line on a long return: "Months went by that you do not remember living." It is fiction, not accounting, and fits the life-sim. Use it once per return.
 
 Recommendation: BT1, BT2, BT3 and BT4 together. They are one display change in `return_digest_ui.js`, plus a status-line control that reuses the existing spend command. No save change. BT6 is optional flavour on top of BT1. Not decided.
+
+### Packs that never split (NS1 to NS9, discussion 2026-11-21)
+
+Weibao: "How about no splitting? rats? more to consider?" Today a pack folds into one row ("Wolf rat ×4") and a rat splits into its own row once it is hurt, targeted, under an effect or observed differently (ST2 to ST7, built by the combat feel lane). The crowd work added the pieces for another way: member picks on one row, and a target slot (TF3).
+
+- **NS1. One row per kind, all fight.** Identical foes keep one row from start to end. Letter picks (A to F) choose the target, and the target slot under the roster shows the chosen rat's full row: bar, conditions and timer. This is the crowd row minus the front rule, since in a pack any rat can be hit.
+- **NS2. The bar's shape says the rule.** A pack bar has one segment per rat, each with its own fill, and the target's segment is outlined: anyone can be hit. A crowd keeps the layered bar: the front first. Two rules, two shapes, one bar family (UR166).
+- **NS3. Each rat's state on its letter.** A thin fill under the letter shows health, a dead rat's letter is struck through and dimmed, and a dot marks a condition or an observation that differs from the rest (F2). Hover gives the words. The timer keeps one tick per rat, lettered.
+- **NS4. What it removes.** No row ever moves, so the reserved-height fix (MT1) and the reload question (MT4, the split-out save bit) both go away with no save change. `foldTempoRoster` and the split set can be deleted.
+- **NS5. What it costs.** Two rats' conditions can't be read side by side; you see the target's in full and the rest as dots. If the hurt rat B and the shaken rat D both matter, you flick between them.
+- **NS6. Where it stops.** One row per kind; a mixed fight has a row per kind. Elites, named foes and lone foes keep their own rows. About eight letters fit at 1280; past that, a fight is a crowd (MS) by design.
+- **NS7. Targeting.** Clicking the row's name targets the rat acting next (today's fold behaviour), and a letter targets that rat exactly. Keys A to G are taken by Body moves, so arrow keys move between letters once the row has focus.
+- **NS8. It extends TF3 to every pack fight.** The target slot appears whenever a row holds more than one foe. A fight against one wolf has no slot, because its row is the target. This reverses more of FT3 ("no target strip"), and the slot earns it by holding the detail the rows give up.
+- **NS9. Unusual option: no pack rows at all.** The pack becomes a strip of letter chips with mini bars, like a party frame, and the target slot is the one full row. It is denser again, and it may read as too abstract for a first fight.
+
+Built 2026-11-21 (Weibao: "Build both"): NS1 to NS8, without NS3's fill under the letter or the "differs" dot, which read as noise. Branch `feat/packs-and-away-2026-11-21`, commit `c5a5c54f5`; [receipt](../../../representations/evidence/packs-and-away-2026-11-21/README.md).
+
+### Away time that scrolls away (RS1 to RS5, discussion 2026-11-21)
+
+Weibao: "or at least let it scroll away like the other stuff, and the ability to use them put elsewhere". This picks up BT1 to BT6. The digest is pinned above the Reports stream by `src/event_feed_ui.js` (RPT6 home), and the spend button sits inside it.
+
+- **RS1. The digest becomes a stream entry.** On return it is written once into Reports, at the head of the new lines, and scrolls away like any other entry. It files under Story so the filter finds it again. "Mark as read" goes, because scrolling past is reading.
+- **RS2. Banked time becomes a top-bar chip.** It sits beside "Today: … · Ready now" in the status line (`src/ui/status_line.js`) and reads "Banked 7 d". Clicking spends an hour through the existing `awayBank` spend command. The hover gives the cap and what spending does. The chip hides at zero.
+- **RS3. Spending writes one line,** as in BT4: "Spent 1 h of banked time: routine played forward to 07:00."
+- **RS4. The text slims down.** Drop the unbanked sentence (BT1), and lead with span words ("most of a year") with the minutes in the hover (BT2).
+- **RS5. Risk.** Reports starts each sitting empty (RPT8), so a digest that scrolls off before you read it is gone until the next return. The Story filter keeps it within the sitting. A long return could also write a short line naming how many people and events are in it, so a quick scroll still shows that something happened.
+
+Built 2026-11-21 (Weibao: "Build both"): RS1 to RS4 with RS5's Story filing, on the same branch. RS3's line reads "Spent 1 h of banked time." The digest is checked once when play starts, so a long sitting does not use up the marker. [Receipt](../../../representations/evidence/packs-and-away-2026-11-21/README.md).
+
+### Where place and time go in a fight (FTL1 to FTL9, discussion 2026-11-21)
+
+FTL stands for fight top line; it is a separate series from FT1 to FT10. Weibao, with a picture of the status line mid-fight ("Village · 01/04/999 08:01, Mon · 夏Summer · Day · Dry 14.7 °C · comfortable · Today: …"): "this presentation still isn't the most optimal… details like attached should be part of the fight area no?"
+
+What the code and the crowd-front screenshots show today ([1920](../../../representations/evidence/crowd-front-2026-11-21/crowd-1-open.png), [1280](../../../representations/evidence/crowd-front-2026-11-21/crowd-1280-3-struck.png)), read for this note:
+
+- **FTL1. The top line's clock is stopped.** An open tempo fight holds the world clock and banks the real minutes as held time (`clock_owner.js` calls `recordTempoHold`; settlement adds `b.held` to `tempo.held_minutes`). So "08:01" stays 08:01 the whole fight, and the held minutes are shown nowhere. The fight's own time is `b.seconds` (about one second per beat), which counts toward `stakes.stopAt`. A grep finds no path from `b.seconds` to the world clock at settlement; that is unchecked by play.
+- **FTL2. The line names the wrong place.** "Clan academy" sits on the top line while the card says "A gap in the wall" ([PS30](CONSIDERATIONS.md), row 103, already wants the fight's own place).
+- **FTL3. What the fight reads is half hidden.** `mishapChance` in `tempo_fight.js` reads footing, light, rain and fog. The card's header (the fold summary in `combat_situation_ui.js`) shows place plus light and footing in small type. Rain, fog and who is with you appear just in the folded details and the screen-reader label. Season, date, weekday and temperature affect no fight rule today.
+- **FTL4. At 1280 the line overflows.** It ends at "Fight in progress"; "Ready now", the next item and the save state are cut off. The line spends that width on facts that are frozen (clock) or say nothing about the fight (season, temperature), while "Fight in progress" points at the card you are looking at.
+
+What the top line still owes a player mid-fight: the save state; the next planned item, which matters here ("next: Feed the Moonglow Gu", and the card says Moonblade will not cut until the Gu is fed); and the fact that the world is waiting, with how much held time is piling up. The reserve ("Green-copper primeval essence 44/44") already reads the live fight essence through `statusReserveWords`, and the Hero panel's Combat box shows "Essence 44" too, so one of the two is a duplicate.
+
+Options:
+
+| Option | What it looks like | Cost and conflicts |
+| --- | --- | --- |
+| **FTL5. The card owns the scene; the line goes quiet.** | The card header becomes one full line: the fight's place on the left, then the conditions that change the odds as chips on the right: "Daylight · Poor footing · Rain · Fog", each hover quoting its stumble cost ("Poor footing: +5% to stumble"). A small fight clock on the header's right edge counts beats in: "42 s in". By default, time of day joins as the light word it produces ("Dim" or "Dark" rather than "Day"). On the top line during a fight: place shows the fight's place (PS30), the date and time slot dims and reads "Held · 12 min kept", season and weather hide, the work slot "Fight in progress" hides, and the reserve, Today/next and save state stay. | Small: `setStatusText(name, text, {idle: true})` already dims a slot and `slot.hidden` hides one, so the top line change is a fight-open flag read by the slot owners. The header change is in the fold summary (`sum`) in `combat_situation_ui.js`. Rain and fog move from the fold to the header. No save change. |
+| **FTL6. The line becomes the fight's line.** | While a fight is open, the status line's place and weather slots are handed the card's own nodes with `placeInStatus`: "A gap in the wall · Daylight · Poor footing · Rain · 42 s in · Held 12 min · Essence 44/44 · next: Feed the Moonglow Gu · Saved". The card drops its header row and gains a line for the roster (the OP goal of one page without scrolling). | Uses the spine's own mechanism (PS53), and keeps one home for where and when in every mode. But the conditions sit a screen-width away from the moves they change, the top line is already the row that overflows at 1280, and the header's empty right half goes unused. |
+| **FTL7. Unusual: the scene shows itself, no words.** | No condition words. Light dims or warms the card's frame, rain draws faint streaks behind the roster, fog softens foe rows past the first, poor footing draws a broken ground line under the moves. Each move's stumble chance already in its hover carries the reasons. The top line hides everything except save state and a single "World waiting · 12 min held" chip. | Most immersive, least text. Readability depends on art that does not exist yet, and a cue drawn in colour alone broke the colour-with-words rule (since removed, 2026-11-21). Best as a later layer over FTL5, not a replacement. |
+
+Per fact, under FTL5 (each a default with a dial):
+
+- **FTL8. Chip forms.** Weibao's picture is the floor (UR177): the season keeps its green 夏 chip and the day phase its boxed chip, and the temperature stays an underlined link, outside fights. In a fight the season and temperature chips retire from the line, and the day phase reappears in the card header as the light chip it causes, same boxed form. A world whose fight rules read cold, heat or season (frostbite, a summer-only beast) brings that fact into the header as a chip with its stumble or harm quote; until a rule reads it, it stays off the card. The reserve keeps the top line copy, because it is the one the player sees outside the card while choosing to fight, and the Hero panel's Combat box drops its Essence row.
+- **FTL9. Held time is the new fact.** "Held · 12 min kept" on the dimmed clock slot tells the player the world is not moving and that time will be spent after. It reads `b.held` plus the pending hold; nothing new is saved. The hover gives the cap (`heldCapMinutes`, a week).
+
+Mock: built after Weibao asked "Show me FTL7 and FTL 5" (see the mock section below).
+
+Recommendation: FTL5 with FTL8 and FTL9. It puts what the fight reads next to the moves it changes, fills the header's empty right half at 1920, and frees the top line at 1280 so the save state and next item show again. FTL6 was rejected because it moves conditions away from the moves and adds to the row that already overflows; FTL7 stays on file as a later art layer. Not decided.
+
+### FTL5 and FTL7 mocked (2026-11-21)
+
+Weibao: "Show me FTL7 and FTL 5". Built as one local mock branch, `mock/fight-scene-2026-11-21` in `~/code/yarpg-mock-fight-scene` (MW9), on a snapshot of the primary checkout's uncommitted work. The URL picks the variant (`?mock_ftl=5` or `?mock_ftl=7`); without it the game is today's. `?mock_scene=rain,fog,dark` is stub data that changes the drawn scene only, never the fight rules or the save. Captured from Fang Yuan's composed day (`ri-fang-yuan-wild-gu` plus a Moonglow Gu) opening the wolf pack at the gap, headless Chrome, fresh context per frame, zero page errors ([log](../../../representations/evidence/fight-scene-2026-11-21/capture.log)).
+
+| | 1920 | 1280 |
+| --- | --- | --- |
+| Today | [frame](../../../representations/evidence/fight-scene-2026-11-21/ftl-today-1920.png) | [frame](../../../representations/evidence/fight-scene-2026-11-21/ftl-today-1280.png) |
+| FTL5 | [frame](../../../representations/evidence/fight-scene-2026-11-21/ftl-5-1920.png) | [frame](../../../representations/evidence/fight-scene-2026-11-21/ftl-5-1280.png) |
+| FTL5, stub dark, rain, fog | [frame](../../../representations/evidence/fight-scene-2026-11-21/ftl-5r-1920.png) | [frame](../../../representations/evidence/fight-scene-2026-11-21/ftl-5r-1280.png) |
+| FTL7 | [frame](../../../representations/evidence/fight-scene-2026-11-21/ftl-7-1920.png) | [frame](../../../representations/evidence/fight-scene-2026-11-21/ftl-7-1280.png) |
+| FTL7, stub dark, rain, fog | [frame](../../../representations/evidence/fight-scene-2026-11-21/ftl-7r-1920.png) | [frame](../../../representations/evidence/fight-scene-2026-11-21/ftl-7r-1280.png) |
+
+What the frames show:
+
+- **FTL5.** The header reads "A gap in the wall" with boxed chips "Daylight · Poor footing" (and "Dark · Poor footing · Rain · Fog" with the stub) and "18 s in". The top line starts with the fight's place, dims the frozen date, adds "Clock held · 0 min kept", and drops season, weather and "Fight in progress". At 1280 the line still overflows (FTL12).
+- **FTL7.** The header holds just the place. The top line is "A gap in the wall · World waiting · 0 min held · Saving available.", with nothing cut at either size. The card shows a warm daylight edge and a broken ground line for poor footing; the stub adds rain streaks. The dark vignette is faint and the fog dimming did not apply to the roster rows in this build, so FTL7 reads weaker than intended (FTL13).
+- **Held time** reads 0 or 1 minute because each capture opened the fight seconds before the shot; it grows while the fight waits.
+
+Not built: the hybrid (FTL14), the stumble figure (FTL11), the light from the clock (FTL10). Verification: browser frames only; no unit tests run on the mock branch.
+
+### Rules a single player may not need (SPL1 to SPL12, 2026-11-21)
+
+Weibao: "Remove "rule for colour always has words behind it," identify other rules that might be useless for u?" The colour rule is removed (UR37, UR102, UR108 and the principles line in `UI_RULES.md`; P7 and IM7 in `PRESENTATION_AND_FOURTH_WALL.md`; logged in [USER_VISION_LOG](../../USER_VISION_LOG_2026-11.md)). The candidates below were found by keyword search with line reads, not a full reading, and none is removed without his yes (AD56). Ranked by freedom gained.
+
+| Code | Rule | Serves | Costs him | Proposal |
+| --- | --- | --- | --- | --- |
+| SPL1 | IM5 (PRESENTATION:2227) and the touch clause of UR43: every hover needs a tap twin | A phone player; the vision digest already defers mobile | A second path per hover | Drop the touch clauses; keep "not hover alone" for keyboard and agents (UR134) |
+| SPL2 | UR33, UR39, UR100: layouts still work at 125% and 150% text | Readers who zoom | A 150% pass on every layout | Drop the 150% gate as a check; text size stays a dial (UR65) |
+| SPL3 | UR170: a text size, contrast and reduced-motion settings page | Other viewers | A settings surface and CSS variants | Off-by-default dial |
+| SPL4 | P7 and UR37's reduced motion, TX3's static twin for every effect | A general audience (WCAG 2.3.1 flash cap) | A static form for every effect | Keep the effects slider; drop mandatory static twins |
+| SPL5 | UR14 and UR176: a first-time player must find the way back from a screenshot; a blind panel per wave | A stranger | A screenshot and panel per wave | Keep the screenshot with his own test ("can I find it"); drop the first-time framing |
+| SPL6 | UR112 and UR5: confirm dialogs for costly actions, focus on the safe choice | A careless public player | A click per costly action | Confirms off by default; keep the guards on save import and replace (UR55) |
+| SPL7 | IM6: a dyslexia-friendly option and typewriter text speed | Other readers | A variant path per text effect | Drop the dyslexia option; text speed becomes an off-by-default dial |
+| SPL8 | Localisation notes (PRESENTATION:1365): case effects reskin for Chinese, right-to-left text | Future locales | Design time | Drop as a rule |
+| SPL9 | UR73 and UR70: short plain explanations of what each subject changes | A new reader | Copy volume on every surface | A dial, default on for mechanics he has not met; exact numbers stay (UR161) |
+| SPL10 | UR31: hotkeys printed in every navigation tooltip | A new player | Tooltip noise | Keep the "?" sheet; drop per-tooltip hotkey text |
+| SPL11 | UR50: attribution needs a home in the chrome | Upstream credit | A small slot | Keep: AGENTS.md requires attribution and LICENSE |
+| SPL12 | Labels, aria, real buttons, disabled reasons (UR121, UR122, UR128, UR130, UR134, UIV1, TX2, TX13) | Agents: `scripts/mcp/game_worker.mjs` finds controls by aria-label, role and aria-disabled; TX13 keeps sealed truths out of that text | Little | Keep. They look like accessibility rules, but they are how Game MCP and the tests see the game |
+
+Recommendation: SPL1 to SPL8 and SPL10 are the safe cuts. SPL9 is a taste call. SPL11 and SPL12 stay. Not decided.
+
+### The fight card: duplicate bars, the pack of five, consumables (FCD1 to FCD10, 2026-11-21)
+
+Weibao: "is the current ui duplicating the Hp bar showing? should it just show all 5 of them at once? Better ways to showcase? Consumable usage? other general improvements apart form bugs??" Read from the master card at 1920 and 1280 (the crowd-front screenshots and the FTL mock captures).
+
+- **FCD1. Yes, the front wolf is drawn twice.** The pack row's layered bar shows the front wolf's health, and the target slot under it shows the same wolf's full row with its own bar, and "Target" twice. The duplicate exists when the target is the front; once you pick a wolf behind, the slot is new information.
+- **FCD2. Show all five at once, as one segmented bar.** One bar split into five segments, each with its own fill and letter, the front segment first and outlined. You see every wolf's health in one line. The NS build (NS2, branch `feat/packs-and-away-2026-11-21`) already draws this shape for packs; a crowd would use it with the front rule marked by order and an outline. The slot then appears just for a member behind the front, which is when its conditions and timer are worth a row.
+- **FCD3. The stat line repeats.** "Atk looks stronger than you · Spd ? · Hit ? · Ddg ? · Def ?" is printed on the pack row and again on the slot, and it is the same for every wolf of one kind. Print it once, on the pack row.
+- **FCD4. An empty line in the pack row.** The crowd row reserves a third line (under the ×5 bar) that holds nothing in this fight. Fold it until a member has a condition to show.
+- **FCD5. The Moonblade reason is printed twice** ("The Moonglow Gu is hungry and will not cut. Feed it first." small, then again in yellow). Keep the yellow line.
+- **FCD6. Consumables: the Items row says "Nothing ready · Open pack"** although the fix for the blocked power is an item: feeding the Moonglow Gu (two Moon Orchid petals; he has none). Proposed: the Items row lists the fight-relevant consumables as slots like the moves, each with a number key, a beat cost and a count ("Moon Orchid petal ×0 · feed the Gu · 3 beats"), blocked with the reason when you lack it. Food and pills that matter in a fight (stamina, a wound) join; the rest stay in the pack.
+- **FCD7. Using a consumable is a move.** It costs beats and can be interrupted like any other, so the tempo bar shows its cost, and Fight on (CBD38) can use one when a rule allows (eat at low stamina).
+- **FCD8. The space below the card is empty at 1920.** The card ends around y=490 of 1080. Options: taller bars with the trail and harm stripe readable at a glance, the last few fight lines inside the card (the Reports column already carries them, so this is a choice, not a fix), or leave the space for the stacked crowd at larger sizes.
+- **FCD9. The Hero panel's Combat box repeats the card** ("Your turn · acts next", Essence 44, Moonglow Gu Hungry). With FTL5 the reserve stays in the top line; the Combat box can drop Essence and the Gu state, keeping the stance.
+- **FCD10. Move cells use two lines for cost** ("3 beats · 1 of 40 / stamina"). One line ("3 beats · 1 stamina") lets the row stay one line at 1280.
+
+Recommendation: FCD2 with FCD1 (the segmented bar, slot only for a member behind), FCD3 to FCD5 as cleanups in the same pass, and FCD6 with FCD7 as the consumable slice. FCD8 to FCD10 after the bar change, since they depend on how much height it frees. Not decided.
+
+### More to consider on the fight top line and card (FTL10 to FTL16, 2026-11-21)
+
+Weibao: "MOre to consider?" Focused on FTL5 and FTL7 first, then the card around them.
+
+- **FTL10. ACCOUNT FOR NOW: the fight's light ignores the clock.** Openers hard-code light (`src/tempo_lead_fights.js`: the wolf pack at the gap is always `light: 'day'`; the patrol picks dark). A pack fight at 22:00 would still read Daylight, so FTL5's "the day phase comes back as the light it causes" would show a contradiction. Default: an outdoor fight takes its light from the world's sky phase when it opens (night is dark, dawn and dusk are dim); a place that sets its own light (a cave, a lit hall) keeps it. Dial per opener; mechanism change, no save change (conditions are already on the saved fight).
+- **FTL11. ACCOUNT FOR NOW: one stumble number beats four chips.** `mishapChance` adds stamina, pain, an unfamiliar tool and the scene terms. The chips quote just the scene part. A header figure "Stumble 10%" with the breakdown in its hover tells the player the thing they act on; the chips stay as the reasons. Read from the same function the rules use, so it cannot drift.
+- **FTL12. ACCOUNT FOR NOW: FTL5 alone does not fit 1280.** The mock capture at 1280 still cuts off the save state, because "Today: nothing planned · next: Feed the Moonglow Gu (needs 2 Moon Orchid petals; you have 0)" is long. The top line also says the next item twice. In the FTL5 capture, "Today: … next: Feed the Moonglow Gu" and the pinned band's "Ready now · 3 close · Feed the Moonglow Gu" sit side by side. In a fight, keep one (the band's, since it is clickable).
+- **FTL13. ACCOUNT FOR NOW: FTL7 is faint at 1280.** The daylight edge and the ground line read as decoration, not information. With colour now allowed to carry meaning alone, FTL7 can use stronger, role-coded tints (a red-brown ground line for poor footing, a cold blue cast for night) and still stay wordless.
+- **FTL14. LATER: a hybrid.** FTL5's header (place, stumble figure, fight clock) with FTL7's drawn scene behind the card. The words answer "how much", the drawing answers "what kind of place". Build after a choice between the two, on the same mock branch.
+- **FTL15. LATER: held time after the fight.** The held minutes play out at up to 60 a tick after settlement (`clock_owner.js`, `heldStep`), so the world catches up over the next few seconds. A one-line Reports entry ("The world caught up: 12 min") would close the loop FTL9 opens.
+- **FTL16. LATER: the frozen date.** In FTL5 the dimmed date still takes width at 1280. It can move to the held chip's hover ("Held at 06:00, 12 March").
+
+### The empty slot and auto attacks (SLT1 to SLT3, AUT1 to AUT9, 2026-11-21)
+
+Weibao, looking at the layered-bar mock (`mock/fight-card-2026-11-21`, commit `2fc13842a`): "I not sure what the empty slot under bar means, also, consider what it takes for auto attacks and more? more to consider? Best way to go about this?"
+
+**The slot.** The target slot is the blank strip between the wolf-pack bar and the Body row, about 54 px tall in `fcd-open-1920.png`.
+
+- It fills only when you pick a wolf behind the front, for example C, and then reads "Lightning wolf C · Behind the front" with C's own bar.
+- When you target the front wolf, the slot stays empty but keeps its height, so the move buttons don't jump when you change picks (MT1).
+- The layered bar gives no reason to keep it. A wolf behind the front can't be hit until Single out, so its full row is mostly a status line.
+
+| Code | Option | Cost |
+| --- | --- | --- |
+| SLT1 | Keep the empty strip. | It looks like a bug, as this question shows. |
+| SLT2 | Collapse the strip when it's empty. | The moves shift by a row whenever you pick a wolf behind the front. |
+| SLT3 (recommended) | Drop the slot for crowds. The picked letter stays highlighted and the name line adds "C behind the front · Single out to reach" (C's health is in the letter's hover). A target outside a crowd still uses its own row. | It loses C's separate bar, which mostly duplicated a layer. |
+
+**Auto attacks.** Most of this already exists, so the work is in how it feels, not in new rules.
+
+- **AUT1. Facts.**
+  - Fight on (`run()` in `src/tempo_fight_domain.js`, CBD38 and CBD56) already plays your turns with the steady policy, attacks and kit included.
+  - It stops at a downed body, your losing terms, a new injury, health under half (`RUN_FLOOR` 0.5) or a changed situation (`askNow`).
+  - One click takes at most 12 turns (`RUN_CAP`), all resolved at once. The card then jumps to the result.
+  - `driveTempoFight` already settles a whole fight headless.
+  - What is missing is visible, ongoing auto play.
+- **AUT2 (recommended). Fight on plays out at a pace.** One turn per beat tick, about 1 s, instead of 12 turns at once.
+  - The bar drains as you watch.
+  - Any move you click takes the next turn, then auto play resumes. A Pause or Take over button stops it.
+  - The stop rules stay as they are. Each turn already commits through the normal move path, so save, reload and export need no new state beyond "auto on", which could be a session flag that is not saved.
+  - This is the idle-RPG feel with the tempo rules kept.
+- **AUT3. Auto on by default for routine fights (CBD56).** Opening a fight starts auto play. The card asks only when a stop rule fires. Needs AUT2 first.
+- **AUT4 (unusual). The fight card shrinks to a ticker.** A routine fight shows as one line in the status bar ("Wolf pack ×3 · you 41/60 · auto") and opens the full card when a stop rule fires. This is closest to the original idle game and frees the screen, but it hides the drawn fight most of the time.
+- **AUT5. ACCOUNT FOR NOW: spending stock.** Auto play already feeds the Gu (dial `useToUnblock`). Once there are healing pills, auto play needs a spend rule, such as "use a pill under a third of health, keep the last one" (CBR26 pays from real stock), or it will burn rare items. Policies grown from answers (CBD59) are the long-term owner.
+- **AUT6. ACCOUNT FOR NOW: crowds.** The policy hits the front and does not use Single out (`target()` hits the front). That is fine for wolves. A crowd with a dangerous member behind the front needs a "kill the healer first" order, which belongs to CBD59 standing orders.
+- **AUT7. ACCOUNT FOR NOW: Reports spam.** Twelve turns write about 50 lines. Auto turns could fold into one line per round ("Round 3: you hit A for 4; B and D hit you for 9"), with the full lines a click away.
+- **AUT8. ACCOUNT FOR NOW: the world clock.** The clock is held during a fight. A paced auto fight lasts real seconds, so the time held stays the fight's own seconds, as now. If the player leaves mid-fight, nothing advances. Away time should not run a fight unattended unless AUT3 is on.
+- **AUT9. LATER: agents and tests.** Game MCP reads buttons by aria-label, so the Pause control needs a stable label, and a paced run needs a test hook to step it without real waits.
+
+**Best way to go about it.**
+
+1. Pick SLT3 on the mock branch (small).
+2. Build AUT2 on the same mock branch, with frames and a short screen video.
+3. Decide AUT3 and AUT4 after playing AUT2, since how it feels is the question.
+
+AUT5 to AUT7 are the constraints to keep while building. None needs a save change.
+
+### A fresh look at the fight card, with Arkivia's fight (FRS1 to FRS14, 2026-11-21)
+
+Weibao, on SLT and AUT above: "consider the other options and more? other stuff? Use a fresh perspective for the Combat ui too? considerations from https://just-pointless.github.io/arkivia/ and more?"
+
+**Evidence.** I ran Arkivia v0.26.1 headless and started a fight with its own `generateEnemy('mouse')` after the intro: [arkivia-fight-1920.png](../../../representations/evidence/fight-scene-2026-11-21/arkivia-fight-1920.png). I also read its source (`game.js` `processPlayerTurn`, `processEnemyTurn`, the combat block in `tick()`, and `index.html` `#attack-info`). This builds on AK1 to AK15 and the source read above, which covered the damage trail, speed order, the hidden stat total and stacked log lines. It adds what the fight itself shows.
+
+**What Arkivia's fight does.**
+
+- **FRS1. Combat is fully automatic, one exchange per game tick.** The faster side strikes first, then the other answers. There are no moves to pick: the choices in a fight are made before it (gear, training, which scene) and through items clicked in the inventory.
+- **FRS2. The fight stays out of the stage.** It sits in the top band, laid out left to right: your bars, your four stats, the foe's name and HP bar, the foe's effects, then its four stats (with a debuff shown inline, such as "Def: 1 (−20%)"). The scene prose and its choices stay in the centre the whole time. Your stats and the foe's sit in the same order, so you compare them by eye.
+- **FRS3. The log is terse.** Each line is "You -> 4" (damage in red), "Mouse missed", "Mouse -> 1". It reads well even while turns arrive every second.
+- **FRS4. Time runs during a fight.** Each turn costs a minute of game time and some energy. Nothing is held.
+
+**Our card, read fresh.** Read as a first-time player, the frames (`fcd-open-1920.png`, `fcd-moonblade-1920.png`) show this:
+
+- **FRS5. About fourteen buttons ask for a decision every turn.** The rows are six body moves, two powers, Items with Pack, and six terms. Most turns the right answer is the same strike. Arkivia shows that zero choices per turn can still be fun when preparation matters.
+- **FRS6. The stage is the fight.** The place, its prose and its choices disappear while the card is open, so a wolf fight feels like a different game from the day around it. This is the same complaint as FTL1 to FTL9 (time and place belong to the fight area), seen from the other side.
+- **FRS7. The same news shows three times.** The latest hit appears as the card's top line, in Reports, and on the bars.
+- **FRS8. Beats are words.** "3 beats" and "6 beats" are our distinct mechanic (tempo), yet nothing shows when each side will act next. The foe's tick on the timing bar is the one hint.
+
+**Options for the card (pick one direction; each is a real-game mock under MW9).**
+
+| Code | Direction | What it changes | Cost |
+| --- | --- | --- | --- |
+| FRS9 | Paced auto on the current card (AUT2 with SLT3). | Fight on plays one turn per second, and your clicks cut in. | Smallest change. It keeps the fourteen-button wall. |
+| FRS10 (recommended) | **Auto by default with interrupts.** The card opens running the steady policy at a pace. The moves fold into one strip of interrupts: the default strike, Single out, powers, items and Back away, with the other terms behind "More". Stop rules (AUT1) pause it and open the full move list with the reason. | It answers FRS5 and FRS7 and keeps tempo choices for the turns where they matter. It is CBD38 and CBD56 made visible. | Needs a Pause control, AUT5's spend rule before pills exist, and AUT7's round lines. No save change. |
+| FRS11 | **Arkivia band.** The fight moves into a band across the top of the centre column: you on the left, foes on the right, compared row by row. The scene stays readable below. | It answers FRS6, and FTL5 becomes natural (place and weather sit in the band's header). | A pack of five needs the layered bar to fit in one band row. Moves have to live in the band or behind it. Bigger layout work. |
+| FRS12 (unusual) | **A beat timeline.** One horizontal track of the next beats: your marker and each foe's marker sit where they will act, and hovering a move shows where it would put you ("Heavy swing: you act after B and C"). | It turns tempo into the thing you look at, and makes Brace against a 6-beat swing an obvious read. Nothing in Arkivia or proto23 does this. | Needs the engine to quote future turn order (`nextActor` gives just the next turn). This is the most design work, and it suits players who like reading fights more than watching them. |
+
+**More to consider.**
+
+- **FRS13. ACCOUNT FOR NOW.** Whichever direction wins:
+  - Keep the aria-labels and roles (Game MCP reads them).
+  - Keep numbers hidden behind sense words (PS236, AK10 rejected).
+  - Keep the layered crowd bar.
+  - Keep the hero's HP on the left panel alone (FCD).
+- **FRS14. LATER, from Arkivia.**
+  - Fight achievements ("won without being hit", "won under 5% health") fit the deeds list cheaply.
+  - Equipment that wears down per hit gives stock a combat cost without a new mechanic.
+
+**Best way.**
+
+1. Build FRS10 and FRS11 as two flags on the mock branch, the way FTL5 and FTL7 were built.
+2. Capture the same wolf-pack moments at 1920 and 1280 side by side, and let Weibao pick.
+3. Hold FRS12 until one of those has been played, since it is the most design work.
+
+**Mocked (2026-11-21).** After "Yes, mock both", FRS10 and FRS11 were built behind `?mock_frs=10` and `?mock_frs=11` on `mock/fight-card-2026-11-21` (commit `56cc1b6f0`). The frames and the receipt are in `docs/representations/evidence/fight-card-frs-2026-11-21/` on that branch. There were 0 page errors at 1920 and 1280.
+
+- Auto play fed the Gu, threw Moonblade, then paused itself at "You have taken a new injury" about 3 turns in. Against a pack, the stop rules fire too often for auto to feel idle (CBD56 needs a sense of what this fight is expected to cost).
+- FRS11's scene below is thin at the academy (two collapsed groups). The band also keeps the card's vertical layout.
+
+**FRS10 taken forward (2026-11-22, Weibao: "Do what's best").** Paced auto now pauses when the fight goes worse than expected, not at every hit. It pauses for a wound or worse, for health under a quarter, or when you are losing the race against the foes' remaining health. The run with the wolf pack paused twice, both times meaningfully: at 2 s "you are losing faster than they are", then at 9 s for health under a quarter. Fang Yuan is outclassed there. The run with a single wolf killed it with no pause. Evidence is in `fight-card-frs-2026-11-21/full-run/` on the mock branch. Open dials: the floor (the single wolf took him to about a third of his health without asking), and whether AUT3 (auto on by default for routine fights) should be next.
+
+### When you go down, and which computed reasons to say (DWN1 to DWN12, 2026-11-22)
+
+Weibao, with a picture of Arkivia's training loop (auto fights, a Stop button, "Straw Dummy died", "+4 XP"): "We need to improve the death screen somhow, how does other games cover it? Some info like 'his is going worse than expected: you are losing faster than they are.' can be calculated, but then we dont necissarily need to show it or tell it to the player?"
+
+**What we have now.** From the mock run's last frame, `full-run/frs10-end-1920.png` on `mock/fight-card-2026-11-21`, and from the code:
+
+- **DWN1. The engine already knows the story.**
+  - The other side's terms (`THEIR_TERMS` in `src/fight_terms.js`: rob, spare, capture, leave for dead) each carry a waking line, such as "It mauls you and leaves you for dead. You wake badly hurt."
+  - A loss also publishes a defeat record (`savedBattleLoss`, outcome "unconscious") and sets the day extension's injured fact.
+- **DWN2. The screen does not tell that story.** The card shrinks to one line, "A wolf pack at the gap. You: out cold.", over one wolf's bar, with a back button. The waking line, how long he was out, where he is and what to do now appear nowhere on it. The account sits in Reports. Arkivia does even less: you wake at home with 1 HP and half your energy gone, and the log says "You died!".
+- **DWN3. ACT NOW (defects seen in that frame).**
+  - The account reads "Hurt: Health 1 of 41.6" while the bar shows 3/60.
+  - The settled card drops the pack's layered bar for a single "Lightning wolf A" row.
+  - The back button read "← Back to Your beginning", because the capture opened Beginning first. Check whether a player's route gets a sensible label.
+
+**How other games handle it.** Arkivia comes from its source. The rest is from memory and was not rechecked this session.
+
+| Code | Game | What happens when you lose | For us |
+| --- | --- | --- | --- |
+| DWN4a | Arkivia | You wake at home, or at the Hunters' guild in the forest, with 1 HP and half your energy lost. Effects clear and the tab title reads "DEAD". | A soft death that costs little. Fine for an idle loop, but flat. |
+| DWN4b | Stardew Valley | Passing out in the mines: you wake at the clinic, some money and items are gone, and the doctor's note says who found you. | A life sim's answer: someone brought you somewhere, and the loss is concrete. |
+| DWN4c | Kenshi | Knocked out, not dead. The winners may loot you or enslave you, and you wake where you fell, bleeding, with the fight's consequences in place. | Matches our "their terms" closely. |
+| DWN4d | Hades | Death is a story beat. You return home, people comment on how you died, and progress carries over. | Defeat as content, not a penalty screen. |
+| DWN4e | Darkest Dungeon, NetHack | A memorial: "killed by a jackal on level 3", with the hero's record. | For true death (RL5's life summary), not for a knock-out. |
+| DWN4f | Dark Souls | "YOU DIED", then a chance to recover what you dropped. | A recovery hook: the wolves' gap still holds your dropped things. |
+
+**Options for the knock-out screen** (true death stays with RL5):
+
+- **DWN5 (recommended). A waking scene.** The card turns into a scene. Built from DWN1's facts, it has:
+  - the place and how long you were out (the clock moves);
+  - what they did (their terms' line);
+  - what it cost (wounds by name, things taken);
+  - one or two things to do next (rest, see a healer, go back).
+  - One hindsight line, "Five wolves were more than a rank-one aperture could hold", which is where the computed comparison earns its place.
+
+  This takes from Stardew and Kenshi, and no save change is needed beyond the clock advance the defeat record already implies.
+- **DWN6. A recap of the fight.** Hades and Spelunky style: who did what to whom, the turn the fight tipped, and what to try next time. It is useful for tuning, but it reads like a report, and Reports already holds the lines.
+- **DWN7 (unusual). Someone finds you.** Who wakes you depends on who was near: a clan elder, Fang Yuan's brother or a passing hunter. Each costs a favour, wins sympathy or starts a rumour. Defeat then feeds the people systems (relationships, reputation) instead of a menu. It needs a "who is nearby" read, which the presence work may already have.
+
+**Computed but not said (DWN8 to DWN11).** Weibao's point holds. The engine can compute who is winning the race and still not narrate it.
+
+- **DWN8. Three ways to voice a pause.**
+  - Silent: auto just stops and the card says "Your turn".
+  - In the fiction: "Your breath is ragged; the pack is still fresh", built from the same numbers through sense words, as foes are already described (PS236).
+  - Analytic: the sentence the mock prints now.
+- **DWN9 (recommended).** Voice the pause in the fiction, and save the analysis for hindsight: on the waking scene, and on hover over the pause line. That keeps the meta-game quiet during play and honest afterwards.
+- **DWN10. Use the calculation without telling.**
+  - Losing terms ("break off at a third") can act on it.
+  - Before the fight, the opener can show a sense read, "This looks like more than you can hold".
+  - This pre-fight read is the most useful place for it, since it changes a choice the player still has (Arkivia shows stat totals there; we keep words).
+- **DWN11. ACCOUNT FOR NOW.** Agents read the pause's role and label (Game MCP), so a fiction line still needs a stable `data-` reason key for tools and tests.
+- **DWN12. LATER.** Arkivia's training loop (fight, "+4 XP", repeat, Stop) is the idle shape for drills. A drill against a dummy should run as one repeating row with a Stop button and a stacked log ("Straw Dummy died ×12"; AK12 stacking), not a fight card each time.
+
+### The kill and what comes after (KIL1 to KIL12, 2026-11-22)
+
+Weibao: "I meant also improve the killing enemy scene, doesnt it jump straight until the next part? more to consider?"
+
+**What a win shows now.** Source: `full-run/tide-frs10-end-1920.png` on `mock/fight-card-2026-11-21`, Fang Yuan killing one lightning wolf under paced auto.
+
+- **KIL1. Yes, it jumps.** The killing blow settles the fight in the same turn, and the card goes straight to its end state:
+  - the name with "Dead" stuck to it ("A lightning wolfDead");
+  - an empty bar over a large empty box;
+  - one sentence: "A lightning wolf beyond the wall. You: standing. A wolf eye for the board, its hide and 6 jin of meat are in your pack.";
+  - a back button.
+
+  The blow itself is never on screen. In a pack, a dead wolf's letter is struck through and the next wolf takes the front with no pause.
+- **KIL2. ACT NOW: the lines read backwards.** Reports has "You finish it, as you meant to." before "You use Moonblade on A lightning wolf: it lands, for 10." and then "A lightning wolf is dead." The player's terms (`src/tempo_fight.js`, the "as you meant to" lines) are said before the blow that downed the wolf.
+- **KIL3. ACT NOW: the numbers disagree.**
+  - The account says "Hurt: Health 38.5 of 56" while the hero bar reads 41/60, the same mismatch as DWN3.
+  - Hero XP stays 0/10, and nothing says whether a kill teaches anything (no skill line).
+- **KIL4. The spoils are one clause.** The eye, the hide and the meat arrive in the middle of a sentence. Arkivia gives each its own line ("Obtained x1 Strand of Straw", "+4 XP"), which the feel pass already adopted as a plus sign on gains.
+
+**How other games mark the kill.** Arkivia comes from its source and the picture. The rest is from memory and was not rechecked this session.
+
+| Code | Game | The kill moment | For us |
+| --- | --- | --- | --- |
+| KIL5a | Arkivia | "Straw Dummy died", then each item and the XP on its own line. In a drill the next dummy starts at once, until Stop. | The repeat loop for routine work (DWN12). |
+| KIL5b | Monster Hunter | After the kill you carve the body by hand for a few seconds, and each carve rolls a part. | Fang Yuan cuts the wolf himself, so the carcass is a scene, not an auto-loot. |
+| KIL5c | Red Dead Redemption 2 | Skinning takes time, and pelt quality depends on how you killed (the right weapon and a clean shot give a perfect pelt). | Moonblade's cut versus a fist could change the hide's worth. |
+| KIL5d | Darkest Dungeon | Corpses stay in the enemy ranks and must be cleared before the back row can be reached. | A crowd's dead could block the gap for a turn. |
+| KIL5e | Souls games | A boss earns a banner ("Victory Achieved"); ordinary foes just fall. | Mark big kills, and keep ordinary ones quick. |
+| KIL5f | Pokémon | "Fainted", then the XP bar fills on screen. | Show what was learned, not just what was taken. |
+
+**Options.**
+
+- **KIL6 (recommended). A beat and a tally.**
+  - **The kill gets a hold of about a second.** The killing blow's line is shown large on the card, the bar drains with its damage trail, and the name is struck through. Paced auto waits one extra tick after any kill, a pack kill included.
+  - **The end card becomes a tally:** each gain on its own line with a plus sign (the eye, the hide, the meat, any skill learned), what it cost (health, stamina, essence, petals), and the next things to do in place: hunt again, rest, carry it home.
+
+  It needs no save change.
+- **KIL7 (unusual). The carcass is a scene.** After the kill, choose how to take it: cut carefully (more time, better hide, the risk that more wolves come) or grab the eye and go. How you killed it sets what is left, so Moonblade's cut spoils part of the hide. Fang Yuan's world is about selling wolf parts, so the choice carries weight. It needs authored rows and part quality, and it is the most design work.
+- **KIL8. Routine kills loop.** A hunt you have done before runs Arkivia's way: kill, tally line, next wolf, until Stop or a pause rule. The card shows a running count ("Wolves ×4 · hides 3 · eyes 4"). Pairs with AUT3 and DWN12.
+
+**More to consider.**
+
+- **KIL9. ACCOUNT FOR NOW: a pack's dead.** When a wolf in the pack dies, the gain should land then ("+1 hide"), not all at the end. Whether the dead body holds the gap for a turn (KIL5d) is a tactics choice for the crowd rules (MS2), not a UI choice.
+- **KIL10. ACCOUNT FOR NOW: the kill is a fact others see.** Witness and memory effects already fire on a strike (`witnessEffect`). The tally could name who saw it ("The patrol saw the kill"), which ties KIL to DWN7's people.
+- **KIL11. ACCOUNT FOR NOW: computed, not said (DWN9).** The kill's hindsight ("Moonblade did most of it") belongs on the tally, not in the fight.
+- **KIL12. LATER: first kills are deeds.** The first kill of a kind is a Deeds line, and it teaches the bestiary (the met-foes list already exists).
+
+### Too much realism? Text games first (TXG1 to TXG8, 2026-11-22)
+
+Weibao: "fix then mock? Are we doing too much realism for a game that quite doesnt need it? SHould we be comparing/inspired from other text based games first?"
+
+**TXG1. Partly yes.** The vision asks for deep systems and "whimsical and unpretentious" UI and prose, with depth that avoids micromanagement ([vision digest](../../../VISION_DIGEST.md)). Several recent ideas spend that on ceremony, not on systems:
+
+- KIL7, carving the carcass by hand;
+- KIL5c, pelt quality set by the killing blow;
+- KIL5d, corpses that block ranks;
+- DWN7's who-finds-you roll.
+
+They add steps the player watches, not choices that change a life. Keep realism where it already lives in systems and pays off later: what the winners took, wounds by name, who saw it, the price of the parts. Cut it where it is a step to sit through.
+
+**TXG2. Yes, text games are the right first comparison.** Our surface is a card of words and a log, so a 3D game's kill camera or carving animation does not translate. Text games solved the same problem with lines. The rows below are from memory, not rechecked this session.
+
+| Code | Game | A win | A loss | What to take |
+| --- | --- | --- | --- | --- |
+| TXG3 | Kingdom of Loathing | "You win the fight!", then one line per gain ("You acquire an item: …", "You gain 4 Strengthliness"), every line a joke. | "You lose. You slink away, dejected and defeated", plus a Beaten Up effect that costs turns. | One signed line per gain. Defeat as a status effect that heals with time. Humour in the lines, which matches "whimsical". |
+| TXG4 | Fallen London | No combat. A challenge succeeds or fails with a short paragraph, and the qualities that changed are listed underneath. | Failure raises a menace (Wounds). When it is full you are sent to a place (the Tomb-Colonies) and must play your way back. | Defeat is a place with a way out, not a screen. Changes are listed under the prose. |
+| TXG5 | A Dark Room | Weapon buttons on cooldown bars. On a win a loot box lists the items, with take buttons. | You go back to the village and lose what you carried. | Loot is a short list you act on. |
+| TXG6 | Torn | Win, mug or hospitalise the other player. | Hospital for a set time. | Defeat costs time, which an idle game can show plainly. |
+| TXG7 | MUDs | "X is DEAD!", a corpse to loot. | Your corpse holds your things and you run back for them. | Fine for a later recovery hook. |
+| TXG8 | Arkivia, proto23 | Log lines ("Straw Dummy died", "Obtained x1", "+4 XP"), and the next fight starts at once. | You wake at home with 1 HP and half your energy gone. | Already AK, FRS and DWN. |
+
+**What changes in the plan.**
+
+- **KIL6 and DWN5 become text-game results.** Each is a head line ("A lightning wolf is dead." or "You go down."), the last blow, then signed lines for each gain and cost, then one hindsight line. They lose the panels. This is built as the mock below.
+- **KIL7 and DWN7 move to LATER,** and stay there unless a world makes them matter.
+- **A defeat state that heals with time** (Kingdom of Loathing's Beaten Up, Torn's hospital) is a light alternative to a waking scene for routine losses. The day extension's injured fact is already that state, so it needs just a name and a visible timer.
+
+### How the fight ends: what YAIR and Proto23 do, and where (END1 to END11, 2026-11-22)
+
+Weibao, with two frames of the text-game end screens (KIL6, DWN5 mock): "how does getting defeated show up in Proto or Yair? I wake up back in room? ... map and location data should be on top or next to the combat ... Lots of useless text from the results, and might be able to put those text in the report section instead? or we can reorg panels ... Consider how to make more use of hovering and colors and more?" Prose rules are another chat's; this section covers the end of a fight, its placement, colour and hover.
+
+**What the references do.** These are read from upstream YAIR's code and a Proto23 `index.html` snapshot. They are shown in code, not taken from notes.
+
+| | YAIR | Proto23 |
+| --- | --- | --- |
+| Kill | One log line, "X was defeated", green and bold. The foe's portrait dims to 30%; no screen, no popup | One log line, "X died", in burlywood, then "EXP: +N" in pink and coins in their metal colours. "Area cleared" in orange |
+| Loot | "Looted X x N" in gold, in the Loot group; an option merges a run into one growing line | "New item obtained" in cyan, with the name in coral and the count in lime; the item card shows on hover |
+| Defeat | "Hero has lost consciousness", red and bold, in the log. You are moved to the last bed you slept in and fall asleep (option on by default). Recovering: 20% XP for a while | No line at the moment of death. You arrive at "Your Home, Bed" with "You passed out..." as the scene text and a "Get up" choice. Energy is cut, effects are cleared, and you get a Death Badge ("Awarded by fate for dying"). The cause of death is kept in Statistics |
+| Where | Everything goes in the log on the right, with filter buttons by group | Everything goes in the log; the location panel carries the waking scene |
+| Hover and colour | A colour per line type (your hits light blue, hits on you red, crits brighter); no hover in the fight | Every line can take a hover. Damage type, crit and body part are separate coloured pieces. The monster panel shakes on a crit |
+
+Both answer the question: yes, you wake in your room. Neither has a results screen. The fight's words live in the log, coloured by kind, and the place panel tells you where you woke. OOPS's native fights already keep YAIR's return to bed (`src/main.js:4955`); the tempo fight in the frames does not, so it sits on a result card with a back button.
+
+**What the frames show (ACT NOW).**
+- **END1. The numbers disagree.** These are defects, not wording; this is KIL3 again, on more surfaces. On defeat, the hero panel says 3/60 hp and 42/42 stamina while the result says "Health down to 1 of 41.6" and "Stamina 1 of 41.7". On the kill, it is 41/60 against "38.5 of 56".
+- **END2. A dead foe's bar reads as full.** It is a solid dark red strip the width of the card. Draw it empty or dimmed, with the name dimmed, as YAIR dims the portrait.
+
+**Proposals.**
+- **END3 (recommended). No result screen; the card hands back to the place.** When the fight ends, the centre returns to the place view, as both references do. It shows one result banner at the top: the verdict line plus coloured gain and cost chips ("+ eye", "+ hide", "+ meat ×6", "− stamina 20"). Hover on the verdict gives the last blow and the hindsight line ("Moonblade did most of it"). This removes the back button, the empty half of the centre and the third copy of the same facts.
+- **END4 (recommended). On defeat, wake where you sleep.** Use YAIR's rule (last bed) for tempo fights too. The place view carries Proto23's waking scene: "You passed out..." rewritten in the world's voice, how long you were out, and a "Get up" choice. This is DWN5 placed in the place panel, not on the fight card.
+- **END5. Reports keeps the account; the card keeps none of it.** The blow-by-blow is already in Reports. The closing summary paragraph there ("You: out cold. Them: ... Spent: ... Hurt: ...") repeats what the lines just said, so cut it to the verdict line alone. Its hover holds the totals.
+- **END6. Colour by kind in Reports, YAIR's mapping with Proto23's pieces.** Your hits light blue, hits on you red, crits bold. Loot gold. XP or growth pink. A kill green and bold, a defeat red and bold. Body part and damage type are their own coloured pieces inside the line (Proto23). It runs through the existing `log_message` types and the filter buttons, so filters keep working (YAIR's hide-not-drop).
+- **END7. Hover on every combat line** (Proto23's `msg(..., desc)`).
+  - A hit shows its breakdown (roll, armour, body part).
+  - A loot line shows the item card.
+  - A kill shows the foe's bestiary entry.
+  - A defeat shows the cause and what it cost.
+  - The text stays short because the detail moved to hover.
+- **END8. Place and map sit with the fight.** The card header already carries place, light and footing (FTL5). Add the place's small map or route strip above the card, so you can see where the fight is and where the way home goes. Desktop has the width; at 1280 the strip folds to the header line.
+- **END9. Kill feedback on the foe, not in words.** The struck foe's row shakes briefly on a crit or kill (Proto23), and a gain chip floats from the dead foe toward the pack. Motion stays inside the fight's own box (UR146 as loosened).
+- **END10 (unusual). Death leaves a mark.** Keep Proto23's cause-of-death record ("Mauled at the gap by a wolf pack") as a Deeds line and a count, with a dry joke badge on the first death. Defeat then feeds the life record, not a menu.
+- **END11. LATER: routine kills condense.** YAIR's dynamic loot line: one growing line per hunt ("Looted hide ×3 (+1)"). This pairs with KIL8's running count.
+
+Recommendation: END1 and END2 now, as defects, then END3 to END7 as one change. END8 to END10 follow once END3 lands. Not decided. The fight card files belong to the fight-card session; Reports colour and hover touch `src/display.js`, a shared file.
+
+### The Here panel, and a more colourful Reports (HR1 to HR6, RC1 to RC8, 2026-11-22)
+
+Weibao, with a picture of Here under the darker Graphite: "the Here area can be really improved, How does the other variations do it an what would suit us the best?", then "Making the reports section more colorful and more?"
+
+**What the picture shows.**
+- Two headers stack up: "Here" over "Village board".
+- Each row is a box inside a box, with its button in a separate column that floats at mid-height.
+- The two columns have uneven lengths, so a large hole opens under People.
+- Descriptions wrap to three lines.
+- A person, the Waypost supply clerk, sits under Things with no verb.
+- Counts ("· 2") tell nothing the list doesn't.
+
+**How the others do a place.**
+- **YAIR:** the place name and a short description, then one column of full-width buttons whose label is the verb ("Talk to the elder", "Go to …"). Descriptions are in hover.
+- **Proto23:** the location panel is text, with choices as coloured link lines ("=> …", "<= Get up"). Detail is on hover.
+- **Arkivia:** the scene prose carries its choices inline as blue links, numbered for the keyboard (AK19). A way out shows its distance.
+- **Our own variants:**
+  - the Spacing row style, which gives one-line rows;
+  - the areas mock (`prototypes/areas-2026-11-15`), with neighbour arrows on the place box's edges and a Move around list;
+  - VI1, the centre as a stage.
+
+**Here.**
+- **HR1 (recommended). One column of verb-first rows, YAIR's form in Graphite.**
+  - The rows read "Talk · Old Hesk, the village elder", "Open · Homes" and "Go · Wild willow stand · 5 min".
+  - The whole row is the control: no separate button column, no box in a box, one hairline between rows.
+  - The description moves to the hover (UR178).
+  - Groups are thin labels, People, Things, Ways out, with no counts.
+  - One column means no hole. It reads the same at 1280.
+- **HR2. Arkivia's stage.** The place prose carries people and things as inline links, and ways out sit at the bottom with their time, numbered for keys. This is VI1 and AK19. It is the strongest identity piece, and it needs prose for every place.
+- **HR3. Tiles.** A grid of small cards (glyph and name), with detail on hover. Dense and quick to scan, but abstract, and it hides the verbs.
+- **HR4 (unusual). The place as a small map.** People and stations sit where they are, ways out on the edges, as the areas mock drew them. It pairs with END8 (a map beside a fight) and with the areas work (PS172 onward).
+- **HR5. ACT NOW, whichever is chosen:**
+  - one header, not two;
+  - a person under Things moves to People with "Talk";
+  - a second line only when it adds something (UR178).
+- **HR6. Glyphs per kind (VI3).** A person, a station, a way out and a danger each carry one glyph in one colour role, so the list scans by colour before words.
+
+Recommendation: HR1 with HR5 and HR6 now. HR4 later, as the place's signature, once areas land.
+
+**Reports.**
+- **RC1 (recommended). Colour by kind for every report, not only fights.**
+  - This extends END6 (built on the fight-card branch).
+  - Growth and XP in green, loot and money in gold, people in cyan, story in violet, danger in red.
+  - Routine and time lines are muted grey.
+- **RC2 (recommended). A coloured left edge per kind.** The uniform white rule becomes a 3 px edge in the kind's colour, so a long feed scans by colour.
+- **RC3 (recommended). The filter buttons become the legend.** Growth, Loot, Combat and the rest each take their kind's colour, so the filters explain the colours. Today they are all pale lavender.
+- **RC4. Lead with the number,** as Arkivia does: "+5 XP Breathing", "−4 hp, wolf (arm)", with the number coloured and first.
+- **RC5. Hover on every line.** This generalises END7: the item card, the person card, the place.
+- **RC6. Repeats stack** into "×12" (AK12), so idle play doesn't flood the feed.
+- **RC7. Day headers become a band** with the season glyph ("秋 8 October"), so days separate at a glance.
+- **RC8 (unusual). Names are links.** A person, item or place in a line opens its card. Reports then becomes a way back into the game, not a transcript.
+
+- **RC9. Colour the words inside a line, not only the line.**
+  - Weibao: "we can also choose specific text to have different colors and more?"
+  - Proto23 does this: the damage number, body part, damage type and item name are each their own coloured piece.
+  - For us, colour is set by what the word is, so it holds everywhere (Reports, Here, scene prose and hovers):
+    - items by rarity;
+    - people in cyan, places in teal;
+    - numbers by sign: + green, − red;
+    - damage and element types in their own colours;
+    - money in gold, time in grey.
+  - It comes from data the line already carries (subjects, items, amounts), not from guessing at words, so a name that matches a common word is never coloured by accident.
+- **RC10 (unusual). Your own highlights.** A MUD client's highlight rules: in Settings you pick a word or name and a colour ("Fang Yuan" in gold, "wolf" in red), and Reports colours it wherever it appears. It is the player's own colour grammar, kept with the look profile.
+
+Built as sent (Weibao, 2026-11-22: "send all of them"):
+- HR1 with HR5 and HR6 as the default.
+- HR2 to HR4 as switchable variants to compare.
+- RC1 to RC10 on the fight-card branch.
+
+Recommendation: RC1 to RC3 together, which is one change through the `log_message` types and the filter buttons. Then RC4 and RC6. The fight-card branch already types fight lines by kind (END6), so build on it rather than beside it. `src/display.js` is a shared file. Not decided.

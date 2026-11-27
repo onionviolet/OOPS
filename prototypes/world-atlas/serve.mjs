@@ -1,12 +1,15 @@
 // Development-only, read-only projections of public world definitions.
 import {entityLibrary} from './entity-library.mjs';
-import {execFileSync, spawn} from 'node:child_process';
+import {execFile, execFileSync, spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {createServer} from 'node:http';
 import {readFile, writeFile, mkdir, readdir} from 'node:fs/promises';
 import {existsSync, readFileSync, openSync} from 'node:fs';
 import {FLAGGED_PLACES} from '../../scripts/atlas/transfer_candidate.mjs';
-import {dirname} from 'node:path';
+import {dirname, join} from 'node:path';
+import {promisify} from 'node:util';
+import {implementation} from './implementation.mjs';
+import {encodeSaveFile} from '../../src/save_files.js';
 import {readLibrary, registeredBooks} from './library-reading.mjs';
 import {readBatchOutputs} from './batch-output-index.mjs';
 import {boundedCache} from './bounded-cache.mjs';
@@ -31,9 +34,14 @@ import {searchOwnerIdeas} from './owner-idea-search.mjs';
 import {saveIdeaHandoff} from './idea-handoffs.mjs';
 import {readingReferenceBundle} from './reading-reference-bundle.mjs';
 import {prepareHandoff, saveHandoff, readHandoffs, attachImplementationReport, attachNativePlaytest, compareNativePlaytest, compareQueuePlaytests, attachProposalQualification} from './reading-handoffs.mjs';
-import {readSnapshot, buildSnapshot, latestProgress, READERS} from './build.mjs';
+import {readSnapshot, buildSnapshot, latestProgress, latestBatchCollection, READERS} from './build.mjs';
 import {gameMaking as readGameMaking} from './game-making.mjs';
 import {readBatches, batchCommands} from './batch-status.mjs';
+import {buildCodex, summary as codexSummary, pageRows as codexPage, readLedger as codexLedger, ledgerNames as codexNames, moveSlots} from './codex.mjs';
+import {readCheats, summarize as cheatsSummary, pageCheats} from './cheats.mjs';
+import {changesSince} from './changelog.mjs';
+import {buildDraft, saveDraft, listDrafts} from './workbench.mjs';
+import {readIdeas, summarize as ideasSummary, pageIdeas, pageBoards, rowDetail as ideaRow, familiesOf as ideaFamilies, residueOf as ideaResidue} from './ideas.mjs';
 import {LOTM_DISTRICTS, districtCommands, lotmWalkRoute, LOTM_PLACE_KEYS} from '../../src/book_world_lotm_districts.js';
 import {brewCommands} from '../../src/book_world_lotm_brew.js';
 import {defineActs} from '../../src/book_world_lotm_acts_host.js';
@@ -75,23 +83,51 @@ const target=['first meeting','after play','smoky hearth'].map((stage,i)=>househ
     homeId:'cottage',hearth:{smoke:i===2?1:0,fuelMinutes:0},
     animal:{metAt:0,ageMinutes:i?60:0,mood:i===2?'sheltering':'curious',bond:i?10:0,playVisits:i?1:0,playObject:'yarn',adopted:false}
 },observer));
-// The batch build (build.mjs) writes one snapshot; the server reads it, or builds one when it is missing or ATLAS_REBUILD=1.
+// Read collected batch receipts on each Atlas load. One shared build brings newly collected shards into the views.
 const cachedSnap=!process.env.ATLAS_REBUILD&&readSnapshot();
-const snap=cachedSnap||buildSnapshot();
-const registeredTravel=selectRegisteredTravel(snap,travelLeaf,cachedSnap&&existsSync(readinessSnapshot)?travelHash('sha256').update(readFileSync(readinessSnapshot)).digest('hex'):null);
-// ATLAS_LOTM_CAST previews a scratch pack, so the cast projection reruns instead of coming from the snapshot.
-const books=process.env.ATLAS_LOTM_CAST?JSON.parse(execFileSync(process.execPath,[fileURLToPath(new URL('./cast-places.mjs',import.meta.url))],{encoding:'utf8',maxBuffer:64e6})):snap.books;
-const {frontier,others,sources,mechanics,findings,recipes}=snap;
-const gameMaking=snap.gameMaking?.worlds?.lotm?.slumber ? snap.gameMaking : readGameMaking();
-const progress=latestProgress(); // read live: a new /progress-atlas file shows without a rebuild
+let snap = cachedSnap || buildSnapshot();
+let snapFromCache = !!cachedSnap;
+let refresh, refreshError, attemptedCollection = 0;
+const run = promisify(execFile);
+const root = fileURLToPath(new URL('../../', import.meta.url));
+const previewBooks = process.env.ATLAS_LOTM_CAST
+    ? JSON.parse(execFileSync(process.execPath, [fileURLToPath(new URL('./cast-places.mjs', import.meta.url))], {encoding:'utf8', maxBuffer:64e6}))
+    : null;
+const currentBooks = () => previewBooks ?? snap.books;
 const registered=registeredBooks();
-const reading=readLibrary(registered);
 const outputByBook=boundedCache();
-const batches=readBatches(reading.keys.map(k=>k.key));
+let gameMakingFallback;
+const currentGameMaking = () => snap.gameMaking?.worlds?.lotm?.slumber ? snap.gameMaking : (gameMakingFallback ??= readGameMaking());
+const currentTravel = () => selectRegisteredTravel(snap,travelLeaf,snapFromCache&&existsSync(readinessSnapshot)?travelHash('sha256').update(readFileSync(readinessSnapshot)).digest('hex'):null);
+
+function refreshAtlas() {
+    if (!refresh) refresh = run(process.execPath, [fileURLToPath(new URL('./build.mjs', import.meta.url))], {cwd: root})
+        .then(() => {snap = readSnapshot(); snapFromCache = true; refreshError = null;})
+        .catch(error => {refreshError = 'Atlas refresh failed. The previous snapshot is still available.'; throw error;})
+        .finally(() => {refresh = null;});
+    return refresh;
+}
+async function atlasData() {
+    if (refresh) await refresh.catch(() => {});
+    const reading = readLibrary(registered);
+    const batches = readBatches(reading.keys.map(k => k.key));
+    const latestCollectedAt = latestBatchCollection(batches);
+    const current = readSnapshot();
+    if (current?.builtAt > snap.builtAt) {snap = current; snapFromCache = true;}
+    if (latestCollectedAt > Math.max(snap.latestCollectedAt ?? Date.parse(snap.builtAt), attemptedCollection)) {
+        attemptedCollection = latestCollectedAt;
+        await refreshAtlas().catch(() => {});
+    }
+    const {builtAt, commit, dirty, failures, findings, recipes, sources, mechanics, frontier, others} = snap;
+    return {registeredTravel:currentTravel(), findings, recipes, gameMaking:currentGameMaking(), transfer, snapshot:{builtAt, commit, dirty, failures}, sources, mechanics,
+        progress: latestProgress(), batches, latestCollectedAt, refreshError, reading, readingRequests: loadRequests(),
+        frontier, others, books:currentBooks(), library:entityLibrary(places,actors), target, places, placeActions, placeActivities, personActions,
+        actors:Object.fromEntries(actors), encounters, fields:DRAFT_FIELDS, draft:DEFAULT_DRAFT, implementation, mapMarksAvailable, creatureRecordAvailable};
+}
 // Reading requests: the atlas's writeback for the library. Gitignored; nothing runs from it.
 const requestFile=process.env.ATLAS_REQUESTS||fileURLToPath(new URL('../../work/atlas-reading-requests.json',import.meta.url));
 const loadRequests=()=>existsSync(requestFile)?JSON.parse(readFileSync(requestFile,'utf8')).requests:[];
-function readingRoute(world,aspect){
+function readingRoute(world,aspect,reading){
     const keys=reading.keys.filter(k=>k.world===world);
     if(!keys.length||!reading.aspects.includes(aspect))throw Error('Unknown world or mechanic.');
     const names=keys.map(k=>k.key).join(',');
@@ -101,14 +137,13 @@ function readingRoute(world,aspect){
     return {route:'review',next:`node scripts/lead_run/reading_review.mjs --keys ${names} --topic ${aspect} --out work/reading-requests/${world}-${aspect}`};
 }
 // Placement picks: the atlas's writeback for places. Gitignored; transfer_candidate.mjs turns them into a candidate pack.
-const root=fileURLToPath(new URL('../../',import.meta.url));
 let worldRuleCatalogue;
 let atlasFindIndex;
 function findIndex() {
     if(atlasFindIndex)return atlasFindIndex;
     atlasFindIndex=(async()=>{
         worldRuleCatalogue??=loadWorldRules(root);
-        const subjects=await readFindSubjects({readers:READERS,library:api.library,books});
+        const subjects=await readFindSubjects({readers:READERS,library:entityLibrary(places,actors),books:currentBooks()});
         const cheats=await loadCheatCatalogue(root);
         // One bounded public evidence check per lazy Find index, not per query.
         let playEvidence;
@@ -135,7 +170,7 @@ async function outputPage(key, prefix, pass, kind, offset, explain = false, ment
 }
 const picksFile=process.env.ATLAS_PICKS||root+'work/atlas-picks.json', transferDir=root+'work/atlas-transfer';
 const loadPicks=()=>existsSync(picksFile)?JSON.parse(readFileSync(picksFile,'utf8')).picks:[];
-const lotmPlaces=new Map((books.lotm?.places||[]).map(p=>[p.id,p]));
+const lotmPlaces = () => new Map((currentBooks().lotm?.places || []).map(p => [p.id, p]));
 const transfer={districts:LOTM_DISTRICTS.map(d=>({id:d.id,label:d.label||d.qlabel||d.id})),flagged:FLAGGED_PLACES};
 let running=null;
 async function transferState(){
@@ -150,12 +185,12 @@ async function transferState(){
         else if(existsSync(dir+'/run.log'))row.error=readFileSync(dir+'/run.log','utf8').trim().split('\n').slice(-3).join(' ');
         runs.push(row);
     }
-    return {picks:loadPicks().map(p=>({...p,label:lotmPlaces.get(p.place)?.name})),picksFile:picksFile.replace(root,''),running:!!running,runs};
+    const byId = lotmPlaces();
+    return {picks:loadPicks().map(p=>({...p,label:byId.get(p.place)?.name})),picksFile:picksFile.replace(root,''),running:!!running,runs};
 }
 const hasAsset = file => existsSync(new URL(file, import.meta.url));
 const mapMarksAvailable = hasAsset('../../src/ui/map_marks.js');
 const creatureRecordAvailable = ['../../src/ui/creature_record.js', '../../src/ui/field_record.js', '../../styles/field_record.css'].every(hasAsset);
-export const api = {registeredTravel,findings,recipes,gameMaking,transfer,snapshot:{builtAt:snap.builtAt,commit:snap.commit,failures:snap.failures},sources,mechanics,progress,batches,reading,readingRequests:loadRequests(),frontier,others,books,library:entityLibrary(places,actors),target,places,placeActions,placeActivities,personActions, actors:Object.fromEntries(actors), encounters, fields:DRAFT_FIELDS, draft:DEFAULT_DRAFT,mapMarksAvailable,creatureRecordAvailable};
 const assets = {
     '/creature-record.js':['../../src/ui/creature_record.js','text/javascript'],
     '/kit.js':['../../src/ui/kit.js','text/javascript'],
@@ -211,12 +246,18 @@ const assets = {
     '/tracked-reading-evidence/ri':['../../docs/gm/dispatch/cross-world-systems-2026-11-07/READ_AHEAD_USE_2026-11-08.md','text/plain; charset=utf-8'],
     '/tracked-reading-evidence/mol':['../../docs/worlds/mother-of-learning/LIGHT_FORMULA_CORRECTION_2026-11-25.md','text/plain; charset=utf-8'],
     '/atlas-views.mjs':['./atlas-views.mjs','text/javascript'],
+    '/implementation-view.mjs':['./implementation-view.mjs','text/javascript'],
     '/transfer-view.mjs':['./transfer-view.mjs','text/javascript'],
     '/things-views.mjs':['./things-views.mjs','text/javascript'],
     '/people-detail-views.mjs':['./people-detail-views.mjs','text/javascript'],
     '/place-details-view.mjs':['./place-details-view.mjs','text/javascript'],
     '/texture-life.mjs':['./texture-life.mjs','text/javascript'],
     '/census-details-view.mjs':['./census-details-view.mjs','text/javascript'],
+    '/codex-views.mjs':['./codex-views.mjs','text/javascript'],
+    '/cheats-views.mjs':['./cheats-views.mjs','text/javascript'],
+    '/ideas-views.mjs':['./ideas-views.mjs','text/javascript'],
+    '/workbench-views.mjs':['./workbench-views.mjs','text/javascript'],
+    '/codex-map.mjs':['./codex-map.mjs','text/javascript'],
 };
 for (let size=7;size<=22;size++) {
     const path='resources/fonts/private/gothic-bitmap-'+size+'.woff2';
@@ -229,7 +270,106 @@ const server=createServer(async(req,res)=>{
             const body=await readFile(new URL(file,import.meta.url));
             return res.writeHead(200,{'Content-Type':type}).end(body);
         }
-        if(req.method === 'GET' && req.url === '/data')return res.writeHead(200,{'Content-Type':'application/json'}).end(JSON.stringify(api));
+        if(req.method === 'GET' && req.url === '/data') {
+            const data = await atlasData();
+            return res.writeHead(200, {'Content-Type':'application/json', 'Cache-Control':'no-store'}).end(JSON.stringify(data));
+        }
+        if(req.method === 'POST' && req.url === '/refresh' && req.headers['content-type'] === 'application/json') {
+            try {
+                await refreshAtlas();
+                return res.writeHead(204).end();
+            } catch {
+                return res.writeHead(500, {'Content-Type':'text/plain'}).end(refreshError);
+            }
+        }
+        const workResource = /^\/implementation\/([a-z0-9-]+)\/(save|design|owner|proof)$/.exec(req.url);
+        if(req.method === 'GET' && workResource) {
+            const [, id, key] = workResource;
+            const work = implementation.find(item => item.id === id);
+            if (work && key === 'save') {
+                const {scenarioSave} = await import('../../scripts/headless/scenarios.mjs');
+                const save = await scenarioSave(work.id);
+                return res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8',
+                    'Content-Disposition':'attachment; filename="' + id + '.txt"'}).end(encodeSaveFile(save));
+            }
+            if (work?.references[key]) {
+                const text = await readFile(join(root, work.references[key].path));
+                return res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'}).end(text);
+            }
+        }
+        // Codex: /codex lists ledgers, /codex/<ledger> is its summary, /codex/<ledger>/rows pages its rows. Never in /data (C1).
+        // WA24 (owned by scripts/check_passage.py): local-text check for one Gu row. JSON goes to the page only; match text is never written to tracked files.
+        // WA23 (owned by scripts/gu_move_slots.py): recipe slots for one gu_moves row.
+        if(req.method === 'GET' && /^\/codex\/gu_moves\/slots\?/.test(req.url)){
+            const id = new URL(req.url,'http://x').searchParams.get('id') || '';
+            const out = moveSlots(id);
+            return res.writeHead(out ? 200 : 404,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(JSON.stringify(out || {error:'No slot evidence file.'}));
+        }
+        const passageUrl=/^\/codex\/(gu_kinds|gu_moves)\/check-passage\?/.exec(req.url);
+        if(req.method === 'GET' && passageUrl){
+            const id = new URL(req.url,'http://x').searchParams.get('id') || '';
+            if(!/^[\w.:-]{1,160}$/.test(id))return res.writeHead(400,{'Content-Type':'application/json'}).end(JSON.stringify({error:'Bad row id.'}));
+            execFile('python3',['-I','scripts/check_passage.py','--ledger',passageUrl[1],'--id',id,'--json'],{cwd:root,timeout:30000,maxBuffer:16e6},(err,stdout,stderr)=>{
+                if(err)return res.writeHead(502,{'Content-Type':'application/json'}).end(JSON.stringify({error:(stderr||err.message).split('\n').filter(Boolean).pop()||'check_passage failed'}));
+                res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(stdout);
+            });
+            return;
+        }
+        // Workbench drafts (G4, contract at the top of workbench.mjs): preview, save (never overwrite) and list. Text is built here from the ledger row.
+        const rowOf = (ledger, id) => codexNames().includes(ledger) ? codexLedger(ledger).rows.find(r => String(r.id) === id) ?? null : null;
+        const draftUrl=/^\/codex\/([a-z0-9_]+)\/draft\?/.exec(req.url);
+        if(req.method === 'GET' && draftUrl){
+            const id = new URL(req.url,'http://x').searchParams.get('id') || '', row = rowOf(draftUrl[1], id);
+            if(!row)return res.writeHead(404,{'Content-Type':'application/json'}).end(JSON.stringify({error:'No such row.'}));
+            const codex = snap.codex?.canonical ? snap.codex : (snap.codex = buildCodex());
+            return res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(JSON.stringify(buildDraft(draftUrl[1],row,{canonical:codex.canonical})));
+        }
+        if(req.method === 'POST' && req.url === '/drafts'){
+            let body='';for await(const chunk of req){body+=chunk;if(body.length>2000)throw Error('Request is too large.');}
+            const {ledger,id}=JSON.parse(body), row = typeof ledger === 'string' && typeof id === 'string' ? rowOf(ledger, id) : null;
+            if(!row)return res.writeHead(404,{'Content-Type':'application/json'}).end(JSON.stringify({error:'No such row.'}));
+            const codex = snap.codex?.canonical ? snap.codex : (snap.codex = buildCodex());
+            const out = saveDraft(buildDraft(ledger,row,{canonical:codex.canonical}));
+            return res.writeHead(out.conflict ? 409 : 201,{'Content-Type':'application/json'}).end(JSON.stringify(out));
+        }
+        if(req.method === 'GET' && req.url === '/drafts')return res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(JSON.stringify({drafts:listDrafts(rowOf)}));
+        const codexUrl=/^\/codex(?:\/([a-z0-9_]+)(\/rows)?)?(?:\?.*)?$/.exec(req.url);
+        if(req.method === 'GET' && codexUrl){
+            const [, ledger, rows] = codexUrl, json = body => res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(JSON.stringify(body));
+            const codex = snap.codex?.canonical ? snap.codex : (snap.codex = buildCodex()); // a snapshot built before nextAction lacks the canonical list
+            if(!ledger)return json({ledgers:codex.ledgers.map(l=>({ledger:l.ledger,rows:l.rows,things:l.things,counts:l.counts}))});
+            if(!codexNames().includes(ledger))return res.writeHead(404,{'Content-Type':'text/plain'}).end('No such ledger.');
+            if(!rows)return json(codexSummary(codex,ledger));
+            const q = new URL(req.url,'http://x').searchParams, entry = codexLedger(ledger);
+            return json({...codexPage(ledger,entry.rows,{offset:q.get('offset'),limit:q.get('limit'),state:q.get('state'),q:q.get('q')}),hash:entry.hash});
+        }
+        // Cheats: /cheats is the summary, /cheats/rows pages catalogue rows (or `status=candidate` sweep rows). Never in /data (C1).
+        const cheatsUrl=/^\/cheats(\/rows)?(?:\?.*)?$/.exec(req.url);
+        if(req.method === 'GET' && cheatsUrl){
+            const data = readCheats(), json = body => res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(JSON.stringify(body));
+            if(!cheatsUrl[1])return json(cheatsSummary(data,{hash:data.hash,files:data.files}));
+            const q = new URL(req.url,'http://x').searchParams;
+            return json({...pageCheats(data,{offset:q.get('offset'),limit:q.get('limit'),q:q.get('q'),status:q.get('status'),world:q.get('world')}),hash:data.hash});
+        }
+        // Ideas: /ideas summary, /ideas/rows, /ideas/row, /ideas/families, /ideas/boards, /ideas/residue (contract at the top of ideas.mjs). Never in /data (C1).
+        const ideasUrl=/^\/ideas(?:\/(rows|row|families|boards|residue))?(?:\?.*)?$/.exec(req.url);
+        if(req.method === 'GET' && ideasUrl){
+            const data = readIdeas(), q = new URL(req.url,'http://x').searchParams, json = body => res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(JSON.stringify(body));
+            const miss = what => res.writeHead(404,{'Content-Type':'text/plain'}).end('No such '+what+'.');
+            if(!ideasUrl[1])return json(ideasSummary(data,{hash:data.hash,files:data.files}));
+            if(ideasUrl[1] === 'rows')return json({...pageIdeas(data,{offset:q.get('offset'),limit:q.get('limit'),q:q.get('q'),board:q.get('board'),family:q.get('family'),status:q.get('status'),kind:q.get('kind') || 'idea',links:q.get('links'),local:q.get('local')}),hash:data.hash});
+            if(ideasUrl[1] === 'row'){const out = ideaRow(data,q.get('id') || ''); return out ? json(out) : miss('idea');}
+            if(ideasUrl[1] === 'families')return json(ideaFamilies(data));
+            if(ideasUrl[1] === 'boards')return json({...pageBoards(data,{offset:q.get('offset'),limit:q.get('limit'),q:q.get('q'),tier:q.get('tier')}),hash:data.hash});
+            const out = ideaResidue(data,q.get('board') || ''); return out ? json(out) : miss('board');
+        }
+        // Changes: what moved in the atlas's inputs since the previous snapshot (or a given date or commit).
+        const changesUrl=/^\/changes(?:\?.*)?$/.exec(req.url);
+        if(req.method === 'GET' && changesUrl){
+            const since = new URL(req.url,'http://x').searchParams.get('since');
+            const body = JSON.stringify(changesSince(snap.changes,since)); // built first: a bad `since` must reach the 400 handler before headers are sent
+            return res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(body);
+        }
         if(req.method==='GET'&&req.url==='/cheat-catalogue')return res.writeHead(200,{'Content-Type':'application/json'}).end(JSON.stringify(await loadCheatCatalogue(root)));
         if(req.method==='GET'&&['/native-play-record/taylor','/native-play-record/alden','/native-play-record/ryan','/native-play-record/fang'].includes(req.url)){
             const record=await loadNativePlayRecord(fileURLToPath(new URL('../..',import.meta.url)),req.url);
@@ -255,8 +395,8 @@ const server=createServer(async(req,res)=>{
                 else {
                     worldRuleCatalogue??=loadWorldRules(root);
                     const choices=new Map(worldRuleCatalogue.worlds.map(world=>[world.id,world]));
-                    for(const world of findings?.worlds||[])if(!choices.has(world.world))choices.set(world.world,{id:world.world,label:world.world});
-                    for(const world of Object.keys(books))if(!choices.has(world))choices.set(world,{id:world,label:world});
+                    for(const world of snap.findings?.worlds||[])if(!choices.has(world.world))choices.set(world.world,{id:world.world,label:world.world});
+                    for(const world of Object.keys(currentBooks()))if(!choices.has(world))choices.set(world,{id:world,label:world});
                     index={rows:[],worlds:findWorldChoices([...choices.values()]).sort((a,b)=>a.label.localeCompare(b.label))};
                 }
                 return res.writeHead(200,{'Content-Type':'application/json'}).end(JSON.stringify({...searchAtlas(index,request),sourceScope:index.sourceScope}));
@@ -431,16 +571,17 @@ const server=createServer(async(req,res)=>{
         if(req.method === 'POST' && req.url === '/reading-request'){
             let body='';for await(const chunk of req){body+=chunk;if(body.length>2000)throw Error('Request is too large.');}
             const {world,aspect}=JSON.parse(body);
+            const reading = readLibrary();
             const requests=loadRequests();
-            if(!requests.some(r=>r.world===world&&r.aspect===aspect))requests.push({world,aspect,keys:reading.keys.filter(k=>k.world===world).map(k=>k.key),...readingRoute(world,aspect),requestedAt:new Date().toISOString()});
+            if(!requests.some(r=>r.world===world&&r.aspect===aspect))requests.push({world,aspect,keys:reading.keys.filter(k=>k.world===world).map(k=>k.key),...readingRoute(world,aspect,reading),requestedAt:new Date().toISOString()});
             await mkdir(dirname(requestFile),{recursive:true});
             await writeFile(requestFile,JSON.stringify({note:'Atlas reading requests. Proposals only; nothing runs from this file.',requests},null,1)+'\n');
-            api.readingRequests=requests;
             return res.writeHead(200,{'Content-Type':'application/json'}).end(JSON.stringify(requests));
         }
         // One reader digest per world, fetched when a Things or Making view opens (LOTM's is several MB).
         const reader=/^\/readers\/([a-z0-9-]+)$/.exec(req.url);
         if(req.method === 'GET' && reader){
+            if (refresh) await refresh.catch(() => {});
             const file=READERS+'/'+reader[1]+'.json';
             if(!existsSync(file))return res.writeHead(404,{'Content-Type':'text/plain'}).end('No reader digest for this world. Run node prototypes/world-atlas/build.mjs.');
             const body=await readFile(file);
@@ -450,7 +591,7 @@ const server=createServer(async(req,res)=>{
         if(req.method === 'POST' && req.url === '/pick'){
             let body='';for await(const chunk of req){body+=chunk;if(body.length>2000)throw Error('Request is too large.');}
             const {place,district}=JSON.parse(body);
-            if(!lotmPlaces.has(place))throw Error('Unknown place.');
+            if(!lotmPlaces().has(place))throw Error('Unknown place.');
             if(FLAGGED_PLACES[place])throw Error('Not offered: '+FLAGGED_PLACES[place]);
             if(district!=null&&!transfer.districts.some(d=>d.id===district))throw Error('Unknown district.');
             const picks=loadPicks().filter(p=>p.place!==place);

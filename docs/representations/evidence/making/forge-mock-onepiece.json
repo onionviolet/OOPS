@@ -1,0 +1,115 @@
+{
+ "log": [
+  [
+   "before step 1",
+   {
+    "step": "Heat the iron sword",
+    "selected": [
+     "Charcoal · 4 carried · forge fuel for heat and temper · Heat uses 1"
+    ],
+    "cost": [
+     "Costs · 1 Charcoal · spent whatever comes of it"
+    ],
+    "change": [
+     "Stage · cold → heated"
+    ],
+    "result": [],
+    "stock": [
+     "Charcoal · 4 carried · forge fuel for heat and temper · Heat uses 1",
+     "Lamp oil · 1 carried · the quench"
+    ]
+   }
+  ],
+  [
+   "before step 2",
+   {
+    "step": "Shape the iron sword",
+    "selected": [],
+    "cost": [
+     "Costs · nothing but the work · spent whatever comes of it"
+    ],
+    "change": [
+     "Stage · heated → shaped",
+     "Toughness · stays ×1; your control is too low to move it"
+    ],
+    "result": [],
+    "stock": [
+     "Charcoal · 3 carried · forge fuel for heat and temper",
+     "Lamp oil · 1 carried · the quench"
+    ]
+   }
+  ],
+  [
+   "before step 3",
+   {
+    "step": "Quench the iron sword · uses one Lamp oil",
+    "selected": [
+     "Lamp oil · 1 carried · the quench · Quench uses 1"
+    ],
+    "cost": [
+     "Costs · 1 Lamp oil · spent whatever comes of it"
+    ],
+    "change": [
+     "Stage · shaped → quenched",
+     "Hardness · ×1 → ×1.15 of the untreated metal",
+     "Toughness · ×1 → ×0.81 of the untreated metal"
+    ],
+    "result": [],
+    "stock": [
+     "Charcoal · 3 carried · forge fuel for heat and temper",
+     "Lamp oil · 1 carried · the quench · Quench uses 1"
+    ]
+   }
+  ],
+  [
+   "before step 4",
+   {
+    "step": "Temper the iron sword",
+    "selected": [
+     "Charcoal · 3 carried · forge fuel for heat and temper · Temper uses 1"
+    ],
+    "cost": [
+     "Costs · 1 Charcoal · spent whatever comes of it"
+    ],
+    "change": [
+     "Stage · quenched → tempered",
+     "Hardness · ×1.15 → ×1.05 of the untreated metal",
+     "Toughness · ×0.81 → ×1.11 of the untreated metal"
+    ],
+    "result": [],
+    "stock": [
+     "Charcoal · 3 carried · forge fuel for heat and temper · Temper uses 1",
+     "Lamp oil · 0 carried · the quench"
+    ]
+   }
+  ],
+  [
+   "finished",
+   {
+    "step": "",
+    "selected": [],
+    "cost": [],
+    "change": [],
+    "result": [
+     "Finished: Iron sword · tempered · hardness ×1.05 · toughness ×1.11"
+    ],
+    "stock": [
+     "Charcoal · 2 carried · forge fuel for heat and temper",
+     "Lamp oil · 0 carried · the quench"
+    ]
+   }
+  ],
+  [
+   "saved item",
+   [
+    {
+     "stage": "tempered",
+     "at": 518011746,
+     "hardness": 1.05,
+     "toughness": 1.105
+    }
+   ]
+  ]
+ ],
+ "errs": []
+}

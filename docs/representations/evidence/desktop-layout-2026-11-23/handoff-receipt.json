@@ -1,0 +1,39 @@
+{
+  "viewport": [
+    1280,
+    800
+  ],
+  "settled": {
+    "after": {
+      "mode": "local",
+      "focus": "Clan academy",
+      "role": "STRONG",
+      "focusId": "",
+      "back": false,
+      "active": null
+    },
+    "loot": [
+      "Hidden lightning wolf eye",
+      "Lightning wolf hide",
+      "Wolf meat · jin"
+    ],
+    "heldEnterBlocked": true,
+    "textSize": "21px",
+    "errors": []
+  },
+  "aftermath": {
+    "choices": [
+      "1 Finish",
+      "2 Spare"
+    ],
+    "afterSpare": {
+      "mode": "local",
+      "focus": "Clan academy",
+      "role": "STRONG",
+      "focusId": "",
+      "back": false,
+      "active": null
+    },
+    "errors": []
+  }
+}

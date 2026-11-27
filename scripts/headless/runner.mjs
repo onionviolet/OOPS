@@ -29,7 +29,7 @@ const realDate = Date, realRandom = Math.random;
 // Main's module-scope state the harness reads. Getters keep live bindings.
 const INTERNALS = ['expansionState','character','current_location','current_game_time','current_activity','current_game_action',
     'current_combat','current_dialogue','current_trader','is_sleeping','is_reading','expansionError','foundationSaveBlocked','is_loading_error',
-    'ownsSave','tickrate','global_flags','game_options','skills','locations','recipes','item_templates','dialogues','traders','activities',
+    'ownsSave','tickrate','global_flags','game_options','skills','locations','recipes','item_templates','dialogues','traders','activities','NPCRegistry','enemy_templates',
     'questManager','inventories','availabilities','expeditionRegistry','authorityBootError','authorityOperationBusy','lifeStorageFailure','game_version'];
 const FUNCTIONS = ['progress_time','openStepperBatch','create_save','load','update_timer','advanceTicks','gameplaySnapshot','campaignContext','nativeOccupationReason','feedbackClockPauseReason','is_in_trade'];
 const HARNESS_TAIL = `

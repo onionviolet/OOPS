@@ -48,8 +48,10 @@ styles/people_variants.css
 styles/places_variants.css
 styles/day_strip.css
 styles/status_line.css
+styles/field_record.css
 styles/feel_finish.css
 styles/bench_form.css
 styles/potion_bench.css
 styles/combat_page.css
 styles/daily_powers.css
+styles/skin_graphite.css

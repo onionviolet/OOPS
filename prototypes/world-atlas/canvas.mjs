@@ -84,7 +84,7 @@ function route(from, to, nodes, corridor) {
     return best.map(({x, y}, i) => (i ? 'L' : 'M') + x + ' ' + y).join(' ');
 }
 
-export function boxCanvas({parent, title, nodes, edges, marks, select: inspect, initial, close, captions = [], kind}) {
+export function boxCanvas({parent, title, nodes, edges, marks, select: inspect, activate, initial, close, captions = [], kind, straightEdges = false}) {
     const frame = element('section', null, 'box-canvas');
     if (kind) frame.dataset.canvasKind = kind;
     frame.setAttribute('aria-label', title);
@@ -111,10 +111,10 @@ export function boxCanvas({parent, title, nodes, edges, marks, select: inspect, 
         legend.append(entry);
     }
 
-    const left = Math.min(...nodes.map(n => n.x - n.w / 2)) - 24;
-    const top = Math.min(...nodes.map(n => n.y - n.h / 2), ...captions.map(c => c.y - 9)) - 32;
-    const width = Math.max(...nodes.map(n => n.x + n.w / 2)) - left + 24;
-    const height = Math.max(...nodes.map(n => n.y + n.h / 2)) - top + 32;
+    const left = nodes.length ? Math.min(...nodes.map(n => n.x - n.w / 2)) - 24 : 0;
+    const top = nodes.length ? Math.min(...nodes.map(n => n.y - n.h / 2), ...captions.map(c => c.y - 9)) - 32 : 0;
+    const width = nodes.length ? Math.max(...nodes.map(n => n.x + n.w / 2)) - left + 24 : 640;
+    const height = nodes.length ? Math.max(...nodes.map(n => n.y + n.h / 2)) - top + 32 : 360;
     svg.setAttribute('viewBox', [left, top, width, height].join(' '));
     const defs = shape('defs', {});
     for (const key of new Set(edges.map(e => e.kind || 'route'))) {
@@ -127,7 +127,9 @@ export function boxCanvas({parent, title, nodes, edges, marks, select: inspect, 
     const paths = edges.map(edge => {
         const {from, to, kind = 'route', both, corridor} = edge;
         const arrow = 'url(#canvas-arrow-' + kind + ')';
-        const path = shape('path', {d: route(byId.get(from), byId.get(to), nodes, corridor), class: 'canvas-edge edge-' + kind, 'marker-end': arrow});
+        const a = byId.get(from), b = byId.get(to);
+        const d = straightEdges ? `M${a.x} ${a.y}L${b.x} ${b.y}` : route(a, b, nodes, corridor);
+        const path = shape('path', {d, class: 'canvas-edge edge-' + kind, 'marker-end': straightEdges ? '' : arrow});
         if (both) path.setAttribute('marker-start', arrow);
         return {from, to, path};
     });
@@ -148,7 +150,7 @@ export function boxCanvas({parent, title, nodes, edges, marks, select: inspect, 
         const rank = danger?.rank;
         const risk = danger ? [danger.challenge ? 'Challenge' : 'Combat area', rank == null ? '' : 'Enemy rank ' + rank].filter(Boolean).join(' · ') : '';
         const label = [node.label, node.current ? 'You are here' : '', risk, ...tags.map(mark => mark.label)].filter(Boolean).join(' · ');
-        const box = control('', () => select(node.id), label);
+        const box = control('', () => activate ? activate(node.id, select) : select(node.id), label);
         box.className = 'canvas-box';
         box.dataset.id = node.id;
         if (node.group) box.dataset.group = node.group;
@@ -165,6 +167,7 @@ export function boxCanvas({parent, title, nodes, edges, marks, select: inspect, 
             box.append(dots);
         }
         box.append(element('span', node.label, 'canvas-label'));
+        if (node.subtitle) box.append(element('small', node.subtitle, 'canvas-subtitle'));
         if (danger) {
             const badge = element('span', (danger.challenge ? '◆' : '▲') + (rank ?? ''), 'canvas-danger');
             badge.title = risk;
@@ -203,7 +206,7 @@ export function boxCanvas({parent, title, nodes, edges, marks, select: inspect, 
     function select(id, reveal = false) {
         for (const [key, box] of buttons) box.setAttribute('aria-pressed', String(key === id));
         for (const edge of paths) {
-            const linked = (kind !== 'village' || !byId.get(id).current) && (edge.from === id || edge.to === id);
+            const linked = (kind !== 'village' || !byId.get(id)?.current) && (edge.from === id || edge.to === id);
             edge.path.classList.toggle('is-linked', linked);
             if (linked) svg.append(edge.path);
         }
@@ -289,6 +292,7 @@ export function boxCanvas({parent, title, nodes, edges, marks, select: inspect, 
     });
     observer.observe(viewport);
     fit();
-    select(initial || nodes[0].id);
+    if (nodes.length) select(initial || nodes[0].id);
+    else inspector.append(element('p', 'No connected nodes in this view.'));
     return {select, has: id => byId.has(id)};
 }

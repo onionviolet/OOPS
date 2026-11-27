@@ -1,0 +1,12 @@
+{
+  "bundle": "e5ab8905de02a6f3",
+  "origin": "http://127.0.0.1:57468/?test_hooks=1",
+  "checks": [
+    "Keyboard strip opens exact Gu job status with remaining time and focus; Tab reaches separate Cancel; navigation spends/cancels nothing.",
+    "After settlement strip says No work running, focuses current-work fallback and never returns to stale Gu job.",
+    "Native running from item inspection returns to actual action status with focus, preserves activity, and stops only through explicit end control."
+  ],
+  "nativeStatus": "Just running around...",
+  "pageerrors": [],
+  "status": "PASS"
+}

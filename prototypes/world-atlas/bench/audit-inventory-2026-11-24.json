@@ -1,0 +1,177 @@
+{
+  "at": "2026-11-24T22:15:50.229Z",
+  "head": "d994dd87d43c2d72b6f9cf71b8cfd483fb5f3971",
+  "node": "v24.22.2",
+  "ledgerFiles": 224,
+  "ledgerBytes": 33856976,
+  "ledgerRows": 72415,
+  "metadata": [
+    {
+      "file": "interaction_oracle.jsonl",
+      "rows": 499
+    },
+    {
+      "file": "worlds.jsonl",
+      "rows": 112
+    }
+  ],
+  "totals": {
+    "not-a-thing": 1067,
+    "catalogued": 39234,
+    "blocked": 30067,
+    "expressed": 1615,
+    "runs": 432
+  },
+  "duplicateBareIds": 81,
+  "coverageInputSha256": "9d989f590f3cf7b946e5c9787bc79fa58a79c072bfa958ccfee2361e48405864",
+  "allowlistEntries": 783,
+  "uiJsModules": 75,
+  "sources": [
+    {
+      "path": "prototypes/world-atlas/canvas.mjs",
+      "bytes": 13008,
+      "gzipBytes": 4208,
+      "sha256": "efd6636c9ee70a3c87248e8ca582861f5d1e0623f0c69cf63e005994c23723d1"
+    },
+    {
+      "path": "src/ui/figure.js",
+      "bytes": 48740,
+      "gzipBytes": 14355,
+      "sha256": "2a6f426d83b0e7c09b4a7cb6e4eaaba7a93546b35b0f6a6002bb0aaa2e8bf7c3"
+    },
+    {
+      "path": "src/ui/figure_graph.js",
+      "bytes": 4991,
+      "gzipBytes": 1966,
+      "sha256": "90cba9c81a6a8c2062feff6ee93de4ed05fa14df6da41c5dffced1003c9f6801"
+    },
+    {
+      "path": "src/ui/walk_map.js",
+      "bytes": 13392,
+      "gzipBytes": 4802,
+      "sha256": "2454a32b7777af2adeea6f626737746fcbd82277bb595daf2e726a40867463d4"
+    },
+    {
+      "path": "src/ui/walk_topology.js",
+      "bytes": 1428,
+      "gzipBytes": 587,
+      "sha256": "1a587050a3f3e639f111a963806558942c5c75a6d75a4d696e57be0e5c36dce2"
+    },
+    {
+      "path": "src/ui/inspector.js",
+      "bytes": 4947,
+      "gzipBytes": 2131,
+      "sha256": "a1b47ded96e39e0d382c5c061a1103da0f1453ddf5a091113475a89f32c7fd13"
+    }
+  ],
+  "selected": [
+    {
+      "file": "gu_kinds.jsonl",
+      "rows": 1466,
+      "states": {
+        "blocked:rank-unknown": 221,
+        "catalogued": 752,
+        "blocked:form-transformation": 4,
+        "blocked:death-checkpoint-rewind": 4,
+        "not-a-thing:provisional-sighting": 1,
+        "runs-authored": 16,
+        "blocked:effect-unknown": 296,
+        "blocked:creature-control": 6,
+        "blocked:mind-binding": 3,
+        "not-a-thing:wiki-reference-page": 3,
+        "blocked:item-state": 4,
+        "blocked:mind-state": 10,
+        "not-a-thing:alias": 97,
+        "blocked:soul-binding": 1,
+        "blocked:portal-space": 4,
+        "blocked:spatial-storage": 5,
+        "blocked:power-interaction": 3,
+        "blocked:body-form": 15,
+        "blocked:divination": 4,
+        "blocked:containment-rule": 3,
+        "blocked:protection-field": 2,
+        "blocked:time-manipulation": 8,
+        "blocked:formation-field": 4
+      }
+    },
+    {
+      "file": "gu_moves.jsonl",
+      "rows": 778,
+      "states": {
+        "expressed-authored": 9,
+        "catalogued": 10,
+        "blocked:unnamed-role": 28,
+        "blocked:roles-unchecked": 63,
+        "blocked:roles-unknown": 651,
+        "blocked:role-cannot-run": 17
+      }
+    },
+    {
+      "file": "hp_potions.jsonl",
+      "rows": 316,
+      "states": {
+        "blocked:plant-or-creature-target": 32,
+        "not-a-thing:topic-or-publication": 7,
+        "not-a-thing:technique-law-or-phrase": 5,
+        "runs-authored": 90,
+        "not-a-thing:person-group-or-business": 8,
+        "blocked:body-door": 46,
+        "not-a-thing:generic-or-category": 12,
+        "blocked:mind-state": 31,
+        "blocked:object-surface": 8,
+        "blocked:effect-sentence": 33,
+        "blocked:luck-mechanism": 2,
+        "blocked:body-form": 24,
+        "blocked:place-release": 6,
+        "blocked:protection-field": 2,
+        "blocked:conceal-or-sense": 9,
+        "catalogued": 1
+      }
+    },
+    {
+      "file": "hp_spells.jsonl",
+      "rows": 117,
+      "states": {
+        "runs-authored": 108,
+        "not-a-thing:phenomenon": 1,
+        "expressed-authored": 3,
+        "not-a-thing:artefact-command": 2,
+        "not-a-thing:no-effect-shown": 1,
+        "not-a-thing:fake-spell": 1,
+        "not-a-thing:category": 1
+      }
+    },
+    {
+      "file": "lotm_potions.jsonl",
+      "rows": 226,
+      "states": {
+        "runs-authored": 46,
+        "runs-derived": 162,
+        "blocked:formula-wiki-unchecked": 12,
+        "blocked:body-door": 6
+      }
+    },
+    {
+      "file": "lotm_powers.jsonl",
+      "rows": 652,
+      "states": {
+        "catalogued": 307,
+        "blocked:effect-unknown": 82,
+        "blocked:form-transformation": 64,
+        "blocked:soul-state": 14,
+        "blocked:mind-binding": 45,
+        "blocked:power-interaction": 30,
+        "blocked:area-field": 29,
+        "blocked:divination-fate": 40,
+        "blocked:familiar-summon": 6,
+        "blocked:blueprint-craft": 10,
+        "blocked:dimension-travel": 9,
+        "blocked:power-transfer": 4,
+        "blocked:time-loop": 5,
+        "not-a-thing:concept": 3,
+        "blocked:vow-cost": 3,
+        "blocked:system-interface": 1
+      }
+    }
+  ]
+}

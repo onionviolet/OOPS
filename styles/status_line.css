@@ -8,22 +8,34 @@
 /* Round 14 (PS123): the spine is the time strip at the top; the bar is the footer. */
 :root[data-one-bar="true"] #game_top {position:fixed;top:0;left:0;right:0;z-index:var(--ui-layer-nav);}
 :root[data-one-bar="true"] #game_bar > .game-bar-left, :root[data-one-bar="true"] #game_bar > .game-bar-right {min-height:0;}
-#game_spine {grid-column:1/-1;display:grid;min-width:0;border-top:var(--ui-space-hairline) solid var(--p23-line);background:var(--p23-blue, var(--p23-inventory-fill));}
+#game_spine {grid-column:1/-1;display:grid;min-width:0;border-top:var(--ui-space-hairline) solid var(--p23-line);background:var(--sem-record-band);}
 .game-status {display:flex;align-items:stretch;gap:0;min-width:0;min-height:var(--ui-target-min);padding:0 var(--ui-space-3);overflow:hidden;white-space:nowrap;
     font-size:var(--ui-type-small);line-height:var(--ui-line-small, 1.3);font-variant-numeric:tabular-nums;color:var(--p23-text);}
 .game-status > [data-status-slot] {display:inline-flex;align-items:center;flex:0 0 auto;min-width:0;padding:0 var(--ui-space-3);border-right:var(--ui-space-hairline) solid var(--p23-line);}
 .game-status > [data-status-slot]:first-child {padding-left:0;}
 .game-status > [data-status-slot][hidden], .game-status > [data-status-slot]:empty {display:none;}
-.game-status-place {font-weight:var(--ui-weight-strong);color:var(--p23-value, var(--ui-accent));}
+.game-status-place[data-semantic-ink] {font-weight:var(--ui-weight-strong);color:var(--sem-place);}
 .game-status .scene-calendar {color:var(--p23-text);}
+.scene-calendar {display:inline-flex;flex-wrap:wrap;align-items:center;gap:var(--ui-space-2);}
+.scene-calendar > [data-semantic-ink] {
+    display:inline-flex;align-items:center;gap:var(--ui-space-1);padding:0 var(--ui-space-2);
+    border:1px solid currentColor;background:var(--chip-fill, var(--sem-record-bg));color:var(--chip-ink, var(--sem-record-text));
+}
+.scene-calendar > [hidden] {display:none;}
+.scene-calendar [data-season="spring"] {--chip-ink:var(--p23-season-spring);}
+.scene-calendar [data-season="summer"] {--chip-ink:var(--sem-summer-ink);--chip-fill:var(--sem-summer-fill);}
+.scene-calendar :is([data-season="autumn"],[data-season="fall"]) {--chip-ink:var(--p23-season-autumn);}
+.scene-calendar [data-season="winter"] {--chip-ink:var(--p23-season-winter);}
+.scene-calendar [data-sky-phase="dawn"] {--chip-ink:var(--sem-sunrise-ink);--chip-fill:var(--sem-sunrise-fill);}
+.scene-calendar [data-sky-phase="day"] {--chip-ink:var(--sem-day-ink);--chip-fill:var(--sem-day-fill);}
+.scene-calendar [data-sky-phase="dusk"] {--chip-ink:var(--sem-sunset-ink);--chip-fill:var(--sem-sunset-fill);}
+.scene-calendar [data-sky-phase="night"] {--chip-ink:var(--sem-night-ink);--chip-fill:var(--sem-night-fill);}
 .game-status .scene-conditions {display:inline-flex;align-items:stretch;gap:var(--ui-space-3);color:var(--p23-quantity);}
 .game-status .scene-conditions > :is(span,button) {display:inline-flex;align-items:center;column-gap:var(--ui-space-2);white-space:nowrap;min-height:var(--ui-target-min);}
 .game-status .scene-conditions button {font:inherit;line-height:inherit;color:inherit;background:transparent;border:0;padding:0;text-decoration:underline;text-underline-offset:.15em;cursor:pointer;}
 .game-status .scene-conditions button:focus-visible, .game-status-work:focus-visible {outline:2px solid var(--workspace-focus, var(--ui-accent));outline-offset:1px;}
 .game-status .condition-warning {color:var(--sem-blocked, var(--p23-critical));border:var(--ui-space-hairline) solid currentColor;padding:0 var(--ui-space-1);}
-.game-status [data-condition-value="spring"] {color:var(--p23-season-spring);} .game-status [data-condition-value="summer"] {color:var(--p23-season-summer);}
-.game-status :is([data-condition-value="autumn"],[data-condition-value="fall"]) {color:var(--p23-season-autumn);}
-.game-status :is([data-condition-value="winter"],[data-condition-value="snow"]) {color:var(--p23-season-winter);} .game-status [data-condition-value="rain"] {color:var(--p23-rain);}
+.game-status [data-condition-value="snow"] {color:var(--p23-season-winter);} .game-status [data-condition-value="rain"] {color:var(--p23-rain);}
 .game-status-today {flex:0 1 auto;overflow:hidden;text-overflow:ellipsis;color:var(--p23-muted);}
 .game-status-reserve {flex:0 1 auto;overflow:hidden;text-overflow:ellipsis;color:var(--p23-value, var(--ui-accent));}
 .game-status-work {display:block!important;min-height:var(--ui-target-min);flex:0 1 auto;overflow:hidden;text-overflow:ellipsis;max-width:40em;font:inherit;color:var(--p23-text);background:transparent;border:0;border-right:var(--ui-space-hairline) solid var(--p23-line);

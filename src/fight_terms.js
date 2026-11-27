@@ -83,7 +83,7 @@ export function wantsText(f, stakes = {}) {
     if(stakes.preset === 'mugging') return 'He wants your purse, not your life.';
     if(stakes.preset === 'duel') return 'They want to win, not to kill.';
     if(stakes.lethal) return 'They mean you real harm.';
-    return 'They want you down, not dead.';
+    return null;
 }
 
 // The other side's terms when you go down (PS45, proposals): what they do with you, set by the stakes and the foe, shown before the fight

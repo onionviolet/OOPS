@@ -6,6 +6,8 @@ import {advanceEngineWorld, applyEngineOps, createEngineWorld, restoreEngineWorl
 import {defineWorkingLaw} from '../kernel_working.js';
 import {landEffect} from '../effect_host.js';
 import {apertureHolder} from '../world_substrate_packs/gu_aperture.js';
+import {aperturePool} from '../gu_aperture.js';
+import {LOTUS_AMOUNT, lotusLanding} from './gu_lotus_essence_case.js';
 import {livingBodyState} from '../world_substrate_packs/living_body.js';
 import {EFFECT_GRAMMARS, EFFECT_PACK_IDS, EFFECT_SHARED, HP_KEYS, SUBSTRATE_OWN_PACKS, assemblePotionEffect, derivedFormula,
     guEffectSearch, lotmDerivedCase, searchForActor} from '../world_effect_packs.js';
@@ -119,6 +121,14 @@ const ACTS = [
             const parts = EFFECT_GRAMMARS.gu.read('vitality-leaf');
             const {engine, status, delta} = land(e, parts, 3);
             return note(engine, 'gu', `Gu grammar · vitality leaf reads “${sentenceText(parts)}”; ${status}, vitality ${delta >= 0 ? '+' : ''}${delta}.`);
+        }},
+    {id: 'lotus', label: 'Let the adept eat a Monarch Lotus', detail: 'Heavenly Essence Treasure Monarch Lotus produces primeval essence (ch463); the Gu grammar sentence lands on the adept’s own pool.',
+        run(e) {
+            const {rank, stage} = held(e).adept.state['g.aperture'], pool = aperturePool(rank, stage), before = q(e, 'adept', pool);
+            const {sentence, details, keys} = lotusLanding('adept', pool);
+            const out = landEffect(e.rules, e.world, {sentence, details}, {cause: 'workshop:lotus', by: 'workshop', keys});
+            const next = {...e, world: out.world};
+            return note(next, 'lotus', `Gu grammar · Monarch Lotus reads “${sentenceText(sentence)}”; ${out.status}, the adept’s own pool rose by ${q(next, 'adept', pool) - before} of ${LOTUS_AMOUNT} motes.`);
         }},
     {id: 'spell', label: 'Cast a healing charm', detail: 'A Hogwarts spell lead, read through the spell grammar and landed on the brewer.',
         run(e) {

@@ -36,7 +36,7 @@ export function createOriginalFrontierPanel({registry, read, command}) {
     const recovery = node('p', 'Use native Rest or Sleep for your own recovery.');
     element.append(summary, intro, status, quest, work, routine, contest, actions, records, recovery);
 
-    let notice = '', currentWork = null, currentProgram = null;
+    let notice = '', currentWork = null, currentProgram = null, advancing = false;
     const actionRows = new Map(), responseRows = new Map();
     const focus = () => {element.open = true; summary.focus();};
     const remove = entry => {
@@ -67,7 +67,18 @@ export function createOriginalFrontierPanel({registry, read, command}) {
     const retainedAccountList = createActionLegibilityList({parent:recordList,idPrefix:'frontier-accounts',focusFallback:summary});
     const pause = button('Pause after current work', {type: 'pause'});
     const resume = button('Resume remaining target', {type: 'resume'});
-    routine.append(routineText, routineReason, pause, resume);
+    const advance = node('button', 'Run to the next stop');
+    advance.type = 'button';
+    advance.onclick = async () => {
+        if(advancing)return;
+        advancing = true;
+        render();
+        try {notice = await command({type:'advanceComparison'});}
+        catch(error) {notice = error.message;}
+        finally {advancing = false; render();}
+    };
+    routine.dataset.frontierRoutine = '';
+    routine.append(routineText, routineReason, advance, pause, resume);
     const withdraw = button('Withdraw · spent inputs stay spent', {type: 'withdraw'});
     contest.append(cue, responses, withdraw);
 
@@ -147,13 +158,19 @@ export function createOriginalFrontierPanel({registry, read, command}) {
         if(view.workLegibility) hide(cancel,true);
 
         hide(routine, !currentProgram);
-        routineText.textContent = currentProgram ? `Routine ${currentProgram.status} · ${currentProgram.remaining} repetitions remaining.` : '';
-        routineReason.textContent = currentProgram ? textOf(currentProgram.reason) : '';
+        const phase = currentProgram?.status === 'complete' && currentProgram.inProgress ? 'finishing the last comparison' : currentProgram?.status;
+        routineText.textContent = currentProgram ? `Routine ${phase} · ${currentProgram.remaining} more to start.${currentProgram.comparison ? ` Comparisons finished over this life: ${currentProgram.completed}.` : ''}` : '';
+        routineReason.textContent = currentProgram?.comparison
+            ? currentProgram.nextReason || textOf(currentProgram.reason) || (currentProgram.status === 'complete' && !currentProgram.inProgress ? 'Target reached. Choose fresh work when you are ready.' : '')
+            : textOf(currentProgram?.reason);
         routineReason.hidden = !routineReason.textContent;
+        hide(advance, !currentProgram?.comparison || !currentProgram.canAdvance);
+        advance.disabled = blocked || advancing;
         hide(pause, currentProgram?.status !== 'running');
         hide(resume, currentProgram?.status !== 'paused' || !currentProgram.remaining);
         pause.disabled = blocked;
-        resume.disabled = committingBlocked;
+        resume.disabled = committingBlocked || !!(currentProgram?.comparison && !currentProgram.canResume);
+        resume.title = resume.disabled ? routineReason.textContent : '';
 
         const shown = new Set((view.actions || []).map(action => action.id));
         for(const [id, entry] of actionRows) if(!shown.has(id)) {remove(entry.row); actionRows.delete(id);}

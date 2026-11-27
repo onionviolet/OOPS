@@ -1,0 +1,64 @@
+{
+  "sha256": "e4b0145ac1d9121a2b0b9ee44153ceac5daa88eee91492afb63b37e5aef4140c",
+  "desktop": {
+    "status": "18px",
+    "reports": "21px",
+    "health": "rgb(68, 187, 68)"
+  },
+  "laptop": {
+    "status": "16px",
+    "reports": "21px",
+    "health": "rgb(68, 187, 68)"
+  },
+  "geometry": {
+    "name": 403.5,
+    "stats": 403.5
+  },
+  "sticky": {
+    "y": 49,
+    "bottom": 123.5,
+    "owner": 49,
+    "scroll": 364,
+    "text": "A gap in the wall\nDaylight \u00b7 Poor footing\n\nYour move\n\nFront: Lightning wolf A"
+  },
+  "warningFits": true,
+  "zeroEssence": true,
+  "errors": [],
+  "route": "Fang Yuan checkpoint with a prepared Gu and full essence, Moonblade spend with real controls, borrowed Notebook and keyboard return, zero-essence fixture, wounded pack clear",
+  "saveWarning": "Browser presentation fixture",
+  "focusedTests": 89,
+  "flow": {
+    "exit": 1,
+    "routes": 14,
+    "states": [
+      "early life",
+      "day 4, returned after ten days",
+      "a rainy day, two hours in the rain",
+      "a fight in the Infested field"
+    ],
+    "findings": [
+      {
+        "check": "oversized",
+        "detail": "messages takes 19% of the screen and uses 20% of its box",
+        "where": [
+          "home",
+          "Stats",
+          "Condition",
+          "Inventory",
+          "Journal",
+          "Data",
+          "Knows",
+          "Organizations"
+        ]
+      },
+      {
+        "check": "oversized",
+        "detail": "messages takes 19% of the screen and uses 14% of its box",
+        "where": [
+          "early life"
+        ]
+      }
+    ]
+  },
+  "styleRatchet": "Exit 1, counts exceeded in customization_ui, book_craft_controls, next_steps and report_tones. These files were outside the F24\u2013F28 edit."
+}

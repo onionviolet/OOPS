@@ -11,6 +11,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {LAND_TAP} from '../src/effect_host.js';
+import {ENTRY_POINTS} from '../src/played_effects_domain.js';
 import {recordTrace} from './headless/trace.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -21,10 +22,16 @@ export const SEASON = Object.freeze({seed: 1, minutes: 2880, actions: 300, dt: 1
 // The default start and one book-world start (the Gu keeper: a fight, chores, a brew and a household in one life).
 export const STARTS = Object.freeze(['village', 'book.ri.keeper']);
 export const DENY = /capability_runs_open|data-capability-run|capability_runs_view|effects_workshop|test_hooks/;
+const LEDGER_BY_ENTRY = new Map(ENTRY_POINTS.filter(row => row.ledgerKey).map(row => [`${row.law} / ${row.entry}`, row.ledgerKey]));
+
+export function landingRecord(row) {
+    const ledgerKey = LEDGER_BY_ENTRY.get(`${row.law} / ${row.entry}`);
+    return ledgerKey === undefined ? row : {...row, ledgerKey};
+}
 
 export async function countStart(start, season = SEASON) {
     const rows = [];
-    globalThis[LAND_TAP] = row => rows.push(row);
+    globalThis[LAND_TAP] = row => rows.push(landingRecord(row));
     let trace;
     try { trace = await recordTrace(start, {...season, deny: DENY}); } finally { delete globalThis[LAND_TAP]; }
     const fired = rows.filter(r => r.changed && r.entry !== 'capability-run');
@@ -32,8 +39,10 @@ export async function countStart(start, season = SEASON) {
     const byLaw = {}, byEntry = {}, byLawEntry = {};
     for (const r of fired) { bump(byLaw, r.law); bump(byEntry, r.entry); bump(byLawEntry, `${r.law} / ${r.entry}`); }
     const sort = map => Object.fromEntries(Object.entries(map).sort(([a], [b]) => a < b ? -1 : 1));
+    const ledgerLandings = rows.filter(r => r.ledgerKey !== undefined && r.entry !== 'capability-run');
     return {start, landed: fired.length, attempted: rows.filter(r => r.entry !== 'capability-run').length,
         excluded: rows.filter(r => r.entry === 'capability-run').length, byLaw: sort(byLaw), byEntry: sort(byEntry), byLawEntry: sort(byLawEntry),
+        ...(ledgerLandings.length && {ledgerLandings}),
         minutes: trace.end.minutes, presses: trace.end.actions, ended: trace.end.reason, errors: trace.end.errors};
 }
 

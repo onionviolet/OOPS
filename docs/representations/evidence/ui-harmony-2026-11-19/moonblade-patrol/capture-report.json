@@ -1,0 +1,72 @@
+{
+  "setup": "Engine fixture; one rope in player means; chosen person terms Take alive; human foe at 3/30 health with survive=1 and yield move",
+  "chosen": {
+    "terms": "take_alive",
+    "reason": "A person down is worth a look: a death brings witnesses, kin and the law.",
+    "set": true
+  },
+  "canTakeAlive": true,
+  "yielded": true,
+  "fate": [
+    {
+      "id": "finish",
+      "targetId": "foe",
+      "name": "Yielding person",
+      "label": "Finish",
+      "yielding": true,
+      "text": "They gave up. Killing them now is a killing everyone will call murder.",
+      "cost": 2,
+      "safe": false,
+      "usable": true,
+      "why": "",
+      "odds": null
+    },
+    {
+      "id": "spare",
+      "targetId": "foe",
+      "name": "Yielding person",
+      "label": "Accept",
+      "yielding": true,
+      "text": "You accept. They back away, hands open; it is over.",
+      "cost": 1,
+      "safe": true,
+      "usable": true,
+      "why": "",
+      "odds": null
+    }
+  ],
+  "offered": [
+    "finish",
+    "spare"
+  ],
+  "rules": {
+    "take_alive": false,
+    "bind": false
+  },
+  "bindAttempt": "That fighter cannot make that move.",
+  "acceptSettlement": {
+    "result": "won",
+    "lines": [
+      {
+        "at": 0,
+        "text": "Local people and work now share the adventure's calendar. Only played game time advances them.",
+        "cause": "simulation:1"
+      },
+      {
+        "at": 0,
+        "text": "Ask about a shared field workshop completed.",
+        "cause": "simulation:2"
+      },
+      {
+        "at": 2,
+        "text": "Join with your route findings · 2 min completed.",
+        "cause": "simulation:3"
+      },
+      {
+        "at": 2,
+        "text": "Capture diagnostic: won.",
+        "cause": "tempo:4"
+      }
+    ]
+  }
+}

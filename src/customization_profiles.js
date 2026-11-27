@@ -12,23 +12,55 @@ export const CUSTOMIZATION_MODULES = ['ledger', 'crafting', 'local-actions', 'vi
 export const EFFECT_MODULES = ['ledger', 'crafting', 'skills'];
 const LUMINOUS_PALETTE = {background:'#07162d', text:'#d5f7ff', accent:'#7fe7e8'};
 const LUMINOUS_MESSAGES_PALETTE = {background:'#231735', text:'#eee5ff', accent:'#bca4ff'};
+const GRAPHITE_PALETTE = {background:'#1e1e1e', text:'#eeeeee', accent:'#518ae0'}; // DK2 (2026-11-22): darker, by Arkivia's measures
+const GRAPHITE_MESSAGES_PALETTE = {background:'#1e1e1e', text:'#eeeeee', accent:'#b9a0d8'}; // DK2: Reports on the same dark ground; colour lives in the line kinds
+const THEME_PALETTES = {luminous: LUMINOUS_PALETTE, graphite: GRAPHITE_PALETTE};
 // The Neutral look that was the default before 2026-10-29. Saves whose only
 // profile still equals it are upgraded to Luminous Gothic on load.
 export function neutralPresentationSettings() {
     return {componentTheme: 'neutral', typography: {font: 'gothic', size: 14}, palette: {background: '#1c243b', text: '#f1f2f5', accent: '#9bb4ae'}, spacing: 8, effects: 'auto', sound: false, presentation: 'inline', effectDefinition: {motif: 'receipt', duration: 1800, color: '#b8d8cf', background: '#162127', static: false, plain: false}};
 }
-// Luminous Gothic is the default look (Weibao, 2026-10-29).
+// Graphite is the default look (Weibao, 2026-11-21); Luminous Gothic (2026-10-29) stays selectable.
+export const DEFAULT_LOOK = 'graphite';
+// DK1 (Weibao 2026-11-22, "go ahead"): the mark a save keeps once it has been moved to the dark default. A save without
+// this mark moves once, whatever its look; an edited look is kept as its own profile, so nothing the player made is lost.
+export const DEFAULT_LOOK_MARK = 'graphite-dark-2026-11-22';
 export function defaultPresentationSettings() {
-    return {...neutralPresentationSettings(), componentTheme: 'luminous', palette: {...LUMINOUS_PALETTE}};
+    return {...neutralPresentationSettings(), componentTheme: DEFAULT_LOOK, palette: {...GRAPHITE_PALETTE}};
 }
 export function defaultCustomizationState() {
-    return {schema: 1, active: 'Default', theme: {mode: 'off', season: 'spring'}, profiles: {Default: {settings: defaultPresentationSettings(), modules: {messages: {palette: {...LUMINOUS_MESSAGES_PALETTE}}}}}};
+    return {schema: 1, active: 'Default', theme: {mode: 'off', season: 'spring'}, profiles: {Default: {settings: defaultPresentationSettings(), modules: {messages: {palette: {...GRAPHITE_MESSAGES_PALETTE}}}}}};
+}
+// The untouched Luminous default a 2026-10-29 to 2026-11-20 save carries; such a save moves to the new default once.
+function luminousDefaultProfile() {
+    return {settings: {...neutralPresentationSettings(), componentTheme: 'luminous', palette: {...LUMINOUS_PALETTE}}, modules: {messages: {palette: {...LUMINOUS_MESSAGES_PALETTE}}}};
 }
 export function upgradeUntouchedCustomization(state) {
     const valid = validateCustomizationState(state), names = Object.keys(valid.profiles), only = valid.profiles.Default;
-    const untouched = names.length === 1 && valid.active === 'Default' && Object.keys(only.modules).length === 0
+    const single = names.length === 1 && valid.active === 'Default' && only;
+    const neutral = single && Object.keys(only.modules).length === 0
         && JSON.stringify(only.settings) === JSON.stringify(validatePresentationSettings(neutralPresentationSettings()));
-    return untouched ? {...valid, profiles: {Default: defaultCustomizationState().profiles.Default}} : valid;
+    const luminous = single && JSON.stringify(only) === JSON.stringify(validateCustomizationState({...valid, profiles: {Default: luminousDefaultProfile()}}).profiles.Default);
+    return neutral || luminous ? {...valid, profiles: {Default: defaultCustomizationState().profiles.Default}} : valid;
+}
+export function moveToDefaultLook(state) {
+    const upgraded = upgradeUntouchedCustomization(state);
+    const dark = validateCustomizationState(defaultCustomizationState()).profiles.Default;
+    const stock = Object.keys(upgraded.profiles).find(name => JSON.stringify(upgraded.profiles[name]) === JSON.stringify(dark));
+    if (stock) return {...upgraded, active: stock};
+    const profiles = {...upgraded.profiles};
+    // Keep the selected look when all slots hold user profiles.
+    if (Object.keys(profiles).length >= 20) return upgraded;
+    const availableName = base => {
+        let name = base;
+        for (let i = 2; own(profiles, name); i++) name = `${base} ${i}`;
+        return name;
+    };
+    let active = 'Default';
+    if (upgraded.active === 'Default') profiles[availableName('Kept look')] = profiles.Default;
+    else if (own(profiles, 'Default')) active = availableName('Graphite');
+    profiles[active] = dark;
+    return {...upgraded, active, profiles};
 }
 export function validatePresentationSettings(input, partial = false) {
     const allowed = ['componentTheme', 'typography', 'palette', 'spacing', 'effects', 'sound', 'presentation', 'effectDefinition'];
@@ -118,7 +150,8 @@ export function createLuminousGothicDraft(state) {
     settings.typography.font = 'gothic';
     settings.palette = {...LUMINOUS_PALETTE};
     const modules = structuredClone(source.modules);
-    if (!modules.messages?.palette) {
+    // The Graphite default's own Reports palette is a preset, not a player choice, so the draft swaps it too.
+    if (!modules.messages?.palette || JSON.stringify(modules.messages.palette) === JSON.stringify(GRAPHITE_MESSAGES_PALETTE)) {
         modules.messages ||= {};
         modules.messages.palette = {...LUMINOUS_MESSAGES_PALETTE};
     }
@@ -178,7 +211,7 @@ export function applyCustomizationProfile(state, {season, moduleNodes = {}} = {}
         node.dataset.contrastRecovered = vars['--theme-contrast-recovered'];
         // A player-chosen or seasonal palette stays authoritative over display schemes such as Vivid.
         // A theme's own preset palette is not a player choice, so Luminous keeps the pastel vitals.
-        const base = settings.componentTheme === 'luminous' ? LUMINOUS_PALETTE : neutralPresentationSettings().palette;
+        const base = THEME_PALETTES[settings.componentTheme] || neutralPresentationSettings().palette;
         node.dataset.customPalette = String(['background','text','accent'].some(key => settings.palette[key] !== base[key]));
         for (const [name, value] of Object.entries(vars)) node.style.setProperty(name, value);
     }

@@ -10,6 +10,7 @@ import {stageReportLine} from './reports_dock.js';
 import {readPort} from './ui_ports.js';
 import {doseBody, doseResponse} from './brew_dose_response.js';
 import {guLanding} from './gu_effect_sentence.js';
+import {lotusLanding} from './world_packs/gu_lotus_essence_case.js';
 import {landPlayed, sentence} from './played_landing.js';
 
 // Dials (default, reason): the Moonblade strike is the Gu's own magnitude, one boar has 12 vitality (a hunt takes it down); the house
@@ -24,7 +25,8 @@ export const ENTRY_POINTS = Object.freeze([
             return {body, steps: [{sentence: sentence(r.sentence.verb, r.sentence.object, 'self', 'sustained', 'potion'), details: r.details}]};
         },
         line: ({before, after}) => `The dose takes hold and your senses flare (mood ${before.properties.mind_mood} to ${after.properties.mind_mood}).`},
-    {key: 'book.ri.keeper.km.use.moonblade__moon__own', law: 'gu-working', entry: 'keeper-moonblade-hunt',
+    // The native action pays essence; this adapter lands the moonlight row's cut with cost already paid.
+    {key: 'book.ri.keeper.km.use.moonblade__moon__own', law: 'gu-working', entry: 'keeper-moonblade-hunt', ledgerKey: 'gu_kinds:moonlight',
         build() {
             const landing = guLanding({kind: 'attack', magnitude: ENTRY_DIALS.strike});
             return {body: {id: 'boar', quantities: {vitality: ENTRY_DIALS.boarVitality}}, steps: [landing]};
@@ -37,6 +39,13 @@ export const ENTRY_POINTS = Object.freeze([
                 {sentence: sentence('remove', 'vitality', 'line', 'instant', 'pest'), details: {amount: ENTRY_DIALS.pest}}]};
         },
         line: ({before, after, results}) => `The chores set the house ward for the night; a pest strike ${after.quantities.vitality === before.quantities.vitality && !results[1].changed ? 'was turned away' : 'got through'}.`},
+    {key: 'book.ri.keeper.lotus_route.use', law: 'gu-working', entry: 'keeper-monarch-lotus',
+        ledgerKey: 'gu_kinds:fandom:Heavenly_Essence_Treasure_Monarch_Lotus',
+        build() {
+            const pool = 'energy:primeval.rank1.initial', landing = lotusLanding('keeper', pool);
+            return {body: {id: 'keeper', quantities: {[pool]: 0}}, steps: [landing], packs: ['w.sky'], keys: landing.keys};
+        },
+        line: () => 'The Monarch Lotus produced primeval essence in your own aperture, up to its capacity.'},
 ]);
 
 function stageDoseMood(plan) {
@@ -74,8 +83,8 @@ export function playedEffectsTick(completed = counts(), log = ports?.logMessage)
         const now = completed[row.key] ?? 0;
         if (now <= (seen[row.key] ?? 0)) continue;
         seen[row.key] = now;
-        const {body, steps} = row.build();
-        const run = landPlayed({entry: row.entry, law: row.law, body, steps});
+        const built = row.build();
+        const run = landPlayed({entry: row.entry, law: row.law, ...built});
         if (run.landed > 0) lines.push(row.line(run));
     }
     for (const line of lines) log?.(line, 'notification');

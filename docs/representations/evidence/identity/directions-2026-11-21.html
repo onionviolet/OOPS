@@ -1,0 +1,110 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>OOPS identity directions</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1920px;height:1080px;background:#111;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:8px;padding:8px;font-size:15px}
+.f{position:relative;overflow:hidden}
+.tag{position:absolute;right:8px;bottom:6px;font:12px Menlo,monospace;color:#fff;background:#000a;padding:2px 6px;z-index:5}
+
+/* A baseline: Luminous Gothic tidied */
+.a{background:linear-gradient(#071a3a,#0a3550);color:#cfe8ff;font-family:"MS Gothic","Osaka-Mono",Menlo,monospace;display:grid;grid-template-columns:220px 1fr 230px;grid-template-rows:30px 1fr;gap:6px;padding:6px}
+.a .top{grid-column:1/-1;border:1px solid #2a6a9a;display:flex;gap:14px;align-items:center;padding:0 8px;font-size:13px}
+.a .p{border:1px solid #2a6a9a;padding:8px;font-size:13px;line-height:1.5}
+.a .p.focus{border-color:#7fe3ff;box-shadow:0 0 10px #3cc8ff66}
+.a h4{font-weight:400;color:#9fd4ff;border-bottom:1px solid #2a6a9a;margin-bottom:6px}
+.a .bar{height:14px;margin:3px 0;background:linear-gradient(90deg,#f6f3a4,#5ee6d0);color:#123;font-size:11px;text-align:center}
+.a .ch{display:block;margin:6px 0;padding:5px 8px;border:1px solid #3d86b8;color:#e8f6ff}
+.a .ch b{color:#7fe3ff;font-weight:400}
+
+/* B almanac */
+.b{background:#1b1712;color:#e9dcc3;font-family:"Iowan Old Style",Georgia,serif;display:grid;grid-template-columns:1fr 250px;padding:26px 30px;gap:30px;
+ background-image:repeating-linear-gradient(#1b1712 0 27px,#2a241b 27px 28px)}
+.b .date{font:13px Menlo,monospace;letter-spacing:.08em;color:#c9a96a;border-bottom:1px solid #6b5636;padding-bottom:6px;display:flex;justify-content:space-between}
+.b h2{font-weight:400;font-size:30px;margin:14px 0 6px;color:#f3e6cc}
+.b p{font-size:17px;line-height:28px}
+.b .opt{font-size:17px;line-height:28px;color:#e7c27d}
+.b .opt i{font-style:normal;color:#8d7a5a;font-family:Menlo,monospace;font-size:13px;margin-right:8px}
+.b .margin{border-left:1px solid #6b5636;padding-left:16px;font-size:14px;line-height:22px;color:#b8a685;font-style:italic}
+.b .margin .k{font-style:normal;font-family:Menlo,monospace;font-size:12px;color:#c9a96a;display:block;margin-top:12px}
+.b .self{font-style:normal;font-family:Menlo,monospace;font-size:12px;color:#d9c9a8;line-height:20px}
+.b .ink{color:#e07a5f}
+
+/* C observatory */
+.c{background:#06100c;color:#9ef0c1;font-family:Menlo,monospace;display:grid;grid-template-columns:200px 1fr 260px;grid-template-rows:34px 1fr 120px;gap:1px;background-color:#0d2a1d}
+.c>div{background:#06100c;padding:10px;font-size:12px;line-height:1.6}
+.c .ch{grid-column:1/-1;display:flex;gap:2px;padding:0}
+.c .ch span{padding:9px 14px;color:#4f8f6c;border-right:1px solid #0d2a1d}
+.c .ch span.on{color:#06100c;background:#9ef0c1}
+.c .big{font-size:26px;color:#d6ffe6}
+.c .dim{color:#4f8f6c}
+.c .trace{grid-column:1/-1;position:relative}
+.c svg{width:100%;height:90px}
+.c .warn{color:#ffcf6b}
+
+/* D diorama */
+.d{background:#2b2f3a;color:#eee;font-family:"Avenir Next",Helvetica,sans-serif;display:grid;grid-template-rows:1fr 150px;gap:10px;padding:14px}
+.d .scene{border-radius:10px;background:#3a4a46;position:relative;overflow:hidden}
+.d .sky{position:absolute;inset:0 0 55% 0;background:#55636e}
+.d .rain{position:absolute;inset:0;background:repeating-linear-gradient(105deg,transparent 0 14px,#ffffff22 14px 15px)}
+.d .ground{position:absolute;inset:45% 0 0 0;background:#5d6b3f}
+.d .tree{position:absolute;width:150px;height:150px;border-radius:50%;background:#3f5a2c;left:300px;top:70px}
+.d .trunk{position:absolute;width:14px;height:90px;background:#5a4632;left:368px;top:190px}
+.d .tok{position:absolute;width:44px;height:44px;border-radius:50%;background:#f2d27b;color:#3a2a00;display:flex;align-items:center;justify-content:center;font-weight:600;border:3px solid #fff}
+.d .path{position:absolute;right:0;top:250px;width:260px;height:26px;background:#8c7a55;transform:rotate(-8deg)}
+.d .sign{position:absolute;right:30px;top:200px;background:#f5ecd6;color:#3b2f1c;padding:4px 8px;border-radius:4px;font-size:13px}
+.d .title{position:absolute;left:16px;top:12px;font-size:22px;font-weight:600;text-shadow:0 1px 2px #000}
+.d .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.d .card{background:#f5ecd6;color:#3b2f1c;border-radius:10px;padding:10px 12px;font-size:14px}
+.d .card b{display:block;font-size:16px;margin-bottom:4px}
+.d .hud{position:absolute;left:16px;bottom:12px;display:flex;gap:6px}
+.d .pip{background:#0008;padding:4px 8px;border-radius:12px;font-size:12px}
+</style></head><body>
+
+<div class="f a">
+ <div class="top"><span>Wild willow stand</span><span>04/04/999 08:05 Thu</span><span>夏 Summer</span><span>☂ Rain 17.8°C</span><span style="color:#ffb35c">Cold exposure</span></div>
+ <div class="p"><h4>You · Human</h4><div class="bar">60/60 hp</div><div class="bar" style="background:linear-gradient(90deg,#6b5bd6,#c46ad0);color:#fff">42/42 stamina</div>
+  STR 11.0 · AGL 8.1<br>DEX 10.0 · INT 10.0<br><br><h4>Condition</h4>Wet 25m · Cold 55m</div>
+ <div class="p focus"><h4>Wild willow stand</h4>An unclaimed willow stand above the flood line, deadwood and dry grass under a forked canopy. Maybe I can build a house here.
+  <span class="ch"><b>1</b> Gather deadwood</span><span class="ch"><b>2</b> Clear ground for a house</span><span class="ch"><b>3</b> Village · 5 min · arrive 08:10</span></div>
+ <div class="p" style="border-color:#7d4fb0;background:#1d1240aa"><h4 style="color:#d2b4ff">Reports</h4>[ Entering Wild willow stand ]<br>Village rooftops below the mountains.<br>"Look, a bird!"</div>
+ <span class="tag">A · Luminous Gothic, tidied (baseline)</span>
+</div>
+
+<div class="f b">
+ <div>
+  <div class="date"><span>THURSDAY · 4 SUMMER · YEAR 999</span><span>08:05 · RAIN</span></div>
+  <h2>The willow stand</h2>
+  <p>Above the flood line, deadwood and dry grass lie under a forked canopy. Nobody has claimed it. Rain finds the gaps in the leaves and your sleeves are already <span class="ink">wet through</span>.</p>
+  <p style="margin-top:28px" class="opt"><i>1</i>Gather the deadwood before it soaks</p>
+  <p class="opt"><i>2</i>Pace out ground for a house</p>
+  <p class="opt"><i>3</i>Walk back to the village <span style="color:#8d7a5a">— five minutes, there by 08:10</span></p>
+ </div>
+ <div class="margin">
+  <span class="self">60/60 body · 42/42 breath<br>wet 25m · cold 55m<br>10 copper, 5 stale bread</span>
+  <span class="k">MARGIN</span>
+  A good tree for a first roof, if the river behaves.
+  <span class="k">EARLIER TODAY</span>
+  Left the village at 08:00. A bird, apparently.
+ </div>
+ <span class="tag">B · The almanac: a life written as you live it</span>
+</div>
+
+<div class="f c">
+ <div class="ch"><span class="on">CH 01 · HOME / VILLAGE</span><span>CH 02 · TINGEN</span><span>CH 03 · PHANDALIN</span><span style="margin-left:auto">SUBJECT 001 · OBSERVED</span></div>
+ <div><span class="dim">VITALS</span><br><span class="big">60</span> hp<br><span class="big">42</span> sta<br><br><span class="dim">ATTR</span><br>STR 11.0 AGL 8.1<br>DEX 10.0 INT 10.0<br><br><span class="warn">▲ WET 25m<br>▲ COLD 55m</span></div>
+ <div><span class="dim">LOCATION</span> WILD WILLOW STAND · 08:05 · RAIN 17.8°C<br><br>Unclaimed willow stand above the flood line. Deadwood, dry grass, a forked canopy.<br><br><span class="dim">AVAILABLE</span><br>[1] gather deadwood<br>[2] clear ground · house<br>[3] → village   Δt 5m   eta 08:10</div>
+ <div><span class="dim">EVENT STREAM</span><br>08:05 enter willow stand<br>08:00 depart village<br>07:58 "look, a bird!"<br>07:40 skill · night vision 1<br><br><span class="dim">FORECAST</span><br>rain clears ~09:30</div>
+ <div class="trace"><span class="dim">LIFE TRACE · last 24h · stamina / mood / coin</span>
+  <svg viewBox="0 0 900 90" preserveAspectRatio="none"><polyline fill="none" stroke="#9ef0c1" stroke-width="2" points="0,60 80,55 160,40 240,42 320,30 400,35 480,50 560,45 640,30 720,28 800,40 900,38"/><polyline fill="none" stroke="#ffcf6b" stroke-width="1.5" points="0,70 120,68 240,60 360,62 480,55 600,58 720,50 900,52"/></svg></div>
+ <span class="tag">C · The observatory: a simulator watching lives</span>
+</div>
+
+<div class="f d">
+ <div class="scene"><div class="sky"></div><div class="ground"></div><div class="tree"></div><div class="trunk"></div><div class="path"></div><div class="sign">Village · 5 min → 08:10</div><div class="rain"></div>
+  <div class="tok" style="left:420px;top:230px">You</div>
+  <div class="title">Wild willow stand</div>
+  <div class="hud"><span class="pip">♥ 60/60</span><span class="pip">⚡ 42/42</span><span class="pip">☂ wet 25m</span><span class="pip">❄ cold 55m</span><span class="pip">08:05 Thu · Summer</span></div></div>
+ <div class="cards"><div class="card"><b>Gather deadwood</b>about 30 min · dry wood</div><div class="card"><b>Clear ground</b>start a house plot</div><div class="card"><b>Back to village</b>5 min · arrive 08:10</div><div class="card" style="opacity:.6"><b>Shelter</b>needs a roof first</div></div>
+ <span class="tag">D · The diorama: a tabletop of the place</span>
+</div>
+</body></html>
