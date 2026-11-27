@@ -1,0 +1,40 @@
+# OOPS end goal
+
+*Owner of where OOPS is heading and how the Codex lanes line up behind it. Set by the OOPS coordinator on 2026-11-26 from Weibao's words. Direction itself lives in [USER_VISION](USER_VISION.md); this file sequences it. Replace a milestone's status line when it changes.*
+
+## The goal, in his words
+
+> Keep OOPS a progression RPG with idle play
+
+(2026-11-26 01:50.) You live different lives under each world's rules: a protagonist, a minor character or an ordinary local, with choices that change a shared world ([player-directed lives](USER_VISION.md#player-directed-lives)).
+
+Current direction for the next one to two weeks:
+
+> Foundation and making atlas actually reflect my vision? Standardizing UI and more?
+
+Pace: "As much as needed as we get a good quality." [Nov 26 direction](USER_VISION.md#nov-26-coordination-direction)
+
+## Milestones
+
+A milestone is done only when every done condition has a commit and a capture or replay from the normal game entry (the [checkpoint rule](../PROJECT.md#current-focus)). Status reflects the last landed commit.
+
+| # | Milestone | Done when (observable) | Status |
+| --- | --- | --- | --- |
+| M1 | **Nov 26 direction wave lands** | (a) One Gu foundation slice runs as data over the shared law and is played from the normal entry, with `gate:save` passing. (b) Every Atlas section names its vision theme or playable gap, and each entry's playable, partial or reading-only label matches its receipts on the adopted archive. (c) The ordinary-day screens of Fang, Klein and Harry follow the [shared UI standard](../DESIGN.md#shared-ui-standard), each with a before/after pair at 1366×768 and 1920×1080. | In progress. Done so far: `gate:save` (c9441cdba), Atlas vision map (600360dd0), Nox consumer (5aca1498b), Harry library and Capability runs on the standard (b4226af6e, ea471bd05). |
+| M2 | **An idle return is worth coming back to** | For each lead life, a replay leaves the game idle for at least 8 game hours, returns, and shows what the routine produced, what it cost and one consequence to act on. Save, reload, export and import keep it. | Not started. Named as a gap in the [Atlas vision audit](audits/ATLAS_VISION_COVERAGE_2026-11-26.md). |
+| M3 | **Ordinary and inherited starts are playable** | A local and an inherited start in two worlds reach a first ordinary day from the new-game screen, each with its own receipt. | Not started. Same gap list. |
+| M4 | **Verified on Weibao's route** | The installed Tauri app runs the M1 to M3 routes. The full suite passes on an idle machine. A check confirms no long verbatim book text is in the public tree. | Open. Installed app, 8 GB target and full suite are open in the [Nov 26 intake](gm/ABSORB_2026-11-26.md#open-checks). |
+| M5 | **`v0.1.0`** | The work meets the [YAIR release scale](reviews/YAIR_RELEASE_SCALE_2026-11-08.md) and Weibao says yes to the push. | Waiting on M1 to M4. |
+
+## Codex lanes
+
+One Codex writer per lane, run one at a time in the primary checkout because every lane rebuilds `dist/bundle.js`. Each lane commits its own paths after a normal-entry proof.
+
+| Lane | Serves | Owns | First slice |
+| --- | --- | --- | --- |
+| **A · Foundation** | M1a, then M2 | `src/gu_*`, Gu world packs, the kernel per the [foundation plan](PROCEDURAL_FOUNDATION_PLAN.md) | Moonglow and Water Shield wall exchange: give the essence debit an exact cost owner and a compatible save revision, then move it to the Gu law. |
+| **B · Atlas** | M1b | `prototypes/world-atlas/`, Atlas docs | Fold the three surfaces built twice by the merge into one home each ([OQ1](OPEN_QUESTIONS.md)). Then audit each section's status labels against receipts on the adopted archive. |
+| **C · UI standard** | M1c, then M3 | Screen CSS and renderers one screen at a time, DESIGN.md's standard | Klein's office day and Fang's kitchen on the standard, one commit each. |
+| **D · Verification** | M4 | Gate scripts, receipts | Idle-machine full suite and the installed-app replay of M1 routes. |
+
+Questions that wait for Weibao go to [OPEN_QUESTIONS](OPEN_QUESTIONS.md) with a recommended default.

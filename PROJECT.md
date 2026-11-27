@@ -18,6 +18,8 @@ The one-realm/one-prestige first milestone is no longer a required gate ([direct
 
 **Next one to two weeks (2026-11-26).** "Foundation and making atlas actually reflect my vision? Standardizing UI and more?" [Direction](docs/USER_VISION.md#nov-26-coordination-direction)
 
+**End goal and milestones.** [END_GOAL](docs/END_GOAL.md) sequences the milestones and Codex lanes. Questions waiting on Weibao: [OPEN_QUESTIONS](docs/OPEN_QUESTIONS.md).
+
 **Checkpoint for this run.** A slice is done when it has a commit and a capture or replay from the normal entry. If two consecutive Goal cycles produce no such commit, stop and report the blocker. [Run record](docs/gm/ABSORB_2026-11-26.md)
 
 **Nov 24 to 26 receipt.** [Landed work and remaining checks](docs/gm/ABSORB_2026-11-26.md).
