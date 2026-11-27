@@ -15,18 +15,19 @@ const formName=form=>form.grade?`${form.name} · ${form.grade}`:form.name;
 const mastery=lineages=>lineages.map(({id,level,xp})=>
     `${id} ${level} (${xp.toLocaleString('en-US',{maximumFractionDigits:2})} XP)`).join(' · ');
 
-export function mountGrowthQueue(skillList) {
+export function mountGrowthQueue(skillList,onOpen) {
     const details=node('details'),summary=node('summary'),entries=node('div'),notice=node('p');
     details.dataset.skillGrowthQueue='';
     summary.textContent='Growth';
     notice.setAttribute('role','status');
     details.append(summary,entries,notice);
     skillList.before(details);
+    details.addEventListener('toggle',()=>{if(details.open)onOpen?.();});
     const focus=()=>{details.open=true;summary.focus();};
     const previews=new Map();
     let signature;
-    return {focus,render(choices){
-        const next=JSON.stringify(choices.map(({row,reason})=>[row.id,reason]));
+    return {focus,render(choices,paths=[]){
+        const next=JSON.stringify([choices.map(({row,reason})=>[row.id,reason]),paths.map(path=>path.id)]);
         if(next===signature){
             for(const {row,quote} of choices)if(previews.has(row.id))previews.get(row.id).textContent=mastery(quote.lineages);
             return;
@@ -35,7 +36,8 @@ export function mountGrowthQueue(skillList) {
         summary.textContent=choices.length?`Growth · ${choices.length} waiting`:'Growth';
         entries.replaceChildren();
         previews.clear();
-        if(!choices.length)entries.append(node('p','Keep practising to earn a growth choice.'));
+        for(const path of paths)entries.append(kitRow({label:path.name,fact:path.description,data:{evolvedPath:path.id}}));
+        if(!choices.length&&!paths.length)entries.append(node('p','Keep practising to earn a growth choice.'));
         for(const {row,quote,reason,choose,refuse} of choices){
             const section=node('section');
             const grouped=quote.lineages.length>0;
@@ -47,9 +49,9 @@ export function mountGrowthQueue(skillList) {
                 section.append(preview);
             }
             for(const target of row.targets){
-                const terms=grouped?'Removes the separate skill rows. Keeps each source’s exact XP, level, practice and bonuses in the new skill. This choice is permanent.':
+                const terms=row.carryText??(grouped?'Removes the separate skill rows. Keeps each source’s exact XP, level, practice and bonuses in the new skill. This choice is permanent.':
                     row.policy==='specialization'?`${row.practiceText} Keeps ordinary ${row.from}.`:
-                    'Replaces this skill in its row and keeps its XP and level.';
+                    'Replaces this skill in its row and keeps its XP and level.');
                 section.append(kitRow({label:`Choose ${formName(target)}`,fact:[row.trainingText,branchDescription(target,row.from)].filter(Boolean).join(' '),
                     from:[terms,target.costs.length?'Requires payment.':'No fee.'].join(' '),
                     data:{evolutionForm:target.id},action:{disabled:!!reason,title:reason||formName(target),run:()=>{
@@ -57,9 +59,11 @@ export function mountGrowthQueue(skillList) {
                         catch(error){notice.textContent=error.message;}
                     }}}));
             }
-            if(grouped){
+            if(grouped||row.carryText){
                 section.append(kitRow({label:'Decide later',fact:'The offer stays in Growth and practice continues.',
                     action:{run:()=>{details.open=false;summary.focus();}}}));
+            }
+            if(grouped){
                 section.append(kitRow({label:'Keep separate skills',fact:'Permanently decline this offer.',
                     action:{run:()=>{try{refuse();notice.textContent='';focus();}catch(error){notice.textContent=error.message;}}}}));
             }

@@ -2694,7 +2694,7 @@ function create_location_choices({location, category, is_combat = false}) {
             activity_div.appendChild(job_tooltip);
     
             insert_HTML(activity_div, `<i class="material-icons location_choice_icon">check_box_outline_blank</i> ` + job.starting_text);
-            if (patrol) activity_div.append(document.createTextNode(` · ${duration} · ${patrolPayText(basePay, patrol.nextBonus)}`));
+            if (patrol) activity_div.append(document.createTextNode(` · ${duration} · ${patrolPayText(basePay, patrol.nextBonus)}${patrol.pathBonus?` · ${patrol.pathBonus} extra from your path`:''}`));
             choice_list.push(activity_div);
         });
     } else if (category === "train") {
@@ -5132,9 +5132,10 @@ function updateVillageWatchcraftActivity(current_activity) {
     if (current_activity.id === 'patrolling') {
         const base = current_activity.get_payment();
         const total = Math.max(0, base + patrol.activeBonus + patrol.teachingAdjustment);
-        const text = patrol.activeBonus
+        const pay = patrol.activeBonus
             ? `Watchcraft · Sector scanning in use · Full round: ${patrolPayText(base, patrol.activeBonus, total)}.`
             : `Full round: ${patrolPayText(base, 0)}.`;
+        const text = patrol.activePathBonus?`${pay} Your path pays ${patrol.activePathBonus} extra coins.`:pay;
         if (line.textContent !== text) line.textContent = text;
         line.hidden = false;
         return;

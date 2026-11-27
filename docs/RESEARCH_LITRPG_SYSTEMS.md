@@ -307,6 +307,11 @@ Evolutions can add a new target class, medium, range, control mode or applicatio
 - In *Badge of Vice*, chapter 41, the Fusion Card offers to fold Forensics 3, Chemistry 2, Biology 2 and Toxicology 2 into Alchemy Master. The held-out EV5 row verifies this offer and preserves the option to decline. It models the grouping and source thresholds. OOPS keeps its own exact lineage XP. [The Fusion Card's Power](https://www.royalroad.com/fiction/191715/badge-of-vice/chapter/3981796/chapter-41-the-fusion-cards-power)
 - *The Wandering Inn*, Goblin Days part 4, shows a rest-time review drawing several related classes into one broader advancement and listing the resulting Skills. That scene supplies the rest cadence and separate receipt. The Village consolidation applies that cadence to existing small skills. [Goblin Days, part 4](https://wanderinginn.com/2024/07/31/goblin-days-pt-4-order-oddity/)
 
+#### Class and profession evolution, 2026-11-26
+
+- In *The Wandering Inn* 5.26 L, Lyonette regains Princess, then becomes Worldly Princess at level 11. Five earlier classes are consolidated in separate notices, and the new class grants Flawless Attempt among other skills. The held-out row treats restoration as a prerequisite and covers the observed outcome. [5.26 L](https://wanderinginn.com/2018/10/06/5-26-l/)
+- In *The Primal Hunter* chapter 1274, Jake weighs two finalist professions at the 350 boundary. Harbinger of Primeval Origins emphasizes his innate power. He picks Primeval Alchemist of Malefic Origins, which keeps alchemy central while adding Primeval Origin work. The held-out row models these two finalists. [Two Awesome Options](https://www.royalroad.com/fiction/36049/the-primal-hunter/chapter/3144163/chapter-1274-two-awesome-options)
+
 ### Distinct world profiles with comparable scope
 
 All names below are **original working labels**, not selected settings or claims of implemented canonical worlds. Each reference receives acquisition, growth, combinations, limits and carry-over design. Broadly authorized direct reference campaigns remain an option when source roster and setting details are selected.

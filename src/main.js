@@ -90,7 +90,7 @@ import {mountKnownMethodChains,mountKnownNumber,formatKnownNumber} from './absor
 import {createKnownItemHotkeys,mountKnownItemBinding,mountKnownItemHotkeyList} from './absorb_p23/known_detail/hotkeys.js';
 import {skillExpansionPresentation} from './skill_expansion_host.js';
 import {setNativeObservedDropReader, setKnownClearTextReader, reset_message_log_for_life} from './display.js';
-import {configureSkillEvolution,earnActivitySkillXP,evolvedUse,observeGrowthRest,observeSkillAward,reportNativeSkillTier,settleGrowthRecovery} from './skill_evolution_native.js'; import {settleSkinBodyEffect} from './skill_evolution.js';
+import {configureSkillEvolution,earnActivitySkillXP,evolvedPath,evolvedUse,observeGrowthRest,observePathGrowth,observeSkillAward,reportNativeSkillTier,settleGrowthRecovery} from './skill_evolution_native.js'; import {settleSkinBodyEffect} from './skill_evolution.js'; import {VILLAGE_PATROL_PATH} from './data/skill_evolutions.js'; import {formatDuration} from './number_format.js';
 let p23DropObservations,loadedDisplayPreferences;
 
 import {structuredLifeEnded,reconcileStructuredLifePlan,structuredLifeView,archiveStructuredLife,publishIndependentStructuredLife,listStructuredLifeArchives} from './structured_life_runtime.js';
@@ -3510,6 +3510,7 @@ function writeVillageCareer(choice) {
     else if(['recruit','solo','cover'].includes(choice))log_message(choice==='recruit'?'Tessa assigns Iona to your patrol.':choice==='cover'?'Iona spends one owed favor covering a two-hour shift: 50 coins on return, no player career credit.':'Iona begins a two-hour solo patrol. Stay in Village to hear her report and receive 10 coins.');
     else if(!['notes','tutor'].includes(choice))log_message(choice==='promote'?`Tessa recognizes you as ${CAREER_RANKS[villageCareer.rank]}. Your life record remembers this promotion.`:choice==='return'?'Tessa: “Lantern and baton accounted for. Thank you.”':choice==='keep'?'Tessa records a 50-coin kit debt. Return the kit or pay before your next shift.':'Tessa records your kit debt as paid.');
     villageCareerControls?.render();
+    if(choice==='promote'||choice==='return')observePathGrowth();
 }
 
 function start_activity(selected_activity) {
@@ -3575,6 +3576,7 @@ function end_activity() {
         const firstUse=bonus>0 && !villageCareer.watchcraft.used;
         const teachingStipend=villageTeachingStipend(villageCareer,current_activity.earnings>0);
         const teachingCost=villageTeachingCost(villageCareer,current_activity.earnings>0);
+        const path=paidRoundCompleted&&!villageCareer.loan.teaching&&evolvedUse(VILLAGE_PATROL_PATH,'completed-patrol');
         const base = current_activity.earnings;
         const total = Math.max(0, base + bonus - teachingCost) + teachingStipend;
         const lead = firstUse && !localLife.searches.Village.found;
@@ -3590,8 +3592,9 @@ function end_activity() {
                 lifeRecordPanel?.render();
             }
         }
-        current_activity.earnings=total;
+        current_activity.earnings=total+(path?.amount??0);
         if(teachingStipend)log_message('Tessa pays a 10-coin teaching stipend on top of your round. Training recruits is part of a Mentor’s job.');
+        if(path)log_message(`${path.name} earned ${path.amount} extra coins for the completed patrol.`,'activity_money');
         log_message('Tessa notes how your shift went. Bring back the loaned lantern and baton before taking another round.');
     }
     
@@ -4683,10 +4686,12 @@ function get_context() {
             if (current_location?.id !== 'Village' || expansionState.actors.player.worldId !== 'base.frontier') return null;
             const {loan,watchcraft}=villageCareer;
             const rehearsed=watchcraftKnown() && watchcraft.practiceMinutes===WATCHCRAFT_PRACTICE;
+            const pathBonus=evolvedUse(VILLAGE_PATROL_PATH,'completed-patrol')?.amount??0;
             return {
                 kitDue:!!loan && loan.status!=='active',
                 nextBonus:rehearsed ? WATCHCRAFT_BONUS : 0,
                 activeBonus:loan?.watchcraft ? WATCHCRAFT_BONUS : 0,
+                pathBonus,activePathBonus:loan?.teaching?0:pathBonus,
                 teachingAdjustment:villageTeachingStipend(villageCareer,true)-villageTeachingCost(villageCareer,true),
                 showHandoff:rehearsed && !watchcraft.used && ownsSave && !foundationSaveBlocked && !importProbeToken,
             };
@@ -6177,7 +6182,7 @@ function add_active_effect(effect_key, duration = 1, skip_xp){
         delete active_effects[effect_key];
     }
     const skin=evolvedUse('Iron skin','body-effect'), reached=settleSkinBodyEffect(skin,effect_key,duration);
-    if(reached<duration)log_message(`${skin.name} shortened ${effect_key.toLowerCase()} from ${duration} to ${reached} minutes.`,'skill_raised');
+    if(reached<duration)log_message(`${skin.name} shortened ${effect_key.toLowerCase()} from ${formatDuration(duration)} to ${formatDuration(reached)}.`,'skill_raised');
     duration=effect_key==='Bleeding'?Math.min(15,old_duration+reached):reached;
     active_effects[effect_key] = new ActiveEffect({...effect_templates[effect_key], duration});
     update_displayed_effects();
@@ -6218,6 +6223,8 @@ function add_xp_to_activity_skills() {
 configureSkillEvolution({
     context:()=>({world:expansionState.actors.player.worldId,location:current_location?.id,activity:current_activity?.id}),
     skill:id=>skills[id],repaint:id=>update_displayed_skill_bar(skills[id],false),
+    path:id=>id===VILLAGE_PATROL_PATH?{level:villageCareer.rank,completed:villageCareer.completed,returned:villageCareer.returned}:undefined,
+    repaintPath:()=>villageCareerControls?.render(),
     writable:()=>workLedgerCanWrite()&&!restoringNativeSave&&character.is_alive,
     persist:next=>persistExpansion({...p23Plan(),nativePatch:{skill_evolution:next}}),
     publish:(event,text)=>nativeCraftMessage(text,'skill_raised',event.type==='skill-evolution-waiting'?{panelId:'skill-growth',panelLabel:'Open Growth'}:undefined),
@@ -8914,7 +8921,9 @@ function simulateTick() {
 
             if(villageCareer.recruit) {
                 const p=npcLives?.people.find(p=>p.id==='iona');
-                const next=advanceVillageMentor(villageCareer,{inVillage:current_location.id==='Village' && expansionState.actors.player.worldId==='base.frontier',alive:character.is_alive===true && !!p && current_game_time.year<p.deathYear,patrolling:current_activity?.id==='patrolling'});
+                const path=evolvedUse(VILLAGE_PATROL_PATH,'recruit-practice');
+                const next=advanceVillageMentor(villageCareer,{inVillage:current_location.id==='Village' && expansionState.actors.player.worldId==='base.frontier',alive:character.is_alive===true && !!p && current_game_time.year<p.deathYear,patrolling:current_activity?.id==='patrolling',teachingPractice:path?.amount});
+                if(path&&next.recruit.practiceMinutes-villageCareer.recruit.practiceMinutes>1)log_message(`${path.name} helped Iona earn two minutes of Watchcraft practice.`,'skill_raised');
                 if(next.recruit.soloPatrols>villageCareer.recruit.soloPatrols) {
                     // Report, stipend and first biography publish together after durable storage.
                     try {
@@ -9873,7 +9882,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     refreshCustomization();
     const pollDisplays=()=>{quietPlaceDetail.render();statusWindow?.render();workLedgerPanel?.render();customizationPanel?.refresh();if(!workspaceOwns(customizationHost)&&!customizationHost.isConnected)document.getElementById('location_actions_div')?.append(customizationHost);workLedgerAuthor?.refresh();};
     setInterval(()=>{if(!deferWhileHidden(pollDisplays,pollDisplays))pollDisplays();},250);
-    villageCareerControls = createVillageCareerControls({read:()=>({state:villageCareer,study:watchcraftPresentation(villageCareer,watchcraftKnown()),hasNotes:!!character.getItems()[item_templates[WATCHCRAFT_BOOK].getInventoryKey()],
+    villageCareerControls = createVillageCareerControls({read:()=>({state:villageCareer,path:evolvedPath(VILLAGE_PATROL_PATH),study:watchcraftPresentation(villageCareer,watchcraftKnown()),hasNotes:!!character.getItems()[item_templates[WATCHCRAFT_BOOK].getInventoryKey()],
         visible:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier' && !current_dialogue && !current_combat && !is_sleeping && !is_reading && !is_in_trade() && !current_game_action,
         canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken,
         busy:!!current_activity || !!nativeOccupationReason(),canTeach:current_activity?.id==='patrolling' && !foundationSaveBlocked && !importProbeToken && ownsSave && !nativeOccupationReason(),recruitAlive:!!npcLives?.people.some(p=>p.id==='iona' && current_game_time.year<p.deathYear)}),

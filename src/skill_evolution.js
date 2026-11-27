@@ -1,5 +1,5 @@
 // Name tiers are projections of native levels. Chosen forms own only their lineage.
-export const SKILL_EVOLUTION_REVISION = 3;
+export const SKILL_EVOLUTION_REVISION = 4;
 export const emptySkillEvolution = () => ({revision:SKILL_EVOLUTION_REVISION,choices:{}});
 
 export function automaticSkillTiers(from,names) {
@@ -22,7 +22,8 @@ const matches = (context,requirements) =>
     Object.entries(requirements).every(([key,value])=>context[key]===value);
 
 export const combinesSkills = row => row.policy==='EV4'||row.policy==='EV5';
-const replacesSkill = row => row.policy==='EV2'||row.policy==='EV3'||combinesSkills(row);
+export const evolvesPath = row => row.policy==='EV6';
+const replacesSkill = row => row.policy==='EV2'||row.policy==='EV3'||combinesSkills(row)||evolvesPath(row);
 const sources = row => row.sources ?? [{id:row.from,level:row.threshold}];
 
 export function skillEvolutionEligible(row,level,context) {
@@ -43,7 +44,8 @@ export function validateEvolutionRows(rows,worlds) {
             (row.policy==='EV4'?parts.length===2:parts.length>=3)&&parts[0].id===row.from&&parts[0].level===row.threshold&&
             new Set(parts.map(part=>part.id)).size===parts.length&&parts.every(part=>part.id&&Number.isSafeInteger(part.level)&&part.level>0)&&
             row.targets.every(target=>!parts.some(part=>part.id===target.id))&&['practice','rest'].includes(row.offerOn);
-        if(ids.has(row.id)||!shape||!grades||!group||replacesSkill(row)&&!transforms||row.policy==='EV2'&&(count<2||count>3)){
+        if(ids.has(row.id)||!shape||!grades||!group||replacesSkill(row)&&!transforms||row.policy==='EV2'&&(count<2||count>3)||
+            evolvesPath(row)&&!row.carryText){
             throw Error('Invalid skill evolution row: '+row.id);
         }
         ids.add(row.id);
@@ -162,11 +164,11 @@ export function evolveSkillPractice(state,row,baseXP,context) {
 export function readSkillEvolution(saved,rows) {
     if(saved===undefined)return emptySkillEvolution();
     const record=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
-    if(!record(saved)||![1,2,SKILL_EVOLUTION_REVISION].includes(saved.revision)||!record(saved.choices)||
+    if(!record(saved)||![1,2,3,SKILL_EVOLUTION_REVISION].includes(saved.revision)||!record(saved.choices)||
       Object.keys(saved).length!==2)throw Error('Unsupported skill evolution save revision.');
     for(const [id,choice] of Object.entries(saved.choices)){
         const row=rows.find(row=>row.id===id);
-        if(!row||saved.revision===1&&replacesSkill(row)||saved.revision<3&&combinesSkills(row)||
+        if(!row||saved.revision===1&&replacesSkill(row)||saved.revision<3&&combinesSkills(row)||saved.revision<4&&evolvesPath(row)||
           !record(choice)||!Number.isSafeInteger(choice.level)||choice.level<row.threshold||
           !((choice.status==='waiting'||combinesSkills(row)&&choice.status==='refused')&&Object.keys(choice).length===2||
             choice.status==='chosen'&&Object.keys(choice).length===3&&row.targets.some(target=>target.id===choice.target))){

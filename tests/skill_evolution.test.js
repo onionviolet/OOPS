@@ -6,7 +6,8 @@ import {activeSkillForm,activeSkillFunction,automaticSkillTiers,skillTierEvent,o
     evolveSkillPractice,emptySkillEvolution,mergedSkillView,quoteSkillEvolution,readSkillEvolution,refuseSkillEvolution,
     settleSkillRecovery,settleSkinBodyEffect,settleSkinCritical,settleSkinStamina,validateEvolutionRows,SKILL_EVOLUTION_REVISION} from '../src/skill_evolution.js';
 import {mitigateCombatDamage} from '../src/combat_math.js';
-import {SKILL_EVOLUTIONS,validateSkillEvolutionEnvelope} from '../src/data/skill_evolutions.js';
+import {SKILL_EVOLUTIONS,VILLAGE_PATROL_PATH,validateSkillEvolutionEnvelope} from '../src/data/skill_evolutions.js';
+import {advanceVillageMentor,assignVillageRecruit,beginVillageShift,beginVillageTeaching,createVillageCareer} from '../src/village_career.js';
 
 const [row]=SKILL_EVOLUTIONS;
 const [heavy,balance]=row.targets;
@@ -75,7 +76,7 @@ test('revision 1 preserves the A2 specialization, original XP and tier',async()=
     const envelope=JSON.parse(await readFile(new URL('./fixtures/skill-evolution-a2.json',import.meta.url),'utf8'));
     const old=structuredClone(envelope);
     const migrated=validateSkillEvolutionEnvelope(envelope);
-    assert.deepEqual(migrated,{...old.skill_evolution,revision:3});
+    assert.deepEqual(migrated,{...old.skill_evolution,revision:4});
     assert.deepEqual(envelope,old);
     assert.equal(activeSkillForm(migrated,SKILL_EVOLUTIONS,row.from),undefined);
     assert.deepEqual(evolveSkillPractice(migrated,row,2,context),{sourceXP:3,extra:[[heavy.id,1]]});
@@ -202,11 +203,51 @@ test('revision 2 keeps the A2b forms and native XP without writing new skills',a
     const envelope=JSON.parse(await readFile(new URL('./fixtures/skill-evolution-a2b.json',import.meta.url),'utf8'));
     const original=structuredClone(envelope);
     const migrated=validateSkillEvolutionEnvelope(envelope);
-    assert.equal(migrated.revision,3);
+    assert.equal(migrated.revision,4);
     assert.deepEqual(migrated.choices,original.skill_evolution.choices);
     assert.equal(activeSkillForm(migrated,SKILL_EVOLUTIONS,'Iron skin').name,'Breathing skin');
     assert.equal(activeSkillForm(migrated,SKILL_EVOLUTIONS,'Sleeping').grade,'Uncommon');
     assert.deepEqual(envelope,original);
+});
+
+test('the evolved Village path carries the career rank and awards only its declared effect',async()=>{
+    const row=SKILL_EVOLUTIONS.find(row=>row.policy==='EV6');
+    const legacy=JSON.parse(await readFile(new URL('./fixtures/skill-evolution-a2c.json',import.meta.url),'utf8'));
+    const migrated=validateSkillEvolutionEnvelope(legacy);
+    assert.equal(migrated.revision,4);
+    assert.deepEqual(migrated.choices,legacy.skill_evolution.choices);
+    assert.equal(activeSkillForm(migrated,SKILL_EVOLUTIONS,VILLAGE_PATROL_PATH),undefined);
+    assert.equal(offerSkillEvolution(migrated,row,1,row.requirements),null);
+    const {state}=offerSkillEvolution(migrated,row,2,row.requirements);
+    assert.equal(offerSkillEvolution(state,row,2,row.requirements),null);
+    assert.deepEqual(legacy.village_career,{rank:2,completed:5,returned:5});
+    const [route,teaching]=row.targets.map(target=>chooseSkillEvolution(state,row,target.id,2,row.requirements).state);
+    assert.deepEqual(validateSkillEvolutionEnvelope({...legacy,skill_evolution:route}),route);
+    assert.throws(()=>validateSkillEvolutionEnvelope({...legacy,village_career:{rank:1},skill_evolution:route}),/career rank/);
+    assert.throws(()=>readSkillEvolution({...route,revision:3},SKILL_EVOLUTIONS),/Invalid saved/);
+    const effect=(state,trigger)=>activeSkillFunction(state,SKILL_EVOLUTIONS,VILLAGE_PATROL_PATH,trigger,row.requirements);
+    assert.equal(effect(route,'completed-patrol').amount,2);
+    assert.equal(effect(route,'recruit-practice'),undefined);
+    assert.equal(effect(teaching,'completed-patrol'),undefined);
+    const career={...createVillageCareer(),rank:2,shifts:5,completed:5,returned:5};
+    career.watchcraft={...career.watchcraft,issued:true,practiceMinutes:5};
+    const teachingWork=beginVillageTeaching(beginVillageShift(assignVillageRecruit(career),true),true,'Hero');
+    const context={inVillage:true,alive:true,patrolling:true};
+    assert.equal(advanceVillageMentor(teachingWork,context).recruit.practiceMinutes,1);
+    assert.equal(advanceVillageMentor(teachingWork,{...context,teachingPractice:effect(teaching,'recruit-practice').amount}).recruit.practiceMinutes,2);
+});
+
+test('held-out Worldly Princess and Primeval Alchemist settle through EV6',async()=>{
+    const cases=JSON.parse(await readFile(new URL('./fixtures/skill-evolution-path-canon.json',import.meta.url),'utf8'));
+    for(const {row,target} of cases){
+        validateEvolutionRows([row],{[row.requirements.world]:{primary:'EV6',mix:[]}});
+        assert.equal(offerSkillEvolution(emptySkillEvolution(),row,row.threshold-1,row.requirements),null);
+        assert.equal(offerSkillEvolution(emptySkillEvolution(),row,row.threshold,{world:row.requirements.world}),null);
+        const {state}=offerSkillEvolution(emptySkillEvolution(),row,row.threshold,row.requirements);
+        const choice=chooseSkillEvolution(state,row,target,row.threshold,row.requirements);
+        assert.equal(activeSkillForm(choice.state,[row],row.from).id,target);
+        assert.equal(choice.state.choices[row.id].level,row.threshold);
+    }
 });
 
 test('held-out Rampage and the Alchemy Master offer use the same rules',async()=>{

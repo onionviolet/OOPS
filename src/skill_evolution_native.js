@@ -1,20 +1,24 @@
 import {registerDomain} from './domain_registry.js';
 import {SKILL_EVOLUTIONS} from './data/skill_evolutions.js';
-import {activeSkillForm,activeSkillFunction,chosenSkillForm,chooseSkillEvolution,combinesSkills,emptySkillEvolution,evolveSkillPractice,
+import {activeSkillForm,activeSkillFunction,chosenSkillForm,chooseSkillEvolution,combinesSkills,emptySkillEvolution,evolveSkillPractice,evolvesPath,
     mergedSkillView,offerSkillEvolution,quoteSkillEvolution,readSkillEvolution,refuseSkillEvolution,settleSkillRecovery,skillTierEvent} from './skill_evolution.js';
 import {mountGrowthQueue,mountSkillGrowth} from './ui/skill_evolution.js';
 
 const rows=new Map(SKILL_EVOLUTIONS.map(row=>[row.from,row]));
 const sourceRows=new Map(SKILL_EVOLUTIONS.flatMap(row=>(row.sources??[{id:row.from}]).map(part=>[part.id,row])));
 const displays=new Map();
+const pathRows=SKILL_EVOLUTIONS.filter(evolvesPath);
 let state=emptySkillEvolution(),ports,queue;
 
 function readLineage(id) {
+    const path=ports.path?.(id);
+    if(path)return path;
     const skill=ports.skill(id);
     return {level:skill.getCurrentLvl(),xp:skill.getTotalXP()};
 }
 
 function progressContext(row,trigger) {
+    if(evolvesPath(row))return {...ports.context(),trigger};
     const skill=ports.skill(row.from), xp=skill.getTotalXP(), scale=skill.xp_scaling;
     const thresholdXP=scale===1?skill.base_xp_cost*row.threshold:
         Math.round(100*skill.base_xp_cost*(1-scale**row.threshold)/(1-scale))/100;
@@ -42,7 +46,7 @@ function report(event,row){
 
 function choose(row,target){
     if(!ports.writable())throw Error('Restore saving before choosing a form.');
-    const result=chooseSkillEvolution(state,row,target,ports.skill(row.from).getCurrentLvl(),progressContext(row));
+    const result=chooseSkillEvolution(state,row,target,readLineage(row.from).level,progressContext(row));
     if(result.costs.length)throw Error('This practice cannot settle that cost.');
     commitChoice(row,result);
 }
@@ -51,7 +55,8 @@ function commitChoice(row,result) {
     ports.persist(result.state);
     state=result.state;
     report(result.event,row);
-    for(const part of row.sources??[{id:row.from}])ports.repaint(part.id);
+    if(evolvesPath(row))ports.repaintPath?.();
+    else for(const part of row.sources??[{id:row.from}])ports.repaint(part.id);
     refresh();
 }
 
@@ -63,12 +68,12 @@ function refuse(row) {
 function refresh(){
     if(!ports)return;
     const host=globalThis.document?.getElementById('skill_list');
-    if(!queue&&host)queue=mountGrowthQueue(host);
+    if(!queue&&host)queue=mountGrowthQueue(host,observePathGrowth);
     queue?.render(SKILL_EVOLUTIONS.filter(row=>state.choices[row.id]?.status==='waiting')
         .map(row=>{
             const quote=quoteSkillEvolution(state,row,readLineage(row.from).level,progressContext(row));
             return {row,quote,reason:eligibility(row,quote),choose:target=>choose(row,target),refuse:()=>refuse(row)};
-        }));
+        }),pathRows.map(row=>evolvedPath(row.from)).filter(Boolean));
     for(const [id,{row,parent,render}] of displays){
         if(!parent.isConnected){displays.delete(id);continue;}
         const choice=state.choices[row.id];
@@ -113,6 +118,17 @@ export function observeGrowthRest() {
     for(const row of SKILL_EVOLUTIONS.filter(row=>row.offerOn==='rest'))offer(row,'rest');
 }
 
+export function observePathGrowth() {
+    if(ports?.writable())for(const row of pathRows)offer(row,'rank');
+}
+
+export function evolvedPath(id){
+    const row=rows.get(id);
+    if(!ports||!row||!evolvesPath(row)||ports.context().world!==row.requirements.world)return;
+    const form=chosenSkillForm(state,row);
+    if(form)return {id:form.id,name:form.name,description:form.description,...readLineage(id)};
+}
+
 export function focusSkillGrowth(){refresh();queue?.focus();}
 export const evolvedSkill = id => activeSkillForm(state,SKILL_EVOLUTIONS,id);
 export const mergedGrowth = id => ports&&mergedSkillView(state,SKILL_EVOLUTIONS,id,readLineage);
@@ -139,5 +155,5 @@ registerDomain({id:'skill_evolution',initialState:emptySkillEvolution,
     load:saved=>{state=readSkillEvolution(saved,SKILL_EVOLUTIONS);},
     save:()=>Object.keys(state.choices).length?structuredClone(state):undefined,
     commands:{form:evolvedSkill,use:evolvedUse,recovery:settleGrowthRecovery},
-    projection:(name,id)=>name==='merged'?mergedGrowth(id):undefined,
+    projection:(name,id)=>name==='merged'?mergedGrowth(id):name==='path'?evolvedPath(id):undefined,
     refresh});

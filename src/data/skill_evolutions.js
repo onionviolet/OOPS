@@ -1,10 +1,11 @@
-import {combinesSkills,readSkillEvolution,validateEvolutionRows} from '../skill_evolution.js';
+import {combinesSkills,evolvesPath,readSkillEvolution,validateEvolutionRows} from '../skill_evolution.js';
 
 const village={world:'base.frontier'};
 const practice={...village,location:'Village',activity:'weightlifting'};
 export const SKILL_EVOLUTION_WORLDS={
-    'base.frontier':{primary:'EV1',mix:['EV2','EV3','EV4','EV5','specialization'],grades:['Common','Uncommon']},
+    'base.frontier':{primary:'EV1',mix:['EV2','EV3','EV4','EV5','EV6','specialization'],grades:['Common','Uncommon']},
 };
+export const VILLAGE_PATROL_PATH='Village patrol';
 
 export const SKILL_EVOLUTIONS=validateEvolutionRows([{
     id:'village.grain-lifts',policy:'specialization',from:'Weightlifting',threshold:3,
@@ -55,6 +56,18 @@ export const SKILL_EVOLUTIONS=validateEvolutionRows([{
     targets:[{id:'village.quiet-recovery',name:'Quiet recovery',costs:[],restrictions:village,
         description:'While sleeping, recover up to 1 extra stamina each minute when injured or 2 at full health.',
         gains:{function:{trigger:'sleep-stamina',mode:'restore-stamina',amount:2,injuredShare:0.5}}}],
+},{
+    id:'village.patrol-path',policy:'EV6',from:VILLAGE_PATROL_PATH,threshold:2,
+    requirements:village,requirementText:'Earn Mentor on the Village patrol.',
+    carryText:'Replaces the Mentor title. Keeps your rank, completed rounds, returned kit, Watchcraft and teaching access.',
+    targets:[
+        {id:'village.route-mentor',name:'Route mentor',costs:[],restrictions:village,
+            description:'Tessa pays 2 extra coins for each completed patrol when you are not teaching.',
+            gains:{function:{trigger:'completed-patrol',mode:'route-stipend',amount:2}}},
+        {id:'village.teaching-mentor',name:'Teaching mentor',costs:[],restrictions:village,
+            description:'While you teach Iona on patrol, she earns 2 minutes of Watchcraft practice per minute, up to her usual limit.',
+            gains:{function:{trigger:'recruit-practice',mode:'faster-teaching',amount:2}}},
+    ],
 }],SKILL_EVOLUTION_WORLDS);
 
 export function validateSkillEvolutionEnvelope(envelope) {
@@ -63,6 +76,12 @@ export function validateSkillEvolutionEnvelope(envelope) {
     const xp=id=>native?.[id]??envelope.skills?.[id]?.total_xp??0;
     for(const row of SKILL_EVOLUTIONS){
         const choice=state.choices[row.id];
+        if(evolvesPath(row)){
+            if(choice&&(!(envelope.village_career?.rank>=row.threshold)||choice.level!==envelope.village_career.rank)){
+                throw Error('An evolved path needs its earned career rank.');
+            }
+            continue;
+        }
         if(row.policy!=='specialization'&&choice&&!(xp(row.from)>0))throw Error('Evolved skill needs its original XP lineage.');
         if(combinesSkills(row)&&choice&&row.sources.some(part=>!(xp(part.id)>0))){
             throw Error('Merged skill needs all of its original XP lineages.');

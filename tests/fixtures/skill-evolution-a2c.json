@@ -1,0 +1,17 @@
+{
+  "village_career": {"rank":2,"completed":5,"returned":5},
+  "skill_evolution": {
+    "revision":3,
+    "choices":{
+      "village.counterstep":{"status":"chosen","level":2,"target":"village.counterstep-form"},
+      "village.recovery":{"status":"chosen","level":1,"target":"village.quiet-recovery"}
+    }
+  },
+  "levels":{
+    "person":{
+      "main_character":{
+        "skill_xp":{"Evasion":59.5,"Combat":172,"Patience":60,"Breathing":400.2,"Regeneration":1000}
+      }
+    }
+  }
+}

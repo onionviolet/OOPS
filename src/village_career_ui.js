@@ -31,12 +31,12 @@ export function createVillageCareerControls({read,resolve,promote,notes,readNote
     function render() {
         const v=read();panel.hidden=!v.visible;refreshShortcut();
         if(!v.visible)return;
-        const s=v.state,next=JSON.stringify([s,v.study,v.hasNotes,v.canWrite,v.busy,v.canTeach,v.recruitAlive]);
-        if(next!==signature) {signature=next;title.textContent=`Village patrol · ${CAREER_RANKS[s.rank]}`;
+        const s=v.state,next=JSON.stringify([s,v.path?.id,v.study,v.hasNotes,v.canWrite,v.busy,v.canTeach,v.recruitAlive]);
+        if(next!==signature) {signature=next;title.textContent=`Village patrol · ${v.path?.name??CAREER_RANKS[s.rank]}`;
             status.textContent=s.loan?.status==='active'?'Loaned lantern and baton in your custody. Finish the two-hour round for 50 base coins; leaving early earns no shift credit.':s.loan?`Kit ${s.debt?'debt: 50 coins':'return due'}. Return it before your next shift, or record a 50-coin debt if you keep it.`:'Take a loaned lantern and baton through the native patrol job below. Each full round pays 50 base coins; the report bonus is shown below.';
             memory.textContent=villageColleagueMemory(s);
             const unmet=villagePromotionRequirements(s);
-            requirements.textContent=s.rank===2?'Mentor: all three career ranks earned.':`Next: ${CAREER_RANKS[s.rank+1]}. ${unmet.length?unmet.join(' '):'All requirements met. Ask Tessa for your promotion.'}`;
+            requirements.textContent=v.path?.description??(s.rank===2?'Mentor: open Growth to review your patrol paths.':`Next: ${CAREER_RANKS[s.rank+1]}. ${unmet.length?unmet.join(' '):'All requirements met. Ask Tessa for your promotion.'}`);
             const controls=[],disabled=!v.canWrite||v.busy;held=!v.canWrite?'Finish current work in the writable game tab.':v.busy?'Finish your current activity, work or occupation first.':'';
             const w=v.study;
             study.textContent=w.executable?'Watchcraft ready on this round · loaned lantern and baton held.'

@@ -215,7 +215,7 @@ Only the Skill-Grinder audit reports fresh bounded text reading in round3. The o
 
 ## Skill evolution proposal, 2026-11-26
 
-**Proposal under AD56.** A world declares a primary policy and any explicit mix. Village keeps EV1 first and adds EV2 through EV5 and specialization for the named skills. Native XP and level belong to their lineage. An evolution assigns one active form to either a single lineage or a group of lineages.
+**Proposal under AD56.** A world declares a primary policy and any explicit mix. Village keeps EV1 first and adds EV2 through EV6 and specialization. Native XP and level belong to their lineage. An evolution assigns one active form to a single lineage, a group of lineages, or an earned class or profession record.
 
 | Policy | Skill change | Status |
 | --- | --- | --- |
@@ -224,7 +224,7 @@ Only the Skill-Grinder audit reports fresh bounded text reading in round3. The o
 | EV3 · Grade climb | Choose an offered form of a higher local grade. The active form keeps its lineage and learned level. | Sleeping offers a Common to Uncommon upgrade at level 2. |
 | EV4 · Fusion | Two skills reaching their specified levels can take one shared form with a new function. | Evasion and Combat at level 2 offer Counterstep, which recovers stamina on a dodge. |
 | EV5 · Consolidation | Rest or a qualifying gain offers a broader form for several related skills. | At the start of sleep, Patience, Breathing and Regeneration at level 1 offer Quiet recovery. It restores up to two extra stamina per minute at full health or one while injured. |
-| EV6 · Class or path | Evolve a class or path with its own carried progression and unlocks. | Later slice. |
+| EV6 · Class or path | Evolve an earned career identity at its threshold, with the existing ledger and access carried into the selected path. | Village Mentor offers Route mentor or Teaching mentor in Growth. |
 | Specialization | Add a practice perk alongside its source skill. | A2's Heavy sets and Balanced lifts remain choices for Weightlifting 3 in the Village grain-bag workout. |
 
 Iron skin keeps its native defense and bare-skin training. After native mitigation, Tempered skin removes all remaining critical surplus on bare skin and half under armor. Breathing skin restores one missing stamina on a damaging bare-skin hit. Armor scales that amount by the share of the hit that reached the body, capped at 0.75 stamina. Tempered skin shortens newly applied bleeding, and Breathing skin shortens newly applied poison, to 75% duration rounded up. Those body effects apply with or without armor. [Research on advancement](RESEARCH_LITRPG_SYSTEMS.md#skill-tiers-critical-points-and-advancement-routes-2026-10-02)
@@ -235,7 +235,9 @@ The held-out EV2 case is the Common Thrust choice in *A Novel Concept*, chapter 
 
 The neutral offer event leaves idle play running and appears once under Growth in Reports. Its button opens the one Growth queue in Skills. EV4 and EV5 quote each constituent's current XP and level. Their commitment retires the separate skill identities and keeps the original practice, XP and bonuses under one active skill. Each practiced source still gets its own XP once. The player can defer or permanently decline. Evasion and Combat already meet in every Village fight. Patience, Breathing and Regeneration train the three parts of catching one's breath and recovering at rest. [Joined source cases](RESEARCH_LITRPG_SYSTEMS.md#joined-skill-cases-2026-11-26)
 
-The optional save slice revision 3 records the chosen or refused form by row ID. Pre-A2 saves carry their original XP and names, revision 1 carries specialization, and revision 2 carries the EV2 and EV3 forms. Loading grants no XP or choice. Selection quotes current facts, settles through the native save transaction and publishes its receipt only on success. The Skills view reads the same projected active identity and XP by source that a future view can use. The recovery functions take an actual dodge or sleep settlement and missing stamina, independent of the timer or UI. [A2 proof](representations/evidence/skill-evolution-2026-11-26/proof.json)
+Village uses its established patrol career because it already has a threshold, kit custody, paid rounds and a teaching route. Mentor is rank 2, earned after five completed rounds and five completed-round kit returns. Route mentor gains two coins on each completed patrol without teaching. Teaching mentor doubles Iona's practice gain while teaching on patrol, up to the existing practice cap. Either path retains the earned rank and its access. A mentor who defers can continue the ordinary patrol. The Growth queue and the existing patrol panel read the same path projection. [Class and profession source cases](RESEARCH_LITRPG_SYSTEMS.md#class-and-profession-evolution-2026-11-26)
+
+The optional save slice revision 4 records the chosen or refused form by row ID. Pre-A2 saves carry their original XP and names. Revisions 1, 2 and 3 retain specialization, evolved forms and grades, and the joined skills, respectively. Old patrol careers keep their rank and may open Growth to review the offer. Loading grants no XP or choice. Selection quotes current facts, settles through the native save transaction and publishes its receipt only on success. Skills and patrol effects settle from native action results and can use the same projection and receipts in another view. [A2 proof](representations/evidence/skill-evolution-2026-11-26/proof.json)
 
 ## Progression dispatch chronology reconciliation B570
 

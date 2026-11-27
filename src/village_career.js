@@ -174,12 +174,12 @@ export function beginRecruitSolo(state,cover=false) {
     if(cover){check(r.favors>0,'Iona owes no favor');r.favors--;}
     r.covering=cover;r.soloRemaining=120;return validateVillageCareer(s);
 }
-export function advanceVillageMentor(state,{inVillage,alive,patrolling}) {
+export function advanceVillageMentor(state,{inVillage,alive,patrolling,teachingPractice=1}) {
     const s=migrateVillageCareer({village_career:state}),r=s.recruit;
     if(r && inVillage && alive) {
         if(patrolling && s.loan?.teaching) {
             s.loan.teachingMinutes=Math.min(120,s.loan.teachingMinutes+1);
-            const before=r.practiceMinutes;r.practiceMinutes=Math.min(WATCHCRAFT_PRACTICE,before+1);
+            const before=r.practiceMinutes;r.practiceMinutes=Math.min(WATCHCRAFT_PRACTICE,before+teachingPractice);
             if(before<5 && r.practiceMinutes===5 && s.loan.teachingTerm==='favor')r.favors++;
         }
         if(r.soloRemaining!==null) {r.soloRemaining--;if(r.soloRemaining===0){r.soloRemaining=null;r.soloPatrols++;r.covering=false;if(r.soloPatrols===1)r.tuition='offered';}}
