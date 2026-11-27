@@ -214,7 +214,7 @@ export function stageStructuredNativeObjects(d,{availabilities,makeLocation,make
 
 // Bundled extensions may add local places. The base world, actors and
 // beginning stay pinned. Stage native objects after the definition checks.
-export function registerStructuredCommandExtension(raw,contentHash,base,registry,stageObjects,{bundledInstant=false,previousRevision}={}) {
+export function registerStructuredCommandExtension(raw,contentHash,base,registry,stageObjects,{bundledInstant=false,previousRevision,guExchanges}={}) {
     jsonData(raw, 0, raw?.id || 'extension');requireExtensionBase(raw,base);
     check(raw.schema===1&&stableId(raw.id)&&raw.id.startsWith(base.id+'.')&&Number.isSafeInteger(raw.revision)&&raw.revision>0&&/^sha256:[a-f0-9]{64}$/.test(contentHash),'Invalid command extension header.');
     check(Object.keys(raw).every(k=>['schema','id','revision','base','label','description','requires','reason','commands','items','status','locations','dependsOn','energies','roles','conditions','supportAlternatives'].includes(k))&&typeof raw.label==='string'&&typeof raw.description==='string'&&typeof raw.reason==='string'&&Array.isArray(raw.commands)&&raw.commands.length>0,'Only a command extension is supported.');
@@ -233,6 +233,11 @@ export function registerStructuredCommandExtension(raw,contentHash,base,registry
         }
     }
     check(!(base.extensions||[]).some(e=>e.id===raw.id),'Duplicate structured extension.');
+    if(guExchanges) {
+        jsonData(guExchanges,0,raw.id);
+        check(Object.entries(guExchanges).every(([id,row])=>row.id===id&&raw.commands.some(c=>c.id===id&&c.duration>0&&!c.outcomes)),
+            'A Gu exchange needs a matching timed command.');
+    }
     for(const c of raw.commands) {
         // Curated player continuations can spend an attempt irreversibly (a
         // continuously fueled Gu, for example). Keep the existing refund path
@@ -297,6 +302,8 @@ export function registerStructuredCommandExtension(raw,contentHash,base,registry
             existingEnergy(e)&&e.operation==='recover'&&Number.isSafeInteger(e.amount)||
             localEnergy(e)&&e.operation==='learn';
         const outcomes=(c.outcomes||[]).flatMap(outcome=>outcome.effects||[]);
+        const exchange=guExchanges?.[c.id];
+        if(exchange) outcomes.push(...exchange.results.held,...exchange.results.failed);
         const practice=e=>bundledInstant&&c.duration===0&&e.type==='power'&&playerEffect(e)&&
             c.powerId===e.powerId&&e.operation==='refine'&&Number.isSafeInteger(e.amount)&&e.amount>0;
         const tendColony=e=>bundledInstant&&raw.id===keeperColonyEffectPack(e.operation)&&base.world.id===keeperFarmWorld&&
@@ -354,7 +361,11 @@ export function registerStructuredCommandExtension(raw,contentHash,base,registry
     const candidate={...base,locations:[...base.locations,...priorLocations,...locations],items:[...(base.items||[]),...priorItems,...items],presentation:{...base.presentation,people:{...base.presentation.people,...Object.fromEntries([...dependencyRoles,...roles].map(role=>[role.id,{introductionKnowledgeKey:role.introductionKnowledgeKey}]))},status:[...base.presentation.status,...status]},
         simulation:{...base.simulation,people:[...(base.simulation.people||[]),...dependencyRoles,...roles],conditions:[...(base.simulation.conditions||[]),...conditions],energies:[...(base.simulation.energies||[]),...energies],commands:[...base.simulation.commands,...raw.commands]}};
     const compiled=compileStructuredPack(candidate);
-    const commands=raw.commands.map(c=>compiled.registry.simulation.commands.get(c.id));
+    const commands=raw.commands.map(c=>{
+        const command=compiled.registry.simulation.commands.get(c.id);
+        const exchange=guExchanges?.[c.id];
+        return exchange?freeze({...command,guExchange:structuredClone(exchange)}):command;
+    });
     const extension=freeze({...structuredClone(raw),contentHash,commands,
         ...(previousRevision && {previousRevision:structuredClone(previousRevision)})});
     for(const c of commands)check(!registry.simulation.commands.has(c.id),'Structured extension command collision.');

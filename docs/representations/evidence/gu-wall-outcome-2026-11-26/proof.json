@@ -1,0 +1,321 @@
+{
+  "schema": "gu-wall-outcome/1",
+  "entry": "/",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "bundleSha256": "0b34b9c4aa97446094fa716f1e8bacbb3ef036d9bdeb69c672afa4d7f4b04448",
+  "setup": "Fang earned through the lead-life simulation route on 2ac5278e8, with its expansion, pins and inventory loaded via the game’s file Import. All wall actions use the rebuilt browser UI.",
+  "clockMode": "Paused background browser, minute steps use the existing game tick.",
+  "fixtures": {
+    "earnedWoodCharmSha256": "56fcbb55cdac10245dc85d86f96b00e81a87cda941f73e7505de410d996d8dff",
+    "revision1MidExchangeSha256": "75a5cdc39098f694c341f4c2295abf07d8c7dc2ac00d3a34b9173ac491b5d69d",
+    "revision2MidExchangeSha256": "fe539c6d7b636ad60f2f8c751cefe1cfa8f5a55ff1e8346cb4538aed547831e6"
+  },
+  "runs": [
+    {
+      "label": "current",
+      "pageErrors": [],
+      "stages": {
+        "before": {
+          "clock": 321746,
+          "location": "book.ri.lead.academy",
+          "revision": 2,
+          "essence": 36,
+          "wall": "tide_counted",
+          "completed": 0,
+          "pending": null
+        },
+        "pending": {
+          "clock": 321750,
+          "location": "book.ri.lead.academy",
+          "revision": 2,
+          "essence": 12,
+          "wall": "tide_counted",
+          "completed": 0,
+          "pending": {
+            "id": "simulation:427",
+            "revision": 2,
+            "due": 321761,
+            "remaining": 11,
+            "reservations": [
+              9,
+              5,
+              5,
+              5
+            ]
+          }
+        },
+        "pendingReload": {
+          "clock": 321750,
+          "location": "book.ri.lead.academy",
+          "revision": 2,
+          "essence": 12,
+          "wall": "tide_counted",
+          "completed": 0,
+          "pending": {
+            "id": "simulation:427",
+            "revision": 2,
+            "due": 321761,
+            "remaining": 11,
+            "reservations": [
+              9,
+              5,
+              5,
+              5
+            ]
+          }
+        },
+        "pendingImport": {
+          "clock": 321750,
+          "location": "book.ri.lead.academy",
+          "revision": 2,
+          "essence": 12,
+          "wall": "tide_counted",
+          "completed": 0,
+          "pending": {
+            "id": "simulation:427",
+            "revision": 2,
+            "due": 321761,
+            "remaining": 11,
+            "reservations": [
+              9,
+              5,
+              5,
+              5
+            ]
+          }
+        },
+        "oneMinuteLeft": {
+          "clock": 321760,
+          "location": "book.ri.lead.academy",
+          "revision": 2,
+          "essence": 12,
+          "wall": "tide_counted",
+          "completed": 0,
+          "pending": {
+            "id": "simulation:427",
+            "revision": 2,
+            "due": 321761,
+            "remaining": 1,
+            "reservations": [
+              9,
+              5,
+              5,
+              5
+            ]
+          }
+        },
+        "settled": {
+          "clock": 321761,
+          "location": "book.ri.lead.academy",
+          "revision": 2,
+          "essence": 12,
+          "wall": "essence_below_half_after_first_exchange",
+          "wolf": "killed_at_the_ladder",
+          "completed": 1,
+          "pending": null
+        },
+        "settledReload": {
+          "clock": 321761,
+          "location": "book.ri.lead.academy",
+          "revision": 2,
+          "essence": 12,
+          "wall": "essence_below_half_after_first_exchange",
+          "wolf": "killed_at_the_ladder",
+          "completed": 1,
+          "pending": null
+        },
+        "settledImport": {
+          "clock": 321761,
+          "location": "book.ri.lead.academy",
+          "revision": 2,
+          "essence": 12,
+          "wall": "essence_below_half_after_first_exchange",
+          "wolf": "killed_at_the_ladder",
+          "completed": 1,
+          "pending": null
+        }
+      }
+    },
+    {
+      "label": "legacy",
+      "pageErrors": [],
+      "stages": {
+        "pending": {
+          "clock": 321750,
+          "location": "book.ri.lead.academy",
+          "revision": 2,
+          "essence": 12,
+          "wall": "tide_counted",
+          "completed": 0,
+          "pending": {
+            "id": "simulation:429",
+            "revision": 2,
+            "due": 321761,
+            "remaining": 11,
+            "reservations": [
+              9,
+              5,
+              5,
+              5
+            ]
+          }
+        },
+        "oneMinuteLeft": {
+          "clock": 321760,
+          "location": "book.ri.lead.academy",
+          "revision": 2,
+          "essence": 12,
+          "wall": "tide_counted",
+          "completed": 0,
+          "pending": {
+            "id": "simulation:429",
+            "revision": 2,
+            "due": 321761,
+            "remaining": 1,
+            "reservations": [
+              9,
+              5,
+              5,
+              5
+            ]
+          }
+        },
+        "settled": {
+          "clock": 321761,
+          "location": "book.ri.lead.academy",
+          "revision": 2,
+          "essence": 12,
+          "wall": "essence_below_half_after_first_exchange",
+          "wolf": "killed_at_the_ladder",
+          "completed": 1,
+          "pending": null
+        }
+      }
+    },
+    {
+      "label": "v2",
+      "pageErrors": [],
+      "stages": {
+        "pending": {
+          "clock": 321750,
+          "location": "book.ri.lead.academy",
+          "revision": 2,
+          "essence": 12,
+          "wall": "tide_counted",
+          "completed": 0,
+          "pending": {
+            "id": "simulation:427",
+            "revision": 2,
+            "due": 321761,
+            "remaining": 11,
+            "reservations": [
+              9,
+              5,
+              5,
+              5
+            ]
+          }
+        },
+        "oneMinuteLeft": {
+          "clock": 321760,
+          "location": "book.ri.lead.academy",
+          "revision": 2,
+          "essence": 12,
+          "wall": "tide_counted",
+          "completed": 0,
+          "pending": {
+            "id": "simulation:427",
+            "revision": 2,
+            "due": 321761,
+            "remaining": 1,
+            "reservations": [
+              9,
+              5,
+              5,
+              5
+            ]
+          }
+        },
+        "settled": {
+          "clock": 321761,
+          "location": "book.ri.lead.academy",
+          "revision": 2,
+          "essence": 12,
+          "wall": "essence_below_half_after_first_exchange",
+          "wolf": "killed_at_the_ladder",
+          "completed": 1,
+          "pending": null
+        }
+      }
+    }
+  ],
+  "captures": [
+    "wall-ready-1920.png",
+    "wall-pending-1920.png",
+    "wall-settled-1920.png",
+    "revision-1-settled-1920.png",
+    "revision-2-settled-1920.png"
+  ],
+  "saveGate": {
+    "command": "npm run gate:save",
+    "exit": 0,
+    "schema": "save-gate-fixtures/1",
+    "bundleSha256": "0b34b9c4aa97446094fa716f1e8bacbb3ef036d9bdeb69c672afa4d7f4b04448",
+    "loader": "rebuilt normal browser entry",
+    "results": [
+      {
+        "id": "fang-first-night",
+        "inputSha256": "ea22d85a40cec94cb79b88b66e7fe0752a99608676aef845a13d87d5952d5db5",
+        "result": "passed",
+        "startClock": 14919,
+        "afterIdleClock": 14920,
+        "reloadClock": 14920,
+        "importClock": 14920,
+        "location": "book.ri.lead.home",
+        "character": "Hero",
+        "browserPageErrors": 0
+      },
+      {
+        "id": "klein-ch129",
+        "inputSha256": "ebd217413f215f9413845932c942a15ba9140ec1d5f93a191f0b97fc34e4d3c0",
+        "result": "passed",
+        "startClock": 79256,
+        "afterIdleClock": 79257,
+        "reloadClock": 79257,
+        "importClock": 79257,
+        "location": "lotm.place.kj3ba.cargo-deck",
+        "character": "Klein Moretti",
+        "browserPageErrors": 0
+      },
+      {
+        "id": "ryan-ch1",
+        "inputSha256": "3ba2981f1400b202bbd4c39b1afc1819af1f382ccea23c3fc73dc513feba4820",
+        "result": "passed",
+        "startClock": 0,
+        "afterIdleClock": 1,
+        "reloadClock": 1,
+        "importClock": 1,
+        "location": "Village",
+        "character": "Hero",
+        "browserPageErrors": 0,
+        "ryanRunClock": 7,
+        "ryanPhase": "complete"
+      },
+      {
+        "id": "alden-hospital",
+        "inputSha256": "3fdd19100b02ffabb75208b6289e850cc898dfcae29c56229835d80c53c63ab0",
+        "result": "passed",
+        "startClock": 1020,
+        "afterIdleClock": 1021,
+        "reloadClock": 1021,
+        "importClock": 1021,
+        "location": "book.sup.lead.hospital_room",
+        "character": "Hero",
+        "browserPageErrors": 0
+      }
+    ]
+  }
+}

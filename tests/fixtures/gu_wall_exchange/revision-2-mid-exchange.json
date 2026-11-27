@@ -1,0 +1,203 @@
+{
+  "sourceCommit": "c3954e713",
+  "elapsed": 4,
+  "clock": 321750,
+  "pin": {
+    "id": "book.ri.lead.wall_night",
+    "revision": 2,
+    "contentHash": "sha256:187c3e7b56e3fc7ef1d79052f2de7f542d22688800a513044808853c68a2faa3"
+  },
+  "energy": {
+    "policy": {
+      "id": "book.ri.lead.primeval",
+      "revision": 1,
+      "label": "Green-copper primeval essence",
+      "capacity": 44,
+      "output": 44,
+      "control": 1,
+      "efficiencyNumerator": 1,
+      "efficiencyDenominator": 1,
+      "strainLimit": 0,
+      "strainPerUse": 0
+    },
+    "reserve": 12,
+    "strain": 0
+  },
+  "job": {
+    "id": "simulation:427",
+    "sequence": 427,
+    "commandId": "book.ri.lead.wall_night.hold_the_wall_against_a_bold_wolf",
+    "revision": 2,
+    "actorId": "player",
+    "targetId": null,
+    "due": 321761,
+    "effects": [
+      {
+        "type": "fact",
+        "actor": "player",
+        "scope": "actor",
+        "key": "book.ri.lead.wall_night.wall",
+        "value": "essence_below_half_after_first_exchange"
+      },
+      {
+        "type": "fact",
+        "actor": "player",
+        "scope": "world",
+        "key": "book.ri.lead.wall_night.bold_wolf",
+        "value": "killed_at_the_ladder"
+      },
+      {
+        "type": "knowledge",
+        "actor": "player",
+        "key": "book.ri.lead.wall_night.wall",
+        "stage": "understood",
+        "value": "The Water Shield takes the lightning. Three Moonblades wound the wolf and the defenders kill it. You are below half your essence and step down."
+      }
+    ],
+    "costs": [
+      {
+        "type": "energy",
+        "actor": "player",
+        "energyId": "book.ri.lead.primeval",
+        "operation": "use",
+        "output": 9,
+        "control": 1
+      },
+      {
+        "type": "energy",
+        "actor": "player",
+        "energyId": "book.ri.lead.primeval",
+        "operation": "use",
+        "output": 5,
+        "control": 1
+      },
+      {
+        "type": "energy",
+        "actor": "player",
+        "energyId": "book.ri.lead.primeval",
+        "operation": "use",
+        "output": 5,
+        "control": 1
+      },
+      {
+        "type": "energy",
+        "actor": "player",
+        "energyId": "book.ri.lead.primeval",
+        "operation": "use",
+        "output": 5,
+        "control": 1
+      }
+    ],
+    "cancellation": "refund",
+    "siteId": null,
+    "claim": null,
+    "label": "Hold the ladder with Water Shield and three Moonblades",
+    "roll": null,
+    "outcomeId": null,
+    "context": {
+      "actorId": "player",
+      "targetId": null,
+      "partyIds": []
+    },
+    "participants": [
+      "player"
+    ],
+    "reservationReturns": 1,
+    "completionSupport": {
+      "schema": 1,
+      "requires": {
+        "all": [
+          {
+            "all": [
+              {
+                "fact": "actor.life",
+                "op": "eq",
+                "value": "alive"
+              },
+              {
+                "fact": "native.ready",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "native.alive",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "body.ownerId",
+                "op": "eq",
+                "value": "player"
+              },
+              {
+                "fact": "body.controllerId",
+                "op": "eq",
+                "value": "player"
+              },
+              {
+                "fact": "body.mobile",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "claim.book.ri.lead.academy_roll.held",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "claim.book.ri.lead.academy_roll.owner",
+                "op": "eq",
+                "value": "player"
+              },
+              {
+                "fact": "faculty.book.ri.lead.aperture.active",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "actor.location",
+                "op": "eq",
+                "value": "book.ri.lead.academy"
+              }
+            ]
+          },
+          {
+            "all": [
+              {
+                "fact": "structured.extension.book.ri.lead.wall_night.admitted",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "completed.book.ri.lead.wall_night.answer_the_sirens",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          },
+          {
+            "fact": "actor.book.ri.lead.wall_night.wall",
+            "op": "eq",
+            "value": "tide_counted"
+          },
+          {
+            "fact": "item.{\"id\":\"book.ri.lead.moonglow.moonglow_gu\"}",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "fact": "item.{\"id\":\"book.ri.lead.wood_charm.water_shield_gu\"}",
+            "op": "gte",
+            "value": 1
+          }
+        ]
+      },
+      "coLocated": true,
+      "location": "book.ri.lead.academy",
+      "failure": "refund"
+    },
+    "audience": [
+      "player"
+    ]
+  }
+}

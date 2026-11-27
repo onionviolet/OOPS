@@ -36,7 +36,8 @@ import {guLeadEarGrass, guLeadEarGrassClockRequest, registerGuLeadEarGrass} from
 import {guLeadIceSoul, guLeadIceSoulClockRequest, registerGuLeadIceSoul} from '../src/world_packs/book_gu_lead_ice_soul.js';
 import {guLeadIceCrystal, registerGuLeadIceCrystal} from '../src/world_packs/book_gu_lead_ice_crystal.js';
 import {guLeadWoodCharm, guLeadWoodCharmClockRequest, registerGuLeadWoodCharm} from '../src/world_packs/book_gu_lead_wood_charm.js';
-import {guLeadWallNight, guLeadWallNightPrevious, registerGuLeadWallNight} from '../src/world_packs/book_gu_lead_wall_night.js';
+import {guLeadWallNight, guLeadWallNightPrevious, registerGuLeadWallNight, wallExchange, wallNightRegistration} from '../src/world_packs/book_gu_lead_wall_night_data.js';
+import {settleGuExchange} from '../src/gu_exchange_host.js';
 import {guLeadBurialGu, registerGuLeadBurialGu} from '../src/world_packs/book_gu_lead_burial_gu.js';
 import {guLeadElderHall, guLeadElderHallClockRequest, registerGuLeadElderHall} from '../src/world_packs/book_gu_lead_elder_hall.js';
 import {guLeadSecretRoom, guLeadSecretRoomClockRequest, registerGuLeadSecretRoom} from '../src/world_packs/book_gu_lead_secret_room.js';
@@ -91,7 +92,7 @@ function beginning() {
     const iceCrystal = registerStructuredCommandExtension(guLeadIceCrystal, hash(guLeadIceCrystal), definition, registry);
     const woodCharm = registerStructuredCommandExtension(guLeadWoodCharm, hash(guLeadWoodCharm), definition, registry);
     const wallNight = registerStructuredCommandExtension(guLeadWallNight, hash(guLeadWallNight), definition, registry,
-        undefined, {previousRevision: guLeadWallNightPrevious});
+        undefined, {...wallNightRegistration, previousRevision: guLeadWallNightPrevious});
     const burialGu = registerStructuredCommandExtension(guLeadBurialGu, hash(guLeadBurialGu), definition, registry);
     const elderHall = registerStructuredCommandExtension(guLeadElderHall, hash(guLeadElderHall), definition, registry);
     const secretRoom = registerStructuredCommandExtension(guLeadSecretRoom, hash(guLeadSecretRoom), definition, registry);
@@ -2047,7 +2048,7 @@ test('the later search separates sighting, custody, the prior bond, new refineme
     });
 
 
-    await t.test('the wall reserves per activation and a legacy mid-exchange save settles or refunds the same amount', () => {
+    await t.test('both issued wall saves settle or refund the same reservation through the kernel', () => {
         const names = name => 'wall_night.' + name;
         const play = name => work(names(name), guLeadWallNight.commands.find(c => c.id === id(names(name))).duration);
         const fact = name => life.player.facts[id(names(name))];
@@ -2083,6 +2084,13 @@ test('the later search separates sighting, custody, the prior bond, new refineme
         assert.equal(fact('plan'), 'life_burial_recipe_pending_right_moment');
         play('answer_the_sirens');
         const legacy = JSON.parse(readFileSync(new URL('./fixtures/gu_wall_exchange/legacy-mid-exchange.json', import.meta.url), 'utf8'));
+        const previous = JSON.parse(readFileSync(new URL('./fixtures/gu_wall_exchange/revision-2-mid-exchange.json', import.meta.url), 'utf8'));
+        const canonicalReserve = life.energy.reserve;
+        life.energy.reserve = 23;
+        assert.throws(() => life.act(names('hold_the_wall_against_a_bold_wolf')), /Finish the previous step/);
+        assert.equal(life.state.simulation.jobs.length, 0);
+        assert.equal(life.energy.reserve, 23);
+        life.energy.reserve = canonicalReserve;
         life.act(names('hold_the_wall_against_a_bold_wolf'));
         life.step(legacy.elapsed);
         const current = structuredClone({content_packs: {structured: life.record}, expansion: life.state});
@@ -2090,6 +2098,13 @@ test('the later search separates sighting, custody, the prior bond, new refineme
         assert.deepEqual(job.costs.map(cost => cost.output), [9, 5, 5, 5]);
         assert.equal(current.expansion.clock, legacy.clock);
         assert.deepEqual(life.energy, legacy.energy);
+        assert.deepEqual(life.energy, previous.energy);
+        assert.equal(current.expansion.clock, previous.clock);
+        assert.deepEqual(current.content_packs.structured.extensions.at(-1), previous.pin);
+        assert.deepEqual({...previous.job, id:job.id, sequence:job.sequence}, job);
+        const v2 = structuredClone(current);
+        v2.expansion.simulation.jobs[0] = {...previous.job, id:job.id, sequence:job.sequence};
+        assert.deepEqual(life.prepareSave(v2), v2);
         const v1 = structuredClone(current);
         v1.content_packs.structured.extensions.at(-1).revision = legacy.pin.revision;
         v1.content_packs.structured.extensions.at(-1).contentHash = legacy.pin.contentHash;
@@ -2110,6 +2125,10 @@ test('the later search separates sighting, custody, the prior bond, new refineme
         assert.equal(worldFact('bold_wolf'), 'killed_at_the_ladder');
         assert.equal(life.energy.reserve, 12);
         assert.equal(stock('wood_charm.water_shield_gu'), 1);
+        const settled = structuredClone(life.state);
+        life.restoreSave(v2);
+        life.step(job.due - previous.clock);
+        assert.deepEqual(life.state, settled);
         play('recover_off_the_ladder');
         assert.equal(life.energy.reserve, 34);
         play('rotate_back_until_ten');
@@ -2731,6 +2750,30 @@ test('the wall night continuation requires the exact installed Wood Charm pin', 
     assert.equal(await registerGuLeadWallNight(register, {...pack, extensions: []}), null);
     assert.equal(await registerGuLeadWallNight(register, {...pack, extensions: [{...predecessor, contentHash: 'wrong'}]}), null);
     assert.equal(await registerGuLeadWallNight(register, pack), guLeadWallNight);
+});
+
+test('the shared wall method holds at canon strength and the same rules handle fewer blades or more pressure', () => {
+    const run = (row, parts = 24) => settleGuExchange(row, {actor:'player', parts, at:12, minutes:15});
+    const canon = run(wallExchange);
+    assert.deepEqual(canon.contest, {held:true, wounded:true, injury:0, damage:9, broken:[]});
+    assert.deepEqual(canon.costs.map(row => row.cost), [9, 5, 5, 5]);
+    assert.deepEqual(canon.effects, wallExchange.results.held);
+
+    const fewer = run({...wallExchange, casts:wallExchange.casts.slice(0,-1)},19);
+    assert.deepEqual(fewer.contest, {held:false, wounded:false, injury:0, damage:6, broken:[]});
+    assert.deepEqual(fewer.costs.map(row => row.cost), [9, 5, 5]);
+    assert.deepEqual(fewer.effects, wallExchange.results.failed);
+
+    const harder = structuredClone(wallExchange);
+    harder.contest.packets[0].amount = 6;
+    const broken = run(harder,24);
+    assert.deepEqual(broken.contest, {held:false, wounded:true, injury:1, damage:9, broken:['water-shield']});
+    assert.deepEqual(broken.costs.map(row => row.cost), [9, 5, 5, 5]);
+
+    const short = run(wallExchange,23);
+    assert.equal(short.status,'interrupted');
+    assert.equal(short.reason,'needs more essence');
+    assert.equal(short.effects,undefined);
 });
 
 

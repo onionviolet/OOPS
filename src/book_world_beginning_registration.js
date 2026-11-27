@@ -110,7 +110,7 @@ import {registerGuLeadWildRefinement} from './world_packs/book_gu_lead_wild_refi
 import './ri_lead_sea_domain.js'; // Fang Yuan's sea refills on its own (stage hook)
 import './ri_tide_ledger.js'; // Fang Yuan's patrols and merit per wolf tide (stage hook, academy line)
 import {registerGuLeadWoodCharm,guLeadWoodCharmClockRequest} from './world_packs/book_gu_lead_wood_charm.js';
-import {registerGuLeadWallNight} from './world_packs/book_gu_lead_wall_night.js';
+import {registerGuLeadWallNight} from './world_packs/book_gu_lead_wall_night_data.js';
 import {registerGuLeadBurialGu} from './world_packs/book_gu_lead_burial_gu.js';
 import {registerGuLeadElderHall,guLeadElderHallClockRequest} from './world_packs/book_gu_lead_elder_hall.js';
 import {registerGuLeadSecretRoom,guLeadSecretRoomClockRequest} from './world_packs/book_gu_lead_secret_room.js';

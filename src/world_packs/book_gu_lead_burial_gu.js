@@ -7,7 +7,7 @@ import {GU_LEAD_MOONGLOW} from './book_gu_lead_moonglow.js';
 import {GU_LEAD_WHITE_JADE} from './book_gu_lead_white_jade.js';
 import {GU_LEAD_REFINEMENT} from './book_gu_lead_refinement.js';
 import {GU_LEAD_WOOD_CHARM} from './book_gu_lead_wood_charm.js';
-import {GU_LEAD_WALL_NIGHT} from './book_gu_lead_wall_night.js';
+import {GU_LEAD_WALL_NIGHT} from './book_gu_lead_wall_night_data.js';
 
 export const GU_LEAD_BURIAL_GU = id('burial_gu');
 const local = name => `${GU_LEAD_BURIAL_GU}.${name}`;
