@@ -6014,7 +6014,7 @@ function create_bestiary_entry_tooltip(enemy_name) {
     const tooltip_xp = document.createElement("div"); //base xp enemy gives
     insert_HTML(tooltip_xp, `<br>Base xp value: ${enemy.xp_value} <br><br>`);
     const tooltip_desc = document.createElement("div"); //enemy description
-    tooltip_desc.innerText = enemy.description;
+    tooltip_desc.innerText = enemy.description + (enemy.counterTrait ? '\n' + enemy.counterTrait.name + ': ' + enemy.counterTrait.counter : '');
 
     const tooltip_tags = document.createElement("div"); //enemy description
 

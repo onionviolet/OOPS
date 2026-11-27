@@ -28,6 +28,8 @@ A milestone is done only when every done condition has a commit and a capture or
 
 A5 O1: The Village walking map shows compass exits and takes the chosen native route. [Proof](representations/evidence/protolike-pulls-2026-11-27/o1/proof.json)
 
+A5 O2: Enemy bestiary entries name their combat trait and its counter. Reports shows the damage change when it acts. [Proof](representations/evidence/protolike-pulls-2026-11-27/o2/proof.json)
+
 <a id="future-rpg-view-with-a-map"></a>
 
 ## Future RPG view with a map (consideration)

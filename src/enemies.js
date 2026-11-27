@@ -1,3 +1,4 @@
+import {counterTraits} from './data/enemy_counter_traits.js';
 import {replacedHarvestDrop,supportedHarvest} from './harvest.js';
 import {registerFortEnemies} from "./fork_fort_content.js";
 import {STREAMS,gameRandom,gameKeyedRandom} from "./seeded_streams.js";
@@ -75,6 +76,7 @@ class Enemy {
         add_to_bestiary = true,
         tags = [],
         equipment_keys = {},
+        counterTrait,
         equipment_drop_chance = .25,
         attack_types, //optional {type: weight}; undeclared = untyped physical (src/damage_types.js)
         defense_types, //optional {type: multiplier}; >1 weak, <1 resists
@@ -86,6 +88,7 @@ class Enemy {
         this.name = name;
         this.id = id;
         this.rank = rank; //only for the bestiary order; higher rank => higher in display
+        this.counterTrait = counterTrait;
         this.description = description; //try to keep it short
         this.xp_value = xp_value;
         this.stats = stats;
@@ -414,6 +417,7 @@ const enemy_abilites = {
 
     */
     enemy_templates["Starving wolf rat"] = new Enemy({
+        counterTrait: counterTraits.seam,
         name: "Starving wolf rat",
         description: "Rat with size of a dog, starved and weakened",
         xp_value: 1,
@@ -430,6 +434,7 @@ const enemy_abilites = {
     });
 
     enemy_templates["Wolf rat"] = new Enemy({
+        counterTrait: counterTraits.seam,
         name: "Wolf rat",
         description: "Rat with size of a dog",
         xp_value: 1,
@@ -503,6 +508,7 @@ const enemy_abilites = {
     });
 
     enemy_templates["Young wolf"] = new Enemy({
+        counterTrait: counterTraits.pursuit,
         name: "Young wolf",
         description: "A small, wild canine",
         xp_value: 5,
@@ -551,6 +557,7 @@ const enemy_abilites = {
     });
 
     enemy_templates["Direwolf hunter"] = new Enemy({
+        counterTrait: counterTraits.feint,
         name: "Direwolf hunter",
         description: "A powerful wild wolf variant of unmatched ferocity, the strongest and heaviest out of all direwolves",
         xp_value: 30,
@@ -567,6 +574,7 @@ const enemy_abilites = {
     });
 
     enemy_templates["Boar"] = new Enemy({
+        counterTrait: counterTraits.brace,
         name: "Boar",
         description: "A big wild creature, with thick skin and large tusks",
         xp_value: 10,
@@ -758,6 +766,7 @@ const enemy_abilites = {
     });
 	
 	enemy_templates["River crab"] = new Enemy({
+        counterTrait: counterTraits.roll,
         name: "River crab",
         description: "A crab the size of a small boulder",
         xp_value: 30,

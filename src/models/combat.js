@@ -18,6 +18,7 @@ import {rollBaseCombatDamage,nextAttackTiming} from "../combat_math.js";
 import {validateEncounterCombatProfile} from '../absorb_p23/combat_options/runtime.js';
 import { config } from "../config.js";
 import { character } from "../data/character.js";
+import {quoteCounterTrait} from '../enemy_traits.js';
 import { skills, weapon_type_to_skill } from "../data/skills.js";
 import { log_message, update_displayed_health, update_displayed_stamina, update_stance_tooltip } from "../display.js";
 import { enemy_tag_to_skill_mapping } from "../enemies.js";
@@ -549,6 +550,14 @@ class Combat {
 
         let partially_blocked = false; //only used for combat info in message log
 
+        const responses = [];
+        for (const [holder, opponent, owner] of [[fighter, target, 'attacker'], [target, fighter, 'defender']]) {
+            const trait = holder.counterTrait;
+            if (trait?.owner !== owner) continue;
+            const multiplier = quoteCounterTrait(trait, opponent.getFullStats());
+            responses.push({trait, multiplier});
+            if (trait.hook === 'on_strike') damage_modifier *= multiplier;
+        }
         damages_dealt = rollBaseCombatDamage(base_damage,attack_count ?? fighter.getFullStats().attack_count,damage_modifier,(() => {let i=0;return ()=>random(`damage:${i++}`);})());
 
 
@@ -617,6 +626,11 @@ class Combat {
             add_xp_to_skill({skill: skills[skill_id], xp_to_add: target.xp_value*target_count_xp_modifier});
         }
 
+        for (const {trait, multiplier} of responses) {
+            if (trait.hook === 'on_connectedstrike') damages_dealt = damages_dealt.map(value => value * multiplier);
+            if (multiplier !== 1) log_message(trait.name + ' changed strike damage by ' +
+                Math.round((multiplier - 1) * 100) + '%. ' + trait.counter, 'enemy_attacked');
+        }
         game_stats.total_hits_taken += Number(!this.is_special_combat && !!target.tags.main_character);
         game_stats.total_hits_done += Number(!this.is_special_combat && !!fighter.tags.main_character);
 

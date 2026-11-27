@@ -1,0 +1,23 @@
+{
+  "item": "o2",
+  "entry": "/",
+  "bundleSha256": "bcc7cd74926102737e4f0569339763559b04c3a3484332a6c02548e5a8bdc3a7",
+  "runs": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "result": "Seam seeker changed strike damage by 14%. Armor reduces the extra damage from a landed bite.",
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "result": "Seam seeker changed strike damage by 14%. Armor reduces the extra damage from a landed bite.",
+      "pageErrors": []
+    }
+  ]
+}
