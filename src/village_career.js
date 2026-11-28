@@ -1,10 +1,12 @@
+import {watchcraftLesson} from "./data/skill_learning.js";
+import {practiceLearning} from "./skill_learning.js";
 // Original proposal: one Village patrol career, using native time and wages.
 import {natural} from './basics.js';
 export const CAREER_RANKS = ['Apprentice', 'Dependable worker', 'Mentor'];
 export const KIT_DEBT = 50;
 export const PATROL_BASE_PAY = 50;
 export const WATCHCRAFT_BOOK = 'Tessa’s watchcraft notes';
-export const WATCHCRAFT_READING = 6;
+export const WATCHCRAFT_READING = watchcraftLesson.minutes;
 export const WATCHCRAFT_PRACTICE = 5;
 export const WATCHCRAFT_BONUS = 10;
 export function patrolPayText(base, bonus, total = base + bonus) {
@@ -199,12 +201,16 @@ export function villageTeachingBusy(state) {
 }
 export function beginTessaInstruction(state) {
     const s=migrateVillageCareer({village_career:state});check(s.rank>=1,'become a Dependable worker first');
-    check(!s.watchcraft.tutoring && s.watchcraft.tutorMinutes<6,'instruction already started or completed');
+    check(!s.watchcraft.tutoring && s.watchcraft.tutorMinutes<watchcraftLesson.minutes,'instruction already started or completed');
     s.watchcraft.issued=true;s.watchcraft.tutoring=true;return validateVillageCareer(s);
 }
 export function advanceTessaInstruction(state,{inVillage,alive,meditating}) {
     const s=migrateVillageCareer({village_career:state});
-    if(s.watchcraft.tutoring && inVillage && alive && meditating){s.watchcraft.tutorMinutes++;if(s.watchcraft.tutorMinutes===6)s.watchcraft.tutoring=false;}
+    if(s.watchcraft.tutoring){
+        const result=practiceLearning(watchcraftLesson,s.watchcraft.tutorMinutes,{promoted:s.rank>=1,rehearsing:inVillage&&alive&&meditating},1);
+        s.watchcraft.tutorMinutes=result.progress;
+        if(result.quote.complete)s.watchcraft.tutoring=false;
+    }
     return validateVillageCareer(s);
 }
 export function recruitMemory(state) {

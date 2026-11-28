@@ -1,3 +1,4 @@
+import {configureLearning} from "./skill_learning_native.js";
 import {configureRoutes, observeRouteArrival, idleRouteStep} from "./recorded_route_native.js";
 import {configureActivityTitle, publishActivity} from "./activity_title_native.js";
 import {configureReserve, sleepReserveBonus} from "./surplus_reserve_native.js";
@@ -3491,7 +3492,7 @@ function settleWorkLedgerCraft(evidence,anchor) {
     publishWorkLedger(plan,anchor,scope?()=>{workLedger=plan.state;scope.transaction.markDurable();}:undefined);
 }
 
-function watchcraftKnown() {return villageCareer.watchcraft.tutorMinutes===6 || book_stats[WATCHCRAFT_BOOK].accumulated_time>=WATCHCRAFT_READING;}
+function watchcraftKnown() {return villageCareer.watchcraft.tutorMinutes===WATCHCRAFT_READING || book_stats[WATCHCRAFT_BOOK].accumulated_time>=WATCHCRAFT_READING;}
 // Kit resolution, manual issuance and promotion publish their saved state together.
 function writeVillageCareer(choice) {
     if(!ownsSave || foundationSaveBlocked || importProbeToken || current_location?.id!=='Village' || expansionState.actors.player.worldId!=='base.frontier' || (current_activity && !(choice.startsWith('teach:') && current_activity.id==='patrolling')) || current_dialogue || current_game_action || current_combat || is_sleeping || is_reading || is_in_trade() || expeditionOccupiesPlayer())throw new Error('Finish your current work and speak to Tessa in Village.');
@@ -6402,6 +6403,11 @@ configureReserve({
     commit:offer=>{const plan=p23Plan();plan.external.money-=offer.cost;plan.nativePatch={surplus_reserve:offer.next};persistExpansion(plan);},
     report:text=>nativeCraftMessage(text,'skill_raised',{panelId:'skill-growth',panelLabel:'Open Growth'}),
 });
+configureLearning({
+    read:()=>({career:villageCareer,known:watchcraftKnown(),world:expansionState.actors.player.worldId,place:current_location?.id,
+        available:ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!current_activity&&!nativeOccupationReason()}),
+    start:()=>writeVillageCareer('tutor'),
+});
 configureGrowthPoints({
     context:()=>({world:expansionState.actors.player.worldId,atBed:current_location?.housing?.isUnlocked()===true}),
     writable:()=>workLedgerCanWrite()&&!restoringNativeSave&&character.is_alive,
@@ -9186,7 +9192,7 @@ function simulateTick() {
             if(villageCareer.watchcraft.tutoring) {
                 const before=villageCareer.watchcraft.tutorMinutes;
                 villageCareer=advanceTessaInstruction(villageCareer,{inVillage:current_location.id==='Village' && expansionState.actors.player.worldId==='base.frontier',alive:character.is_alive===true,meditating:current_activity?.id==='meditating'});
-                if(before<6 && villageCareer.watchcraft.tutorMinutes===6){log_message('Tessa’s instruction is complete. Watchcraft is known; rehearse it for five more minutes before use.');end_activity();}
+                if(before<WATCHCRAFT_READING && villageCareer.watchcraft.tutorMinutes===WATCHCRAFT_READING){log_message('Tessa’s instruction is complete. Watchcraft is known; rehearse it for five more minutes before use.');end_activity();}
             }
             if(current_activity && !['scouting','lunar_gathering'].includes(current_activity.id)) { // native P07 has its own saved no-XP settlement
                 let tool_wear;

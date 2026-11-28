@@ -1,0 +1,63 @@
+{
+  "item": "u3",
+  "entry": "/",
+  "bundleSha256": "fc33fbce359caf0fa413bced54fe042f3491a44a0ae1fa9b53ebc791c2d68076",
+  "runs": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "result": {
+        "effect": "Tessa’s instruction is complete. Watchcraft is known; rehearse it for five more minutes before use.",
+        "minutes": 6
+      },
+      "persistence": {
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true,
+        "restored": {
+          "career": {
+            "issued": true,
+            "practiceMinutes": 0,
+            "used": false,
+            "notesIssued": false,
+            "tutorMinutes": 6,
+            "tutoring": false
+          },
+          "rank": 1
+        }
+      },
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "result": {
+        "effect": "Tessa’s instruction is complete. Watchcraft is known; rehearse it for five more minutes before use.",
+        "minutes": 6
+      },
+      "persistence": {
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true,
+        "restored": {
+          "career": {
+            "issued": true,
+            "practiceMinutes": 0,
+            "used": false,
+            "notesIssued": false,
+            "tutorMinutes": 6,
+            "tutoring": false
+          },
+          "rank": 1
+        }
+      },
+      "pageErrors": []
+    }
+  ]
+}

@@ -44,6 +44,8 @@ A5 O8: Fast travel > Walking map records actual stops, replays one leg on each i
 
 U2. Systems compares located campaign rules by world and mechanism. [Census](audits/LITRPG_SYSTEM_CENSUS_2026-11-27.md) · [Atlas proof](representations/evidence/readings-use-2026-11-27/u2/proof.json)
 
+U3. Skills > Growth offers Tessa’s existing Watchcraft lesson to promoted Village workers. Teacher, practice, completion sign and ceiling come from the learning law. [Proof](representations/evidence/readings-use-2026-11-27/u3/proof.json)
+
 <a id="future-rpg-view-with-a-map"></a>
 
 ## Future RPG view with a map (consideration)
