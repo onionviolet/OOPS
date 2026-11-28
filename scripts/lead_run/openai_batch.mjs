@@ -32,7 +32,9 @@ export function toBatchLine({custom_id, params}) {
     const instructions = (params.system || []).map(b => b.text).join('\n\n');
     const body = {
         model: params.model, instructions, store: false, max_output_tokens: params.max_tokens,
-        input: (params.messages || []).map(m => ({role: m.role, content: m.content.filter(b => b.type === 'text').map(b => ({type: 'input_text', text: b.text}))})),
+        input: (params.messages || []).map(m => ({role: m.role, content: m.content.map(b => b.type === 'image'
+            ? {type: 'input_image', image_url: 'data:' + b.source.media_type + ';base64,' + b.source.data}
+            : {type: 'input_text', text: b.text})})),
         // Strict grammar: a non-strict schema let gpt-6-luna drop required fields (2026-11-08 CoI census: `whereabouts` missing on every row, 14 of 16 grade C).
         text: {format: params.output_config?.format ? {type: 'json_schema', name: 'shard_rows', schema: strictSchema(params.output_config.format.schema), strict: true} : {type: 'json_object'}},
         // The stable instructions are the cached prefix; one key per prefix keeps a pass's shards on the same cache.

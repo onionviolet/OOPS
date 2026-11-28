@@ -2363,6 +2363,331 @@
     "target": 99999,
     "max": 2
    }
+  },
+  {
+   "key": "cpred",
+   "world": "cyberpunk",
+   "title": "Cyberpunk RED core (CR3001, repaired PDF)",
+   "lang": "en",
+   "type": "pdf-pages",
+   "sourceAliases": [
+    {
+     "path": "/Users/weiwei/.codex/research/rulebooks/repaired/cyberpunk-red-core.qpdf.pdf",
+     "sha256": "8cf8d71aa500bc7aa6ef6dce3c566374ac095fe4c22f30a63162eb027ff2a77a"
+    }
+   ],
+   "screenReports": [
+    "/Users/weiwei/.cache/pdf-screen/e40bda87d1112e9d4750f64bd6e782ef6aec0e13fa4423607bd89debd81ec407/report.json"
+   ],
+   "book": 1,
+   "dir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28",
+   "pdfPageCount": 458
+  },
+  {
+   "key": "cp2020",
+   "world": "cyberpunk",
+   "title": "Cyberpunk 2020 second edition",
+   "lang": "en",
+   "type": "pdf-pages",
+   "sourceAliases": [
+    {
+     "path": "/Users/weiwei/.local/share/source-platform/library/c1f21f1e9ad63e79dbdddb8c214b36031d226804e568424df611e51af7ac823d/annas-3908ffa4666a249452b417c263808b5f.pdf",
+     "sha256": "c1f21f1e9ad63e79dbdddb8c214b36031d226804e568424df611e51af7ac823d"
+    }
+   ],
+   "screenReports": [
+    "/Users/weiwei/.cache/pdf-screen/59fcf58e7dfb3effd351cf5bbc63555db587d474757ae8ccfaf9b85b679b1fd5/report.json"
+   ],
+   "book": 2,
+   "dir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28",
+   "pdfPageCount": 258
+  },
+  {
+   "key": "cpnight",
+   "world": "cyberpunk",
+   "title": "Night City Guide",
+   "lang": "en",
+   "type": "pdf-pages",
+   "sourceAliases": [
+    {
+     "path": "/Users/weiwei/.local/share/source-platform/library/90f6bcaeee2ab1f0c4dd04bb1b518d2f18af1e361f297839ed4a8a4d814db7e0/annas-a560bf2b177a4cf8e19f7ad5ad91e7f0.pdf",
+     "sha256": "90f6bcaeee2ab1f0c4dd04bb1b518d2f18af1e361f297839ed4a8a4d814db7e0"
+    }
+   ],
+   "screenReports": [
+    "/Users/weiwei/.cache/pdf-screen/3923b1fc3ec6da548c37660e072a7344384b706032710aab40414fe2be7b976c/report.json"
+   ],
+   "book": 3,
+   "dir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28",
+   "pdfPageCount": 186
+  },
+  {
+   "key": "cpchrome",
+   "world": "cyberpunk",
+   "title": "Chromebook 1",
+   "lang": "en",
+   "type": "pdf-pages",
+   "sourceAliases": [
+    {
+     "path": "/Users/weiwei/.local/share/source-platform/library/a15b4a6f8bbbe085b2036a9eaa0ca26bb222f1d63cf156c4cb82e7707efe9dbb/annas-06c0aa82cf55d8d847eca48cb2cc4d8e.pdf",
+     "sha256": "a15b4a6f8bbbe085b2036a9eaa0ca26bb222f1d63cf156c4cb82e7707efe9dbb"
+    }
+   ],
+   "screenReports": [
+    "/Users/weiwei/.cache/pdf-screen/ff7ca0f7445fb6ffa1009f68d67789f3c6cf9aea852fdb766027404f0b519062/report.json"
+   ],
+   "book": 4,
+   "dir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28",
+   "pageRange": [
+    1,
+    97
+   ],
+   "pdfPageCount": 210
+  },
+  {
+   "key": "cpv3",
+   "world": "cyberpunk",
+   "title": "Cyberpunk V3.0",
+   "lang": "en",
+   "type": "pdf-pages",
+   "sourceAliases": [
+    {
+     "path": "/Users/weiwei/.local/share/source-platform/library/4f81185e7057b5d697aabb86040312da236e687b5f3ae5d42d54224ef2f2e1a0/annas-d9a1e52f2c49e4ea710b6079754044da.pdf",
+     "sha256": "4f81185e7057b5d697aabb86040312da236e687b5f3ae5d42d54224ef2f2e1a0"
+    }
+   ],
+   "screenReports": [
+    "/Users/weiwei/.cache/pdf-screen/2956255e613bfc718110bce1bc6ec0aad49cba186f18d2504a8cd3da4f45edb9/report.json"
+   ],
+   "book": 5,
+   "dir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28",
+   "pdfPageCount": 291
+  },
+  {
+   "key": "cpgen",
+   "world": "cyberpunk",
+   "title": "CyberGeneration",
+   "lang": "en",
+   "type": "pdf-pages",
+   "sourceAliases": [
+    {
+     "path": "/Users/weiwei/.local/share/source-platform/library/0fd5ae65511ab7e46103ecaf7f594bae7eb347c7f8b0db2e4ccc6f6c3020f535/annas-e596c41faf14fb23c3414b2d6639ab90.pdf",
+     "sha256": "0fd5ae65511ab7e46103ecaf7f594bae7eb347c7f8b0db2e4ccc6f6c3020f535"
+    }
+   ],
+   "screenReports": [
+    "/Users/weiwei/.cache/pdf-screen/cb7ee8f80e77456186dcb9e6d2ab85c89a50346ffd5f29ffd27666506126f807/report.json"
+   ],
+   "book": 6,
+   "dir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28",
+   "pdfPageCount": 195
+  },
+  {
+   "key": "cpview",
+   "world": "cyberpunk",
+   "title": "View from the Edge",
+   "lang": "en",
+   "type": "pdf-pages",
+   "sourceAliases": [
+    {
+     "path": "/Users/weiwei/.local/share/source-platform/library/52185f69c98dac01f35400fc7d96b8d9fe58f9de041aaf1eea70d198dff127c9/annas-ebd07ce41a32481c9e15b325a4a5e6ab.pdf",
+     "sha256": "52185f69c98dac01f35400fc7d96b8d9fe58f9de041aaf1eea70d198dff127c9"
+    }
+   ],
+   "screenReports": [],
+   "book": 7,
+   "dir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28",
+   "pdfPageCount": 50
+  },
+  {
+   "key": "cpfriday",
+   "world": "cyberpunk",
+   "title": "Friday Night Firefight",
+   "lang": "en",
+   "type": "pdf-pages",
+   "sourceAliases": [
+    {
+     "path": "/Users/weiwei/.local/share/source-platform/library/b3d783286dc136983811abfb40fff55ce80d0169a8b70bedf32d46f3c1c8df93/annas-bda7589af47f20495953373bde042c83.pdf",
+     "sha256": "b3d783286dc136983811abfb40fff55ce80d0169a8b70bedf32d46f3c1c8df93"
+    }
+   ],
+   "screenReports": [],
+   "book": 8,
+   "dir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28",
+   "pdfPageCount": 26
+  },
+  {
+   "key": "cpwelcome",
+   "world": "cyberpunk",
+   "title": "Welcome to Night City",
+   "lang": "en",
+   "type": "pdf-pages",
+   "sourceAliases": [
+    {
+     "path": "/Users/weiwei/.local/share/source-platform/library/29a12a034dc5c9acd06dd8491eeb9cb5eba5255da81c9a56ba1dbf90ecee8634/annas-a4f0fea7cdff814757c6f5dd97eb3c98.pdf",
+     "sha256": "29a12a034dc5c9acd06dd8491eeb9cb5eba5255da81c9a56ba1dbf90ecee8634"
+    }
+   ],
+   "screenReports": [],
+   "book": 9,
+   "dir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28",
+   "pdfPageCount": 42
+  },
+  {
+   "key": "cpkit",
+   "world": "cyberpunk",
+   "title": "Edgerunners Mission Kit Rule Book",
+   "lang": "en",
+   "type": "pdf-pages",
+   "sourceAliases": [
+    {
+     "path": "/Users/weiwei/.local/share/source-platform/library/be394a294d95f8587b858c008582f7fe64c02f4307dba41983548ea7e34e4488/annas-4986a1c69579fa4df534df6dc3e23679.pdf",
+     "sha256": "be394a294d95f8587b858c008582f7fe64c02f4307dba41983548ea7e34e4488"
+    }
+   ],
+   "screenReports": [
+    "/Users/weiwei/.cache/pdf-screen/ec2d5f4d9bac26b4a3b62911d95457cb71e32815858dfa9b366b2c1019c3cc7a/report.json"
+   ],
+   "book": 10,
+   "dir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28",
+   "pageRange": [
+    1,
+    42
+   ],
+   "pdfPageCount": 126
+  },
+  {
+   "key": "sr5",
+   "world": "shadowrun",
+   "title": "Shadowrun Fifth Edition",
+   "lang": "en",
+   "type": "pdf-pages",
+   "sourceAliases": [
+    {
+     "path": "/Users/weiwei/.local/share/source-platform/library/d48ae111fdb201e43d668e38a386316a4ffef6c5871afe2fd5ad87cd481d4e45/annas-dcb0995553c237b32bcc9bdfe5a62182.pdf",
+     "sha256": "d48ae111fdb201e43d668e38a386316a4ffef6c5871afe2fd5ad87cd481d4e45"
+    }
+   ],
+   "screenReports": [
+    "/Users/weiwei/.cache/pdf-screen/c9f599736eea6d3a6efb47a455b23fb63e7de6c96c4068ee18e66e655a7677ba/report.json"
+   ],
+   "book": 1,
+   "dir": "docs/research/novels/shadowrun/private/lead-run-2026-11-28",
+   "pdfPageCount": 1001
+  },
+  {
+   "key": "srfaster",
+   "world": "shadowrun",
+   "title": "Run Faster",
+   "lang": "en",
+   "type": "pdf-pages",
+   "sourceAliases": [
+    {
+     "path": "/Users/weiwei/.local/share/source-platform/library/51bed3269cba3291b8faf4fbe6996abe80ab9a18ebeb56036e6f1c04a90608f0/annas-9f631c06e7c379ae3a1aff8a1418a303.pdf",
+     "sha256": "51bed3269cba3291b8faf4fbe6996abe80ab9a18ebeb56036e6f1c04a90608f0"
+    }
+   ],
+   "screenReports": [
+    "/Users/weiwei/.cache/pdf-screen/a4f0e7575fd83e0da0e57af8e5f68bf7a73ac0714cb4f234cdf2856f87db18e9/report.json"
+   ],
+   "book": 2,
+   "dir": "docs/research/novels/shadowrun/private/lead-run-2026-11-28",
+   "pdfPageCount": 258
+  },
+  {
+   "key": "sr6",
+   "world": "shadowrun",
+   "title": "Shadowrun Sixth World core",
+   "lang": "en",
+   "type": "pdf-pages",
+   "sourceAliases": [
+    {
+     "path": "/Users/weiwei/.local/share/source-platform/library/d44bc23010d8f0c6a9b67a8f9646e293a35240d467c544dbcfe1cfe294c7fec5/annas-d66902dc0bde30e67e3dbc4ca4970e82.pdf",
+     "sha256": "d44bc23010d8f0c6a9b67a8f9646e293a35240d467c544dbcfe1cfe294c7fec5"
+    }
+   ],
+   "screenReports": [
+    "/Users/weiwei/.cache/pdf-screen/abeb5d9faeb10abaafbcee1978bba9343a05e68de1bbafa9317e9203b617040a/report.json"
+   ],
+   "book": 3,
+   "dir": "docs/research/novels/shadowrun/private/lead-run-2026-11-28",
+   "pdfPageCount": 342
+  },
+  {
+   "key": "srwyrd",
+   "world": "shadowrun",
+   "title": "Street Wyrd",
+   "lang": "en",
+   "type": "pdf-pages",
+   "sourceAliases": [
+    {
+     "path": "/Users/weiwei/.local/share/source-platform/library/84b0f67bb9347cb8477f636e331d477bea00302ecd50ff98f6e03cef778282c8/annas-719a7c25f9cae0370a41005f0916f3cc.pdf",
+     "sha256": "84b0f67bb9347cb8477f636e331d477bea00302ecd50ff98f6e03cef778282c8"
+    }
+   ],
+   "screenReports": [
+    "/Users/weiwei/.cache/pdf-screen/4aa42822f926eb94cbeb62cc52513bff3c947699c65a61aaa0da68d950ee70c4/report.json"
+   ],
+   "book": 4,
+   "dir": "docs/research/novels/shadowrun/private/lead-run-2026-11-28",
+   "pdfPageCount": 170
+  },
+  {
+   "key": "srfiring",
+   "world": "shadowrun",
+   "title": "Firing Squad",
+   "lang": "en",
+   "type": "pdf-pages",
+   "sourceAliases": [
+    {
+     "path": "/Users/weiwei/.local/share/source-platform/library/f686d75dd97844c7280186c17aefc130fc6e2dcd89948274e92bf574c0698a80/annas-d6a6ef2d4b93c8b0d39799c419e8b96c.pdf",
+     "sha256": "f686d75dd97844c7280186c17aefc130fc6e2dcd89948274e92bf574c0698a80"
+    }
+   ],
+   "screenReports": [
+    "/Users/weiwei/.cache/pdf-screen/9c2c81e3acf3f3bd5eb9bf08b27539db723e7e4299932f5ed11277e4b5434876/report.json"
+   ],
+   "book": 5,
+   "dir": "docs/research/novels/shadowrun/private/lead-run-2026-11-28",
+   "pdfPageCount": 162
+  },
+  {
+   "key": "srbody",
+   "world": "shadowrun",
+   "title": "Body Shop",
+   "lang": "en",
+   "type": "pdf-pages",
+   "sourceAliases": [
+    {
+     "path": "/Users/weiwei/.local/share/source-platform/library/acffac8c11e14c00dd16a173556ac4a32d434865982df97e89914678753d6df8/annas-221cea5a4d604bfae58cbdceb6d61e2d.pdf",
+     "sha256": "acffac8c11e14c00dd16a173556ac4a32d434865982df97e89914678753d6df8"
+    }
+   ],
+   "screenReports": [
+    "/Users/weiwei/.cache/pdf-screen/52c1cf2ee734f1a54a2cbfe6212770f281ddae922ea691bab8e8ad19dc7b7014/report.json"
+   ],
+   "book": 6,
+   "dir": "docs/research/novels/shadowrun/private/lead-run-2026-11-28",
+   "pdfPageCount": 194
+  },
+  {
+   "key": "srclutch",
+   "world": "shadowrun",
+   "title": "Double Clutch",
+   "lang": "en",
+   "type": "pdf-pages",
+   "sourceAliases": [
+    {
+     "path": "/Users/weiwei/.local/share/source-platform/library/26fdc8109fdd5b4594a9b9c02819581313d405421f73f3275fd0ee1a8a00d11e/annas-07fbb06a46c068f327ed8173801d820f.pdf",
+     "sha256": "26fdc8109fdd5b4594a9b9c02819581313d405421f73f3275fd0ee1a8a00d11e"
+    }
+   ],
+   "screenReports": [
+    "/Users/weiwei/.cache/pdf-screen/2aee78b698c723ba43e8ff90da442896d387722fbad960c8c7d8b240c75348d4/report.json"
+   ],
+   "book": 7,
+   "dir": "docs/research/novels/shadowrun/private/lead-run-2026-11-28",
+   "pdfPageCount": 186
   }
  ]
 }

@@ -1,0 +1,46 @@
+{
+ "world": "cyberpunk",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28",
+ "outDir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/batch",
+ "glossary": {
+  "censusDir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28",
+  "censusMatch": "^(cpred|cp2020|cpnight|cpchrome|cpv3|cpgen|cpview|cpfriday|cpwelcome|cpkit)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "cpv3-pilot-rules-r4",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "cpv3c001",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpv3_b5_pg001-004.txt",
+   "base": "500101",
+   "chapters": "1-4",
+   "images": [
+    {
+     "page": 2,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpv3-page-2.jpg"
+    },
+    {
+     "page": 3,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpv3-page-3.jpg"
+    },
+    {
+     "page": 4,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpv3-page-4.jpg"
+    }
+   ]
+  }
+ ]
+}

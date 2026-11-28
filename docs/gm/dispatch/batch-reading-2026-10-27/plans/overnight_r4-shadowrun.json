@@ -1,0 +1,105 @@
+{
+ "name": "r4-shadowrun",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 19.14,
+ "capTotal": 19.14,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sr5_pilot_rules_r4.json",
+     "cap": 0.04,
+     "label": "sr5-pilot-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/srfaster_pilot_rules_r4.json",
+     "cap": 0.04,
+     "label": "srfaster-pilot-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sr6_pilot_rules_r4.json",
+     "cap": 0.04,
+     "label": "sr6-pilot-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/srwyrd_pilot_rules_r4.json",
+     "cap": 0.04,
+     "label": "srwyrd-pilot-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/srfiring_pilot_rules_r4.json",
+     "cap": 0.04,
+     "label": "srfiring-pilot-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/srbody_pilot_rules_r4.json",
+     "cap": 0.04,
+     "label": "srbody-pilot-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/srclutch_pilot_rules_r4.json",
+     "cap": 0.04,
+     "label": "srclutch-pilot-rules-r4"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sr5_rules-part1_r4.json",
+     "cap": 1.79,
+     "label": "sr5-rules-part1-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sr5_rules-part2_r4.json",
+     "cap": 1.76,
+     "label": "sr5-rules-part2-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sr5_rules-part3_r4.json",
+     "cap": 4.65,
+     "label": "sr5-rules-part3-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/srfaster_rules-part1_r4.json",
+     "cap": 1.83,
+     "label": "srfaster-rules-part1-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/srfaster_rules-part2_r4.json",
+     "cap": 0.3,
+     "label": "srfaster-rules-part2-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sr6_rules_r4.json",
+     "cap": 2.77,
+     "label": "sr6-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/srwyrd_rules_r4.json",
+     "cap": 1.38,
+     "label": "srwyrd-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/srfiring_rules_r4.json",
+     "cap": 1.31,
+     "label": "srfiring-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/srbody_rules_r4.json",
+     "cap": 1.57,
+     "label": "srbody-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/srclutch_rules_r4.json",
+     "cap": 1.5,
+     "label": "srclutch-rules-r4"
+    }
+   ]
+  }
+ ]
+}

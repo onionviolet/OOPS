@@ -1,0 +1,1274 @@
+{
+ "world": "shadowrun",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "docs/research/novels/shadowrun/private/lead-run-2026-11-28",
+ "outDir": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/batch",
+ "glossary": {
+  "censusDir": "docs/research/novels/shadowrun/private/lead-run-2026-11-28",
+  "censusMatch": "^(sr5|srfaster|sr6|srwyrd|srfiring|srbody|srclutch)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "sr5-rules-part2-r4",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "sr5c221",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg221-224.txt",
+   "base": "22101",
+   "chapters": "221-224",
+   "images": [
+    {
+     "page": 221,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-221.jpg"
+    },
+    {
+     "page": 222,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-222.jpg"
+    },
+    {
+     "page": 223,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-223.jpg"
+    },
+    {
+     "page": 224,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-224.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c225",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg225-228.txt",
+   "base": "22501",
+   "chapters": "225-228",
+   "images": [
+    {
+     "page": 225,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-225.jpg"
+    },
+    {
+     "page": 226,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-226.jpg"
+    },
+    {
+     "page": 227,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-227.jpg"
+    },
+    {
+     "page": 228,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-228.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c229",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg229-232.txt",
+   "base": "22901",
+   "chapters": "229-232",
+   "images": [
+    {
+     "page": 229,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-229.jpg"
+    },
+    {
+     "page": 230,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-230.jpg"
+    },
+    {
+     "page": 231,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-231.jpg"
+    },
+    {
+     "page": 232,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-232.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c233",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg233-236.txt",
+   "base": "23301",
+   "chapters": "233-236",
+   "images": [
+    {
+     "page": 233,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-233.jpg"
+    },
+    {
+     "page": 234,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-234.jpg"
+    },
+    {
+     "page": 235,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-235.jpg"
+    },
+    {
+     "page": 236,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-236.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c237",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg237-240.txt",
+   "base": "23701",
+   "chapters": "237-240",
+   "images": [
+    {
+     "page": 237,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-237.jpg"
+    },
+    {
+     "page": 238,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-238.jpg"
+    },
+    {
+     "page": 239,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-239.jpg"
+    },
+    {
+     "page": 240,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-240.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c241",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg241-244.txt",
+   "base": "24101",
+   "chapters": "241-244",
+   "images": [
+    {
+     "page": 241,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-241.jpg"
+    },
+    {
+     "page": 242,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-242.jpg"
+    },
+    {
+     "page": 243,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-243.jpg"
+    },
+    {
+     "page": 244,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-244.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c245",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg245-248.txt",
+   "base": "24501",
+   "chapters": "245-248",
+   "images": [
+    {
+     "page": 245,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-245.jpg"
+    },
+    {
+     "page": 247,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-247.jpg"
+    },
+    {
+     "page": 248,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-248.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c249",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg249-252.txt",
+   "base": "24901",
+   "chapters": "249-252",
+   "images": [
+    {
+     "page": 249,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-249.jpg"
+    },
+    {
+     "page": 250,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-250.jpg"
+    },
+    {
+     "page": 251,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-251.jpg"
+    },
+    {
+     "page": 252,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-252.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c253",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg253-256.txt",
+   "base": "25301",
+   "chapters": "253-256",
+   "images": [
+    {
+     "page": 253,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-253.jpg"
+    },
+    {
+     "page": 254,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-254.jpg"
+    },
+    {
+     "page": 255,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-255.jpg"
+    },
+    {
+     "page": 256,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-256.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c257",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg257-260.txt",
+   "base": "25701",
+   "chapters": "257-260",
+   "images": [
+    {
+     "page": 257,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-257.jpg"
+    },
+    {
+     "page": 258,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-258.jpg"
+    },
+    {
+     "page": 259,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-259.jpg"
+    },
+    {
+     "page": 260,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-260.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c261",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg261-264.txt",
+   "base": "26101",
+   "chapters": "261-264",
+   "images": [
+    {
+     "page": 261,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-261.jpg"
+    },
+    {
+     "page": 262,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-262.jpg"
+    },
+    {
+     "page": 263,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-263.jpg"
+    },
+    {
+     "page": 264,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-264.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c265",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg265-268.txt",
+   "base": "26501",
+   "chapters": "265-268",
+   "images": [
+    {
+     "page": 265,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-265.jpg"
+    },
+    {
+     "page": 266,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-266.jpg"
+    },
+    {
+     "page": 268,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-268.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c269",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg269-272.txt",
+   "base": "26901",
+   "chapters": "269-272",
+   "images": [
+    {
+     "page": 269,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-269.jpg"
+    },
+    {
+     "page": 270,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-270.jpg"
+    },
+    {
+     "page": 271,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-271.jpg"
+    },
+    {
+     "page": 272,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-272.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c273",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg273-276.txt",
+   "base": "27301",
+   "chapters": "273-276",
+   "images": [
+    {
+     "page": 273,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-273.jpg"
+    },
+    {
+     "page": 274,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-274.jpg"
+    },
+    {
+     "page": 275,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-275.jpg"
+    },
+    {
+     "page": 276,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-276.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c277",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg277-280.txt",
+   "base": "27701",
+   "chapters": "277-280",
+   "images": [
+    {
+     "page": 277,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-277.jpg"
+    },
+    {
+     "page": 278,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-278.jpg"
+    },
+    {
+     "page": 280,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-280.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c281",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg281-284.txt",
+   "base": "28101",
+   "chapters": "281-284",
+   "images": [
+    {
+     "page": 281,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-281.jpg"
+    },
+    {
+     "page": 282,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-282.jpg"
+    },
+    {
+     "page": 283,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-283.jpg"
+    },
+    {
+     "page": 284,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-284.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c285",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg285-288.txt",
+   "base": "28501",
+   "chapters": "285-288",
+   "images": [
+    {
+     "page": 285,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-285.jpg"
+    },
+    {
+     "page": 286,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-286.jpg"
+    },
+    {
+     "page": 287,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-287.jpg"
+    },
+    {
+     "page": 288,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-288.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c289",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg289-292.txt",
+   "base": "28901",
+   "chapters": "289-292",
+   "images": [
+    {
+     "page": 289,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-289.jpg"
+    },
+    {
+     "page": 290,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-290.jpg"
+    },
+    {
+     "page": 291,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-291.jpg"
+    },
+    {
+     "page": 292,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-292.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c293",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg293-296.txt",
+   "base": "29301",
+   "chapters": "293-296",
+   "images": [
+    {
+     "page": 293,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-293.jpg"
+    },
+    {
+     "page": 294,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-294.jpg"
+    },
+    {
+     "page": 295,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-295.jpg"
+    },
+    {
+     "page": 296,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-296.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c297",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg297-300.txt",
+   "base": "29701",
+   "chapters": "297-300",
+   "images": [
+    {
+     "page": 297,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-297.jpg"
+    },
+    {
+     "page": 298,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-298.jpg"
+    },
+    {
+     "page": 299,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-299.jpg"
+    },
+    {
+     "page": 300,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-300.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c301",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg301-304.txt",
+   "base": "30101",
+   "chapters": "301-304",
+   "images": [
+    {
+     "page": 301,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-301.jpg"
+    },
+    {
+     "page": 302,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-302.jpg"
+    },
+    {
+     "page": 303,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-303.jpg"
+    },
+    {
+     "page": 304,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-304.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c305",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg305-308.txt",
+   "base": "30501",
+   "chapters": "305-308",
+   "images": [
+    {
+     "page": 305,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-305.jpg"
+    },
+    {
+     "page": 306,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-306.jpg"
+    },
+    {
+     "page": 307,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-307.jpg"
+    },
+    {
+     "page": 308,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-308.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c309",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg309-312.txt",
+   "base": "30901",
+   "chapters": "309-312",
+   "images": [
+    {
+     "page": 309,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-309.jpg"
+    },
+    {
+     "page": 310,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-310.jpg"
+    },
+    {
+     "page": 311,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-311.jpg"
+    },
+    {
+     "page": 312,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-312.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c313",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg313-316.txt",
+   "base": "31301",
+   "chapters": "313-316",
+   "images": [
+    {
+     "page": 313,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-313.jpg"
+    },
+    {
+     "page": 314,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-314.jpg"
+    },
+    {
+     "page": 315,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-315.jpg"
+    },
+    {
+     "page": 316,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-316.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c317",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg317-320.txt",
+   "base": "31701",
+   "chapters": "317-320",
+   "images": [
+    {
+     "page": 317,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-317.jpg"
+    },
+    {
+     "page": 318,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-318.jpg"
+    },
+    {
+     "page": 319,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-319.jpg"
+    },
+    {
+     "page": 320,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-320.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c321",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg321-324.txt",
+   "base": "32101",
+   "chapters": "321-324",
+   "images": [
+    {
+     "page": 321,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-321.jpg"
+    },
+    {
+     "page": 322,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-322.jpg"
+    },
+    {
+     "page": 323,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-323.jpg"
+    },
+    {
+     "page": 324,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-324.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c325",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg325-328.txt",
+   "base": "32501",
+   "chapters": "325-328",
+   "images": [
+    {
+     "page": 325,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-325.jpg"
+    },
+    {
+     "page": 326,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-326.jpg"
+    },
+    {
+     "page": 327,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-327.jpg"
+    },
+    {
+     "page": 328,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-328.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c329",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg329-332.txt",
+   "base": "32901",
+   "chapters": "329-332",
+   "images": [
+    {
+     "page": 329,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-329.jpg"
+    },
+    {
+     "page": 330,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-330.jpg"
+    },
+    {
+     "page": 331,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-331.jpg"
+    },
+    {
+     "page": 332,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-332.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c333",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg333-336.txt",
+   "base": "33301",
+   "chapters": "333-336",
+   "images": [
+    {
+     "page": 333,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-333.jpg"
+    },
+    {
+     "page": 334,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-334.jpg"
+    },
+    {
+     "page": 336,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-336.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c337",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg337-340.txt",
+   "base": "33701",
+   "chapters": "337-340",
+   "images": [
+    {
+     "page": 337,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-337.jpg"
+    },
+    {
+     "page": 338,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-338.jpg"
+    },
+    {
+     "page": 339,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-339.jpg"
+    },
+    {
+     "page": 340,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-340.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c341",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg341-344.txt",
+   "base": "34101",
+   "chapters": "341-344",
+   "images": [
+    {
+     "page": 341,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-341.jpg"
+    },
+    {
+     "page": 342,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-342.jpg"
+    },
+    {
+     "page": 343,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-343.jpg"
+    },
+    {
+     "page": 344,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-344.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c345",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg345-348.txt",
+   "base": "34501",
+   "chapters": "345-348",
+   "images": [
+    {
+     "page": 345,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-345.jpg"
+    },
+    {
+     "page": 346,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-346.jpg"
+    },
+    {
+     "page": 347,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-347.jpg"
+    },
+    {
+     "page": 348,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-348.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c349",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg349-352.txt",
+   "base": "34901",
+   "chapters": "349-352",
+   "images": [
+    {
+     "page": 349,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-349.jpg"
+    },
+    {
+     "page": 350,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-350.jpg"
+    },
+    {
+     "page": 351,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-351.jpg"
+    },
+    {
+     "page": 352,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-352.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c353",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg353-356.txt",
+   "base": "35301",
+   "chapters": "353-356",
+   "images": [
+    {
+     "page": 353,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-353.jpg"
+    },
+    {
+     "page": 354,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-354.jpg"
+    },
+    {
+     "page": 355,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-355.jpg"
+    },
+    {
+     "page": 356,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-356.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c357",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg357-360.txt",
+   "base": "35701",
+   "chapters": "357-360",
+   "images": [
+    {
+     "page": 357,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-357.jpg"
+    },
+    {
+     "page": 358,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-358.jpg"
+    },
+    {
+     "page": 359,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-359.jpg"
+    },
+    {
+     "page": 360,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-360.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c361",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg361-364.txt",
+   "base": "36101",
+   "chapters": "361-364",
+   "images": [
+    {
+     "page": 361,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-361.jpg"
+    },
+    {
+     "page": 362,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-362.jpg"
+    },
+    {
+     "page": 363,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-363.jpg"
+    },
+    {
+     "page": 364,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-364.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c365",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg365-368.txt",
+   "base": "36501",
+   "chapters": "365-368",
+   "images": [
+    {
+     "page": 365,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-365.jpg"
+    },
+    {
+     "page": 366,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-366.jpg"
+    },
+    {
+     "page": 367,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-367.jpg"
+    },
+    {
+     "page": 368,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-368.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c369",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg369-372.txt",
+   "base": "36901",
+   "chapters": "369-372",
+   "images": [
+    {
+     "page": 369,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-369.jpg"
+    },
+    {
+     "page": 370,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-370.jpg"
+    },
+    {
+     "page": 371,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-371.jpg"
+    },
+    {
+     "page": 372,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-372.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c373",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg373-376.txt",
+   "base": "37301",
+   "chapters": "373-376",
+   "images": [
+    {
+     "page": 373,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-373.jpg"
+    },
+    {
+     "page": 374,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-374.jpg"
+    },
+    {
+     "page": 375,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-375.jpg"
+    },
+    {
+     "page": 376,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-376.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c377",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg377-380.txt",
+   "base": "37701",
+   "chapters": "377-380",
+   "images": [
+    {
+     "page": 377,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-377.jpg"
+    },
+    {
+     "page": 378,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-378.jpg"
+    },
+    {
+     "page": 379,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-379.jpg"
+    },
+    {
+     "page": 380,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-380.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c381",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg381-384.txt",
+   "base": "38101",
+   "chapters": "381-384",
+   "images": [
+    {
+     "page": 382,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-382.jpg"
+    },
+    {
+     "page": 383,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-383.jpg"
+    },
+    {
+     "page": 384,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-384.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c385",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg385-388.txt",
+   "base": "38501",
+   "chapters": "385-388",
+   "images": [
+    {
+     "page": 385,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-385.jpg"
+    },
+    {
+     "page": 386,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-386.jpg"
+    },
+    {
+     "page": 387,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-387.jpg"
+    },
+    {
+     "page": 388,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-388.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c389",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg389-392.txt",
+   "base": "38901",
+   "chapters": "389-392",
+   "images": [
+    {
+     "page": 389,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-389.jpg"
+    },
+    {
+     "page": 390,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-390.jpg"
+    },
+    {
+     "page": 391,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-391.jpg"
+    },
+    {
+     "page": 392,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-392.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c393",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg393-396.txt",
+   "base": "39301",
+   "chapters": "393-396",
+   "images": [
+    {
+     "page": 393,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-393.jpg"
+    },
+    {
+     "page": 394,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-394.jpg"
+    },
+    {
+     "page": 395,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-395.jpg"
+    },
+    {
+     "page": 396,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-396.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c397",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg397-400.txt",
+   "base": "39701",
+   "chapters": "397-400",
+   "images": [
+    {
+     "page": 397,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-397.jpg"
+    },
+    {
+     "page": 398,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-398.jpg"
+    },
+    {
+     "page": 399,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-399.jpg"
+    },
+    {
+     "page": 400,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-400.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c401",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg401-404.txt",
+   "base": "40101",
+   "chapters": "401-404",
+   "images": [
+    {
+     "page": 401,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-401.jpg"
+    },
+    {
+     "page": 402,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-402.jpg"
+    },
+    {
+     "page": 403,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-403.jpg"
+    },
+    {
+     "page": 404,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-404.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c405",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg405-408.txt",
+   "base": "40501",
+   "chapters": "405-408",
+   "images": [
+    {
+     "page": 405,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-405.jpg"
+    },
+    {
+     "page": 406,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-406.jpg"
+    },
+    {
+     "page": 407,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-407.jpg"
+    },
+    {
+     "page": 408,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-408.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c409",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg409-412.txt",
+   "base": "40901",
+   "chapters": "409-412",
+   "images": [
+    {
+     "page": 409,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-409.jpg"
+    },
+    {
+     "page": 410,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-410.jpg"
+    },
+    {
+     "page": 411,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-411.jpg"
+    },
+    {
+     "page": 412,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-412.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c413",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg413-416.txt",
+   "base": "41301",
+   "chapters": "413-416",
+   "images": [
+    {
+     "page": 413,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-413.jpg"
+    },
+    {
+     "page": 414,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-414.jpg"
+    },
+    {
+     "page": 415,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-415.jpg"
+    },
+    {
+     "page": 416,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-416.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c417",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg417-420.txt",
+   "base": "41701",
+   "chapters": "417-420",
+   "images": [
+    {
+     "page": 417,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-417.jpg"
+    },
+    {
+     "page": 418,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-418.jpg"
+    },
+    {
+     "page": 420,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-420.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c421",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg421-424.txt",
+   "base": "42101",
+   "chapters": "421-424",
+   "images": [
+    {
+     "page": 421,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-421.jpg"
+    },
+    {
+     "page": 422,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-422.jpg"
+    },
+    {
+     "page": 423,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-423.jpg"
+    },
+    {
+     "page": 424,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-424.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c425",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg425-428.txt",
+   "base": "42501",
+   "chapters": "425-428",
+   "images": [
+    {
+     "page": 425,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-425.jpg"
+    },
+    {
+     "page": 426,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-426.jpg"
+    },
+    {
+     "page": 427,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-427.jpg"
+    },
+    {
+     "page": 428,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-428.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "sr5c429",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_sr5_b1_pg429-432.txt",
+   "base": "42901",
+   "chapters": "429-432",
+   "images": [
+    {
+     "page": 429,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-429.jpg"
+    },
+    {
+     "page": 430,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-430.jpg"
+    },
+    {
+     "page": 431,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-431.jpg"
+    },
+    {
+     "page": 432,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/sr5-page-432.jpg"
+    }
+   ]
+  }
+ ]
+}

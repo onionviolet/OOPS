@@ -1,0 +1,1210 @@
+{
+ "world": "cyberpunk",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28",
+ "outDir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/batch",
+ "glossary": {
+  "censusDir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28",
+  "censusMatch": "^(cpred|cp2020|cpnight|cpchrome|cpv3|cpgen|cpview|cpfriday|cpwelcome|cpkit)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "cpred-rules-r4",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "cpredc005",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg005-008.txt",
+   "base": "00501",
+   "chapters": "5-8",
+   "images": [
+    {
+     "page": 5,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-5.jpg"
+    },
+    {
+     "page": 6,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-6.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc009",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg009-012.txt",
+   "base": "00901",
+   "chapters": "9-12"
+  },
+  {
+   "prefix": "cpredc013",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg013-016.txt",
+   "base": "01301",
+   "chapters": "13-16",
+   "images": [
+    {
+     "page": 14,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-14.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc017",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg017-020.txt",
+   "base": "01701",
+   "chapters": "17-20",
+   "images": [
+    {
+     "page": 18,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-18.jpg"
+    },
+    {
+     "page": 19,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-19.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc021",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg021-024.txt",
+   "base": "02101",
+   "chapters": "21-24"
+  },
+  {
+   "prefix": "cpredc025",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg025-028.txt",
+   "base": "02501",
+   "chapters": "25-28",
+   "images": [
+    {
+     "page": 27,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-27.jpg"
+    },
+    {
+     "page": 28,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-28.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc029",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg029-032.txt",
+   "base": "02901",
+   "chapters": "29-32",
+   "images": [
+    {
+     "page": 29,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-29.jpg"
+    },
+    {
+     "page": 31,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-31.jpg"
+    },
+    {
+     "page": 32,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-32.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc033",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg033-036.txt",
+   "base": "03301",
+   "chapters": "33-36",
+   "images": [
+    {
+     "page": 33,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-33.jpg"
+    },
+    {
+     "page": 34,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-34.jpg"
+    },
+    {
+     "page": 35,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-35.jpg"
+    },
+    {
+     "page": 36,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-36.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc037",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg037-040.txt",
+   "base": "03701",
+   "chapters": "37-40",
+   "images": [
+    {
+     "page": 37,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-37.jpg"
+    },
+    {
+     "page": 38,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-38.jpg"
+    },
+    {
+     "page": 39,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-39.jpg"
+    },
+    {
+     "page": 40,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-40.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc041",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg041-044.txt",
+   "base": "04101",
+   "chapters": "41-44",
+   "images": [
+    {
+     "page": 41,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-41.jpg"
+    },
+    {
+     "page": 44,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-44.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc045",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg045-048.txt",
+   "base": "04501",
+   "chapters": "45-48",
+   "images": [
+    {
+     "page": 45,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-45.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc049",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg049-052.txt",
+   "base": "04901",
+   "chapters": "49-52",
+   "images": [
+    {
+     "page": 49,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-49.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc053",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg053-056.txt",
+   "base": "05301",
+   "chapters": "53-56",
+   "images": [
+    {
+     "page": 54,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-54.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc057",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg057-060.txt",
+   "base": "05701",
+   "chapters": "57-60",
+   "images": [
+    {
+     "page": 59,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-59.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc061",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg061-064.txt",
+   "base": "06101",
+   "chapters": "61-64"
+  },
+  {
+   "prefix": "cpredc065",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg065-068.txt",
+   "base": "06501",
+   "chapters": "65-68"
+  },
+  {
+   "prefix": "cpredc069",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg069-072.txt",
+   "base": "06901",
+   "chapters": "69-72",
+   "images": [
+    {
+     "page": 71,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-71.jpg"
+    },
+    {
+     "page": 72,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-72.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc073",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg073-076.txt",
+   "base": "07301",
+   "chapters": "73-76",
+   "images": [
+    {
+     "page": 74,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-74.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc077",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg077-080.txt",
+   "base": "07701",
+   "chapters": "77-80",
+   "images": [
+    {
+     "page": 78,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-78.jpg"
+    },
+    {
+     "page": 79,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-79.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc081",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg081-084.txt",
+   "base": "08101",
+   "chapters": "81-84",
+   "images": [
+    {
+     "page": 82,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-82.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc085",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg085-088.txt",
+   "base": "08501",
+   "chapters": "85-88"
+  },
+  {
+   "prefix": "cpredc089",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg089-092.txt",
+   "base": "08901",
+   "chapters": "89-92"
+  },
+  {
+   "prefix": "cpredc093",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg093-096.txt",
+   "base": "09301",
+   "chapters": "93-96",
+   "images": [
+    {
+     "page": 95,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-95.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc097",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg097-100.txt",
+   "base": "09701",
+   "chapters": "97-100",
+   "images": [
+    {
+     "page": 98,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-98.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc101",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg101-104.txt",
+   "base": "10101",
+   "chapters": "101-104"
+  },
+  {
+   "prefix": "cpredc105",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg105-108.txt",
+   "base": "10501",
+   "chapters": "105-108",
+   "images": [
+    {
+     "page": 107,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-107.jpg"
+    },
+    {
+     "page": 108,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-108.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc109",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg109-112.txt",
+   "base": "10901",
+   "chapters": "109-112",
+   "images": [
+    {
+     "page": 112,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-112.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc113",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg113-116.txt",
+   "base": "11301",
+   "chapters": "113-116"
+  },
+  {
+   "prefix": "cpredc117",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg117-120.txt",
+   "base": "11701",
+   "chapters": "117-120",
+   "images": [
+    {
+     "page": 120,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-120.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc121",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg121-124.txt",
+   "base": "12101",
+   "chapters": "121-124",
+   "images": [
+    {
+     "page": 122,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-122.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc125",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg125-128.txt",
+   "base": "12501",
+   "chapters": "125-128",
+   "images": [
+    {
+     "page": 126,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-126.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc129",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg129-132.txt",
+   "base": "12901",
+   "chapters": "129-132"
+  },
+  {
+   "prefix": "cpredc133",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg133-136.txt",
+   "base": "13301",
+   "chapters": "133-136"
+  },
+  {
+   "prefix": "cpredc137",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg137-140.txt",
+   "base": "13701",
+   "chapters": "137-140"
+  },
+  {
+   "prefix": "cpredc141",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg141-144.txt",
+   "base": "14101",
+   "chapters": "141-144",
+   "images": [
+    {
+     "page": 144,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-144.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc145",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg145-148.txt",
+   "base": "14501",
+   "chapters": "145-148"
+  },
+  {
+   "prefix": "cpredc149",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg149-152.txt",
+   "base": "14901",
+   "chapters": "149-152",
+   "images": [
+    {
+     "page": 149,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-149.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc153",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg153-156.txt",
+   "base": "15301",
+   "chapters": "153-156"
+  },
+  {
+   "prefix": "cpredc157",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg157-160.txt",
+   "base": "15701",
+   "chapters": "157-160"
+  },
+  {
+   "prefix": "cpredc161",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg161-164.txt",
+   "base": "16101",
+   "chapters": "161-164"
+  },
+  {
+   "prefix": "cpredc165",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg165-168.txt",
+   "base": "16501",
+   "chapters": "165-168",
+   "images": [
+    {
+     "page": 168,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-168.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc169",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg169-172.txt",
+   "base": "16901",
+   "chapters": "169-172",
+   "images": [
+    {
+     "page": 172,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-172.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc173",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg173-176.txt",
+   "base": "17301",
+   "chapters": "173-176",
+   "images": [
+    {
+     "page": 175,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-175.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc177",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg177-180.txt",
+   "base": "17701",
+   "chapters": "177-180"
+  },
+  {
+   "prefix": "cpredc181",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg181-184.txt",
+   "base": "18101",
+   "chapters": "181-184",
+   "images": [
+    {
+     "page": 181,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-181.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc185",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg185-188.txt",
+   "base": "18501",
+   "chapters": "185-188"
+  },
+  {
+   "prefix": "cpredc189",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg189-192.txt",
+   "base": "18901",
+   "chapters": "189-192",
+   "images": [
+    {
+     "page": 191,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-191.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc193",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg193-196.txt",
+   "base": "19301",
+   "chapters": "193-196",
+   "images": [
+    {
+     "page": 195,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-195.jpg"
+    },
+    {
+     "page": 196,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-196.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc197",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg197-200.txt",
+   "base": "19701",
+   "chapters": "197-200",
+   "images": [
+    {
+     "page": 197,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-197.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc201",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg201-204.txt",
+   "base": "20101",
+   "chapters": "201-204",
+   "images": [
+    {
+     "page": 204,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-204.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc205",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg205-208.txt",
+   "base": "20501",
+   "chapters": "205-208",
+   "images": [
+    {
+     "page": 205,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-205.jpg"
+    },
+    {
+     "page": 207,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-207.jpg"
+    },
+    {
+     "page": 208,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-208.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc209",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg209-212.txt",
+   "base": "20901",
+   "chapters": "209-212"
+  },
+  {
+   "prefix": "cpredc213",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg213-216.txt",
+   "base": "21301",
+   "chapters": "213-216",
+   "images": [
+    {
+     "page": 213,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-213.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc217",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg217-220.txt",
+   "base": "21701",
+   "chapters": "217-220",
+   "images": [
+    {
+     "page": 220,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-220.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc221",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg221-224.txt",
+   "base": "22101",
+   "chapters": "221-224"
+  },
+  {
+   "prefix": "cpredc225",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg225-228.txt",
+   "base": "22501",
+   "chapters": "225-228"
+  },
+  {
+   "prefix": "cpredc229",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg229-232.txt",
+   "base": "22901",
+   "chapters": "229-232",
+   "images": [
+    {
+     "page": 230,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-230.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc233",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg233-236.txt",
+   "base": "23301",
+   "chapters": "233-236",
+   "images": [
+    {
+     "page": 234,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-234.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc237",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg237-240.txt",
+   "base": "23701",
+   "chapters": "237-240",
+   "images": [
+    {
+     "page": 239,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-239.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc241",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg241-244.txt",
+   "base": "24101",
+   "chapters": "241-244",
+   "images": [
+    {
+     "page": 242,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-242.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc245",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg245-248.txt",
+   "base": "24501",
+   "chapters": "245-248"
+  },
+  {
+   "prefix": "cpredc249",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg249-252.txt",
+   "base": "24901",
+   "chapters": "249-252"
+  },
+  {
+   "prefix": "cpredc253",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg253-256.txt",
+   "base": "25301",
+   "chapters": "253-256",
+   "images": [
+    {
+     "page": 255,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-255.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc257",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg257-260.txt",
+   "base": "25701",
+   "chapters": "257-260",
+   "images": [
+    {
+     "page": 258,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-258.jpg"
+    },
+    {
+     "page": 259,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-259.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc261",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg261-264.txt",
+   "base": "26101",
+   "chapters": "261-264"
+  },
+  {
+   "prefix": "cpredc265",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg265-268.txt",
+   "base": "26501",
+   "chapters": "265-268",
+   "images": [
+    {
+     "page": 266,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-266.jpg"
+    },
+    {
+     "page": 267,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-267.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc269",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg269-272.txt",
+   "base": "26901",
+   "chapters": "269-272"
+  },
+  {
+   "prefix": "cpredc273",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg273-276.txt",
+   "base": "27301",
+   "chapters": "273-276",
+   "images": [
+    {
+     "page": 274,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-274.jpg"
+    },
+    {
+     "page": 275,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-275.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc277",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg277-280.txt",
+   "base": "27701",
+   "chapters": "277-280"
+  },
+  {
+   "prefix": "cpredc281",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg281-284.txt",
+   "base": "28101",
+   "chapters": "281-284",
+   "images": [
+    {
+     "page": 283,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-283.jpg"
+    },
+    {
+     "page": 284,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-284.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc285",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg285-288.txt",
+   "base": "28501",
+   "chapters": "285-288"
+  },
+  {
+   "prefix": "cpredc289",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg289-292.txt",
+   "base": "28901",
+   "chapters": "289-292",
+   "images": [
+    {
+     "page": 289,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-289.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc293",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg293-296.txt",
+   "base": "29301",
+   "chapters": "293-296",
+   "images": [
+    {
+     "page": 293,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-293.jpg"
+    },
+    {
+     "page": 296,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-296.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc297",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg297-300.txt",
+   "base": "29701",
+   "chapters": "297-300"
+  },
+  {
+   "prefix": "cpredc301",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg301-304.txt",
+   "base": "30101",
+   "chapters": "301-304",
+   "images": [
+    {
+     "page": 301,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-301.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc305",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg305-308.txt",
+   "base": "30501",
+   "chapters": "305-308"
+  },
+  {
+   "prefix": "cpredc309",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg309-312.txt",
+   "base": "30901",
+   "chapters": "309-312"
+  },
+  {
+   "prefix": "cpredc313",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg313-316.txt",
+   "base": "31301",
+   "chapters": "313-316",
+   "images": [
+    {
+     "page": 313,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-313.jpg"
+    },
+    {
+     "page": 315,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-315.jpg"
+    },
+    {
+     "page": 316,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-316.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc317",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg317-320.txt",
+   "base": "31701",
+   "chapters": "317-320"
+  },
+  {
+   "prefix": "cpredc321",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg321-324.txt",
+   "base": "32101",
+   "chapters": "321-324"
+  },
+  {
+   "prefix": "cpredc325",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg325-328.txt",
+   "base": "32501",
+   "chapters": "325-328"
+  },
+  {
+   "prefix": "cpredc329",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg329-332.txt",
+   "base": "32901",
+   "chapters": "329-332"
+  },
+  {
+   "prefix": "cpredc333",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg333-336.txt",
+   "base": "33301",
+   "chapters": "333-336",
+   "images": [
+    {
+     "page": 334,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-334.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc337",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg337-340.txt",
+   "base": "33701",
+   "chapters": "337-340"
+  },
+  {
+   "prefix": "cpredc341",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg341-344.txt",
+   "base": "34101",
+   "chapters": "341-344",
+   "images": [
+    {
+     "page": 342,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-342.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc345",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg345-348.txt",
+   "base": "34501",
+   "chapters": "345-348"
+  },
+  {
+   "prefix": "cpredc349",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg349-352.txt",
+   "base": "34901",
+   "chapters": "349-352"
+  },
+  {
+   "prefix": "cpredc353",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg353-356.txt",
+   "base": "35301",
+   "chapters": "353-356"
+  },
+  {
+   "prefix": "cpredc357",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg357-360.txt",
+   "base": "35701",
+   "chapters": "357-360"
+  },
+  {
+   "prefix": "cpredc361",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg361-364.txt",
+   "base": "36101",
+   "chapters": "361-364"
+  },
+  {
+   "prefix": "cpredc365",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg365-368.txt",
+   "base": "36501",
+   "chapters": "365-368"
+  },
+  {
+   "prefix": "cpredc369",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg369-372.txt",
+   "base": "36901",
+   "chapters": "369-372",
+   "images": [
+    {
+     "page": 369,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-369.jpg"
+    },
+    {
+     "page": 370,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-370.jpg"
+    },
+    {
+     "page": 371,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-371.jpg"
+    },
+    {
+     "page": 372,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-372.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc373",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg373-376.txt",
+   "base": "37301",
+   "chapters": "373-376",
+   "images": [
+    {
+     "page": 373,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-373.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc377",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg377-380.txt",
+   "base": "37701",
+   "chapters": "377-380"
+  },
+  {
+   "prefix": "cpredc381",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg381-384.txt",
+   "base": "38101",
+   "chapters": "381-384"
+  },
+  {
+   "prefix": "cpredc385",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg385-388.txt",
+   "base": "38501",
+   "chapters": "385-388",
+   "images": [
+    {
+     "page": 386,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-386.jpg"
+    },
+    {
+     "page": 388,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-388.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc389",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg389-392.txt",
+   "base": "38901",
+   "chapters": "389-392"
+  },
+  {
+   "prefix": "cpredc393",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg393-396.txt",
+   "base": "39301",
+   "chapters": "393-396"
+  },
+  {
+   "prefix": "cpredc397",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg397-400.txt",
+   "base": "39701",
+   "chapters": "397-400"
+  },
+  {
+   "prefix": "cpredc401",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg401-404.txt",
+   "base": "40101",
+   "chapters": "401-404"
+  },
+  {
+   "prefix": "cpredc405",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg405-408.txt",
+   "base": "40501",
+   "chapters": "405-408"
+  },
+  {
+   "prefix": "cpredc409",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg409-412.txt",
+   "base": "40901",
+   "chapters": "409-412"
+  },
+  {
+   "prefix": "cpredc413",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg413-416.txt",
+   "base": "41301",
+   "chapters": "413-416",
+   "images": [
+    {
+     "page": 413,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-413.jpg"
+    },
+    {
+     "page": 414,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-414.jpg"
+    },
+    {
+     "page": 415,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-415.jpg"
+    },
+    {
+     "page": 416,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-416.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc417",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg417-420.txt",
+   "base": "41701",
+   "chapters": "417-420",
+   "images": [
+    {
+     "page": 417,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-417.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc421",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg421-424.txt",
+   "base": "42101",
+   "chapters": "421-424"
+  },
+  {
+   "prefix": "cpredc425",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg425-428.txt",
+   "base": "42501",
+   "chapters": "425-428",
+   "images": [
+    {
+     "page": 427,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-427.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc429",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg429-432.txt",
+   "base": "42901",
+   "chapters": "429-432"
+  },
+  {
+   "prefix": "cpredc433",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg433-436.txt",
+   "base": "43301",
+   "chapters": "433-436",
+   "images": [
+    {
+     "page": 435,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-435.jpg"
+    },
+    {
+     "page": 436,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-436.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc437",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg437-440.txt",
+   "base": "43701",
+   "chapters": "437-440"
+  },
+  {
+   "prefix": "cpredc441",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg441-444.txt",
+   "base": "44101",
+   "chapters": "441-444"
+  },
+  {
+   "prefix": "cpredc445",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg445-448.txt",
+   "base": "44501",
+   "chapters": "445-448"
+  },
+  {
+   "prefix": "cpredc449",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg449-452.txt",
+   "base": "44901",
+   "chapters": "449-452",
+   "images": [
+    {
+     "page": 451,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-451.jpg"
+    },
+    {
+     "page": 452,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-452.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc453",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg453-456.txt",
+   "base": "45301",
+   "chapters": "453-456",
+   "images": [
+    {
+     "page": 453,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-453.jpg"
+    },
+    {
+     "page": 454,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpred-page-454.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpredc457",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpred_b1_pg457-458.txt",
+   "base": "45701",
+   "chapters": "457-458"
+  }
+ ]
+}

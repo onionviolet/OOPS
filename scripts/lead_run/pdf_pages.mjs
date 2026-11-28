@@ -1,9 +1,10 @@
 /** Split pdftotext's physical pages without treating printed folios as page numbers.
  * Section ranges are inclusive PDF pages. Gaps stay in the read.
  */
-export function pageShards(text, {book, pagesPerShard = 4, pageRange, sections = []}) {
+export function pageShards(text, {book, pagesPerShard = 4, pageRange, pdfPageCount, sections = []}) {
     const pages = text.replace(/\r\n/g, '\n').split('\f');
-    if (pages.at(-1) === '') pages.pop();
+    if (pages.at(-1) === '' && (!pdfPageCount || pages.length === pdfPageCount + 1)) pages.pop();
+    if (pdfPageCount && pages.length !== pdfPageCount) throw new Error('PDF page count differs from the registered edition');
     const [first, last] = pageRange || [1, pages.length];
     if (![first, last, pagesPerShard, book].every(n => Number.isInteger(n) && n > 0)
         || first > last || last > pages.length) throw new Error('Invalid PDF page range or shard size');
@@ -23,7 +24,7 @@ export function pageShards(text, {book, pagesPerShard = 4, pageRange, sections =
             current = {first: page, last: page, text: '', index: {}};
             shards.push(current);
         }
-        const paragraphs = pages[page - 1].trim().split(/\n[ \t]*\n+/).filter(Boolean)
+        const paragraphs = pages[page - 1].trim().split(/\n[ \t]*\n+|(?<=[.!?:])\n/).filter(Boolean)
             .map(value => value.replace(/\s+/g, ' ').trim());
         current.last = page;
         current.index[page] = paragraphs.length;

@@ -136,3 +136,27 @@ The budget table, all nine procedure steps, locators and known-gap note were ful
 The stated monthly credit, expiry, model/pricing, measured request costs, output limits,50–60% ratio and last-day noon suggestion are dated planning assumptions, not verified account or service state. This review checks no balance, price, billing policy or batch SLA. Free preparation means the described local planning path, not a blanket promise about every command's effects. A later authorized launch must use its actual current registry/driver and secret-handling route without exposing a key; no command here was executed.
 
 Shard counts, lint grades, name accuracy and spend checks do not establish semantic source completeness. Actual edition order, omissions, duplicated material, malformed headings and truncated context still need the selected source checks. Searching an index is navigation: an implementer must read the cited source with enough context and the relevant later correction, distinguish occurrence from reveal and witness from belief, then implement the selected actual mechanism. Merged registry, overlay or extracted count is not accepted canon or completed gameplay. Current AD44/AD51 preserve selected protagonist direction and first useful shared consumers without turning every pass into a new prerequisite. No book/PDF conversion, source transmission, paid request, approval request, driver launch or repair was performed by this document review.
+
+### Round 4 tabletop rules
+
+From the repo root after round 3, prepare the private inputs with the following command.
+It writes rules plans and one pilot per book. The two world runs start with pending approval.
+
+~~~sh
+READING_PYTHON="$HOME/.local/share/pdf2md/.venv/bin/python" node scripts/lead_run/make_book_plans.mjs --keys cpred,cp2020,cpnight,cpchrome,cpv3,cpgen,cpview,cpfriday,cpwelcome,cpkit,sr5,srfaster,sr6,srwyrd,srfiring,srbody,srclutch --prepare --passes rules --pilot rules --tag r4 --run r4
+~~~
+
+The registry pins one SHA-256 per edition. RED uses the screened, repaired CR3001 PDF.
+Chromebook 1 occupies physical pages 1 through 97 of its combined edition. The Mission Kit
+Rule Book occupies pages 1 through 42. Each other entry spans its whole PDF. A locator such
+as `en b3 pdf18 p2` identifies a paragraph on physical page 18 of book 3 in that world. Registry entries may set `pagesPerShard` (default four) and explicit
+`sections` with inclusive `from` and `to` PDF pages from an outline. Pages between sections stay in the read.
+
+Preparation reuses matching pdf-screen reports. The three 2013 booklets were first screened
+for this round. On a machine missing a report, the preparer invokes the installed pdf-screen
+script with the selected PyMuPDF interpreter. It uses readable text and attaches the original
+page as an image when text is sparse, the page needs OCR or the screen raises findings.
+The rendered-page paragraph provides a locator for visual evidence. All private inputs stay
+beside the shards. On a second machine, `OOPS_READING_SOURCE_DIR` can point to a private folder
+containing `<key>.pdf` and the matching `<key>.json` screen report. The planner checks the PDF
+against its registered SHA-256 and matches that digest to the screen report.

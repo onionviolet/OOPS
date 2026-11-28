@@ -1,6 +1,7 @@
 // Resolve an explicitly registered local source. Existing primary paths keep
 // their meaning; aliases require their own byte identity and never remap books.
 import {existsSync, openSync, readSync, closeSync} from 'node:fs';
+import {join} from 'node:path';
 import {createHash} from 'node:crypto';
 function fingerprint(path) {
     const fd=openSync(path,'r'),buffer=Buffer.allocUnsafe(65536),hash=createHash('sha256');
@@ -11,7 +12,10 @@ function fingerprint(path) {
 
 export function resolveBookSource(book) {
     if (book.source && existsSync(book.source)) return book.source;
-    for (const alias of book.sourceAliases || []) {
+    const aliases = book.sourceAliases || [];
+    const mirror = process.env.OOPS_READING_SOURCE_DIR;
+    const local = mirror && aliases.length ? [{path: join(mirror, book.key + '.pdf'), sha256: aliases[0].sha256}] : [];
+    for (const alias of [...local, ...aliases]) {
         if (!alias?.path || !/^[a-f0-9]{64}$/i.test(alias.sha256 || '') || !existsSync(alias.path)) continue;
         let hash;
         try { hash = fingerprint(alias.path); }

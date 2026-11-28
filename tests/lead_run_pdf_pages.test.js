@@ -20,6 +20,8 @@ test('physical pages survive blank leaves, wraps, section boundaries and restric
     assert.match(req.params.messages[0].content[0].text, /en b3 pdf3 p2/);
     assert.equal(bookShards(book, ['shard_test_b3_pg003-004.txt'])[0].chapters, '3-4');
     assert.deepEqual(pageShards(text, {...book, pageRange: [4, 5]}).map(s => s.first), [4, 5]);
+    assert.equal(pageShards('Front\f', {book: 1, pdfPageCount: 2})[0].index[2], 0);
+    assert.throws(() => pageShards('A\fB\fC\f', {book: 1, pdfPageCount: 2}), /page count/);
     assert.throws(() => pageShards('\f', book));
     assert.throws(() => pageShards(text, {...book, pageRange: [1, 6]}));
 });

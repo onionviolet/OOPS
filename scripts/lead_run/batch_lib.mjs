@@ -308,7 +308,9 @@ export function requestText(req) {
 /** Dollars at batch price. `outTokens` is per request (thinking at low effort plus rows), an assumption until measured. */
 export function estimateCost(requests, outTokens, model = MODEL) {
     const price = priceFor(model);
-    const inTok = requests.map(r => estimateTokens(requestText(r)));
+    // Plan a conservative 3200 input tokens for each page image (long edge at most 1550 px).
+    const inTok = requests.map(r => estimateTokens(requestText(r)) +
+        3200 * r.params.messages.flatMap(m => m.content).filter(b => b.type === 'image').length);
     const over = inTok.filter(t => t > price.promptCap).length;
     const totalIn = inTok.reduce((a, b) => a + b, 0), totalOut = outTokens * requests.length;
     const usd = (totalIn * price.inPerM + totalOut * price.outPerM) / 1e6 * price.batchFactor;
@@ -368,10 +370,18 @@ export function requestsFromPlan(plan) {
     const glossary = glossaryFromPlan(plan);
     const pass = plan.pass, version = plan.schemaVersion || '1.3';
     const system = systemText(pass, {world: plan.world || 'lotm', version}) + (plan.reading?.focus ? '\n\nBounded reading focus: ' + plan.reading.focus + '\nThis focus does not grant evidence outside the supplied shard or establish whole-book coverage. Keep the pass schema and source labels.' : '');
-    return plan.shards.map(s => buildRequest({
-        customId: `${s.prefix}-${pass}`, prefix: s.prefix, base: s.base, shardText: readFileSync(s.shard, 'utf8'), glossary, pass,
-        model: plan.model || MODEL, effort: plan.effort || 'low', maxTokens: plan.maxTokens || 48000, schemaMode: plan.schemaMode || 'format',
-        world: plan.world || 'lotm', version, system}));
+    return plan.shards.map(s => {
+        const request = buildRequest({
+            customId: `${s.prefix}-${pass}`, prefix: s.prefix, base: s.base, shardText: readFileSync(s.shard, 'utf8'), glossary, pass,
+            model: plan.model || MODEL, effort: plan.effort || 'low', maxTokens: plan.maxTokens || 48000, schemaMode: plan.schemaMode || 'format',
+            world: plan.world || 'lotm', version, system});
+        for (const image of s.images || []) {
+            const blocks = request.params.messages[0].content;
+            blocks.push({type: 'text', text: 'Visible original of PDF page ' + image.page + '. Cite its rendered-page paragraph for visual evidence.'},
+                {type: 'image', source: {type: 'base64', media_type: 'image/jpeg', data: readFileSync(image.file).toString('base64')}});
+        }
+        return request;
+    });
 }
 
 /** Whether a shard's pass is already read in a private folder, by any provider (file names do not carry the reader). A salvaged cut-off still needs a full read. */
