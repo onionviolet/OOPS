@@ -1,0 +1,140 @@
+{
+ "world": "mnl",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30",
+  "censusMatch": "^(mnl2|mnl3|mnl4|mnl5|mnl6|mnl1)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "mnl2-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "mnl2c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch003-004.txt",
+   "base": "200301",
+   "chapters": "3-4"
+  },
+  {
+   "prefix": "mnl2c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch005-006.txt",
+   "base": "200501",
+   "chapters": "5-6"
+  },
+  {
+   "prefix": "mnl2c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch007-007.txt",
+   "base": "200701",
+   "chapters": "7-7"
+  },
+  {
+   "prefix": "mnl2c008",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch008-009.txt",
+   "base": "200801",
+   "chapters": "8-9"
+  },
+  {
+   "prefix": "mnl2c010",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch010-011.txt",
+   "base": "201001",
+   "chapters": "10-11"
+  },
+  {
+   "prefix": "mnl2c012",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch012-013.txt",
+   "base": "201201",
+   "chapters": "12-13"
+  },
+  {
+   "prefix": "mnl2c014",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch014-015.txt",
+   "base": "201401",
+   "chapters": "14-15"
+  },
+  {
+   "prefix": "mnl2c016",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch016-017.txt",
+   "base": "201601",
+   "chapters": "16-17"
+  },
+  {
+   "prefix": "mnl2c018",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch018-019.txt",
+   "base": "201801",
+   "chapters": "18-19"
+  },
+  {
+   "prefix": "mnl2c020",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch020-021.txt",
+   "base": "202001",
+   "chapters": "20-21"
+  },
+  {
+   "prefix": "mnl2c022",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch022-023.txt",
+   "base": "202201",
+   "chapters": "22-23"
+  },
+  {
+   "prefix": "mnl2c024",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch024-025.txt",
+   "base": "202401",
+   "chapters": "24-25"
+  },
+  {
+   "prefix": "mnl2c026",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch026-027.txt",
+   "base": "202601",
+   "chapters": "26-27"
+  },
+  {
+   "prefix": "mnl2c028",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch028-029.txt",
+   "base": "202801",
+   "chapters": "28-29"
+  },
+  {
+   "prefix": "mnl2c030",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch030-030.txt",
+   "base": "203001",
+   "chapters": "30-30"
+  },
+  {
+   "prefix": "mnl2c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch031-031.txt",
+   "base": "203101",
+   "chapters": "31-31"
+  },
+  {
+   "prefix": "mnl2c032",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch032-033.txt",
+   "base": "203201",
+   "chapters": "32-33"
+  },
+  {
+   "prefix": "mnl2c034",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch034-035.txt",
+   "base": "203401",
+   "chapters": "34-35"
+  },
+  {
+   "prefix": "mnl2c036",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl2_b2_ch036-037.txt",
+   "base": "203601",
+   "chapters": "36-37"
+  }
+ ]
+}

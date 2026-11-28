@@ -1,0 +1,1466 @@
+{
+ "world": "ark",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30",
+  "censusMatch": "^(ark)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "ark-rules-a",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "arkc003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch003-003.txt",
+   "base": "00301",
+   "chapters": "3-3"
+  },
+  {
+   "prefix": "arkc004",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch004-004.txt",
+   "base": "00401",
+   "chapters": "4-4"
+  },
+  {
+   "prefix": "arkc005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch005-005.txt",
+   "base": "00501",
+   "chapters": "5-5"
+  },
+  {
+   "prefix": "arkc006",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch006-007.txt",
+   "base": "00601",
+   "chapters": "6-7"
+  },
+  {
+   "prefix": "arkc008",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch008-009.txt",
+   "base": "00801",
+   "chapters": "8-9"
+  },
+  {
+   "prefix": "arkc010",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch010-011.txt",
+   "base": "01001",
+   "chapters": "10-11"
+  },
+  {
+   "prefix": "arkc012",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch012-013.txt",
+   "base": "01201",
+   "chapters": "12-13"
+  },
+  {
+   "prefix": "arkc014",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch014-014.txt",
+   "base": "01401",
+   "chapters": "14-14"
+  },
+  {
+   "prefix": "arkc015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch015-016.txt",
+   "base": "01501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "arkc017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch017-017.txt",
+   "base": "01701",
+   "chapters": "17-17"
+  },
+  {
+   "prefix": "arkc018",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch018-018.txt",
+   "base": "01801",
+   "chapters": "18-18"
+  },
+  {
+   "prefix": "arkc019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch019-019.txt",
+   "base": "01901",
+   "chapters": "19-19"
+  },
+  {
+   "prefix": "arkc020",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch020-020.txt",
+   "base": "02001",
+   "chapters": "20-20"
+  },
+  {
+   "prefix": "arkc021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch021-021.txt",
+   "base": "02101",
+   "chapters": "21-21"
+  },
+  {
+   "prefix": "arkc022",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch022-022.txt",
+   "base": "02201",
+   "chapters": "22-22"
+  },
+  {
+   "prefix": "arkc023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch023-023.txt",
+   "base": "02301",
+   "chapters": "23-23"
+  },
+  {
+   "prefix": "arkc024",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch024-024.txt",
+   "base": "02401",
+   "chapters": "24-24"
+  },
+  {
+   "prefix": "arkc025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch025-025.txt",
+   "base": "02501",
+   "chapters": "25-25"
+  },
+  {
+   "prefix": "arkc026",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch026-026.txt",
+   "base": "02601",
+   "chapters": "26-26"
+  },
+  {
+   "prefix": "arkc027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch027-027.txt",
+   "base": "02701",
+   "chapters": "27-27"
+  },
+  {
+   "prefix": "arkc028",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch028-028.txt",
+   "base": "02801",
+   "chapters": "28-28"
+  },
+  {
+   "prefix": "arkc029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch029-029.txt",
+   "base": "02901",
+   "chapters": "29-29"
+  },
+  {
+   "prefix": "arkc030",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch030-030.txt",
+   "base": "03001",
+   "chapters": "30-30"
+  },
+  {
+   "prefix": "arkc031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch031-031.txt",
+   "base": "03101",
+   "chapters": "31-31"
+  },
+  {
+   "prefix": "arkc032",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch032-032.txt",
+   "base": "03201",
+   "chapters": "32-32"
+  },
+  {
+   "prefix": "arkc033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch033-033.txt",
+   "base": "03301",
+   "chapters": "33-33"
+  },
+  {
+   "prefix": "arkc034",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch034-034.txt",
+   "base": "03401",
+   "chapters": "34-34"
+  },
+  {
+   "prefix": "arkc035",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch035-035.txt",
+   "base": "03501",
+   "chapters": "35-35"
+  },
+  {
+   "prefix": "arkc036",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch036-036.txt",
+   "base": "03601",
+   "chapters": "36-36"
+  },
+  {
+   "prefix": "arkc037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch037-037.txt",
+   "base": "03701",
+   "chapters": "37-37"
+  },
+  {
+   "prefix": "arkc038",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch038-038.txt",
+   "base": "03801",
+   "chapters": "38-38"
+  },
+  {
+   "prefix": "arkc039",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch039-039.txt",
+   "base": "03901",
+   "chapters": "39-39"
+  },
+  {
+   "prefix": "arkc040",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch040-040.txt",
+   "base": "04001",
+   "chapters": "40-40"
+  },
+  {
+   "prefix": "arkc041",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch041-041.txt",
+   "base": "04101",
+   "chapters": "41-41"
+  },
+  {
+   "prefix": "arkc042",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch042-042.txt",
+   "base": "04201",
+   "chapters": "42-42"
+  },
+  {
+   "prefix": "arkc043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch043-043.txt",
+   "base": "04301",
+   "chapters": "43-43"
+  },
+  {
+   "prefix": "arkc044",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch044-044.txt",
+   "base": "04401",
+   "chapters": "44-44"
+  },
+  {
+   "prefix": "arkc045",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch045-045.txt",
+   "base": "04501",
+   "chapters": "45-45"
+  },
+  {
+   "prefix": "arkc046",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch046-046.txt",
+   "base": "04601",
+   "chapters": "46-46"
+  },
+  {
+   "prefix": "arkc047",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch047-047.txt",
+   "base": "04701",
+   "chapters": "47-47"
+  },
+  {
+   "prefix": "arkc048",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch048-048.txt",
+   "base": "04801",
+   "chapters": "48-48"
+  },
+  {
+   "prefix": "arkc049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch049-049.txt",
+   "base": "04901",
+   "chapters": "49-49"
+  },
+  {
+   "prefix": "arkc050",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch050-050.txt",
+   "base": "05001",
+   "chapters": "50-50"
+  },
+  {
+   "prefix": "arkc051",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch051-051.txt",
+   "base": "05101",
+   "chapters": "51-51"
+  },
+  {
+   "prefix": "arkc052",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch052-052.txt",
+   "base": "05201",
+   "chapters": "52-52"
+  },
+  {
+   "prefix": "arkc053",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch053-053.txt",
+   "base": "05301",
+   "chapters": "53-53"
+  },
+  {
+   "prefix": "arkc054",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch054-054.txt",
+   "base": "05401",
+   "chapters": "54-54"
+  },
+  {
+   "prefix": "arkc055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch055-055.txt",
+   "base": "05501",
+   "chapters": "55-55"
+  },
+  {
+   "prefix": "arkc056",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch056-056.txt",
+   "base": "05601",
+   "chapters": "56-56"
+  },
+  {
+   "prefix": "arkc057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch057-057.txt",
+   "base": "05701",
+   "chapters": "57-57"
+  },
+  {
+   "prefix": "arkc058",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch058-058.txt",
+   "base": "05801",
+   "chapters": "58-58"
+  },
+  {
+   "prefix": "arkc059",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch059-059.txt",
+   "base": "05901",
+   "chapters": "59-59"
+  },
+  {
+   "prefix": "arkc060",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch060-061.txt",
+   "base": "06001",
+   "chapters": "60-61"
+  },
+  {
+   "prefix": "arkc062",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch062-062.txt",
+   "base": "06201",
+   "chapters": "62-62"
+  },
+  {
+   "prefix": "arkc063",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch063-063.txt",
+   "base": "06301",
+   "chapters": "63-63"
+  },
+  {
+   "prefix": "arkc064",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch064-064.txt",
+   "base": "06401",
+   "chapters": "64-64"
+  },
+  {
+   "prefix": "arkc065",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch065-065.txt",
+   "base": "06501",
+   "chapters": "65-65"
+  },
+  {
+   "prefix": "arkc066",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch066-066.txt",
+   "base": "06601",
+   "chapters": "66-66"
+  },
+  {
+   "prefix": "arkc067",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch067-067.txt",
+   "base": "06701",
+   "chapters": "67-67"
+  },
+  {
+   "prefix": "arkc068",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch068-068.txt",
+   "base": "06801",
+   "chapters": "68-68"
+  },
+  {
+   "prefix": "arkc069",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch069-069.txt",
+   "base": "06901",
+   "chapters": "69-69"
+  },
+  {
+   "prefix": "arkc070",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch070-070.txt",
+   "base": "07001",
+   "chapters": "70-70"
+  },
+  {
+   "prefix": "arkc071",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch071-071.txt",
+   "base": "07101",
+   "chapters": "71-71"
+  },
+  {
+   "prefix": "arkc072",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch072-072.txt",
+   "base": "07201",
+   "chapters": "72-72"
+  },
+  {
+   "prefix": "arkc073",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch073-073.txt",
+   "base": "07301",
+   "chapters": "73-73"
+  },
+  {
+   "prefix": "arkc074",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch074-074.txt",
+   "base": "07401",
+   "chapters": "74-74"
+  },
+  {
+   "prefix": "arkc075",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch075-075.txt",
+   "base": "07501",
+   "chapters": "75-75"
+  },
+  {
+   "prefix": "arkc076",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch076-076.txt",
+   "base": "07601",
+   "chapters": "76-76"
+  },
+  {
+   "prefix": "arkc077",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch077-077.txt",
+   "base": "07701",
+   "chapters": "77-77"
+  },
+  {
+   "prefix": "arkc078",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch078-078.txt",
+   "base": "07801",
+   "chapters": "78-78"
+  },
+  {
+   "prefix": "arkc079",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch079-079.txt",
+   "base": "07901",
+   "chapters": "79-79"
+  },
+  {
+   "prefix": "arkc080",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch080-080.txt",
+   "base": "08001",
+   "chapters": "80-80"
+  },
+  {
+   "prefix": "arkc081",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch081-081.txt",
+   "base": "08101",
+   "chapters": "81-81"
+  },
+  {
+   "prefix": "arkc082",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch082-082.txt",
+   "base": "08201",
+   "chapters": "82-82"
+  },
+  {
+   "prefix": "arkc083",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch083-083.txt",
+   "base": "08301",
+   "chapters": "83-83"
+  },
+  {
+   "prefix": "arkc084",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch084-084.txt",
+   "base": "08401",
+   "chapters": "84-84"
+  },
+  {
+   "prefix": "arkc085",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch085-085.txt",
+   "base": "08501",
+   "chapters": "85-85"
+  },
+  {
+   "prefix": "arkc086",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch086-086.txt",
+   "base": "08601",
+   "chapters": "86-86"
+  },
+  {
+   "prefix": "arkc087",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch087-087.txt",
+   "base": "08701",
+   "chapters": "87-87"
+  },
+  {
+   "prefix": "arkc088",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch088-088.txt",
+   "base": "08801",
+   "chapters": "88-88"
+  },
+  {
+   "prefix": "arkc089",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch089-089.txt",
+   "base": "08901",
+   "chapters": "89-89"
+  },
+  {
+   "prefix": "arkc090",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch090-090.txt",
+   "base": "09001",
+   "chapters": "90-90"
+  },
+  {
+   "prefix": "arkc091",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch091-091.txt",
+   "base": "09101",
+   "chapters": "91-91"
+  },
+  {
+   "prefix": "arkc092",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch092-092.txt",
+   "base": "09201",
+   "chapters": "92-92"
+  },
+  {
+   "prefix": "arkc093",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch093-093.txt",
+   "base": "09301",
+   "chapters": "93-93"
+  },
+  {
+   "prefix": "arkc094",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch094-094.txt",
+   "base": "09401",
+   "chapters": "94-94"
+  },
+  {
+   "prefix": "arkc095",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch095-095.txt",
+   "base": "09501",
+   "chapters": "95-95"
+  },
+  {
+   "prefix": "arkc096",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch096-096.txt",
+   "base": "09601",
+   "chapters": "96-96"
+  },
+  {
+   "prefix": "arkc097",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch097-097.txt",
+   "base": "09701",
+   "chapters": "97-97"
+  },
+  {
+   "prefix": "arkc098",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch098-098.txt",
+   "base": "09801",
+   "chapters": "98-98"
+  },
+  {
+   "prefix": "arkc099",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch099-099.txt",
+   "base": "09901",
+   "chapters": "99-99"
+  },
+  {
+   "prefix": "arkc100",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch100-100.txt",
+   "base": "10001",
+   "chapters": "100-100"
+  },
+  {
+   "prefix": "arkc101",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch101-101.txt",
+   "base": "10101",
+   "chapters": "101-101"
+  },
+  {
+   "prefix": "arkc102",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch102-102.txt",
+   "base": "10201",
+   "chapters": "102-102"
+  },
+  {
+   "prefix": "arkc103",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch103-103.txt",
+   "base": "10301",
+   "chapters": "103-103"
+  },
+  {
+   "prefix": "arkc104",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch104-104.txt",
+   "base": "10401",
+   "chapters": "104-104"
+  },
+  {
+   "prefix": "arkc105",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch105-105.txt",
+   "base": "10501",
+   "chapters": "105-105"
+  },
+  {
+   "prefix": "arkc106",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch106-106.txt",
+   "base": "10601",
+   "chapters": "106-106"
+  },
+  {
+   "prefix": "arkc107",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch107-107.txt",
+   "base": "10701",
+   "chapters": "107-107"
+  },
+  {
+   "prefix": "arkc108",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch108-108.txt",
+   "base": "10801",
+   "chapters": "108-108"
+  },
+  {
+   "prefix": "arkc109",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch109-109.txt",
+   "base": "10901",
+   "chapters": "109-109"
+  },
+  {
+   "prefix": "arkc110",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch110-110.txt",
+   "base": "11001",
+   "chapters": "110-110"
+  },
+  {
+   "prefix": "arkc111",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch111-111.txt",
+   "base": "11101",
+   "chapters": "111-111"
+  },
+  {
+   "prefix": "arkc112",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch112-112.txt",
+   "base": "11201",
+   "chapters": "112-112"
+  },
+  {
+   "prefix": "arkc113",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch113-113.txt",
+   "base": "11301",
+   "chapters": "113-113"
+  },
+  {
+   "prefix": "arkc114",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch114-114.txt",
+   "base": "11401",
+   "chapters": "114-114"
+  },
+  {
+   "prefix": "arkc115",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch115-115.txt",
+   "base": "11501",
+   "chapters": "115-115"
+  },
+  {
+   "prefix": "arkc116",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch116-116.txt",
+   "base": "11601",
+   "chapters": "116-116"
+  },
+  {
+   "prefix": "arkc117",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch117-117.txt",
+   "base": "11701",
+   "chapters": "117-117"
+  },
+  {
+   "prefix": "arkc118",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch118-118.txt",
+   "base": "11801",
+   "chapters": "118-118"
+  },
+  {
+   "prefix": "arkc119",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch119-119.txt",
+   "base": "11901",
+   "chapters": "119-119"
+  },
+  {
+   "prefix": "arkc120",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch120-120.txt",
+   "base": "12001",
+   "chapters": "120-120"
+  },
+  {
+   "prefix": "arkc121",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch121-121.txt",
+   "base": "12101",
+   "chapters": "121-121"
+  },
+  {
+   "prefix": "arkc122",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch122-122.txt",
+   "base": "12201",
+   "chapters": "122-122"
+  },
+  {
+   "prefix": "arkc123",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch123-123.txt",
+   "base": "12301",
+   "chapters": "123-123"
+  },
+  {
+   "prefix": "arkc124",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch124-124.txt",
+   "base": "12401",
+   "chapters": "124-124"
+  },
+  {
+   "prefix": "arkc125",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch125-125.txt",
+   "base": "12501",
+   "chapters": "125-125"
+  },
+  {
+   "prefix": "arkc126",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch126-126.txt",
+   "base": "12601",
+   "chapters": "126-126"
+  },
+  {
+   "prefix": "arkc127",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch127-127.txt",
+   "base": "12701",
+   "chapters": "127-127"
+  },
+  {
+   "prefix": "arkc128",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch128-128.txt",
+   "base": "12801",
+   "chapters": "128-128"
+  },
+  {
+   "prefix": "arkc129",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch129-130.txt",
+   "base": "12901",
+   "chapters": "129-130"
+  },
+  {
+   "prefix": "arkc131",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch131-131.txt",
+   "base": "13101",
+   "chapters": "131-131"
+  },
+  {
+   "prefix": "arkc132",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch132-132.txt",
+   "base": "13201",
+   "chapters": "132-132"
+  },
+  {
+   "prefix": "arkc133",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch133-133.txt",
+   "base": "13301",
+   "chapters": "133-133"
+  },
+  {
+   "prefix": "arkc134",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch134-134.txt",
+   "base": "13401",
+   "chapters": "134-134"
+  },
+  {
+   "prefix": "arkc135",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch135-135.txt",
+   "base": "13501",
+   "chapters": "135-135"
+  },
+  {
+   "prefix": "arkc136",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch136-136.txt",
+   "base": "13601",
+   "chapters": "136-136"
+  },
+  {
+   "prefix": "arkc137",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch137-137.txt",
+   "base": "13701",
+   "chapters": "137-137"
+  },
+  {
+   "prefix": "arkc138",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch138-138.txt",
+   "base": "13801",
+   "chapters": "138-138"
+  },
+  {
+   "prefix": "arkc139",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch139-139.txt",
+   "base": "13901",
+   "chapters": "139-139"
+  },
+  {
+   "prefix": "arkc140",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch140-140.txt",
+   "base": "14001",
+   "chapters": "140-140"
+  },
+  {
+   "prefix": "arkc141",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch141-141.txt",
+   "base": "14101",
+   "chapters": "141-141"
+  },
+  {
+   "prefix": "arkc142",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch142-142.txt",
+   "base": "14201",
+   "chapters": "142-142"
+  },
+  {
+   "prefix": "arkc143",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch143-143.txt",
+   "base": "14301",
+   "chapters": "143-143"
+  },
+  {
+   "prefix": "arkc144",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch144-144.txt",
+   "base": "14401",
+   "chapters": "144-144"
+  },
+  {
+   "prefix": "arkc145",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch145-145.txt",
+   "base": "14501",
+   "chapters": "145-145"
+  },
+  {
+   "prefix": "arkc146",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch146-146.txt",
+   "base": "14601",
+   "chapters": "146-146"
+  },
+  {
+   "prefix": "arkc147",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch147-147.txt",
+   "base": "14701",
+   "chapters": "147-147"
+  },
+  {
+   "prefix": "arkc148",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch148-148.txt",
+   "base": "14801",
+   "chapters": "148-148"
+  },
+  {
+   "prefix": "arkc149",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch149-149.txt",
+   "base": "14901",
+   "chapters": "149-149"
+  },
+  {
+   "prefix": "arkc150",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch150-150.txt",
+   "base": "15001",
+   "chapters": "150-150"
+  },
+  {
+   "prefix": "arkc151",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch151-151.txt",
+   "base": "15101",
+   "chapters": "151-151"
+  },
+  {
+   "prefix": "arkc152",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch152-152.txt",
+   "base": "15201",
+   "chapters": "152-152"
+  },
+  {
+   "prefix": "arkc153",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch153-153.txt",
+   "base": "15301",
+   "chapters": "153-153"
+  },
+  {
+   "prefix": "arkc154",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch154-154.txt",
+   "base": "15401",
+   "chapters": "154-154"
+  },
+  {
+   "prefix": "arkc155",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch155-155.txt",
+   "base": "15501",
+   "chapters": "155-155"
+  },
+  {
+   "prefix": "arkc156",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch156-156.txt",
+   "base": "15601",
+   "chapters": "156-156"
+  },
+  {
+   "prefix": "arkc157",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch157-157.txt",
+   "base": "15701",
+   "chapters": "157-157"
+  },
+  {
+   "prefix": "arkc158",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch158-158.txt",
+   "base": "15801",
+   "chapters": "158-158"
+  },
+  {
+   "prefix": "arkc159",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch159-159.txt",
+   "base": "15901",
+   "chapters": "159-159"
+  },
+  {
+   "prefix": "arkc160",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch160-160.txt",
+   "base": "16001",
+   "chapters": "160-160"
+  },
+  {
+   "prefix": "arkc161",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch161-161.txt",
+   "base": "16101",
+   "chapters": "161-161"
+  },
+  {
+   "prefix": "arkc162",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch162-162.txt",
+   "base": "16201",
+   "chapters": "162-162"
+  },
+  {
+   "prefix": "arkc163",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch163-163.txt",
+   "base": "16301",
+   "chapters": "163-163"
+  },
+  {
+   "prefix": "arkc164",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch164-164.txt",
+   "base": "16401",
+   "chapters": "164-164"
+  },
+  {
+   "prefix": "arkc165",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch165-165.txt",
+   "base": "16501",
+   "chapters": "165-165"
+  },
+  {
+   "prefix": "arkc166",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch166-166.txt",
+   "base": "16601",
+   "chapters": "166-166"
+  },
+  {
+   "prefix": "arkc167",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch167-167.txt",
+   "base": "16701",
+   "chapters": "167-167"
+  },
+  {
+   "prefix": "arkc168",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch168-168.txt",
+   "base": "16801",
+   "chapters": "168-168"
+  },
+  {
+   "prefix": "arkc169",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch169-169.txt",
+   "base": "16901",
+   "chapters": "169-169"
+  },
+  {
+   "prefix": "arkc170",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch170-170.txt",
+   "base": "17001",
+   "chapters": "170-170"
+  },
+  {
+   "prefix": "arkc171",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch171-171.txt",
+   "base": "17101",
+   "chapters": "171-171"
+  },
+  {
+   "prefix": "arkc172",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch172-172.txt",
+   "base": "17201",
+   "chapters": "172-172"
+  },
+  {
+   "prefix": "arkc173",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch173-173.txt",
+   "base": "17301",
+   "chapters": "173-173"
+  },
+  {
+   "prefix": "arkc174",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch174-174.txt",
+   "base": "17401",
+   "chapters": "174-174"
+  },
+  {
+   "prefix": "arkc175",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch175-175.txt",
+   "base": "17501",
+   "chapters": "175-175"
+  },
+  {
+   "prefix": "arkc176",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch176-176.txt",
+   "base": "17601",
+   "chapters": "176-176"
+  },
+  {
+   "prefix": "arkc177",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch177-177.txt",
+   "base": "17701",
+   "chapters": "177-177"
+  },
+  {
+   "prefix": "arkc178",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch178-178.txt",
+   "base": "17801",
+   "chapters": "178-178"
+  },
+  {
+   "prefix": "arkc179",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch179-179.txt",
+   "base": "17901",
+   "chapters": "179-179"
+  },
+  {
+   "prefix": "arkc180",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch180-180.txt",
+   "base": "18001",
+   "chapters": "180-180"
+  },
+  {
+   "prefix": "arkc181",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch181-181.txt",
+   "base": "18101",
+   "chapters": "181-181"
+  },
+  {
+   "prefix": "arkc182",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch182-182.txt",
+   "base": "18201",
+   "chapters": "182-182"
+  },
+  {
+   "prefix": "arkc183",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch183-183.txt",
+   "base": "18301",
+   "chapters": "183-183"
+  },
+  {
+   "prefix": "arkc184",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch184-184.txt",
+   "base": "18401",
+   "chapters": "184-184"
+  },
+  {
+   "prefix": "arkc185",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch185-185.txt",
+   "base": "18501",
+   "chapters": "185-185"
+  },
+  {
+   "prefix": "arkc186",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch186-186.txt",
+   "base": "18601",
+   "chapters": "186-186"
+  },
+  {
+   "prefix": "arkc187",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch187-187.txt",
+   "base": "18701",
+   "chapters": "187-187"
+  },
+  {
+   "prefix": "arkc188",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch188-188.txt",
+   "base": "18801",
+   "chapters": "188-188"
+  },
+  {
+   "prefix": "arkc189",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch189-189.txt",
+   "base": "18901",
+   "chapters": "189-189"
+  },
+  {
+   "prefix": "arkc190",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch190-190.txt",
+   "base": "19001",
+   "chapters": "190-190"
+  },
+  {
+   "prefix": "arkc191",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch191-191.txt",
+   "base": "19101",
+   "chapters": "191-191"
+  },
+  {
+   "prefix": "arkc192",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch192-192.txt",
+   "base": "19201",
+   "chapters": "192-192"
+  },
+  {
+   "prefix": "arkc193",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch193-193.txt",
+   "base": "19301",
+   "chapters": "193-193"
+  },
+  {
+   "prefix": "arkc194",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch194-194.txt",
+   "base": "19401",
+   "chapters": "194-194"
+  },
+  {
+   "prefix": "arkc195",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch195-195.txt",
+   "base": "19501",
+   "chapters": "195-195"
+  },
+  {
+   "prefix": "arkc196",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch196-196.txt",
+   "base": "19601",
+   "chapters": "196-196"
+  },
+  {
+   "prefix": "arkc197",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch197-197.txt",
+   "base": "19701",
+   "chapters": "197-197"
+  },
+  {
+   "prefix": "arkc198",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch198-198.txt",
+   "base": "19801",
+   "chapters": "198-198"
+  },
+  {
+   "prefix": "arkc199",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch199-199.txt",
+   "base": "19901",
+   "chapters": "199-199"
+  },
+  {
+   "prefix": "arkc200",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch200-200.txt",
+   "base": "20001",
+   "chapters": "200-200"
+  },
+  {
+   "prefix": "arkc201",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch201-201.txt",
+   "base": "20101",
+   "chapters": "201-201"
+  },
+  {
+   "prefix": "arkc202",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch202-202.txt",
+   "base": "20201",
+   "chapters": "202-202"
+  },
+  {
+   "prefix": "arkc203",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch203-203.txt",
+   "base": "20301",
+   "chapters": "203-203"
+  },
+  {
+   "prefix": "arkc204",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch204-204.txt",
+   "base": "20401",
+   "chapters": "204-204"
+  },
+  {
+   "prefix": "arkc205",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch205-205.txt",
+   "base": "20501",
+   "chapters": "205-205"
+  },
+  {
+   "prefix": "arkc206",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch206-206.txt",
+   "base": "20601",
+   "chapters": "206-206"
+  },
+  {
+   "prefix": "arkc207",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch207-207.txt",
+   "base": "20701",
+   "chapters": "207-207"
+  },
+  {
+   "prefix": "arkc208",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch208-208.txt",
+   "base": "20801",
+   "chapters": "208-208"
+  },
+  {
+   "prefix": "arkc209",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch209-209.txt",
+   "base": "20901",
+   "chapters": "209-209"
+  },
+  {
+   "prefix": "arkc210",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch210-210.txt",
+   "base": "21001",
+   "chapters": "210-210"
+  },
+  {
+   "prefix": "arkc211",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch211-211.txt",
+   "base": "21101",
+   "chapters": "211-211"
+  },
+  {
+   "prefix": "arkc212",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch212-212.txt",
+   "base": "21201",
+   "chapters": "212-212"
+  },
+  {
+   "prefix": "arkc213",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch213-213.txt",
+   "base": "21301",
+   "chapters": "213-213"
+  },
+  {
+   "prefix": "arkc214",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch214-214.txt",
+   "base": "21401",
+   "chapters": "214-214"
+  },
+  {
+   "prefix": "arkc215",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch215-215.txt",
+   "base": "21501",
+   "chapters": "215-215"
+  },
+  {
+   "prefix": "arkc216",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch216-216.txt",
+   "base": "21601",
+   "chapters": "216-216"
+  },
+  {
+   "prefix": "arkc217",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch217-217.txt",
+   "base": "21701",
+   "chapters": "217-217"
+  },
+  {
+   "prefix": "arkc218",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch218-218.txt",
+   "base": "21801",
+   "chapters": "218-218"
+  },
+  {
+   "prefix": "arkc219",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch219-219.txt",
+   "base": "21901",
+   "chapters": "219-219"
+  },
+  {
+   "prefix": "arkc220",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch220-220.txt",
+   "base": "22001",
+   "chapters": "220-220"
+  },
+  {
+   "prefix": "arkc221",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch221-221.txt",
+   "base": "22101",
+   "chapters": "221-221"
+  },
+  {
+   "prefix": "arkc222",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch222-222.txt",
+   "base": "22201",
+   "chapters": "222-222"
+  },
+  {
+   "prefix": "arkc223",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch223-223.txt",
+   "base": "22301",
+   "chapters": "223-223"
+  },
+  {
+   "prefix": "arkc224",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch224-224.txt",
+   "base": "22401",
+   "chapters": "224-224"
+  },
+  {
+   "prefix": "arkc225",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch225-225.txt",
+   "base": "22501",
+   "chapters": "225-225"
+  },
+  {
+   "prefix": "arkc226",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch226-226.txt",
+   "base": "22601",
+   "chapters": "226-226"
+  },
+  {
+   "prefix": "arkc227",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch227-227.txt",
+   "base": "22701",
+   "chapters": "227-227"
+  },
+  {
+   "prefix": "arkc228",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch228-228.txt",
+   "base": "22801",
+   "chapters": "228-228"
+  },
+  {
+   "prefix": "arkc229",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch229-229.txt",
+   "base": "22901",
+   "chapters": "229-229"
+  },
+  {
+   "prefix": "arkc230",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch230-230.txt",
+   "base": "23001",
+   "chapters": "230-230"
+  },
+  {
+   "prefix": "arkc231",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch231-231.txt",
+   "base": "23101",
+   "chapters": "231-231"
+  },
+  {
+   "prefix": "arkc232",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch232-232.txt",
+   "base": "23201",
+   "chapters": "232-232"
+  },
+  {
+   "prefix": "arkc233",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch233-233.txt",
+   "base": "23301",
+   "chapters": "233-233"
+  },
+  {
+   "prefix": "arkc234",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch234-234.txt",
+   "base": "23401",
+   "chapters": "234-234"
+  },
+  {
+   "prefix": "arkc235",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch235-235.txt",
+   "base": "23501",
+   "chapters": "235-235"
+  },
+  {
+   "prefix": "arkc236",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch236-236.txt",
+   "base": "23601",
+   "chapters": "236-236"
+  },
+  {
+   "prefix": "arkc237",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch237-237.txt",
+   "base": "23701",
+   "chapters": "237-237"
+  },
+  {
+   "prefix": "arkc238",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch238-238.txt",
+   "base": "23801",
+   "chapters": "238-238"
+  },
+  {
+   "prefix": "arkc239",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch239-239.txt",
+   "base": "23901",
+   "chapters": "239-239"
+  },
+  {
+   "prefix": "arkc240",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch240-240.txt",
+   "base": "24001",
+   "chapters": "240-240"
+  },
+  {
+   "prefix": "arkc241",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch241-241.txt",
+   "base": "24101",
+   "chapters": "241-241"
+  },
+  {
+   "prefix": "arkc242",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch242-242.txt",
+   "base": "24201",
+   "chapters": "242-242"
+  },
+  {
+   "prefix": "arkc243",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch243-243.txt",
+   "base": "24301",
+   "chapters": "243-243"
+  },
+  {
+   "prefix": "arkc244",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch244-244.txt",
+   "base": "24401",
+   "chapters": "244-244"
+  },
+  {
+   "prefix": "arkc245",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch245-245.txt",
+   "base": "24501",
+   "chapters": "245-245"
+  },
+  {
+   "prefix": "arkc246",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch246-246.txt",
+   "base": "24601",
+   "chapters": "246-246"
+  },
+  {
+   "prefix": "arkc247",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch247-247.txt",
+   "base": "24701",
+   "chapters": "247-247"
+  },
+  {
+   "prefix": "arkc248",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch248-248.txt",
+   "base": "24801",
+   "chapters": "248-248"
+  },
+  {
+   "prefix": "arkc249",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch249-249.txt",
+   "base": "24901",
+   "chapters": "249-249"
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "name": "2026-11-27c-ark",
+ "approval": "Weibao 2026-11-27: \u201cYes, send out Using api, we need to use like 90$~ of claude api in like 10 days\u201d; ark after \u201cLaunch ark too\u201d. Partial run: first steps that fit the ceiling; later steps replan from unread shards.",
+ "ceilingUsd": 8.03,
+ "capTotal": 8.03,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ark_pilot_rules.json",
+     "cap": 0.04,
+     "label": "ark-pilot-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-a",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ark_rules_a.json",
+     "cap": 7.99,
+     "label": "ark-rules-a"
+    }
+   ]
+  }
+ ]
+}

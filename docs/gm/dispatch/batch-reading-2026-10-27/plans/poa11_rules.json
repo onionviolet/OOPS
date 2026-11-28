@@ -6,6 +6,13 @@
  "effort": "high",
  "schemaMode": "prompt",
  "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
  "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30",
  "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/batch",
  "glossary": {
@@ -15,12 +22,6 @@
  "label": "poa11-rules",
  "pass": "rules",
  "shards": [
-  {
-   "prefix": "poa11c001",
-   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa11_b11_ch001-001.txt",
-   "base": "1100101",
-   "chapters": "1-1"
-  },
   {
    "prefix": "poa11c002",
    "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/path-of-ascension/private/lead-run-2026-10-30/shard_poa11_b11_ch002-002.txt",

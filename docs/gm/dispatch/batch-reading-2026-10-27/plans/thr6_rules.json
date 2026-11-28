@@ -1,0 +1,140 @@
+{
+ "world": "thr",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30",
+  "censusMatch": "^(thr4|thr5|thr6|thr1)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "thr6-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "thr6c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch003-003.txt",
+   "base": "600301",
+   "chapters": "3-3"
+  },
+  {
+   "prefix": "thr6c004",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch004-004.txt",
+   "base": "600401",
+   "chapters": "4-4"
+  },
+  {
+   "prefix": "thr6c005",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch005-005.txt",
+   "base": "600501",
+   "chapters": "5-5"
+  },
+  {
+   "prefix": "thr6c006",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch006-006.txt",
+   "base": "600601",
+   "chapters": "6-6"
+  },
+  {
+   "prefix": "thr6c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch007-007.txt",
+   "base": "600701",
+   "chapters": "7-7"
+  },
+  {
+   "prefix": "thr6c008",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch008-008.txt",
+   "base": "600801",
+   "chapters": "8-8"
+  },
+  {
+   "prefix": "thr6c009",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch009-009.txt",
+   "base": "600901",
+   "chapters": "9-9"
+  },
+  {
+   "prefix": "thr6c010",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch010-010.txt",
+   "base": "601001",
+   "chapters": "10-10"
+  },
+  {
+   "prefix": "thr6c011",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch011-011.txt",
+   "base": "601101",
+   "chapters": "11-11"
+  },
+  {
+   "prefix": "thr6c012",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch012-012.txt",
+   "base": "601201",
+   "chapters": "12-12"
+  },
+  {
+   "prefix": "thr6c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch013-013.txt",
+   "base": "601301",
+   "chapters": "13-13"
+  },
+  {
+   "prefix": "thr6c014",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch014-014.txt",
+   "base": "601401",
+   "chapters": "14-14"
+  },
+  {
+   "prefix": "thr6c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch015-016.txt",
+   "base": "601501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "thr6c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch017-017.txt",
+   "base": "601701",
+   "chapters": "17-17"
+  },
+  {
+   "prefix": "thr6c018",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch018-018.txt",
+   "base": "601801",
+   "chapters": "18-18"
+  },
+  {
+   "prefix": "thr6c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch019-020.txt",
+   "base": "601901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "thr6c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch021-022.txt",
+   "base": "602101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "thr6c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch023-024.txt",
+   "base": "602301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "thr6c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/threadbare/private/lead-run-2026-10-30/shard_thr6_b6_ch025-025.txt",
+   "base": "602501",
+   "chapters": "25-25"
+  }
+ ]
+}

@@ -1,0 +1,82 @@
+{
+ "name": "2026-11-27c-sg",
+ "approval": "Weibao 2026-11-27: \u201cYes, send out Using api, we need to use like 90$~ of claude api in like 10 days\u201d; round 3 after \u201cPlan round 3 meanwhile\u201d and \u201cMore batched readers?\u201d",
+ "ceilingUsd": 2.99,
+ "capTotal": 2.99,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg1_pilot_rules.json",
+     "cap": 0.04,
+     "label": "sg1-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg2_pilot_rules.json",
+     "cap": 0.04,
+     "label": "sg2-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg3_pilot_rules.json",
+     "cap": 0.04,
+     "label": "sg3-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg4_pilot_rules.json",
+     "cap": 0.04,
+     "label": "sg4-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg5_pilot_rules.json",
+     "cap": 0.04,
+     "label": "sg5-pilot-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-1",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg1_rules.json",
+     "cap": 0.97,
+     "label": "sg1-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-2",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg2_rules.json",
+     "cap": 0.44,
+     "label": "sg2-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg3_rules.json",
+     "cap": 0.68,
+     "label": "sg3-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-3",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg4_rules.json",
+     "cap": 0.35,
+     "label": "sg4-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/sg5_rules.json",
+     "cap": 0.35,
+     "label": "sg5-rules"
+    }
+   ]
+  }
+ ]
+}

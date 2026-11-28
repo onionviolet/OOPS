@@ -6,6 +6,13 @@
  "effort": "high",
  "schemaMode": "prompt",
  "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
  "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30",
  "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/batch",
  "glossary": {
@@ -15,12 +22,6 @@
  "label": "ark-rules",
  "pass": "rules",
  "shards": [
-  {
-   "prefix": "arkc001",
-   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch001-002.txt",
-   "base": "00101",
-   "chapters": "1-2"
-  },
   {
    "prefix": "arkc003",
    "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/arkendrithyst/private/lead-run-2026-10-30/shard_ark_b1_ch003-003.txt",

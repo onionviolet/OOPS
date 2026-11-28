@@ -1,0 +1,78 @@
+{
+ "name": "2026-11-27b-chry",
+ "approval": "Weibao 2026-11-27: \u201cYes, send out Using api, we need to use like 90$~ of claude api in like 10 days\u201d; round 2 go: \u201cPlan next passes\u201d",
+ "ceilingUsd": 4.49,
+ "capTotal": 4.49,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry6_pilot_rules.json",
+     "cap": 0.04,
+     "label": "chry6-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry7_pilot_rules.json",
+     "cap": 0.04,
+     "label": "chry7-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry8_pilot_rules.json",
+     "cap": 0.04,
+     "label": "chry8-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry9_pilot_rules.json",
+     "cap": 0.04,
+     "label": "chry9-pilot-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-1",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry6_rules.json",
+     "cap": 0.96,
+     "label": "chry6-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-2",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry7_rules.json",
+     "cap": 1.06,
+     "label": "chry7-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-3",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry8_rules.json",
+     "cap": 1.19,
+     "label": "chry8-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-4",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/chry9_rules.json",
+     "cap": 1.12,
+     "label": "chry9-rules"
+    }
+   ]
+  }
+ ]
+}

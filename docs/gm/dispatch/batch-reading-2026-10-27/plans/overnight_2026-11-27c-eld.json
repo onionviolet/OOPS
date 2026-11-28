@@ -1,0 +1,62 @@
+{
+ "name": "2026-11-27c-eld",
+ "approval": "Weibao 2026-11-27: \u201cYes, send out Using api, we need to use like 90$~ of claude api in like 10 days\u201d; round 3 after \u201cPlan round 3 meanwhile\u201d and \u201cMore batched readers?\u201d",
+ "ceilingUsd": 3.71,
+ "capTotal": 3.71,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/eld1_pilot_rules.json",
+     "cap": 0.04,
+     "label": "eld1-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/eld2_pilot_rules.json",
+     "cap": 0.04,
+     "label": "eld2-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/eld3_pilot_rules.json",
+     "cap": 0.04,
+     "label": "eld3-pilot-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-1",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/eld1_rules.json",
+     "cap": 0.96,
+     "label": "eld1-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-2",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/eld2_rules.json",
+     "cap": 1.15,
+     "label": "eld2-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-3",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/eld3_rules.json",
+     "cap": 1.48,
+     "label": "eld3-rules"
+    }
+   ]
+  }
+ ]
+}

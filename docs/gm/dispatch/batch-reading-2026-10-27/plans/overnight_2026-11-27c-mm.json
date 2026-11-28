@@ -1,0 +1,82 @@
+{
+ "name": "2026-11-27c-mm",
+ "approval": "Weibao 2026-11-27: \u201cYes, send out Using api, we need to use like 90$~ of claude api in like 10 days\u201d; round 3 after \u201cPlan round 3 meanwhile\u201d and \u201cMore batched readers?\u201d",
+ "ceilingUsd": 5.72,
+ "capTotal": 5.72,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm1_pilot_rules.json",
+     "cap": 0.04,
+     "label": "mm1-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm2_pilot_rules.json",
+     "cap": 0.04,
+     "label": "mm2-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm3_pilot_rules.json",
+     "cap": 0.04,
+     "label": "mm3-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm4_pilot_rules.json",
+     "cap": 0.04,
+     "label": "mm4-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm5_pilot_rules.json",
+     "cap": 0.04,
+     "label": "mm5-pilot-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-1",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm1_rules.json",
+     "cap": 1.02,
+     "label": "mm1-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm2_rules.json",
+     "cap": 0.95,
+     "label": "mm2-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-2",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm3_rules.json",
+     "cap": 1.38,
+     "label": "mm3-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-3",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm4_rules.json",
+     "cap": 1.05,
+     "label": "mm4-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/mm5_rules.json",
+     "cap": 1.12,
+     "label": "mm5-rules"
+    }
+   ]
+  }
+ ]
+}

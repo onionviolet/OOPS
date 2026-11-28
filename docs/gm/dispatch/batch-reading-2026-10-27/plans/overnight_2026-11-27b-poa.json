@@ -1,0 +1,144 @@
+{
+ "name": "2026-11-27b-poa",
+ "approval": "Weibao 2026-11-27: \u201cYes, send out Using api, we need to use like 90$~ of claude api in like 10 days\u201d; round 2 go: \u201cPlan next passes\u201d",
+ "ceilingUsd": 10.99,
+ "capTotal": 10.99,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa1_pilot_rules.json",
+     "cap": 0.04,
+     "label": "poa1-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa2_pilot_rules.json",
+     "cap": 0.04,
+     "label": "poa2-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa3_pilot_rules.json",
+     "cap": 0.04,
+     "label": "poa3-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa4_pilot_rules.json",
+     "cap": 0.04,
+     "label": "poa4-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa5_pilot_rules.json",
+     "cap": 0.04,
+     "label": "poa5-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa6_pilot_rules.json",
+     "cap": 0.04,
+     "label": "poa6-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa7_pilot_rules.json",
+     "cap": 0.04,
+     "label": "poa7-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa8_pilot_rules.json",
+     "cap": 0.04,
+     "label": "poa8-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa10_pilot_rules.json",
+     "cap": 0.04,
+     "label": "poa10-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa11_pilot_rules.json",
+     "cap": 0.04,
+     "label": "poa11-pilot-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-1",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa1_rules.json",
+     "cap": 1.32,
+     "label": "poa1-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa2_rules.json",
+     "cap": 0.99,
+     "label": "poa2-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-2",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa3_rules.json",
+     "cap": 1.06,
+     "label": "poa3-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa4_rules.json",
+     "cap": 0.76,
+     "label": "poa4-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-3",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa5_rules.json",
+     "cap": 1.26,
+     "label": "poa5-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa6_rules.json",
+     "cap": 1.03,
+     "label": "poa6-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-4",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa7_rules.json",
+     "cap": 0.6,
+     "label": "poa7-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa8_rules.json",
+     "cap": 1.32,
+     "label": "poa8-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-5",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa10_rules.json",
+     "cap": 1.29,
+     "label": "poa10-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/poa11_rules.json",
+     "cap": 0.96,
+     "label": "poa11-rules"
+    }
+   ]
+  }
+ ]
+}

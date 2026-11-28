@@ -1,0 +1,72 @@
+{
+ "name": "2026-11-27c-dc",
+ "approval": "Weibao 2026-11-27: \u201cYes, send out Using api, we need to use like 90$~ of claude api in like 10 days\u201d; round 3 after \u201cPlan round 3 meanwhile\u201d and \u201cMore batched readers?\u201d",
+ "ceilingUsd": 3.7,
+ "capTotal": 3.7,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc3_pilot_rules.json",
+     "cap": 0.04,
+     "label": "dc3-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc4_pilot_rules.json",
+     "cap": 0.04,
+     "label": "dc4-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc5_pilot_rules.json",
+     "cap": 0.04,
+     "label": "dc5-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc6_pilot_rules.json",
+     "cap": 0.04,
+     "label": "dc6-pilot-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-1",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc3_rules.json",
+     "cap": 0.79,
+     "label": "dc3-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc4_rules.json",
+     "cap": 0.72,
+     "label": "dc4-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-2",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc5_rules.json",
+     "cap": 0.79,
+     "label": "dc5-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-3",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/dc6_rules.json",
+     "cap": 1.24,
+     "label": "dc6-rules"
+    }
+   ]
+  }
+ ]
+}

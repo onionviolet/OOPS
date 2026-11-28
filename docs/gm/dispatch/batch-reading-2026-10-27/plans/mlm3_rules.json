@@ -1,0 +1,128 @@
+{
+ "world": "mlm",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30",
+  "censusMatch": "^(mlm3|mlm4|mlm5|mlm6|mlm7|mlm8|mlm1|mlm2)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "mlm3-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "mlm3c002",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/shard_mlm3_b3_ch002-003.txt",
+   "base": "300201",
+   "chapters": "2-3"
+  },
+  {
+   "prefix": "mlm3c004",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/shard_mlm3_b3_ch004-005.txt",
+   "base": "300401",
+   "chapters": "4-5"
+  },
+  {
+   "prefix": "mlm3c006",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/shard_mlm3_b3_ch006-007.txt",
+   "base": "300601",
+   "chapters": "6-7"
+  },
+  {
+   "prefix": "mlm3c008",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/shard_mlm3_b3_ch008-009.txt",
+   "base": "300801",
+   "chapters": "8-9"
+  },
+  {
+   "prefix": "mlm3c010",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/shard_mlm3_b3_ch010-011.txt",
+   "base": "301001",
+   "chapters": "10-11"
+  },
+  {
+   "prefix": "mlm3c012",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/shard_mlm3_b3_ch012-013.txt",
+   "base": "301201",
+   "chapters": "12-13"
+  },
+  {
+   "prefix": "mlm3c014",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/shard_mlm3_b3_ch014-014.txt",
+   "base": "301401",
+   "chapters": "14-14"
+  },
+  {
+   "prefix": "mlm3c015",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/shard_mlm3_b3_ch015-016.txt",
+   "base": "301501",
+   "chapters": "15-16"
+  },
+  {
+   "prefix": "mlm3c017",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/shard_mlm3_b3_ch017-018.txt",
+   "base": "301701",
+   "chapters": "17-18"
+  },
+  {
+   "prefix": "mlm3c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/shard_mlm3_b3_ch019-020.txt",
+   "base": "301901",
+   "chapters": "19-20"
+  },
+  {
+   "prefix": "mlm3c021",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/shard_mlm3_b3_ch021-022.txt",
+   "base": "302101",
+   "chapters": "21-22"
+  },
+  {
+   "prefix": "mlm3c023",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/shard_mlm3_b3_ch023-024.txt",
+   "base": "302301",
+   "chapters": "23-24"
+  },
+  {
+   "prefix": "mlm3c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/shard_mlm3_b3_ch025-026.txt",
+   "base": "302501",
+   "chapters": "25-26"
+  },
+  {
+   "prefix": "mlm3c027",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/shard_mlm3_b3_ch027-028.txt",
+   "base": "302701",
+   "chapters": "27-28"
+  },
+  {
+   "prefix": "mlm3c029",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/shard_mlm3_b3_ch029-030.txt",
+   "base": "302901",
+   "chapters": "29-30"
+  },
+  {
+   "prefix": "mlm3c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/shard_mlm3_b3_ch031-032.txt",
+   "base": "303101",
+   "chapters": "31-32"
+  },
+  {
+   "prefix": "mlm3c033",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/millennial-mage/private/lead-run-2026-10-30/shard_mlm3_b3_ch033-034.txt",
+   "base": "303301",
+   "chapters": "33-34"
+  }
+ ]
+}

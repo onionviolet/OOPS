@@ -1,0 +1,152 @@
+{
+ "world": "cbun",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30",
+  "censusMatch": "^(cbun1|cbun2|cbun3|cbun4|cbun5|cbun6|cbun7)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "cbun1-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "cbun1c004",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch004-006.txt",
+   "base": "00401",
+   "chapters": "4-6"
+  },
+  {
+   "prefix": "cbun1c007",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch007-009.txt",
+   "base": "00701",
+   "chapters": "7-9"
+  },
+  {
+   "prefix": "cbun1c010",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch010-012.txt",
+   "base": "01001",
+   "chapters": "10-12"
+  },
+  {
+   "prefix": "cbun1c013",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch013-015.txt",
+   "base": "01301",
+   "chapters": "13-15"
+  },
+  {
+   "prefix": "cbun1c016",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch016-018.txt",
+   "base": "01601",
+   "chapters": "16-18"
+  },
+  {
+   "prefix": "cbun1c019",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch019-021.txt",
+   "base": "01901",
+   "chapters": "19-21"
+  },
+  {
+   "prefix": "cbun1c022",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch022-024.txt",
+   "base": "02201",
+   "chapters": "22-24"
+  },
+  {
+   "prefix": "cbun1c025",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch025-027.txt",
+   "base": "02501",
+   "chapters": "25-27"
+  },
+  {
+   "prefix": "cbun1c028",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch028-030.txt",
+   "base": "02801",
+   "chapters": "28-30"
+  },
+  {
+   "prefix": "cbun1c031",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch031-033.txt",
+   "base": "03101",
+   "chapters": "31-33"
+  },
+  {
+   "prefix": "cbun1c034",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch034-036.txt",
+   "base": "03401",
+   "chapters": "34-36"
+  },
+  {
+   "prefix": "cbun1c037",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch037-039.txt",
+   "base": "03701",
+   "chapters": "37-39"
+  },
+  {
+   "prefix": "cbun1c040",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch040-042.txt",
+   "base": "04001",
+   "chapters": "40-42"
+  },
+  {
+   "prefix": "cbun1c043",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch043-045.txt",
+   "base": "04301",
+   "chapters": "43-45"
+  },
+  {
+   "prefix": "cbun1c046",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch046-048.txt",
+   "base": "04601",
+   "chapters": "46-48"
+  },
+  {
+   "prefix": "cbun1c049",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch049-051.txt",
+   "base": "04901",
+   "chapters": "49-51"
+  },
+  {
+   "prefix": "cbun1c052",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch052-054.txt",
+   "base": "05201",
+   "chapters": "52-54"
+  },
+  {
+   "prefix": "cbun1c055",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch055-057.txt",
+   "base": "05501",
+   "chapters": "55-57"
+  },
+  {
+   "prefix": "cbun1c058",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch058-060.txt",
+   "base": "05801",
+   "chapters": "58-60"
+  },
+  {
+   "prefix": "cbun1c061",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch061-063.txt",
+   "base": "06101",
+   "chapters": "61-63"
+  },
+  {
+   "prefix": "cbun1c064",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun1_b1_ch064-066.txt",
+   "base": "06401",
+   "chapters": "64-66"
+  }
+ ]
+}

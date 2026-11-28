@@ -1,0 +1,32 @@
+{
+ "world": "cbun",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30",
+  "censusMatch": "^(cbun1|cbun2|cbun3|cbun4|cbun5|cbun6|cbun7)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "cbun4-pilot-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "cbun4c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/cinnamon-bun/private/lead-run-2026-10-30/shard_cbun4_b4_ch001-003.txt",
+   "base": "400101",
+   "chapters": "1-3"
+  }
+ ]
+}

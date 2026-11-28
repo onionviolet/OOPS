@@ -1,0 +1,82 @@
+{
+ "name": "2026-11-27c-boc",
+ "approval": "Weibao 2026-11-27: \u201cYes, send out Using api, we need to use like 90$~ of claude api in like 10 days\u201d; round 3 after \u201cPlan round 3 meanwhile\u201d and \u201cMore batched readers?\u201d",
+ "ceilingUsd": 5.19,
+ "capTotal": 5.19,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc1_pilot_rules.json",
+     "cap": 0.04,
+     "label": "boc1-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc2_pilot_rules.json",
+     "cap": 0.04,
+     "label": "boc2-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc3_pilot_rules.json",
+     "cap": 0.04,
+     "label": "boc3-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc4_pilot_rules.json",
+     "cap": 0.04,
+     "label": "boc4-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc5_pilot_rules.json",
+     "cap": 0.04,
+     "label": "boc5-pilot-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-1",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc1_rules.json",
+     "cap": 0.86,
+     "label": "boc1-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc2_rules.json",
+     "cap": 1.15,
+     "label": "boc2-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-2",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc3_rules.json",
+     "cap": 1.29,
+     "label": "boc3-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-3",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc4_rules.json",
+     "cap": 1.09,
+     "label": "boc4-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/boc5_rules.json",
+     "cap": 0.6,
+     "label": "boc5-rules"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "world": "mnl",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30",
+  "censusMatch": "^(mnl2|mnl3|mnl4|mnl5|mnl6|mnl1)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "mnl3-pilot-rules",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "mnl3c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/menocht-loop/private/lead-run-2026-10-30/shard_mnl3_b3_ch001-002.txt",
+   "base": "300101",
+   "chapters": "1-2"
+  }
+ ]
+}

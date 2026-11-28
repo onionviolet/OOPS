@@ -1,37 +1,178 @@
 {
  "ceilingUsd": 90,
- "reservedUsd": 89.34,
- "unallocatedUsd": 0.66,
+ "reservedUsd": 36.7172,
+ "unallocatedUsd": 53.2828,
  "approval": "Weibao 2026-11-27: \u201cYes, send out Using api, we need to use like 90$~ of claude api in like 10 days\u201d",
  "note": "Campaign ceiling is $90 of recorded spend plus reservations. Each reservation is its run file capTotal (true bound). Replace a finished run reservation with its measured spend (receipt-based) to free headroom for the next phase; do not raise the ceiling.",
  "reservations": [
   {
    "id": "2026-11-27-az",
-   "capUsd": 8.78
+   "capUsd": 1.8573,
+   "measured": true,
+   "source": "driver final line, rules pass finished 2026-11-27"
   },
   {
    "id": "2026-11-27-bdm",
-   "capUsd": 6.88
+   "capUsd": 1.4579,
+   "measured": true,
+   "source": "driver final line, rules pass finished 2026-11-27"
   },
   {
    "id": "2026-11-27-chry",
-   "capUsd": 4.58
+   "capUsd": 0.8297,
+   "measured": true,
+   "source": "driver final line, rules pass finished 2026-11-27"
   },
   {
    "id": "2026-11-27-dcc",
-   "capUsd": 9.88
+   "capUsd": 1.7741,
+   "measured": true,
+   "source": "driver final line, rules pass finished 2026-11-27"
   },
   {
    "id": "2026-11-27-hwfwm",
-   "capUsd": 17.46
+   "capUsd": 2.6165,
+   "measured": true,
+   "source": "driver final line, rules pass finished 2026-11-27"
   },
   {
    "id": "2026-11-27-ph",
-   "capUsd": 20.55
+   "capUsd": 3.1623,
+   "measured": true,
+   "source": "driver final line, rules pass finished 2026-11-27"
   },
   {
    "id": "2026-11-27-twi",
-   "capUsd": 21.21
+   "capUsd": 4.3166,
+   "measured": true,
+   "source": "driver final line, rules pass finished 2026-11-27"
+  },
+  {
+   "id": "2026-11-27b-cbun",
+   "capUsd": 0.6447,
+   "measured": true,
+   "source": "driver final line, round 2 rules pass finished 2026-11-27"
+  },
+  {
+   "id": "2026-11-27b-chry",
+   "capUsd": 0.7596,
+   "measured": true,
+   "source": "driver final line, round 2 rules pass finished 2026-11-27"
+  },
+  {
+   "id": "2026-11-27b-mlm",
+   "capUsd": 1.1361,
+   "measured": true,
+   "source": "driver final line, round 2 rules pass finished 2026-11-27"
+  },
+  {
+   "id": "2026-11-27b-mnl",
+   "capUsd": 0.8813,
+   "measured": true,
+   "source": "driver final line, round 2 rules pass finished 2026-11-27"
+  },
+  {
+   "id": "2026-11-27b-poa",
+   "capUsd": 2.0533,
+   "measured": true,
+   "source": "driver final line, round 2 rules pass finished 2026-11-27"
+  },
+  {
+   "id": "2026-11-27b-rg",
+   "capUsd": 1.7193,
+   "measured": true,
+   "source": "driver final line, round 2 rules pass finished 2026-11-27"
+  },
+  {
+   "id": "2026-11-27b-thr",
+   "capUsd": 0.7768,
+   "measured": true,
+   "source": "driver final line, round 2 rules pass finished 2026-11-27"
+  },
+  {
+   "id": "2026-11-27b-toa",
+   "capUsd": 1.1094,
+   "measured": true,
+   "source": "driver final line, round 2 rules pass finished 2026-11-27"
+  },
+  {
+   "id": "2026-11-27c-motf",
+   "capUsd": 1.5872,
+   "measured": true,
+   "source": "driver final line, round 3 rules pass finished 2026-11-28"
+  },
+  {
+   "id": "2026-11-27c-eld",
+   "capUsd": 0.6657,
+   "measured": true,
+   "source": "driver final line, round 3 rules pass finished 2026-11-28"
+  },
+  {
+   "id": "2026-11-27c-stc",
+   "capUsd": 0.2834,
+   "measured": true,
+   "source": "driver final line, round 3 rules pass finished 2026-11-28"
+  },
+  {
+   "id": "2026-11-27c-pl",
+   "capUsd": 0.2716,
+   "measured": true,
+   "source": "driver final line, round 3 rules pass finished 2026-11-28"
+  },
+  {
+   "id": "2026-11-27c-wtc",
+   "capUsd": 1.34,
+   "measured": true,
+   "source": "driver final line, round 3 rules pass finished 2026-11-28"
+  },
+  {
+   "id": "2026-11-27c-mb",
+   "capUsd": 0.977,
+   "measured": true,
+   "source": "driver final line, round 3 rules pass finished 2026-11-28"
+  },
+  {
+   "id": "2026-11-27c-boc",
+   "capUsd": 0.7461,
+   "measured": true,
+   "source": "driver final line, round 3 rules pass finished 2026-11-28"
+  },
+  {
+   "id": "2026-11-27c-sg",
+   "capUsd": 0.7558,
+   "measured": true,
+   "source": "driver final line, round 3 rules pass finished 2026-11-28"
+  },
+  {
+   "id": "2026-11-27c-mm",
+   "capUsd": 1.1669,
+   "measured": true,
+   "source": "driver final line, round 3 rules pass finished 2026-11-28"
+  },
+  {
+   "id": "2026-11-27c-dc",
+   "capUsd": 0.5618,
+   "measured": true,
+   "source": "driver final line, round 3 rules pass finished 2026-11-28"
+  },
+  {
+   "id": "2026-11-27c-dl",
+   "capUsd": 0.4265,
+   "measured": true,
+   "source": "driver final line, round 3 rules pass finished 2026-11-28"
+  },
+  {
+   "id": "2026-11-27c-rune",
+   "capUsd": 0.8962,
+   "measured": true,
+   "source": "driver final line, round 3 rules pass finished 2026-11-28"
+  },
+  {
+   "id": "2026-11-27c-ark",
+   "capUsd": 1.9441,
+   "note": "partial: pilot + first 240 of 493 rules shards (ark_rules_a.json); the rest replans after round 3 frees headroom",
+   "measured": true,
+   "source": "driver final line, round 3 rules pass finished 2026-11-28 (ark: pilot + first 240 of 493 shards)"
   }
  ]
 }

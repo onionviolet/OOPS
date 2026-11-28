@@ -1,0 +1,102 @@
+{
+ "name": "2026-11-27c-motf",
+ "approval": "Weibao 2026-11-27: \u201cYes, send out Using api, we need to use like 90$~ of claude api in like 10 days\u201d; round 3 after \u201cPlan round 3 meanwhile\u201d and \u201cMore batched readers?\u201d",
+ "ceilingUsd": 10.55,
+ "capTotal": 10.55,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/motf1_pilot_rules.json",
+     "cap": 0.04,
+     "label": "motf1-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/motf2_pilot_rules.json",
+     "cap": 0.04,
+     "label": "motf2-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/motf3_pilot_rules.json",
+     "cap": 0.04,
+     "label": "motf3-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/motf4_pilot_rules.json",
+     "cap": 0.04,
+     "label": "motf4-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/motf5_pilot_rules.json",
+     "cap": 0.04,
+     "label": "motf5-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/motf6_pilot_rules.json",
+     "cap": 0.04,
+     "label": "motf6-pilot-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/motf7_pilot_rules.json",
+     "cap": 0.04,
+     "label": "motf7-pilot-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-1",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/motf1_rules.json",
+     "cap": 1.22,
+     "label": "motf1-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/motf2_rules.json",
+     "cap": 1.42,
+     "label": "motf2-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-2",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/motf3_rules.json",
+     "cap": 1.58,
+     "label": "motf3-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/motf4_rules.json",
+     "cap": 1.41,
+     "label": "motf4-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/motf5_rules.json",
+     "cap": 1.35,
+     "label": "motf5-rules"
+    }
+   ]
+  },
+  {
+   "name": "rules-3",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/motf6_rules.json",
+     "cap": 1.71,
+     "label": "motf6-rules"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/motf7_rules.json",
+     "cap": 1.58,
+     "label": "motf7-rules"
+    }
+   ]
+  }
+ ]
+}
