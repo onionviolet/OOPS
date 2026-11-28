@@ -154,7 +154,7 @@ export function relocateFirstMention(c, shardMap, review) {
     if (m && [0, 1, 2].some(d => nameIn(shardMap.get(`${m.ch}:${m.p + d}`) || '', c.zh, lang))) return c;
     for (const [key, text] of shardMap) if (nameIn(text, c.zh, lang)) {
         const [ch, p] = key.split(':');
-        return {...c, firstMention: formatLocator(lang, {book: shardMap.book || 1, ch, p}), note: c.note};
+        return {...c, firstMention: formatLocator(lang, {pdf: shardMap.pdf, book: shardMap.book || 1, ch, p}), note: c.note};
     }
     // English readers write the full name ("Bill Weasley") where the paragraph prints part of it ("Bill"): `zh` becomes the printed part, the full name
     // stays as label and alias (2026-10-28). Only a capitalised word of three or more letters that is not a title counts.

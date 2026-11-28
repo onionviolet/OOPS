@@ -20,14 +20,14 @@ export function extractCandidates(shardMap) {
     for (const [key, text] of shardMap) {
         const [ch, p] = key.split(':');
         if (en) {
-            for (const [kind, re] of Object.entries(EN_PATTERNS)) for (const m of text.matchAll(re)) out.push({kind, value: m[0], locator: formatLocator('en', {book: shardMap.book || 1, ch, p})});
+            for (const [kind, re] of Object.entries(EN_PATTERNS)) for (const m of text.matchAll(re)) out.push({kind, value: m[0], locator: formatLocator('en', {pdf: shardMap.pdf, book: shardMap.book || 1, ch, p})});
             continue;
         }
         for (const [kind, re] of Object.entries(PATTERNS)) {
             for (const m of text.matchAll(re)) {
                 // "一点", "半点", "一时" are usually idioms ("a little", "for a moment"); keep them only with a clock word.
                 if (kind === 'time' && /^[一半几]?[点时]$|^[一半几]点$|^一时$/.test(m[0]) && !/^[钟整半]/.test(text.slice(m.index + m[0].length))) continue;
-                out.push({kind, value: m[0], locator: formatLocator('zh', {book: shardMap.book || 0, ch, p})});
+                out.push({kind, value: m[0], locator: formatLocator('zh', {pdf: shardMap.pdf, book: shardMap.book || 0, ch, p})});
             }
         }
     }

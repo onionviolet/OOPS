@@ -10,6 +10,7 @@ import {readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync} from 'n
 import {join, dirname, relative} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {pdfChapters, epubChapterMembers, epubParagraphs, htmlBlocks, epubSpine, blockChapters, BOOK_TAIL, shardTextEn} from './prepare_shard_en.mjs';
+import {pageShards} from './pdf_pages.mjs';
 import {chapterLinks, volumeRuns, shardText, textChapters} from './prepare_shard.mjs';
 import {requestsFromPlan, estimateCost, passDone} from './batch_lib.mjs';
 import {resolveBookSource} from './book_source.mjs';
@@ -97,6 +98,16 @@ function prepare(b, priv) {
         }
         return written;
     }
+    if (b.type === 'pdf-pages') {
+        const text = execFileSync('pdftotext', ['-enc', 'UTF-8', b.source, '-'], {encoding: 'utf8', maxBuffer: 256 << 20});
+        for (const shard of pageShards(text, b)) {
+            const stem = b.key + '_b' + b.book + '_pg' + pad(shard.first) + '-' + pad(shard.last);
+            writeFileSync(join(priv, 'shard_' + stem + '.txt'), shard.text);
+            writeFileSync(join(priv, 'index_' + stem + '.json'), JSON.stringify(shard.index) + '\n');
+            written.push('shard_' + stem + '.txt');
+        }
+        return written;
+    }
     let chapters;
     if (b.type === 'pdf') {
         const cache = join(priv, 'source_pdftotext.txt');
@@ -125,7 +136,7 @@ function prepare(b, priv) {
 
 /** Shards of one book on disk, in order, with request prefix and beat base (unique across books of a world: book digit, chapter, 01). */
 export function bookShards(b, files) {
-    const re = new RegExp(`^shard_${b.key}_(?:b\\d+_)?ch(\\d{3,})-(\\d{3,})\\.txt$`);
+    const re = new RegExp(`^shard_${b.key}_(?:b\\d+_)?${b.type === 'pdf-pages' ? 'pg' : 'ch'}(\\d{3,})-(\\d{3,})\\.txt$`);
     return files.map(f => [f, re.exec(f)]).filter(([, m]) => m).map(([f, m]) => ({file: f, first: Number(m[1]), last: Number(m[2])}))
         .sort((x, y) => x.first - y.first)
         .map(s => ({prefix: `${b.key}c${pad(s.first)}`, file: s.file, base: `${b.book > 1 ? b.book : ''}${pad(s.first)}01`, chapters: `${s.first}-${s.last}`}));
@@ -138,6 +149,10 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const registry = JSON.parse(readFileSync(join(PLANS, 'books.json'), 'utf8'));
     // `--model gpt-6-luna` writes plans for the OpenAI batch backend (openai_batch.mjs); pair it with a `--tag` so labels stay apart from Haiku runs.
     const model = flag('--model');
+    const passes = flag('--passes')?.split(',') || PASSES;
+    const pilots = flag('--pilot')?.split(',') || ['census', 'scenes'].filter(p => passes.includes(p));
+    if (!passes.every(p => PASSES.includes(p)) || !pilots.every(p => passes.includes(p)))
+        throw new Error('Unknown pass or pilot outside the selected passes');
     const schema = flag('--schema'), keys = flag('--keys') ? new Set(flag('--keys').split(',')) : null, tag = flag('--tag');
     if (schema && !['1.4', '1.5'].includes(schema)) throw new Error(`--schema supports 1.4 or 1.5, got ${schema}`);
     const ceilings = Object.fromEntries((flag('--ceiling') || '').split(',').filter(Boolean).map(x => x.split('=')).map(([w, u]) => [w, Number(u)]));
@@ -149,9 +164,10 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
         if (!existsSync(b.source) && b.convertFrom && existsSync(b.convertFrom)) { mkdirSync(dirname(b.source), {recursive: true}); execFileSync(EBOOK_CONVERT, [b.convertFrom, b.source], {stdio: 'ignore'}); }
         if (!existsSync(b.source)) { report.push({key: b.key, skipped: 'source missing'}); continue; }
         let files = existsSync(priv) ? readdirSync(priv) : [];
-        if (!bookShards(b, files).length) {
+        if (!bookShards(b, files).length || (b.type === 'pdf-pages' && a.includes('--prepare'))) {
             if (!a.includes('--prepare')) { report.push({key: b.key, skipped: 'no shards (run with --prepare)'}); continue; }
-            prepare(b, priv); files = readdirSync(priv);
+            const prepared = prepare(b, priv);
+            files = readdirSync(priv).filter(f => b.type !== 'pdf-pages' || !f.startsWith('shard_' + b.key + '_') || prepared.includes(f));
         }
         const shards = bookShards(b, files), have = new Set(files);
         // Names from every book of the world feed the known-names table, so later books reuse earlier ids.
@@ -160,9 +176,9 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
         const row = {key: b.key, shards: shards.length, labels: []};
         // A book with no census read yet gets a one-shard pilot (census and scenes) as its own step, so a format fault costs cents, not a whole pass.
         const fresh = !shards.some(s => passDone('census', s.prefix, have));
-        const pilotPrefix = fresh ? shards[0].prefix : null;
-        const units = [...(fresh ? ['census', 'scenes'].map(pass => ({pass, step: 'pilot', only: pilotPrefix, suffix: `pilot_${pass}`})) : []),
-            ...PASSES.map(pass => ({pass, step: pass, skip: ['census', 'scenes'].includes(pass) ? pilotPrefix : null, suffix: pass}))];
+        const pilotPrefix = (fresh || flag('--pilot')) ? shards[0].prefix : null;
+        const units = [...(pilotPrefix ? pilots.map(pass => ({pass, step: 'pilot', only: pilotPrefix, suffix: `pilot_${pass}`})) : []),
+            ...passes.map(pass => ({pass, step: pass, skip: pilots.includes(pass) ? pilotPrefix : null, suffix: pass}))];
         for (const {pass, step, only, skip, suffix} of units) {
             const todo = shards.filter(s => !passDone(pass, s.prefix, have) && (!only || s.prefix === only) && s.prefix !== skip)
                 .map(s => ({prefix: s.prefix, shard: join(priv, s.file), base: s.base, chapters: s.chapters}));

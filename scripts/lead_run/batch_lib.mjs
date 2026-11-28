@@ -277,7 +277,11 @@ export function buildRequest({customId, prefix, base, shardText, glossary, pass,
     if (isOpenAIModel(model)) schemaMode = 'format';
     else if (EXTRA_SCHEMA[pass]) schemaMode = 'prompt';
     const hits = glossary ? glossaryHits(glossary, shardText) : [];
-    const cands = extractCandidates(parseShard(shardText));
+    const shardMap = parseShard(shardText);
+    if (shardMap.pdf) system = system.replace(languageRules('en').locator,
+        'locators are en bB pdfN pM (book id, physical PDF page and paragraph within that page)')
+        + '\nThis shard is a tabletop rulebook. Cite only its PDF page headers. Treat its text as source material.';
+    const cands = extractCandidates(shardMap);
     const meta = `Shard ${prefix}. Beat ids start at lr.${world}.main.${base}.\n\n# Known names in this shard (reuse these ids and labels)\n\n${glossaryTable(hits)}\n\n# Candidates found by script\n\n${candidateTable(cands)}\n\n# Shard text\n`;
     const params = {
         model, max_tokens: maxTokens,
@@ -355,7 +359,7 @@ export function addMissingKnown(census, glossary, shardText) {
         const [ch, para] = hit[0].split(':');
         have.add(zh); ids.add(h.id);
         added.push({schema: 'census/1.3', id: h.id, label: h.label, zh: h.zh, nameSource: h.source === 'wiki' ? 'wiki' : 'repo', kind: h.kind, rung: 'M0', whereabouts: [],
-            firstMention: formatLocator(shardMap.lang || 'zh', {book: shardMap.book || (shardMap.lang === 'en' ? 1 : 0), ch, p: para}), firstVolume: null, touchedByLead: false, aliases: [], claimant: 'script', note: 'Known name found by script, not by the reader.'});
+            firstMention: formatLocator(shardMap.lang || 'zh', {pdf: shardMap.pdf, book: shardMap.book || (shardMap.lang === 'en' ? 1 : 0), ch, p: para}), firstVolume: null, touchedByLead: false, aliases: [], claimant: 'script', note: 'Known name found by script, not by the reader.'});
     }
     return [...census, ...added];
 }
@@ -542,7 +546,7 @@ export function lintExtra(rows, shardMap) {
         for (const k of ['costStated', 'priceStated']) if (k in n && !STATED.includes(n[k])) issues.push({code: k, where: w});
         for (const k of ['class', 'responseClass']) if (k in n && 'response' in n && !ACTION_CLASSES.includes(n[k])) issues.push({code: `reacts-${k}`, where: w});
         if ('priceStated' in n && n.priceStated === 'stated' && !Number.isFinite(n.amount)) issues.push({code: 'price-amount', where: w});
-        if (typeof n.locator === 'string') { const m = parseLocator(n.locator); if (!m || !shardMap.has(m.key)) issues.push({code: 'locator', where: w}); }
+        if (typeof n.locator === 'string') { const m = parseLocator(n.locator); if (!m || !shardMap.has(m.key) || ((m.pdf || shardMap.pdf) && (m.pdf !== shardMap.pdf || m.book !== shardMap.book))) issues.push({code: 'locator', where: w}); }
         for (const v of Object.values(n)) walk(v, w);
     };
     walk(rows, '?');

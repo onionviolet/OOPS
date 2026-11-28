@@ -9,15 +9,15 @@ import {fileURLToPath} from 'node:url';
 const here = dirname(fileURLToPath(import.meta.url));
 const APPENDIX_DIR = join(here, '../../docs/gm/dispatch/batch-reading-2026-10-27/world_appendix');
 
-export const LOCATOR_ANY = /^(?:zh (?:b(\d+) )?第(\d+)章 p(\d+)|en b(\d+) c(\d+) p(\d+))$/;
-const LOCATOR_IN_TEXT = /zh (?:b\d+ )?第\d+章 p\d+|en b\d+ c\d+ p\d+/g;
+export const LOCATOR_ANY = /^(?:zh (?:b(\d+) )?第(\d+)章 p(\d+)|en b(\d+) (?:c|pdf)(\d+) p(\d+))$/;
+const LOCATOR_IN_TEXT = /zh (?:b\d+ )?第\d+章 p\d+|en b\d+ (?:c|pdf)\d+ p\d+/g;
 
 /** `zh 第3章 p4` -> {lang:'zh', book:0, ch:3, p:4, key:'3:4'} (book 0 is volume 1); `zh b2 第3章 p4` -> book 2; `en b1 c3 p4` -> {lang:'en', book:1, ...}. */
 export function parseLocator(loc) {
     const m = LOCATOR_ANY.exec(String(loc || '').trim());
     if (!m) return null;
     return m[2] ? {lang: 'zh', book: m[1] && Number(m[1]) > 1 ? Number(m[1]) : 0, ch: Number(m[2]), p: Number(m[3]), key: `${Number(m[2])}:${Number(m[3])}`}
-        : {lang: 'en', book: Number(m[4]), ch: Number(m[5]), p: Number(m[6]), key: `${Number(m[5])}:${Number(m[6])}`};
+        : {lang: 'en', book: Number(m[4]), ...(m[0].includes(' pdf') ? {pdf: true} : {}), ch: Number(m[5]), p: Number(m[6]), key: `${Number(m[5])}:${Number(m[6])}`};
 }
 
 /** Every locator inside a string, in order. */
@@ -25,12 +25,14 @@ export function locatorsIn(text) {
     return [...String(text || '').matchAll(LOCATOR_IN_TEXT)].map(m => parseLocator(m[0]));
 }
 
-export function formatLocator(lang, {book = 1, ch, p}) {
-    return lang === 'en' ? `en b${book} c${ch} p${p}` : book > 1 ? `zh b${book} 第${ch}章 p${p}` : `zh 第${ch}章 p${p}`;
+export function formatLocator(lang, {book = 1, ch, p, pdf = false}) {
+    return lang === 'en' ? `en b${book} ${pdf ? 'pdf' : 'c'}${ch} p${p}` : book > 1 ? `zh b${book} 第${ch}章 p${p}` : `zh 第${ch}章 p${p}`;
 }
 
 /** Shard header line -> {ch, book} or null. Chinese `=== … 第N章 …`; English `=== Chapter N: Title | book B | …`. */
 export function headerOf(line) {
+    const page = line.match(/^=== PDF page (\d+) \| book (\d+)$/);
+    if (page) return {ch: Number(page[1]), book: Number(page[2]), lang: 'en', pdf: true};
     const zh = line.match(/^=== .*?第(\d+)章/);
     if (zh) { const b = line.match(/\|\s*book (\d+)/); return {ch: Number(zh[1]), book: b && Number(b[1]) > 1 ? Number(b[1]) : 0, lang: 'zh'}; }
     const en = line.match(/^=== Chapter (\d+)\b.*?(?:\|\s*book (\d+))?/);
@@ -89,6 +91,8 @@ export function sharedWordRun(field, shardText, min = 9) {
 
 /** Per-world settings for prompts and plans. `lang` decides locators and matching; `appendix` is extra card text for the cached prefix. */
 export const WORLDS = Object.freeze({
+    cyberpunk: {lang: 'en', name: 'Cyberpunk'},
+    shadowrun: {lang: 'en', name: 'Shadowrun'},
     lotm: {lang: 'zh', name: 'Lord of the Mysteries'},
     hp: {lang: 'en', name: 'Harry Potter'},
     mol: {lang: 'en', name: 'Mother of Learning'},
