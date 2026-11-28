@@ -1,0 +1,134 @@
+{
+  "item": "sm4",
+  "life": "Village",
+  "entry": "/",
+  "bundleSha256": "480112ec909963aa93bfb7b1b0fab4f2090a8bf30c3486e73e434632029cd7f3",
+  "runs": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "result": {
+        "legacy": {
+          "schema": "progression.positions@2",
+          "positions": [
+            {
+              "schema": "progression.position@1",
+              "path": "patrol",
+              "revision": 1,
+              "position": 0,
+              "since": 0,
+              "tracks": {
+                "practice": 0
+              }
+            }
+          ]
+        },
+        "offer": "Village roles\n\nVillage patrol level 2 (Dependable worker)\n\nTake the Watchcraft role\nKeep your patrol rank. Enter Watchcraft at level 1 with 0 rehearsed minutes. Advance with Village meditation. At five rehearsed minutes, a completed Watchcraft patrol pays 5 extra coins. No fee.",
+        "tracks": "Village roles\n\nVillage patrol level 2 (Dependable worker) · Watchcraft level 3 (Practitioner)",
+        "final": "Village roles\n\nVillage patrol level 3 (Mentor) · Watchcraft level 3 (Practitioner)",
+        "pay": "Tessa’s clear patrol report · 50 base + 15 Watchcraft = 65 coins. “You marked linen caught by the well.” Follow up in Local life → Look around.",
+        "effect": "Watchcraft reached level 3 (Practitioner).",
+        "overflow": 0,
+        "deferredTicks": 2
+      },
+      "persistence": {
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true,
+        "restored": {
+          "schema": "progression.positions@2",
+          "positions": [
+            {
+              "schema": "progression.position@1",
+              "path": "patrol",
+              "revision": 1,
+              "position": 2,
+              "since": 0,
+              "tracks": {
+                "practice": 2
+              }
+            },
+            {
+              "schema": "progression.position@1",
+              "path": "watchcraft",
+              "revision": 1,
+              "position": 2,
+              "since": 0,
+              "tracks": {
+                "practice": 5
+              }
+            }
+          ]
+        }
+      },
+      "errors": [],
+      "effect": "Watchcraft reached level 3 (Practitioner)."
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "result": {
+        "legacy": {
+          "schema": "progression.positions@2",
+          "positions": [
+            {
+              "schema": "progression.position@1",
+              "path": "patrol",
+              "revision": 1,
+              "position": 0,
+              "since": 0,
+              "tracks": {
+                "practice": 0
+              }
+            }
+          ]
+        },
+        "offer": "Village roles\n\nVillage patrol level 2 (Dependable worker)\n\nTake the Watchcraft role\nKeep your patrol rank. Enter Watchcraft at level 1 with 0 rehearsed minutes. Advance with Village meditation. At five rehearsed minutes, a completed Watchcraft patrol pays 5 extra coins. No fee.",
+        "tracks": "Village roles\n\nVillage patrol level 2 (Dependable worker) · Watchcraft level 3 (Practitioner)",
+        "final": "Village roles\n\nVillage patrol level 3 (Mentor) · Watchcraft level 3 (Practitioner)",
+        "pay": "Tessa’s clear patrol report · 50 base + 15 Watchcraft = 65 coins. “You marked linen caught by the well.” Follow up in Local life → Look around.",
+        "effect": "Watchcraft reached level 3 (Practitioner).",
+        "overflow": 0,
+        "deferredTicks": 2
+      },
+      "persistence": {
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true,
+        "restored": {
+          "schema": "progression.positions@2",
+          "positions": [
+            {
+              "schema": "progression.position@1",
+              "path": "patrol",
+              "revision": 1,
+              "position": 2,
+              "since": 0,
+              "tracks": {
+                "practice": 2
+              }
+            },
+            {
+              "schema": "progression.position@1",
+              "path": "watchcraft",
+              "revision": 1,
+              "position": 2,
+              "since": 0,
+              "tracks": {
+                "practice": 5
+              }
+            }
+          ]
+        }
+      },
+      "errors": [],
+      "effect": "Watchcraft reached level 3 (Practitioner)."
+    }
+  ]
+}

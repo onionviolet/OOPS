@@ -231,6 +231,7 @@ const assets = {
     '/system-play/ev4-ev5':['../../docs/representations/evidence/skill-evolution-ev4-ev5-2026-11-26/proof.json','application/json'],
     '/system-play/ev6':['../../docs/representations/evidence/skill-evolution-armor-ev6-2026-11-26/proof-ev6.json','application/json'],
     '/system-play/sm1':['../../docs/representations/evidence/litrpg-sm1-sm5-2026-11-27/proof-sm1.json','application/json'],
+    '/system-play/sm4':['../../docs/representations/evidence/sm4-role-stack-2026-11-27/proof.json','application/json'],
     '/system-play/sm5':['../../docs/representations/evidence/litrpg-sm1-sm5-2026-11-27/proof-sm5.json','application/json'],
     '/system-play/progression':['../../docs/PROGRESSION_GATE_RULES.md','text/plain; charset=utf-8'],
     '/system-play/census':['../../docs/audits/LITRPG_SYSTEM_CENSUS_2026-11-27.md','text/plain; charset=utf-8'],

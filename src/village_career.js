@@ -1,15 +1,17 @@
+import {readVillageRoles,growVillageRole} from './village_roles.js';
+import {PATROL_RANKS,WATCHCRAFT_REHEARSALS,WATCHCRAFT_ROLE_SUPPLEMENT} from './data/role_stacks.js';
 import {watchKitLaw} from "./data/world_enforcement.js";
 import {quoteWorldDuty,settleWorldDuty} from "./world_enforcement.js";
 import {watchcraftLesson} from "./data/skill_learning.js";
 import {practiceLearning} from "./skill_learning.js";
 // Original proposal: one Village patrol career, using native time and wages.
 import {natural} from './basics.js';
-export const CAREER_RANKS = ['Apprentice', 'Dependable worker', 'Mentor'];
+export const CAREER_RANKS = PATROL_RANKS;
 export const KIT_DEBT = watchKitLaw.costs[0].amount;
 export const PATROL_BASE_PAY = 50;
 export const WATCHCRAFT_BOOK = 'Tessa’s watchcraft notes';
 export const WATCHCRAFT_READING = watchcraftLesson.minutes;
-export const WATCHCRAFT_PRACTICE = 5;
+export const WATCHCRAFT_PRACTICE = WATCHCRAFT_REHEARSALS;
 export const WATCHCRAFT_BONUS = 10;
 export function patrolPayText(base, bonus, total = base + bonus) {
     if (!bonus) return `${base} coins base pay`;
@@ -30,6 +32,11 @@ export function validateVillageCareer(s) {
     check(s.debt===(s.loan?.status==='debt'?KIT_DEBT:0),'invalid kit debt');
     check(!s.loan || (s.shifts>0 && (s.loan.status!=='active' || !s.loan.completed)),'invalid active shift');
     check(s.lastShift===null || (s.lastShift && natural(s.lastShift.number) && s.lastShift.number>0 && s.lastShift.number<=s.shifts && typeof s.lastShift.completed==='boolean' && ['due','returned','kept','paid'].includes(s.lastShift.kit)),'invalid shift memory');
+    if(s.roles!==undefined){
+        const records=readVillageRoles(s).positions;
+        check(records[0].path==='patrol' && records[0].position===s.rank && records[0].tracks.practice===s.rank,'patrol position disagrees with rank');
+        if(records.length===2)check(s.rank>=1 && records[1].path==='watchcraft' && records[1].tracks.practice===s.watchcraft.practiceMinutes,'unearned Watchcraft position');
+    }
     if(s.lastShift?.enforcement){
         const e=s.lastShift.enforcement;
         check(e.revision===1&&e.rule===watchKitLaw.id&&e.enforcer===watchKitLaw.enforcer&&e.amount===KIT_DEBT,'invalid kit enforcement receipt');
@@ -84,6 +91,7 @@ export function migrateVillageCareer(save) {
         if(s.recruit)s.recruit={...s.recruit,favors:0,teachingTerms:s.recruit.known?['pay']:[],covering:false,tuition:'none'};
         if(s.loan?.teaching){s.loan.teachingTerm='pay';s.loan.teachingMinutes=s.recruit.practiceMinutes;}
     }
+    if(save.village_career)s.roles=readVillageRoles(s);
     return validateVillageCareer(s);
 }
 export function beginVillageShift(state,known=false) {
@@ -131,7 +139,7 @@ export function villagePromotionRequirements(state) {
 }
 export function promoteVillageCareer(state) {
     const s=migrateVillageCareer({village_career:state});check(s.rank<2,'you already mentor the patrol');
-    const unmet=villagePromotionRequirements(s);check(!unmet.length,unmet.join(' '));s.rank++;return validateVillageCareer(s);
+    const unmet=villagePromotionRequirements(s);check(!unmet.length,unmet.join(' '));s.roles=growVillageRole(s,'promotion',1);s.rank++;return validateVillageCareer(s);
 }
 export function villageColleagueMemory(state) {
     const s=validateVillageCareer(state),last=s.lastShift;
@@ -150,8 +158,10 @@ export function issueWatchcraft(state) {
 }
 export function practiceWatchcraft(state,{known,location,activity,worldId,alive=true}) {
     const s=migrateVillageCareer({village_career:state});
-    if(known && s.watchcraft.issued && location==='Village' && worldId==='base.frontier' && activity==='meditating' && alive)
-        s.watchcraft.practiceMinutes=Math.min(WATCHCRAFT_PRACTICE,s.watchcraft.practiceMinutes+1);
+    if(known && s.watchcraft.issued && location==='Village' && worldId==='base.frontier' && activity==='meditating' && alive && s.watchcraft.practiceMinutes<WATCHCRAFT_PRACTICE) {
+        s.roles=growVillageRole(s,'watchcraft-rehearsal',1);
+        s.watchcraft.practiceMinutes++;
+    }
     return validateVillageCareer(s);
 }
 export function watchcraftPresentation(state,known) {
@@ -161,7 +171,12 @@ export function watchcraftPresentation(state,known) {
 }
 export function villageShiftBonus(state,completed) {
     validateVillageCareer(state);
-    return completed && state.loan?.status==='active' && state.loan.watchcraft===true ? WATCHCRAFT_BONUS : 0;
+    if (!completed || state.loan?.status!=='active' || !state.loan.watchcraft) return 0;
+    return villageWatchcraftPay(state);
+}
+export function villageWatchcraftPay(state) {
+    const observer=state.roles?.positions.find(role=>role.path==='watchcraft');
+    return WATCHCRAFT_BONUS + (observer?.position===2 ? WATCHCRAFT_ROLE_SUPPLEMENT : 0);
 }
 
 // One junior uses the same known/practiced distinction, on the common played clock.
@@ -204,7 +219,7 @@ export function advanceVillageMentor(state,{inVillage,alive,patrolling,teachingP
     return validateVillageCareer(s);
 }
 export function villageTeachingCost(state,completed) {
-    return completed && state.loan?.teaching ? (state.loan.teachingTerm==='time'?60:state.loan.teachingTerm==='pay'||!state.loan.teachingTerm?TEACHING_COST:0) : 0;
+    return completed && state.loan?.teaching ? (state.loan.teachingTerm==='time'?PATROL_BASE_PAY+villageWatchcraftPay(state):state.loan.teachingTerm==='pay'||!state.loan.teachingTerm?TEACHING_COST:0) : 0;
 }
 export function villageTeachingStipend(state,completed) {return completed && state.loan?.teachingTerm==='paid'?10:0;}
 export function resolveIonaTuition(state,choice) {

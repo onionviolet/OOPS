@@ -50,6 +50,8 @@ U4. Keeping a due Village watch kit shows the quoted debt first. The kernel sett
 
 U5. The existing Cyoria restart reads its run-history and memory policy. Five located campaign cases exercise the same reset vocabulary, including two distinct Menocht Loop scenarios. Zorian?s remembered lecture unlocks a drill after restart and import. [Proof](representations/evidence/readings-use-2026-11-27/u5/proof.json)
 
+SM4. Village patrol and Watchcraft share the Growth role list. Tessa offers the second slot after promotion. Separate patrol and rehearsal level-ups survive reload and import. [Game proof](representations/evidence/sm4-role-stack-2026-11-27/proof.json)
+
 <a id="future-rpg-view-with-a-map"></a>
 
 ## Future RPG view with a map (consideration)

@@ -45,7 +45,8 @@ test('admitted reader identifiers add comparisons without copying reader prose i
 
 test('growth points and slots need the Village action, normal entry, build and both save receipts',()=>{
     const receipt=id=>JSON.parse(read('docs/representations/evidence/litrpg-sm1-sm5-2026-11-27/proof-'+id.toLowerCase()+'.json'));
-    const growthProofs={SM1:receipt('SM1'),SM5:receipt('SM5')};
+    const growthProofs={SM1:receipt('SM1'),SM5:receipt('SM5'),
+        SM4:JSON.parse(read('docs/representations/evidence/sm4-role-stack-2026-11-27/proof.json'))};
     const articles=proofs=>buildSystems({...source,growthProofs:proofs}).articles;
     for(const id of Object.keys(growthProofs)){
         const select=proofs=>articles(proofs).find(article=>article.id===id);

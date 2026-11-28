@@ -74,7 +74,7 @@ function refresh(){
             const quote=quoteSkillEvolution(state,row,readLineage(row.from).level,progressContext(row));
             return {row,quote,reason:eligibility(row,quote),choose:target=>choose(row,target),refuse:()=>refuse(row)};
         }),pathRows.map(row=>evolvedPath(row.from)).filter(Boolean),
-        ['growth_points','ability_loadout','surplus_reserve','learning_offer'].map(id=>domainRegistry.project(id,'growth')).filter(Boolean));
+        ['growth_points','ability_loadout','surplus_reserve','learning_offer','role_stack'].map(id=>domainRegistry.project(id,'growth')).filter(Boolean));
     for(const [id,{row,parent,render}] of displays){
         if(!parent.isConnected){displays.delete(id);continue;}
         const choice=state.choices[row.id];
@@ -130,6 +130,7 @@ export function evolvedPath(id){
     if(form)return {id:form.id,name:form.name,description:form.description,...readLineage(id)};
 }
 
+export function refreshGrowthQueue(){refresh();}
 export function focusSkillGrowth(){refresh();queue?.focus();}
 export const evolvedSkill = id => activeSkillForm(state,SKILL_EVOLUTIONS,id);
 export const mergedGrowth = id => ports&&mergedSkillView(state,SKILL_EVOLUTIONS,id,readLineage);

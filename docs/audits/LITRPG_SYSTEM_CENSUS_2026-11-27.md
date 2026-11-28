@@ -439,9 +439,11 @@ R1-R4 refer to "Future RPG view with a map" in docs/END_GOAL.md: R1 loop-neutral
 
 **Books and rows.** Azarinth Healer (AZ11, AZ36); Beneath the Dragoneye Moons (BD20, BD26). The Primal Hunter (PHbg1, now located).
 
-**Closest seam.** `src/ascension_paths.js` + `src/progression_path.js` (PRG1-PRG12) hold one path per holder today; EV6 (later slice) is the evolution hook in `src/skill_evolution.js`.
+**OOPS status.** Playable in Village. Tessa?s first patrol promotion opens a Watchcraft slot under Skills > Growth. Patrol advances on promotion and Watchcraft on rehearsal. Existing practice counts when the player takes the role. [Game receipt](../representations/evidence/sm4-role-stack-2026-11-27/proof.json)
 
-**Save implications.** Extend the path position record to a list keyed by role ID, as an additive revision of the PRG position (PRG3). Old saves read as a one-element list.
+**Source check.** AZ36 supports a qualified second slot. Dragoneye?s second class becomes Firebug at level 8 while its first class has a different level (`bdm.institution.system`, zh ch50 p103). The Wandering Inn describes two component classes gaining levels and a conditional Warrior and Strategist merger (`twi.other.dual-class-leveling`, en b11 c11 p24 and `twi.other.class-merge`, en b2 c38 p113). PHbg1 supports a joint prerequisite. The sampled city tiers, school schedule and Jumping skill-point cost do not establish concurrent character roles. Tree of Aeons and Chrysalis give narrower evidence for merging. The original nine-world ranking counts classifier candidates.
+
+**Save compatibility.** The PRG3 role list reads an old position as one entry. An old Village career keeps its patrol rank. [Position contract](../PROGRESSION_PATH_CONTRACT.md)
 
 **Idle-play note.** Each role's track accrues from its own activity routing (as EV5 already routes small skills). Offers appear once under Growth and wait; away time never commits a role change.
 
@@ -781,8 +783,7 @@ Ranked by the number of contributing worlds, then by mean matches per 1,000 loca
 
 | Rank | Mechanism | Worlds | Matches | Mean per 1,000 |
 |---:|---|---:|---:|---:|
-| 1 | SM4 · Concurrent class and profession tracks | 9 | 74 | 1.92 |
-| 2 | SM7 · An outside patron grants aid | 6 | 20 | 0.33 |
-| 3 | SM2 · Reward depends on the level gap | 2 | 23 | 0.28 |
-| 4 | SM3 · Shared defeat credit | 2 | 4 | 0.08 |
-| 5 | SM9 · Several essence types determine a confluence | 1 | 8 | 0.10 |
+| 1 | SM7 · An outside patron grants aid | 6 | 20 | 0.33 |
+| 2 | SM2 · Reward depends on the level gap | 2 | 23 | 0.28 |
+| 3 | SM3 · Shared defeat credit | 2 | 4 | 0.08 |
+| 4 | SM9 · Several essence types determine a confluence | 1 | 8 | 0.10 |

@@ -1,3 +1,5 @@
+import {enrollWatchcraft,villageRoleView,readVillageRoles} from './village_roles.js';
+import {refreshGrowthQueue} from './skill_evolution_native.js';
 import {configureLearning} from "./skill_learning_native.js";
 import {configureRoutes, observeRouteArrival, idleRouteStep} from "./recorded_route_native.js";
 import {configureActivityTitle, publishActivity} from "./activity_title_native.js";
@@ -593,7 +595,7 @@ import {createVillageLives, advanceVillageLives, addVillageRecruit} from './npc_
 import {createVillageLivesPanel} from './npc_lives_ui.js';
 import {registerQuestBoard} from './quest_board_ui.js';
 import {restoreGeneratedPeople, generatedPeopleSnapshot, registerGeneratedPeople} from './generated_people_ui.js';
-import {createVillageCareer, migrateVillageCareer, beginVillageShift, finishVillageShift, resolveVillageKit, promoteVillageCareer, CAREER_RANKS, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_PRACTICE, WATCHCRAFT_BONUS, patrolPayText, issueWatchcraft, practiceWatchcraft, watchcraftPresentation, villageShiftBonus, assignVillageRecruit, beginVillageTeaching, beginRecruitSolo, advanceVillageMentor, villageTeachingCost, villageTeachingStipend, resolveIonaTuition, villageTeachingBusy, beginTessaInstruction, advanceTessaInstruction, COVER_PAYMENT, SOLO_PAYMENT} from './village_career.js';
+import {createVillageCareer, migrateVillageCareer, beginVillageShift, finishVillageShift, resolveVillageKit, promoteVillageCareer, CAREER_RANKS, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_PRACTICE, villageWatchcraftPay, patrolPayText, issueWatchcraft, practiceWatchcraft, watchcraftPresentation, villageShiftBonus, assignVillageRecruit, beginVillageTeaching, beginRecruitSolo, advanceVillageMentor, villageTeachingCost, villageTeachingStipend, resolveIonaTuition, villageTeachingBusy, beginTessaInstruction, advanceTessaInstruction, COVER_PAYMENT, SOLO_PAYMENT} from './village_career.js';
 import {createVillageCareerControls} from './village_career_ui.js';
 import {askTypedConfirm} from './typed_confirm.js';import {showLoadFailureNotice} from './load_failure_notice.js';
 let customization = defaultCustomizationState();
@@ -3498,7 +3500,9 @@ function writeVillageCareer(choice,fingerprint) {
     if(!ownsSave || foundationSaveBlocked || importProbeToken || current_location?.id!=='Village' || expansionState.actors.player.worldId!=='base.frontier' || (current_activity && !(choice.startsWith('teach:') && current_activity.id==='patrolling')) || current_dialogue || current_game_action || current_combat || is_sleeping || is_reading || is_in_trade() || expeditionOccupiesPlayer())throw new Error('Finish your current work and speak to Tessa in Village.');
     const serialized=create_save();if(!serialized)throw new Error('The career ledger could not be saved.');
     const save=JSON.parse(serialized);
-    if(choice==='recruit') {
+    if(choice==='join-watchcraft') {
+        save.village_career=enrollWatchcraft(villageCareer,fingerprint);
+    } else if(choice==='recruit') {
         save.village_career=assignVillageRecruit(villageCareer);
         save.npc_lives=addVillageRecruit(npcLives,save['current time'].year,expansionState.rng);
     } else if(choice.startsWith('teach:') || choice==='solo' || choice==='cover') {
@@ -3538,9 +3542,16 @@ function writeVillageCareer(choice,fingerprint) {
     if(choice.startsWith('tuition:'))log_message(choice==='tuition:accepted'?'You accept Iona’s offered five coins from her first solo stipend.':'You decline Iona’s tuition. She remembers your answer.');
     else if(choice.startsWith('teach:'))log_message(`You begin teaching Iona on ${choice.split(':')[1]} terms. The agreed terms are in your patrol ledger.`);
     else if(['recruit','solo','cover'].includes(choice))log_message(choice==='recruit'?'Tessa assigns Iona to your patrol.':choice==='cover'?'Iona spends one owed favor covering a two-hour shift: 50 coins on return, no player career credit.':'Iona begins a two-hour solo patrol. Stay in Village to hear her report and receive 10 coins.');
+    else if(choice==='join-watchcraft')log_message('Growth: You took the Watchcraft role alongside Village patrol. '+villageRoleView(villageCareer).summary,'skill_raised');
     else if(!['notes','tutor'].includes(choice))log_message(choice==='promote'?`Tessa recognizes you as ${CAREER_RANKS[villageCareer.rank]}. Your life record remembers this promotion.`:choice==='return'?'Tessa: “Lantern and baton accounted for. Thank you.”':choice==='keep'?`${save.village_career.lastShift.enforcement.enforcer} records a ${save.village_career.debt}-coin kit debt. Return the kit or pay before your next shift.`:'Tessa records your kit debt as paid.');
     villageCareerControls?.render();
+    if(choice==='promote'){
+        const view=villageRoleView(villageCareer);
+        log_message('Village patrol reached level '+view.tracks[0].level+' ('+view.tracks[0].stage+').','skill_raised');
+        if(villageCareer.rank===1)nativeCraftMessage('A second Village role is waiting in Growth: Watchcraft.','skill_raised',{panelId:'skill-growth',panelLabel:'Open Growth'});
+    }
     if(choice==='promote'||choice==='return')observePathGrowth();
+    if(choice==='promote'||choice==='join-watchcraft')refreshGrowthQueue();
 }
 
 function start_activity(selected_activity) {
@@ -3611,7 +3622,7 @@ function end_activity() {
         const total = Math.max(0, base + bonus - teachingCost) + teachingStipend;
         const lead = firstUse && !localLife.searches.Village.found;
         villageCareer = finishVillageShift(villageCareer, paidRoundCompleted, {markWellLinen:lead});
-        if(teachingCost)log_message(teachingCost===60?'This full teaching shift earns no pay, as agreed.':'The post pays 10 less: teaching on your shift meant less patrol work. These are lost wages, not a fee.');
+        if(teachingCost)log_message(teachingCost>10?'This full teaching shift earns no pay, as agreed.':'The post pays 10 less: teaching on your shift meant less patrol work. These are lost wages, not a fee.');
         if(bonus) {
             log_message(`Tessa’s clear patrol report · ${patrolPayText(base, bonus, total)}.${
                 lead ? ' “You marked linen caught by the well.” Follow up in Local life → Look around.' : ''
@@ -4790,8 +4801,8 @@ function get_context() {
             const pathBonus=evolvedUse(VILLAGE_PATROL_PATH,'completed-patrol')?.amount??0;
             return {
                 kitDue:!!loan && loan.status!=='active',
-                nextBonus:rehearsed ? WATCHCRAFT_BONUS : 0,
-                activeBonus:loan?.watchcraft ? WATCHCRAFT_BONUS : 0,
+                nextBonus:rehearsed ? villageWatchcraftPay(villageCareer) : 0,
+                activeBonus:loan?.watchcraft ? villageWatchcraftPay(villageCareer) : 0,
                 pathBonus,activePathBonus:loan?.teaching?0:pathBonus,
                 teachingAdjustment:villageTeachingStipend(villageCareer,true)-villageTeachingCost(villageCareer,true),
                 showHandoff:rehearsed && !watchcraft.used && ownsSave && !foundationSaveBlocked && !importProbeToken,
@@ -6405,9 +6416,10 @@ configureReserve({
     report:text=>nativeCraftMessage(text,'skill_raised',{panelId:'skill-growth',panelLabel:'Open Growth'}),
 });
 configureLearning({
-    read:()=>({career:villageCareer,known:watchcraftKnown(),world:expansionState.actors.player.worldId,place:current_location?.id,
+    read:()=>({career:villageCareer,patrolForm:evolvedPath(VILLAGE_PATROL_PATH),known:watchcraftKnown(),world:expansionState.actors.player.worldId,place:current_location?.id,
         available:ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!current_activity&&!nativeOccupationReason()}),
     start:()=>writeVillageCareer('tutor'),
+    enroll:fingerprint=>writeVillageCareer('join-watchcraft',fingerprint),
 });
 configureGrowthPoints({
     context:()=>({world:expansionState.actors.player.worldId,atBed:current_location?.housing?.isUnlocked()===true}),
@@ -6858,7 +6870,7 @@ function create_save({forExport = false} = {}) {
         if(p23Leisure!==undefined)save_data.p23_leisure_memory=structuredClone(p23Leisure);
         if(p23Repeat!==undefined)save_data.absorb_repeat_search=structuredClone(p23Repeat);
         save_data.content_packs = packSaveState(optionalPackState,packDefinitionsForSave());
-        save_data.village_career = structuredClone(villageCareer);
+        save_data.village_career = {...structuredClone(villageCareer),roles:readVillageRoles(villageCareer)};
         save_data.work_ledger=structuredClone(workLedger);
         save_data.customization=structuredClone(customization);
         save_data.customization_default=DEFAULT_LOOK_MARK;
@@ -9199,7 +9211,13 @@ function simulateTick() {
                 let tool_wear;
                 if(villageCareer.watchcraft.issued && villageCareer.watchcraft.practiceMinutes<WATCHCRAFT_PRACTICE) {
                     const before=villageCareer.watchcraft.practiceMinutes;
+                    const priorRole=villageCareer.roles?.positions[1];
                     villageCareer=practiceWatchcraft(villageCareer,{known:watchcraftKnown(),location:current_location.id,activity:current_activity.id,worldId:expansionState.actors.player.worldId,alive:character.is_alive===true});
+                    if(priorRole && villageCareer.roles.positions[1].position>priorRole.position){
+                        const role=villageRoleView(villageCareer).tracks[1];
+                        log_message('Watchcraft reached level '+role.level+' ('+role.stage+').','skill_raised');
+                        refreshGrowthQueue();
+                    }
                     if(before<WATCHCRAFT_PRACTICE && villageCareer.watchcraft.practiceMinutes===WATCHCRAFT_PRACTICE)
                         log_message('Watchcraft rehearsed, 5/5. Use sector scanning on your next Village patrol.');
                 }
