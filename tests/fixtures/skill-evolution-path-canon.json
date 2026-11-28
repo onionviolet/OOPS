@@ -1,0 +1,30 @@
+[
+  {
+    "source": "The Wandering Inn, 5.26 L",
+    "row": {
+      "id":"held-out.worldly-princess","policy":"EV6","from":"Princess","threshold":11,
+      "requirements":{"world":"fixture.inn","restorationComplete":true},
+      "carryText":"Royally earned progress follows the new class. The source separately consolidates five former classes.",
+      "targets":[{
+        "id":"held-out.worldly-princess-form","name":"Worldly Princess","costs":[],"restrictions":{},
+        "gains":{"function":{"trigger":"any-attempt","mode":"flawless-attempt"}}
+      }]
+    },
+    "target":"held-out.worldly-princess-form"
+  },
+  {
+    "source":"The Primal Hunter, chapter 1274: Two Awesome Options",
+    "row":{
+      "id":"held-out.primeval-profession","policy":"EV6","from":"Heretic-Chosen Alchemist of the Malefic Viper","threshold":350,
+      "requirements":{"world":"fixture.hunter","gradeThresholdMet":true},
+      "carryText":"The profession continues at its grade boundary.",
+      "targets":[
+        {"id":"held-out.harbinger","name":"Harbinger of Primeval Origins","costs":[],"restrictions":{},
+          "gains":{"function":{"trigger":"profession-practice","mode":"primeval-energy-focus"}}},
+        {"id":"held-out.primeval-alchemist","name":"Primeval Alchemist of Malefic Origins","costs":[],"restrictions":{},
+          "gains":{"function":{"trigger":"profession-practice","mode":"alchemy-and-primeval-origins"}}}
+      ]
+    },
+    "target":"held-out.primeval-alchemist"
+  }
+]

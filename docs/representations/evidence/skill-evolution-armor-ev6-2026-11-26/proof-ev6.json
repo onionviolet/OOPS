@@ -1,0 +1,100 @@
+{
+  "entry": "/",
+  "bundleSha256": "6477e56061f977bdb4a26b49f702ffe3f7cccf83a8ea4ad4e68a44385ab5fbbd",
+  "fixtureSha256": "2a5dc7660d828305c832cfdbb86e8c639db1a4318c930e437679085f612f6509",
+  "runs": [
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "offerRank": 2,
+      "deferred": {
+        "clock": 371,
+        "continuedClock": 372,
+        "activity": "patrolling"
+      },
+      "wage": 62,
+      "effect": "Route mentor earned 2 extra coins for the completed patrol.",
+      "choice": {
+        "status": "chosen",
+        "level": 2,
+        "target": "village.route-mentor"
+      },
+      "rank": 2,
+      "completed": 6,
+      "returned": 6,
+      "money": 324,
+      "revision": 4,
+      "save": true,
+      "reload": true,
+      "export": true,
+      "import": true,
+      "captures": [
+        "path-offer-1920.png",
+        "path-chosen-1920.png",
+        "path-effect-1920.png"
+      ],
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "offerRank": 2,
+      "deferred": {
+        "clock": 371,
+        "continuedClock": 372,
+        "activity": "patrolling"
+      },
+      "wage": 62,
+      "effect": "Route mentor earned 2 extra coins for the completed patrol.",
+      "choice": {
+        "status": "chosen",
+        "level": 2,
+        "target": "village.route-mentor"
+      },
+      "rank": 2,
+      "completed": 6,
+      "returned": 6,
+      "money": 324,
+      "revision": 4,
+      "save": true,
+      "reload": true,
+      "export": true,
+      "import": true,
+      "captures": [
+        "path-offer-1366.png",
+        "path-chosen-1366.png",
+        "path-effect-1366.png"
+      ],
+      "pageErrors": []
+    }
+  ],
+  "saveGate": {
+    "exitCode": 0,
+    "results": [
+      {
+        "id": "fang-first-night",
+        "result": "passed",
+        "browserPageErrors": 0
+      },
+      {
+        "id": "klein-ch129",
+        "result": "passed",
+        "browserPageErrors": 0
+      },
+      {
+        "id": "ryan-ch1",
+        "result": "passed",
+        "browserPageErrors": 0
+      },
+      {
+        "id": "alden-hospital",
+        "result": "passed",
+        "browserPageErrors": 0
+      }
+    ]
+  }
+}

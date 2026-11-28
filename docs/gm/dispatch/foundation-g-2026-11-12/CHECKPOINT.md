@@ -207,3 +207,19 @@ The exchange still has an authored outcome. A1 adds no Gu kind or move to the ea
 At the rebuilt game's 1920×1080 entry, the exchange leaves 12 of Fang's 36 parts. Save, reload, Export and file Import preserve both the pending and settled states. The revision 1 fixture opens with the same 11 minutes left and settles on the same due minute. [Ready](../../../representations/evidence/gu-wall-exchange-2026-11-26/wall-ready-1920.png) · [Pending](../../../representations/evidence/gu-wall-exchange-2026-11-26/wall-pending-1920.png) · [Settled](../../../representations/evidence/gu-wall-exchange-2026-11-26/wall-settled-1920.png) · [Legacy settled](../../../representations/evidence/gu-wall-exchange-2026-11-26/legacy-settled-1920.png) · [Proof](../../../representations/evidence/gu-wall-exchange-2026-11-26/proof.json)
 
 `npm run build`, the focused tests (232 passed), `npm run check:arch`, `npm run check:rules` and `npm run gate:save` exited 0. The save gate passed all four earned fixtures in its standalone run. Windows left a locked profile directory after terminating the gate's Chrome process. The earlier `gu_lotus_essence_case` rung 2 failure was outside A1.
+
+## A3, 2026-11-26: the shared law settles the wall exchange
+
+The wall-night data names a series of casts, incoming lightning, the ward layer, the wound threshold and the scene text. The shared Gu working runs each paid activation and resolves the contest at the native job's due minute. The native simulation continues to own the reservation and its refund. The old wall-night module is retired. [World data](../../../../src/world_packs/book_gu_lead_wall_night_data.js) · [Gu law](../../../../src/gu_working_law.js) · [Native host](../../../../src/gu_exchange_host.js)
+
+| PFP2 measure | Before A3 | After A3 |
+| --- | ---: | ---: |
+| Wall canon cases with activation costs from catalogue data | 1 | 1 |
+| Wall canon cases with outcome settled by the shared law | 0 | 1 |
+| Bespoke wall-night scene modules | 1 | 0 |
+
+The Keeper-only count is still 30. This is one wall case, with no additions to the kind or move ledgers.
+
+The canon inputs hold the shield and wound the wolf for the defenders. Fang spends 24 parts and keeps 12. The two-blade test spends 19 parts and leaves the wolf at the ladder. The stronger-lightning test spends 24, breaks the shield and leaves one point of unblocked force. On the native route, 23 parts cannot reserve the exchange and cost nothing. The lightning and wound values calibrate the existing Gu strengths to this case.
+
+**Save compatibility (AR6, MC4).** The derived command projection reproduces the exact issued revision 2 hash and frozen job shape. The existing revision 1 migration still upgrades the old aggregate reservation. Both mid-exchange fixtures keep their due minute, held reserve and refund terms. [Revision 1 fixture](../../../../tests/fixtures/gu_wall_exchange/legacy-mid-exchange.json) · [Revision 2 fixture](../../../../tests/fixtures/gu_wall_exchange/revision-2-mid-exchange.json) · [Normal-entry evidence](../../../representations/evidence/gu-wall-outcome-2026-11-26/README.md)

@@ -88,7 +88,7 @@ export function renderRecentLearning(host, owner, readers) {
     const v = learningNowView(owner, readers, readers.now?.());
     markPractising(doc, v.practising);
     if(!v.now.length && !v.practice && !v.levelUp) {view?.remove(); return;}
-    const key = JSON.stringify([v.now.map(r => [r.skillId, r.rate == null ? null : Math.round(r.rate * 10), r.from]), v.practice, v.stalls, v.levelUp]);
+    const key = JSON.stringify([v.now.map(r => [r.skillId, r.name, r.rate == null ? null : Math.round(r.rate * 10), r.from]), v.practice, v.stalls, v.levelUp]);
     if(view && view.dataset.key === key && view.previousElementSibling === host) return;
     const {node, body} = panelSection('Learning now', {className: 'learning-now'});
     node.dataset.recentLearning = ''; node.dataset.key = key; node.setAttribute('aria-live', 'off');

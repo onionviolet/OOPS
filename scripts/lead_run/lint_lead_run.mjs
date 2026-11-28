@@ -39,7 +39,7 @@ export function parseShard(text) {
     let ch = null;
     for (const line of text.split(/\r?\n/)) {
         const h = headerOf(line);
-        if (h) { ch = h.ch; map.lang = h.lang; map.book = h.book; continue; }
+        if (h) { ch = h.ch; map.lang = h.lang; map.book = h.book; if (h.pdf) map.pdf = true; continue; }
         const p = line.match(/^p(\d+): (.*)$/);
         if (p && ch !== null) map.set(`${ch}:${p[1]}`, p[2]);
     }

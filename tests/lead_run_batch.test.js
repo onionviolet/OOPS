@@ -306,3 +306,20 @@ test('a cut-off reply keeps its complete rows and drops a runaway row and the cu
     assert.ok(p.partial);
     assert.equal(parseMessage({stop_reason: 'max_tokens', content: [{type: 'text', text: '{"census":['}]}).error, 'max_tokens');
 });
+
+
+test('1.6 people collection leaves an invalid description pending and accepts its corrected reread', async () => {
+    const {plan} = fixture();
+    plan.pass = 'people';
+    plan.schemaVersion = '1.6';
+    const person = {id: 'test.person.runner', looks: [], traits: [], prominence: 'mention'};
+    const read = async row => collect({client: mockClient([ok('z1-people', {people: [row], other: []})]),
+        batchId: 'b', plan, outDir: plan.outDir, runTools: false});
+    const bad = await read({...person, traits: [{label: 'U'}]});
+    assert.equal(bad.shards[0].status, 'lint');
+    assert.ok(existsSync(join(plan.privateDir, 'z1_people.partial')));
+    assert.ok(!existsSync(join(plan.privateDir, 'z1_people.jsonl')));
+    assert.equal((await read(person)).shards[0].status, 'ok');
+    assert.ok(!existsSync(join(plan.privateDir, 'z1_people.partial')));
+    assert.ok(existsSync(join(plan.privateDir, 'z1_people.jsonl')));
+});

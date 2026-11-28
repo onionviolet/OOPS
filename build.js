@@ -31,7 +31,9 @@ if (buildOut) fs.mkdirSync(`${buildOut}/dist`, { recursive: true });
 
 esbuild
     .build({
-        entryPoints: ["src/main.js"],
+        // Boot the independent browser tool alongside the game without a main-to-debug dependency.
+        stdin: {contents:'import "./src/main.js"; import "./src/ui/upstream_data_viewer.js";',
+            resolveDir:process.cwd(),sourcefile:'browser-entry.js'},
         bundle: true,
         sourcemap: true,
         minify: true,

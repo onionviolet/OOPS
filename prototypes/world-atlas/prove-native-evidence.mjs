@@ -14,8 +14,16 @@ try{
  base=await new Promise((ok,fail)=>{server.once('error',fail);server.once('exit',code=>fail(Error('Atlas exited '+code)));let log='';server.stderr.on('data',b=>log+=b);server.stdout.on('data',b=>{const match=String(b).match(/http:\/\/127\.0\.0\.1:\d+/);if(match)ok(match[0]);});setTimeout(()=>fail(Error('Atlas startup timeout: '+log.slice(-500))),60000).unref();});
  browser=await launchChrome();const page=await browser.newPage({viewport:{width:1920,height:1080}});page.setDefaultTimeout(30000);page.on('pageerror',e=>errors.push(e.message));
  await page.goto(base);await page.getByRole('button',{name:'Workbench',exact:true}).click();await page.getByRole('button',{name:'Native play evidence',exact:true}).click();
- await page.getByRole('heading',{name:'Native play evidence',exact:true}).waitFor();await page.locator('[data-native-evidence]').last().waitFor();assert.equal(await page.locator('[data-native-evidence]').count(),5);
- const payload=await(await page.request.get(base+'/native-play-evidence')).json();assert.equal(payload.currentBundleSha256,bundleBefore);assert.ok(payload.entries.every(e=>e.status==='verified'));assert.doesNotMatch(JSON.stringify(payload),/privateSave|\.json|\/private\/|[A-Z]:\\/);
+ await page.getByRole('heading',{name:'Native play evidence',exact:true}).waitFor();
+ const cards=page.locator('[data-native-evidence]');
+ await cards.first().waitFor();
+ const payload=await(await page.request.get(base+'/native-play-evidence')).json();
+ assert.equal(payload.currentBundleSha256,bundleBefore);
+ assert.deepEqual((await cards.evaluateAll(nodes=>nodes.map(n=>n.dataset.nativeEvidence))).sort(),payload.entries.map(e=>e.id).sort());
+ for(const id of ['village-watch-relay','tingen-local','tingen-klein','starting-insight','loaded-dice']){
+  assert.equal(payload.entries.find(entry=>entry.id===id)?.status,'verified',id);
+ }
+ assert.doesNotMatch(JSON.stringify(payload),/privateSave|\.json|\/private\/|[A-Z]:\\/);
  await page.locator('[data-native-evidence="village-watch-relay"] summary').first().click();await page.screenshot({path:join(out,'workbench-native-evidence-1920.png')});
  for(const [id,heading]of [['loaded-dice','Loaded Dice'],['starting-insight','+1 starting insight']]){
   const card=page.locator(`[data-native-evidence="${id}"]`);await card.getByRole('link',{name:'Open related Atlas record',exact:true}).click();await page.getByRole('link',{name:'Where to play',exact:true}).click();

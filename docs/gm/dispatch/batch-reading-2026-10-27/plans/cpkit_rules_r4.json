@@ -1,0 +1,186 @@
+{
+ "world": "cyberpunk",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28",
+ "outDir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/batch",
+ "glossary": {
+  "censusDir": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28",
+  "censusMatch": "^(cpred|cp2020|cpnight|cpchrome|cpv3|cpgen|cpview|cpfriday|cpwelcome|cpkit)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "cpkit-rules-r4",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "cpkitc005",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpkit_b10_pg005-008.txt",
+   "base": "1000501",
+   "chapters": "5-8",
+   "images": [
+    {
+     "page": 6,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-6.jpg"
+    },
+    {
+     "page": 8,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-8.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpkitc009",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpkit_b10_pg009-012.txt",
+   "base": "1000901",
+   "chapters": "9-12",
+   "images": [
+    {
+     "page": 10,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-10.jpg"
+    },
+    {
+     "page": 11,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-11.jpg"
+    },
+    {
+     "page": 12,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-12.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpkitc013",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpkit_b10_pg013-016.txt",
+   "base": "1001301",
+   "chapters": "13-16",
+   "images": [
+    {
+     "page": 13,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-13.jpg"
+    },
+    {
+     "page": 14,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-14.jpg"
+    },
+    {
+     "page": 16,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-16.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpkitc017",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpkit_b10_pg017-020.txt",
+   "base": "1001701",
+   "chapters": "17-20",
+   "images": [
+    {
+     "page": 18,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-18.jpg"
+    },
+    {
+     "page": 20,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-20.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpkitc021",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpkit_b10_pg021-024.txt",
+   "base": "1002101",
+   "chapters": "21-24",
+   "images": [
+    {
+     "page": 22,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-22.jpg"
+    },
+    {
+     "page": 24,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-24.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpkitc025",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpkit_b10_pg025-028.txt",
+   "base": "1002501",
+   "chapters": "25-28",
+   "images": [
+    {
+     "page": 25,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-25.jpg"
+    },
+    {
+     "page": 26,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-26.jpg"
+    },
+    {
+     "page": 27,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-27.jpg"
+    },
+    {
+     "page": 28,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-28.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpkitc029",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpkit_b10_pg029-032.txt",
+   "base": "1002901",
+   "chapters": "29-32",
+   "images": [
+    {
+     "page": 29,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-29.jpg"
+    },
+    {
+     "page": 30,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-30.jpg"
+    },
+    {
+     "page": 32,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-32.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpkitc033",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpkit_b10_pg033-036.txt",
+   "base": "1003301",
+   "chapters": "33-36",
+   "images": [
+    {
+     "page": 34,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-34.jpg"
+    },
+    {
+     "page": 36,
+     "file": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/cpkit-page-36.jpg"
+    }
+   ]
+  },
+  {
+   "prefix": "cpkitc037",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpkit_b10_pg037-040.txt",
+   "base": "1003701",
+   "chapters": "37-40"
+  },
+  {
+   "prefix": "cpkitc041",
+   "shard": "docs/research/novels/cyberpunk/private/lead-run-2026-11-28/shard_cpkit_b10_pg041-042.txt",
+   "base": "1004101",
+   "chapters": "41-42"
+  }
+ ]
+}

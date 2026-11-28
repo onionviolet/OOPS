@@ -1,0 +1,50 @@
+{
+ "world": "shadowrun",
+ "model": "claude-haiku-5-5",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "docs/research/novels/shadowrun/private/lead-run-2026-11-28",
+ "outDir": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/batch",
+ "glossary": {
+  "censusDir": "docs/research/novels/shadowrun/private/lead-run-2026-11-28",
+  "censusMatch": "^(sr5|srfaster|sr6|srwyrd|srfiring|srbody|srclutch)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "srwyrd-pilot-rules-r4",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "srwyrdc001",
+   "shard": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/shard_srwyrd_b4_pg001-004.txt",
+   "base": "400101",
+   "chapters": "1-4",
+   "images": [
+    {
+     "page": 1,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/srwyrd-page-1.jpg"
+    },
+    {
+     "page": 2,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/srwyrd-page-2.jpg"
+    },
+    {
+     "page": 3,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/srwyrd-page-3.jpg"
+    },
+    {
+     "page": 4,
+     "file": "docs/research/novels/shadowrun/private/lead-run-2026-11-28/srwyrd-page-4.jpg"
+    }
+   ]
+  }
+ ]
+}

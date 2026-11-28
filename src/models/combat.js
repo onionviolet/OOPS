@@ -1,5 +1,7 @@
+import {frontierReactions, quoteParry, quoteRiposte} from "../combat_reactions.js";
 import {domainRegistry} from '../domain_registry.js';
 import {damageRecord,supportedHarvest} from '../harvest.js';
+import {settleSkinCritical,settleSkinStamina} from '../skill_evolution.js';
 import {effectiveCritChance} from '../gear_dimensions.js';
 import {acquiredLootKeys} from '../gear_acquisition.js';
 import {engineTimeout,clearEngineTimeout,engineNow} from '../simulation_clock.js';
@@ -17,14 +19,15 @@ import {rollBaseCombatDamage,nextAttackTiming} from "../combat_math.js";
 import {validateEncounterCombatProfile} from '../absorb_p23/combat_options/runtime.js';
 import { config } from "../config.js";
 import { character } from "../data/character.js";
-import { skills } from "../data/skills.js";
-import { log_message, update_displayed_health, update_stance_tooltip } from "../display.js";
+import {quoteCounterTrait} from '../enemy_traits.js';
+import { skills, weapon_type_to_skill } from "../data/skills.js";
+import { log_message, update_displayed_health, update_displayed_stamina, update_stance_tooltip } from "../display.js";
 import { enemy_tag_to_skill_mapping } from "../enemies.js";
 import { item_templates } from "../items.js";
 import {add_xp_to_character, add_xp_to_skill, change_stance, current_stance, finish_combat_round, game_stats, kill_target, kill_player, process_current_loot, tickrate, use_stamina} from "../main.js";
 import {game_options, selected_stance,current_location} from "../runtime_state.js";
 import { get_hit_chance } from "../misc.js";
-import { do_onhit_animation, do_onstart_animation, fill_fighter_divs, remove_onhit_animation, update_displayed_health_of_fighter } from "../ui/combat_display.js";
+import { do_onhit_animation, do_onstart_animation, do_effect_animation, fill_fighter_divs, remove_onhit_animation, update_displayed_health_of_fighter } from "../ui/combat_display.js";
 
 let maximum_time_correction = 10;
 
@@ -297,7 +300,7 @@ class Combat {
 
         const side = is_attacker ? "attackers" : "defenders";
         this.#turns[side][fighter_index] = (this.#turns[side][fighter_index] || 0) + 1;
-        let target_count = 1;
+        let target_count = fighter.tags?.main_character && !this.is_special_combat ? (current_stance.target_count || 1) : 1;
         if(fighter.tags?.main_character && !this.is_special_combat) {
             if(target_count > 1 && current_stance.related_skill) {
                 target_count = target_count + Math.round(target_count * fighter.getTotalSkillLevel(current_stance.related_skill)/skills[current_stance.related_skill].max_level);
@@ -497,8 +500,9 @@ class Combat {
         //based on raw opponent count instead of only on living ones, because Mik sometimes is a benevolent cat
 
         const target_count_xp_modifier = opponent_count_xp_multiplier/target_count;
+        //penalty for xp from attacking, since multi-target attacks would be too powerful at farming xp otherwise
+        
         const fighter_count_xp_modifier = fighter_count_xp_multiplier/fighters.length;
-        //with penalty for xp from attacking, since multi-target attacks would be too powerful at farming xp otherwise
 
         let evasion_chance_modifier = fighters.filter(x => x.is_alive).length**(-1/3); //down to .5 if there's full 8 enemies (multiple attackers make it harder to evade attacks)
         let defense_modifier = 0;
@@ -547,6 +551,14 @@ class Combat {
 
         let partially_blocked = false; //only used for combat info in message log
 
+        const responses = [];
+        for (const [holder, opponent, owner] of [[fighter, target, 'attacker'], [target, fighter, 'defender']]) {
+            const trait = holder.counterTrait;
+            if (trait?.owner !== owner) continue;
+            const multiplier = quoteCounterTrait(trait, opponent.getFullStats());
+            responses.push({trait, multiplier});
+            if (trait.hook === 'on_strike') damage_modifier *= multiplier;
+        }
         damages_dealt = rollBaseCombatDamage(base_damage,attack_count ?? fighter.getFullStats().attack_count,damage_modifier,(() => {let i=0;return ()=>random(`damage:${i++}`);})());
 
 
@@ -558,7 +570,7 @@ class Combat {
                 }
                 
                 if(!this.is_special_combat && target.tags.main_character) {
-                    add_xp_to_skill({skill: skills["Shield blocking"], xp_to_add: fighter.xp_value*target_count_xp_modifier});
+                    add_xp_to_skill({skill: skills["Shield blocking"], xp_to_add: fighter.xp_value*fighter_count_xp_modifier});
                 }
 
                 const blocked = target.getEquipment()["off-hand"].getShieldStrength() * (target.getEquipment()["off-hand"].tags.ignore_skill?1:target.getStats().total_multiplier.block_strength);
@@ -571,7 +583,7 @@ class Combat {
                     partially_blocked = true;
                 }
             } else if(!this.is_special_combat && target.tags.main_character){
-                add_xp_to_skill({skill: skills["Shield blocking"], xp_to_add: fighter.xp_value*target_count_xp_modifier/2});
+                add_xp_to_skill({skill: skills["Shield blocking"], xp_to_add: fighter.xp_value*fighter_count_xp_modifier/2});
             }
         } else { // HAS NO SHIELD
             const hit_chance = 
@@ -586,13 +598,35 @@ class Combat {
                     const xp_to_add = target.isWearingArmor() ? fighter.xp_value : fighter.xp_value * 1.5;
                     //50% more evasion xp if going without armor
                     add_xp_to_skill({skill: skills["Evasion"], xp_to_add: xp_to_add*fighter_count_xp_modifier});
+                    const stats=target.getFullStats();
+                    const growth=domainRegistry.command('skill_evolution','recovery')?.('Evasion','enemy-dodged',{},stats.max_stamina-stats.stamina);
+                    if(growth){
+                        stats.stamina+=growth.stamina;
+                        update_displayed_stamina();
+                        log_message(`${growth.name} restored ${growth.stamina} stamina after a dodge.`,'hero_attacked');
+                    }
                 }
                 
+                if (this.nativeExchangeHost && !this.is_special_combat && target.tags.main_character &&
+                    quoteRiposte(target.getTotalSkillLevel("Evasion"), random("riposte"))) {
+                    log_message("You counterattacked after the dodge.", "hero_attacked");
+                    this.doCombatAction({fighter_index: targetIndex, is_attacker: !is_attacker, target: fighter,
+                        attack_power: target.getAttackPower() * frontierReactions.counterPower, target_count: 1, attack_count: 1});
+                }
                 return; //damage fully evaded, nothing more can happen
             } else {
                 if(!this.is_special_combat && target.tags.main_character){
-                    add_xp_to_skill({skill: skills["Evasion"], xp_to_add: xp_to_add*target_count_xp_modifier/2});
+                    add_xp_to_skill({skill: skills["Evasion"], xp_to_add: xp_to_add*fighter_count_xp_modifier/2});
                 }
+            }
+        }
+
+        if (this.nativeExchangeHost && !this.is_special_combat && target.tags.main_character) {
+            const reaction = quoteParry(target.getTotalSkillLevel("Equilibrium"), random("parry"));
+            if (reaction) {
+                damages_dealt = damages_dealt.map(damage => damage * (1 - reaction.reduction));
+                add_xp_to_skill({skill: skills["Equilibrium"], xp_to_add: fighter.xp_value * fighter_count_xp_modifier});
+                log_message(`You parried the incoming blow, turning aside ${Math.round(reaction.reduction * 100)}% of its force.`, "hero_blocked");
             }
         }
 
@@ -602,13 +636,30 @@ class Combat {
             player?._equipItem(null);
         }
 
+        if(!this.is_special_combat && fighter.tags.main_character) {
+            const weapon = fighter.getEquipment().weapon;
+            const skill_id = weapon ? weapon_type_to_skill[weapon.weapon_type] : "Unarmed";
+            add_xp_to_skill({skill: skills[skill_id], xp_to_add: target.xp_value*target_count_xp_modifier});
+        }
+
+        for (const {trait, multiplier} of responses) {
+            if (trait.hook === 'on_connectedstrike') damages_dealt = damages_dealt.map(value => value * multiplier);
+            if (multiplier !== 1) log_message(trait.name + ' changed strike damage by ' +
+                Math.round((multiplier - 1) * 100) + '%. ' + trait.counter, 'enemy_attacked');
+        }
         game_stats.total_hits_taken += Number(!this.is_special_combat && !!target.tags.main_character);
         game_stats.total_hits_done += Number(!this.is_special_combat && !!fighter.tags.main_character);
 
-        if(effectiveCritChance(fighter.getFullStats().crit_rate, target.getFullStats().crit_resistance) > random("crit")){
+        const armored = !!target.isWearingArmor();
+        const skinUse = trigger => !this.is_special_combat && target.tags.main_character &&
+            domainRegistry.command('skill_evolution','use')?.('Iron skin',trigger);
+        const critical = effectiveCritChance(fighter.getFullStats().crit_rate, target.getFullStats().crit_resistance) > random("crit");
+        const deflection = critical && skinUse('enemy-critical');
+        let ordinary = damages_dealt;
+        if(critical){
             damages_dealt = damages_dealt.map(val => val*fighter.getFullStats().crit_multiplier);
-            critted = true;
-            game_stats.total_crits_taken += Number(!this.is_special_combat && !!target.tags.main_character);
+            critted = !deflection || armored;
+            game_stats.total_crits_taken += Number(critted && !this.is_special_combat && !!target.tags.main_character);
 
             if(!this.is_special_combat && fighter.tags.main_character) {
                 game_stats.total_crits_done++;
@@ -621,11 +672,32 @@ class Combat {
         }
 
         if(!this.is_special_combat&&target.tags.main_character)defense_modifier+=getElementalDefenseModifier({enabled:game_options.elemental_affinities,attacker:fighter,equipment:target.getEquipment(),baseDamage:base_damage});
-        if(!this.is_special_combat&&this.nativeExchangeHost){const charge=domainRegistry.command('pledges','resolvedCharge')?.({fighter,target});if(charge)damages_dealt=damages_dealt.map(n=>n*charge.multiplier);}
+        if(!this.is_special_combat&&this.nativeExchangeHost){const charge=domainRegistry.command('pledges','resolvedCharge')?.({fighter,target});if(charge){damages_dealt=damages_dealt.map(n=>n*charge.multiplier);if(deflection)ordinary=ordinary.map(n=>n*charge.multiplier);}}
         const harvestHealth=target.getFullStats().health;
         // Damage types (damage_types.js): the attack's type mix against the defender's per-type protection; 1 when nothing is declared.
         const typed = typedStrike({fighter, target});
-        let {damage_taken, fainted} = target.takeDamage({damage_values: damages_dealt, defense_modifier, armor_penetration:fighter.getFullStats().armor_penetration??0, type_multiplier: typed.multiplier, give_skill_xp: (!this.is_special_combat && target.tags.main_character)});
+        let criticalReceipt;
+        const settle_damage=deflection?(damage,mitigate)=>{
+            criticalReceipt=settleSkinCritical(deflection,damage,mitigate(ordinary),armored);
+            return criticalReceipt.damage;
+        }:undefined;
+        let {damage_taken, fainted} = target.takeDamage({damage_values: damages_dealt, defense_modifier, armor_penetration:fighter.getFullStats().armor_penetration??0, type_multiplier: typed.multiplier, give_skill_xp: (!this.is_special_combat && target.tags.main_character),settle_damage});
+        if(criticalReceipt?.saved>0)log_message(armored?
+            `${deflection.name} softened a critical that got through armor by ${criticalReceipt.saved} damage.`:
+            `${deflection.name} turned a critical strike into an ordinary hit.`,'hero_attacked');
+
+        const breathing = !fainted && skinUse('enemy-hit');
+        if(breathing?.mode==='restore-stamina') {
+            const stats = target.getFullStats();
+            const restored = settleSkinStamina(breathing,{damage:damage_taken,raw:damages_dealt.reduce((sum,value)=>sum+value,0),
+                armored,missing:stats.max_stamina-stats.stamina});
+            if(restored>0) {
+                stats.stamina += restored;
+                update_displayed_stamina();
+                log_message(armored?`${breathing.name} caught a hit that got through armor and restored ${restored} stamina.`:
+                    `${breathing.name} caught the blow and restored ${restored} stamina.`,'hero_attacked');
+            }
+        }
 
         if(!this.is_special_combat&&this.nativeExchangeHost)domainRegistry.command('pledges','resolvedSiphon')?.({fighter,target,damage:Math.max(0,Math.min(damage_taken,harvestHealth-Math.max(0,target.getFullStats().health)))});
 
@@ -636,9 +708,18 @@ class Combat {
         }
 
         let callbackDraw=0;
-        target.on_damaged(fighter,()=>random(`on_damaged:${callbackDraw++}`));
+        const damageMessage=target.on_damaged(fighter,()=>random(`on_damaged:${callbackDraw++}`));
         callbackDraw=0;
-        fighter.on_hit(target,()=>random(`on_hit:${callbackDraw++}`));
+        const hitMessage=fighter.on_hit(target,()=>random(`on_hit:${callbackDraw++}`));
+        if(damageMessage){
+            const targetIndex=(is_attacker?this.defenders:this.attackers).indexOf(target);
+            do_effect_animation({fighter_index:targetIndex,is_attacker:!is_attacker,message:damageMessage});
+            log_message(damageMessage,"hero_attacked");
+        }
+        if(hitMessage){
+            do_effect_animation({fighter_index,is_attacker,message:hitMessage});
+            log_message(hitMessage,"hero_attacked");
+        }
 
         if(!this.is_special_combat && target.tags.main_character) {
             
@@ -685,7 +766,11 @@ class Combat {
                 const settlement = this.encounterHooks?.planDefeat?.({combat:this,fighter,target,dropChanceModifier});
                 if(settlement?.duplicate) return;
                 if(fighter.tags.main_character) {
-                    target.on_death(fighter);
+                    const msg = target.on_death(fighter);
+                    if (msg) {
+                        do_effect_animation({fighter_index: (is_attacker ? this.defenders : this.attackers).findIndex(x => x === target), is_attacker: !is_attacker, message: msg});
+                        log_message(msg, "hero_attacked");
+                    }
                 }
 
                 log_message(target.name + " was defeated", "enemy_defeated", {combat: logEvent("defeat")});

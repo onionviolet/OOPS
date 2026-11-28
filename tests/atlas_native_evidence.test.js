@@ -7,7 +7,6 @@ import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import {loadNativePlayEvidence,loadNativePlayRecord,NATIVE_EVIDENCE_CARDS} from '../prototypes/world-atlas/atlas-native-evidence.mjs';
 const sha=b=>createHash('sha256').update(b).digest('hex');
-const changedOnAdoption=new Set(['fang-first-night','taylor-backpack-bus']);
 async function fixture(t){const root=await mkdtemp(join(tmpdir(),'atlas-native-evidence-'));t.after(()=>rm(root,{recursive:true,force:true}));await mkdir(join(root,'dist'));return root;}
 const raw=bundle=>({ok:true,bundleSha256:bundle,servedBundleSha256:bundle,results:[],errors:[],route:'C:/private/save.json',privateSave:{secret:'not public'}});
 async function install(root,proof,{format='dice',evidenceDate}={}){const bytes=JSON.stringify(proof);await writeFile(join(root,'proof.json'),bytes);return [{id:'one',title:'One',pov:'Fixture',where:'Native route',setup:'Named fixture',outcome:'Played result',relatedHref:'#library/cheats/CTC64',receipts:[{id:'one',path:'proof.json',fingerprint:sha(bytes),format,scope:'One decision',...(evidenceDate?{evidenceDate}:{})}]}];}
@@ -15,8 +14,17 @@ async function install(root,proof,{format='dice',evidenceDate}={}){const bytes=J
 test('actual twenty-one machine receipts and separate authored records retain distinct build, date and entry scopes',async()=>{
  const root=fileURLToPath(new URL('..',import.meta.url)),out=await loadNativePlayEvidence(root);
  assert.equal(out.entries.length,11);assert.equal(out.entries.flatMap(x=>x.receipts).length,21);
- assert.deepEqual(out.entries.filter(x=>x.status==='unavailable').map(x=>x.id),[...changedOnAdoption]);
- assert.ok(out.entries.filter(x=>changedOnAdoption.has(x.id)).every(x=>x.playStatus==='Partial'&&!x.outcome&&!x.playReceipt));
+ assert.deepEqual(out.entries.filter(x=>x.status==='unavailable').map(x=>x.id),[]);
+ // The first-night checkpoint, paid inn, breakfast and half-stone receipts
+ // document separate builds. They support a summary and leave the whole route Partial.
+ const fang=out.entries.find(x=>x.id==='fang-first-night');
+ assert.equal(fang.status,'documented');assert.equal(fang.playStatus,'Partial');assert.equal(fang.playReceipt,undefined);
+ assert.ok(fang.outcome);assert.match(fang.playGap,/native replay on the same build/);
+ assert.deepEqual(fang.receipts,[]);
+ for(const id of ['fang-current-first-night','fang-paid-inn','fang-breakfast','fang-half-stone']){
+  const ref=fang.references.find(x=>x.id===id);
+  assert.equal(ref.status,'verified',id);assert.equal(ref.actualSha256,ref.expectedSha256,id);
+ }
  const dice=out.entries.find(x=>x.id==='loaded-dice');assert.match(dice.setup,/without an extra starting point.*Desktop.*queued HIGH.*did not measure loot.*headless continuation.*source guard failed.*not a passed whole-run/);
  assert.match(dice.where,/Village elder.*equip his sword.*Infested field.*Retain insight.*True Appraisal followed by Loaded Dice/);
  const acquisition=dice.receipts.find(x=>x.id==='loaded-dice-acquisition'),use=dice.receipts.find(x=>x.id==='loaded-dice');assert.equal(acquisition.evidenceDate,'2026-11-25');assert.equal(acquisition.testedBundleSha256,'b691073af3c1a5a3c1ccf49171c4d97175873f992e4b7d00e8d6b1c05eca9d2a');assert.notEqual(acquisition.testedBundleSha256,use.testedBundleSha256);
@@ -243,10 +251,15 @@ test('changed and unavailable farm receipt withholds its outcome without changin
 });
 
 
-test('Taylor and Alden keep changed native pins distinct from signed-off desktop records',async()=>{
+test('Taylor and Alden keep verified native pins distinct from signed-off desktop records',async()=>{
  const out=await loadNativePlayEvidence(fileURLToPath(new URL('..',import.meta.url))),taylor=out.entries.find(x=>x.id==='taylor-backpack-bus'),alden=out.entries.find(x=>x.id==='alden-bedside-choice');
- assert.equal(taylor.status,'unavailable');assert.equal(taylor.playStatus,'Partial');assert.equal(taylor.receipts.length,2);assert.ok(taylor.receipts.every(x=>x.status==='changed'));
- assert.match(taylor.setup,/fresh route.*without a supplied save.*separate native route.*earned corridor.*earlier held-bag.*not relabeled/i);assert.match(taylor.where,/leave it at school.*return bus/);assert.equal(taylor.outcome,null);
+ assert.equal(taylor.status,'verified');assert.equal(taylor.playStatus,'Playable');
+ assert.deepEqual(taylor.receipts.map(x=>x.id),['taylor-bus-fresh','taylor-bus-earned']);
+ for(const receipt of taylor.receipts){
+  assert.equal(receipt.status,'verified');assert.equal(receipt.actualSha256,receipt.expectedSha256);
+ }
+ assert.equal(taylor.playReceipt.id,'taylor-bus-fresh');assert.equal(taylor.playReceipt.build,taylor.receipts[0].testedBundleSha256);
+ assert.match(taylor.setup,/fresh route.*without a supplied save.*separate native route.*earned corridor.*earlier held-bag.*not relabeled/i);assert.match(taylor.where,/leave it at school.*return bus/);assert.match(taylor.outcome,/Bag-free travel reaches the home stop/);
  assert.equal(alden.status,'documented');assert.equal(alden.evidenceKind,'authored-record');assert.deepEqual(alden.receipts,[]);assert.equal(alden.references[0].status,'verified');assert.equal(alden.references[0].testedBundleSha256,undefined);
  assert.equal(alden.playStatus,'Playable');assert.equal(alden.playReceipt.life,'Alden Thorn');assert.match(alden.playReceipt.action,/refuse/);
  assert.match(alden.setup,/not a registered machine-readable native receipt.*c7a58589.*Later.*8a430b38.*does not re-test/);assert.match(alden.outcome,/desktop refusal.*downstairs.*separately support admission.*not claimed as a desktop replay/);
@@ -281,8 +294,10 @@ test('direct public-record HTTP endpoints return only scoped projections, never 
  const {createServer}=await import('node:http'),root=fileURLToPath(new URL('..',import.meta.url));
  const server=createServer(async(req,res)=>{try{const record=await loadNativePlayRecord(root,req.url);res.writeHead(record?200:404,{'Content-Type':'application/json'}).end(JSON.stringify(record));}catch{res.writeHead(500).end();}});
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));t.after(()=>new Promise(resolve=>server.close(resolve)));
- for(const[route,id]of[['taylor','taylor-backpack-bus'],['alden','alden-bedside-choice'],['ryan','ryan-wyvern-visit'],['fang','fang-first-night']]){
-  const response=await fetch('http://127.0.0.1:'+server.address().port+'/native-play-record/'+route),body=await response.text();assert.equal(response.status,200);assert.match(response.headers.get('content-type'),/application\/json/);const record=JSON.parse(body);assert.equal(record.schema,'atlas-native-play-record/1');assert.equal(record.id,id);assert.equal(Boolean(record.outcome),!changedOnAdoption.has(id));assert.equal(record.references[0].path,undefined);
+ for(const[route,id,status]of[['taylor','taylor-backpack-bus','Playable'],['alden','alden-bedside-choice','Playable'],['ryan','ryan-wyvern-visit','Playable'],['fang','fang-first-night','Partial']]){
+  const response=await fetch('http://127.0.0.1:'+server.address().port+'/native-play-record/'+route),body=await response.text();assert.equal(response.status,200);assert.match(response.headers.get('content-type'),/application\/json/);const record=JSON.parse(body);assert.equal(record.schema,'atlas-native-play-record/1');assert.equal(record.id,id);assert.equal(record.playStatus,status,id);assert.ok(record.outcome,id);
+  assert.ok(record.references.length,id);
+  for(const reference of record.references)assert.equal(reference.path,undefined,id);
   assert.doesNotMatch(body,/C:\\|\/Users\/|\/private\/|SSH alias|shard_|pre-copy-native-export|work\/|\.epub\b/i);
   assert.doesNotMatch(body,/# Agent|## Reading and source qualification|Paragraphs|Source Library short identity/);
  }

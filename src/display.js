@@ -1,4 +1,9 @@
+import {routeControls} from "./recorded_route_native.js";
+import {pressureText} from "./zone_pressure.js";
+import {worldStanding} from "./world_standing.js";
+import {placeMapPositions} from './location_positions.js';
 import {localMoneyLabel, localPurseLabel, coinPricesHere} from './ui/local_money_label.js';
+import {attachSkillEvolution,focusSkillGrowth} from './skill_evolution_native.js';
 import {locationMapMarks, locationMapDanger} from './ui/map_marks.js';
 import {bookFinishLines} from './book_finish_lines.js';
 import {quoteJourney, journeyTitle} from './journey_quote.js';
@@ -79,6 +84,7 @@ import { config } from "./config.js";
 import { height_stats } from "./models/person.js";
 import NPCRegistry from "./data/npcs.js";
 import { stances } from "./combat_stances.js";
+import { achievements } from "./data/achievements.js";
 let activity_anim; //for the activity and gameAction animation interval
 
 let location_choice_divs = {}; //for dropdowns
@@ -221,6 +227,7 @@ message_log?.addEventListener("scroll", () => {
     if(message_log_unread_count && is_message_log_near_bottom()) hide_message_log_unread();
 }, {passive: true});
 let dynamic_loot_message = null;
+let dynamic_clear_message = null;
 
 //enemy info
 const combat_div = document.getElementById("combat_div");
@@ -272,20 +279,35 @@ const quest_hiding_button = document.getElementById("quest_hiding_button");
 
 const data_entry_divs = {
     reputation: document.getElementById("data_tab_reputation_div"),
-    item_log: document.getElementById("data_tab_item_log_div")
 };
+
+const achievement_entry_divs = {};
+const achievement_list = document.getElementById("achievement_list");
+const achievement_box = document.getElementById("achievement_box_div");
+
+const items_entry_divs = {};
+const items_list = document.getElementById("data_tab_item_log_div");
+
+const journal_box_to_controller = {
+    achievement_box_div: "journal_show_achievements",
+}
+
+const notification_sources = new Map();
 
 let skill_sorting = "name";
 let skill_sorting_direction = "asc";
 
-let trader_inventory_sorting = "name";
-let trader_inventory_sorting_direction = "asc";
+const inventory_sorting = {
+    character: "name",
+    trader: "name",
+    storage: "name",
+}
 
-let storage_sorting = "name";
-let storage_sorting_direction = "asc";
-
-let character_inventory_sorting = "name";
-let character_inventory_sorting_direction = "asc";
+const inventory_sorting_direction = {
+    character: "asc",
+    trader: "asc",
+    storage: "asc",
+}
 
 const message_count = {
     message_combat: 0,
@@ -301,6 +323,11 @@ const dynamic_loot_message_types = {
     gathered_loot: true,
     total_gathered_loot: true,
 }
+
+const dynamic_clear_message_types = {
+    location_xp_reward: true,
+}
+
 
 const stats_divs = {strength: document.getElementById("strength_slot"), agility: document.getElementById("agility_slot"),
                     dexterity: document.getElementById("dexterity_slot"), intuition: document.getElementById("intuition_slot"),
@@ -743,12 +770,19 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
     if (item.item_type === "BOOK") {
         if(!item.isFinished()) {
             item_tooltip += `<br><br>Time to read: ${Math.ceil(item.getRemainingTime()*10)/10} minutes`;
-            const upcoming = bookFinishLines(book_stats[item.name], format_book_bonuses);
+            const upcoming = bookFinishLines(book_stats[item.name], format_bonuses);
             if(upcoming.length) item_tooltip += `<br>Finishing it will provide:${upcoming.map(l => `<br>- ${l}`).join('')}`;
         }
         else {
-            item_tooltip += `<br><br>Reading it provided ${character.name} with:${bookFinishLines(book_stats[item.name], format_book_bonuses).map(l => `<br>- ${l}`).join('')}`;
+            item_tooltip += `<br><br>Reading it provided ${character.name} with:${bookFinishLines(book_stats[item.name], format_bonuses).map(l => `<br>- ${l}`).join('')}`;
+            if(item.flavor_description) {
+                item_tooltip += `<br><br><span class="italic">"${item.flavor_description}"</span>`;
+            }
+            if(item.additional_description) {
+                item_tooltip += `<br><br><span>${item.additional_description}</span>`;
+            }
         }
+        
     }
 
     if(item.material_type) {
@@ -859,7 +893,7 @@ function create_effect_tooltip({effect_name, duration, add_bonus=false, descript
         //Same three cases models/skill.js handles, including category_ - which this copy
         //did not, so a category target would have asked the skill registry for it.
         const name = capitalize_first_letter(xp_target_name(xp_multipliers[0]));
-        if(tooltip_html_content) {
+        if(tooltip_html_content || tooltip.innerText) {
             tooltip_html_content += `<br>${name} xp gain: ×${effects.xp_multipliers[xp_multipliers[0]]}`;
         } else {
             tooltip_html_content = `${name} xp gain: ×${effects.xp_multipliers[xp_multipliers[0]]}`;
@@ -1088,7 +1122,10 @@ export function setNativeLogBufferReader(reader) {
             group_to_add = "message_loot";
             message_count.message_loot += 1;
             break;
-
+        case "location_xp_reward":
+            group_to_add = "message_loot";
+            message_count.message_loot += 1;
+            break;
         case "skill_raised":
             class_to_add = "message_skill_leveled_up";
             group_to_add = "message_unlocks";
@@ -1166,6 +1203,15 @@ export function setNativeLogBufferReader(reader) {
         dynamic_loot_message = message;
     }
 
+    if(dynamic_clear_message_types[message_type] && game_options.do_dynamic_loot_message) {
+        if(dynamic_clear_message) {
+            dynamic_clear_message.remove();
+            message_count.message_loot--; //same as above
+        }
+
+        dynamic_clear_message = message;
+    }
+
     if(group_to_add === "message_combat" && message_count.message_combat > 80
     || group_to_add === "message_loot" && message_count.message_loot > 28
     || group_to_add === "message_unlocks" && message_count.message_unlocks > 40
@@ -1210,7 +1256,7 @@ export function setNativeLogBufferReader(reader) {
     if(panelId){
         const link=document.createElement('button');link.type='button';link.className='notice-panel-link';link.textContent=details.panelLabel||'Open';
         link.title=voice?.panel===panelId?'Open the panel this line names':'Open related panel';link.dataset.noticePanel=panelId;
-        link.onclick=()=>{if(panelId==='crafting'){if(document.querySelector('.choice_craft'))window.openCraftingWindow();}else if(!expandWorkspaceModule(panelId))openWorkspaceModule(panelId);};message.append(link);
+        link.onclick=()=>{if(panelId==='skill-growth')openSkillGrowth();else if(panelId==='crafting'){if(document.querySelector('.choice_craft'))window.openCraftingWindow();}else if(!expandWorkspaceModule(panelId))openWorkspaceModule(panelId);};message.append(link);
     }
     if(details.calendarDate) {
         message.dataset.calendarDate = details.calendarDate;
@@ -1239,8 +1285,9 @@ export function setNativeLogBufferReader(reader) {
     
 }
 
-function unassign_dynamic_loot_message() {
+function unassign_dynamic_messages() {
     dynamic_loot_message = null;
+    dynamic_clear_message = null;
 }
 
 // Transient Reports belong to the native body whose actions produced them.
@@ -1248,33 +1295,41 @@ function unassign_dynamic_loot_message() {
 function reset_message_log_for_life() {
     message_log?.replaceChildren();
     for(const group of Object.keys(message_count))message_count[group]=0;
-    dynamic_loot_message=null;hide_message_log_unread();
+    unassign_dynamic_messages();hide_message_log_unread();
     batched_log_following=undefined;batched_log_scroll_requested=false;
 }
 
-function format_book_bonuses(bonuses) {
+function format_bonuses(bonuses) {
     let formatted = '';
+
     if(bonuses.stats) {
-        const stats = Object.keys(bonuses.stats);
-        
-        formatted = `+${bonuses.stats[stats[0]]} ${stat_names[stats[0]]}`;
-        for(let i = 1; i < stats.length; i++) {
-            formatted += `, +${bonuses.stats[stats[i]]} ${stat_names[stats[i]]}`;
-        }
-    }
+        let temp = '';
+        Object.keys(bonuses.stats).forEach(stat => {
+            if(bonuses.stats[stat].flat) {
+                if(formatted) {
+                    formatted += `, +${bonuses.stats[stat].flat} ${stat_names[stat]}`;
+                } else {
+                    formatted = `+${bonuses.stats[stat].flat} ${stat_names[stat]}`;
+                }
+            }
+            if(bonuses.stats[stat].multiplier) {
+                if(temp) {
+                    temp += `, x${bonuses.stats[stat].multiplier} ${stat_names[stat]}`;
+                } else {
+                    temp = `x${bonuses.stats[stat].multiplier} ${stat_names[stat]}`;
+                }
+            }
+        });
 
-    if(bonuses.multipliers) {
-        const multipliers = Object.keys(bonuses.multipliers);
         if(formatted) {
-            formatted += `, ×${bonuses.multipliers[multipliers[0]]} ${stat_names[multipliers[0]]}`;
+            if(temp) {
+                formatted += ", " + temp;
+            }
         } else {
-            formatted = `×${bonuses.multipliers[multipliers[0]]} ${stat_names[multipliers[0]]}`;
-        }
-
-        for(let i = 1; i < multipliers.length; i++) {
-            formatted += `, ×${bonuses.multipliers[multipliers[i]]} ${stat_names[multipliers[i]]}`;
+            formatted = temp;
         }
     }
+
     if(bonuses.xp_multipliers) {
         const xp_multipliers = Object.keys(bonuses.xp_multipliers);
         const name = xp_target_name(xp_multipliers[0]);
@@ -1295,7 +1350,7 @@ function format_book_bonuses(bonuses) {
 
 function clear_message_log() {
     for(const key of Object.keys(message_count))message_count[key]=0;
-    dynamic_loot_message=null;
+    unassign_dynamic_messages();
     clear_HTML_content(message_log);
     hide_message_log_unread();
 }
@@ -1351,6 +1406,11 @@ function log_loot({loot_list, is_combat=false, is_a_summary=false, is_dynamic=fa
     const subjects=loot_to_use.map(entry=>{const item=entry.item_id?item_templates[entry.item_id]:getItemFromKey(entry.item_key);return {name:displayItemName(item),kind:'item',html:create_item_tooltip_content({item,options:{skip_comparison:true,skip_inventory_count:true}})};});
     log_message(message, message_type,{subjects});
 }
+
+function log_location_xp(current_xp, location_name) {
+    log_message(`Obtained a total of ${current_xp.total}xp (${current_xp.recent}xp x${current_xp.count}) for clearing ${location_name}`, "location_xp_reward");
+}
+
 
 /**
  * Originally created for activities, despite the name, but is now used for actions as well.
@@ -1451,70 +1511,37 @@ function create_trade_buttons() {
 function sort_displayed_inventory({sort_by, target = "character", change_direction = false}) {
     let plus;
     let minus;
+
+
+    if (sort_by) {
+        if(change_direction) {
+            if(sort_by === inventory_sorting[target]) {
+                if(inventory_sorting_direction[target] === "asc") {
+                    inventory_sorting_direction[target] = "desc";
+                } else {
+                    inventory_sorting_direction[target] = "asc";
+                }
+            } else {
+                inventory_sorting_direction[target] = "asc";
+            }
+        }
+    }
+    else {
+        sort_by = inventory_sorting[target];
+    }
+
+    //target = trader_inventory_div;
+    plus = inventory_sorting_direction[target]==="asc"?1:-1;
+    minus = inventory_sorting_direction[target]==="asc"?-1:1;
+    inventory_sorting[target] = sort_by || "name";
+
+
     if(target === "trader") {
-        if(sort_by){
-            if(change_direction) {
-                if(sort_by === trader_inventory_sorting) {
-                    if(trader_inventory_sorting_direction === "asc") {
-                        trader_inventory_sorting_direction = "desc";
-                    } else {
-                        trader_inventory_sorting_direction = "asc";
-                    }
-                } else {
-                    trader_inventory_sorting_direction = "asc";
-                }
-            }
-        } else {
-            sort_by = trader_inventory_sorting;
-        }
-
         target = trader_inventory_div;
-        plus = trader_inventory_sorting_direction==="asc"?1:-1;
-        minus = trader_inventory_sorting_direction==="asc"?-1:1;
-        trader_inventory_sorting = sort_by || "name";
-
     } else if(target === "character") {
-        if(sort_by) {
-            if(change_direction){
-                if(sort_by === character_inventory_sorting) {
-                    if(character_inventory_sorting_direction === "asc") {
-                        character_inventory_sorting_direction = "desc";
-                    } else {
-                        character_inventory_sorting_direction = "asc";
-                    }
-                } else {
-                    character_inventory_sorting_direction = "asc";
-                }
-            }
-        } else {
-            sort_by = character_inventory_sorting;
-        }
         target = inventory_div;
-        plus = character_inventory_sorting_direction==="asc"?1:-1;
-        minus = character_inventory_sorting_direction==="asc"?-1:1;
-        character_inventory_sorting = sort_by || "name";
     } else if(target === "storage"){
-        if(sort_by) {
-            if(change_direction){
-                if(sort_by === storage_sorting) {
-                    if(storage_sorting_direction === "asc") {
-                        storage_sorting_direction = "desc";
-                    } else {
-                        storage_sorting_direction = "asc";
-                    }
-                } else {
-                    storage_sorting_direction = "asc";
-                }
-            }
-        } else {
-            sort_by = storage_sorting;
-        }
-
         target = storage_inventory_div;
-        plus = storage_sorting_direction==="asc"?1:-1;
-        minus = storage_sorting_direction==="asc"?-1:1;
-        storage_sorting = sort_by || "name";
-
     } else {
         console.warn(`Something went wrong, no such inventory as '${target}'`);
         return;
@@ -2328,6 +2355,7 @@ function update_fav_display(node, is_fav) {
 function update_displayed_book(book_id) {
     const book = item_templates[book_id];
     const book_key = book.getInventoryKey();
+
     if(book.isFinished()) {
         item_divs[book_key].classList.add("book_finished");
         item_divs[book_key].classList.remove("book_active");
@@ -2409,9 +2437,11 @@ function update_displayed_normal_location(location) {
             const crafting_button = document.createElement("div");
             crafting_button.classList.add("location_choices", "choice_craft");
             crafting_button.setAttribute("onclick", 'openCraftingWindow()');
-            insert_HTML(crafting_button, `<i class="material-icons">construction</i> ${location.crafting?.use_text || 'Cook with travel hearth'}`);
+            insert_HTML(crafting_button, `<i class="material-icons">construction</i> ${(location.crafting?.use_text && translate(location.crafting.use_text)) || 'Cook with travel hearth'}`);
             location_choice_divs["crafting"] = crafting_button;
             //action_div.appendChild(crafting_button);
+
+            crafting_button.appendChild(create_crafting_station_tooltip(location.crafting));
         }
     }
 
@@ -2693,7 +2723,7 @@ function create_location_choices({location, category, is_combat = false}) {
             activity_div.appendChild(job_tooltip);
     
             insert_HTML(activity_div, `<i class="material-icons location_choice_icon">check_box_outline_blank</i> ` + job.starting_text);
-            if (patrol) activity_div.append(document.createTextNode(` · ${duration} · ${patrolPayText(basePay, patrol.nextBonus)}`));
+            if (patrol) activity_div.append(document.createTextNode(` · ${duration} · ${patrolPayText(basePay, patrol.nextBonus)}${patrol.pathBonus?` · ${patrol.pathBonus} extra from your path`:''}`));
             choice_list.push(activity_div);
         });
     } else if (category === "train") {
@@ -2970,7 +3000,9 @@ function create_fast_travel_choices() {
     const neighbors = id => (locations[id].parent_location ? [locations[id].parent_location] :
         (locations[id].connected_locations || []).map(route => route.location)).map(place => place.id);
     const known = id => !!locations[id]?.canBeStarted?.(context);
+    if (Object.keys(distances).some(id => known(id) && !locations[id].mapPosition)) placeMapPositions(locations);
     const describe = id => ({
+        position: locations[id].mapPosition,
         marks: locationMapMarks(locations[id], {
             activities, available: entry => entry.isUnlocked(),
             trader: id => {const npc = NPCRegistry.get(id); return npc.tags.trader && npc.canBeDisplayed(context);},
@@ -2980,7 +3012,11 @@ function create_fast_travel_choices() {
     const map = fastTravelMapBlock({hereId, distances, neighbors, describe, known,
         exits: neighbors(hereId).map(id => ({id, minutes: distances[id]})),
         label: id => locations[id]?.name ?? id, onGo: id => window.change_location({location_id:id})});
-    if (map) choice_list.push(map);
+    if (map) {
+        const routes = routeControls();
+        if (routes) map.append(routes);
+        choice_list.push(map);
+    }
     return choice_list;
 }
 
@@ -3041,7 +3077,7 @@ function update_displayed_combat_location(location) {
 
 
     enemy_count_div.children[0].children[1].innerText = location.enemy_count - location.enemy_groups_killed % location.enemy_count + " / " + location.enemy_count;
-    clear_count_div.children[0].children[0].innerText = knownClearReader(location);
+    clear_count_div.children[0].children[0].innerText = [knownClearReader(location), pressureText(location)].filter(Boolean).join(" ");
 
     action = create_location_choices({location: location, category: "travel", is_combat: true});
     action.forEach(choice => choice.dataset.nativeChoice = "combat");
@@ -3064,7 +3100,7 @@ function update_displayed_combat_location(location) {
 
 function update_location_kill_count(location) {
     enemy_count_div.children[0].children[1].innerText = location.enemy_count - location.enemy_groups_killed % location.enemy_count + " / " + location.enemy_count;
-    clear_count_div.children[0].children[0].innerText = knownClearReader(location);
+    clear_count_div.children[0].children[0].innerText = [knownClearReader(location), pressureText(location)].filter(Boolean).join(" ");
 }
 
 function create_location_types_display(current_location){
@@ -3075,7 +3111,7 @@ function create_location_types_display(current_location){
         type_div.classList.add("location_type_div");
 
         const type_tooltip = document.createElement("div");
-        let type_tooltip_html_content = location_types[current_location.types[i].type].stages[current_location.types[i].stage].description;
+        let type_tooltip_html_content = translate(location_types[current_location.types[i].type].stages[current_location.types[i].stage].description);
         type_tooltip.classList.add("location_type_tooltip");
 
         const {type, stage} = current_location.types[i];
@@ -3156,6 +3192,17 @@ function open_crafting_window() {
 function close_crafting_window() {
     centerModes().close('crafting');
     update_displayed_normal_location(current_location);
+}
+
+function create_crafting_station_tooltip(location_crafting) {
+    const tooltip = document.createElement("div");
+    let html_content = "";
+    Object.keys(location_crafting.tiers).forEach(crafting_category => {
+        html_content += capitalize_first_letter(translate("ui " + crafting_category)) + " " + translate("word tier") + ": " + location_crafting.tiers[crafting_category] +"<br>";
+    });
+    tooltip.classList.add("crafting_station_tooltip");
+    insert_HTML(tooltip, html_content);
+    return tooltip;
 }
 
 /**
@@ -4257,6 +4304,12 @@ function update_displayed_stats() {
     const attack_stats = document.querySelector?.("[data-character_attack_div]")?.getElementById?.("attack_stats");
 
     const ap = Math.round(full_stats.attack_points);
+    const standingRow = document.getElementById("world_standing");
+    if (standingRow) {
+        const standing = worldStanding(get_context?.()?.worldId, ap);
+        standingRow.hidden = !standing;
+        if (standing) standingRow.textContent = `Estimated standing in ${standing.population}: top ${standing.topPercent}% (attack rating ${ap}).`;
+    }
     other_combat_divs.attack_points.innerText = `${ap}`;
 
     if(equipment["off-hand"] != null && equipment["off-hand"].offhand_type === "shield") { //HAS SHIELD
@@ -4859,7 +4912,6 @@ function update_displayed_reputation() {
     });
 }
 
-//TODO: some display polishing + maybe move to a dedicated tab?
 function update_displayed_item_log() {
     if(deferSimulationRender(update_displayed_item_log, () => update_displayed_item_log(...arguments))) return;
 
@@ -4896,7 +4948,7 @@ function update_displayed_item_log() {
     html_content += "</table>";
 
     // An unchanged log keeps its nodes; a change rebuilds the same markup as before.
-    const log_div = data_entry_divs.item_log;
+    const log_div = items_list;
     if(log_div.__item_log_html === html_content && log_div.childNodes.length === 2 && log_div.lastChild === log_div.__item_log_table) return;
     set_HTML(log_div,`<div id='item_log_header'>Item log</div>`)
     insert_HTML(log_div, html_content);
@@ -4974,12 +5026,14 @@ function update_displayed_dialogue({npc_id, textlines, origin}) {
 
         if(npc.tags.trader) {
             const trader = npc.getTraderComponent();
-            const trade_div = document.createElement("div");
-            insert_HTML(trade_div, `<i class="material-icons">storefront</i>  ` + trader.trade_text);
-            trade_div.classList.add("dialogue_trade")
-            trade_div.setAttribute("data-trader", npc_id);
-            trade_div.setAttribute("onclick", "startTrade(this.getAttribute('data-trader'))")
-            action_div.appendChild(trade_div);
+            if(trader.canBeDisplayed(get_context())) {
+                const trade_div = document.createElement("div");
+                insert_HTML(trade_div, `<i class="material-icons">storefront</i>  ` + trader.trade_from_dialogue_text);
+                trade_div.classList.add("dialogue_trade")
+                trade_div.setAttribute("data-trader", npc_id);
+                trade_div.setAttribute("onclick", "startTrade(this.getAttribute('data-trader'))")
+                action_div.appendChild(trade_div);
+            }
         }
 
         const end_dialogue_div = document.createElement("div");
@@ -5039,6 +5093,25 @@ function update_displayed_dialogue({npc_id, textlines, origin}) {
 
 function update_displayed_textline_answer({text, is_description}) {
     text = translate(text);
+
+    //a very stupid easter egg that totally won't be annoying - 1% chance to have a random word in dialogue replaced with "rat" if your hero's name contains that word
+    if(character.isRat()) {
+        if(Math.random() <= 1) {
+            const words = text.split(" ");
+            const index = Math.floor(words.length * Math.random());
+            if(words[index].length === 3) {
+                words[index] === "rat";
+            } else if(words[index].length > 3){
+                let index_to_cut = 0;
+                if(words[index][0] === words[index][0].toUpperCase()) {
+                    index_to_cut = 1;
+                }
+                words[index] = words[index].slice(0, index_to_cut) + "rat" + words[index].slice(index_to_cut + 3);
+            }
+
+            text = words.join(" ");
+        }
+    }
     
     if(is_description) {
         document.getElementById("dialogue_answer_div").innerText =  "*"+text+"*";
@@ -5131,9 +5204,10 @@ function updateVillageWatchcraftActivity(current_activity) {
     if (current_activity.id === 'patrolling') {
         const base = current_activity.get_payment();
         const total = Math.max(0, base + patrol.activeBonus + patrol.teachingAdjustment);
-        const text = patrol.activeBonus
+        const pay = patrol.activeBonus
             ? `Watchcraft · Sector scanning in use · Full round: ${patrolPayText(base, patrol.activeBonus, total)}.`
             : `Full round: ${patrolPayText(base, 0)}.`;
+        const text = patrol.activePathBonus?`${pay} Your path pays ${patrol.activePathBonus} extra coins.`:pay;
         if (line.textContent !== text) line.textContent = text;
         line.hidden = false;
         return;
@@ -5373,7 +5447,7 @@ function start_reading_display(title) {
     action_end_div.appendChild(action_end_text);
 
     action_div.appendChild(action_status_div);
-    const finish = bookFinishLines(book_stats[title], format_book_bonuses);
+    const finish = bookFinishLines(book_stats[title], format_bonuses);
     if(finish.length) action_status_div.title = `Finishing it will provide: ${finish.join("; ")}`;
     action_div.appendChild(action_end_div);
     start_activity_animation({book_title: title});
@@ -5384,7 +5458,7 @@ function start_reading_display(title) {
  * @param {Skill} skill 
  */
 function create_new_skill_bar(skill) {
-    if(!nativeSkillDiscovery(skill,character))return;
+    if(!nativeSkillDiscovery(skill,character)||domainRegistry.project('skill_evolution','merged',skill.skill_id)?.primary===false)return;
     if(!skill_bar_divs[skill.category]) {
         skill_bar_divs[skill.category] = {};
 
@@ -5497,6 +5571,7 @@ function create_new_skill_bar(skill) {
     skill_bar_divs[skill.category][skill.skill_id].setAttribute("data-skill", skill.skill_id);
     skill_bar_divs[skill.category][skill.skill_id].classList.add("skill_div");
     skill_list.querySelector(`[data-skill_category=${skill.category}]`).querySelector("[data-skill_category_skills]").appendChild(skill_bar_divs[skill.category][skill.skill_id]);
+    attachSkillEvolution(skill,skill_bar_divs[skill.category][skill.skill_id],openSkillGrowth);
 
     //sorts skill_list div alphabetically
     sort_displayed_skills({});
@@ -5510,10 +5585,16 @@ function create_new_skill_bar(skill) {
  * @param {Boolean} leveled_up 
  * @returns 
  */
+function openSkillGrowth() {
+    if(!expandWorkspaceModule('skills'))openWorkspaceModule('skills');
+    document.getElementById('show_skills')?.click();
+    focusSkillGrowth();
+}
+
 function update_displayed_skill_bar(skill, leveled_up=true) {
     if(deferSimulationRender(`skill:${skill.skill_id}`, () => update_displayed_skill_bar(skill, true))) return;
     renderRecentLearning(skill_list, character.getLevelableComponent(), learning_readers);
-    if(!nativeSkillDiscovery(skill,character)){
+    if(!nativeSkillDiscovery(skill,character)||domainRegistry.project('skill_evolution','merged',skill.skill_id)?.primary===false){
         skill_bar_divs[skill.category]?.[skill.skill_id]?.remove();
         if(skill_bar_divs[skill.category])delete skill_bar_divs[skill.category][skill.skill_id];
         const category=[...skill_list.querySelectorAll('.skill_category_div')].find(n=>n.dataset.skill_category===skill.category);
@@ -5946,7 +6027,7 @@ function create_bestiary_entry_tooltip(enemy_name) {
     const tooltip_xp = document.createElement("div"); //base xp enemy gives
     insert_HTML(tooltip_xp, `<br>Base xp value: ${enemy.xp_value} <br><br>`);
     const tooltip_desc = document.createElement("div"); //enemy description
-    tooltip_desc.innerText = enemy.description;
+    tooltip_desc.innerText = enemy.description + (enemy.counterTrait ? '\n' + enemy.counterTrait.name + ': ' + enemy.counterTrait.counter : '');
 
     const tooltip_tags = document.createElement("div"); //enemy description
 
@@ -6202,7 +6283,7 @@ function add_quest_to_display(quest_id) {
 
 /**
  * updates name, description and task list
- * @param {*} quest_id 
+ * @param {*} quest_id
  * @returns 
  */
 function update_displayed_quest(quest_id) {
@@ -6420,6 +6501,92 @@ function change_completed_quest_visibility() {
         document.documentElement.style.setProperty("--completed_quest_display", "none");
     } else {
         document.documentElement.style.setProperty("--completed_quest_display", "block");
+    }
+}
+
+function update_displayed_achievements() {
+    for(const row of Object.values(achievement_entry_divs)) {
+        notification_sources.delete(row);
+        row.remove();
+    }
+    for(const id of Object.keys(achievement_entry_divs))delete achievement_entry_divs[id];
+    const controller=document.getElementById(journal_box_to_controller.achievement_box_div);
+    controller?.classList.add('hidden');
+    controller?.classList.remove('active_notification');
+    Object.keys(achievements).forEach(id => {
+        if(achievements[id].isFinished()){
+            add_achievement_to_display(id);
+        }
+    });
+}
+
+function add_achievement_to_display(achievement_id) {
+    if(achievement_entry_divs[achievement_id]) {
+        console.warn(`Tried to add achievement "${achievement_id}" to display, but it's already there!`);
+        return;
+    }
+
+    const achievement_div = create_displayed_achievement_content(achievement_id);
+    achievement_entry_divs[achievement_id] = achievement_div;
+    achievement_div.classList.add("achievement_div");
+    achievement_list.replaceChildren(...Object.values(achievement_entry_divs));
+
+    notification_sources.set(achievement_div, achievements[achievement_id]);
+
+    const controller = document.getElementById(journal_box_to_controller["achievement_box_div"]);
+    
+    if(controller) {
+        if(controller.classList.contains("hidden")) {
+            controller.classList.remove("hidden");
+        }
+
+        if(!achievements[achievement_id].getNotificationComponent().isFinished()) {
+            controller.classList.add("active_notification");
+            achievement_div.classList.add("active_notification");
+            achievement_div.dataset.notification_source = true;
+        }
+    }
+}
+
+function create_displayed_achievement_content(achievement_id) {
+    const elem = document.createElement("div");
+    elem.innerText = translate(achievements[achievement_id].name);
+
+    const tooltip = document.createElement("div");
+    tooltip.classList.add("achievement_tooltip");
+
+    const tooltip_desc = document.createElement("div");
+    tooltip_desc.classList.add("achievement_tooltip_desc");
+    tooltip_desc.innerText = translate(achievements[achievement_id].description);
+
+    const tooltip_bonuses = document.createElement("div");
+    tooltip_bonuses.classList.add("achievement_tooltip_bonuses");
+
+    insert_HTML(tooltip_bonuses, format_bonuses(achievements[achievement_id].bonuses));
+
+    tooltip.appendChild(tooltip_desc);
+    tooltip.appendChild(tooltip_bonuses);
+
+    elem.appendChild(tooltip);
+    return elem;
+}
+
+function find_notificationable_tab(element) {
+    
+    while(!("notificationable_tab" in element.dataset)) {
+        element = element.parentElement;
+    }
+    return element;
+}
+
+function remove_displayed_notification(element) {
+    element.classList.remove("active_notification");
+    delete element.dataset.notification_source;
+
+    const tab = find_notificationable_tab(element);
+    const controller = document.getElementById(journal_box_to_controller[tab.id]);
+    if(!tab.querySelector("[data-notification_source]")) {
+        controller.classList.remove("active_notification");
     }
 }
 
@@ -6690,6 +6857,14 @@ function hide_loading_text() {
     document.getElementById("loading_screen_loading_text").classList.add("fade");
 }
 
+function set_loading_screen_success() {
+    const loading_screen_errors_field = document.getElementById("loading_screen_status");
+    loading_screen_errors_field.classList.remove('loading_screen_status_warnings');
+    loading_screen_errors_field.classList.add('loading_screen_status_good');
+
+    loading_screen_errors_field.innerText = 'No issues in the loading process :)';
+}
+
 function set_loading_screen_errors_warning() {
     const loading_screen_errors_field = document.getElementById("loading_screen_status");
     loading_screen_errors_field.classList.remove('loading_screen_status_warnings');
@@ -6757,7 +6932,7 @@ export {
     log_message,
     clear_action_div,
     update_displayed_normal_location, update_displayed_combat_location, update_displayed_location_identity,
-    log_loot,
+    log_loot, log_location_xp,
     update_displayed_equipment, update_displayed_health, update_displayed_stamina, update_displayed_stats, update_displayed_effects, update_displayed_effect_durations,
     capitalize_first_letter,
     format_money,
@@ -6809,7 +6984,11 @@ export {
     update_displayed_item_log,
     set_HTML,
     set_light_based_background_color,
-    unassign_dynamic_loot_message, reset_message_log_for_life,
+    reset_message_log_for_life,
+    unassign_dynamic_messages,
     fill_character_bio, create_race_tooltip, create_height_tooltip, create_gender_tooltip,
-    insert_HTML, clear_HTML_content
+    insert_HTML, clear_HTML_content,
+    add_achievement_to_display, update_displayed_achievements,
+    notification_sources,
+    remove_displayed_notification,
 }

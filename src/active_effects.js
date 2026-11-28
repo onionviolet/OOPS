@@ -37,7 +37,7 @@ class ActiveEffect {
 }
 
 // Original proposal: edged guardian wounds stack time, not separate save state.
-effect_templates.Bleeding = new ActiveEffect({name:'Bleeding',description:'A claw wound. Repeated hits add duration, capped at 15 game minutes. Played exposure trains Iron skin.',
+effect_templates.Bleeding = new ActiveEffect({name:'Bleeding',description:'A claw wound. Repeated hits add duration, capped at 15 game minutes. Bare-skin exposure trains Iron skin.',
     effects:{stats:{health_loss_flat:{flat:-.5}}},tags:{debuff:true}});
 
 //weather effects
@@ -225,6 +225,28 @@ effect_templates.Bleeding = new ActiveEffect({name:'Bleeding',description:'A cla
         //not tagged as poison/debuff since its supposed to be from a utility item (quick way to reduce stamina)
     });
 
+    effect_templates["Weak antipoison"] = new ActiveEffect({
+        name: "Weak antipoison",
+        effects: {
+            bonus_skill_levels: {
+                "Poison resistance": 5,
+            }
+        },
+        tags: { "buff": true, "medicine": true },
+        group_tags: {antipoison: 2},
+    });
+    effect_templates["Antipoison"] = new ActiveEffect({
+        name: "Antipoison",
+        effects: {
+            bonus_skill_levels: {
+                "Poison resistance": 5,
+            }
+        },
+        tags: { "buff": true, "medicine": true },
+        group_tags: {antipoison: 2},
+    });
+
+
     effect_templates["Cheap meat meal"] = new ActiveEffect({
         name: "Cheap meat meal",
         effects: {
@@ -278,6 +300,15 @@ effect_templates.Bleeding = new ActiveEffect({name:'Bleeding',description:'A cla
         effects: {
             stats: {
                 health_loss_flat: {flat: -0.5},
+            }
+        },
+        tags: {"debuff": true, "poison": true},
+    });
+    effect_templates["Serious food poisoning"] = new ActiveEffect({
+        name: "Serious food poisoning",
+        effects: {
+            stats: {
+                health_loss_flat: {flat: -15},
             }
         },
         tags: {"debuff": true, "poison": true},
@@ -337,6 +368,7 @@ effect_templates.Bleeding = new ActiveEffect({name:'Bleeding',description:'A cla
     });
     effect_templates["Tipsy"] = new ActiveEffect({
         name: "Tipsy",
+        description: "You feel funny...",
         effects: {
             stats: {
                 agility: {multiplier: 1.1},
@@ -426,6 +458,16 @@ effect_templates.Bleeding = new ActiveEffect({name:'Bleeding',description:'A cla
         },
         tags: { "debuff": true, "poison": true },
     });
+    effect_templates["Deadly necrotizing venom"] = new ActiveEffect({
+        name: "Deadly necrotizing venom",
+        effects: {
+            stats: {
+                health_loss_flat: {flat: -155 },
+            }
+        },
+        tags: { "debuff": true, "poison": true },
+    });
+
     effect_templates["Paralysing poison"] = new ActiveEffect({
         name: "Paralysing poison",
         effects: {
@@ -475,6 +517,32 @@ effect_templates.Bleeding = new ActiveEffect({name:'Bleeding',description:'A cla
         },
         tags: { "debuff": true, "poison": true },
         group_tags: {dragonfly_venom: 2},
+    });
+
+    effect_templates["Petrified"] = new ActiveEffect({
+        name: "Petrified",
+        effects: {
+            stats: {
+                attack_speed: { multiplier: 0 },
+                dexterity: { multiplier: 0 },
+                agility: { multiplier: 0 },
+            }
+        },
+        tags: { "debuff": true, "curse": true },
+    });
+})();
+
+//general buffs and blessings
+(()=>{
+    effect_templates["Fluffy bliss"] = new ActiveEffect({
+        name: "Fluffy bliss",
+        description: "Mofu mofu....",
+        effects: {
+            xp_multipliers: {
+                all: 1.05,
+            }
+        },
+        tags: { "buff": true},
     });
 })();
 

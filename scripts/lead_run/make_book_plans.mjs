@@ -1,15 +1,16 @@
 // Whole-book batch plans from one registry (plans/books.json, docs/research/BATCH_READING_WORKFLOW.md): prepares size-grouped shards when a book has none, writes one
 // plan per pass per book that skips shards already read, and writes one run file per world with true-bound caps (every request at max_tokens).
 //   Book types: pdf, epub (numbered members), ncx (`Chapter N:` labels), html (spine blocks split at `Chapter N: Title`), zh-nav (Chinese nav.xhtml), json (browser-captured `NNNN: [title, text]` files, Chinese).
-//   node scripts/lead_run/make_book_plans.mjs [--keys hp2,hp3] [--prepare] [--run 2026-10-29] [--ceiling world=usd,...] [--schema 1.4|1.5]
+//   node scripts/lead_run/make_book_plans.mjs [--keys hp2,hp3] [--prepare] [--run 2026-10-29] [--ceiling world=usd,...] [--schema 1.4|1.5|1.6]
 //   New plans default to schema 1.5; --schema 1.4 retains that explicit older shape. Existing unversioned plans still read as 1.3.
 //   --schema 1.5 adds step-level actor, kind, locator, target, using, habit, results and witnesses on scenes (LSD204); it includes 1.4's extras.
 // Plans and run files only: nothing is sent. Each run file starts `approval: PENDING` and needs Weibao's go before batch_overnight.mjs runs it.
 import {execFileSync} from 'node:child_process';
-import {readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync} from 'node:fs';
-import {join, dirname, relative} from 'node:path';
+import {readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync, statSync} from 'node:fs';
+import {join, dirname, relative, sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {pdfChapters, epubChapterMembers, epubParagraphs, htmlBlocks, epubSpine, blockChapters, BOOK_TAIL, shardTextEn} from './prepare_shard_en.mjs';
+import {pageShards} from './pdf_pages.mjs';
 import {chapterLinks, volumeRuns, shardText, textChapters} from './prepare_shard.mjs';
 import {requestsFromPlan, estimateCost, passDone} from './batch_lib.mjs';
 import {resolveBookSource} from './book_source.mjs';
@@ -33,7 +34,7 @@ const settings = (lang, pass) => ({maxTokens: 128000, outTokensAssumed: 32000, .
 /** Consecutive chapters grouped up to `target` size units and `max` chapters; a chapter over the target stands alone. */
 /** The plan object for one label; `schema` ('1.4') is opt-in and leaves no field when unset, so existing plans do not move. */
 export function planObject({world, lang, pass, priv, glossary, label, shards, schema = '1.5', model = 'claude-haiku-5-5'}) {
-    return {world, model, ...settings(lang, pass), schemaVersion: schema || '1.5', reading: {level: 'L1', relevance: ['reference'], review: 'not-reviewed'}, privateDir: priv, outDir: join(priv, 'batch'), glossary, label, pass, shards};
+    return {world, ...(schema === '1.6' ? {lang} : {}), model, ...settings(lang, pass), schemaVersion: schema || '1.5', reading: {level: 'L1', relevance: ['reference'], review: 'not-reviewed'}, privateDir: priv, outDir: join(priv, 'batch'), glossary, label, pass, shards};
 }
 
 export function groupBySize(chapters, size, {target, max}) {
@@ -97,6 +98,21 @@ function prepare(b, priv) {
         }
         return written;
     }
+    if (b.type === 'pdf-pages') {
+        if (b.screenReports) {
+            execFileSync(process.env.READING_PYTHON || (process.platform === 'win32' ? 'python' : 'python3'),
+                [join(root, 'scripts/lead_run/screened_pdf_pages.py'), b.source, priv, JSON.stringify(b)], {stdio: 'inherit'});
+        }
+        const text = b.screenReports ? readFileSync(join(priv, b.key + '-reading.txt'), 'utf8')
+            : execFileSync('pdftotext', ['-enc', 'UTF-8', b.source, '-'], {encoding: 'utf8', maxBuffer: 256 << 20});
+        for (const shard of pageShards(text, b)) {
+            const stem = b.key + '_b' + b.book + '_pg' + pad(shard.first) + '-' + pad(shard.last);
+            writeFileSync(join(priv, 'shard_' + stem + '.txt'), shard.text);
+            writeFileSync(join(priv, 'index_' + stem + '.json'), JSON.stringify(shard.index) + '\n');
+            written.push('shard_' + stem + '.txt');
+        }
+        return written;
+    }
     let chapters;
     if (b.type === 'pdf') {
         const cache = join(priv, 'source_pdftotext.txt');
@@ -125,7 +141,7 @@ function prepare(b, priv) {
 
 /** Shards of one book on disk, in order, with request prefix and beat base (unique across books of a world: book digit, chapter, 01). */
 export function bookShards(b, files) {
-    const re = new RegExp(`^shard_${b.key}_(?:b\\d+_)?ch(\\d{3,})-(\\d{3,})\\.txt$`);
+    const re = new RegExp(`^shard_${b.key}_(?:b\\d+_)?${b.type === 'pdf-pages' ? 'pg' : 'ch'}(\\d{3,})-(\\d{3,})\\.txt$`);
     return files.map(f => [f, re.exec(f)]).filter(([, m]) => m).map(([f, m]) => ({file: f, first: Number(m[1]), last: Number(m[2])}))
         .sort((x, y) => x.first - y.first)
         .map(s => ({prefix: `${b.key}c${pad(s.first)}`, file: s.file, base: `${b.book > 1 ? b.book : ''}${pad(s.first)}01`, chapters: `${s.first}-${s.last}`}));
@@ -138,11 +154,12 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const registry = JSON.parse(readFileSync(join(PLANS, 'books.json'), 'utf8'));
     // `--model gpt-6-luna` writes plans for the OpenAI batch backend (openai_batch.mjs); pair it with a `--tag` so labels stay apart from Haiku runs.
     const model = flag('--model');
-    // `--passes census,rules` plans only those passes; `--pilot census,rules` sets which passes the one-shard pilot of a fresh book reads (default census,scenes).
-    const passList = flag('--passes') ? flag('--passes').split(',') : PASSES, pilotPasses = flag('--pilot') ? flag('--pilot').split(',') : ['census', 'scenes'];
-    for (const p of [...passList, ...pilotPasses]) if (!PASSES.includes(p)) throw new Error(`unknown pass ${p}`);
-    const schema = flag('--schema'), keys = flag('--keys') ? new Set(flag('--keys').split(',')) : null, tag = flag('--tag');
-    if (schema && !['1.4', '1.5'].includes(schema)) throw new Error(`--schema supports 1.4 or 1.5, got ${schema}`);
+    const passes = flag('--passes')?.split(',') || PASSES;
+    const pilots = flag('--pilot')?.split(',') || ['census', 'scenes'].filter(p => passes.includes(p));
+    if (!passes.every(p => PASSES.includes(p)) || !pilots.every(p => passes.includes(p)))
+        throw new Error('Unknown pass or pilot outside the selected passes');
+    const schema = flag('--schema'), keys = flag('--keys') ? new Set(flag('--keys').split(',')) : null, tag = flag('--tag') || (schema === '1.6' ? 'v16' : null);
+    if (schema && !['1.4', '1.5', '1.6'].includes(schema)) throw new Error(`--schema supports 1.4, 1.5 or 1.6, got ${schema}`);
     const ceilings = Object.fromEntries((flag('--ceiling') || '').split(',').filter(Boolean).map(x => x.split('=')).map(([w, u]) => [w, Number(u)]));
     const byWorld = {}, report = [];
     for (const entry of registry.books.filter(x => !keys || keys.has(x.key))) {
@@ -152,54 +169,73 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
         if (!existsSync(b.source) && b.convertFrom && existsSync(b.convertFrom)) { mkdirSync(dirname(b.source), {recursive: true}); execFileSync(EBOOK_CONVERT, [b.convertFrom, b.source], {stdio: 'ignore'}); }
         if (!existsSync(b.source)) { report.push({key: b.key, skipped: 'source missing'}); continue; }
         let files = existsSync(priv) ? readdirSync(priv) : [];
-        if (!bookShards(b, files).length) {
+        if (!bookShards(b, files).length || (b.type === 'pdf-pages' && a.includes('--prepare'))) {
             if (!a.includes('--prepare')) { report.push({key: b.key, skipped: 'no shards (run with --prepare)'}); continue; }
-            prepare(b, priv); files = readdirSync(priv);
+            const prepared = prepare(b, priv);
+            files = readdirSync(priv).filter(f => b.type !== 'pdf-pages' || !f.startsWith('shard_' + b.key + '_') || prepared.includes(f));
         }
-        const shards = bookShards(b, files), have = new Set(files);
+        let shards = bookShards(b, files);
+        if (b.type === 'pdf-pages' && b.pdfPageCount) {
+            const [first, last] = b.pageRange || [1, b.pdfPageCount];
+            let next = first;
+            shards = shards.filter(s => {
+                const [start, end] = s.chapters.split('-').map(Number);
+                if (start < first || end > last) return false;
+                if (next !== start) throw new Error(b.key + ': overlapping or missing PDF shards, rerun --prepare');
+                next = end + 1;
+                return true;
+            });
+            if (next !== last + 1) throw new Error(b.key + ': incomplete PDF shards, rerun --prepare');
+        }
+        const have = new Set(files);
         // Names from every book of the world feed the known-names table, so later books reuse earlier ids.
         const worldKeys = registry.books.filter(x => x.world === b.world).map(x => x.key).join('|');
-        const glossary = {...(b.wiki ? {wiki: join(root, b.wiki)} : {}), censusDir: priv, censusMatch: b.censusMatch || `^(${worldKeys})c\\d{3,}m_census\\.jsonl$`};
+        const planDir = b.type === 'pdf-pages' ? b.dir : priv;
+        const imagePages = b.screenReports ? JSON.parse(readFileSync(join(priv, b.key + '-images.json'), 'utf8')) : [];
+        const planPath = name => b.type === 'pdf-pages' ? planDir + '/' + name : join(priv, name);
+        const glossary = {...(b.wiki ? {wiki: join(root, b.wiki)} : {}), censusDir: planDir, censusMatch: b.censusMatch || `^(${worldKeys})c\\d{3,}m_census\\.jsonl$`};
         const row = {key: b.key, shards: shards.length, labels: []};
         // A book with no census read yet gets a one-shard pilot (census and scenes) as its own step, so a format fault costs cents, not a whole pass.
         const fresh = !shards.some(s => passDone('census', s.prefix, have));
-        const pilotPrefix = fresh ? shards[0].prefix : null;
-        const units = [...(fresh ? pilotPasses.map(pass => ({pass, step: 'pilot', only: pilotPrefix, suffix: `pilot_${pass}`})) : []),
-            ...passList.map(pass => ({pass, step: pass, skip: pilotPasses.includes(pass) ? pilotPrefix : null, suffix: pass}))];
+        const pilotPrefix = (fresh || flag('--pilot')) ? shards[0].prefix : null;
+        const units = [...(pilotPrefix ? pilots.map(pass => ({pass, step: 'pilot', only: pilotPrefix, suffix: `pilot_${pass}`})) : []),
+            ...passes.map(pass => ({pass, step: pass, skip: pilots.includes(pass) ? pilotPrefix : null, suffix: pass}))];
         for (const {pass, step, only, skip, suffix} of units) {
-            const todo = shards.filter(s => !passDone(pass, s.prefix, have) && (!only || s.prefix === only) && s.prefix !== skip)
-                .map(s => ({prefix: s.prefix, shard: join(priv, s.file), base: s.base, chapters: s.chapters}));
+            const prefixFor = s => schema === '1.6' && pass === 'people' ? s.prefix + 'v16' : s.prefix;
+            const todo = shards.filter(s => !passDone(pass, prefixFor(s), have) && (!only || s.prefix === only) && s.prefix !== skip)
+                .map(s => {
+                    const [from, to] = s.chapters.split('-').map(Number);
+                    const images = imagePages.filter(n => n >= from && n <= to).map(n => ({
+                        page: n, file: planPath(b.key + '-page-' + n + '.jpg')
+                    }));
+                    return {prefix: prefixFor(s), shard: planPath(s.file), base: s.base, chapters: s.chapters, ...(images.length ? {images} : {})};
+                });
             if (!todo.length) continue;
-            // `--tag r2` gives a rerun its own labels and plan files, so the driver does not collect an earlier batch by its receipt.
-            const label = `${b.key}-${suffix.replace('_', '-')}${tag ? `-${tag}` : ''}`, plan = planObject({world: b.world, lang: b.lang, pass, priv, glossary, label, shards: todo, schema, ...(model ? {model} : {})});
-            const name = `${b.key}_${suffix}${tag ? `_${tag}` : ''}`;
-            writeFileSync(join(PLANS, `${name}.json`), JSON.stringify(plan, null, 1) + '\n');
-            // True bound: every request at max_tokens. Rounded up to the cent.
-            const bound = estimateCost(requestsFromPlan(plan), plan.maxTokens, plan.model);
-            const cap = Math.ceil(bound.usdBatch * 100) / 100;
-            row.labels.push({label, requests: todo.length, cap, overPromptCap: bound.requestsOverPromptCap || 0});
-            (byWorld[b.world] ??= []).push({book: b.key, pass, step, plan: relative(root, join(PLANS, `${name}.json`)), cap, label});
+            // Image-backed books can exceed a batch upload limit even with only a few hundred requests.
+            // Reserve 128 KiB per shard for prompts and count base64 bytes before assigning its label.
+            const groups = b.screenReports ? groupBySize(todo, shard => 131072 + statSync(shard.shard).size +
+                (shard.images || []).reduce((bytes, image) => bytes + 4 * Math.ceil(statSync(image.file).size / 3), 0),
+                {target: 96 * 1024 * 1024, max: 1000}) : [todo];
+            for (const [part, group] of groups.entries()) {
+                const partSuffix = groups.length > 1 ? suffix + '-part' + (part + 1) : suffix;
+                // `--tag r2` gives a rerun its own labels and plan files, so the driver does not collect an earlier batch by its receipt.
+                const label = `${b.key}-${partSuffix.replace('_', '-')}${tag ? `-${tag}` : ''}`, plan = planObject({world: b.world, lang: b.lang, pass, priv: planDir, glossary, label, shards: group, schema, ...(model ? {model} : {})});
+                const name = `${b.key}_${partSuffix}${tag ? `_${tag}` : ''}`;
+                if (b.type === 'pdf-pages') plan.outDir = planDir + '/batch';
+                writeFileSync(join(PLANS, `${name}.json`), JSON.stringify(plan, null, 1) + '\n');
+                // True bound: every request at max_tokens. Rounded up to the cent.
+                const bound = estimateCost(requestsFromPlan(plan), plan.maxTokens, plan.model);
+                const cap = Math.ceil(bound.usdBatch * 100) / 100;
+                row.labels.push({label, requests: group.length, cap, overPromptCap: bound.requestsOverPromptCap || 0});
+                (byWorld[b.world] ??= []).push({book: b.key, pass, step, plan: relative(root, join(PLANS, `${name}.json`)).split(sep).join('/'), cap, label});
+            }
         }
         report.push(row);
     }
     const runName = flag('--run');
     if (runName) for (const [world, labels] of Object.entries(byWorld)) {
         // Pilots first, then pass by pass across the world's books, so measured spend counts before each larger step and a stop rule halts the rest.
-        // `--split N` cuts each pass (not the pilot) into up to N steps of about equal cap in book order, so measured spend counts before each next step
-        // (a ceiling at 0.7 of the cap total would otherwise block a single large step: the driver tests spent + the step's whole cap against it).
-        const split = Number(flag('--split') || 1), steps = [];
-        for (const step of ['pilot', ...passList]) {
-            const ls = labels.filter(l => l.step === step), mk = (name, g) => ({name, gate: 'stop', labels: g.map(({plan, cap, label}) => ({plan, cap, label}))});
-            if (!ls.length) continue;
-            if (step === 'pilot' || split < 2) { steps.push(mk(step, ls)); continue; }
-            const total = ls.reduce((a, l) => a + l.cap, 0), groups = [[]];
-            let acc = 0;
-            for (const l of ls) {
-                if (groups.at(-1).length && groups.length < split && acc + l.cap / 2 > total * groups.length / split) groups.push([]);
-                groups.at(-1).push(l); acc += l.cap;
-            }
-            groups.forEach((g, i) => steps.push(mk(`${step}-${i + 1}`, g)));
-        }
+        const steps = ['pilot', ...PASSES].map(step => ({name: step, gate: 'stop', labels: labels.filter(l => l.step === step).map(({plan, cap, label}) => ({plan, cap, label}))})).filter(s => s.labels.length);
         const capTotal = Number(steps.flatMap(s => s.labels).reduce((x, l) => x + l.cap, 0).toFixed(2));
         const run = {name: `${runName}-${world}`, approval: 'PENDING: needs Weibao\'s go phrase.', ceilingUsd: ceilings[world] ?? capTotal, capTotal, steps};
         writeFileSync(join(PLANS, `overnight_${runName}-${world}.json`), JSON.stringify(run, null, 1) + '\n');

@@ -127,6 +127,10 @@ export async function auditAtlas() {
     for(const row of qualifyCheatRows([...cheats.rows,...cheats.candidates],native)){
         add('Cheat runtime and candidates',row.id,row,byFindRoute.get('#library/cheats/'+row.id)||{expected:READING});
     }
+    for(const article of adopted.systems?.articles??[]){
+        add('Systems',article.id,article);
+        remember('#systems/'+article.id,article,article.playReceipt);
+    }
     for(const row of [...index.rows,...findIdeaRows()]){
         add('Find '+row.type,row.world+'/'+row.id,row,byFindRoute.get(row.href)||{expected:READING});
     }

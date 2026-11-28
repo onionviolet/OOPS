@@ -6,6 +6,7 @@ import { get_crafting_quality_caps } from "../crafting_recipes.js";
 import { Skill } from "../models/skill.js";
 import { availabilities } from "./component_references.js";
 import { ladderPanelText, readLevels } from "../skill_ladder.js";
+import {SKILL_EVOLUTIONS} from './skill_evolutions.js';
 
 const ladderText = id => { const text = ladderPanelText(id, readLevels(character.getLevelableComponent()), skills[id]?.milestones); return text ? `\n${text}` : ""; };
 
@@ -407,7 +408,8 @@ Adds ${skills["Unarmed"].getCurrentLvl()/10} base damage to unarmed attacks`;
                                 names: {0: "Broad arc"}, 
                                 parent_skill: "Stance mastery",
                                 description: "A special technique that allows striking multiple enemies at once, although at a cost of lower overall efficiency." 
-                                            +" <br>Divides gained xp by number of enemies attacked, reduces drop rate in proportion to that number (down to 1/4th against 8).",
+                                            +" <br>Divides gained xp by number of enemies attacked, reduces drop rate in proportion to that number (down to 1/4th against 8;"
+                                            +" killing 2 at once will still give more total loot than killing 1).",
                                 max_level_coefficient: 2,
                                 base_xp_cost: 60,
                                 category: "Stance",
@@ -3058,6 +3060,10 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
         }
     });
 })();
+
+for(const {targets} of SKILL_EVOLUTIONS.filter(row=>row.policy==='specialization'))for(const {id,name} of targets){
+    skills[id]=new Skill({names:{0:name},category:'Activity',base_xp_cost:10,description:'Practice your chosen lifting form while carrying grain in the Village.'});
+}
 
 Object.keys(skills).forEach(id => {
     skills[id].skill_id = id;

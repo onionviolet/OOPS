@@ -1,0 +1,31 @@
+{
+  "item": "o1",
+  "entry": "/",
+  "bundleSha256": "0cd632e2c833c2919d71938f013ea83b04118944add87abbc321c28b639c9eec",
+  "runs": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "result": {
+        "location": "Infested field",
+        "exit": "east",
+        "lockedTempleHidden": true
+      },
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "result": {
+        "location": "Infested field",
+        "exit": "east",
+        "lockedTempleHidden": true
+      },
+      "pageErrors": []
+    }
+  ]
+}

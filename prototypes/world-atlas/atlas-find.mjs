@@ -6,7 +6,7 @@ import {VISION_THEMES} from './vision-coverage.mjs';
 import {PARTIAL, READING} from './play-status.mjs';
 
 const FIND_GROUPS = [['subjects', 'Subjects and places'], ['rules', 'World rules'], ['cheats', 'Cheat catalogue'],
-    ['scenes', 'Reader scenes'], ['routes', 'Game route evidence'], ['vision', 'Vision themes'], ['ideas', 'Ideas and backlogs']];
+    ['scenes', 'Reader scenes'], ['routes', 'Game route evidence'], ['vision', 'Vision themes'], ['ideas', 'Ideas and backlogs'], ['systems','Systems and comparisons']];
 
 function hidden(row) {
     if (!row || typeof row !== 'object') return false;
@@ -141,9 +141,10 @@ export function projectFindRoutes(report) {
     });
 }
 
-export function buildFindIndex({subjects = [], rules = {records: [], worlds: []}, cheats = [], playEvidence, ideas = []} = {}) {
+export function buildFindIndex({subjects = [], rules = {records: [], worlds: []}, cheats = [], playEvidence, ideas = [], systems = []} = {}) {
     const rows = subjects.map(row => ({...row, type: row.origin === 'reader-scene' ? 'scenes' : 'subjects'}));
     rows.push(...projectFindRoutes(playEvidence));
+    rows.push(...systems);
     for (const idea of ideas) {
         if (!idea.reference || hidden(idea)) continue;
         rows.push({id:idea.id, label:idea.title, type:'ideas', kind:'Indexed idea', world:'oops-ideas',

@@ -25,7 +25,7 @@ const node = () => ({style:{setProperty(){},getPropertyValue(){return '';},remov
     classList:{add(){},remove(){},contains(){return false;},toggle(){}},dataset:{},
     children:[],childNodes:[],childElementCount:0,checked:false,value:'',innerText:'',innerHTML:'',
     get nextElementSibling(){return node();},get parentNode(){return node();},get firstChild(){return null;},
-    append(){},appendChild(){},remove(){},replaceChildren(){},setAttribute(){},removeAttribute(){},
+    append(){},appendChild(){},before(){},remove(){},replaceChildren(){},setAttribute(){},removeAttribute(){},
     addEventListener(){},removeEventListener(){},querySelector(){return node();},querySelectorAll(){return [];},
     getBoundingClientRect(){return {width:0,height:0};}});
 const nodes = new Map();

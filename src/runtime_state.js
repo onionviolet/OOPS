@@ -1,5 +1,7 @@
 // Native shared state. Single live bindings; main retains the existing mutation order.
 export const global_flags = {
+    is_registered_adventurer: false,
+    are_temple_blessings_unlocked: false,
     is_gathering_unlocked: false,
     is_crafting_unlocked: false,
     is_strength_proved: false, //this role could be fulfilled by a quest, but it was originally added before that mechanic; besides, flags are cool and elegant

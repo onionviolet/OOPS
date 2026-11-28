@@ -1,3 +1,4 @@
+import {quoteReset,resolveResetFields} from "./reset_rules.js";
 // Zorian's month loop (G7/G8/G11/G13 of the stage record, proposal under AD32). The loop row, the restart machinery, the calendar
 // event feed and the knowledge store already exist; this module only wires them for the Zorian start. No clock of its own: the run
 // clock is the expansion clock minus the run's start marker, read through the one calendar profile.
@@ -64,12 +65,16 @@ function writeForeknowledge(ended,next){
  return written;
 }
 // Applied to the restored save after scopedRestart: a new run starts undiverged on day 1, and the earlier run's events become foreknowledge.
-export function afterRunRestart(endedExpansion,nextExpansion){
+export function afterRunRestart(endedExpansion,nextExpansion,trigger='date'){
  const d=nextExpansion.motherOfLearning;
  d.runStartedAt=nextExpansion.clock;
- d.runs=(endedExpansion.motherOfLearning?.runs??1)+1;
- delete d.divergence;
- const foreknowledge=writeForeknowledge(endedExpansion,nextExpansion);
+ const policy=rowOf();
+ const history=quoteReset({...policy.runHistory,triggers:policy.triggers.map(t=>t.kind)},{trigger,holder:'player'});
+ if(!history.offered)throw Error('This event cannot start a new Cyoria run.');
+ const carried=resolveResetFields(history,{current:endedExpansion.motherOfLearning??{},anchor:{}});
+ for(const key of history.resets)delete d[key];
+ d.runs=(carried.runs??1)+1;
+ const foreknowledge=history.remembers?writeForeknowledge(endedExpansion,nextExpansion):[];
  reconcileForeknowledge(nextExpansion);
  return {foreknowledge};
 }

@@ -1,3 +1,4 @@
+import {placeMapPositions} from "../location_positions.js";
 import {registerFortLocations} from "../fork_fort_content.js";
 import {grainAppleAction,GRAIN_APPLE_ACTION} from '../village_grain_cart.js';
 "use strict";
@@ -24,10 +25,10 @@ const favourite_locations = {};
         name: "bright",
         stages: {
             1: {
-                description: "A place that's always lit, no matter the time of the day",
+                description: "bright desc 1",
             },
             2: {
-                description: "An extremely bright place, excessive light makes it hard to keep eyes open",
+                description: "bright desc 2",
                 related_skill: "Dazzle resistance",
                 effects: {
                     attack_points: {multiplier: 0.5},
@@ -35,7 +36,7 @@ const favourite_locations = {};
                 }
             },
             3: {
-                description: "A place with so much light that an average person would go blind in an instant",
+                description: "bright desc 3",
                 related_skill: "Dazzle resistance",
                 effects: {
                     attack_points: {multiplier: 0.1},
@@ -48,12 +49,12 @@ const favourite_locations = {};
         name: "dark",
         stages: {
             1: {
-                description: "It's dark here, comparable to a bright night",
+                description: "dark desc 1",
                 related_skill: "Night vision",
                 //no effects here, since in this case they are provided via the overall "night" penalty
             },
             2: {
-                description: "An extremely dark place, darker than most of the nights",
+                description: "dark desc 2",
                 related_skill: "Night vision",
                 effects: {
                     //they dont need to be drastic since they apply on top of 'night' penalty
@@ -62,7 +63,7 @@ const favourite_locations = {};
                 }
             },
             3: {
-                description: "Pure darkness with not even a tiniest flicker of light",
+                description: "dark desc 3",
                 related_skill: "Presence sensing",
                 effects: {
                     attack_points: {multiplier: 0.15},
@@ -75,7 +76,7 @@ const favourite_locations = {};
         name: "narrow",
         stages: {
             1: {
-                description: "A narrow area where there's not much place for maneuvering",
+                description: "narrow desc 1",
                 related_skill: "Tight maneuvers",
                 scaling_lvl: 20,
                 effects: {
@@ -83,7 +84,7 @@ const favourite_locations = {};
                 }
             },
             2: {
-                description: "A very tight and narrow area where there's not much place for maneuvering",
+                description: "narrow desc 2",
                 related_skill: "Tight maneuvers",
                 effects: {
                     evasion_points: {multiplier: 0.333},
@@ -91,7 +92,7 @@ const favourite_locations = {};
                 scaling_lvl: 40,
             },
             3: {
-                description: "An area so cramped that it's a miracle you can even move",
+                description: "narrow desc 3",
                 related_skill: "Tight maneuvers",
                 effects: {
                     evasion_points: {
@@ -103,7 +104,7 @@ const favourite_locations = {};
                 }        
             },
             4: {
-                description: "Are you trying to die? One step the wrong way and you fall to your death!",
+                description: "narrow desc 4",
                 related_skill: "Tight maneuvers",
                 effects: {
                     evasion_points: {
@@ -121,7 +122,7 @@ const favourite_locations = {};
         name: "open",
         stages: {
             1: {
-                description: "A completely open area where attacks can come from any direction",
+                description: "open desc 1",
                 related_skill: "Spatial awareness",
                 scaling_lvl: 30,
                 effects: {
@@ -129,7 +130,7 @@ const favourite_locations = {};
                 }
             },
             2: {
-                description: "An area that's completely open and simultanously obstructs your view, making it hard to predict where an attack will come from",
+                description: "open desc 2",
                 related_skill: "Spatial awareness",
                 effects: {
                     evasion_points: {multiplier: 0.5},
@@ -141,7 +142,7 @@ const favourite_locations = {};
         name: "thin air",
         stages: {
             1: {
-                description: "Place with thinner air, which negatively impacts your body",
+                description: "thin air desc 1",
                 related_skill: "Breathing",
                 scaling_lvl: 25,
                 effects: {
@@ -153,7 +154,7 @@ const favourite_locations = {};
                 }
             },
             2: {
-                description: "Place with very thin air, heavily affecting your body",
+                description: "thin air desc 2",
                 related_skill: "Breathing",
                 effects: {
                     stamina_efficiency: {multiplier: 0.1},
@@ -169,7 +170,7 @@ const favourite_locations = {};
         name: "eldritch",
         stages: {
             1: {
-                description: "This place brings a strong sense of unease",
+                description: "eldritch desc 1",
                 related_skill: "Strength of mind",
                 scaling_lvl: 30,
                 effects: {
@@ -181,7 +182,7 @@ const favourite_locations = {};
                 }
             },
             2: {
-                description: "This place goes against the laws of the world",
+                description: "eldritch desc 2",
                 related_skill: "Strength of mind",
                 effects: {
                     agility: {multiplier: 0.3},
@@ -197,7 +198,7 @@ const favourite_locations = {};
         name: "rough",
         stages: {
             1: {
-                description: "The loose sand and jagged rocks make it harder to fight effectively",
+                description: "rough desc 1",
                 related_skill: "Scrambling",
                 scaling_lvl: 20, 
                 effects: {
@@ -209,7 +210,7 @@ const favourite_locations = {};
                 }
             },
             2: {
-                description: "A boggy marshland is a terrible location to fight for your life in",
+                description: "rough desc 2",
                 related_skill: "Scrambling",
 				scaling_lvl: 30,
                 effects: {
@@ -221,7 +222,7 @@ const favourite_locations = {};
                 }
             },
 			3: {
-                description: "The muck somehow causes you to slip even while holding you firmly in place",
+                description: "rough desc 3",
                 related_skill: "Scrambling",
 				scaling_lvl: 60, //not implemented, intended for if in slick high viscosity fluids above waist height
                 effects: {
@@ -238,7 +239,7 @@ const favourite_locations = {};
         name: "wet",
         stages: {
             1: {
-                description: "Attempting to stay dry in conditions like this is impossible",
+                description: "wet desc 1",
                 applied_effects: [{effect: "Wet", duration: 30}]
             }
         }
@@ -248,7 +249,7 @@ const favourite_locations = {};
         name: "aquatic",
         stages: {
             1: {
-                description: "Wading in water up to your knees restricts your movement",
+                description: "aquatic desc 1",
                 related_skill: "Swimming",
                 scaling_lvl: 30,
                 effects: {
@@ -259,7 +260,7 @@ const favourite_locations = {};
                 applied_effects: [{effect: "Wet", duration: 30}]
             },
             2: {
-                description: "With most of your body submerged, it's hard to move",
+                description: "aquatic desc 2",
                 related_skill: "Swimming",
                 scaling_lvl: 40,
                 effects: {
@@ -271,7 +272,7 @@ const favourite_locations = {};
                 applied_effects: [{effect: "Wet", duration: 30}]
             },
             3: {
-                description: "Fully underwater and with no ground under your feet, the moves you learned on land will help you little",
+                description: "aquatic desc 3",
                 related_skill: "Swimming",
                 effects: {
                     agility: {multiplier: 0.1},
@@ -282,7 +283,7 @@ const favourite_locations = {};
                 applied_effects: [{effect: "Wet", duration: 30}]
             },
             4: {
-                description: "Crushed by the immense pressure of the oceanic abyss",
+                description: "aquatic desc 4",
                 related_skill: "Swimming",
                 effects: {
                     agility: {multiplier: 0.01},
@@ -299,7 +300,7 @@ const favourite_locations = {};
         name: "perilous",
         stages: {
             1: {
-                description: "Littered with sharp and dangerous objects like thorns or broken glass. Every move risks injury",
+                description: "perilous desc 1",
                 related_skill: "Scrambling",
                 scaling_lvl: 30,
                 effects: {
@@ -309,7 +310,7 @@ const favourite_locations = {};
                 }
             },
             2: {
-                description: "Filled with very sharp and dangerous objects like traps, falling rocks, or the insides of a machine. Every false move puts you in mortal danger.",
+                description: "perilous desc 2",
                 related_skill: "Scrambling",
                 effects: {
                     agility: {multiplier: 0.5},
@@ -318,12 +319,47 @@ const favourite_locations = {};
                 }
             },
             3: {
-                description: "An extremely dangerous place, like a raging inferno or the stomach of a beast. Every move risk certain death",
+                description: "perilous desc 3",
                 related_skill: "Scrambling",
                 effects: {
                     agility: {multiplier: 0.2},
                     dexterity: {multiplier: 0.2},
                     health_loss_flat: {flat: -500},
+                }
+            }
+        }
+    });
+
+    //maybe better to have them apply poison/irritated status instead?
+    location_types["miasma"] = new LocationType({
+        name: "miasma",
+        stages: {
+            1: {
+                description: "miasma desc 1",
+                related_skill: "Poison resistance",
+                scaling_lvl: 10,
+                effects: {
+                    intuition: { multiplier: 0.75 },
+                    stamina_efficiency: { multiplier: 0.75 }
+                }
+            },
+            2: {
+                description: "miasma desc 2",
+                related_skill: "Poison resistance",
+                scaling_lvl: 30,
+                effects: {
+                    intuition: {multiplier: 0.5},
+                    stamina_efficiency: { multiplier: 0.5 },
+                    health_loss_flat: {flat: -15},
+                }
+            },
+            3: {
+                description: "miasma desc 3",
+                related_skill: "Poison resistance",
+                effects: {
+                    intuition: {multiplier: 0.5},
+                    stamina_efficiency: { multiplier: 0.25 },
+                    health_loss_flat: {flat: -150},
                 }
             }
         }
@@ -386,7 +422,7 @@ const favourite_locations = {};
         name: "Village", // names: allow region name the player reads as a proper name; id is derived from name, so it stays (NMR4 dial)
         crafting: new LocationCrafting({
             is_unlocked: true, 
-            use_text: "Try to craft something", 
+            use_text: "craft default", 
             tiers: {
                 crafting: 1,
                 forging: 1,
@@ -446,7 +482,7 @@ const favourite_locations = {};
         },
         npcs: ["villageMillers"],
     });
-    locations["Village"].connected_locations.push({location: locations["Eastern mill"], travel_time: 30});
+    locations["Village"].connected_locations.push({location: locations["Eastern mill"], travel_time: 30, azimuth: 85});
 
     locations["Eastern storehouse"] = new CombatZone({
         name: "Eastern storehouse",
@@ -568,7 +604,7 @@ const favourite_locations = {};
         is_unlocked: false,
         is_under_roof: true,
     });
-    locations["Village"].connected_locations.push({location: locations["Nearby cave"], travel_time: 60});
+    locations["Village"].connected_locations.push({location: locations["Nearby cave"], travel_time: 60, azimuth: 5});
     //remember to always add it like that, otherwise travel will be possible only in one direction and location might not even be reachable
 
     locations["Cave room"] = new CombatZone({
@@ -604,7 +640,7 @@ const favourite_locations = {};
             },
         ],
     });
-    locations["Nearby cave"].connected_locations.push({location: locations["Cave room"], travel_time: 5});
+    locations["Nearby cave"].connected_locations.push({location: locations["Cave room"], travel_time: 5, azimuth: 90});
 
     locations["Cave depths"] = new CombatZone({
         description: "It's dark. And full of rats", 
@@ -721,10 +757,10 @@ const favourite_locations = {};
     });
 
     locations["Nearby cave"].connected_locations.push(
-        {location: locations["Cave depths"], travel_time: 20}, 
-        {location: locations["Hidden tunnel"], custom_text: "Enter the [Hidden tunnel]", travel_time: 40}, 
-        {location: locations["Pitch black tunnel"], custom_text: "Go into the [Pitch black tunnel]", travel_time: 60},
-        {location: locations["Mysterious gate"], custom_text: "Go to the [Mysterious gate]", travel_time: 90}
+        {location: locations["Cave depths"], travel_time: 20, azimuth: 95}, 
+        {location: locations["Hidden tunnel"], custom_text: "Enter the [Hidden tunnel]", travel_time: 40, azimuth: 100}, 
+        {location: locations["Pitch black tunnel"], custom_text: "Go into the [Pitch black tunnel]", travel_time: 60, azimuth: 105},
+        {location: locations["Mysterious gate"], custom_text: "Go to the [Mysterious gate]", travel_time: 90, azimuth: 110}
     );
 
     locations["Writhing tunnel"] = new CombatZone({
@@ -754,7 +790,7 @@ const favourite_locations = {};
         unlock_text: "You see something. You struggle to comprehend it. When you finally understand, you regret it instantly. It might have been better to be born blind."
     });
 
-    locations["Nearby cave"].connected_locations.push({location: locations["Writhing tunnel"], travel_time: 100});
+    locations["Nearby cave"].connected_locations.push({location: locations["Writhing tunnel"], travel_time: 100, azimuth: 115});
 
     locations["Mysterious depths"] = new SafeLocation({ //not yet unlockable
         connected_locations: [{location: locations["Nearby cave"], custom_text: "Climb back up to the main level of [Nearby cave]", travel_time: 100}], 
@@ -774,7 +810,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         is_under_roof: true,
     });
 
-    locations["Nearby cave"].connected_locations.push({location: locations["Mysterious depths"], custom_text: "Climb down to [Mysterious depths]", travel_time: 120});
+    locations["Nearby cave"].connected_locations.push({location: locations["Mysterious depths"], custom_text: "Climb down to [Mysterious depths]", travel_time: 120, azimuth: 120});
 
     locations["Forest road"] = new SafeLocation({ 
         connected_locations: [{location: locations["Village"], travel_time: 240}],
@@ -787,7 +823,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         },
         is_unlocked: false,
     });
-    locations["Village"].connected_locations.push({location: locations["Forest road"], custom_text: "Leave the village towards [Forest road]", travel_time: 240});
+    locations["Village"].connected_locations.push({location: locations["Forest road"], custom_text: "Leave the village towards [Forest road]", travel_time: 240, azimuth: -85});
 
     locations["Forest"] = new CombatZone({
         description: "Forest surrounding the village, a dangerous place", 
@@ -860,7 +896,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
             }
         ],
     });
-    locations["Forest road"].connected_locations.push({location: locations["Forest clearing"], custom_text: "Go towards the [Forest clearing] in the north", travel_time: 60});
+    locations["Forest road"].connected_locations.push({location: locations["Forest clearing"], custom_text: "Go towards the [Forest clearing] in the north", travel_time: 60, azimuth: -5});
 
     locations["Carya Canyon"] = new SafeLocation({ 
         connected_locations: [{location: locations["Forest road"], travel_time: 300}],
@@ -873,7 +909,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         },
         is_unlocked: false,
     });
-    locations["Forest road"].connected_locations.push({location: locations["Carya Canyon"], custom_text: "Hike to [Carya Canyon]", travel_time: 120});
+    locations["Forest road"].connected_locations.push({location: locations["Carya Canyon"], custom_text: "Hike to [Carya Canyon]", travel_time: 120, azimuth: 185});
     
     locations["Precarious tree bridge"] = new ChallengeZone({
         description: "A warthog heard the commotion and is guarding the way across.", 
@@ -931,7 +967,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         temperature_range_modifier: 0.8,
         is_under_roof: true,
     });
-    locations["Forest road"].connected_locations.push({location: locations["Forest den"], custom_text: "Enter the [Forest den]", travel_time: 90});
+    locations["Forest road"].connected_locations.push({location: locations["Forest den"], custom_text: "Enter the [Forest den]", travel_time: 90, azimuth: -85});
 
     locations["Bears' den"] = new CombatZone({
         description: "A dark, smelly cave in the heart of the forest, with massive bones spread around the entrance",
@@ -961,7 +997,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         getBackgroundNoises: () => ["*Mosquitoes buzzing*", "*Frogs croaking*", "*something splashes in the water*", "*an animal comes out to drink*", "Quack", "Quack!"],
         is_unlocked: false,
     });
-    locations["Forest road"].connected_locations.push({ location: locations["Forest lake"], travel_time: 120 });
+    locations["Forest road"].connected_locations.push({ location: locations["Forest lake"], travel_time: 120, azimuth: -95 });
 
     locations["Frogs"] = new CombatZone({
         description: "Battling at the lake's edge",
@@ -993,11 +1029,11 @@ There's another gate on the wall in front of you, but you have a strange feeling
         getBackgroundNoises: () => ["*something is watching you*", "*something howls in the distance*", "*You step on the bones of some large animal*", "*something brushes against your leg*"],
         is_unlocked: false,
     });
-    locations["Forest lake"].connected_locations.push({ location: locations["Motherwood"], custom_text: "Follow where the river leads", travel_time: 30 });
+    locations["Forest lake"].connected_locations.push({ location: locations["Motherwood"], custom_text: "Follow where the river leads", travel_time: 30, azimuth: -95 });
 
     locations["Primeval forest"] = new CombatZone({
         description: "Dangerous beasts roam here",
-        enemies_list: ["Grizzly bear", "Bandersnatch", "Grizzly squirrel"],
+        enemies_list: ["Grizzly bear", "Bandersnatch", "Grizzly squirrel", "Grand old boar", "Boar matriarch"],
         enemy_count: 50,
         enemy_group_size: [1,2],
         is_unlocked: true,
@@ -1028,7 +1064,9 @@ There's another gate on the wall in front of you, but you have a strange feeling
             { enemies: ["Owlbear", "Grizzly squirrel"] },
             { enemies: ["Bandersnatch"]},
             { enemies: ["Bandersnatch", "Grizzly squirrel", "Grizzly squirrel"]},
-            { enemies: ["Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel"] }],
+            { enemies: ["Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel"] },
+            { enemies: ["Basilisk"]}
+        ],
         enemy_count: 50,
         is_unlocked: false,
         enemy_stat_variation: 0.2,
@@ -1041,9 +1079,33 @@ There's another gate on the wall in front of you, but you have a strange feeling
         repeatable_reward: {
             xp: 5000,
         },
+        rewards_with_clear_requirement: [
+            {
+                required_clear_count: 4,
+                messages: ["You reach a beautiful meadow. A herd of cow-like creatures is grazing here"],
+                locations: [{location:"Miasma meadow"}]
+            }
+        ],
     });
     locations["Motherwood"].connected_locations.push({location: locations["Bramble path"], travel_time: 60});
 
+    locations["Miasma meadow"] = new CombatZone({
+        description: "A beautiful, sunlit meadow opens in the middle of the dark woods. The plants that grow here are deathly poisonous, and the creatures that graze on them are just as deadly",
+        enemies_list: ["Catoblepas"],
+        enemy_count: 50,
+        is_unlocked: false,
+        enemy_stat_variation: 0.2,
+        name: "Miasma meadow", 
+        types: [{type: "open", stage: 1, xp_gain: 1}, {type: "miasma", stage: 2, xp_gain: 4}],
+        parent_location: locations["Motherwood"],
+        first_reward: {
+            xp: 20000,
+        },
+        repeatable_reward: {
+            xp: 6000,
+        },
+    });
+    locations["Motherwood"].connected_locations.push({location: locations["Miasma meadow"], travel_time: 90});
 
 
     locations["Forest ant nest"] = new CombatZone({ 
@@ -1077,7 +1139,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         is_unlocked: true,
         npcs: ["gateGuard"],
     });
-    locations["Forest road"].connected_locations.push({location: locations["Town outskirts"], custom_text: "Go towards the [Town outskirts]", travel_time: 240});
+    locations["Forest road"].connected_locations.push({location: locations["Town outskirts"], custom_text: "Go towards the [Town outskirts]", travel_time: 240, azimuth: -5});
 
     locations["Slums"] = new SafeLocation({ 
         connected_locations: [{location: locations["Town outskirts"], travel_time: 60}],
@@ -1264,8 +1326,10 @@ There's another gate on the wall in front of you, but you have a strange feeling
     locations["Slums"].connected_locations.push({location: locations["Gang hideout"], travel_time: 10});
 
     locations["Town square"] = new SafeLocation({ 
-        connected_locations: [{location: locations["Town outskirts"], travel_time: 40}],
-        description: "The town's center of life, connected to all the markets, guilds, and other important places",
+        connected_locations: [{location: locations["Town outskirts"], travel_time: 50}],
+        description: "The town's center of life, connected to all the markets, guilds, and other important places. Multiple stores and cafe's can be seen "
+                    +"around, and there are a few larger roads that lead away from it. The less busy one seems to go towards a temple district, while "
+                    +"the other, filled with people, clearly leads to artisans' quarter.",
         name: "Town square",
         is_unlocked: false,
         getBackgroundNoises: function() {
@@ -1273,7 +1337,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
                 "*Horse neighs*", "Violets, lovely violets for sale!", "*Some idiot falls of a roof, luckily it's not high enough to cause any serious injury", 
                 //IFYKYK
 
-                "Newspaper, newest newspaper!", "Fresh bread, only here!", "Bread fresher than on the stale next to me, come and try!",
+                "Newspaper, newest newspaper!", "Fresh bread, only here!", "Bread fresher than on the stall next to me, come and try!",
                 "*Water cascades from the fountain in the center*", "*Pigeon stares at you*", "*A group of pigeons lands on the fountain*",
             ];
             return noises;
@@ -1281,17 +1345,35 @@ There's another gate on the wall in front of you, but you have a strange feeling
     });
 
     locations["Town outskirts"].connected_locations.push(
-                                                        {location: locations["Town farms"], travel_time: 60}, 
-                                                        {location: locations["Slums"], travel_time: 60}, 
-                                                        {location: locations["Town square"], travel_time: 40}
+                                                        {location: locations["Town farms"], travel_time: 60, azimuth: 5}, 
+                                                        {location: locations["Slums"], travel_time: 60, azimuth: 185}, 
+                                                        {location: locations["Town square"], travel_time: 50}
                                                     );
+
+    locations["Gallows"] = new SafeLocation({ 
+        connected_locations: [{location: locations["Town square"], travel_time: 4}],
+        description: `There is a single corpse still hanging, only holding together by some miracle. It's too old and dry to let out any smell. A guard stands at the bottom of `
+                    +"gallows, glancing at you.",
+        name: "Gallows",
+        is_unlocked: true,
+        getBackgroundNoises: function() {
+            let noises = [
+                "*It's all silent*", "*The corpse swings on the wind*", "*A bird tries to poke the corpse, then leaves because it's too old and dried*",
+            ];
+            return noises;
+        },
+        npcs: ["gallowsGuard"],
+    });                                                
 
     locations["Cat cafe"] = new SafeLocation({ 
         connected_locations: [{location: locations["Town square"], travel_time: 4}],
-        description: `A cat café in the center of town. There are multiple kitties of all kinds, but two females especially catch your eyes
- - a chubby mackerel tabby with a white belly and neck, and a slender tortoishell that seems blind on the right eye. There's a single worker in the café, a person of ambiguous gender with long ponytail and glasses.`,
+        description: "A cat café in the center of town. There are multiple kitties of all kinds, but some especially catch your eyes. " //obviously it's just some of my old cats [*]
+                    +"there's a chubby mackerel tabby with a white belly and neck, sitting right next to a slender tortoishell that seems blind on the right eye. " //Fran and Mona
+                    +"They seem to be in a balanced state of mutual tolerance, rather than friends. "
+                    +"A bit further you see a regular mackerel tabby that sleeps cuddled with a mostly white cat with a few small black spots.", //Edgar and Ida
         name: "Cat café",
         is_unlocked: true,
+        market_region: "Town",
         getBackgroundNoises: function() {
             let noises = [
                 "Meow", "Nya", "Mrrr", "Mrrrp meow", "Mrrrp mrrrp",
@@ -1299,6 +1381,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
             ];
             return noises;
         },
+        npcs: ["catCafeOwner"],
         is_under_roof: true,
         is_temperature_static: true,
         static_temperature: 20,
@@ -1309,6 +1392,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         description: `A nekomimi café in the center of town. Multiple catboys and catgirls are busy with a mix of work and silliness, sometimes properly serving drinks and snacks and sometimes just acting the way their four legged equivalents tend to do.`,
         name: "Nekomimi café",
         is_unlocked: true,
+        market_region: "Town",
         getBackgroundNoises: function() {
             let noises = [
                 "Meow", "Nya", "Mrrr", "Mrrrp meow", "Mrrrp mrrrp",
@@ -1356,20 +1440,24 @@ There's another gate on the wall in front of you, but you have a strange feeling
                 "Don't be stupid, everyone knows the world is a cube", "I wanted to report...", "Congratulations, that's another task completed!",
                 "Gonna reach next rank soon, I hope", "That advancement exam was absurd...",
                 "After my next dungeon dive, I will seriously ask him to marry me", "Sorry? What's a death flag?",
-                "Haha, I did it!", "With this, I can finally retire! Or maybe... just one more...", "Anything is better than rats",
-                "Just one bite and all that was left of my team leader was a pair of bloodied legs... I'm never going back there, no way.",
-                "Give us drinks, we are celebrating!", "So, that one time we stumbled upon a pair of bloodied legs, just standing upright in front of a boss chamber...",
+                "Haha, I did it!", "With this, I can finally retire! Or maybe... just one more...", "Okay, just one more dungeon run, my team needs their leader", 
+                "Just one bite and all that was left of my team leader was a pair of bloodied legs... I'm never going back there, no way.", "She was about to retire after that...",
+                "So, that one time we stumbled upon a pair of bloodied legs, just standing upright in front of a boss chamber...", "Give us drinks, we are celebrating!",
                 "I will never get idiots who dive in the dungeon, it's too risky", "Personally? I would rather do simple small requests my entire life than risk meeting one of those...",
-                "Right? And then I deliver it and they say nuh uh, this isn't what we asked for, but it was EXACTLY was they asked for",
+                "Right? And then I deliver it and they say nuh uh, this isn't what we asked for, but it was EXACTLY what they asked for",
+                "Anything is better than rats",
 
-                "Remember what we talked about last time?", "Took me a few trips, but I actually saw them...", "...they maybe just reached adulthood, and yet...",
-                "...they were just rushing through floor after floor...", "...every spear stab was a kill...", "...every sword swing was a kill...", "...every strange spell was a kill...",
+                "Remember what we talked about last time?", "Took me a few trips, but I actually saw them...", "...they looked like they just reached adulthood, and yet...",
+                "...they were just rushing through floor after floor...", "...every spear stab was a kill...", "...every sword swing was a kill...", "...each of their strange spells was a kill...",
                 "...and they really were strange...", "...I'm serious, I've never seen magic like that...", "...it was as if shadows were alive...", "...actually, while I didn't see that one...",
-                "...my teammate swears shadows detached from the wall...", "...and then they took a shape of a spike...", "...one thrust, and the floor boss was gone...",
+                "...my teammate swears shadows detached from the wall...", "...and then they took a shape of a spike...", "...one thrust, and the floor boss was gone...", "...I did see another of them in action though...",
+                "...so like, there was a big monster, and then suddenly crystal spikes ripped him apart from inside...",
 
                 "Okay, so like, imagine a kobold...", "Okay, and now, imagine three kobolds. In a trenchcoat...", "That's a classic, right?", "Now imagine three fat rats in a trenchcoat, pretending to be a kobold",
                 "And now... Imagine three of those, too dumb to realize they are all the same...", "Standing on top of one another, wearing one larger trenchcoat...", "No, I'm serious!",
                 "I swear, my cousin's brother's dog's groomer's aunt's husband saw it happen with his own eyes!",
+                //a bunch of random "haha funi" stuff plus some cringy OC inserts, most of which won't even make sense,
+                //because chances of anything being shown in correct order are absurdly low
             ];
             if(!global_flags.is_mofu_mofu_enabled) {
                 noises.push("...but you know the craziest thing?", "I swear that two of them had cat tails...", "I wasn't drunk, they had cat tails and cat ears...", "...the other two seemed human though");
@@ -1403,8 +1491,97 @@ There's another gate on the wall in front of you, but you have a strange feeling
         {location: locations["Nekomimi cafe"], travel_time: 4},
         {location: locations["Adventurer's guild"], travel_time: 4},
         {location: locations["Mages guild"], travel_time: 4},
-        {location: locations["Antique store"], travel_time: 4}
+        {location: locations["Antique store"], travel_time: 4},
+        {location: locations["Gallows"], travel_time: 4},
+    );
 
+    locations["Temple district"] = new SafeLocation({
+        connected_locations: [{location: locations["Town square"], travel_time: 20}],
+        description: `Temple district is clearly the cleanest, most well-kept, best organized part of town. Rows of trees and bushes along the roads, `
+                    +`a public garden beyond a short wall, a few fountains here and there, and a small stream flowing through a shallow channel. `
+                    +`There's even an orphanage and a public school. And then, of course, multiple buildings used solely by clergy. Some of them are residential buildings for `
+                    +`local clergy, others are harder to recognize, and then there's a large impressive temple in the middle, in shape of a half-circle, `
+                    +`with rows of columns along the flat side and with way too much ornamentation.`,
+        name: "Temple district",
+        is_unlocked: true,
+        getBackgroundNoises: function() {
+            let noises = [
+            ];
+            return noises;
+        },
+    });
+    locations["Town square"].connected_locations.push(
+        {location: locations["Temple district"], travel_time: 20},
+    );
+
+    locations["Temple"] = new SafeLocation({
+        connected_locations: [{location: locations["Temple district"], travel_time: 4}],
+        description: `Insides of the temple are not as ornamented as outsides, with the entire internal structure organized to keep the focus on series of altars that `
+                    +`stretch equally spaced along the whole of the curved wall. There seems to be some kind of ritual circle in the middle, with a single priest standing `
+                    +`next to it patiently.`,
+        name: "Temple", // names: allow upstream location ID and name for save compatibility
+        npcs: ["templePriest"],
+        is_unlocked: true,
+        getBackgroundNoises: function() {
+            let noises = [
+                "Come on, make that face more yellow, it will be fun!", "I can't just paint Grand Priest's face so yellow, that would be disrespectful...", // ¯\_(ツ)_/¯
+                "Someone starts quietly singing some religious anthem",
+            ];
+            return noises;
+        },
+        is_under_roof: true,
+        is_temperature_static: true,
+        static_temperature: 20,
+    });
+    locations["Temple district"].connected_locations.push(
+        {location: locations["Temple"], travel_time: 4},
+    );
+
+    locations["Artisans' quarter"] = new SafeLocation({
+        connected_locations: [{location: locations["Town square"], travel_time: 30}],
+        description: "A rather large part of the town is dedicated solely to all kinds of craft and to related trade. There's almost everything here: "
+                    +"stores with raw materials, workshops, lesser guilds, loud noises and strange smells. A row of trees separates this area from the rest of the "
+                    +"town, in what seems to be a futile attempt to make it less of an annoyance for other citizens.",
+        name: "Artisans' quarter",
+        is_unlocked: true,
+        market_region: "Town",
+        getBackgroundNoises: function() {
+            let noises = [
+                "Ore! Lots of ore for sell!",
+                "*Two horse carriages end up stuck in an awkward position, blocking the traffic for a moment.*",
+                "Come here to buy whatever wood you could dream of!",
+                "*Clink click*",
+                "*Clank clank*",
+                "Weapons that will pierce any armor, only here!",
+                "Armors that no weapon can pierce, only here!",
+            ];
+            return noises;
+        },
+        npcs: [
+            "townSmith",
+            "resourceTrader",
+            "weaponTrader",
+            "armorTrader",
+            'townAlchemist',
+        ]
+    });
+    locations["Town square"].connected_locations.push(
+        {location: locations["Artisans' quarter"], travel_time: 30},
+    );
+
+    locations["Dungeon entrance"] = new SafeLocation({
+        connected_locations: [{location: locations["Town square"], travel_time: 25}],
+        description: "",
+        name: "Dungeon entrance",
+        is_unlocked: true,
+        getBackgroundNoises: function() {
+            let noises = [
+            ];
+            return noises;
+        },
+    });
+    locations["Town square"].connected_locations.push(
+        {location: locations["Dungeon entrance"], travel_time: 25},
     );
 
     locations["Mountain path"] = new SafeLocation({
@@ -1419,7 +1596,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         temperature_modifier: -2,
         unlock_text: "Thanks to your hard effort, you reached a narrow safe spot where you can rest a bit",
     });
-    locations["Nearby cave"].connected_locations.push({location: locations["Mountain path"], custom_text: "Climb up to [Mountain path]", travel_time: 60, travel_time_skills: ["Climbing"]});
+    locations["Nearby cave"].connected_locations.push({location: locations["Mountain path"], custom_text: "Climb up to [Mountain path]", travel_time: 60, travel_time_skills: ["Climbing"], azimuth: 1});
 
     locations["Small flat area in mountains"] = new SafeLocation({
         connected_locations: [{location: locations["Mountain path"], travel_time: 120}],
@@ -1446,7 +1623,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         }),
         crafting: new LocationCrafting({
             is_unlocked: true,
-            use_text: "Cook something on a campfire",
+            use_text: "craft cook",
             tiers: {
                 cooking: 1
             }
@@ -1494,7 +1671,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         name: "Downstream from the village",
         is_unlocked: false,
     });
-    locations["Village"].connected_locations.push({location: locations["Downstream from the village"], custom_text: "Hike down the river", travel_time: 2160});
+    locations["Village"].connected_locations.push({location: locations["Downstream from the village"], custom_text: "Hike down the river", travel_time: 2160, azimuth: -170});
 
     locations["Riverbank"] = new SafeLocation({ 
         connected_locations: [{location: locations["Village"], custom_text: "Make the long hike back to the [Village]", travel_time: 2160}], 
@@ -1518,7 +1695,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         name: "Riverbank",
         is_unlocked: false,
     });
-    locations["Village"].connected_locations.push({location: locations["Riverbank"], custom_text: "Hike down the river", travel_time: 2160});
+    locations["Village"].connected_locations.push({location: locations["Riverbank"], custom_text: "Hike down the river", travel_time: 2160, azimuth: -170});
   
 	locations["Downstream from the village"].connected_locations.push({location: locations["Riverbank"], custom_text: "Move down to the [Riverbank]", travel_time: 30});
 
@@ -1547,7 +1724,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
             },
         ],
     });
-    locations["Riverbank"].connected_locations.push({location: locations["Riverbank shore"], custom_text: "Climb down to the [Riverbank shore]", travel_time: 15});
+    locations["Riverbank"].connected_locations.push({location: locations["Riverbank shore"], custom_text: "Climb down to the [Riverbank shore]", travel_time: 15, azimuth: 180});
 	
     locations["Further downstream"] = new SafeLocation({ 
         connected_locations: [{location: locations["Riverbank"], custom_text: "Go back along the path you've made to the [Riverbank]", travel_time: 240}], 
@@ -1598,7 +1775,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         }),
         crafting: new LocationCrafting({
             is_unlocked: false,
-            use_text: "Cook something on a campfire",
+            use_text: "craft cook",
             tiers: {
                 cooking: 1
             }
@@ -1631,7 +1808,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         name: "Waterfall basin",
         is_unlocked: false,
     });
-    locations["Lake beach"].connected_locations.push({location: locations["Waterfall basin"], custom_text: "Rappel down to the [Waterfall basin]", travel_time: 40, travel_time_skills: ["Climbing"]});
+    locations["Lake beach"].connected_locations.push({location: locations["Waterfall basin"], custom_text: "Rappel down to the [Waterfall basin]", travel_time: 40, travel_time_skills: ["Climbing"], azimuth: 180});
 
     locations["Crab spawning grounds"] = new CombatZone({
         description: "First an enormous crab nest, then an enormous crab's nest, and now this??",       //final punchline to the "big crab nest/big crabs' nest/big crab's nest" setup
@@ -1732,7 +1909,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         is_unlocked: false,
         crafting: new LocationCrafting({
             is_unlocked: false,
-            use_text: "Use the tribe's workhuts to craft something", 
+            use_text: "craft tribe",
             tiers: {
                 crafting: 2,
                 forging: 1,
@@ -2052,7 +2229,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
 
     locations["Eastern mill"].activities = {
         "balancing": new LocationActivity({
-            activity_name: "climbing",
+            activity_name: "balancing",
             starting_text: "Stay on top of the windmill sails",
             skill_xp_per_tick: 15,
             is_unlocked: false,
@@ -2430,6 +2607,13 @@ There's another gate on the wall in front of you, but you have a strange feeling
             is_unlocked: true,
             applied_effects: [{ effect: "Wet", duration: 30 }],
         }),
+        "running": new LocationActivity({
+            activity_name: "running",
+            starting_text: "Run across the lake on lilypads",
+            skill_xp_per_tick: 15,
+            is_unlocked: false,
+        }),
+
         "woodcutting": new LocationGatheringActivity({
             activity_name: "woodcutting",
             starting_text: "Harvest wood from the weeping willows",
@@ -2553,6 +2737,18 @@ There's another gate on the wall in front of you, but you have a strange feeling
     };
 
     locations["Motherwood"].activities = {
+        "climbing": new LocationActivity({
+            activity_name: "climbing",
+            starting_text: "Try climbing the massive trees",
+            skill_xp_per_tick: 7,
+            is_unlocked: true,
+        }),
+        "balancing": new LocationActivity({
+            activity_name: "balancing",
+            starting_text: "Stand on the tallest treetop",
+            skill_xp_per_tick: 10,
+            is_unlocked: false,
+        }),
         "animal care": new LocationGatheringActivity({
             activity_name: "animal care",
             starting_text: "Delicately harvest silkworm coccoons",
@@ -2565,6 +2761,25 @@ There's another gate on the wall in front of you, but you have a strange feeling
                 time_period: [120, 40],
                 skill_required: [20, 30]
             },
+        }),
+        "herbalism": new LocationGatheringActivity({
+            activity_name: "herbalism",
+            starting_text: "Gather useful plants and mushrooms throughout the forest",
+            skill_xp_per_tick: 7,
+            is_unlocked: false,
+            gained_resources: {
+                resources: [
+                    {name: "Oneberry", chance: [0.2, 0.7]},
+                    {name: "Golmoon leaf", chance: [0.2, 0.7]},
+                    { name: "Belmart leaf", chance: [0.2, 0.7] },
+                    {name: "Cooking herbs", chance: [0.2, 0.7]},
+                    {name: "Edible mushroom", chance: [0.1, 0.8]},
+                    {name: "Toadstool", chance: [0.3, 0.8]}
+                ], 
+                time_period: [120, 20],
+                skill_required: [10, 25]
+            },
+            require_tool: true,
         }),
     }
 })();
@@ -2810,7 +3025,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         "unlock balancing": new GameAction({
             action_id: "unlock balancing",
             starting_text: "Climb atop the sails",
-            description: "See what the view from up there is like.",
+            description: "See what the view from up there is like",
             action_text: "Navigating the moving spars",
             success_text: "You finally reach the top. Now, staying there is a whole different thing...",
             failure_texts: {
@@ -3552,6 +3767,53 @@ There's another gate on the wall in front of you, but you have a strange feeling
                 skill_xp: { Swimming: 800, Breathing: 800, Perception: 800, },
             },
         }),
+
+        "unlock running": new GameAction({
+            action_id: "unlock running",
+            starting_text: "Run across the lake",
+            description: "If you're just fast enough, the lilypads should hold your weight just long enough",
+            action_text: "Aimimg for the next lilypad",
+            success_text: "You manage to run to the other side of the lake without falling in. Challenging yourself like this again might make for good training",
+            failure_texts: {
+                conditional_loss: [
+                    "You would have to be crazy good at running to even enteratain this idea"
+                ],
+                random_loss: [
+                    "You miss and fall in the water",
+                    "You land too hard on a lilypad and break it",
+                ],
+            },
+            conditions: [
+                {
+                    skills: {
+                        "Running": 25,
+                        "Equilibrium": 10,
+                    },
+                    stats: {
+                        "dexterity": 300,
+                        agility: 400
+                    }
+                },
+                {
+                    skills: {
+                        "Running": 50,
+                        "Equilibrium": 20,
+                    },
+                    stats: {
+                        dexterity: 600,
+                        agility: 1000
+                    },
+                },
+            ],
+            attempt_duration: 60,
+            success_chances: [0.2, 1],
+            rewards: {
+                skill_xp: {"Running": 30000},
+                activities: [{location:"Forest lake", activity:"running"}],
+            },
+        }),
+
+
         "gaze": new GameAction({
             action_id: "gaze",
             action_name: "Follow where the river leads",
@@ -3597,7 +3859,7 @@ You almost muster the courage to venture in, but hesitate at the last moment`],
             starting_text: "Search for useful plants",
             description: "Are there any you can recognize?",
             action_text: "Exploring",
-            success_text: "You find that some flowering bushes are particlularly attractive to a peculiar type of caterpillar, and are positively swarming with them",
+            success_text: "Amongst other, more familiar plants, you find some flowering bushes that seem particlularly attractive to a peculiar type of caterpillar, and are absolutely swarming with them",
             failure_texts: {
                 conditional_loss: ["You are not knowledgeable enough about plants for this..."],
                 random_loss: [
@@ -3609,7 +3871,7 @@ You almost muster the courage to venture in, but hesitate at the last moment`],
             success_conditions: [
                 {
                     skills: {
-                        "Herbalism": 20,
+                        "Herbalism": 10,
                     },
                 },
                 {
@@ -3622,6 +3884,7 @@ You almost muster the courage to venture in, but hesitate at the last moment`],
             attempt_duration: 60,
             success_chances: [0.1, 1],
             rewards: {
+                activities: [{location:"Motherwood", activity: "herbalism"}],
                 actions: [{location:"Motherwood", action: "identify bugs"}],
             },
         }),
@@ -3662,6 +3925,53 @@ You almost muster the courage to venture in, but hesitate at the last moment`],
                 recipes: [
                     {category: "crafting", subcategory: "items", recipe_id: "Silk cloth"},
                 ]
+            },
+        }),
+        "unlock balancing": new GameAction({
+            action_id: "unlock balancing",
+            starting_text: "Climb to the top of the tallest tree",
+            description: "See what the view from up there is like",
+            action_text: "Reaching for the next branch",
+            success_text: "You finally reach the top. Now, staying there is a whole different thing...",
+            failure_texts: {
+                conditional_loss: [
+                    "You can't even see the top from here. Maybe if you were better at climbing and balancing..."
+                ],
+                random_loss: [
+                    "The tree was just too tall",
+                    "You couln't find the right branch",
+                    "You fell down",
+                    "The branch snaps under your weight",
+                    "The treetop bends under your weight"
+                ],
+            },
+            conditions: [
+                {
+                    skills: {
+                        "Climbing": 10,
+                        "Equilibrium": 5,
+                    },
+                    stats: {
+                        strength: 100,
+                        agility: 200
+                    }
+                },
+                {
+                    skills: {
+                        "Climbing": 30,
+                        "Equilibrium": 20,
+                    },
+                    stats: {
+                        strength: 200,
+                        agility: 500
+                    },
+                },
+            ],
+            attempt_duration: 20,
+            success_chances: [0.2, 1],
+            rewards: {
+                skill_xp: {"Climbing": 10000},
+                activities: [{location:"Motherwood", activity:"balancing"}],
             },
         }),
     };
@@ -3705,6 +4015,187 @@ You almost muster the courage to venture in, but hesitate at the last moment`],
         }),
     };
 
+    locations["Nekomimi cafe"].actions = {
+        "private time": new GameAction({
+            action_id: "private time",
+            starting_text: "Pay 10S for some private time with one of the employees",
+            description: "It's surely worth it",
+            success_text: "You spend an hour in a private room with the person you chose, patting their head and scratching their ears. "
+                         +"For a moment, you question whether you shouldn't be the one getting paid for this instead, but nah, it's worth its price.",
+            display_conditions: {
+                money: {
+                    number: 10000,
+                }
+            },
+            success_conditions: [
+                {
+                    money: {
+                        number: 10000,
+                        remove: true,
+                    }
+                },
+            ],
+            attempt_duration: 0,
+            success_chances: [1],
+            repeatable: true,
+            rewards: {
+                progress_timer: 60, //60 in-game minutes, or 1 in-game hour (or 1 irl minute, assuming default tickrate)
+                active_effects: {"Fluffy bliss": 1440}, //24 in-game hours, or 24 irl minutes at default tickrate
+                textlines: [{dialogue: "nekomimi proprietress", lines: ["something stronger"], skip_message: true,}],
+            },
+        }),
+        "private time 2": new GameAction({
+            action_id: "private time 2",
+            starting_text: "Pay 3G for some private time with multiple employees and with catnip involved",
+            description: "This might be too much even for you",
+            success_text: "You spend two hours in a private room with some of the cutest, friendliest employees this place has to offer, in atmosphere that's heavy with "
+                         +"catnip. You scratch their ears, pat their heads, have them purr all around you, get bunted a lot... If paradise exists in mortal realm, then this is it.",
+            display_conditions: {
+                money: {
+                    number: 300000,
+                },
+                not_race: "nekomimi",
+            },
+            success_conditions: [
+                {
+                    money: {
+                        number: 300000,
+                        remove: true,
+                    }
+                },
+            ],
+            attempt_duration: 0,
+            success_chances: [1],
+            repeatable: true,
+            rewards: {
+                progress_timer: 120, //60 in-game minutes, or 1 in-game hour (or 1 irl minute, assuming default tickrate)
+                active_effects: {"Fluffy bliss": 4320}, //72 in-game hours
+            },
+        }),
+        "private time 2 cat": new GameAction({
+            action_id: "private time 2 cat",
+            starting_text: "Pay 3G for some private time with multiple employees and with catnip involved",
+            description: "This might be too much even for you",
+            success_text: "You spend two hours in a private room with some of the cutest, friendliest employees this place has to offer, in atmosphere that's heavy with "
+                         +"catnip, overwhelming your senses and making you act the same way they do. You scratch their ears, pat their heads, have them purr all around you, get bunted a lot, and "
+                         +"you bunt back too. If paradise exists in mortal realm, then this is it.",
+            display_conditions: {
+                money: {
+                    number: 300000,
+                },
+                race: "nekomimi",
+            },
+            success_conditions: [
+                {
+                    money: {
+                        number: 300000,
+                        remove: true,
+                    }
+                },
+            ],
+            attempt_duration: 0,
+            success_chances: [1],
+            repeatable: true,
+            rewards: {
+                progress_timer: 120, //60 in-game minutes, or 1 in-game hour (or 1 irl minute, assuming default tickrate)
+                active_effects: {
+                    "Fluffy bliss": 4320, //72 in-game hours
+                    "Tipsy": 120,
+                }, 
+            },
+        }),
+    };
+    locations["Cat cafe"].actions = {
+        "private time": new GameAction({
+            action_id: "private time",
+            starting_text: "Pay 10S for a cuddling session with some of the cats",
+            description: "It's surely worth it",
+            success_text: "You spend an hour in a private room, constantly being assaulted by fluffy cuddly purring creatures that never seem to have enough.",
+            display_conditions: {
+                money: {
+                    number: 10000,
+                }
+            },
+            success_conditions: [
+                {
+                    money: {
+                        number: 10000,
+                        remove: true,
+                    }
+                },
+            ],
+            attempt_duration: 0,
+            success_chances: [1],
+            repeatable: true,
+            rewards: {
+                progress_timer: 60, //60 in-game minutes, or 1 in-game hour (or 1 irl minute, assuming default tickrate)
+                active_effects: {"Fluffy bliss": 1440}, //24 in-game hours, or 24 irl minutes at default tickrate
+                textlines: [{dialogue: "cat cafe owner", lines: ["something stronger"], skip_message: true,}],
+            },
+        }),
+        "private time 2": new GameAction({
+            action_id: "private time 2",
+            starting_text: "Pay 3G for a special cuddly session with cats",
+            description: "This might be too much even for you",
+            success_text: "You spend two hours in a private room, surrounded by cats that are just impossibly friendly and cuddly. Sound of their purring is overwhelming, "
+                         +"their demands for attention unending, and your number of limbs way too low to handle them all. At least the catnip distracts them a bit every now and then, "
+                         +"letting you get a breath of air. If you were to die, this is how you would like to feel when it happens.",
+            display_conditions: {
+                money: {
+                    number: 300000,
+                },
+                not_race: "nekomimi",
+            },
+            success_conditions: [
+                {
+                    money: {
+                        number: 300000,
+                        remove: true,
+                    }
+                },
+            ],
+            attempt_duration: 0,
+            success_chances: [1],
+            repeatable: true,
+            rewards: {
+                progress_timer: 120, //60 in-game minutes, or 1 in-game hour (or 1 irl minute, assuming default tickrate)
+                active_effects: {"Fluffy bliss": 4320}, //72 in-game hours
+            },
+        }),
+        "private time 2 cat": new GameAction({
+            action_id: "private time 2 cat",
+            starting_text: "Pay 3G for a special cuddly session with cats",
+            description: "This might be too much even for you",
+            success_text: "You spend two hours in a private room, surrounded by cats that are just impossibly friendly and cuddly. Sound of their purring is overwhelming, "
+                         +"their demands for attention unending, and your number of limbs way too low to handle them all. The catnip distracts them a bit every now and then, "
+                         +"letting you get a breath of air, but it affects you as well, enhancing the bliss. If you were to die, this is how you would like to feel when it happens.",
+            display_conditions: {
+                money: {
+                    number: 300000,
+                },
+                race: "nekomimi",
+            },
+            success_conditions: [
+                {
+                    money: {
+                        number: 300000,
+                        remove: true,
+                    }
+                },
+            ],
+            attempt_duration: 0,
+            success_chances: [1],
+            repeatable: true,
+            rewards: {
+                progress_timer: 120, //60 in-game minutes, or 1 in-game hour (or 1 irl minute, assuming default tickrate)
+                active_effects: {
+                    "Fluffy bliss": 4320, //72 in-game hours
+                    "Tipsy": 120,
+                }, 
+            },
+        }),
+    };
+
 })();
 
 registerFortLocations({locations, SafeLocation, CombatZone, LocationCrafting, GameAction});
@@ -3720,6 +4211,10 @@ registerFortLocations({locations, SafeLocation, CombatZone, LocationCrafting, Ga
     });
 })();
 
+placeMapPositions(locations, {
+    Village: [0, 0], Shack: [-1, 0], 'Infested field': [1, 0],
+    'Forest road': [0, 1], 'Nearby cave': [1, -1],
+});
 fill_market_regions();
 
 export { locations, location_types, favourite_locations };

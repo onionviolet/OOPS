@@ -614,7 +614,9 @@ class Equippable extends Item {
                         stats[stat] = {};
                     }
 
-                    if(stat === "defense" || stat === "attack_power" || stat === "block_strength") { //skip it, it's to be added to the basic defense/attack instead
+                    // A shield applies its own block component in getShieldStrength(). Worn
+                    // armor contributes through the owner's separate block strength multiplier.
+                    if(stat === "defense" || stat === "attack_power" || (stat === "block_strength" && this.tags.shield)) {
                         return;
                     }
 
@@ -1189,6 +1191,8 @@ class Book extends Item {
         this.tags["book"] = true;
 
         this.saturates_market = false; //uncraftable and limited, no point
+        this.additional_description = item_data.additional_description; //for after the book is finished, non-italic
+        this.flavor_description = item_data.flavor_description; //for after the book is finished, italic
     }
 
     /**
@@ -1434,8 +1438,8 @@ book_stats["Twist liek a snek"] = new BookData({
         xp_multipliers: {
             Evasion: 1.5,
         },
-        multipliers: {
-            agility: 1.1,
+        stats: {
+            agility: {multiplier: 1.1},
         }
     },
 });
@@ -1542,7 +1546,20 @@ book_stats["Counting Mice"] = new BookData({
             Haggling: 1.05,
         },
     }
-
+});
+book_stats["Tragedy of the wise master"] = new BookData({
+    required_time: 240,
+    literacy_xp_rate: 5,
+    bonuses: {
+        stats: {
+            max_health: {multiplier: 1.1},
+        },
+        xp_multipliers: {
+            Regeneration: 1.2,
+            Fortitude: 1.2,
+            all: 1.1,
+        },
+    }
 });
 
 //books
@@ -1562,6 +1579,7 @@ item_templates[RAT_STEP_MANUAL] = new Book({name: RAT_STEP_MANUAL, value: 4,
         name: "ABC for kids",
         description: "The simplest book on the market",
         value: 100,
+        flavor_description: `A stands for a rat... <br>Note on the side seems to be a part of some lyrics, starting with "P is for Priceless", but you can't make out the rest of it`,
     });
     item_templates["Old combat manual"] = new Book({
         name: "Old combat manual",
@@ -1577,6 +1595,7 @@ item_templates[RAT_STEP_MANUAL] = new Book({name: RAT_STEP_MANUAL, value: 4,
         name: "Medicine for dummies",
         description: "A simple book about healing, describing how to create some basic medicines",
         value: 320,
+        flavor_description: "Believe it or not, bleeding to death is a bad thing. A healing medicine can help prevent it from happening.",
     });
     item_templates["Butchering and you"] = new Book({
         name: "Butchering and you",
@@ -1606,7 +1625,16 @@ item_templates[RAT_STEP_MANUAL] = new Book({name: RAT_STEP_MANUAL, value: 4,
     item_templates["Counting Mice"] = new Book({
         name: "Counting Mice",
         description: "A simple book on how to count using mice and other animals for refence on how to do simple addition",
-        value: 120
+        value: 120,
+        flavor_description: "One mouse, two mice, three mice, four mice, five mice, six mice, seven mice, eight mice, nine mice, ten mice, eleven mine, twelve mice...",
+    });
+    item_templates["Tragedy of the wise master"] = new Book({
+        name: "Tragedy of the wise master",
+        description: "A tragic story that seems deeply ironic",
+        value: 2000,
+        flavor_description: "Ironic...",
+        additional_description: "The story is deeply tragic yet also highly stimulating intellectually, containing a set of dichotomies "
+                               +"complex enough that an entire thesis could be written about them",
     });
 	
 })();
@@ -1734,7 +1762,14 @@ item_templates[RAT_STEP_MANUAL] = new Book({name: RAT_STEP_MANUAL, value: 4,
         value: 25,
         material_type: "miscellaneous",
     });
-	
+
+    item_templates["Bear meat"] = new Material({
+        name: "Bear meat",
+        description: "Rich, fatty tenderloins taken from a ferocious bear",
+        value: 50,
+        material_type: "raw meat",
+    });
+		
     item_templates["Bear hide"] = new Material({
         description: "A strong hide of a wild bear, so strong that even steel struggles against it",
         value: 50,
@@ -1849,8 +1884,8 @@ item_templates[RAT_STEP_MANUAL] = new Book({name: RAT_STEP_MANUAL, value: 4,
         value: 80,
     });
     item_templates["Bufonite"] = new Material({
-        description: "A pearl-like gem made from fog toxins that crystallized over the years",
-        value: 130,
+        description: "A pearl-like gem made from frog toxins that crystallized over the years",
+        value: 200,
     });
 
     item_templates["Bandersnatch claw"] = new Material({
@@ -1858,7 +1893,7 @@ item_templates[RAT_STEP_MANUAL] = new Book({name: RAT_STEP_MANUAL, value: 4,
         value: 100,
     });
     item_templates["Frumious claw"] = new Material({
-        description: "A vicious claw of a bandernatch, sharpened by snatching countless prey",
+        description: "A vicious claw of a bandersnatch, sharpened by snatching countless prey",
         value: 250,
     });
 
@@ -1872,16 +1907,25 @@ item_templates[RAT_STEP_MANUAL] = new Book({name: RAT_STEP_MANUAL, value: 4,
     });
     
     item_templates["Monster beak"] = new Material({
-        name: "Monster bone",
         description: "The huge beak of a bird-like monster. Sharp and strong enough to be fashined into a weapon",
         value: 250
     });
 
     item_templates["Monster bone"] = new Material({
-        name: "Monster bone",
         description: "Mutated and dark bone of a monster. Strong enough to support weight regular bones would crumble under",
         value: 100,
         material_type: "bone",
+    });
+
+    item_templates["Evil eye"] = new Material({
+        description: "The eyeball of a moster posessing a powerful gaze weapon",
+        value: 200
+    });
+
+    item_templates["Catoblepas liver"] = new Material({
+        description: "The organ of a catoblepas, able to filter any poison",
+        value: 100,
+        effects: [{effect: "Weak antipoison", duration: 30}],
     });
 
 })();
@@ -1909,13 +1953,13 @@ item_templates[RAT_STEP_MANUAL] = new Book({name: RAT_STEP_MANUAL, value: 4,
     item_templates["White iron ore"] = new Material({
         name: "White iron ore",
         description: "A dense and heavy cousin of iron, with a surprising white gleam. Extremely strong after being smelt, at the cost of very high mass.",
-        value: 10,
+        value: 40,
         material_type: "raw metal",
     });
     item_templates["Black iron ore"] = new Material({
         name: "Black iron ore",
         description: "A light and strong cousing of iron, with a seemingly impossible black gleam. After being smelt, very strong and very light.",
-        value: 10,
+        value: 40,
         material_type: "raw metal",
     });
     item_templates["Silver ore"] = new Material({
@@ -2036,6 +2080,20 @@ item_templates[RAT_STEP_MANUAL] = new Book({name: RAT_STEP_MANUAL, value: 4,
         description: "Common shellfish found in the sand and mud around the lake shore. Can't be eaten raw",
         value: 6,
     });
+
+    item_templates["Edible mushroom"] = new Material({
+        description: "Can't be eaten raw",
+        value: 10,
+    });
+    item_templates["Toadstool"] = new Material({
+        description: "Can't be eaten raw. Probably shouldn't be eaten cooked either",
+        value: 5,
+        effects: [
+            { effect: "Serious food poisoning", duration: 180 },
+            { effect: "Hallucinations", duration: 180 }
+        ],
+    });
+
     item_templates["Wild onion"] = new Material({
         name: "Wild onion",
         description: "A wild root vegetable sometimes used to add flavor to dishes. Can't be eaten raw",
@@ -2052,6 +2110,7 @@ item_templates[RAT_STEP_MANUAL] = new Book({name: RAT_STEP_MANUAL, value: 4,
         description: "A wild nutrient-rich stem tuber that can be used in a variety of dishes. Can't be eaten raw",
         value: 20,
     });
+
     item_templates["Flour"] = new Material({
         name: "Flour",
         description: "Powdered plant matter, used for making various baked goods",
@@ -2086,7 +2145,7 @@ item_templates[RAT_STEP_MANUAL] = new Book({name: RAT_STEP_MANUAL, value: 4,
     });
     item_templates["Mackerel shark"] = new Material({
         name: "Mackerel shark",
-        description: "A shark small enough to fit in a stream. Makes up for its size with its feistiness and big mouth",
+        description: "A shark small enough to fit in a stream. Makes up for its size with its feistiness and big mouth", //yoho!
         use_quality: true,
         base_size: 35,
         value: 85,
@@ -2169,7 +2228,7 @@ item_templates[RAT_STEP_MANUAL] = new Book({name: RAT_STEP_MANUAL, value: 4,
 })();
 
 
-function add_gear_components() {
+function add_legacy_gear_components() {
 
     //weapon components:
     (function(){
@@ -3467,6 +3526,446 @@ function add_gear_components() {
     })();
 }
 
+function add_gear_components() {
+
+    //weapon components:
+    (function(){
+        
+    })();
+
+    //shield components:
+    (function(){
+
+        item_templates["Wooden training shield base"] = new ShieldComponent({
+            name: "Wooden training shield base",
+            description: "A primitive but cheap form of a shield",
+            value: 16,
+            tags: {"ignore_skill": true},
+            shield_strength: 0.5,
+            shield_name: "Wooden training shield",
+            component_tier: 1,
+            component_type: "shield base",
+            component_stats: {
+                attack_speed: {
+                    multiplier: 0.95,
+                }
+            }
+        });
+        
+        item_templates["Cheap wooden shield base"] = new ShieldComponent({
+            name: "Cheap wooden shield base",
+            description: "Cheap shield component made of wood, basically just a few planks barely holding together",
+            value: 16,
+            shield_strength: 2,
+            shield_name: "Cheap wooden shield",
+            component_tier: 1,
+            component_type: "shield base",
+            component_stats: {
+                attack_speed: {
+                    multiplier: 0.95,
+                }
+            }
+        });
+    })();
+
+    //clothing (functions both as weak armor and as an armor component) and capes:
+    (function(){
+
+        item_templates["Batrachian vest"] = new Armor({
+            name: "Batrachian vest", 
+            description: "Comfortable leather vest, slippery enough to make enemy blows slide off",
+            value: 700,
+            component_type: "chestplate interior",
+            base_defense: 4,
+            component_tier: 4,
+            component_stats: {
+                agility: {
+                    multiplier: 1.05,
+                },
+                cold_tolerance: {
+                    flat: 1,
+                }
+            },
+            component_bonus_skill_levels: {
+                "Swimming": 1,
+            }
+        });
+
+        item_templates["Batrachian pants"] = new Armor({
+            name: "Batrachian pants", 
+            description: "Slippery leather pants",
+            value: 700,
+            component_type: "leg armor interior",
+            base_defense: 3,
+            component_tier: 4,
+            component_stats: {
+                agility: {
+                    multiplier: 1.05,
+                },
+                cold_tolerance: {
+                    flat: 1,
+                }
+            },
+            component_bonus_skill_levels: {
+                "Swimming": 1,
+            }
+        });
+
+        item_templates["Batrachian hat"] = new Armor({
+            name: "Batrachian hat", 
+            description: "A slippery leather hat to protect your head",
+            value: 700,
+            component_type: "helmet interior",
+            base_defense: 3,
+            component_tier: 4,
+            component_stats: {
+                agility: {
+                    multiplier: 1.05,
+                },
+                cold_tolerance: {
+                    flat: 1,
+                }
+            },
+            component_bonus_skill_levels: {
+                "Swimming": 1,
+            }
+        });
+
+        item_templates["Sun hat"] = new Armor({
+            name: "Sun hat", 
+            description: "A wicker hat with a wide brim",
+            value: 100,
+            component_type: "helmet interior",
+            base_defense: 0,
+            component_tier: 2,
+            component_stats: {
+                heat_tolerance: {
+                    flat: 2,
+                }
+            }
+        });
+
+
+        item_templates["Batrachian gloves"] = new Armor({
+            name: "Batrachian gloves", 
+            description: "Strong leather gloves, with membranes to help you swim",
+            value: 700,
+            component_type: "glove interior",
+            base_defense: 2,
+            component_tier: 4,
+            component_stats: {
+                agility: {
+                    multiplier: 1.05,
+                },
+                cold_tolerance: {
+                    flat: 1,
+                }
+            },
+            component_bonus_skill_levels: {
+                "Swimming": 2,
+            }
+        });
+        
+        item_templates["Work shoes"] = new Armor({
+            name: "Work shoes",
+            description: "Work shoes made of a mix of leather and wool. While they provide no protection, they are very comfortable for moving around",
+            value: 300,
+            component_type: "shoes interior",
+            base_defense: 0,
+            component_tier: 2,
+            component_stats: {
+                attack_speed: {
+                    multiplier: 1.02,
+                },
+                agility: {
+                    multiplier: 1.15,
+                },
+                cold_tolerance: {
+                    flat: 2,
+                }
+            }
+        });
+
+        item_templates["Batrachian shoes"] = new Armor({
+            name: "Batrachian shoes", 
+            description: "Strong shoes made of frog leather, that let you slide along the ground",
+            value: 700,
+            component_type: "shoes interior",
+            base_defense: 2,
+            component_tier: 4,
+            component_stats: {
+                attack_speed: {
+                    multiplier: 1.05,
+                },
+                agility: {
+                    multiplier: 1.2,
+                },
+                cold_tolerance: {
+                    flat: 1,
+                }
+            },
+            component_bonus_skill_levels: {
+                "Swimming": 2,
+            }
+        });
+        /*
+        item_templates["Wool shirt"] = new Armor({
+            name: "Wool shirt",
+            description: "It's not thick enough to provide any physical protection, but on the plus side it's light, it's warm, and it and doesn't block your moves",
+            value: 300,
+            component_type: "chestplate interior",
+            base_defense: 0,
+            component_tier: 2,
+            component_stats: {
+                attack_speed: {
+                    multiplier: 1.01,
+                },
+                agility: {
+                    multiplier: 1.02,
+                },
+                cold_tolerance: {
+                    flat: 3,
+                }
+            }
+        });
+        item_templates["Linen vest"] = new Armor({
+            name: "Linen vest",
+            description: "A thin, breezy vest that won't get in your way, however it won't keep you warm and offers no protection from attacks",
+            value: 650,
+            component_type: "chestplate interior",
+            base_defense: 0,
+            component_tier: 4,
+            component_stats: {
+                attack_speed: {
+                    multiplier: 1.04,
+                },
+                agility: {
+                    multiplier: 1.05,
+                },
+                cold_tolerance: {
+                    flat: 0.4,
+                }
+            }
+        });
+
+        item_templates["Wool pants"] = new Armor({
+            name: "Wool pants",
+            description: "Nice woollen pants. Slightly itchy",
+            value: 100,
+            component_type: "leg armor interior",
+            base_defense: 0,
+            component_tier: 2,
+            component_stats: {
+                cold_tolerance: {
+                    flat: 3,
+                }
+            }
+        });
+        item_templates["Linen leggings"] = new Armor({
+            name: "Linen leggings",
+            description: "Nice linen leggings",
+            value: 450,
+            component_type: "leg armor interior",
+            base_defense: 0,
+            component_tier: 4,
+            component_stats: {
+                attack_speed: {
+                    multiplier: 1.03,
+                },
+                agility: {
+                    multiplier: 1.04,
+                },
+                cold_tolerance: {
+                    flat: 0.4,
+                }
+            }
+        });
+
+        item_templates["Wool hat"] = new Armor({
+            name: "Wool hat",
+            description: "Simple woollen hat to protect your head from cold",
+            value: 300,
+            component_type: "helmet interior",
+            base_defense: 0,
+            component_tier: 2,
+            component_stats: {
+                attack_speed: {
+                    multiplier: 1.01,
+                },
+                agility: {
+                    multiplier: 1.01,
+                },
+                cold_tolerance: {
+                    flat: 2,
+                }
+            }
+        });
+        item_templates["Linen bandanna"] = new Armor({
+            name: "Linen bandanna",
+            description: "Simple linen bandanna to keep hair and sweat away from your eyes",
+            value: 650,
+            component_type: "helmet interior",
+            base_defense: 0,
+            component_tier: 4,
+            component_stats: {
+                attack_speed: {
+                    multiplier: 1.02,
+                },
+                agility: {
+                    multiplier: 1.03,
+                },
+                cold_tolerance: {
+                    flat: 0.4,
+                }
+            }
+        });
+
+        item_templates["Wool gloves"] = new Armor({
+            name: "Wool gloves",
+            description: "Warm and comfy, but they don't provide any protection",
+            value: 300,
+            component_type: "glove interior",
+            base_defense: 0,
+            component_tier: 2,
+            component_stats: {
+                cold_tolerance: {
+                    flat: 3,
+                }
+            }
+        });
+        item_templates["Linen gloves"] = new Armor({
+            name: "Linen gloves",
+            description: "Thin and tight, they help to maintain a grip on something, but they don't provide any protection",
+            value: 650,
+            component_type: "glove interior",
+            base_defense: 0,
+            component_tier: 4,
+            component_stats: {
+                attack_speed: {
+                    multiplier: 1.02,
+                },
+                dexterity: {
+                    multiplier: 1.02,
+                },
+                cold_tolerance: {
+                    flat: 0.4,
+                }
+            }
+        });*/
+
+        item_templates["Rat pelt cape"] = new Cape({
+            name: "Rat pelt cape",
+            item_tier: 1,
+            description: "It's a cape... made of wolf rat pelts. Only for poor or insane",
+            value: 100,
+            base_stats: {
+                cold_tolerance: {
+                    flat: 2,
+                }
+            }
+        });
+        item_templates["Wolf pelt cape"] = new Cape({
+            name: "Wolf pelt cape",
+            description: "An elegant cape made from wolf pelts. Doesn't provide much protection, but is light enough to not hinder your movements",
+            value: 400,
+            item_tier: 2,
+            base_defense: 2,
+            base_stats: {
+                cold_tolerance: {
+                    flat: 4,
+                }
+            },
+        });
+        item_templates["Boar hide cape"] = new Cape({
+            name: "Boar hide cape",
+            description: "A rough cape made from boar hides. Offers a nice protection, but is heavy and stiff",
+            value: 700,
+            item_tier: 3,
+            base_defense: 5,
+            base_stats: {
+                attack_speed: {
+                    multiplier: 0.9,
+                },
+                agility: {
+                    multiplier: 0.9,
+                },
+                cold_tolerance: {
+                    flat: 5,
+                }
+            }
+        });
+        item_templates["Goat hide cape"] = new Cape({
+            name: "Goat hide cape",
+            description: "A rough cape made from goat hides",
+            value: 700,
+            item_tier: 3,
+            base_defense: 3,
+            base_stats: {
+                attack_speed: {
+                    multiplier: 0.98,
+                },
+                agility: {
+                    multiplier: 0.95,
+                },
+                cold_tolerance: {
+                    flat: 4,
+                }
+            }
+        });
+        item_templates["Bear hide cape"] = new Cape({
+            name: "Bear hide cape",
+            description: "A thick, heavy, and warm furry cape, made from a bear hide",
+            value: 1000,
+            item_tier: 4,
+            base_defense: 7,
+            base_stats: {
+                attack_speed: {
+                    multiplier: 0.95,
+                },
+                agility: {
+                    multiplier: 0.95,
+                },
+                cold_tolerance: {
+                    flat: 7,
+                }
+            }
+        });
+
+
+        item_templates["Batrachian cape"] = new Cape({
+            name: "Batrachian cape", 
+            description: "A slippery cape made from frogskin. Technically waterproof, but doesn't cover your entire body",
+            value: 1000,
+            item_tier: 4,
+            base_defense: 4,
+            base_stats: {
+                agility: {
+                    multiplier: 0.95,
+                },
+                cold_tolerance: {
+                    flat: 4,
+                }
+            }
+        });
+
+        item_templates["Gryphonfeather cape"] = new Cape({
+            name: "Gryphonfeather cape", 
+            description: "A dazzling cape of gryphon feathers, light and aerodynamic",
+            value: 1500,
+            item_tier: 5,
+            base_defense: 6,
+            base_stats: {
+                agility: {
+                    multiplier: 1.05,
+                },
+                cold_tolerance: {
+                    flat: 6,
+                }
+            }
+        });
+    })();
+}
+
 function add_gear() {
     
     //weapons:
@@ -3489,6 +3988,30 @@ function add_gear() {
                 handle: "Wooden long handle"
             }
         });
+        item_templates["Black iron spear"] = new Weapon({
+            components: {
+                head: "Black iron short blade",
+                handle: "Ash wood long handle"
+            }
+        });
+        item_templates["White iron spear"] = new Weapon({
+            components: {
+                head: "White iron short blade",
+                handle: "Ash wood long handle"
+            }
+        });
+        item_templates["Black spear"] = new Weapon({
+            components: {
+                head: "Black short blade",
+                handle: "Hickory long handle"
+            }
+        });
+        item_templates["White spear"] = new Weapon({
+            components: {
+                head: "White short blade",
+                handle: "Hickory long handle"
+            }
+        });
         
         item_templates["Cheap iron dagger"] = new Weapon({
             components: {
@@ -3506,6 +4029,30 @@ function add_gear() {
             components: {
                 head: "Steel short blade",
                 handle: "Wooden short handle",
+            }
+        });
+        item_templates["Black iron dagger"] = new Weapon({
+            components: {
+                head: "Black iron short blade",
+                handle: "Ash wood short handle"
+            }
+        });
+        item_templates["White iron dagger"] = new Weapon({
+            components: {
+                head: "White iron short blade",
+                handle: "Ash wood short handle"
+            }
+        });
+        item_templates["Black dagger"] = new Weapon({
+            components: {
+                head: "Black short blade",
+                handle: "Hickory short handle"
+            }
+        });
+        item_templates["White dagger"] = new Weapon({
+            components: {
+                head: "White short blade",
+                handle: "Hickory short handle"
             }
         });
         
@@ -3527,6 +4074,30 @@ function add_gear() {
                 handle: "Wooden short handle",
             }
         });
+        item_templates["Black iron sword"] = new Weapon({
+            components: {
+                head: "Black iron long blade",
+                handle: "Ash wood short handle"
+            }
+        });
+        item_templates["White iron sword"] = new Weapon({
+            components: {
+                head: "White iron long blade",
+                handle: "Ash wood short handle"
+            }
+        });
+        item_templates["Black sword"] = new Weapon({
+            components: {
+                head: "Black long blade",
+                handle: "Hickory short handle"
+            }
+        });
+        item_templates["White sword"] = new Weapon({
+            components: {
+                head: "White long blade",
+                handle: "Hickory short handle"
+            }
+        });
         
         item_templates["Cheap iron axe"] = new Weapon({
             components: {
@@ -3546,6 +4117,30 @@ function add_gear() {
                 handle: "Wooden medium handle",
             }
         });
+        item_templates["Black iron axe"] = new Weapon({
+            components: {
+                head: "Black iron axe head",
+                handle: "Ash wood medium handle"
+            }
+        });
+        item_templates["White iron axe"] = new Weapon({
+            components: {
+                head: "White iron axe head",
+                handle: "Ash wood medium handle"
+            }
+        });
+        item_templates["Black axe"] = new Weapon({
+            components: {
+                head: "Black axe head",
+                handle: "Hickory medium handle"
+            }
+        });
+        item_templates["White axe"] = new Weapon({
+            components: {
+                head: "White axe head",
+                handle: "Hickory medium handle"
+            }
+        });
         
         item_templates["Cheap iron battle hammer"] = new Weapon({
             components: {
@@ -3563,6 +4158,30 @@ function add_gear() {
             components: {
                 head: "Steel hammer head",
                 handle: "Wooden medium handle",
+            }
+        });
+        item_templates["Black iron battle hammer"] = new Weapon({
+            components: {
+                head: "Black iron hammer head",
+                handle: "Ash wood medium handle"
+            }
+        });
+        item_templates["White iron battle hammer"] = new Weapon({
+            components: {
+                head: "White iron hammer head",
+                handle: "Ash wood medium handle"
+            }
+        });
+        item_templates["Black battle hammer"] = new Weapon({
+            components: {
+                head: "Black hammer head",
+                handle: "Hickory medium handle"
+            }
+        });
+        item_templates["White battle hammer"] = new Weapon({
+            components: {
+                head: "White hammer head",
+                handle: "Hickory medium handle"
             }
         });
     })();
@@ -3624,6 +4243,101 @@ function add_gear() {
             components: {
                 internal: "Goat leather pants",
                 external: "Steel chainmail greaves",
+            }
+        });
+
+        item_templates["Steel plate armor"] = new Armor({
+            components: {
+                internal: "Goat leather vest",
+                external: "Steel plate vest",
+            }
+        });
+        item_templates["Steel plate helmet"] = new Armor({
+            components: {
+                internal: "Goat leather hat",
+                external: "Steel plate helmet armor",
+            }
+        });
+        item_templates["Steel plate pants"] = new Armor({
+            components: {
+                internal: "Goat leather pants",
+                external: "Steel plate greaves",
+            }
+        });
+
+        item_templates["Black iron chainmail armor"] = new Armor({
+            components: {
+                internal: "Goat leather vest",
+                external: "Black iron chainmail vest",
+            }
+        });
+        item_templates["Black iron chainmail helmet"] = new Armor({
+            components: {
+                internal: "Goat leather hat",
+                external: "Black iron chainmail helmet armor",
+            }
+        });
+        item_templates["Black iron chainmail pants"] = new Armor({
+            components: {
+                internal: "Goat leather pants",
+                external: "Black iron chainmail greaves",
+            }
+        });
+
+        item_templates["White iron plate armor"] = new Armor({
+            components: {
+                internal: "Goat leather vest",
+                external: "White iron plate vest",
+            }
+        });
+        item_templates["White iron plate helmet"] = new Armor({
+            components: {
+                internal: "Goat leather hat",
+                external: "White iron plate helmet armor",
+            }
+        });
+        item_templates["White iron plate pants"] = new Armor({
+            components: {
+                internal: "Goat leather pants",
+                external: "White iron plate greaves",
+            }
+        });
+
+        item_templates["Black chainmail armor"] = new Armor({
+            components: {
+                internal: "Goat leather vest",
+                external: "Black chainmail vest",
+            }
+        });
+        item_templates["Black chainmail helmet"] = new Armor({
+            components: {
+                internal: "Goat leather hat",
+                external: "Black chainmail helmet armor",
+            }
+        });
+        item_templates["Black chainmail pants"] = new Armor({
+            components: {
+                internal: "Goat leather pants",
+                external: "Black chainmail greaves",
+            }
+        });
+
+        item_templates["White plate armor"] = new Armor({
+            components: {
+                internal: "Goat leather vest",
+                external: "White plate vest",
+            }
+        });
+        item_templates["White plate helmet"] = new Armor({
+            components: {
+                internal: "Goat leather hat",
+                external: "White plate helmet armor",
+            }
+        });
+        item_templates["White plate pants"] = new Armor({
+            components: {
+                internal: "Goat leather pants",
+                external: "White plate greaves",
             }
         });
         
@@ -3733,6 +4447,34 @@ function add_gear() {
             components: {
                 shield_base: "Steel shield base",
                 handle: "Ash wood shield handle",
+            }
+        });
+
+        item_templates["Black iron shield"] = new Shield({
+            components: {
+                shield_base: "Black iron shield base",
+                handle: "Hickory shield handle",
+            }
+        });
+
+        item_templates["White iron shield"] = new Shield({
+            components: {
+                shield_base: "White iron shield base",
+                handle: "Hickory shield handle",
+            }
+        });
+
+        item_templates["Black shield"] = new Shield({
+            components: {
+                shield_base: "Black shield base",
+                handle: "Hickory shield handle",
+            }
+        });
+
+        item_templates["White shield"] = new Shield({
+            components: {
+                shield_base: "White shield base",
+                handle: "Hickory shield handle",
             }
         });
         
@@ -3845,7 +4587,28 @@ function add_gear() {
             name: "Gryphon trophy",
             value: 700,
             stats: {
-                //TODO
+                attack_points: {
+                    multiplier: 1.15,
+                },
+                attack_power: {
+                    multiplier: 1.15,
+                },
+            },
+            base_bonus_skill_levels: {
+                "Spatial awareness": 4
+            }
+        });
+
+        item_templates["Little kings trophy"] = new Artifact({
+            name: "Trophy of Little Kings",
+            value: 700,
+            stats: {
+                attack_points: {
+                    multiplier: 1.25,
+                },
+            },
+            base_bonus_skill_levels: {
+                "Presence sensing": 4
             }
         });
 
@@ -4130,25 +4893,25 @@ function add_gear() {
 
     item_templates["White iron ingot"] = new Material({
         description: "A cousin of iron, much heavier but also very much stronger",
-        value: 70,
+        value: 160,
         material_type: "metal",
     });
 
     item_templates["Black iron ingot"] = new Material({
         description: "A cousin of iron, lighter and much stronger",
-        value: 70,
+        value: 160,
         material_type: "metal",
     });
 
     item_templates["White steel ingot"] = new Material({
         description: "A very strong and very heavy alloy",
-        value: 120,
+        value: 400,
         material_type: "metal",
     });
 
     item_templates["Black steel ingot"] = new Material({
         description: "A strong and light alloy",
-        value: 120,
+        value: 400,
         material_type: "metal",
     });
 
@@ -4263,13 +5026,42 @@ function add_gear() {
     });
 	item_templates["Linen cloth"] = new Material({
         description: "Bolt of durable and thin cloth that won't restrict mobility",
-        value: 14,
+        value: 50,
         material_type: "fabric",
     });
     item_templates["Silk cloth"] = new Material({
         description: "Durable, yet light and soft, can be made into comfortable clothing",
         value: 50,
         material_type: "fabric",
+    });
+
+    item_templates["Stripped bear meat"] = new Material({
+        name: "Stripped bear meat",
+        description: "Bear tenderloins that has been stripped of the fat",
+        value: 60,
+        material_type: "raw meat",
+    });
+
+    item_templates["Grilled bear steak"] = new UsableItem({
+        name: "Grilled bear steak",
+        description: "Greasy, flavorful steak",
+        value: 120,
+        effects: [{effect: "Decent meat meal", duration: 120}],
+        tags: {"food": true},
+    });
+    item_templates["Roasted bear chunks"] = new UsableItem({
+        name: "Roasted bear chunks",
+        description: "Rich roasted chunks of dark meat that are so tender, they fall apart in your mouth",
+        value: 120,
+        effects: [{effect: "Decent meat meal", duration: 90}],
+        tags: {"food": true},
+    });
+    item_templates["Bear sausage"] = new UsableItem({
+        name: "Bear sausage",
+        description: "A delicious sausage made from various cuts bear meat",
+        value: 180,
+        effects: [{effect: "Decent meat meal", duration: 240}],
+        tags: {"food": true},
     });
 
     item_templates["Iron chainmail"] = new Material({
@@ -4280,6 +5072,12 @@ function add_gear() {
     item_templates["Steel chainmail"] = new Material({
         description: "Dozens of tiny steel rings linked together. Nowhere near a wearable form, turning it into armor will still take a lot of effort and focus",
         value: 60,
+        material_type: "chainmail",
+    });
+
+    item_templates["Gryphonfeather mail"] = new Material({
+        description: "Mail made of interlocking gryphon feathers. It is surprisingly durable while being light as, well, a feather",
+        value: 90,
         material_type: "chainmail",
     });
 
@@ -4372,6 +5170,19 @@ function add_gear() {
         name: "Metal fishing hook",
         description: "A small hook made of metal",
         value: 10
+    });
+
+    item_templates["Tallow candle"] = new Material({
+        description: "A candle made of animal fat. You currently have no use for it, but someone might give you a good price for it",
+        value: 100,
+    });
+    item_templates["Wicker basket"] = new Material({
+        description: "A bosket woven from willow strands. You currently have no use for it, but someone might give you a good price for it",
+        value: 100,
+    });
+    item_templates["Soap"] = new Material({
+        description: "An alchemical cleaning product. You currently have no use for it, but someone might give you a good price for it",
+        value: 150,
     });
 })();
 
@@ -4535,6 +5346,17 @@ function add_gear() {
         tags: {"medicine": true},
     });
 
+    item_templates["Serum"] = new UsableItem({
+        name: "Serum",
+        description: "A conconction made from a monster's poison, used to reverse its effects",
+        value: 150,
+        effects: [{effect: "Weak antipoison", duration: 60}],
+        recovery_chances: {"Glass phial": 0.75},
+        tags: {"medicine": true},
+    });
+
+
+
     item_templates["Roasted rat meat"] = new UsableItem({
         name: "Roasted rat meat",
         description: "Smell might be fine now, but it still seems like a bad idea to eat it",
@@ -4643,6 +5465,7 @@ function add_gear() {
         description: "An incredibly complex meal that's difficult to make, but it's got an indescribable taste",
         value: 100,
         effects: [{ effect: "Varied seafood meal", duration: 90 }],
+        recovery_chances: {"Glass bottle": 0.6},
         tags: {"food": true},
     });
 	
@@ -4692,6 +5515,17 @@ function add_gear() {
         effects: [{effect: "Sweet dessert", duration: 180}],
         tags: {"food": true},
     });
+
+    item_templates["Oneberry cookie"] = new UsableItem({
+        name: "Oneberry cookie",
+        description: "A cookie made with healing berries. Nowhere near as effective as properly prepared medicine, but a lot tastier",
+        value: 20,
+        effects: [
+            { effect: "Sweet dessert", duration: 30 },
+            { effect: "Weak healing potion", duration: 3 }
+        ],
+        tags: {"food": true},
+    });
     item_templates["Carrot cake"] = new UsableItem({
         name: "Carrot cake",
         description: "A moist carrot cake, with raisins and nuts, topped with cream cheese frosting",
@@ -4712,6 +5546,23 @@ function add_gear() {
         description: "Steaming mug of hot, bitter coffee",
         value: 100,
         effects: [{effect: "Coffee", duration: 150}],
+        tags: {"food": true},
+    });
+
+    item_templates["Cooked mushrooms"] = new UsableItem({
+        description: "A basic mushroom dish. Nutricious, but not very filling",
+        value: 50,
+        effects: [{effect: "Basic meal", duration: 60}],
+        tags: {"food": true},
+    });
+    item_templates["Cooked toadstool"] = new UsableItem({
+        description: "A basic dish made from dubious mushrooms",
+        value: 5,
+        effects: [
+            { effect: "Basic meal", duration: 60 },
+            { effect: "Serious food poisoning", duration: 180 },
+            { effect: "Hallucinations", duration: 180 }
+        ],
         tags: {"food": true},
     });
 })();
@@ -4745,6 +5596,7 @@ function setup_ids() {
 }
 
 
+add_legacy_gear_components();
 add_gear_components();
 crafting_component_manager.fill_components();
 add_gear();

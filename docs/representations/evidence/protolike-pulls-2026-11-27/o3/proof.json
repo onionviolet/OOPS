@@ -1,0 +1,23 @@
+{
+  "item": "o3",
+  "entry": "/",
+  "bundleSha256": "254d3bf13f426139346e0ce9ca5ee7dd2138ea7c5d8d1824d19285a2326ddf85",
+  "runs": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "result": "Estimated standing in Frontier: top 24% (attack rating 32).",
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "result": "Estimated standing in Frontier: top 24% (attack rating 32).",
+      "pageErrors": []
+    }
+  ]
+}

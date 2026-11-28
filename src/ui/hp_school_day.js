@@ -4,7 +4,7 @@ import {renderHpLibraryWork} from './hp_library_work.js';
 import {HP_FEATHER_CAST} from '../hp_lead_spells.js';
 import {formatDuration} from '../number_format.js';
 import {tidyReasons} from '../player_reasons.js';
-import {kitElement, kitRow} from './kit.js';
+import {kitControl, kitElement, kitRow} from './kit.js';
 
 const attendPrefix = `${HP_LEAD_DAY}.attend_`;
 const homeworkPrefix = `${HP_LEAD_DAY}.homework_`;
@@ -26,15 +26,19 @@ export function renderHpSchoolDay(view, campaign, {run, study, studyRun, history
         return section;
     };
 
-    function control(action, detail, {lesson, cast = false} = {}) {
+    function control(action, detail, {lesson, cast = false, library = false} = {}) {
         const job = jobs.get(action.id);
-        const reason = !campaign.canWrite ? campaign.pauseReason || 'Saving is paused.' : !action.eligible ? tidyReasons(action.reasons || []) : '';
+        const reason = !campaign.canWrite ? campaign.pauseReason || 'Saving is paused.' :
+            !job && !action.eligible ? tidyReasons(action.reasons || []) : '';
         const enabled = campaign.canWrite && (job ? job.cancellable : action.eligible);
-        const quote = job ? `${job.label.split(' · ')[0]} · ${formatDuration(job.remaining)} left` : [detail, reason].filter(Boolean).join(' · ');
+        const fact = job ? `${job.label.split(' · ')[0]} · ${formatDuration(job.remaining)} left` : detail || '';
+        const quote = [fact, reason].filter(Boolean).join(' · ');
         const request = job ? {type: 'cancel', jobId: job.id} : {type: 'action', id: action.id};
         const invoke = !job || job.cancellable ? {disabled: !enabled, title: quote, run: () => run(request, !job && !!lesson)} : null;
         const label = job?.cancellable ? 'Stop work' : action.label;
-        const row = kitRow({label, action: invoke, fact: job ? quote : detail || '', state: job ? 'running' : enabled ? 'ready' : 'near', data: {hpDayAction: action.id}});
+        const row = kitRow({label, action: invoke, fact, from: library ? '' : reason,
+            state: job ? 'running' : enabled ? 'ready' : 'near', data: {hpDayAction: action.id}});
+        if (invoke && !library) kitControl(row.firstChild, action.id);
         if (invoke && lesson) row.firstChild.dataset.hpLesson = lesson;
         if (invoke && cast) row.firstChild.dataset.hpCast = action.id;
         if (invoke && !enabled && reason) row.firstChild.dataset.disabledReason = reason;
@@ -55,7 +59,7 @@ export function renderHpSchoolDay(view, campaign, {run, study, studyRun, history
         if (next.wait <= 0 && action) lessons.append(control(action, detail, {lesson: next.originalLesson ? next.id : undefined}));
         else lessons.append(kitRow({label: next.label, fact: detail, state: next.wait <= 0 ? 'near' : ''}));
     }
-    if (!agenda.length && !ongoing.length) lessons.append(kitElement('p', '', 'No classes on the timetable this week.'));
+    if (!agenda.length && !ongoing.length) lessons.append(kitElement('p', '', 'No classes on the timetable this week. Check again next week.'));
 
     const homework = group('Homework', 'homework');
     const assignments = [...actions.values()].filter(action => action.id.startsWith(homeworkPrefix) &&
@@ -68,7 +72,7 @@ export function renderHpSchoolDay(view, campaign, {run, study, studyRun, history
         const disabled = !campaign.canWrite || !extension.eligible;
         const fact = disabled ? tidyReasons(extension.reasons || []) || campaign.pauseReason || 'Saving is paused.' : 'Classwork and homework count towards exams.';
         homework.append(kitRow({label: 'Open your school timetable', action: {disabled, title: fact, run: () => run(request)}, fact}));
-    } else if (!assignments.length && !referenceRunning && view.atCharmsBench) homework.append(kitElement('p', '', 'No homework waiting.'));
+    } else if (!assignments.length && !referenceRunning && view.atCharmsBench) homework.append(kitElement('p', '', 'No homework waiting. Attend a class to get the next assignment.'));
     for (const assignment of assignments) homework.append(control(assignment, assignment.runs > 1 ? `${assignment.runs} pieces waiting` : ''));
     if (referenceHomework && (referenceHomework.runs > 0 || referenceRunning)) homework.append(control(referenceHomework, [...(referenceHomework.costs || []), 'Your reference notes stay with you.'].join(' · ')));
 
@@ -98,7 +102,7 @@ export function renderHpSchoolDay(view, campaign, {run, study, studyRun, history
     }
     if (!view.atCharmsBench) day.insertBefore(kitElement('p', 'hp-school-day__place', 'Return to the Great Hall for lessons, homework and practice.'), lessons);
 
-    renderHpLibraryWork(view, campaign, {group, control, run, actions});
+    renderHpLibraryWork(view, campaign, {group, control: (action, detail) => control(action, detail, {library: true}), run, actions});
     if (recent.length) {
         const results = group('Latest result', 'recap');
         results.append(kitElement('p', '', recent[0]));

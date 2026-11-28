@@ -1,0 +1,21 @@
+﻿{
+  "azarinth":{
+    "source":"AZ21: az.rule.class-skill-slots ch10; az.rule.ash-wielder-skill-changes ch40; az.ability.hunters-sight ch67",
+    "groups":{"active":{"capacity":5},"passive":{"capacity":5}},
+    "defaults":{"active":["a1","a2","a3","a4","a5"],"passive":["p1"]},
+    "abilities":[{"id":"a1","groups":["active"]},{"id":"a2","groups":["active"]},{"id":"a3","groups":["active"]},{"id":"a4","groups":["active"]},{"id":"a5","groups":["active"]},{"id":"hunters-sight","groups":["active"]},{"id":"p1","groups":["passive"]}]
+  },
+  "dragoneye":{
+    "source":"BD25/BD36: bdm.institution.system bdmc005/bdmc021; bdm.ability.cleaning bdmc009; bdm.ability.secrets ch10",
+    "groups":{"first":{"capacity":8},"second":{"capacity":8,"inherits":"first"},"general":{"capacity":8,"relearnAt":1}},
+    "defaults":{"first":["class-skill"],"general":["cleaning","g2","g3","g4","g5","g6","g7","g8"]},
+    "levels":{"cleaning":12},
+    "abilities":[{"id":"class-skill","groups":["first","second"]},{"id":"new-class-skill","groups":["second"]},{"id":"cleaning","groups":["general"]},{"id":"g2","groups":["general"]},{"id":"g3","groups":["general"]},{"id":"g4","groups":["general"]},{"id":"g5","groups":["general"]},{"id":"g6","groups":["general"]},{"id":"g7","groups":["general"]},{"id":"g8","groups":["general"]},{"id":"offer","groups":["general"]}]
+  },
+  "hwfwm":{
+    "source":"HW7: DIGEST_he-who-fights-with-monsters.md, Earlier lane mapping, unverified lead",
+    "groups":{"essence-a":{"capacity":1},"essence-b":{"capacity":1}},
+    "defaults":{"essence-a":["bound-a"],"essence-b":["bound-b"]},
+    "abilities":[{"id":"bound-a","groups":["essence-a"]},{"id":"bound-b","groups":["essence-b"]},{"id":"borrowed","groups":["essence-a"],"donor":"test-donor"}]
+  }
+}

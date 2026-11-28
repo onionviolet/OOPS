@@ -1,6 +1,6 @@
 // Qing Mao, volume two chapters 146–149.
 import {extensionFact} from '../structured_pack_extensions.js';
-import {guLeadActivationCosts} from '../gu_activation.js';
+import {quoteGuExchange} from '../gu_exchange_host.js';
 import {GU_LEAD, riLeadId as id} from './book_gu_lead_life.js';
 import {GU_LEAD_MOONGLOW} from './book_gu_lead_moonglow.js';
 import {GU_LEAD_REFINEMENT} from './book_gu_lead_refinement.js';
@@ -32,11 +32,31 @@ const sea = id('primeval');
 const reserve = value => ({fact: `energy.${sea}.reserve`, op: 'gte', value,
     reason: `Prepare ${value} parts of essence first.`});
 const spend = output => ({type: 'energy', actor: 'player', energyId: sea, operation: 'use', output, control: 1});
-const exchange = guLeadActivationCosts(['water-shield', 'moonglow', 'moonglow', 'moonglow'], 'player', sea);
+const exchangeCommand = local('hold_the_wall_against_a_bold_wolf');
+const exchangeMinutes = 15;
+// The source gives the order and outcome. The pressure and wound threshold
+// are authored calibration on the existing guard and Moonblade magnitudes.
+export const wallExchange = {
+    id: exchangeCommand, energyId: sea,
+    casts: ['water-shield', 'moonglow', 'moonglow', 'moonglow'],
+    contest: {
+        packets: [{type: 'lightning', phase: 'ladder', amount: 4}],
+        guards: {'water-guard': {type: 'lightning', phase: 'ladder', breaks: true}},
+        attackKind: 'damage', woundAt: 9,
+    },
+    results: {
+        held: [set('wall', 'essence_below_half_after_first_exchange'), event('bold_wolf', 'killed_at_the_ladder'),
+            note('wall', 'The Water Shield takes the lightning. Three Moonblades wound the wolf and the defenders kill it. You are below half your essence and step down.')],
+        failed: [set('wall', 'fallback_from_the_ladder'), event('bold_wolf', 'alive_at_the_ladder'),
+            note('wall', 'You spend the essence on the exchange, but the wolf is still at the ladder. Step down for the rotation.')],
+    },
+};
+const exchange = quoteGuExchange(wallExchange, 'player', exchangeMinutes);
+export const wallNightRegistration = {guExchanges: {[exchangeCommand]: wallExchange}};
 export const guLeadWallNightPrevious = {
     revision: 1,
     contentHash: 'sha256:aa002f161e9a739225b73296c069db2b534793c4275b9fe583c7bb803e718d3b',
-    pending: {id: local('hold_the_wall_against_a_bold_wolf'), revision: 1, costs: [spend(24)]},
+    pending: {id: exchangeCommand, revision: 1, costs: [spend(24)]},
 };
 const recover = amount => ({type: 'energy', actor: 'player', energyId: sea, operation: 'recover', amount});
 const pay = amount => item(stone, -amount);
@@ -120,10 +140,9 @@ export const guLeadWallNight = {
             [set('wall', 'tide_counted'), event('wolf_tide', 'thousands_with_three_frenzy_wolves'),
                 note('wall', 'You count thousands of lightning wolves, at least thirty bold ones and three frenzy wolves behind them. There is no lightning crown wolf. The village looks safe for now. You keep in mind that your return may have changed the timing.')],
             {needs: [field('plan', 'life_burial_recipe_pending_right_moment')]}),
-        act('hold_the_wall_against_a_bold_wolf', 'Hold the ladder with Water Shield and three Moonblades', 15, done('answer_the_sirens'),
+        act('hold_the_wall_against_a_bold_wolf', 'Hold the ladder with Water Shield and three Moonblades', exchangeMinutes, done('answer_the_sirens'),
             'The shield takes the wolf’s lightning, the blades wound it and the defenders finish it.',
-            [set('wall', 'essence_below_half_after_first_exchange'), event('bold_wolf', 'killed_at_the_ladder'),
-                note('wall', 'The Water Shield takes the lightning. Three Moonblades wound the wolf and the defenders kill it. You are below half your essence and step down.')],
+            exchange.effects,
             {needs: [field('wall', 'tide_counted'), moonglow, shield], atStart: [reserve(exchange.parts)], costs: exchange.costs, revision: 2}),
         act('recover_off_the_ladder', 'Leave the ladder and draw from stones', 60, done('hold_the_wall_against_a_bold_wolf'),
             'Pay six stones to refill part of your sea while the rotation covers your place.',
@@ -142,5 +161,5 @@ export const guLeadWallNight = {
 export async function registerGuLeadWallNight(register, base) {
     if (!register.extension || base.contentHash !== baseHash ||
         !base.extensions?.some(e => e.id === GU_LEAD_WOOD_CHARM && e.revision === 1 && e.contentHash === predecessorHash)) return null;
-    return register.extension(guLeadWallNight, base, {previousRevision: guLeadWallNightPrevious});
+    return register.extension(guLeadWallNight, base, {...wallNightRegistration, previousRevision: guLeadWallNightPrevious});
 }

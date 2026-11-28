@@ -91,6 +91,12 @@ Weibao made this a continuing development goal on [2026-11-24](../gm/USER_VISION
 
 People, Places, Creatures, Items, Powers, Groups and Scenes have browsable records and a shared desktop check. The implementation pass is verified. The collected corpus still needs a snapshot built with its private reader folders. This goal concerns the atlas and follows the existing gameplay build order.
 
+### Systems encyclopedia, 2026-11-27
+
+Open **Systems** for the 12 shared mechanisms, six evolution policies, system voice and what the system reveals. The adopted snapshot joins census paraphrases, reader record identifiers, chapter references and the existing OOPS play receipts. Find indexes the articles and comparison cells. World rules opens the same catalogue filtered to that world. Background-only rows remain marked in the comparisons.
+
+Systems maps to Time and progression, Research and sources, and Words and prose. It reads the same snapshot as Find, with native play labels based on receipts. [Census](../audits/LITRPG_SYSTEM_CENSUS_2026-11-27.md) · [Refresh workflow](ATLAS_ARCHIVE_SCALE_2026-11-25.md#windows-refresh-and-mac-completion-queue) · [Desktop proof](../representations/evidence/atlas-systems-2026-11-27/proof.json)
+
 ### People records preflight (2026-11-24)
 
 At 1920×1080, a People or Things selection should show the person's sourced identity, routines and locations, ties, and linked scenes before the In OOPS line. Use the canonical reader digest and exact cast IDs. Label a scheduled visit and a single scene appearance separately. Check multiple ties to the same person, conflicting or absent hours, an unlinked player-facing record, and a cast-only record. WPR27 and AD6–AD8 apply.
@@ -404,3 +410,5 @@ For future reader handoffs, a source link and precise page, panel, strip date or
 ### Find a record from a name or rule
 
 The November 25 desktop UI request concerns the route from a remembered term to the underlying entry. Target 1366×768 and 1920×1080. Exercise global search from the home page, narrow by record type/world, inspect the detail and go Back with the query intact. Include a failed search and recovery. For the cheat shelf, preserve its own family/search on Back and let an exact catalogue ID open a reading view with the two decisions, evidence and implementation details. CTC21 and CTC64 have explicit native-results links. The mobile layout and additional source acquisition are outside this desktop check. Design references: DSG3, UR9, AD36.
+
+Systems comparison rows now show the number of located campaign matches per world and one source citation. The campaign census lists the selection criteria, coverage gaps and precision review.

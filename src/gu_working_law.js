@@ -8,6 +8,7 @@ import {defineWorkingLaw} from './kernel_working.js';
 import {guCatalogue} from './gu_catalogue.js';
 import {resolveGuActivation} from './gu_activation.js';
 import {guLanding} from './gu_effect_sentence.js';
+import {resolveGuDefense} from './gu_defense.js';
 import {beginGuRefinement, stepGuRefinement} from './gu_refinement.js';
 
 // Dials (authored defaults, adjustable per world pack). The novel gives no stage duration or derived cost.
@@ -47,9 +48,25 @@ function activate({bound, facts, options, at}) {
     const result = resolveGuActivation({stages: [{gu, operator: operator.id, ability, ...(supply && {supply})}],
         reserves, day: facts.day ?? at, modifiers: facts.modifiers ?? []});
     if (result.outcome !== 'complete') return {ok: false, reason: result.reason, observed: {stopped: gu.kind}};
-    return {ok: true, facts: {reserves: result.remaining, modifiers: result.modifiers},
+    return {ok: true, facts: {reserves: result.remaining, modifiers: result.modifiers,
+        ...(options.collectForce && {forces: [...(facts.forces ?? []), ...result.effects.map(effect => ({...effect, source:gu.id}))]})},
         effects: result.effects.map(effect => ({...effect, ...guLanding(effect), source: gu.id})),
-        observed: {activated: gu.kind, cost: result.activations[0].cost}};
+        observed: {activated: gu.kind, cost: result.activations[0].cost},
+        ...(options.collectForce && {costs: result.activations.map(({fuel, cost}) => ({fuel, cost}))})};
+}
+
+function oppose({facts, options}) {
+    const {packets, guards, attackKind, woundAt} = options;
+    const forces = facts.forces ?? [];
+    const layers = forces.filter(force => Object.hasOwn(guards, force.kind))
+        .map(force => ({...guards[force.kind], id: force.source, capacity: force.magnitude}));
+    const defense = resolveGuDefense(packets, layers);
+    const injury = defense.remainder.reduce((sum, packet) => sum + packet.amount, 0);
+    const damage = forces.filter(force => force.kind === attackKind).reduce((sum, force) => sum + force.magnitude, 0);
+    const wounded = damage >= woundAt;
+    const contest = {held: injury === 0 && wounded, wounded, injury, damage,
+        broken: defense.layers.filter(layer => layer.broken).map(layer => layer.id)};
+    return {ok: true, facts: {contest}, observed: contest};
 }
 
 function convert({bound, facts, at}) {
@@ -116,6 +133,7 @@ function treat({bound, facts, at}) {
 
 export const guWorkingLaw = defineWorkingLaw({id: 'gu.working', revision: 1, operations: {
     activate: {roles: {gu: 'gu', operator: 'operator'}, settle: activate},
+    oppose: {roles: {}, settle: oppose},
     convert: {roles: {converter: 'gu', operator: 'operator'}, settle: convert},
     refine: {roles: {refiner: 'operator'}, settle: refine},
     grow: {roles: {producer: 'gu', operator: 'operator'}, settle: grow},
@@ -124,6 +142,16 @@ export const guWorkingLaw = defineWorkingLaw({id: 'gu.working', revision: 1, ope
 
 const method = (id, roles, steps) => ({id, revision: 1, law: guWorkingLaw.ref, roles, steps});
 const one = op => roles => ({op, bindings: roles});
+
+// One specimen can make several successive casts. Each is its own paid step.
+export function guExchangeMethod(id, casts, contest, minutes) {
+    const roles = {operator: 'operator', ...Object.fromEntries(casts.map(({kind}) => [kind, 'gu']))};
+    return method(id, roles, [
+        ...casts.map(({kind, ability}) => ({op: 'activate', bindings: {operator: 'operator', gu: kind},
+            options: {ability, collectForce: true}})),
+        {op: 'oppose', bindings: {}, minutes, options: contest},
+    ]);
+}
 
 // Every method a catalogue kind supplies, keyed by mechanism. Recipe stages take their minutes from the
 // stage row when it names them, else the dial.

@@ -60,6 +60,33 @@ body:has(> main#main) .canvas-inspector h3 {
     font-size: 1.0625rem;
     line-height: 1.35;
 }
+
+.atlas-systems.canvas-inspector {
+    max-width: 1080px;
+    margin: var(--ui-space-panel) auto;
+    padding: var(--ui-space-panel);
+    overflow-wrap: anywhere;
+}
+.atlas-systems nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ui-space-4);
+}
+.atlas-systems table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+.atlas-systems :is(th, td, .system-index li) {
+    border-bottom: 1px solid var(--canvas-border);
+    padding: var(--ui-space-3);
+    text-align: left;
+    vertical-align: top;
+}
+.atlas-systems th:first-child { width: 22%; }
+.atlas-systems th:last-child { width: 32%; }
+.atlas-systems td small { display: block; }
+.atlas-systems .system-index { list-style: none; padding: 0; }
+.atlas-systems .system-index li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--ui-space-3); }
+.atlas-systems dt { font-weight: 600; }
+.atlas-systems dd { margin: 0 0 var(--ui-space-3); }
+.atlas-systems [data-selected] { outline: 1px solid var(--ui-accent); outline-offset: -1px; }
 body:has(> main#main) :is(.reading-outputs, .reader-scenes, .findings-sheet) h2 {
     font-family: var(--atlas-reading-font);
     line-height: 1.25;

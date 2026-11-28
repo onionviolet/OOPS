@@ -107,11 +107,19 @@ class Person{
         return this.#bio;
     }
 
+    getBio() {
+        return this.getBioComponent().getBio();
+    }
+
+    getRaceTags() {
+        return playable_races[this.getBio().race].tags;
+    }
+
     getHeight() {
-        return this.getBioComponent().height;
+        return this.getBio().height;
     }
     getRace(){
-        return this.getBioComponent().race;
+        return this.getBio().race;
     }
 
     getNumericalHeight() {
@@ -430,7 +438,7 @@ class Person{
      * @param {*}
      * @returns [actual damage taken; Boolean if target should faint] 
      */
-    takeDamage({damage_values, can_faint = true, give_skill_xp = true, defense_modifier = 0, armor_penetration = 0, type_multiplier = 1}) {
+    takeDamage({damage_values, can_faint = true, give_skill_xp = true, defense_modifier = 0, armor_penetration = 0, type_multiplier = 1, settle_damage}) {
 
         //TODO: move this to levelable, only make a shortcut in Person?
 
@@ -445,7 +453,9 @@ class Person{
         const levelable = this.getLevelableComponent();
         let fainted;
     
-        const damage_taken = mitigateCombatDamageFromStats(damage_values, levelable.stats.full, defense_modifier, armor_penetration, type_multiplier);
+        const mitigate = values => mitigateCombatDamageFromStats(values, levelable.stats.full, defense_modifier, armor_penetration, type_multiplier);
+        const mitigated = mitigate(damage_values);
+        const damage_taken = settle_damage ? settle_damage(mitigated,mitigate) : mitigated;
         levelable.stats.full.health -= damage_taken;
     
         if(levelable.stats.full.health <= 0 && can_faint) {
@@ -610,6 +620,7 @@ class Person{
                     (levelable.xp_bonuses.multiplier.race[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.levels[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.skills[bonus_target] || 1)
+                    * (levelable.xp_bonuses.multiplier.skill_milestones[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.books[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.titles?.[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.aptitude?.[bonus_target] || 1)

@@ -1,18 +1,4 @@
 import {quoteGuFuel} from './gu_fuel.js';
-import {guCatalogue} from './gu_catalogue.js';
-
-// Lead lives reserve exact parts through the simulation energy owner. Each
-// entry names one activation, including repeated uses of the same held Gu.
-export function guLeadActivationCosts(kinds, actor, energyId) {
-    const costs = kinds.map(kind => {
-        const ability = guCatalogue[kind]?.leadActivation?.value;
-        if (ability?.fuel !== 'primeval' || !Number.isSafeInteger(ability.cost) || ability.cost <= 0) {
-            throw Error(`No lead activation price for ${kind}.`);
-        }
-        return {type: 'energy', actor, energyId, operation: 'use', output: ability.cost, control: 1};
-    });
-    return {costs, parts: costs.reduce((total, cost) => total + cost.output, 0)};
-}
 
 // Pure ordered settlement. The host supplies actual Gu, operators and reserves,
 // then publishes the returned debits and effects through its own state owners.

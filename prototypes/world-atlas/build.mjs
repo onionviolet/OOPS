@@ -12,6 +12,7 @@ import {buildCodex} from './codex.mjs';
 import {buildCheats} from './cheats.mjs';
 import {buildIdeas} from './ideas.mjs';
 import {buildChanges} from './changelog.mjs';
+import {readSystems} from './systems.mjs';
 
 const here = fileURLToPath(new URL('.', import.meta.url)), root = join(here, '..', '..');
 export const SNAPSHOT = process.env.ATLAS_SNAPSHOT || join(root, 'work/atlas-snapshot/snapshot.json');
@@ -76,6 +77,7 @@ export function buildSnapshot({out = SNAPSHOT} = {}) {
     const progress = part('progress', () => latestProgress());
     // Reader findings: the matrix rides in the snapshot; one digest per world goes beside it for the Things and Making views.
     const findings = part('findings', () => run('reader-findings.mjs', ['--out-dir', join(dirname(out), 'readers')]), true);
+    const systems = part('systems', () => readSystems(root,join(dirname(out),'readers'),findings?.worlds.map(row=>row.world)??[]),true);
     const recipes = part('recipes', () => run('game-recipes.mjs'));
     const gameMaking = part('gameMaking', () => run('game-making.mjs'));
     const codex = part('codex', () => buildCodex()); // aggregates only; row pages are served on demand (C1)
@@ -84,7 +86,7 @@ export function buildSnapshot({out = SNAPSHOT} = {}) {
     const head = execFileSync('git', ['rev-parse', '--short', 'HEAD'], {cwd: root, encoding: 'utf8'}).trim();
     const changes = part('changes', () => buildChanges({commit: head, codex, cheats, existing: readSnapshot(out)?.changes ?? null}));
     const snapshot = {builtAt: new Date().toISOString(), commit: execFileSync('git', ['rev-parse', '--short', 'HEAD'], {cwd: root, encoding: 'utf8'}).trim(),
-        dirty, latestCollectedAt, timings, failures, books, frontier: native.frontier, others: native.others, registeredTravel:native.registeredTravel??null, sources, mechanics, progress, findings, recipes, gameMaking, codex, cheats, ideas, changes};
+        dirty, latestCollectedAt, timings, failures, books, frontier: native.frontier, others: native.others, registeredTravel:native.registeredTravel??null, sources, mechanics, progress, findings, systems, recipes, gameMaking, codex, cheats, ideas, changes};
     return snapshot;
 }
 

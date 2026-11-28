@@ -58,3 +58,20 @@ test("successful import commits only after preflight and retains retirement data
 test("failed export creation never encodes an undefined or invalid payload", () => {
     for(const value of [undefined, null, "", "undefined", "null", "[]"]) assert.throws(() => encodeSaveFile(value));
 });
+
+
+test("plain v0.6 exports preserve the guild state and discard an unearned placeholder recipe", () => {
+    const source = "Adventurers' guild", destination = "Adventurer's guild";
+    const save = fixture();
+    save["game version"] = "v0.6";
+    save["current location"] = source;
+    save.locations = {[source]: {is_unlocked: true}};
+    save.levels = {person: {main_character: {total_xp: 0, skill_xp: {}}}};
+    save.inventories = {person: {main_character: {}}};
+    save.availabilities = {location: {[source]: 1}, recipe: {undefined: 0}};
+    save.npcs = {};
+    const imported = decodeSaveFile(encodeSaveFile(JSON.stringify(save)), "v0.6");
+    assert.equal(imported["current location"], destination);
+    assert.deepEqual(imported.locations, {[destination]: {is_unlocked: true}});
+    assert.deepEqual(imported.availabilities, {location: {[destination]: 1}, recipe: {}});
+});

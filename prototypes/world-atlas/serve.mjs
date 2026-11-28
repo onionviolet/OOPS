@@ -19,6 +19,7 @@ import {savedReadingSurvey} from './reading-survey.mjs';
 import {loadWorldRules,queryWorldRules} from './world-rules.mjs';
 import {loadCheatCatalogue,cheatPlayStatus} from './cheat-catalogue.mjs';
 import {readFindSubjects,buildFindIndex,searchAtlas,findWorldChoices} from './atlas-find.mjs';
+import {findSystems} from './systems.mjs';
 import {loadNativePlayEvidence,loadNativePlayRecord,loadPaidInnEvidence,loadBreakfastEvidence} from './atlas-native-evidence.mjs';
 import {campaignSequencing} from './campaign-sequencing.mjs';
 import {CAMPAIGN_TRACKS} from './campaign-sequencing-tracks.mjs';
@@ -104,18 +105,21 @@ const currentTravel = () => selectRegisteredTravel(snap,travelLeaf,snapFromCache
 
 function refreshAtlas() {
     if (!refresh) refresh = run(process.execPath, [fileURLToPath(new URL('./build.mjs', import.meta.url))], {cwd: root})
-        .then(() => {snap = readSnapshot(); snapFromCache = true; refreshError = null; atlasFindIdeas = undefined;})
+        .then(() => {snap = readSnapshot(); snapFromCache = true; refreshError = null; atlasFindIdeas = undefined; atlasFindIndex = undefined;})
         .catch(error => {refreshError = 'Atlas refresh failed. The previous snapshot is still available.'; throw error;})
         .finally(() => {refresh = null;});
     return refresh;
+}
+function syncSnapshot(){
+    const current=readSnapshot();
+    if(current?.builtAt>snap.builtAt){snap=current;snapFromCache=true;atlasFindIndex=undefined;}
 }
 export async function atlasData() {
     if (refresh) await refresh.catch(() => {});
     const reading = readLibrary(registered);
     const batches = readBatches(reading.keys.map(k => k.key));
     const latestCollectedAt = latestBatchCollection(batches);
-    const current = readSnapshot();
-    if (current?.builtAt > snap.builtAt) {snap = current; snapFromCache = true;}
+    syncSnapshot();
     if (latestCollectedAt > Math.max(snap.latestCollectedAt ?? Date.parse(snap.builtAt), attemptedCollection)) {
         attemptedCollection = latestCollectedAt;
         await refreshAtlas().catch(() => {});
@@ -148,6 +152,7 @@ let worldRuleCatalogue;
 let atlasFindIndex;
 let atlasFindIdeas;
 export function findIndex() {
+    syncSnapshot();
     if(atlasFindIndex)return atlasFindIndex;
     atlasFindIndex=(async()=>{
         worldRuleCatalogue??=loadWorldRules(root);
@@ -156,7 +161,7 @@ export function findIndex() {
         let playEvidence;
         try{playEvidence=await loadNativePlayEvidence(root);}catch{}
         const cheats=await loadCheatCatalogue(root,playEvidence);
-        const index=buildFindIndex({subjects:subjects.rows,rules:worldRuleCatalogue,cheats,playEvidence});
+        const index=buildFindIndex({subjects:subjects.rows,rules:worldRuleCatalogue,cheats,playEvidence,systems:findSystems(snap.systems)});
         return {
             ...index,
             sourceScope:{readerFiles:subjects.files,unreadableReaderFiles:subjects.unreadable,playableRoutesUnavailable:!playEvidence},
@@ -220,6 +225,16 @@ const assets = {
     '/field-record.css':['../../styles/field_record.css','text/css'],
     '/canvas.css':['./canvas.css','text/css'],
     '/atlas-type.css':['./atlas-type.css','text/css'],
+    '/systems-view.mjs':['./systems-view.mjs','text/javascript'],
+    '/world-titles.mjs':['./world-titles.mjs','text/javascript'],
+    '/system-play/ev2-ev3':['../../docs/representations/evidence/skill-evolution-ev2-ev3-2026-11-26/proof.json','application/json'],
+    '/system-play/ev4-ev5':['../../docs/representations/evidence/skill-evolution-ev4-ev5-2026-11-26/proof.json','application/json'],
+    '/system-play/ev6':['../../docs/representations/evidence/skill-evolution-armor-ev6-2026-11-26/proof-ev6.json','application/json'],
+    '/system-play/sm1':['../../docs/representations/evidence/litrpg-sm1-sm5-2026-11-27/proof-sm1.json','application/json'],
+    '/system-play/sm4':['../../docs/representations/evidence/sm4-role-stack-2026-11-27/proof.json','application/json'],
+    '/system-play/sm5':['../../docs/representations/evidence/litrpg-sm1-sm5-2026-11-27/proof-sm5.json','application/json'],
+    '/system-play/progression':['../../docs/PROGRESSION_GATE_RULES.md','text/plain; charset=utf-8'],
+    '/system-play/census':['../../docs/audits/LITRPG_SYSTEM_CENSUS_2026-11-27.md','text/plain; charset=utf-8'],
     '/canvas.mjs':['./canvas.mjs','text/javascript'],
     '/village-layout.mjs':['./village-layout.mjs','text/javascript'],
     '/creature-layout.mjs':['./creature-layout.mjs','text/javascript'],
@@ -400,6 +415,12 @@ const server=createServer(async(req,res)=>{
         if(req.method==='GET'&&req.url==='/native-play-evidence'){
             const report=await loadNativePlayEvidence(root);
             return res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(JSON.stringify(report));
+        }
+        if(req.method==='GET'&&(req.url==='/systems-data'||req.url.startsWith('/system-source/'))){
+            syncSnapshot();
+            const data=req.url==='/systems-data'?{articles:snap.systems?.articles??[]}:
+                (/^\/system-source\/[A-Z]{2}[A-Za-z]*\d+$/.test(req.url)?snap.systems?.sources?.[req.url.slice('/system-source/'.length)]:null);
+            return res.writeHead(data?200:404,{'Content-Type':'application/json; charset=utf-8'}).end(JSON.stringify(data??{error:'Source record unavailable'}));
         }
         if(req.method==='GET'&&(req.url==='/atlas-find'||req.url.startsWith('/atlas-find?'))){
             const p=new URL(req.url,'http://localhost').searchParams;

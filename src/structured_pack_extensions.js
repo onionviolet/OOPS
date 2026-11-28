@@ -64,13 +64,7 @@ export function requireStructuredExtensions(record,base,state) {
         requireExtensionBase(e,base);
         check((e.dependsOn||[]).every(id=>record.extensions.some(required=>required.id===id)), 'Restore the required continuation before loading this save.');
     }
-    // Only the installed command extension's declared outputs are considered.
-    // A settled counter or witnessed note still belongs to its saved identity.
-    if(state)for(const e of base?.extensions||[]) {
-        const produced=e.commands.some(c=>(state.actors?.player?.completed?.[c.id]||0)>0||[...(c.effects||[]),...(c.outcomes||[]).flatMap(o=>o.effects||[])].some(effect=>effect.type==='knowledge'&&Object.hasOwn(state.simulation?.knowledge?.player||{},effect.key)));
-        const learned=e.energies?.some(d=>Object.hasOwn(state.simulation?.energies?.player||{},d.id));
-        check(!(produced||learned)||record?.extensions?.some(pin=>pin.id===e.id),'Settled extension work requires its saved content pin.');
-    }
+    if(state)requireSettledExtensionPins(record,base?.extensions||[],state);
     if(state)for(const job of state.simulation?.jobs||[]) {
         const e=base?.extensions?.find(e=>job.commandId.startsWith(e.id+'.'));
         if(!e)continue;
@@ -89,6 +83,35 @@ export function requireStructuredExtensions(record,base,state) {
         check(d&&job.revision===d.revision&&JSON.stringify(job.costs)===JSON.stringify(boundPiece?.costs||d.costs)&&JSON.stringify(job.effects)===JSON.stringify(effects)&&job.cancellation===d.cancellation&&job.reservationReturns===d.reservationReturns&&job.targetId===(d.targetId??null)&&job.actorId===d.actorId&&JSON.stringify(job.participants)===JSON.stringify(participants)&&JSON.stringify(job.audience)===JSON.stringify([d.actorId])&&JSON.stringify({...job.completionSupport,requires:normaliseStructuredSupportRule(base,e,job.completionSupport?.requires,job.commandId)})===JSON.stringify({schema:1,requires:d.completionRequires,coLocated:!!d.completionCoLocated,location:d.location,failure:d.completionFailure}),'Restore the exact pending school extension command. Your saved work has been preserved.');
     }
 }
+
+function requireSettledExtensionPins(record,extensions,state) {
+    const pinned = new Set((record?.extensions || []).map(pin => pin.id));
+    const knowledge = state.simulation?.knowledge?.player || {};
+    const receipts = new Map();
+    const requirePin = condition => check(condition, 'Settled extension work requires its saved content pin.');
+    for (const extension of extensions) {
+        const completed = extension.commands.some(command => (state.actors?.player?.completed?.[command.id] || 0) > 0);
+        const learned = extension.energies?.some(energy => Object.hasOwn(state.simulation?.energies?.player || {}, energy.id));
+        requirePin(!(completed || learned) || pinned.has(extension.id));
+        for (const command of extension.commands) {
+            const effects = [...(command.effects || []), ...(command.outcomes || []).flatMap(outcome => outcome.effects || [])];
+            for (const effect of effects) {
+                if (effect.type !== 'knowledge' || !Object.hasOwn(knowledge, effect.key)) continue;
+                const receipt = receipts.get(effect.key) || {owners: new Set(), matches: new Set()};
+                receipt.owners.add(extension.id);
+                if (effect.stage === knowledge[effect.key].stage && effect.value === knowledge[effect.key].value)
+                    receipt.matches.add(extension.id);
+                receipts.set(effect.key, receipt);
+            }
+        }
+    }
+    // A latest-result slot can have several writers. Use the recorded output to
+    // identify its writer. Unrecognized values retain the original pin checks.
+    for (const {owners, matches} of receipts.values()) {
+        requirePin(matches.size ? [...matches].some(owner => pinned.has(owner)) : [...owners].every(owner => pinned.has(owner)));
+    }
+}
+
 export function admittedExtensionCommands(base,record) {
     requireStructuredExtensions(record,base);
     return (base.extensions||[]).filter(e=>record?.extensions?.some(pin=>pin.id===e.id)).flatMap(e=>e.commands);

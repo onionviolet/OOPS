@@ -1,3 +1,4 @@
+import {readDelayedRewards} from './delayed_rewards.js';
 import {validateContinuationEnvelope} from './continuation_state.js';
 import {validateMistglassEnvelope} from './absorb_p23/host_joins/world_adaptation.js';
 import {validateGrowthEnvelope} from './absorb_p23/host_joins/growth_profile.js';
@@ -51,6 +52,7 @@ import {validateVillageLives} from './npc_lives.js';
 import {validateSystemsWorkshopEnvelope} from './systems_workshop_validation.js';
 import {validateGeneratedPeople} from './generated_people.js';
 import {calendarMinutes} from './world_rhythm.js';
+import {validateSkillEvolutionEnvelope} from './data/skill_evolutions.js';
 
 const object = (value, label) => {
     if(!value || typeof value !== "object" || Array.isArray(value)) throw new Error(`${label} must be an object.`);
@@ -63,6 +65,7 @@ const number = (value, label, minimum = 0) => {
 
 export function validateSaveEnvelope(original, currentVersion) {
     object(original, "Save");
+    if(original.pending_rewards!==undefined)readDelayedRewards(original.pending_rewards);
     validateContinuationEnvelope(original);
     validateKnownDetailEnvelope(original);
     validateTrancheOneEnvelope(original);
@@ -72,6 +75,7 @@ export function validateSaveEnvelope(original, currentVersion) {
     validateMistglassEnvelope(original);
     validateTrainingEnvelope(original);
     validateTrancheFourEnvelope(original);
+    validateSkillEvolutionEnvelope(original);
     domainRegistry.validate(original);
     validateMixtureEnvelope(original);
     validateProductAppearanceEnvelope(original);
@@ -109,6 +113,17 @@ export function validateSaveEnvelope(original, currentVersion) {
     migrateFortSupply(original);
     if(Object.hasOwn(original,"absorb_local_life"))normalizeLocalLife(original.absorb_local_life);
     const {save, retired} = prepareFoundationSave(original);
+    if(original.fork_schema===undefined && original["game version"]==="v0.6") {
+        // YAIR dev emits an unassigned recipe with no earned flags.
+        if(save.availabilities?.recipe?.undefined===0)delete save.availabilities.recipe.undefined;
+        const upstream="Adventurers' guild", local="Adventurer's guild";
+        for(const places of [save.availabilities?.location,save.locations]) {
+            if(!places || !Object.hasOwn(places,upstream))continue;
+            places[local]??=places[upstream];
+            delete places[upstream];
+        }
+        if(save["current location"]===upstream)save["current location"]=local;
+    }
     if(save.expansion != null) {validateExpansionState(save.expansion);validateStoryletState(save.expansion);}
     if(save.expansion?.streams != null) validateStreams(save.expansion.streams);
     validateNativeEncounter(save.native_encounter,save["current location"]);

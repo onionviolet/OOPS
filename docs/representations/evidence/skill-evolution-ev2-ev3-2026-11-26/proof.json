@@ -1,0 +1,136 @@
+{
+  "entry": "/",
+  "bundleSha256": "08273a1884f0aea87bf5d8fef7cb4c1e8e839f4e7979cb981c780a1446f49ae8",
+  "fixtures": {
+    "iron": "617b0e6c32745cf4f6c2c5af5d94d585435c459a5978fd5ae6c6b7534ca2fdfa",
+    "sleep": "2e83ae87639d4736c0524d0413b88b224129c5e9e2775b84332e756cedc27682"
+  },
+  "runs": [
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "tierReport": "Skill Stone skin upgraded to Iron skin",
+      "waiting": {
+        "clock": 290,
+        "xp": 102429607517.86,
+        "continuedClock": 302,
+        "continuedXP": 102429607518.86
+      },
+      "combat": {
+        "fight": "Breathing skin caught the blow and restored 1 stamina.",
+        "choice": {
+          "status": "chosen",
+          "level": 30,
+          "target": "village.breathing-skin"
+        },
+        "xp": 102429607519.86,
+        "revision": 2,
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true
+      },
+      "grade": {
+        "from": "Common",
+        "to": "Uncommon",
+        "choice": {
+          "status": "chosen",
+          "level": 2,
+          "target": "village.restorative-sleep"
+        },
+        "xp": 3000.58,
+        "revision": 2,
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true
+      },
+      "captures": [
+        "tier-1920.png",
+        "form-waiting-1920.png",
+        "form-in-fight-1920.png",
+        "grade-offer-1920.png",
+        "grade-chosen-1920.png"
+      ],
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "tierReport": "Skill Stone skin upgraded to Iron skin",
+      "waiting": {
+        "clock": 290,
+        "xp": 102429607517.86,
+        "continuedClock": 302,
+        "continuedXP": 102429607518.86
+      },
+      "combat": {
+        "fight": "Breathing skin caught the blow and restored 1 stamina.",
+        "choice": {
+          "status": "chosen",
+          "level": 30,
+          "target": "village.breathing-skin"
+        },
+        "xp": 102429607519.86,
+        "revision": 2,
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true
+      },
+      "grade": {
+        "from": "Common",
+        "to": "Uncommon",
+        "choice": {
+          "status": "chosen",
+          "level": 2,
+          "target": "village.restorative-sleep"
+        },
+        "xp": 3000.58,
+        "revision": 2,
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true
+      },
+      "captures": [
+        "tier-1366.png",
+        "form-waiting-1366.png",
+        "form-in-fight-1366.png",
+        "grade-offer-1366.png",
+        "grade-chosen-1366.png"
+      ],
+      "pageErrors": []
+    }
+  ],
+  "saveGate": {
+    "exitCode": 0,
+    "loader": "rebuilt normal browser entry",
+    "results": [
+      {
+        "id": "fang-first-night",
+        "result": "passed",
+        "browserPageErrors": 0
+      },
+      {
+        "id": "klein-ch129",
+        "result": "passed",
+        "browserPageErrors": 0
+      },
+      {
+        "id": "ryan-ch1",
+        "result": "passed",
+        "browserPageErrors": 0
+      },
+      {
+        "id": "alden-hospital",
+        "result": "passed",
+        "browserPageErrors": 0
+      }
+    ]
+  }
+}

@@ -140,6 +140,16 @@ const PERSON_14 = obj({...PERSON.properties,
     routine: arr(obj({...SLOT.properties, recurrence: {type: 'string', enum: RECURRENCE}, until: str}, SLOT.required)),
     relations: arr(obj({...REL.properties, since: str}, REL.required)),
     reacts: arr(obj({...REACT.properties, class: ACT, by: str, responseClass: ACT}, REACT.required))}, PERSON.required);
+const DESCRIPTION = obj({text: str, label: {type: 'string', enum: ['S', 'I']}, locator: str}, ['text', 'label', 'locator']);
+const PROMINENCE = ['lead', 'recurring', 'minor', 'mention'];
+const PERSON_16 = obj({...PERSON_14.properties, looks: arr(DESCRIPTION), role: str, traits: arr(DESCRIPTION),
+    prominence: {type: 'string', enum: PROMINENCE}}, [...PERSON_14.required, 'looks', 'traits', 'prominence']);
+const PEOPLE_TEXT_16 = 'Include every named person, including minor, one-scene and mention-only characters. ' +
+    'For looks, record appearance, dress, bearing or voice only as stated or shown. For traits, describe demonstrated personality. ' +
+    'Give each observation its own paragraph locator and S (stated or directly shown) or I (inferred) label. ' +
+    'Use empty arrays when silent. Give role in one line when supported, otherwise omit it. ' +
+    'Set prominence in this shard to lead, recurring, minor or mention. A bare name can be a mention with no looks or traits. ' +
+    'Paraphrase only, never quote 15 consecutive source words. Keep each descriptive field to at most 25 words total.';
 const SERVICE_14 = obj({...SERVICE.properties, kind: {type: 'string', enum: PRICE_KINDS}, priceStated: {type: 'string', enum: STATED},
     amount: num, unit: str, per: str, priceId: str}, SERVICE.required.filter(k => k !== 'price'));
 const EXTRA_SCHEMA_14 = {rules: () => obj({rules: arr(RULE_14), other: arr(OTHER)}, ['rules', 'other']), people: () => obj({people: arr(PERSON_14), other: arr(OTHER)}, ['people', 'other']),
@@ -165,8 +175,8 @@ const SCENES_TEXT_15 = 'Schema 1.5 step additions, each omitted when the shard i
     'repeated (several times in the shard) or routine (the text says it is habitual, for example every morning). `results`: the `fact` keys from the scene\'s ' +
     '`outcomes` this step causes. `witnesses`: ids present who see or hear it, only when the text shows it. Do not split steps more finely than before; ' +
     'a step is still one action a player could take or watch.';
-const STEPS_15 = version => version === '1.5';
-const EXTRAS_14 = version => version === '1.4' || version === '1.5';
+const STEPS_15 = version => ['1.5', '1.6'].includes(version);
+const EXTRAS_14 = version => version === '1.4' || STEPS_15(version);
 
 /** Output keys per extra pass. */
 export const EXTRA_PASSES = Object.freeze({rules: ['rules', 'other'], people: ['people', 'other'], texture: ['places', 'services', 'news', 'customs', 'other']});
@@ -177,6 +187,7 @@ const EXTRA_SCHEMA = {rules: () => obj({rules: arr(RULE), other: arr(OTHER)}, ['
 
 /** Output schema per pass: 'census' (pass 1), 'scenes' (pass 2, scenes and fills), 'full' (both in one call). */
 export function shardSchema(pass, {version = '1.3'} = {}) {
+    if (version === '1.6' && pass === 'people') return obj({people: arr(PERSON_16), other: arr(OTHER)}, ['people', 'other']);
     if (EXTRAS_14(version) && EXTRA_SCHEMA_14[pass]) return EXTRA_SCHEMA_14[pass]();
     if (STEPS_15(version) && pass === 'scenes') return obj({scenes: arr(SCENE_15), fills: arr(FILL)}, ['scenes', 'fills']);
     if (STEPS_15(version) && pass === 'full') return obj({scenes: arr(SCENE_15), census: arr(CENSUS), fills: arr(FILL)}, ['scenes', 'census', 'fills']);
@@ -235,13 +246,14 @@ const RECORD_TEXT = 'Record everything the shard states or shows for this pass, 
 export const SYSTEM_LENSES = 'System lenses, when evidenced in this shard: procedures and repeated work (ordered steps, branches, prerequisites, actor/tool/material bindings, duration, checkpoints, interruption, cancellation, partial results and recovery); procedural or generative systems (what varies, persistent identity, dependencies, distributions and bounds, when outcomes become fixed, what resets or is retained); progression, learning and powers; production, trade and custody; body, hazards and conflict; institutions, authority, obligations and reputation; relationships, knowledge and deception; travel, ecology, time, household routines and long pursuits. Record these through this pass\'s fields, with remaining source facts in `other` for non-scene passes. Do not invent seeds, probability values, universal limits or missing mechanics. A fixed authored event is not proof of random generation. Distinguish the world\'s mechanism, what an actor believes, and any unknown cause. Later exceptions remain evidence, not retroactive knowledge for earlier actors.';
 
 /** Byte-stable prefix: identical for every request in a batch (and a pass), so it caches. */
-export function systemText(pass, {world = 'lotm', cardPath = join(DOCS, 'SCHEMA_CARD_1_3.md'), version = '1.3'} = {}) {
+export function systemText(pass, {world = 'lotm', lang, cardPath = join(DOCS, 'SCHEMA_CARD_1_3.md'), version = '1.3'} = {}) {
     const profile = worldProfile(world);
     return localize([
         'You are a bounded source reader for YAIRPG. You receive one shard of a novel (paragraph-numbered: `pN: text` under chapter headers) and return structured rows as JSON matching the output schema. You have no tools and no other source: record only what the shard states. Do not add facts you know from elsewhere about this book or its sequels; if a row needs context the shard lacks, label it `I` and say so in the note.',
         PASS_TEXT[pass],
+        ...(version === '1.6' && pass === 'people' ? [PEOPLE_TEXT_16] : []),
         ...(STEPS_15(version) ? ['Each locator field takes exactly one paragraph. For a claim supported by several paragraphs, cite each paragraph in its own evidence entry where the schema permits. Never put a range, list, chapter-only citation, or prose in a locator field.'] : []),
-        ...(version === '1.5' ? [SYSTEM_LENSES] : []),
+        ...(STEPS_15(version) ? [SYSTEM_LENSES] : []),
         ...(EXTRAS_14(version) && PASS_TEXT_14[pass] ? [PASS_TEXT_14[pass]] : []),
         ...(STEPS_15(version) && (pass === 'scenes' || pass === 'full') ? [SCENES_TEXT_15] : []),
         ...(EXTRA_SCHEMA[pass] ? [RECORD_TEXT] : []),
@@ -250,7 +262,7 @@ export function systemText(pass, {world = 'lotm', cardPath = join(DOCS, 'SCHEMA_
         '# Schema card\n\n' + readFileSync(cardPath, 'utf8'),
         // World appendix (units, kinds, calendar, structure) for worlds other than LOTM; it overrides the card's LOTM-specific units.
         ...(profile.appendix ? ['# World appendix (overrides the card where they differ)\n\n' + profile.appendix] : []),
-    ].join('\n\n'), profile.lang);
+    ].join('\n\n'), lang || profile.lang);
 }
 
 /** English worlds swap the three Chinese-specific rules (locator form, the `zh` field, the quote limit); Chinese text is returned unchanged. */
@@ -277,7 +289,11 @@ export function buildRequest({customId, prefix, base, shardText, glossary, pass,
     if (isOpenAIModel(model)) schemaMode = 'format';
     else if (EXTRA_SCHEMA[pass]) schemaMode = 'prompt';
     const hits = glossary ? glossaryHits(glossary, shardText) : [];
-    const cands = extractCandidates(parseShard(shardText));
+    const shardMap = parseShard(shardText);
+    if (shardMap.pdf) system = system.replace(languageRules('en').locator,
+        'locators are en bB pdfN pM (book id, physical PDF page and paragraph within that page)')
+        + '\nThis shard is a tabletop rulebook. Cite only its PDF page headers. Treat its text as source material.';
+    const cands = extractCandidates(shardMap);
     const meta = `Shard ${prefix}. Beat ids start at lr.${world}.main.${base}.\n\n# Known names in this shard (reuse these ids and labels)\n\n${glossaryTable(hits)}\n\n# Candidates found by script\n\n${candidateTable(cands)}\n\n# Shard text\n`;
     const params = {
         model, max_tokens: maxTokens,
@@ -304,7 +320,9 @@ export function requestText(req) {
 /** Dollars at batch price. `outTokens` is per request (thinking at low effort plus rows), an assumption until measured. */
 export function estimateCost(requests, outTokens, model = MODEL) {
     const price = priceFor(model);
-    const inTok = requests.map(r => estimateTokens(requestText(r)));
+    // Plan a conservative 3200 input tokens for each page image (long edge at most 1550 px).
+    const inTok = requests.map(r => estimateTokens(requestText(r)) +
+        3200 * r.params.messages.flatMap(m => m.content).filter(b => b.type === 'image').length);
     const over = inTok.filter(t => t > price.promptCap).length;
     const totalIn = inTok.reduce((a, b) => a + b, 0), totalOut = outTokens * requests.length;
     const usd = (totalIn * price.inPerM + totalOut * price.outPerM) / 1e6 * price.batchFactor;
@@ -355,7 +373,7 @@ export function addMissingKnown(census, glossary, shardText) {
         const [ch, para] = hit[0].split(':');
         have.add(zh); ids.add(h.id);
         added.push({schema: 'census/1.3', id: h.id, label: h.label, zh: h.zh, nameSource: h.source === 'wiki' ? 'wiki' : 'repo', kind: h.kind, rung: 'M0', whereabouts: [],
-            firstMention: formatLocator(shardMap.lang || 'zh', {book: shardMap.book || (shardMap.lang === 'en' ? 1 : 0), ch, p: para}), firstVolume: null, touchedByLead: false, aliases: [], claimant: 'script', note: 'Known name found by script, not by the reader.'});
+            firstMention: formatLocator(shardMap.lang || 'zh', {pdf: shardMap.pdf, book: shardMap.book || (shardMap.lang === 'en' ? 1 : 0), ch, p: para}), firstVolume: null, touchedByLead: false, aliases: [], claimant: 'script', note: 'Known name found by script, not by the reader.'});
     }
     return [...census, ...added];
 }
@@ -363,11 +381,19 @@ export function addMissingKnown(census, glossary, shardText) {
 export function requestsFromPlan(plan) {
     const glossary = glossaryFromPlan(plan);
     const pass = plan.pass, version = plan.schemaVersion || '1.3';
-    const system = systemText(pass, {world: plan.world || 'lotm', version}) + (plan.reading?.focus ? '\n\nBounded reading focus: ' + plan.reading.focus + '\nThis focus does not grant evidence outside the supplied shard or establish whole-book coverage. Keep the pass schema and source labels.' : '');
-    return plan.shards.map(s => buildRequest({
-        customId: `${s.prefix}-${pass}`, prefix: s.prefix, base: s.base, shardText: readFileSync(s.shard, 'utf8'), glossary, pass,
-        model: plan.model || MODEL, effort: plan.effort || 'low', maxTokens: plan.maxTokens || 48000, schemaMode: plan.schemaMode || 'format',
-        world: plan.world || 'lotm', version, system}));
+    const system = systemText(pass, {world: plan.world || 'lotm', lang: plan.lang, version}) + (plan.reading?.focus ? '\n\nBounded reading focus: ' + plan.reading.focus + '\nThis focus does not grant evidence outside the supplied shard or establish whole-book coverage. Keep the pass schema and source labels.' : '');
+    return plan.shards.map(s => {
+        const request = buildRequest({
+            customId: `${s.prefix}-${pass}`, prefix: s.prefix, base: s.base, shardText: readFileSync(s.shard, 'utf8'), glossary, pass,
+            model: plan.model || MODEL, effort: plan.effort || 'low', maxTokens: plan.maxTokens || 48000, schemaMode: plan.schemaMode || 'format',
+            world: plan.world || 'lotm', version, system});
+        for (const image of s.images || []) {
+            const blocks = request.params.messages[0].content;
+            blocks.push({type: 'text', text: 'Visible original of PDF page ' + image.page + '. Cite its rendered-page paragraph for visual evidence.'},
+                {type: 'image', source: {type: 'base64', media_type: 'image/jpeg', data: readFileSync(image.file).toString('base64')}});
+        }
+        return request;
+    });
 }
 
 /** Whether a shard's pass is already read in a private folder, by any provider (file names do not carry the reader). A salvaged cut-off still needs a full read. */
@@ -530,7 +556,7 @@ export function candidateCoverage(candidates, census) {
 }
 
 /** Labels and locators of an extra-pass row set: every `label` must be S, I or U and every `locator` a paragraph inside the shard. */
-export function lintExtra(rows, shardMap) {
+export function lintExtra(rows, shardMap, version) {
     const issues = [];
     const walk = (n, where) => {
         if (Array.isArray(n)) return n.forEach(x => walk(x, where));
@@ -542,9 +568,38 @@ export function lintExtra(rows, shardMap) {
         for (const k of ['costStated', 'priceStated']) if (k in n && !STATED.includes(n[k])) issues.push({code: k, where: w});
         for (const k of ['class', 'responseClass']) if (k in n && 'response' in n && !ACTION_CLASSES.includes(n[k])) issues.push({code: `reacts-${k}`, where: w});
         if ('priceStated' in n && n.priceStated === 'stated' && !Number.isFinite(n.amount)) issues.push({code: 'price-amount', where: w});
-        if (typeof n.locator === 'string') { const m = parseLocator(n.locator); if (!m || !shardMap.has(m.key)) issues.push({code: 'locator', where: w}); }
+        if (typeof n.locator === 'string') { const m = parseLocator(n.locator); if (!m || !shardMap.has(m.key) || ((m.pdf || shardMap.pdf) && (m.pdf !== shardMap.pdf || m.book !== shardMap.book))) issues.push({code: 'locator', where: w}); }
         for (const v of Object.values(n)) walk(v, w);
     };
+    if (version === '1.6' && 'people' in rows) {
+        const segmenter = new Intl.Segmenter(shardMap.lang === 'zh' ? 'zh' : 'en', {granularity: 'word'});
+        const tokens = text => Array.from(segmenter.segment(text.toLowerCase())).filter(w => w.isWordLike).map(w => w.segment);
+        const runs = words => words.slice(14).map((_, i) => words.slice(i, i + 15).join(' '));
+        const sourceRuns = new Set(runs(tokens([...shardMap.values()].join(' '))));
+        const length = (text, issue) => {
+            const words = tokens(text);
+            if (runs(words).some(run => sourceRuns.has(run))) issue('description-quote');
+            return words.length;
+        };
+        for (const person of Array.isArray(rows.people) ? rows.people : []) {
+            const issue = code => issues.push({code, where: person?.id || '?'});
+            if (!person || !PROMINENCE.includes(person.prominence)) issue('prominence');
+            if (person?.role !== undefined && (typeof person.role !== 'string' || !person.role.trim()
+                || /[\r\n]/.test(person.role) || length(person.role, issue) > 25)) issue('role');
+            for (const field of ['looks', 'traits']) {
+                const values = person?.[field];
+                if (!Array.isArray(values)) { issue(field); continue; }
+                let count = 0;
+                for (const entry of values) {
+                    const loc = parseLocator(entry?.locator);
+                    if (typeof entry?.text !== 'string' || !entry.text.trim() || !['S', 'I'].includes(entry.label)
+                        || !loc || loc.lang !== shardMap.lang || loc.book !== shardMap.book || !shardMap.has(loc.key)) issue(field);
+                    if (typeof entry?.text === 'string') count += length(entry.text, issue);
+                }
+                if (count > 25) issue(field + '-length');
+            }
+        }
+    }
     walk(rows, '?');
     return issues;
 }
@@ -592,7 +647,17 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
         if (EXTRA_PASSES[plan.pass]) {
             // Passes 3-5 write their own files; no migrate, no audit grade, no repair (a bad row set is re-read after the consumer probe).
             const keys = EXTRA_PASSES[plan.pass], extraRows = Object.fromEntries(keys.map(k => [k, rows[k] || []]));
-            const issues = [...lintExtra(extraRows, shardMap), ...(shardMap.lang === 'en' ? enQuoteIssues(extraRows, shardText) : [])];
+            const issues = [...lintExtra(extraRows, shardMap, plan.schemaVersion), ...(shardMap.lang === 'en' ? enQuoteIssues(extraRows, shardText) : [])];
+            if (plan.pass === 'people' && plan.schemaVersion === '1.6') {
+                if (!Array.isArray(rows.people)) issues.push({code: 'people-array'});
+                if (issues.length) {
+                    const issueCodes = [...new Set(issues.map(i => i.code))];
+                    writeFileSync(marker, JSON.stringify({issueCodes}) + '\n');
+                    summary.shards.push({id, status: 'lint', pass: plan.pass, lintIssues: issues.length, issueCodes});
+                    summary.repair.push({id, why: 'lint'});
+                    continue;
+                }
+            }
             for (const k of keys) writeJsonl(join(plan.privateDir, `${s.prefix}_${extraFile(plan.pass, k)}.jsonl`), rows[k]);
             summary.shards.push({id, status: st, pass: plan.pass, counts: Object.fromEntries(keys.map(k => [k, (rows[k] || []).length])), lintIssues: issues.length, issueCodes: [...new Set(issues.map(i => i.code))]});
             continue;

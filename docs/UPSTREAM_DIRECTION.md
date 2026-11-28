@@ -2,6 +2,20 @@
 
 Checked 2026-10-01. Requested research: consider the original developer's current plan, what the fork can use, and how to adapt it later. This is a source review and integration proposal. It selects no merge, mechanic, plot or save migration. [PROJECT.md](../PROJECT.md) owns accepted direction; [ENGINE_EXPANSION.md](ENGINE_EXPANSION.md) owns our architecture proposal.
 
+## 2026-11-27 YAIR development merge (U1)
+
+Weibao chose to merge the development repository. The integration joins 62 upstream commits from `f0e32c200` through `be3276b1f001ce68c579726ea1a5b4e153a461fd`. The merge keeps both parents and the upstream license and attribution. [Upstream scan](research/PROTOLIKE_SCAN_2026-11-27.md)
+
+| Area | Resolution |
+| --- | --- |
+| Town, forest, traders and crafts | Bring in YAIR location, dialogue, inventory and material rows. Keep the fork's public names and legacy item/NPC IDs addressable. Trader quality uses upstream per-item quantization and fork keyed draws. Gathering retains fork tool yields and counted material custody. |
+| Combat and XP | Keep native exchange transactions, seeded callbacks, combat review and evolved forms. Adopt stance target counts, per-weapon XP and enemy effect notices through that exchange. The parent XP award uses the existing owner and loading flag. The two multiplier fixes agree. The heavy armor shield multiplier applies before the existing EV2 skin rules evaluate body damage. |
+| Achievements and Reports | Keep YAIR's achievement panel and availability flags. The existing temple restoration is the consumer for Master of fate. Its notification also appears in Reports through the current reporter. Keep OOPS title and Growth ownership. |
+| Delayed rewards and saves | Validate the optional native pending_rewards record. Old saves without it start with an empty queue. The temple reward advances on committed Village time and writes its dialogue unlock with its queue removal in the existing transaction. The OOPS fork schema, expansion, retired content and import preflight keep their existing owners. Plain v0.6 dev saves map the old guild spelling to the existing location ID and discard the unearned placeholder recipe flag. The developer content verifier receives the native context from its caller. |
+| Browser shell and map | Keep native controls and creator credits. The Data tab opens YAIR's data viewer, including its original canvas map. Later work can decide how to join that developer view to the player-facing RPG map. |
+
+The snapshot leaves upstream's early-stage guild and story work at its current scope. The developer map displays the location graph. A player-facing map still needs the observer-safe projection described in [END_GOAL](END_GOAL.md#future-rpg-view-with-a-map). The [browser proof](representations/evidence/yair-dev-merge-2026-11-27/README.md) covers the Village, an armored fight, the Temple achievement, the map and the save paths.
+
 ## Finding
 
 Miktaew is developing a substantially different v0.6 foundation in the **development repository**, while both hosted releases remain on v0.5.5.30. The new foundation overlaps with our interests in branching stories, individual NPCs and fights involving several actors. Our current fork starts from the older foundation. Future engine work should compare the newer implementation before recreating it.

@@ -1,0 +1,185 @@
+{
+  "entry": "/",
+  "bundleSha256": "0efb536f8bc6fe4961f6d76a03f22735ada6e1cf1af085e4bbe2a160803cea11",
+  "fixtures": {
+    "fusion": "564dcc6e2c240e0733565389e15cb903fd44e12f049ac301cc61f7a94f0c231e",
+    "rest": "94f6da8d5910fc84d2f780e8875e8fff42df9ddab61f0d12b2e7e3e555499f9a"
+  },
+  "runs": [
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "fusion": {
+        "id": "village.counterstep",
+        "identity": "village.counterstep-form",
+        "effect": "Counterstep restored 1 stamina after a dodge.",
+        "waiting": {
+          "clock": 272,
+          "xp": 56.5,
+          "continuedClock": 273,
+          "continuedXP": 58
+        },
+        "kept": {
+          "Evasion": 58,
+          "Combat": 171
+        },
+        "choice": {
+          "status": "chosen",
+          "level": 2,
+          "target": "village.counterstep-form"
+        },
+        "xp": {
+          "Evasion": 59.5,
+          "Combat": 172
+        },
+        "revision": 3,
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true
+      },
+      "rest": {
+        "id": "village.recovery",
+        "identity": "village.quiet-recovery",
+        "effect": "Quiet recovery restored 2 extra stamina while you slept.",
+        "waiting": {
+          "clock": 251,
+          "xp": 0,
+          "continuedClock": 257,
+          "continuedXP": 1.05
+        },
+        "kept": {
+          "Patience": 60,
+          "Breathing": 400.1,
+          "Regeneration": 1000
+        },
+        "choice": {
+          "status": "chosen",
+          "level": 1,
+          "target": "village.quiet-recovery"
+        },
+        "xp": {
+          "Patience": 60,
+          "Breathing": 400.2,
+          "Regeneration": 1000
+        },
+        "revision": 3,
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true
+      },
+      "captures": [
+        "fusion-offer-1920.png",
+        "fusion-chosen-1920.png",
+        "fusion-effect-1920.png",
+        "rest-offer-1920.png",
+        "rest-chosen-1920.png",
+        "rest-effect-1920.png"
+      ],
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "fusion": {
+        "id": "village.counterstep",
+        "identity": "village.counterstep-form",
+        "effect": "Counterstep restored 1 stamina after a dodge.",
+        "waiting": {
+          "clock": 272,
+          "xp": 56.5,
+          "continuedClock": 273,
+          "continuedXP": 58
+        },
+        "kept": {
+          "Evasion": 58,
+          "Combat": 171
+        },
+        "choice": {
+          "status": "chosen",
+          "level": 2,
+          "target": "village.counterstep-form"
+        },
+        "xp": {
+          "Evasion": 59.5,
+          "Combat": 172
+        },
+        "revision": 3,
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true
+      },
+      "rest": {
+        "id": "village.recovery",
+        "identity": "village.quiet-recovery",
+        "effect": "Quiet recovery restored 2 extra stamina while you slept.",
+        "waiting": {
+          "clock": 251,
+          "xp": 0,
+          "continuedClock": 257,
+          "continuedXP": 1.05
+        },
+        "kept": {
+          "Patience": 60,
+          "Breathing": 400.1,
+          "Regeneration": 1000
+        },
+        "choice": {
+          "status": "chosen",
+          "level": 1,
+          "target": "village.quiet-recovery"
+        },
+        "xp": {
+          "Patience": 60,
+          "Breathing": 400.2,
+          "Regeneration": 1000
+        },
+        "revision": 3,
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true
+      },
+      "captures": [
+        "fusion-offer-1366.png",
+        "fusion-chosen-1366.png",
+        "fusion-effect-1366.png",
+        "rest-offer-1366.png",
+        "rest-chosen-1366.png",
+        "rest-effect-1366.png"
+      ],
+      "pageErrors": []
+    }
+  ],
+  "saveGate": {
+    "exitCode": 0,
+    "results": [
+      {
+        "id": "fang-first-night",
+        "result": "passed",
+        "browserPageErrors": 0
+      },
+      {
+        "id": "klein-ch129",
+        "result": "passed",
+        "browserPageErrors": 0
+      },
+      {
+        "id": "ryan-ch1",
+        "result": "passed",
+        "browserPageErrors": 0
+      },
+      {
+        "id": "alden-hospital",
+        "result": "passed",
+        "browserPageErrors": 0
+      }
+    ]
+  }
+}

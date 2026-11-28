@@ -1,3 +1,10 @@
+import {enrollWatchcraft,villageRoleView,readVillageRoles} from './village_roles.js';
+import {refreshGrowthQueue} from './skill_evolution_native.js';
+import {configureLearning} from "./skill_learning_native.js";
+import {configureRoutes, observeRouteArrival, idleRouteStep} from "./recorded_route_native.js";
+import {configureActivityTitle, publishActivity} from "./activity_title_native.js";
+import {configureReserve, sleepReserveBonus} from "./surplus_reserve_native.js";
+import {pressureText, zonePressure} from "./zone_pressure.js";
 import {configureRiFirstNightBed,prepareRiFirstNightSleep,continueRiFirstNightSleep,settleRiFirstNightSleep} from './ri_first_night_bed.js';
 import './timer_coalesce.js'; // first: stale interval ticks from a busy boot run once (G18 follow-up)
 import {MISTGLASS_ARTIFACT} from './artifact_refining.js';
@@ -90,6 +97,9 @@ import {mountKnownMethodChains,mountKnownNumber,formatKnownNumber} from './absor
 import {createKnownItemHotkeys,mountKnownItemBinding,mountKnownItemHotkeyList} from './absorb_p23/known_detail/hotkeys.js';
 import {skillExpansionPresentation} from './skill_expansion_host.js';
 import {setNativeObservedDropReader, setKnownClearTextReader, reset_message_log_for_life} from './display.js';
+import {configureGrowthPoints,observePointLevel,villagePointRecovery} from './growth_points_native.js';
+import {configureAbilityLoadout,villageSlottedRecovery} from './ability_loadout_native.js';
+import {configureSkillEvolution,earnActivitySkillXP,evolvedPath,evolvedUse,observeGrowthRest,observePathGrowth,observeSkillAward,reportNativeSkillTier,settleGrowthRecovery} from './skill_evolution_native.js'; import {settleSkinBodyEffect} from './skill_evolution.js'; import {VILLAGE_PATROL_PATH} from './data/skill_evolutions.js'; import {formatDuration} from './number_format.js';
 let p23DropObservations,loadedDisplayPreferences;
 
 import {structuredLifeEnded,reconcileStructuredLifePlan,structuredLifeView,archiveStructuredLife,publishIndependentStructuredLife,listStructuredLifeArchives} from './structured_life_runtime.js';
@@ -337,9 +347,13 @@ import { end_activity_animation,
          update_fav_display,
          update_displayed_item_log,
          set_light_based_background_color,
-         unassign_dynamic_loot_message,
+         unassign_dynamic_messages,
          fill_character_bio,
          insert_HTML,
+         log_location_xp,
+         update_displayed_achievements,
+         notification_sources,
+         remove_displayed_notification,
         } from "./display.js";
 import { update_displayed_fighters_stats, update_displayed_health_of_fighter, } from "./ui/combat_display.js";
 import { compare_game_version, crafting_tags_to_skills, get_component_name, is_a_older_than_b, get_item_mapping, skill_consumable_tags, rtp, write_availability_status, npc_key_mapping, format_working_time, stat_names } from "./misc.js";
@@ -370,6 +384,8 @@ import { Rewards } from "./rewards.js";
 import { ReputationManager } from "./reputation.js";
 import { traders } from "./data/traders.js";
 import { dialogue_owners } from "./components/dialogue_component.js";
+import {readDelayedRewards,settleDelayedRewards} from "./delayed_rewards.js";
+import { achievements } from "./data/achievements.js";
 
 fill_availability_methods();
 registerFortContent({locations,item_templates,book_stats,quests,availabilities,SafeLocation,CombatZone,Book,BookData,Quest,QuestTask});
@@ -579,7 +595,7 @@ import {createVillageLives, advanceVillageLives, addVillageRecruit} from './npc_
 import {createVillageLivesPanel} from './npc_lives_ui.js';
 import {registerQuestBoard} from './quest_board_ui.js';
 import {restoreGeneratedPeople, generatedPeopleSnapshot, registerGeneratedPeople} from './generated_people_ui.js';
-import {createVillageCareer, migrateVillageCareer, beginVillageShift, finishVillageShift, resolveVillageKit, promoteVillageCareer, CAREER_RANKS, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_PRACTICE, WATCHCRAFT_BONUS, patrolPayText, issueWatchcraft, practiceWatchcraft, watchcraftPresentation, villageShiftBonus, assignVillageRecruit, beginVillageTeaching, beginRecruitSolo, advanceVillageMentor, villageTeachingCost, villageTeachingStipend, resolveIonaTuition, villageTeachingBusy, beginTessaInstruction, advanceTessaInstruction, COVER_PAYMENT, SOLO_PAYMENT} from './village_career.js';
+import {createVillageCareer, migrateVillageCareer, beginVillageShift, finishVillageShift, resolveVillageKit, promoteVillageCareer, CAREER_RANKS, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_PRACTICE, villageWatchcraftPay, patrolPayText, issueWatchcraft, practiceWatchcraft, watchcraftPresentation, villageShiftBonus, assignVillageRecruit, beginVillageTeaching, beginRecruitSolo, advanceVillageMentor, villageTeachingCost, villageTeachingStipend, resolveIonaTuition, villageTeachingBusy, beginTessaInstruction, advanceTessaInstruction, COVER_PAYMENT, SOLO_PAYMENT} from './village_career.js';
 import {createVillageCareerControls} from './village_career_ui.js';
 import {askTypedConfirm} from './typed_confirm.js';import {showLoadFailureNotice} from './load_failure_notice.js';
 let customization = defaultCustomizationState();
@@ -1640,7 +1656,7 @@ function localLifeContext(calendar=current_game_time, state=expansionState, loca
         perception:character.getTotalSkillLevel('Perception'),money:character.money,villageReputation:character.reputation.Village,illumination:domainRegistry.project('lamplight')?.light?.light,nightVisionRatio:character.getTotalSkillLevel('Night vision')/skills['Night vision'].max_level,
         knowsWellLinen:villageCareer.watchcraft.wellLinenLead===true,
         millUnlocked:locations['Eastern mill'].getAvailabilityComponent().getStatus().is_unlocked===true,
-        bleedingRemaining:active_effects.Bleeding?.duration||0,
+        bleedingRemaining:character.isWearingArmor()?0:active_effects.Bleeding?.duration||0,
         foodPoisonRemaining:active_effects['Slight food poisoning']?.duration||0};
 }
 function stageLocalLifeResult(plan, result) {
@@ -1894,6 +1910,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
         applyGameplayEffect(future, {type: "xp", skill: p.xpSkill, amount: Math.max(...p.rewards) * p.xpPerPoint}, "player");
         prepareGameplayPublication(future, {actors: actorBindings, skills, getItemFromKey, unlockAdapter,preparedSkillUnlocks:(plan.unlocks||[]).filter(e=>e.kind==='skill').map(e=>e.id)});
     }
+    stageNativeDelayedRewards(plan);
     stageGrowthNativeGrants(plan);
     stageGrowthForPublication(plan);
     const nativePublications=[tidemarkNative.stage(plan),nestedNative.stage(plan),paradiseNative.stage(plan),molNative.stage(plan),proto23Native.stage(plan),causalNative.stage(plan),prepareContextualBalmNative(expansionState,plan,{activeEffects:active_effects,itemTemplates:item_templates,effectTemplates:effect_templates,ActiveEffect,refresh:()=>{update_displayed_effects();character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}})];
@@ -1929,6 +1946,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}, readF
     if(plan.nativePatch?.total_deaths!==undefined)game_stats.total_deaths=plan.nativePatch.total_deaths;
     for(const text of plan.p00TrancheFourNotices||[])log_message(text,'notification');
     commitPlanMoney(character,plan,moneyFrom);
+    publishActivity(plan);
     if(plan.calendar) current_game_time.loadTime(plan.calendar);
 
     if(plan.effectDurations) {
@@ -2874,6 +2892,13 @@ const current_loot = {
     total: {},
 }
 
+//xp from current combat zone
+const current_xp = {
+    recent: 0,
+    total: 0,
+    count: 0,
+}
+
 //time needed to travel from A to B
 
 let pathfinder;
@@ -2914,6 +2939,8 @@ let end_date;
 let current_dialogue;
 
 //e.g. health regen from food
+
+let pending_rewards = {};
 
 setSelectedStance(stances["normal"]);
 let current_stance = stances["normal"];
@@ -3330,7 +3357,7 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
 
     if(typeof current_location !== "undefined" && current_location.id !== location.id){
         //so it's not called when initializing the location on page load or on reloading current location due to new unlocks
-        log_message(`[ Entering ${location.name} ]`, "message_travel");
+        log_message([`[ Entering ${location.name} ]`, pressureText(location)].filter(Boolean).join(" "), "message_travel");
     }
 
     if(location.crafting) {
@@ -3371,6 +3398,7 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
     
     character.updateStatsAndDisplay();
 
+    if(!restoringNativeSave)observeRouteArrival(previous_location?.id,location.id);
     if(current_location.tags.safe_zone) { 
         update_displayed_normal_location(current_location);
     } else {
@@ -3382,6 +3410,10 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
         if(!current_location.is_challenge) {
             setLastCombatLocation(current_location.id);
         }
+    }
+
+    if(current_location.housing?.isUnlocked()) {
+        unlocked_beds[location_id] = true;
     }
 
     process_rewards({rewards: current_location.entrance_rewards});
@@ -3462,13 +3494,15 @@ function settleWorkLedgerCraft(evidence,anchor) {
     publishWorkLedger(plan,anchor,scope?()=>{workLedger=plan.state;scope.transaction.markDurable();}:undefined);
 }
 
-function watchcraftKnown() {return villageCareer.watchcraft.tutorMinutes===6 || book_stats[WATCHCRAFT_BOOK].accumulated_time>=WATCHCRAFT_READING;}
+function watchcraftKnown() {return villageCareer.watchcraft.tutorMinutes===WATCHCRAFT_READING || book_stats[WATCHCRAFT_BOOK].accumulated_time>=WATCHCRAFT_READING;}
 // Kit resolution, manual issuance and promotion publish their saved state together.
-function writeVillageCareer(choice) {
+function writeVillageCareer(choice,fingerprint) {
     if(!ownsSave || foundationSaveBlocked || importProbeToken || current_location?.id!=='Village' || expansionState.actors.player.worldId!=='base.frontier' || (current_activity && !(choice.startsWith('teach:') && current_activity.id==='patrolling')) || current_dialogue || current_game_action || current_combat || is_sleeping || is_reading || is_in_trade() || expeditionOccupiesPlayer())throw new Error('Finish your current work and speak to Tessa in Village.');
     const serialized=create_save();if(!serialized)throw new Error('The career ledger could not be saved.');
     const save=JSON.parse(serialized);
-    if(choice==='recruit') {
+    if(choice==='join-watchcraft') {
+        save.village_career=enrollWatchcraft(villageCareer,fingerprint);
+    } else if(choice==='recruit') {
         save.village_career=assignVillageRecruit(villageCareer);
         save.npc_lives=addVillageRecruit(npcLives,save['current time'].year,expansionState.rng);
     } else if(choice.startsWith('teach:') || choice==='solo' || choice==='cover') {
@@ -3492,11 +3526,12 @@ function writeVillageCareer(choice) {
         const t=save['current time'];
         save.life_record=appendLifeMilestone(save.life_record,{year:t.year,at:lifeCalendarMinute(t),worldId:'base.frontier',kind:'career',text:`Tessa named you a ${CAREER_RANKS[save.village_career.rank].toLowerCase()} on the Village patrol.`});
     } else {
-        save.village_career=resolveVillageKit(villageCareer,choice);
-        if(choice==='pay') {if(save.character.money<50)throw new Error('You need 50 coins to settle the kit debt.');addSavedPurse(save,-50,'village career: kit debt');}
+        save.village_career=resolveVillageKit(villageCareer,choice,fingerprint);
+        if(choice==='pay') {if(save.character.money<villageCareer.debt)throw new Error(`You need ${villageCareer.debt} coins to settle the kit debt.`);addSavedPurse(save,-villageCareer.debt,'village career: kit debt');}
     }
+    const payment=choice==='pay'?villageCareer.debt:0;
     lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));
-    if(choice==='pay')add_money_to_character(-50,'village career: kit debt');
+    if(choice==='pay')add_money_to_character(-payment,'village career: kit debt');
     if(choice==='tuition:accepted')add_money_to_character(5,'village career: tuition');
     if(choice==='teach:time'){current_activity.gathering_time=0;current_activity.earnings=0;}
     if(choice==='tutor'){start_activity('meditating');log_message('Tessa teaches sector scanning in person for six Village meditation minutes. No coins or book needed; leaving pauses the lesson.');}
@@ -3507,8 +3542,16 @@ function writeVillageCareer(choice) {
     if(choice.startsWith('tuition:'))log_message(choice==='tuition:accepted'?'You accept Iona’s offered five coins from her first solo stipend.':'You decline Iona’s tuition. She remembers your answer.');
     else if(choice.startsWith('teach:'))log_message(`You begin teaching Iona on ${choice.split(':')[1]} terms. The agreed terms are in your patrol ledger.`);
     else if(['recruit','solo','cover'].includes(choice))log_message(choice==='recruit'?'Tessa assigns Iona to your patrol.':choice==='cover'?'Iona spends one owed favor covering a two-hour shift: 50 coins on return, no player career credit.':'Iona begins a two-hour solo patrol. Stay in Village to hear her report and receive 10 coins.');
-    else if(!['notes','tutor'].includes(choice))log_message(choice==='promote'?`Tessa recognizes you as ${CAREER_RANKS[villageCareer.rank]}. Your life record remembers this promotion.`:choice==='return'?'Tessa: “Lantern and baton accounted for. Thank you.”':choice==='keep'?'Tessa records a 50-coin kit debt. Return the kit or pay before your next shift.':'Tessa records your kit debt as paid.');
+    else if(choice==='join-watchcraft')log_message('Growth: You took the Watchcraft role alongside Village patrol. '+villageRoleView(villageCareer).summary,'skill_raised');
+    else if(!['notes','tutor'].includes(choice))log_message(choice==='promote'?`Tessa recognizes you as ${CAREER_RANKS[villageCareer.rank]}. Your life record remembers this promotion.`:choice==='return'?'Tessa: “Lantern and baton accounted for. Thank you.”':choice==='keep'?`${save.village_career.lastShift.enforcement.enforcer} records a ${save.village_career.debt}-coin kit debt. Return the kit or pay before your next shift.`:'Tessa records your kit debt as paid.');
     villageCareerControls?.render();
+    if(choice==='promote'){
+        const view=villageRoleView(villageCareer);
+        log_message('Village patrol reached level '+view.tracks[0].level+' ('+view.tracks[0].stage+').','skill_raised');
+        if(villageCareer.rank===1)nativeCraftMessage('A second Village role is waiting in Growth: Watchcraft.','skill_raised',{panelId:'skill-growth',panelLabel:'Open Growth'});
+    }
+    if(choice==='promote'||choice==='return')observePathGrowth();
+    if(choice==='promote'||choice==='join-watchcraft')refreshGrowthQueue();
 }
 
 function start_activity(selected_activity) {
@@ -3574,11 +3617,12 @@ function end_activity() {
         const firstUse=bonus>0 && !villageCareer.watchcraft.used;
         const teachingStipend=villageTeachingStipend(villageCareer,current_activity.earnings>0);
         const teachingCost=villageTeachingCost(villageCareer,current_activity.earnings>0);
+        const path=paidRoundCompleted&&!villageCareer.loan.teaching&&evolvedUse(VILLAGE_PATROL_PATH,'completed-patrol');
         const base = current_activity.earnings;
         const total = Math.max(0, base + bonus - teachingCost) + teachingStipend;
         const lead = firstUse && !localLife.searches.Village.found;
         villageCareer = finishVillageShift(villageCareer, paidRoundCompleted, {markWellLinen:lead});
-        if(teachingCost)log_message(teachingCost===60?'This full teaching shift earns no pay, as agreed.':'The post pays 10 less: teaching on your shift meant less patrol work. These are lost wages, not a fee.');
+        if(teachingCost)log_message(teachingCost>10?'This full teaching shift earns no pay, as agreed.':'The post pays 10 less: teaching on your shift meant less patrol work. These are lost wages, not a fee.');
         if(bonus) {
             log_message(`Tessa’s clear patrol report · ${patrolPayText(base, bonus, total)}.${
                 lead ? ' “You marked linen caught by the well.” Follow up in Local life → Look around.' : ''
@@ -3589,8 +3633,9 @@ function end_activity() {
                 lifeRecordPanel?.render();
             }
         }
-        current_activity.earnings=total;
+        current_activity.earnings=total+(path?.amount??0);
         if(teachingStipend)log_message('Tessa pays a 10-coin teaching stipend on top of your round. Training recruits is part of a Mentor’s job.');
+        if(path)log_message(`${path.name} earned ${path.amount} extra coins for the completed patrol.`,'activity_money');
         log_message('Tessa notes how your shift went. Bring back the loaned lantern and baton before taking another round.');
     }
     
@@ -3770,6 +3815,10 @@ function finish_game_action({action_key, conditions_status, dialogue_key}){
         const success_conditions = action.getAvailabilityComponent().success_conditions;
         const start_conditions = action.getAvailabilityComponent().start_conditions;
         const heldKeyById = (id, n) => Object.keys(character.getItems()).find(k => JSON.parse(k).id === id && character.getItems()[k].count >= n) ?? item_templates[id].getInventoryKey();
+
+        if(success_conditions[0]?.money?.remove) {
+            add_money_to_character(-success_conditions[0].money.number, "action");
+        }
         Object.keys(success_conditions[0]?.items_by_id || {}).forEach(item_id => {
             //the stack that met the condition (process_conditions accepts any quality of the id, e.g. graded Wool), else the plain key
             if(success_conditions[0].items_by_id[item_id].remove) {
@@ -3878,7 +3927,7 @@ function unlock_activity(activity_data) {
 function unlock_action(action_data) {
     if(!action_data.action.isUnlocked()) {
         action_data.action.setUnlocked();
-        
+            
         if(!action_data.skip_message) {
             let message = "";
             if(action_data.location) {
@@ -3975,20 +4024,45 @@ function do_sleeping() {
     if(!continueRiFirstNightSleep()){end_sleeping();return;}
     if(!residenceSleepAllowed()){end_sleeping();log_message('Your lodging term has ended. Renew or use another resting place; your belongings remain yours.','notification');return;}
     if(full_stats.health < full_stats.max_health) {
-        const sleeping_heal_ammount = p00SleepingMultiplier()*furnitureRecovery(readFurnitureBonuses(), Math.round(Math.max(full_stats.max_health * 0.04, 5) * (1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level) * (1 + 3*character.getTotalSkillLevel("Regeneration")/skills["Regeneration"].max_level)));
+        const sleeping_heal_ammount = (evolvedUse('Sleeping','sleep-health')?.multiplier??1)*p00SleepingMultiplier()*furnitureRecovery(readFurnitureBonuses(), Math.round(Math.max(full_stats.max_health * 0.04, 5) * (1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level) * (1 + 3*character.getTotalSkillLevel("Regeneration")/skills["Regeneration"].max_level)));
         
-        update_health({ammount_to_restore: sleeping_heal_ammount});
+        update_health({ammount_to_restore: sleeping_heal_ammount + sleepReserveBonus()});
     }
 
+    const missingHealth=full_stats.max_health-full_stats.health;
+    let recovery=villagePointRecovery(missingHealth,0);
     if(full_stats.stamina < full_stats.max_stamina) {
-        const sleeping_stamina_ammount = p00SleepingMultiplier()*furnitureRecovery(readFurnitureBonuses(), Math.round(Math.max(full_stats.max_stamina/30, 5) * (1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level)));
+        const sleeping_stamina_ammount = (evolvedUse('Sleeping','sleep-stamina')?.multiplier??1)*p00SleepingMultiplier()*furnitureRecovery(readFurnitureBonuses(), Math.round(Math.max(full_stats.max_stamina/30, 5) * (1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level)));
 
-        full_stats.stamina += (sleeping_stamina_ammount);
+        const growth=settleGrowthRecovery('Patience','sleep-stamina',{healthy:full_stats.health>=full_stats.max_health},
+            full_stats.max_stamina-full_stats.stamina-sleeping_stamina_ammount);
+        const stamina=sleeping_stamina_ammount+(growth?.stamina??0);
+        recovery=villagePointRecovery(missingHealth,stamina);
+        const missingStamina=full_stats.max_stamina-full_stats.stamina;
+        recovery.upkeep=Math.min(missingStamina,stamina)-Math.min(missingStamina,stamina-recovery.upkeep);
+        full_stats.stamina += stamina-recovery.upkeep;
+        if(growth)log_message(`${growth.name} restored ${growth.stamina} extra stamina while you slept.`,'skill_raised');
+        for(const effect of villageSlottedRecovery('sleepStamina',full_stats.max_stamina-full_stats.stamina)){
+            full_stats.stamina+=effect.amount;
+            reportSlottedRecovery(effect,'stamina');
+        }
         if(full_stats.stamina > full_stats.max_stamina) {
             full_stats.stamina = full_stats.max_stamina;
         } 
         update_displayed_stamina();
     }
+    if(recovery.health){
+        update_health({ammount_to_restore:recovery.health});
+        log_message(`Deep rest restored ${recovery.health} extra health. Upkeep reduced stamina recovery by ${Number(recovery.upkeep.toFixed(2))}.`,'skill_raised');
+    }
+    for(const effect of villageSlottedRecovery('sleepHealth',full_stats.max_health-full_stats.health)){
+        update_health({ammount_to_restore:effect.amount});
+        reportSlottedRecovery(effect,'health');
+    }
+}
+
+function reportSlottedRecovery(effect,stat){
+    log_message(`Slotted ${effect.name} restored ${Number(effect.amount.toFixed(2))} extra ${stat} while you slept.`,'skill_raised');
 }
 
 function start_sleeping() {
@@ -3997,7 +4071,7 @@ function start_sleeping() {
     if(is_sleeping||!prepareRiFirstNightSleep())return;
     interruptP23NativeWork();
     start_sleeping_display();
-    is_sleeping = true;
+    is_sleeping = true; observeGrowthRest();
     pursuitPanel?.render();
 
     setLastLocationWithBed(current_location.id);
@@ -4138,6 +4212,13 @@ function process_rewards({rewards = {}, source_type, source_name, is_first_clear
         }
     }
 
+    if(rewards.progress_timer) {
+        progress_time({value: rewards.progress_timer});
+        if(inform_overall) {
+            log_message(`Some time has passed...`);
+        }
+    }
+
     if(rewards.money && typeof rewards.money === "number" && !only_unlocks) {
         if(inform_overall) {
             nativeCraftMessage(`%HeroName% earned ${format_money(rewards.money)}`);
@@ -4150,8 +4231,10 @@ function process_rewards({rewards = {}, source_type, source_name, is_first_clear
             if(inform_overall) {
                 if(is_first_clear) {
                     nativeCraftMessage(`Obtained ${rewards.xp}xp for clearing ${source_name} for the first time`, "location_reward");
+                } else if(game_options.do_dynamic_loot_message){
+                    log_location_xp(current_xp, source_name);
                 } else {
-                    nativeCraftMessage(`Obtained additional ${rewards.xp}xp for clearing ${source_name}`, "location_reward");
+                    nativeCraftMessage(`Obtained additional ${rewards.xp}xp for clearing ${source_name}`, "location_xp_reward");
                 }
             }
         } else {
@@ -4409,6 +4492,23 @@ function process_rewards({rewards = {}, source_type, source_name, is_first_clear
         }
     }
 
+    if(rewards.achievements) {
+        let any = false;
+        for(const id of rewards.achievements) {
+            const achievement=achievements[id];
+            if(achievement.isFinished())continue;
+            achievement.setFinished();
+            any = true;
+            character.addAchievementBonus(achievement.bonuses);
+            if(!is_from_loading)nativeCraftMessage(`Achievement unlocked: ${translate(achievement.name)}`, 'notification');
+        }
+
+        if(any) {
+            character.updateStatsAndDisplay();
+            update_displayed_achievements();
+        }
+    }
+
     if(rewards.locks) {
         if(rewards.locks.textlines) {
             Object.keys(rewards.locks.textlines).forEach(dialogue_key => {
@@ -4563,6 +4663,37 @@ function process_mixed_rewards({mixed_rewards, source_type, source_name, is_firs
 
 /**
  * 
+ * @param {Object} data
+ * @param {Object} data.delayed_rewards {id, delay} 
+ */
+function prepare_delayed_rewards({delayed_rewards: rows, source_type, inform_textline, source_name}) {
+    for(const row of rows){
+        const prior=pending_rewards[row.id];
+        pending_rewards[row.id]={delay:Math.min(row.delay,prior?.delay??Infinity),source:{source_type,inform_textline,source_name}};
+    }
+}
+
+function stageNativeDelayedRewards(plan){
+    const elapsed=plan.state.clock-expansionState.clock;
+    if(elapsed<=0||plan.state.actors.player.worldId!=='base.frontier'||!Object.keys(pending_rewards).length)return;
+    const {next,unlocks}=settleDelayedRewards(pending_rewards,elapsed);
+    const targets=unlocks.flatMap(({dialogue,lines})=>lines.map(line=>`${dialogue_owners[dialogues[dialogue].name]}:${line}`));
+    const patch={pending_rewards:next};
+    for(const id of targets){
+        if(!availabilities.textline[id])throw Error('Unknown delayed dialogue reward.');
+        patch[`availabilities/textline/${id}`]=status_to_flag({...availabilities.textline[id].getStatus(),is_unlocked:true});
+    }
+    plan.nativePatch={...plan.nativePatch,...patch};
+    const previous=plan.absorbPublish;
+    plan.absorbPublish=()=>{
+        previous?.();
+        pending_rewards=next;
+        for(const id of targets)availabilities.textline[id].setStatus(flag_to_status(patch[`availabilities/textline/${id}`]));
+    };
+}
+
+/**
+ * 
  * @param {*} selected_activity location activity property (job or training)
  * @returns if current time is within working hours
  */
@@ -4613,7 +4744,8 @@ function start_textline(textline_key){
     const dialogue = NPCRegistry.get(current_dialogue).getDialogueComponent();
     const textline = dialogue.textlines[textline_key];
 
-    process_rewards({rewards: textline.rewards, source_type: "textline", inform_textline: false, source_name: current_dialogue})
+    process_rewards({rewards: textline.rewards, source_type: "textline", inform_textline: false, source_name: current_dialogue});
+    if(textline.delayed_rewards) prepare_delayed_rewards({delayed_rewards: textline.delayed_rewards, source_type: "textline", inform_textline: false, source_name: current_dialogue});
 
     updateP23MoonConversation();
     if(textline.otherUnlocks) {
@@ -4624,16 +4756,6 @@ function start_textline(textline_key){
     //start_dialogue(current_dialogue);
     let text = get_textline_answer(textline);
 
-    //a very stupid easter egg that totally won't be annoying - 1% chance to have a random word in dialogue replaced with "rat" if your hero's name contains that word
-    if(character.isRat()) {
-        if(Math.random() <= 0.01) {
-            const words = text.split(" ");
-            const index = Math.floor(words.length * Math.random());
-            words[index] = "rat";
-            text = words.join(" ");
-        }
-    }
-
     if(textline.branches_into?.length) {
         fill_action_box({content_type: "dialogue_branch", data: {text: text, npc_id: current_dialogue, textlines: textline.branches_into}});
     } else {
@@ -4642,15 +4764,12 @@ function start_textline(textline_key){
 }
 
 /**
- * Attaches some context to textline's .getText()
+ * Attaches context to textline's .getText()
  * @param {Textline} textline 
  * @returns textline answer
  */
 function get_textline_answer(textline) {
-    return textline.getText({
-            season: current_game_time.getSeason(),
-            //to be expanded with more stuff when needed
-        });
+    return textline.getText(get_context());
 }
 
 /**
@@ -4679,10 +4798,12 @@ function get_context() {
             if (current_location?.id !== 'Village' || expansionState.actors.player.worldId !== 'base.frontier') return null;
             const {loan,watchcraft}=villageCareer;
             const rehearsed=watchcraftKnown() && watchcraft.practiceMinutes===WATCHCRAFT_PRACTICE;
+            const pathBonus=evolvedUse(VILLAGE_PATROL_PATH,'completed-patrol')?.amount??0;
             return {
                 kitDue:!!loan && loan.status!=='active',
-                nextBonus:rehearsed ? WATCHCRAFT_BONUS : 0,
-                activeBonus:loan?.watchcraft ? WATCHCRAFT_BONUS : 0,
+                nextBonus:rehearsed ? villageWatchcraftPay(villageCareer) : 0,
+                activeBonus:loan?.watchcraft ? villageWatchcraftPay(villageCareer) : 0,
+                pathBonus,activePathBonus:loan?.teaching?0:pathBonus,
                 teachingAdjustment:villageTeachingStipend(villageCareer,true)-villageTeachingCost(villageCareer,true),
                 showHandoff:rehearsed && !watchcraft.used && ownsSave && !foundationSaveBlocked && !importProbeToken,
             };
@@ -4764,8 +4885,8 @@ function set_new_combat({enemies} = {}) {
     pendingNativeEncounter = null;
     if(savedEncounter && !enemies) {
         enemies=savedEncounter.enemies.map(row=>{
-            const e=current_location.id===AREA_ID?trainingEnemy(p23EncounterProfile,Enemy,row):new Enemy({...enemy_templates[row.template],stats:{...row.stats}});
-            e.init();Object.assign(e.getFullStats(),row.full);e.is_alive=row.alive;
+            const e=current_location.id===AREA_ID?trainingEnemy(p23EncounterProfile,Enemy,row):new Enemy({...enemy_templates[row.template],xp_value:enemy_templates[row.template].xp_value * zonePressure(current_location),stats:{...row.stats}});
+            e.lootPressure=zonePressure(current_location);e.init();Object.assign(e.getFullStats(),row.full);e.is_alive=row.alive;
             if(row.harvestDamage)e.harvestDamage=structuredClone(row.harvestDamage);
             e.rngKey=row.key;e.encounterKey=savedEncounter.key;e.templateKey=row.template;return e;
         });
@@ -5060,10 +5181,12 @@ function add_xp_to_skill({skill, xp_to_add = 1, should_info = true, use_bonus = 
 
     if(!is_from_loading&&!restoringNativeSave)xp_to_add*=getPacingEffects(homePacingContext()).efficiency;
     const growthNativeBefore=!is_from_loading&&!restoringNativeSave&&p23Growth?readNativeSkillXP(character.getLevelableComponent().skill_progress):null;
+    const checkEvolution=observeSkillAward(skill,!is_from_loading&&!restoringNativeSave);
+    const pointLevel=skill.skill_id==='Sleeping'&&!is_from_loading&&!restoringNativeSave ? skill.getCurrentLvl() : null;
     let {leveled, prev_name, new_name, was_hidden, message, unlocks} = character.addXPToSkill({skill, xp_to_add, should_info, use_bonus, add_to_parent, cap_gained_xp, is_from_loading, do_quest_events});
-
+    checkEvolution?.();
+    if(pointLevel!==null)observePointLevel(skill.skill_id,pointLevel,skill.getCurrentLvl());
     if(growthNativeBefore)recordGrowthNativeGrant(growthNativeBefore,readNativeSkillXP(character.getLevelableComponent().skill_progress));
-
     const is_visible = skill.visibility_treshold <= skill.getTotalXP();
 
     if(was_hidden && is_visible) {
@@ -5169,7 +5292,7 @@ function add_xp_to_skill({skill, xp_to_add = 1, should_info = true, use_bonus = 
             if(prev_name !== new_name) { //skill name has changed
                 //display of skill name in other places (like tooltips of other skills) is handled slightly earlier
                 if(!was_hidden && (typeof should_info === "undefined" || should_info)) {
-                    nativeCraftMessage(`Skill ${prev_name} upgraded to ${new_name}`, "skill_raised");
+                    reportNativeSkillTier(skill.skill_id,prev_name,new_name);
                 }
 
                 if(current_location?.connected_locations && !current_activity) {
@@ -5262,6 +5385,10 @@ function get_location_rewards(location) {
             process_rewards({rewards: location.first_reward, source_type: "location", source_name: location.name, is_first_clear: true, source_id: location.id});
         }
     } else if(location.repeatable_reward.xp && typeof location.repeatable_reward.xp === "number") {
+        current_xp.recent = location.repeatable_reward.xp;
+        current_xp.total += location.repeatable_reward.xp;
+        current_xp.count++;
+        
         process_rewards({rewards: {xp: location.repeatable_reward.xp}, source_type: "location", source_name: location.name, is_first_clear: false, source_id: location.id});
     }
 
@@ -5316,7 +5443,10 @@ function clear_loot_information() {
     //called whenever changing a location or stopping an activity
     current_loot.recent = {};
     current_loot.total = {};
-    unassign_dynamic_loot_message();
+    current_xp.recent = 0;
+    current_xp.total = 0;
+    current_xp.count = 0;
+    unassign_dynamic_messages();
 }
 
 /**
@@ -6172,7 +6302,9 @@ function add_active_effect(effect_key, duration = 1, skip_xp){
     } else {
         delete active_effects[effect_key];
     }
-    if(effect_key==='Bleeding')duration=Math.min(15,old_duration+duration);
+    const skin=evolvedUse('Iron skin','body-effect'), reached=settleSkinBodyEffect(skin,effect_key,duration);
+    if(reached<duration)log_message(`${skin.name} shortened ${effect_key.toLowerCase()} from ${formatDuration(duration)} to ${formatDuration(reached)}.`,'skill_raised');
+    duration=effect_key==='Bleeding'?Math.min(15,old_duration+reached):reached;
     active_effects[effect_key] = new ActiveEffect({...effect_templates[effect_key], duration});
     update_displayed_effects();
     
@@ -6204,18 +6336,126 @@ function add_active_effect(effect_key, duration = 1, skip_xp){
     return old_duration < active_effects[effect_key].duration;
 }
 
-function add_xp_to_activity_skills() {
-    if(current_activity.gained_skills) {
-        const gained_skills = current_activity.gained_skills;
-        Object.keys(gained_skills).forEach(skill_key => {
-            add_xp_to_skill({skill: skills[skill_key], xp_to_add: gained_skills[skill_key]});
-        });
-    } else {
-        const skill_names = activities[current_activity.activity_name].base_skills_names;
-        for (let i = 0; i < skill_names?.length; i++) {
-            add_xp_to_skill({skill: skills[skill_names[i]], xp_to_add: current_activity.skill_xp_per_tick[i]});
-        }
+//TODO - wip
+function add_active_effect_to_enemy(target, effect_key, duration = 1, skip_xp){
+    if(!effect_templates[effect_key]) {
+        throw new Error(`No such active effect available as "${effect_key}"`);
     }
+
+    let active_effects = target.active_effects;
+
+    let do_not_apply_because_stronger_is_active = false; //readable names are good, right?
+    const was_already_active = active_effects[effect_key];
+    const old_duration = active_effects[effect_key]?.duration ?? 0;
+
+    if(!was_already_active) {
+        Object.keys(active_effects).forEach(effect => {
+            if(do_not_apply_because_stronger_is_active) {
+                return;
+            }
+            Object.keys(effect_templates[effect].group_tags).forEach(group_tag => {
+                if(do_not_apply_because_stronger_is_active) {
+                    return;
+                }
+                if(group_tag in effect_templates[effect_key].group_tags) {
+                    if(effect_templates[effect].group_tags[group_tag] > effect_templates[effect_key].group_tags[group_tag]) {
+                        //stronger effect is active, skip
+                        do_not_apply_because_stronger_is_active = true; 
+                    } else {
+                        //existing effect is weaker, aply the effect normally, remove the weaker
+                        delete active_effects[effect];
+                    }
+                }
+            });
+        });
+
+        if(do_not_apply_because_stronger_is_active) {
+            //shouldn't need any recalculations or display updates as nothing was changed
+            return;
+        }
+    } else {
+        delete active_effects[effect_key];
+    }
+    active_effects[effect_key] = new ActiveEffect({...effect_templates[effect_key], duration});
+    update_displayed_effects();
+    
+    if(!was_already_active) {
+        target.addActiveEffectBonus(active_effects);
+        target.updateStatsAndDisplay();
+    }
+
+    //no need to check for whether effect was activated, code won't reach this point if it wasn't
+
+    return old_duration < active_effects[effect_key].duration;
+}
+
+
+
+function add_xp_to_activity_skills() {
+    earnActivitySkillXP(current_activity,activities[current_activity.activity_name],
+        (id,xp,options)=>add_xp_to_skill({skill:skills[id],xp_to_add:xp,...options}));
+}
+
+configureRoutes({
+    context:()=>({world:expansionState.actors.player.worldId,life:expansionState.simulation?.people?.player?.lifeId ?? 'village.native',
+        place:current_location?.id,hostile:!!current_combat,rain:is_raining(),occupied:!!(current_activity||is_sleeping||is_reading||current_dialogue||current_game_action||is_in_trade())}),
+    writable:()=>workLedgerCanWrite()&&!restoringNativeSave&&character.is_alive,
+    known:id=>!!locations[id]?.canBeStarted(get_context()),
+    open:id=>!!locations[id]?.canBeStarted(get_context())&&Number.isFinite(travel_times[current_location?.id]?.[id]),
+    outdoors:id=>!locations[id]?.is_under_roof,walk:id=>change_location({location_id:id}),
+    persist:next=>persistExpansion({...p23Plan(),nativePatch:{recorded_route:next}}),
+    report:text=>log_message(text,'message_travel'),
+});
+configureActivityTitle(()=>({world:expansionState.actors.player.worldId,life:expansionState.simulation?.people?.player?.lifeId ?? 'village.native',
+    clock:expansionState.clock,place:current_location?.id,kind:current_combat?'combat':current_activity?'work':is_sleeping?'rest':is_reading?'reading':null}),
+    text=>log_message(text,'notification'));
+configureReserve({
+    context:()=>({world:expansionState.actors.player.worldId,id:expansionState.simulation?.people?.player?.lifeId ?? 'village.native',money:character.money}),
+    writable:()=>workLedgerCanWrite()&&!restoringNativeSave&&character.is_alive,
+    commit:offer=>{const plan=p23Plan();plan.external.money-=offer.cost;plan.nativePatch={surplus_reserve:offer.next};persistExpansion(plan);},
+    report:text=>nativeCraftMessage(text,'skill_raised',{panelId:'skill-growth',panelLabel:'Open Growth'}),
+});
+configureLearning({
+    read:()=>({career:villageCareer,patrolForm:evolvedPath(VILLAGE_PATROL_PATH),known:watchcraftKnown(),world:expansionState.actors.player.worldId,place:current_location?.id,
+        available:ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!current_activity&&!nativeOccupationReason()}),
+    start:()=>writeVillageCareer('tutor'),
+    enroll:fingerprint=>writeVillageCareer('join-watchcraft',fingerprint),
+});
+configureGrowthPoints({
+    context:()=>({world:expansionState.actors.player.worldId,atBed:current_location?.housing?.isUnlocked()===true}),
+    writable:()=>workLedgerCanWrite()&&!restoringNativeSave&&character.is_alive,
+    persist:next=>persistExpansion({...p23Plan(),nativePatch:{growth_points:next}}),
+    report:(text,link)=>nativeCraftMessage(text,'skill_raised',link?{panelId:'skill-growth',panelLabel:'Open Growth'}:undefined),
+});
+
+configureAbilityLoadout({
+    context:()=>({world:expansionState.actors.player.worldId,clock:expansionState.clock}),
+    level:id=>skills[id].getCurrentLvl(),
+    writable:()=>workLedgerCanWrite()&&!restoringNativeSave&&character.is_alive,
+    persist:next=>persistExpansion({...p23Plan(),nativePatch:{ability_loadout:next}}),
+    report:text=>nativeCraftMessage(text,'skill_raised',{panelId:'skill-growth',panelLabel:'Open Growth'}),
+});
+
+configureSkillEvolution({
+    context:()=>({world:expansionState.actors.player.worldId,location:current_location?.id,activity:current_activity?.id}),
+    skill:id=>skills[id],repaint:id=>update_displayed_skill_bar(skills[id],false),
+    path:id=>id===VILLAGE_PATROL_PATH?{level:villageCareer.rank,completed:villageCareer.completed,returned:villageCareer.returned}:undefined,
+    repaintPath:()=>villageCareerControls?.render(),
+    writable:()=>workLedgerCanWrite()&&!restoringNativeSave&&character.is_alive,
+    persist:next=>persistExpansion({...p23Plan(),nativePatch:{skill_evolution:next}}),
+    publish:(event,text)=>nativeCraftMessage(text,'skill_raised',event.type==='skill-evolution-waiting'?{panelId:'skill-growth',panelLabel:'Open Growth'}:undefined),
+});
+
+function add_all_achievement_bonuses() {
+    const level=character.getLevelableComponent();
+    level.stats.flat.achievements={};
+    level.stats.multiplier.achievements={};
+    level.xp_bonuses.multiplier.achievements={};
+    Object.keys(achievements).forEach(id => {
+        if(achievements[id].isFinished()) {
+            character.addAchievementBonus(achievements[id].bonuses);
+        }
+    });
 }
 
 /**
@@ -6254,6 +6494,34 @@ function get_date() {
     const minute = date.getMinutes() > 9 ? date.getMinutes().toString() : "0" + date.getMinutes().toString();
     const second = date.getSeconds() > 9 ? date.getSeconds().toString() : "0" + date.getSeconds().toString();
     return `${year}-${month}-${day} ${hour}_${minute}_${second}`;
+}
+
+function process_hovered_notificationable(event) {
+    let target = event.target;
+    if("notificationable_tab" in target.dataset || target.querySelector("[data-notificationable_tab]")) {
+        return;
+    }
+
+    while(target && !("notificationable_tab" in target.dataset) && !("notification_source" in target.dataset)) {
+        target = target.parentElement;
+    }
+
+    if(!target || target.querySelector("[data-notificationable_tab]")) {
+        return;
+    }
+
+    const source = notification_sources.get(target);
+    if(!source) {
+        console.warn('Failed to get source for element with notification!');
+        return;
+    }
+
+    if("notificationable_tab" in target.dataset) {
+        return;
+    }
+
+    source.getNotificationComponent().setFinished();
+    remove_displayed_notification(target);
 }
 
 function is_on_dev() {
@@ -6549,6 +6817,8 @@ function create_save({forExport = false} = {}) {
         save_data["active_effects"] = active_effects;
         if(getMixtureOwner())save_data.mixtures=structuredClone(getMixtureOwner());
 
+        if(Object.keys(pending_rewards).length)save_data.pending_rewards=structuredClone(pending_rewards);
+
         save_data["enemy_killcount"] = enemy_killcount;
         save_data["item_log"] = item_log.items;
 
@@ -6600,7 +6870,7 @@ function create_save({forExport = false} = {}) {
         if(p23Leisure!==undefined)save_data.p23_leisure_memory=structuredClone(p23Leisure);
         if(p23Repeat!==undefined)save_data.absorb_repeat_search=structuredClone(p23Repeat);
         save_data.content_packs = packSaveState(optionalPackState,packDefinitionsForSave());
-        save_data.village_career = structuredClone(villageCareer);
+        save_data.village_career = {...structuredClone(villageCareer),roles:readVillageRoles(villageCareer)};
         save_data.work_ledger=structuredClone(workLedger);
         save_data.customization=structuredClone(customization);
         save_data.customization_default=DEFAULT_LOOK_MARK;
@@ -6721,6 +6991,7 @@ function load(save_data) {
             save_data = preparePackSave(save_data,packDefinitionsForSave());
             if(!importProbeToken)save_data=readCheatSave(save_data);
             save_data = validateSaveEnvelope(save_data, game_version);
+            pending_rewards=readDelayedRewards(save_data.pending_rewards);
             continuationState=save_data.continuation?structuredClone(save_data.continuation):null;
             if(!importProbeToken&&continuationState?.arrivalPaused&&!continuationArrivalRelease)continuationArrivalRelease=suspendEngine();
             p23DropObservations=save_data.p23_drop_observations===undefined?undefined:validateDropObservations(save_data.p23_drop_observations);
@@ -7631,6 +7902,9 @@ function load(save_data) {
                         const trader_availability = npc.getTraderAvailability();
                         
                         write_availability_status(trader_availability, save_data.traders[trader_key]);
+                        if(trader_key === "suspicious trader") {
+                            trader_availability.setStatus({is_unlocked: true, is_locked: false, is_finished: false});
+                        }
                         
                         let trader_item_list = [];
 
@@ -7807,7 +8081,7 @@ function load(save_data) {
                             });
                         }
 
-                        trader.last_refresh = save_data.traders[trader_key].last_refresh;
+                        trader.last_refresh = save_data.traders[trader_key].last_refresh ?? -1;
                         trader.emptyInventory();
                         trader.addToInventory(trader_item_list);
                     }
@@ -8159,7 +8433,7 @@ function load(save_data) {
             });
             set_loot_sold_count(loot_count);
             
-            if(NPCRegistry.get("old craftsman").getDialogueComponent().textlines["learn"].isFinished()) {
+            if(NPCRegistry.get("oldCraftsman").getDialogueComponent().textlines["learn"].isFinished()) {
                 character.addToInventory([{item_id: "Old shovel"}]);
             }
         } else if(is_a_older_than_b(save_data["game version"], "v0.5.0.22") && is_a_older_than_b("v0.5", save_data["game version"])) {
@@ -8287,6 +8561,7 @@ function load(save_data) {
         if(is_a_older_than_b(save_data["game version"], "v0.5.0")){
             
             let elder = NPCRegistry.get("villageElder").getDialogueComponent();
+            let puppy = NPCRegistry.get("suspiciousMan").getDialogueComponent();
             //memory line
             questManager.startQuest({quest_id: "Lost memory", should_inform: false});
             if(elder.textlines["what happened"].isFinished()) {
@@ -8297,8 +8572,7 @@ function load(save_data) {
 
                     if(elder.textlines["cleared cave"].isFinished()) {
                         questManager.finishQuestTask({quest_id: "Lost memory", task_index: 2, skip_message: true});
-    
-                        if(elder.textlines["defeated"].isFinished()) {
+                        if(puppy.textlines["defeated"].isFinished()) {
                             questManager.finishQuestTask({quest_id: "Lost memory", task_index: 3, skip_message: true});
                         }
                     }
@@ -8322,7 +8596,7 @@ function load(save_data) {
                 }
             }
 
-            let puppy = NPCRegistry.get("suspiciousMan").getDialogueComponent();
+            
             //slums line
             if(puppy.textlines["gang"].isFinished()) {
                 questManager.startQuest({quest_id: "Light in the darkness", should_inform: false});
@@ -8448,8 +8722,13 @@ function load(save_data) {
         refreshCausalQuests();
         refreshTidemarkQuest();
     refreshNestedQuests();
+        add_all_achievement_bonuses();
+        update_displayed_achievements();
+
         character.updateStatsAndDisplay();
         update_displayed_character_inventory();
+
+        update_all_displayed_skills_xp_gain();
 
         update_displayed_health();
         //load current health
@@ -8718,6 +8997,7 @@ function simulateTick() {
         const advancedMinutes = update_timer();
         if(!deferWhileHidden(renderTickPanels,renderTickPanels))renderTickPanels();
         if(!advancedMinutes || nativeLifeEnded()) {awakenOptionalStart(); return;}
+        idleRouteStep();
 
         try {
         if(!deferWhileHidden(renderExportReward,renderExportReward))renderExportReward();
@@ -8909,7 +9189,9 @@ function simulateTick() {
 
             if(villageCareer.recruit) {
                 const p=npcLives?.people.find(p=>p.id==='iona');
-                const next=advanceVillageMentor(villageCareer,{inVillage:current_location.id==='Village' && expansionState.actors.player.worldId==='base.frontier',alive:character.is_alive===true && !!p && current_game_time.year<p.deathYear,patrolling:current_activity?.id==='patrolling'});
+                const path=evolvedUse(VILLAGE_PATROL_PATH,'recruit-practice');
+                const next=advanceVillageMentor(villageCareer,{inVillage:current_location.id==='Village' && expansionState.actors.player.worldId==='base.frontier',alive:character.is_alive===true && !!p && current_game_time.year<p.deathYear,patrolling:current_activity?.id==='patrolling',teachingPractice:path?.amount});
+                if(path&&next.recruit.practiceMinutes-villageCareer.recruit.practiceMinutes>1)log_message(`${path.name} helped Iona earn two minutes of Watchcraft practice.`,'skill_raised');
                 if(next.recruit.soloPatrols>villageCareer.recruit.soloPatrols) {
                     // Report, stipend and first biography publish together after durable storage.
                     try {
@@ -8923,13 +9205,19 @@ function simulateTick() {
             if(villageCareer.watchcraft.tutoring) {
                 const before=villageCareer.watchcraft.tutorMinutes;
                 villageCareer=advanceTessaInstruction(villageCareer,{inVillage:current_location.id==='Village' && expansionState.actors.player.worldId==='base.frontier',alive:character.is_alive===true,meditating:current_activity?.id==='meditating'});
-                if(before<6 && villageCareer.watchcraft.tutorMinutes===6){log_message('Tessa’s instruction is complete. Watchcraft is known; rehearse it for five more minutes before use.');end_activity();}
+                if(before<WATCHCRAFT_READING && villageCareer.watchcraft.tutorMinutes===WATCHCRAFT_READING){log_message('Tessa’s instruction is complete. Watchcraft is known; rehearse it for five more minutes before use.');end_activity();}
             }
             if(current_activity && !['scouting','lunar_gathering'].includes(current_activity.id)) { // native P07 has its own saved no-XP settlement
                 let tool_wear;
                 if(villageCareer.watchcraft.issued && villageCareer.watchcraft.practiceMinutes<WATCHCRAFT_PRACTICE) {
                     const before=villageCareer.watchcraft.practiceMinutes;
+                    const priorRole=villageCareer.roles?.positions[1];
                     villageCareer=practiceWatchcraft(villageCareer,{known:watchcraftKnown(),location:current_location.id,activity:current_activity.id,worldId:expansionState.actors.player.worldId,alive:character.is_alive===true});
+                    if(priorRole && villageCareer.roles.positions[1].position>priorRole.position){
+                        const role=villageRoleView(villageCareer).tracks[1];
+                        log_message('Watchcraft reached level '+role.level+' ('+role.stage+').','skill_raised');
+                        refreshGrowthQueue();
+                    }
                     if(before<WATCHCRAFT_PRACTICE && villageCareer.watchcraft.practiceMinutes===WATCHCRAFT_PRACTICE)
                         log_message('Watchcraft rehearsed, 5/5. Use sector scanning on your next Village patrol.');
                 }
@@ -8977,9 +9265,9 @@ function simulateTick() {
                                     quality = Math.round(gameRandomRange(STREAMS.gather, `activity:${current_activity.activity_id}:${i}:quality`,quality_range[0], quality_range[1]) / 4) * 4;
                                 }
 
-                                items.push({item_id: gained_resources[i].name, quality: quality, count: count});
 
                                 game_stats.gathered_materials[gained_resources[i].name] = (game_stats.gathered_materials[gained_resources[i].name] || 0) + count;
+                                current_activity.gathered_materials[gained_resources[i].name] = (current_activity.gathered_materials[gained_resources[i].name] || 0) + count;
                             }
                         }
 
@@ -8987,9 +9275,6 @@ function simulateTick() {
                             process_current_loot({loot_list: items});
                             
 
-                            for(let i = 0; i < items.length; i++) {
-                                current_activity.gathered_materials[items[i].item_id] = (current_activity.gathered_materials[items[i].item_id] + items[i].count || items[i].count);
-                            }
                         
                             character.addToInventory(items.map(row=>{const item_key=gatheredIronKey({id:row.item_id,count:row.count,world:expansionState.actors.player.worldId,location:current_location.id,activity:current_activity.activity_id,clock:calendarMinutes(current_game_time)});return item_key?{item_key,count:row.count}:row;}));
                         }
@@ -9032,6 +9317,7 @@ function simulateTick() {
                         if(can_work(activity)) {
                             divs[i].classList.remove("activity_unavailable");
                             divs[i].classList.add("start_activity");
+                            divs[i].setAttribute("onclick", "start_activity(this.getAttribute('data-activity'));");
                         } else {
                             divs[i].classList.remove("start_activity");
                             divs[i].classList.add("activity_unavailable");
@@ -9472,6 +9758,8 @@ window.importOtherReleaseSave = load_other_release_save;
 window.hardReset = hard_reset;
 window.get_game_version = get_game_version;
 
+window.process_hovered_notificationable = process_hovered_notificationable;
+
 window.run = run;
 
 // Do not suspend the legacy initialization before its onload UI has elements.
@@ -9516,7 +9804,7 @@ function set_game_speed(multiplier) {
     return game_speed;
 }
 
-window.Verify_Game_Objects = Verify_Game_Objects;
+window.Verify_Game_Objects = () => Verify_Game_Objects(get_context(),traders);
 
 set_loading_screen_progress("Waking up from a nyap...");
 
@@ -9868,11 +10156,11 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     refreshCustomization();
     const pollDisplays=()=>{quietPlaceDetail.render();statusWindow?.render();workLedgerPanel?.render();customizationPanel?.refresh();if(!workspaceOwns(customizationHost)&&!customizationHost.isConnected)document.getElementById('location_actions_div')?.append(customizationHost);workLedgerAuthor?.refresh();};
     setInterval(()=>{if(!deferWhileHidden(pollDisplays,pollDisplays))pollDisplays();},250);
-    villageCareerControls = createVillageCareerControls({read:()=>({state:villageCareer,study:watchcraftPresentation(villageCareer,watchcraftKnown()),hasNotes:!!character.getItems()[item_templates[WATCHCRAFT_BOOK].getInventoryKey()],
+    villageCareerControls = createVillageCareerControls({read:()=>({state:villageCareer,path:evolvedPath(VILLAGE_PATROL_PATH),study:watchcraftPresentation(villageCareer,watchcraftKnown()),hasNotes:!!character.getItems()[item_templates[WATCHCRAFT_BOOK].getInventoryKey()],
         visible:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier' && !current_dialogue && !current_combat && !is_sleeping && !is_reading && !is_in_trade() && !current_game_action,
         canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken,
         busy:!!current_activity || !!nativeOccupationReason(),canTeach:current_activity?.id==='patrolling' && !foundationSaveBlocked && !importProbeToken && ownsSave && !nativeOccupationReason(),recruitAlive:!!npcLives?.people.some(p=>p.id==='iona' && current_game_time.year<p.deathYear)}),
-        mentor:choice=>writeVillageCareer(choice),resolve:choice=>writeVillageCareer(choice),promote:()=>writeVillageCareer('promote'),
+        mentor:choice=>writeVillageCareer(choice),resolve:(choice,fingerprint)=>writeVillageCareer(choice,fingerprint),promote:()=>writeVillageCareer('promote'),
         notes:()=>writeVillageCareer('notes'),tutor:()=>writeVillageCareer('tutor'),readNotes:()=>start_reading(WATCHCRAFT_BOOK),
         practice:()=>start_activity('meditating')});
     const travelerSupplyIndex=()=>buildVillageObtainability(villageTablesFromNative({items:item_templates,trader:traders['village trader'],stock:inventoryTemplates[traders['village trader'].inventory_template],inventory:character.getItems(),activities:locations.Village.activities,enemies:Object.fromEntries(Object.entries(enemy_templates).filter(([id])=>/wolf rat/i.test(id)).map(([id,e])=>[id,{loot_list:e.loot_list,knownKills:enemy_killcount[id]||0}])),recipes,craftingKnown:global_flags.is_crafting_unlocked,gatheringKnown:global_flags.is_gathering_unlocked,tools:Object.fromEntries(Object.entries(locations.Village.activities).map(([id,a])=>[id,!!character.getEquipment()[activities[a.activity_name]?.required_tool_type]])),season:current_game_time.getSeason()}));
@@ -9962,7 +10250,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             if(!openingAllows(id,getDisplaySetting('stagedOpening')==='on',openingStep))return false;
             if(['time','location'].includes(id)&&current_location?.id==='Village'&&expansionState.actors.player.worldId==='base.frontier')return false;
             if(id==='skills')return Object.values(skills).some(skill=>nativeSkillDiscovery(skill,character));
-            if(id==='records')return item_templates['Old combat manual'].isFinished() || item_templates['ABC for kids'].isFinished() || Object.values(enemy_killcount).some(n=>n>0) || metVillageElder();
+            if(id==='records')return Object.values(achievements).some(achievement=>achievement.isFinished()) || item_templates['Old combat manual'].isFinished() || item_templates['ABC for kids'].isFinished() || Object.values(enemy_killcount).some(n=>n>0) || metVillageElder();
             return true;
         };
         registerWorkspaceModule({id,title,node,home,critical,eligible:found,discovered:found});
@@ -10087,7 +10375,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         }});
 }
 
-if((game_options.skip_play_button || continuationState?.loop.enabled) && !importProbeToken) {
+if((game_options.skip_play_button || continuationState?.loop.enabled) && !importProbeToken && !is_loading_error) {
     play_button.click();
 }
 
@@ -10166,17 +10454,8 @@ export {
     game_stats, 
     kill_target, kill_player,
     process_current_loot,
-    add_money_to_character,
-    unlock_location,
     flag_unlock_texts,
     remove_location_from_favourites,
-    unlock_global_activity,
-    unlock_activity,
-    unlock_action,
-    unlock_combat_stance,
-    lock_location,
-    lock_action,
-    update_pathing,
     change_location, change_current_location,
     process_rewards,
     translate

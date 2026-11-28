@@ -1,0 +1,130 @@
+{
+ "name": "r4-cyberpunk",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 13.79,
+ "capTotal": 13.79,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpred_pilot_rules_r4.json",
+     "cap": 0.04,
+     "label": "cpred-pilot-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cp2020_pilot_rules_r4.json",
+     "cap": 0.04,
+     "label": "cp2020-pilot-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpnight_pilot_rules_r4.json",
+     "cap": 0.04,
+     "label": "cpnight-pilot-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpchrome_pilot_rules_r4.json",
+     "cap": 0.04,
+     "label": "cpchrome-pilot-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpv3_pilot_rules_r4.json",
+     "cap": 0.04,
+     "label": "cpv3-pilot-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpgen_pilot_rules_r4.json",
+     "cap": 0.04,
+     "label": "cpgen-pilot-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpview_pilot_rules_r4.json",
+     "cap": 0.04,
+     "label": "cpview-pilot-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpfriday_pilot_rules_r4.json",
+     "cap": 0.04,
+     "label": "cpfriday-pilot-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpwelcome_pilot_rules_r4.json",
+     "cap": 0.04,
+     "label": "cpwelcome-pilot-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpkit_pilot_rules_r4.json",
+     "cap": 0.04,
+     "label": "cpkit-pilot-rules-r4"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpred_rules_r4.json",
+     "cap": 3.72,
+     "label": "cpred-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cp2020_rules-part1_r4.json",
+     "cap": 1.81,
+     "label": "cp2020-rules-part1-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cp2020_rules-part2_r4.json",
+     "cap": 0.3,
+     "label": "cp2020-rules-part2-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpnight_rules_r4.json",
+     "cap": 1.52,
+     "label": "cpnight-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpchrome_rules_r4.json",
+     "cap": 0.8,
+     "label": "cpchrome-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpv3_rules-part1_r4.json",
+     "cap": 1.7,
+     "label": "cpv3-rules-part1-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpv3_rules-part2_r4.json",
+     "cap": 0.7,
+     "label": "cpv3-rules-part2-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpgen_rules_r4.json",
+     "cap": 1.58,
+     "label": "cpgen-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpview_rules_r4.json",
+     "cap": 0.4,
+     "label": "cpview-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpfriday_rules_r4.json",
+     "cap": 0.2,
+     "label": "cpfriday-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpwelcome_rules_r4.json",
+     "cap": 0.33,
+     "label": "cpwelcome-rules-r4"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/cpkit_rules_r4.json",
+     "cap": 0.33,
+     "label": "cpkit-rules-r4"
+    }
+   ]
+  }
+ ]
+}

@@ -77,6 +77,11 @@
    "tier": "slow",
    "why": "plays the game: headless boot through save and reload"
   },
+  "tests/gu_lotus_route_play.test.js": {
+   "ms": 540000,
+   "tier": "slow",
+   "why": "Earns the purchase money through eight native chore shifts, drains seven springs, plays all refinement stages, then checks save, reload, export and import. The isolated Windows run took about 374 seconds."
+  },
   "tests/gu_upkeep.test.js": {
    "ms": 80000,
    "tier": "slow",

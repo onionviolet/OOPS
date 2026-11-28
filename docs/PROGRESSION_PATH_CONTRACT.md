@@ -19,13 +19,21 @@ law      = progressionLaw({kind, rows, dials})                         // K law 
 method   = crossingMethod(law, row, {kind, to, minutes})
 ```
 
+### Concurrent role positions, November 27 proposal
+
+A holder with role slots stores `progression.positions@2` as an ordered list of v1 positions keyed by unique path ID. A v1 position reads as the sole list entry without changing its tracks, position or revision. The holder still owns the save. Village career schemas 1 through 4 without a list derive just the patrol position from their earned promotion rank. The next save writes the list. Loading, elapsed time and opening Growth grant no slot, money or XP.
+
+A world supplies its slot conditions, allowed changes, practice sources and path rows. PRG accrues the routed gain and opens its ladder. Replacing a role can carry a named source lineage or enter the receiving path at a declared level. A merge consumes just its named roles. An unspecified receiving level needs a value from the receiving path. Choices revalidate the kernel quote before settlement.
+
+Village uses promotion and Watchcraft rehearsal because each already has its own activity, counter and recognition. The role reads existing practice, including practice before enrollment. Mentor evolution keeps its EV6 identity owner. A completed, fully rehearsed Watchcraft patrol earns the enrolled supplement through the existing wage settlement.
+
 ## Rules (PRG)
 
 | Code | Default | Dial and reason |
 | --- | --- | --- |
 | PRG1 | **A path is a row.** Stages, crossings, grants and failure signs stay in the ASC descriptor; the row adds tracks, dials and steps. A new canon step costs a row (PFP1). Sub-stages are stages, not strings. | Shapes per ASC (ladder, tree, web, wheel, stack, field), per world (AD46). |
 | PRG2 | **World numbers are dials with reasons.** Every number a step reads (a wall's strength, a step's minutes) is a named dial with a default and an in-world reason; packs set them, hosts may pass per-holder values. | Canon numbers are fixed points (AD49); a derived value says what range fits the source. |
-| PRG3 | **The position record belongs to the holder's owner.** `progression.position@1` is `{path, revision, position, since, tracks}`. A body's path lives with L's body, an actor's in its facts, a Gu's rank with G, a credential with the issuing institution (GTR25). R registers no slice. | One record per held path. |
+| PRG3 | **The position record belongs to the holder's owner.** `progression.position@1` is `{path, revision, position, since, tracks}`. A body's path lives with L's body, an actor's in its facts, a Gu's rank with G, a credential with the issuing institution (GTR25). R registers no slice. | One record per held path. See the additive role-list revision below. |
 | PRG4 | **Tracks and thresholds.** A track is an amount with a threshold kind: `count` (one level at a need: digestion acts), `table` (ascending values) or `geometric` (cumulative `base·(1−s^n)/(1−s)` rounded to cents: the upstream skill curve). `<track>.level` and, for counts, `<track>.met` become facts the crossings read. | New kinds need a second consumer (PFP5); expressions over facts (GTR30) are the next candidate. |
 | PRG5 | **Accrual does not read time.** `accrue` adds whole units exactly and fractional ones to the cent, so any split of the same gains gives the same total and level. Rates over time are the host's or W's to integrate (KB6); a per-gain cap is the host's policy, with overflow through `skill_overflow_domain` (GTR16). | Tested for the skill curve. |
 | PRG6 | **A quote is a pure read.** `stepQuote` reports crossings, the gate (with GTR10's knowledge filter), any supply and the ceiling, and never spends. Admission is crossings plus gate (GTR11). | `ceiling` per row or per life, as ASC. |

@@ -40,6 +40,7 @@ import {previewPowerModel, resolveEffectAmount, fluencyDuration} from "./power_m
 import {prepareSimulationEffects, resolveOutcomeWeights} from "./simulation_resolution.js";
 import {reserveAmuletCosts,settledAmuletEffects} from './lotm_amulet_crafting.js';
 import {settledSilverCharmEffects} from './lotm_silver_charms.js';
+import {settleGuExchangeJob} from './gu_exchange_host.js';
 import {advanceConstructs,nextConstructBoundary} from './temporary_construct.js';
 import {advanceKeeperRainbow,nextKeeperRainbowBoundary} from './world_packs/book_gu_keeper_sustained.js';
 import {advanceKeeperDrain,nextKeeperDrainBoundary} from './gu_keeper_propagation.js';
@@ -333,7 +334,8 @@ function completeJob(out, job, registry, contexts = {}, beforeJob=null) {
     const state = out.state, s = state.simulation;
     if(completeLorePracticeJob(out,job,registry,contexts)) return;
     if(completeCausalStoryJob(out,job,registry,contexts)) return;
-    const completionGroup=registry.simulation.commands.get(job.commandId)?.group;
+    const definition=registry.simulation.commands.get(job.commandId);
+    const completionGroup=definition?.group;
     const wcContext=completionGroup?.startsWith("world_completion_")?worldCompletionJobContext(state,job,{...contexts[job.actorId],...job.context,external:out.external,gameplay:out.gameplay,vitals:out.vitals,equipment:out.equipment}):null;
     if(job.completionSupport) {
         const support = job.completionSupport, originalContext = {...contexts[job.actorId], ...job.context,...wcContext, frontierContribution:job.frontierContribution,
@@ -370,7 +372,9 @@ function completeJob(out, job, registry, contexts = {}, beforeJob=null) {
     const effectContext=nativeEffectContext||wcContext||(['proto23','book_care_npc','book_paradise_npc','book_mol','book_mol_npc','book_paradise_campaign','book_paradise_campaign_npc','causal_story','causal_story_npc'].includes(completionGroup)?{...contexts[job.actorId],...job.context,...(['book_mol','book_mol_npc'].includes(completionGroup)?{molAcceptedJob:job}:{}),
             ...(['book_paradise_campaign','book_paradise_campaign_npc'].includes(completionGroup)?{paradiseCampaignAcceptedJob:job}:{}),external:out.external,gameplay:out.gameplay,vitals:out.vitals,vitalsByActor:out.vitals,equipment:out.equipment}:job.context);
     const charmEffects=settledSilverCharmEffects(job,state,registry,contexts[job.actorId]?.charmPresence,out.gameplay[job.actorId]?.inventory||{});
-    applySimulationEffects(out, charmEffects?[...job.effects,...charmEffects]:settledAmuletEffects(job,state), effectContext, registry, job.id);
+    const effects=definition?.guExchange?settleGuExchangeJob(definition.guExchange,job,definition.duration):
+        charmEffects?[...job.effects,...charmEffects]:settledAmuletEffects(job,state);
+    applySimulationEffects(out,effects,effectContext,registry,job.id);
     if(isResponseLoanJob(job.commandId))normalizeResponseLoanPlan(out,{cause:job.id});
     if(job.claim && s.claims[job.claim]?.status === "held") applySimulationEffects(out, [{type: "claim", operation: "settle", key: job.claim}], job.context, registry, job.id);
     const actor = state.actors[job.actorId]; actor.completed[job.commandId] = (actor.completed[job.commandId] || 0) + 1;

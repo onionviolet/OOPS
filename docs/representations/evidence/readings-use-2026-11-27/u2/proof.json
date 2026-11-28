@@ -1,0 +1,44 @@
+{
+  "entry": "/",
+  "snapshotSha256": "d8846db1fd9d9e7a99fba99ea372feba9222fccd15a603bf2d2a7a2b5ec4418f",
+  "runs": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "captures": [
+        "systems-1366.png",
+        "sm1-1366.png",
+        "sm1-comparison-1366.png",
+        "new-evidence-1366.png",
+        "citation-1366.png"
+      ],
+      "source": "dcc.other.stat-points · en b1 c4 p41",
+      "href": "/system-source/RR6661607267821779998",
+      "nativeSource": "rg.rule.newbie-path-stat · en b1 c1 p74",
+      "direct": "#world/rg/things/rg.rule.newbie-path-stat",
+      "errors": [],
+      "overflow": 0
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "captures": [
+        "systems-1920.png",
+        "sm1-1920.png",
+        "sm1-comparison-1920.png",
+        "new-evidence-1920.png",
+        "citation-1920.png"
+      ],
+      "source": "dcc.other.stat-points · en b1 c4 p41",
+      "href": "/system-source/RR6661607267821779998",
+      "nativeSource": "rg.rule.newbie-path-stat · en b1 c1 p74",
+      "direct": "#world/rg/things/rg.rule.newbie-path-stat",
+      "errors": [],
+      "overflow": 0
+    }
+  ]
+}

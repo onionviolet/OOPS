@@ -72,9 +72,15 @@
 
         race: String
 
+        not_race: String
+
         race_type: {
             any: [String],
             all: [String]
+        }
+
+        guild_ranks: {
+            "guild_key": Number
         }
     }
 */
@@ -98,11 +104,14 @@ const process_conditions = (conditions, context) => {
     }
 
     //check money
-    if(conditions[0].money && character.money < conditions[0].money) {
+    const moneyAt = condition => typeof condition?.money === "number" ? condition.money : condition?.money?.number;
+    const minimum = moneyAt(conditions[0]);
+    const full = moneyAt(conditions[1]);
+    if(minimum && character.money < minimum) {
         met = 0;
         return met;
-    } else if(conditions[1]?.money && conditions[1].money > conditions[0].money && character.money < conditions[1].money) {
-        met *= (1 + character.money - conditions[0].money)/(conditions[1].money - conditions[0].money);
+    } else if(full > minimum && character.money < full) {
+        met *= (1 + character.money - minimum)/(full - minimum);
     }
 
     if(!met) {
@@ -306,6 +315,12 @@ const process_conditions = (conditions, context) => {
         }
     }
 
+    if(conditions[0].not_race) {
+        if(character.getBioComponent().race === conditions[0].not_race) {
+            met = 0;
+        }
+    }
+
     if(conditions[0].race_type) {
         const race = context.playable_races[character.getBioComponent().race];
         let is_any_met = false;
@@ -321,6 +336,14 @@ const process_conditions = (conditions, context) => {
 
         Object.keys(conditions[0].race_type.all || {}).forEach(race_type => {
             if(!race.tags[race_type]) {
+                met = 0;
+            }
+        });
+    }
+
+    if(conditions[0].guild_ranks) {
+        Object.keys(conditions[0].guild_ranks).forEach(guild => {
+            if(character.getGuildMemberComponent().getGuildRank({guild_id: guild}) < conditions[0].guild_ranks[guild]) {
                 met = 0;
             }
         });

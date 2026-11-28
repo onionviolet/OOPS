@@ -1,3 +1,4 @@
+import {kitElement} from './kit.js';
 import {combatSubject} from '../combat_subject.js';
 import {describeDeclared, attackKind} from '../damage_types.js';
 import {deferSimulationRender} from '../simulation_render.js';
@@ -48,6 +49,19 @@ const onstartAnimation = [
 ]
 const onstartAnimationTiming = {
     duration: 800,
+	iterations: 1,
+}
+
+const oneffectAnimation = [
+    {
+        "opacity": "1"
+    },
+    {
+        "opacity": "0",
+    },
+]
+const oneffectAnimationTiming = {
+    duration: 3000,
 	iterations: 1,
 }
 
@@ -191,10 +205,13 @@ function create_defender_div(i) {
     enemy_attack_bar.classList.add("enemy_attack_bar", "fighter_attack_bar");
     enemy_attack_bar.dataset.attack_bar = true;
 
+    const effect_popup = kitElement("div", "combat_effect_popup");
+
     fighter_div.appendChild(name_div);
     fighter_div.appendChild(stats_div);
     fighter_div.appendChild(health_div);
     fighter_div.appendChild(enemy_attack_bar);
+    fighter_div.appendChild(effect_popup);
 
     return fighter_div;
 }
@@ -417,10 +434,19 @@ function do_onstart_animation({fighter_index, is_attacker}) {
 
 }
 
+function do_effect_animation({ fighter_index, is_attacker, message }) {
+    if (!message) { return; }
+
+    const popup = (is_attacker ? current_combat.attackers_ui_slot : current_combat.defenders_ui_slot).children[fighter_index]?.querySelector(".combat_effect_popup");
+    if(!popup)return;
+    popup.textContent=message;
+    popup.animate(oneffectAnimation, oneffectAnimationTiming);
+}
+
 export {
     fill_attacker_divs, fill_fighter_divs,
     update_displayed_health_of_defenders,
-    do_onhit_animation, remove_onhit_animation, do_onstart_animation,
+    do_onhit_animation, remove_onhit_animation, do_onstart_animation, do_effect_animation,
     update_attack_bar,
     update_displayed_health_of_fighter, update_displayed_fighters_stats,
 }

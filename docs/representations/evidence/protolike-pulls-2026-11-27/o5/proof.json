@@ -1,0 +1,23 @@
+{
+  "item": "o5",
+  "entry": "/",
+  "bundleSha256": "fcc269a6521fc8a25c88480f272b240688d5f8bb055fc86b15f53e574dca6aff",
+  "runs": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "result": "[ Entering Infested field ] Zone pressure 1.05x: enemy strength, XP and loot chance.",
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "result": "[ Entering Infested field ] Zone pressure 1.05x: enemy strength, XP and loot chance.",
+      "pageErrors": []
+    }
+  ]
+}

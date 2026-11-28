@@ -1,0 +1,18 @@
+{
+  "route": "fresh native Zorian start and earned lecture; named clock-only boundary fixture; automatic reset; Save/reload/Export/Import; earned native drill",
+  "viewport": "1920x1080",
+  "bundle": "a4b98f307978d169a925e7bf2ac66e68c1393fb9cd0c738eec53b36cb9a0bed9",
+  "fixture": "56a8d75343c7428bc0035ea662bd9eabacbaa03cc135c24187746f9bc6e0485e",
+  "checks": {
+    "blockedFresh": true,
+    "earliestDateNative": true,
+    "memoryRetained": true,
+    "currentLectureReset": true,
+    "usedAfterImport": true,
+    "reserve": [
+      8,
+      7
+    ],
+    "pageErrors": 0
+  }
+}

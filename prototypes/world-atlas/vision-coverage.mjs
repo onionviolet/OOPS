@@ -23,6 +23,7 @@ export const VISION_THEMES = themes.map(([id, label, status, terms, summary, evi
 const sections = [
     ['Worlds', '#worlds', ['worlds-and-priorities', 'book-worlds-and-the-leads-life', 'starts-lives-and-continuation', 'making-and-crafting', 'identity']],
     ['Find', '#find', ['design-principles', 'research-and-sources']],
+    ['Systems', '#systems', ['time-and-progression', 'research-and-sources', 'words-and-prose']],
     ['Library', '#library', ['research-and-sources', 'book-worlds-and-the-leads-life', 'starts-lives-and-continuation', 'time-and-progression', 'making-and-crafting']],
     ['Creatures', '#creatures', ['worlds-and-priorities', 'making-and-crafting']],
     ['Progress', '#progress', ['scope-and-sequencing', 'platform-performance-and-saves', 'research-and-sources']],

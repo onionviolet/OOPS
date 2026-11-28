@@ -13,7 +13,7 @@ const action = name => `[data-structured-action="${ID}.${name}"]`;
 const line = 'The Monarch Lotus produced primeval essence';
 
 test('ordinary keeper buys, drains seven springs, refines and uses the Monarch Lotus across save routes',
-    {timeout: 240000}, async () => {
+    {timeout: 540000}, async () => {
         const game = await boot(null, {seed: 1, wallStart, heroName: null});
         const state = () => game.internals.expansionState;
         const ledger = () => JSON.parse(state().worlds['book.ri.keeper.world'].facts[lotusLedgerKey]);

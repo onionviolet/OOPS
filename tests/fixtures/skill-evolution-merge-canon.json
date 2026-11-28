@@ -1,0 +1,34 @@
+[
+  {
+    "source": "The Timebender, chapter 23: Scouting",
+    "row": {
+      "id": "held-out.rampage",
+      "policy": "EV4",
+      "from": "Kill Streak",
+      "threshold": 1,
+      "offerOn": "practice",
+      "sources": [{"id":"Kill Streak","level":1},{"id":"Fast Stab","level":1}],
+      "requirements": {"world":"fixture.timebender","fusionPermission":true},
+      "targets": [{
+        "id":"held-out.rampage-form","name":"Rampage","costs":[],"restrictions":{"ongoingBattle":true},
+        "gains":{"function":{"trigger":"battle-progress","mode":"escalating-speed-and-lethality"}}
+      }]
+    }
+  },
+  {
+    "source": "Badge of Vice, chapter 41: The Fusion Card's Power",
+    "row": {
+      "id": "held-out.alchemy",
+      "policy": "EV5",
+      "from": "Forensics",
+      "threshold": 3,
+      "offerOn": "practice",
+      "sources": [{"id":"Forensics","level":3},{"id":"Chemistry","level":2},{"id":"Biology","level":2},{"id":"Toxicology","level":2}],
+      "requirements": {"world":"fixture.badge","cardAssembledOffer":true},
+      "targets": [{
+        "id":"held-out.alchemy-master","name":"Alchemy Master","costs":[],"restrictions":{},
+        "gains":{"function":{"trigger":"alchemy","mode":"broader-subject-mastery"}}
+      }]
+    }
+  }
+]

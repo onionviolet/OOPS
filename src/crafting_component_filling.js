@@ -12,17 +12,27 @@ const base_value = 35; // * tier * mat_count
 
 
 
-const custom_names = {"linen": {}, "wool": {}, "silk": {}, "iron chainmail": {}, "steel chainmail": {}, "snakeskin": {}};
+
+const custom_names = {};
+Object.keys(material_properties).forEach(key => custom_names[key]={});
+
 custom_names["linen"][component_types.HELMET_INTERIOR] = "Linen bandanna";
 custom_names["silk"][component_types.HELMET_INTERIOR] = "Silk bandanna";
 custom_names["linen"][component_types.LEG_ARMOR_INTERIOR] = "Linen leggings";
 custom_names["wool"][component_types.CHESTPLATE_INTERIOR] = "Wool shirt";
 custom_names["silk"][component_types.CHESTPLATE_INTERIOR] = "Silk shirt";
-custom_names["iron chainmail"][component_types.CHESTPLATE_EXTERIOR] = "Iron chainmail vest";
-custom_names["steel chainmail"][component_types.CHESTPLATE_EXTERIOR] = "Steel chainmail vest";
 custom_names["snakeskin"][component_types.LEG_ARMOR_INTERIOR] = "Snakeskin leggings";
 custom_names["snakeskin"][component_types.SHOE_INTERIOR] = "Snakeskin boots";
+custom_names["a monster bodypart"][component_types.SHORT_BLADE] = "Frumious blade";
+custom_names["a monster bodypart"][component_types.HAMMER_HEAD] = "Beak hammer head";
 
+const rename_chestpiece_to_vest = [
+    "iron chainmail", "steel chainmail", "white iron chainmail", "black iron chainmail", "white chainmail", "black chainmail", 
+    "steel plate", "white iron plate", "black iron plate", "white plate", "black plate",
+];
+for(let i = 0; i < rename_chestpiece_to_vest.length; i++) {
+    custom_names[rename_chestpiece_to_vest[i]][component_types.CHESTPLATE_EXTERIOR] = capitalize_first_letter(rename_chestpiece_to_vest[i]) + " vest";
+}
 
 const armor_names = {};
 armor_names[component_types.CHESTPLATE_EXTERIOR] = "armor";
@@ -371,6 +381,7 @@ const crafting_component_manager = {
                         let attack_speed_multiplier = 1;
                         let cold_tolerance_bonus = 0;
                         let stamina_efficiency_multiplier = 1;
+                        let block_multiplier = 1;
 
                         agility_multiplier = Math.min(1,Math.round(100*(
                                 1 - (material_count*(material.weight-50))/2500
@@ -383,6 +394,11 @@ const crafting_component_manager = {
                         stamina_efficiency_multiplier = Math.min(1,Math.round(100*(
                             1 - (material_count*(material.weight-50))/2500
                         ))/100);
+
+                        block_multiplier = Math.min(1,Math.round(100*(
+                            1 + (material_count*(material.weight-130))/4000
+                        ))/100);
+
 
                         cold_tolerance_bonus = ((material.warmth || 100) - 100)/20;
 
@@ -403,6 +419,10 @@ const crafting_component_manager = {
                         }
 
                         add_properties(component_stats, shellDimensions({tier: material.tier, strength: material.strength, partCount: material_count}));
+
+                        if(block_multiplier !== 0) {
+                            add_properties(component_stats, {block_strength: {multiplier: block_multiplier}});
+                        }
 
                         item = new ArmorComponent({
                             name: item_id,
@@ -429,9 +449,17 @@ const crafting_component_manager = {
                 }
                 if(!item_templates[item_id]) {
                     item_templates[item_id] = item;
-                } else {
-                    console.error(`Item templates already include something with an id of "${item_id}",`
-                        + ` please either remove it or remove "${material.types[i]}" from component types for material "${material_key}"`);
+                } else if(!item_templates[item_id].getComponentType || item_templates[item_id].getComponentType()!==material.types[i]) {
+                    console.error(`Conflicting component definition: ${item_id}`);
+                }
+                // Earlier OOPS saves refer to the generated chestplate name.
+                if(material.types[i]===component_types.CHESTPLATE_EXTERIOR){
+                    const legacyId=capitalize_first_letter(material.name || material_key)+" "+type_to_name(material.types[i]);
+                    if(legacyId!==item_id&&!item_templates[legacyId]){
+                        const alias=new ArmorComponent({...item,name:legacyId});
+                        Object.assign(alias,item,{name:legacyId});
+                        item_templates[legacyId]=alias;
+                    }
                 }
             }
         });
@@ -440,4 +468,4 @@ const crafting_component_manager = {
 
 
 
-export { crafting_component_manager };
+export { crafting_component_manager, material_properties };
