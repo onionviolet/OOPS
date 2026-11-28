@@ -1,0 +1,19 @@
+{
+ "name": "r4b-ark",
+ "approval": "Weibao 2026-11-27: \u201cYes, send out Using api, we need to use like 90$~ of claude api in like 10 days\u201d; ark after \u201cLaunch ark too\u201d. Second part: the shards ark_rules_a.json left unread or failed.",
+ "ceilingUsd": 8.61,
+ "capTotal": 8.61,
+ "steps": [
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ark_rules_b.json",
+     "cap": 8.61,
+     "label": "ark-rules-b"
+    }
+   ]
+  }
+ ]
+}

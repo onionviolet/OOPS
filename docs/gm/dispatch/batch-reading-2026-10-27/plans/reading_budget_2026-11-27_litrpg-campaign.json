@@ -1,7 +1,7 @@
 {
  "ceilingUsd": 90,
- "reservedUsd": 36.7172,
- "unallocatedUsd": 53.2828,
+ "reservedUsd": 78.2572,
+ "unallocatedUsd": 11.7428,
  "approval": "Weibao 2026-11-27: \u201cYes, send out Using api, we need to use like 90$~ of claude api in like 10 days\u201d",
  "note": "Campaign ceiling is $90 of recorded spend plus reservations. Each reservation is its run file capTotal (true bound). Replace a finished run reservation with its measured spend (receipt-based) to free headroom for the next phase; do not raise the ceiling.",
  "reservations": [
@@ -173,6 +173,24 @@
    "note": "partial: pilot + first 240 of 493 rules shards (ark_rules_a.json); the rest replans after round 3 frees headroom",
    "measured": true,
    "source": "driver final line, round 3 rules pass finished 2026-11-28 (ark: pilot + first 240 of 493 shards)"
+  },
+  {
+   "id": "r4-cyberpunk",
+   "capUsd": 13.79,
+   "measured": false,
+   "note": "run file capTotal (true bound) until replaced by measured spend"
+  },
+  {
+   "id": "r4-shadowrun",
+   "capUsd": 19.14,
+   "measured": false,
+   "note": "run file capTotal (true bound) until replaced by measured spend"
+  },
+  {
+   "id": "r4b-ark",
+   "capUsd": 8.61,
+   "measured": false,
+   "note": "run file capTotal (true bound) until replaced by measured spend"
   }
  ]
 }
