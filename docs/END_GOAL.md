@@ -46,6 +46,8 @@ U2. Systems compares located campaign rules by world and mechanism. [Census](aud
 
 U3. Skills > Growth offers Tessa’s existing Watchcraft lesson to promoted Village workers. Teacher, practice, completion sign and ceiling come from the learning law. [Proof](representations/evidence/readings-use-2026-11-27/u3/proof.json)
 
+U4. Keeping a due Village watch kit shows the quoted debt first. The kernel settles the custody breach and Reports names the creditor and consequence. Existing debts retain their recorded balance. New breaches carry a revision 1 receipt. [Proof](representations/evidence/readings-use-2026-11-27/u4/proof.json)
+
 <a id="future-rpg-view-with-a-map"></a>
 
 ## Future RPG view with a map (consideration)

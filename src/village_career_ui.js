@@ -1,6 +1,6 @@
 import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule, openWorkspaceModule} from './workspace_layout.js';
 import {decorateActionComponents} from './ui_components.js';
-import {CAREER_RANKS,KIT_DEBT,villagePromotionRequirements,villageColleagueMemory,WATCHCRAFT_BOOK,WATCHCRAFT_BONUS,WATCHCRAFT_PRACTICE,PATROL_BASE_PAY,patrolPayText, recruitMemory, TEACHING_TERMS} from './village_career.js';
+import {CAREER_RANKS,KIT_DEBT,quoteVillageKit,villagePromotionRequirements,villageColleagueMemory,WATCHCRAFT_BOOK,WATCHCRAFT_BONUS,WATCHCRAFT_PRACTICE,PATROL_BASE_PAY,patrolPayText, recruitMemory, TEACHING_TERMS} from './village_career.js';
 const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
 
 function watchcraftNext(state, study) {
@@ -77,7 +77,8 @@ export function createVillageCareerControls({read,resolve,promote,notes,readNote
             if(w.known && !w.practiced)controls.push(action('village_watchcraft_practice','Rehearse watchcraft while meditating · 5 minutes',practice,disabled));
             if(s.loan && s.loan.status!=='active') {
                 controls.push(action('village_return_kit','Return loaned kit',()=>resolve('return'),disabled));
-                controls.push(s.debt?action('village_pay_debt',`Pay ${KIT_DEBT}-coin kit debt`,()=>resolve('pay'),disabled):action('village_keep_kit','Keep kit and record debt',()=>resolve('keep'),disabled));
+                const quote=s.debt?null:quoteVillageKit(s);
+                controls.push(s.debt?action('village_pay_debt',`Pay ${KIT_DEBT}-coin kit debt`,()=>resolve('pay'),disabled):action('village_keep_kit',`Keep kit and record debt · ${quote?.costs[0].amount} coins owed to Tessa; patrols pause`,()=>resolve('keep',quote.fingerprint),disabled));
             }
             if(s.rank<2)controls.push(action('village_promotion',`Ask Tessa: ${CAREER_RANKS[s.rank+1]}`,promote,disabled||!!unmet.length,disabled?'':unmet.join(' ')));
             buttons.replaceChildren(...controls);

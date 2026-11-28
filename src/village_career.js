@@ -1,9 +1,11 @@
+import {watchKitLaw} from "./data/world_enforcement.js";
+import {quoteWorldDuty,settleWorldDuty} from "./world_enforcement.js";
 import {watchcraftLesson} from "./data/skill_learning.js";
 import {practiceLearning} from "./skill_learning.js";
 // Original proposal: one Village patrol career, using native time and wages.
 import {natural} from './basics.js';
 export const CAREER_RANKS = ['Apprentice', 'Dependable worker', 'Mentor'];
-export const KIT_DEBT = 50;
+export const KIT_DEBT = watchKitLaw.costs[0].amount;
 export const PATROL_BASE_PAY = 50;
 export const WATCHCRAFT_BOOK = 'Tessa’s watchcraft notes';
 export const WATCHCRAFT_READING = watchcraftLesson.minutes;
@@ -28,6 +30,10 @@ export function validateVillageCareer(s) {
     check(s.debt===(s.loan?.status==='debt'?KIT_DEBT:0),'invalid kit debt');
     check(!s.loan || (s.shifts>0 && (s.loan.status!=='active' || !s.loan.completed)),'invalid active shift');
     check(s.lastShift===null || (s.lastShift && natural(s.lastShift.number) && s.lastShift.number>0 && s.lastShift.number<=s.shifts && typeof s.lastShift.completed==='boolean' && ['due','returned','kept','paid'].includes(s.lastShift.kit)),'invalid shift memory');
+    if(s.lastShift?.enforcement){
+        const e=s.lastShift.enforcement;
+        check(e.revision===1&&e.rule===watchKitLaw.id&&e.enforcer===watchKitLaw.enforcer&&e.amount===KIT_DEBT,'invalid kit enforcement receipt');
+    }
     check(s.rank===0 || (s.completed>=(s.rank===1?2:5) && s.returned>=(s.rank===1?2:5)),'unearned rank');
     if(s.schema>=2) {
         const w=s.watchcraft;
@@ -97,10 +103,19 @@ export function finishVillageShift(state,completed,{markWellLinen=false}={}) {
     s.loan={status:'return_due',completed};s.lastShift={number:s.shifts,completed,kit:'due'};
     return validateVillageCareer(s);
 }
-export function resolveVillageKit(state,choice) {
+export function quoteVillageKit(state){
+    return quoteWorldDuty(watchKitLaw,{unreturnedKit:state.loan?.status==='return_due'});
+}
+export function resolveVillageKit(state,choice,fingerprint) {
     const s=migrateVillageCareer({village_career:state});check(['return_due','debt'].includes(s.loan?.status),'finish your shift before resolving the kit');
     check(['return','keep','pay'].includes(choice),'unknown kit choice');
-    if(choice==='keep') {check(s.loan.status==='return_due','debt is already recorded');s.loan.status='debt';s.debt=KIT_DEBT;s.lastShift.kit='kept';}
+    if(choice==='keep') {
+        check(s.loan.status==='return_due','debt is already recorded');
+        const receipt=settleWorldDuty(watchKitLaw,{unreturnedKit:true},fingerprint??quoteVillageKit(s).fingerprint);
+        s.debt=receipt.truth.costs[0].amount;
+        s.loan.status='debt';s.lastShift.kit='kept';
+        s.lastShift.enforcement={revision:1,rule:receipt.truth.breach.rule,enforcer:receipt.truth.breach.enforcer,amount:s.debt};
+    }
     else {if(choice==='pay')check(s.loan.status==='debt','no debt to pay');
         if(choice==='return' && s.loan.completed)s.returned++;
         s.lastShift.kit=choice==='return'?'returned':'paid';s.loan=null;s.debt=0;}

@@ -1,0 +1,73 @@
+{
+  "item": "u4",
+  "entry": "/",
+  "bundleSha256": "21b462c6a8bc2426ad33b8dd8d99cac32c0139f98bb3b77ca79076749e306a29",
+  "runs": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "result": {
+        "effect": "Tessa records a 50-coin kit debt. Return the kit or pay before your next shift.",
+        "receipt": {
+          "revision": 1,
+          "rule": "village.watch.kit",
+          "enforcer": "Tessa",
+          "amount": 50
+        }
+      },
+      "persistence": {
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true,
+        "restored": {
+          "debt": 50,
+          "receipt": {
+            "revision": 1,
+            "rule": "village.watch.kit",
+            "enforcer": "Tessa",
+            "amount": 50
+          },
+          "loan": "debt",
+          "money": 202
+        }
+      },
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "result": {
+        "effect": "Tessa records a 50-coin kit debt. Return the kit or pay before your next shift.",
+        "receipt": {
+          "revision": 1,
+          "rule": "village.watch.kit",
+          "enforcer": "Tessa",
+          "amount": 50
+        }
+      },
+      "persistence": {
+        "save": true,
+        "reload": true,
+        "export": true,
+        "import": true,
+        "restored": {
+          "debt": 50,
+          "receipt": {
+            "revision": 1,
+            "rule": "village.watch.kit",
+            "enforcer": "Tessa",
+            "amount": 50
+          },
+          "loan": "debt",
+          "money": 202
+        }
+      },
+      "pageErrors": []
+    }
+  ]
+}

@@ -3494,7 +3494,7 @@ function settleWorkLedgerCraft(evidence,anchor) {
 
 function watchcraftKnown() {return villageCareer.watchcraft.tutorMinutes===WATCHCRAFT_READING || book_stats[WATCHCRAFT_BOOK].accumulated_time>=WATCHCRAFT_READING;}
 // Kit resolution, manual issuance and promotion publish their saved state together.
-function writeVillageCareer(choice) {
+function writeVillageCareer(choice,fingerprint) {
     if(!ownsSave || foundationSaveBlocked || importProbeToken || current_location?.id!=='Village' || expansionState.actors.player.worldId!=='base.frontier' || (current_activity && !(choice.startsWith('teach:') && current_activity.id==='patrolling')) || current_dialogue || current_game_action || current_combat || is_sleeping || is_reading || is_in_trade() || expeditionOccupiesPlayer())throw new Error('Finish your current work and speak to Tessa in Village.');
     const serialized=create_save();if(!serialized)throw new Error('The career ledger could not be saved.');
     const save=JSON.parse(serialized);
@@ -3522,11 +3522,12 @@ function writeVillageCareer(choice) {
         const t=save['current time'];
         save.life_record=appendLifeMilestone(save.life_record,{year:t.year,at:lifeCalendarMinute(t),worldId:'base.frontier',kind:'career',text:`Tessa named you a ${CAREER_RANKS[save.village_career.rank].toLowerCase()} on the Village patrol.`});
     } else {
-        save.village_career=resolveVillageKit(villageCareer,choice);
-        if(choice==='pay') {if(save.character.money<50)throw new Error('You need 50 coins to settle the kit debt.');addSavedPurse(save,-50,'village career: kit debt');}
+        save.village_career=resolveVillageKit(villageCareer,choice,fingerprint);
+        if(choice==='pay') {if(save.character.money<villageCareer.debt)throw new Error(`You need ${villageCareer.debt} coins to settle the kit debt.`);addSavedPurse(save,-villageCareer.debt,'village career: kit debt');}
     }
+    const payment=choice==='pay'?villageCareer.debt:0;
     lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));
-    if(choice==='pay')add_money_to_character(-50,'village career: kit debt');
+    if(choice==='pay')add_money_to_character(-payment,'village career: kit debt');
     if(choice==='tuition:accepted')add_money_to_character(5,'village career: tuition');
     if(choice==='teach:time'){current_activity.gathering_time=0;current_activity.earnings=0;}
     if(choice==='tutor'){start_activity('meditating');log_message('Tessa teaches sector scanning in person for six Village meditation minutes. No coins or book needed; leaving pauses the lesson.');}
@@ -3537,7 +3538,7 @@ function writeVillageCareer(choice) {
     if(choice.startsWith('tuition:'))log_message(choice==='tuition:accepted'?'You accept Iona’s offered five coins from her first solo stipend.':'You decline Iona’s tuition. She remembers your answer.');
     else if(choice.startsWith('teach:'))log_message(`You begin teaching Iona on ${choice.split(':')[1]} terms. The agreed terms are in your patrol ledger.`);
     else if(['recruit','solo','cover'].includes(choice))log_message(choice==='recruit'?'Tessa assigns Iona to your patrol.':choice==='cover'?'Iona spends one owed favor covering a two-hour shift: 50 coins on return, no player career credit.':'Iona begins a two-hour solo patrol. Stay in Village to hear her report and receive 10 coins.');
-    else if(!['notes','tutor'].includes(choice))log_message(choice==='promote'?`Tessa recognizes you as ${CAREER_RANKS[villageCareer.rank]}. Your life record remembers this promotion.`:choice==='return'?'Tessa: “Lantern and baton accounted for. Thank you.”':choice==='keep'?'Tessa records a 50-coin kit debt. Return the kit or pay before your next shift.':'Tessa records your kit debt as paid.');
+    else if(!['notes','tutor'].includes(choice))log_message(choice==='promote'?`Tessa recognizes you as ${CAREER_RANKS[villageCareer.rank]}. Your life record remembers this promotion.`:choice==='return'?'Tessa: “Lantern and baton accounted for. Thank you.”':choice==='keep'?`${save.village_career.lastShift.enforcement.enforcer} records a ${save.village_career.debt}-coin kit debt. Return the kit or pay before your next shift.`:'Tessa records your kit debt as paid.');
     villageCareerControls?.render();
     if(choice==='promote'||choice==='return')observePathGrowth();
 }
@@ -10141,7 +10142,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         visible:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier' && !current_dialogue && !current_combat && !is_sleeping && !is_reading && !is_in_trade() && !current_game_action,
         canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken,
         busy:!!current_activity || !!nativeOccupationReason(),canTeach:current_activity?.id==='patrolling' && !foundationSaveBlocked && !importProbeToken && ownsSave && !nativeOccupationReason(),recruitAlive:!!npcLives?.people.some(p=>p.id==='iona' && current_game_time.year<p.deathYear)}),
-        mentor:choice=>writeVillageCareer(choice),resolve:choice=>writeVillageCareer(choice),promote:()=>writeVillageCareer('promote'),
+        mentor:choice=>writeVillageCareer(choice),resolve:(choice,fingerprint)=>writeVillageCareer(choice,fingerprint),promote:()=>writeVillageCareer('promote'),
         notes:()=>writeVillageCareer('notes'),tutor:()=>writeVillageCareer('tutor'),readNotes:()=>start_reading(WATCHCRAFT_BOOK),
         practice:()=>start_activity('meditating')});
     const travelerSupplyIndex=()=>buildVillageObtainability(villageTablesFromNative({items:item_templates,trader:traders['village trader'],stock:inventoryTemplates[traders['village trader'].inventory_template],inventory:character.getItems(),activities:locations.Village.activities,enemies:Object.fromEntries(Object.entries(enemy_templates).filter(([id])=>/wolf rat/i.test(id)).map(([id,e])=>[id,{loot_list:e.loot_list,knownKills:enemy_killcount[id]||0}])),recipes,craftingKnown:global_flags.is_crafting_unlocked,gatheringKnown:global_flags.is_gathering_unlocked,tools:Object.fromEntries(Object.entries(locations.Village.activities).map(([id,a])=>[id,!!character.getEquipment()[activities[a.activity_name]?.required_tool_type]])),season:current_game_time.getSeason()}));
