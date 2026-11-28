@@ -1,7 +1,7 @@
 // Whole-book batch plans from one registry (plans/books.json, docs/research/BATCH_READING_WORKFLOW.md): prepares size-grouped shards when a book has none, writes one
 // plan per pass per book that skips shards already read, and writes one run file per world with true-bound caps (every request at max_tokens).
 //   Book types: pdf, epub (numbered members), ncx (`Chapter N:` labels), html (spine blocks split at `Chapter N: Title`), zh-nav (Chinese nav.xhtml), json (browser-captured `NNNN: [title, text]` files, Chinese).
-//   node scripts/lead_run/make_book_plans.mjs [--keys hp2,hp3] [--prepare] [--run 2026-10-29] [--ceiling world=usd,...] [--schema 1.4|1.5]
+//   node scripts/lead_run/make_book_plans.mjs [--keys hp2,hp3] [--prepare] [--run 2026-10-29] [--ceiling world=usd,...] [--schema 1.4|1.5|1.6]
 //   New plans default to schema 1.5; --schema 1.4 retains that explicit older shape. Existing unversioned plans still read as 1.3.
 //   --schema 1.5 adds step-level actor, kind, locator, target, using, habit, results and witnesses on scenes (LSD204); it includes 1.4's extras.
 // Plans and run files only: nothing is sent. Each run file starts `approval: PENDING` and needs Weibao's go before batch_overnight.mjs runs it.
@@ -34,7 +34,7 @@ const settings = (lang, pass) => ({maxTokens: 128000, outTokensAssumed: 32000, .
 /** Consecutive chapters grouped up to `target` size units and `max` chapters; a chapter over the target stands alone. */
 /** The plan object for one label; `schema` ('1.4') is opt-in and leaves no field when unset, so existing plans do not move. */
 export function planObject({world, lang, pass, priv, glossary, label, shards, schema = '1.5', model = 'claude-haiku-5-5'}) {
-    return {world, model, ...settings(lang, pass), schemaVersion: schema || '1.5', reading: {level: 'L1', relevance: ['reference'], review: 'not-reviewed'}, privateDir: priv, outDir: join(priv, 'batch'), glossary, label, pass, shards};
+    return {world, ...(schema === '1.6' ? {lang} : {}), model, ...settings(lang, pass), schemaVersion: schema || '1.5', reading: {level: 'L1', relevance: ['reference'], review: 'not-reviewed'}, privateDir: priv, outDir: join(priv, 'batch'), glossary, label, pass, shards};
 }
 
 export function groupBySize(chapters, size, {target, max}) {
@@ -158,8 +158,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const pilots = flag('--pilot')?.split(',') || ['census', 'scenes'].filter(p => passes.includes(p));
     if (!passes.every(p => PASSES.includes(p)) || !pilots.every(p => passes.includes(p)))
         throw new Error('Unknown pass or pilot outside the selected passes');
-    const schema = flag('--schema'), keys = flag('--keys') ? new Set(flag('--keys').split(',')) : null, tag = flag('--tag');
-    if (schema && !['1.4', '1.5'].includes(schema)) throw new Error(`--schema supports 1.4 or 1.5, got ${schema}`);
+    const schema = flag('--schema'), keys = flag('--keys') ? new Set(flag('--keys').split(',')) : null, tag = flag('--tag') || (schema === '1.6' ? 'v16' : null);
+    if (schema && !['1.4', '1.5', '1.6'].includes(schema)) throw new Error(`--schema supports 1.4, 1.5 or 1.6, got ${schema}`);
     const ceilings = Object.fromEntries((flag('--ceiling') || '').split(',').filter(Boolean).map(x => x.split('=')).map(([w, u]) => [w, Number(u)]));
     const byWorld = {}, report = [];
     for (const entry of registry.books.filter(x => !keys || keys.has(x.key))) {
@@ -201,13 +201,14 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
         const units = [...(pilotPrefix ? pilots.map(pass => ({pass, step: 'pilot', only: pilotPrefix, suffix: `pilot_${pass}`})) : []),
             ...passes.map(pass => ({pass, step: pass, skip: pilots.includes(pass) ? pilotPrefix : null, suffix: pass}))];
         for (const {pass, step, only, skip, suffix} of units) {
-            const todo = shards.filter(s => !passDone(pass, s.prefix, have) && (!only || s.prefix === only) && s.prefix !== skip)
+            const prefixFor = s => schema === '1.6' && pass === 'people' ? s.prefix + 'v16' : s.prefix;
+            const todo = shards.filter(s => !passDone(pass, prefixFor(s), have) && (!only || s.prefix === only) && s.prefix !== skip)
                 .map(s => {
                     const [from, to] = s.chapters.split('-').map(Number);
                     const images = imagePages.filter(n => n >= from && n <= to).map(n => ({
                         page: n, file: planPath(b.key + '-page-' + n + '.jpg')
                     }));
-                    return {prefix: s.prefix, shard: planPath(s.file), base: s.base, chapters: s.chapters, ...(images.length ? {images} : {})};
+                    return {prefix: prefixFor(s), shard: planPath(s.file), base: s.base, chapters: s.chapters, ...(images.length ? {images} : {})};
                 });
             if (!todo.length) continue;
             // Image-backed books can exceed a batch upload limit even with only a few hundred requests.

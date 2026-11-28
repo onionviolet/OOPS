@@ -160,3 +160,16 @@ The rendered-page paragraph provides a locator for visual evidence. All private 
 beside the shards. On a second machine, `OOPS_READING_SOURCE_DIR` can point to a private folder
 containing `<key>.pdf` and the matching `<key>.json` screen report. The planner checks the PDF
 against its registered SHA-256 and matches that digest to the screen report.
+
+### Character descriptions
+
+Census indexes named people, including a person mentioned once. For private character notes, select
+`--passes people --pilot people --schema 1.6`. A person row records appearance, dress, bearing or
+voice in `looks`, a one-line `role` when supported, demonstrated `traits`, and `prominence` within
+the shard (lead, recurring, minor or mention). Each observation carries its own paragraph and S
+(stated or directly shown) or I (inferred). A name alone can have empty observations. Each new
+descriptive field has a 25-word budget. Use paraphrases and the existing stricter English quote guard.
+
+Version 1.6 people output uses a separate `v16` shard prefix so an older people read cannot suppress
+the description pass or be overwritten by it. Existing 1.3 through 1.5 plans retain their schemas.
+The [round 4 estimate](R4_PEOPLE_COSTS_2026-11-28.md) prices the full pass across the available books.
