@@ -32,7 +32,9 @@ export const LOOP_RESETS=freeze({
   budget:{unit:'tries',spentPer:1,effectWhenLow:'a short budget makes the first run a scouting run'},
   reason:'Proposed archetype: knowledge-only carry, so skill must be rebuilt; a world widens carry per its mechanism.'},
  // Row v2 (AB11, proposal): the seat's month loop, keyed per start so the visitor start keeps no loop. Sources: progression gates MLG24-MLG28.
- 'book.mol.cyoria#zorian':{label:'Month loop',trigger:'date',command:'restart:initial',anchor:'initial',
+ 'book.mol.cyoria#zorian':{label:'Month loop',
+  runHistory:{span:'one Cyoria month',resets:['divergence'],keeps:['runs'],remembers:['player'],
+   ends:['keeperGateOpened','causeBroken','deathPactExit','budgetEmpty']},trigger:'date',command:'restart:initial',anchor:'initial',
   triggers:[{kind:'date',anchor:'initial',command:'restart:initial'},{kind:'death',anchor:'initial',command:'restart:initial'},{kind:'switch',anchor:'initial',command:'restart:initial'}],
   carry:[
    {what:'Memory of every run',class:'soul-bound',carrier:'the self',reason:'The soul crosses the cut, so memory rides on it (c6 p3, c55).'},

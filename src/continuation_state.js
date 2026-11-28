@@ -183,7 +183,7 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
         claimAttempt(life,token);
         next=restore(source,scopedRestart(source,target,world,startId?loopKey(world,startId):world),c);
         // The new run starts on day 1, undiverged, and the ended run's dated events become day-stamped foreknowledge.
-        if(startId)afterRunRestart(source.expansion,next.expansion);
+        if(startId)afterRunRestart(source.expansion,next.expansion,dateEnd?'date':'death');
         delete life.ended;c.arrivalPaused=false;
         c.deaths=[...(c.deaths||[]),{lifeId:c.active,kind:'restart',anchor,at,token,...(dateEnd?{trigger:'date'}:{})}].slice(-64);
     } else if(command.startsWith('baggage:')){planBaggage(source,c,command.slice(8));}

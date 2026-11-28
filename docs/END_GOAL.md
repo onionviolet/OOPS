@@ -48,6 +48,8 @@ U3. Skills > Growth offers Tessa’s existing Watchcraft lesson to promoted Vill
 
 U4. Keeping a due Village watch kit shows the quoted debt first. The kernel settles the custody breach and Reports names the creditor and consequence. Existing debts retain their recorded balance. New breaches carry a revision 1 receipt. [Proof](representations/evidence/readings-use-2026-11-27/u4/proof.json)
 
+U5. The existing Cyoria restart reads its run-history and memory policy. Five located campaign cases exercise the same reset vocabulary, including two distinct Menocht Loop scenarios. Zorian?s remembered lecture unlocks a drill after restart and import. [Proof](representations/evidence/readings-use-2026-11-27/u5/proof.json)
+
 <a id="future-rpg-view-with-a-map"></a>
 
 ## Future RPG view with a map (consideration)
