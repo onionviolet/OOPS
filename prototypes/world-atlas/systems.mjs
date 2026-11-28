@@ -2,6 +2,7 @@ import {readFileSync} from 'node:fs';
 import {join} from 'node:path';
 import {PLAYABLE,PARTIAL,READING} from './play-status.mjs';
 import {SKILL_EVOLUTIONS} from '../../src/data/skill_evolutions.js';
+import {census as readCensus,censusCells,mechanisms,sampleKey} from './census-rules.mjs';
 import {worldTitle} from './world-titles.mjs';
 
 const censusFile='docs/audits/LITRPG_SYSTEM_CENSUS_2026-11-27.md';
@@ -84,7 +85,7 @@ function growthReceipt(proof,id,action,effect) {
     if(valid(1920,1080)&&valid(1366,768))return {id,life:proof.life,action,build:proof.bundleSha256,href:bundled(id)};
 }
 
-export function buildSystems({census,progression,digests=[],proofs=[],growthProofs={}}){
+export function buildSystems({census,progression,digests=[],proofs=[],growthProofs={},campaign}){
     const {records,definitions}=parseCensus(census);
     const receipt=evolutionReceipts(proofs);
     receipt.SM1=growthReceipt(growthProofs.SM1,'sm1','Allocate Deep rest and recover health with stamina upkeep','Deep rest restored');
@@ -98,7 +99,8 @@ export function buildSystems({census,progression,digests=[],proofs=[],growthProo
         {id:'reveal',label:'What the system reveals',definition:'What an observer can learn about themselves, other actors and the rules, through a given means.',variations:['Ranges, withheld information and interpretation can differ from the stored truth.']});
     const digestRules=new Map(digests.map(digest=>[digest.world,digest.rules??[]]));
     const readerLink=(world,id)=>'#world/'+encodeURIComponent(world)+'/things/'+encodeURIComponent(id);
-    return {sources:Object.fromEntries(records),articles:definitions.map(article=>{
+    const sources=Object.fromEntries(records), counts=campaign?censusCells(campaign):[];
+    return {sources,articles:definitions.map(article=>{
         const {id}=article, proof=receipt[id];
         const cases=[...records.values()].filter(record=>record.mechanisms.includes(id)||record.tag===({voice:'VOICE',reveal:'REVEAL'}[id]))
             .map(record=>{
@@ -116,6 +118,15 @@ export function buildSystems({census,progression,digests=[],proofs=[],growthProo
                     cite:readerLink(world,rule.id)});
             }
         }
+        for(const cell of counts.filter(c=>c.code===id&&c.count)){
+            const example=cell.example, key='RR'+BigInt('0x'+sampleKey(example).slice(0,16)).toString();
+            const source=example.id+' · '+example.locator;
+            sources[key]={id:example.id,world:cell.world,book:cell.book,locator:example.locator,mechanism:id,qualification:'Located reader claim'};
+            const native=(digestRules.get(cell.world)??[]).some(r=>r.id===example.id);
+            cases.push({id:key,world:cell.world,book:cell.book,source,confidence:'reader locator',
+                statement:cell.count+' located matches for '+mechanisms[id][0].toLowerCase()+'.',
+                cite:native?readerLink(cell.world,example.id):'/system-source/'+key});
+        }
         const related=[...new Set(sameTheme.filter(set=>set.includes(id)).flat())].filter(code=>code!==id);
         const playStatus=proof?PLAYABLE:id.startsWith('EV')?PARTIAL:READING;
         const playGap=playStatus===PARTIAL?'The law has a recorded implementation, with no admitted normal-entry receipt for this policy.':undefined;
@@ -130,7 +141,7 @@ export function readSystems(root,readers,worlds){
         'skill-evolution-armor-ev6-2026-11-26/proof-ev6.json'].map(file=>take(join(root,'docs/representations/evidence',file)));
     const digests=worlds.map(world=>take(join(readers,world+'.json'))).filter(Boolean);
     const growthProofs=Object.fromEntries(['SM1','SM5'].map(id=>[id,take(join(root,'docs/representations/evidence/litrpg-sm1-sm5-2026-11-27',`proof-${id.toLowerCase()}.json`))]));
-    return buildSystems({census:readFileSync(join(root,censusFile),'utf8'),progression:readFileSync(join(root,progressionFile),'utf8'),digests,proofs,growthProofs});
+    return buildSystems({census:readFileSync(join(root,censusFile),'utf8'),progression:readFileSync(join(root,progressionFile),'utf8'),digests,proofs,growthProofs,campaign:readCensus(root)});
 }
 
 export function findSystems({articles=[]}={}){

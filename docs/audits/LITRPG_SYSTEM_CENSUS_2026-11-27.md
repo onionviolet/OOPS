@@ -6,7 +6,7 @@ Generated 2026-11-27 for Weibao's "foundation first, worlds later" direction. Pa
 **Confidence.** `stated` = the reading record says it; `implied` = inferred from a record; `secondary` = wiki digest or project research doc, not a reading; `bg` = model background knowledge, unverified against held text (kept separate, never counted as evidence in the mechanism ranking).
 **Caveat on (a).** A law was called covered only after finding its module in `src/`. Modules with one importer or none are flagged in the Owner column. Several accepted laws are Working Default or Proposal under AD56, so (a) means "built", not "player-proven".
 
-## Totals
+## Initial survey totals (before campaign adoption)
 
 | Class | Rules |
 |---|---|
@@ -27,7 +27,7 @@ Generated 2026-11-27 for Weibao's "foundation first, worlds later" direction. Pa
 | Chrysalis | 1 | 2 | 0 | No reading on disk. Rows come from project research docs only; rules are named but unaudited. |
 | Tree of Aeons | 0 | 1 | 0 | No reading on disk. One research-doc row. |
 
-Held books with no rows at all (Randidly Ghosthound, Millennial Mage, Threadbare, Cinnamon Bun, Path of Ascension, Menocht Loop) are listed in GAPS.md. Three rows (DCbg1, DCbg2, PHbg1) are model background knowledge and are counted in the totals but flagged bg.
+Books with no rows at the initial census (Randidly Ghosthound, Millennial Mage, Threadbare, Cinnamon Bun, Path of Ascension, Menocht Loop) are listed in GAPS.md. The initial survey counted three background leads. Located campaign records now support the narrower claims in DCbg1, DCbg2 and PHbg1. The identifiers are retained for citation stability.
 
 ## Rules by book
 
@@ -281,8 +281,8 @@ No reading on disk. Rules come from the wiki digest (secondary, revision-backed 
 | DC16 | DUNGEON_ZONE | Floors run on a timer, the dungeon is a show for an audience, and viewers supply rewards. | docs/TRIALS_AND_TRIBULATIONS.md:59; SURVEY A2 (recalled, unverified) | secondary | c | floor clocks fit GTR31; audience reward fits SM7; per-floor law change needs SM6 | SM6 |
 | DC17 | TITLE_ACHIEVE | A deed grants a title that grants power (achievement hunting). | docs/SKILLS_AND_TALENTS.md G18 | secondary | b | titles.js lifetime counters with small bonuses · src/titles.js |  |
 | DC18 | AUTHORITY | The AI rewards odd feats with unusually specific items; patron taste is a visible incentive. | research/power-systems/western/SERIES.json carl.C2 | secondary | b | CHT20 a talking cheat can be wrong/biased; AGT |  |
-| DCbg1 | LEVEL_TRIGGER | Levels grant points the crawler allocates among stats (recalled from the series, not on disk). | model background knowledge; unverified against held text | bg | c | as AZ5 | SM1 |
-| DCbg2 | LOOT_REWARD | Achievements pay out tiered loot boxes that are opened later (recalled, not on disk). | model background knowledge; unverified | bg | b | rewards row + item container · src/rewards.js, src/items.js |  |
+| DCbg1 | LEVEL_TRIGGER | After choosing a race and class, crawlers receive points to distribute as they level. | dcc.other.stat-points · en b1 c4 p41 | stated | c | as AZ5 | SM1 |
+| DCbg2 | LOOT_REWARD | Achievements can issue boxes. A boss reward can depend on the survivor’s remaining health. | dcc.other.reward-box-triggers · en b1 c25 p42 | stated | b | rewards row + item container · src/rewards.js, src/items.js |  |
 
 ### He Who Fights with Monsters
 
@@ -308,7 +308,7 @@ No reading on disk. Rows come from project research docs only; one bg row.
 | PH3 | LEVEL_TRIGGER | Mixes character level and points (G2), evolution (G5) and comprehension (G8). | docs/SKILLS_AND_TALENTS.md:490,512 | secondary | c | point pool as AZ5; evolution EV3; comprehension SLR5 | SM1 |
 | PH4 | DUNGEON_ZONE | An ordinary person enters a bounded, dangerous tutorial after integration; exact selection, rewards and limits not audited. | docs/RESEARCH_GENRE_SWEEP.md:44, T06 | secondary | b | bounded trial/lifecycle phase (WKR13); licensed-trial loop |  |
 | PH5 | OTHER | System integration remakes Earth and ties it to a wider multiverse (trope T058). | research/royal-road-2026-10-10/TROPE_ATLAS.md T058; SURVEY #28 | secondary | c | none; no dated in-world law revision event | SM6 |
-| PHbg1 | CLASS | A class and a separate profession are levelled side by side (recalled, not on disk). | model background knowledge; unverified | bg | c | as AZ36 | SM4 |
+| PHbg1 | CLASS | Class and profession can each accumulate levels required for one evolution. | ph.other.perfect-evolution · en b12 c66 p51 | stated | c | as AZ36 | SM4 |
 
 ### Chrysalis
 
@@ -391,7 +391,7 @@ R1-R4 refer to "Future RPG view with a map" in docs/END_GOAL.md: R1 loop-neutral
 
 **Definition.** A holder earns typed points (free, class-bound, elemental) on a level or stage crossing. The player allocates them to named stats through a quoted choice. Allocation can carry an upkeep cost drawn from another stat, can be banked unspent, and can be respecced under a world rule.
 
-**Books and rows.** Azarinth Healer (AZ5); Beneath the Dragoneye Moons (BD7, BD8, BD12, BD49, BD50); The Primal Hunter (PH3). bg only: Dungeon Crawler Carl (DCbg1).
+**Books and rows.** Azarinth Healer (AZ5); Beneath the Dragoneye Moons (BD7, BD8, BD12, BD49, BD50); The Primal Hunter (PH3). Dungeon Crawler Carl (DCbg1, now located).
 
 **OOPS status.** Playable for the Village sleep routine. Sleeping level crossings award bankable recovery points. Deep rest spends them to improve sleep healing with a proportional stamina recovery upkeep. A bed lets the player reset the allocation. The book variants run as held-out data. [Normal-entry receipts](../representations/evidence/litrpg-sm1-sm5-2026-11-27/proof-sm1.json)
 
@@ -437,7 +437,7 @@ R1-R4 refer to "Future RPG view with a map" in docs/END_GOAL.md: R1 loop-neutral
 
 **Definition.** A holder carries several roles at once (class, profession, second class), each with its own level ladder, skill pool and evolution chain. Slot limits say how many roles; a role evolution replaces a role; a role change can reset its level; unlocking another slot is gated by a level.
 
-**Books and rows.** Azarinth Healer (AZ11, AZ36); Beneath the Dragoneye Moons (BD20, BD26). bg only: The Primal Hunter (PHbg1).
+**Books and rows.** Azarinth Healer (AZ11, AZ36); Beneath the Dragoneye Moons (BD20, BD26). The Primal Hunter (PHbg1, now located).
 
 **Closest seam.** `src/ascension_paths.js` + `src/progression_path.js` (PRG1-PRG12) hold one path per holder today; EV6 (later slice) is the evolution hook in `src/skill_evolution.js`.
 
@@ -595,14 +595,14 @@ Readings that do exist cover only part of each book: Azarinth Healer book 1 of 7
 
 The Wandering Inn, Dungeon Crawler Carl and He Who Fights with Monsters are the three biggest holes for a System census, because they are the series with the most distinctive rules and none has a reading. Randidly Ghosthound and Primal Hunter would be next.
 
-### 2. Rules inferred from research docs, not readings
+### 2. Sources available to the initial survey
 
 - All 22 Wandering Inn rows come from the wiki digest (MediaWiki revisions, fetched 2026-10-10) or research-doc notes. Only TW19 (first class after ordinary work) and TW2's Goblin Days case were checked against chapter text, and only by the earlier research pass, not this one.
 - All Dungeon Crawler Carl rows come from the wiki digest and project docs. DC16 leans on a recalled line in `research/system-evolution-2026-10-10/SURVEY.md` section A2, which that file says is unverified.
 - He Who Fights with Monsters rests on the western SERIES row built from two fan or review pages. HW7 (ability slots) is a lead from an earlier lane mapping that the digest itself marks unverified.
 - Primal Hunter, Chrysalis and Tree of Aeons rows are named in project docs; none cites a scene except the chapter 1388 EV3 case.
 - Mother of Learning: ML1-ML65 rest on the reading dump (stated, mostly). ML38-ML40 (simulacra) and ML55-ML57 (contracts) also lean on the western SERIES row. The distilling agent used the 170-character truncated dump and did not open the full records for most rows. The digest it cites came from a failed wiki fetch and was used only as a lead.
-- Three rows (DCbg1, DCbg2, PHbg1) are model background knowledge, not from any on-disk source. They never raise a mechanism's evidence count.
+- The three initial background leads have since been narrowed to the cited reader claims. The campaign ranking counts the located records independently.
 
 ### 3. Quality limits on the readings themselves
 
@@ -618,3 +618,171 @@ The Wandering Inn, Dungeon Crawler Carl and He Who Fights with Monsters are the 
 2. HWFWM book 1 for SM9 and SM5 (essence slots, confluence). Needs a wiki route other than Fandom, or the book.
 3. Register Millennial Mage under its own key. It is not in the plans today.
 4. For Azarinth, read book 2-3 rules to confirm tier-3 and class-200 hearsay rows (AZ18, AZ27).
+
+### Precision review, November 27
+
+A reader independently reviewed 40 record-to-mechanism assignments against their private source rows. Sorting assignments by SHA-256 of the fixed seed `U2 precision v1`, world, mechanism, record ID and locator selected the sample. **34 of 40 matched the mechanism (85%).** Ambiguity counted as a miss. Two patronage claims lacked a continuing relationship, three proposed class evolutions described ability effects or skill points, and one dual-track claim only established an evolution prerequisite. The classifier was frozen before review. The counts below are candidate matches, and the sample does not estimate recall.
+
+| Sample | Assignment | Located record | Reviewed |
+|---:|---|---|---|
+| 1 | SM1 | `az.custom.stat-point-award` · en b4 c72 p32 | Match |
+| 2 | SM7 | `ph.law.blessing-terms` · en b16 c53 p27 | Match |
+| 3 | SM7 | `dcc.law.bard-death-patron-revenge` · en b6 c67 p119 | Miss |
+| 4 | SM1 | `ph.other.class-level-up` · en b2 c17 p55 | Match |
+| 5 | SM1 | `ph.other.level-up-stats` · en b3 c26 p69 | Match |
+| 6 | EV6 | `ph.ability.malefic-vipers-poison` · en b9 c15 p20 | Miss |
+| 7 | SM1 | `rg.other.frontrunner-path` · en b1 c58 p3 | Match |
+| 8 | EV6 | `cbun.ability.skill-point-allocation` · en b1 c56 p51 | Miss |
+| 9 | SM4 | `az.custom.guardian-progression` · zh b1 ç¬¬37ç«  p92 | Match |
+| 10 | EV6 | `toa.rule.guild-skill-limit-evolution` · en b5 c48 p7 | Match |
+| 11 | SM1 | `ph.other.free-points-and-levels` · en b1 c35 p30 | Match |
+| 12 | SM1 | `rg.rule.stat-allocation` · en b1 c30 p5 | Match |
+| 13 | SM1 | `az.other.stat-point-allocation` · en b4 c10 p15 | Match |
+| 14 | SM1 | `ph.other.race-level-up` · en b7 c26 p76 | Match |
+| 15 | EV6 | `cbun.other.skill-transform` · en b2 c35 p70 | Match |
+| 16 | SM1 | `ph.other.level-up-class-and-race` · en b1 c73 p9 | Match |
+| 17 | SM1 | `az.custom.level-advancement` · zh ç¬¬44ç«  p8 | Match |
+| 18 | SM4 | `ph.other.perfect-evolution` · en b12 c66 p51 | Miss |
+| 19 | SM2 | `ph.law.bonus-experience-higher-level-kill` · en b8 c40 p42 | Match |
+| 20 | EV6 | `az.custom.evolution-flesh-destroyer` · en b6 c66 p25 | Match |
+| 21 | SM1 | `dcc.other.stat-point-allocation` · en b3 c2 p178 | Match |
+| 22 | SM1 | `ph.other.level-up-points` · en b1 c26 p7 | Match |
+| 23 | SM5 | `bdm.ability.lost-and-found` · en b5 c30 p3 | Match |
+| 24 | EV6 | `chry.ability.antspeaker` · en b6 c120 p40 | Miss |
+| 25 | SM1 | `ph.other.level-up-free-points` · en b4 c5 p5 | Match |
+| 26 | EV6 | `az.custom.evolution-cerithil-huntress` · en b6 c66 p46 | Match |
+| 27 | SM7 | `dcc.institution.sponsor-broadcast` · en b7 c21 p19 | Match |
+| 28 | SM1 | `ph.other.level-up` · en b1 c4 p52 | Match |
+| 29 | SM1 | `chry.other.manual-evolution` · en b6 c18 p26 | Match |
+| 30 | SM7 | `toa.craft.two-stage-crystal-bomb` · en b4 c3 p61 | Miss |
+| 31 | EV6 | `az.custom.empress-of-eternal-ash` · en b3 c77 p6 | Match |
+| 32 | SM5 | `az.other.skill-slot-swap` · en b5 c35 p35 | Match |
+| 33 | SM5 | `az.ability.azarinth-first-hunter` · zh b1 ç¬¬67ç«  p90 | Match |
+| 34 | SM9 | `hwfwm.rule.avatar-confluence` · en b6 c27 p95 | Match |
+| 35 | SM4 | `az.custom.arcane-touched` · en b5 c33 p323 | Match |
+| 36 | EV6 | `az.ability.azarinth-first-hunter` · zh b1 ç¬¬67ç«  p24 | Match |
+| 37 | SM4 | `bdm.ability.constellation-of-the-healer-celestial` · zh ç¬¬49ç«  p63 | Match |
+| 38 | SM4 | `twi.other.class-merge` · en b2 c38 p113 | Match |
+| 39 | EV4 | `chry.other.skill-grinding` · en b9 c51 p3 | Match |
+| 40 | EV6 | `az.custom.evolution-sentinel` · en b3 c76 p125 | Match |
+
+<!-- generated: reading census -->
+## Campaign rules by world and mechanism
+
+Counts use canonical completed rules files. Each admitted record needs a shown or told evidence label, a chapter locator and an explicit relation in one field. Repeated IDs at the same locator count once within a world and mechanism. One record can support several mechanisms. A zero means the classifier found no qualifying claim. Facet columns count distinct located subrecords with their own shown or told label. Background and secondary material contribute zero.
+
+| World | Raw rows | Distinct located records | Classified records | Acquisition | Enforcement | Reset |
+|---|---:|---:|---:|---:|---:|---:|
+| Azarinth Healer | 4519 | 4299 | 92 | 321 | 58 | 0 |
+| Beneath the Dragoneye Moons | 3850 | 3618 | 52 | 222 | 98 | 7 |
+| He Who Fights with Monsters | 5842 | 5609 | 10 | 201 | 172 | 10 |
+| The Wandering Inn | 8285 | 7872 | 10 | 447 | 438 | 13 |
+| The Primal Hunter | 7259 | 6916 | 179 | 223 | 113 | 25 |
+| Dungeon Crawler Carl | 3792 | 3593 | 14 | 114 | 158 | 30 |
+| Chrysalis | 3483 | 3305 | 23 | 262 | 75 | 8 |
+| Tree of Aeons | 2682 | 2513 | 7 | 82 | 82 | 4 |
+| Randidly Ghosthound | 3788 | 3460 | 28 | 256 | 70 | 3 |
+| The Path of Ascension | 4759 | 4501 | 10 | 161 | 197 | 20 |
+| Millennial Mage | 1964 | 1871 | 0 | 96 | 67 | 1 |
+| Threadbare | 2039 | 1947 | 0 | 134 | 36 | 10 |
+| Cinnamon Bun | 1305 | 1241 | 31 | 95 | 30 | 8 |
+| The Menocht Loop | 1564 | 1462 | 0 | 71 | 40 | 55 |
+
+| World | SM1 | SM2 | SM3 | SM4 | SM5 | SM6 | SM7 | SM8 | SM9 | SM10 | SM11 | SM12 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Azarinth Healer | 25 | 6 | 0 | 19 | 5 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Beneath the Dragoneye Moons | 10 | 0 | 0 | 20 | 18 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| He Who Fights with Monsters | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 8 | 0 | 0 | 0 |
+| The Wandering Inn | 0 | 0 | 0 | 8 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| The Primal Hunter | 99 | 17 | 0 | 4 | 0 | 0 | 5 | 0 | 0 | 0 | 0 | 0 |
+| Dungeon Crawler Carl | 5 | 0 | 2 | 0 | 0 | 0 | 7 | 0 | 0 | 0 | 0 | 0 |
+| Chrysalis | 2 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Tree of Aeons | 0 | 0 | 0 | 4 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| Randidly Ghosthound | 17 | 0 | 2 | 1 | 5 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| The Path of Ascension | 0 | 0 | 0 | 1 | 3 | 0 | 5 | 0 | 0 | 0 | 0 | 0 |
+| Millennial Mage | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Threadbare | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Cinnamon Bun | 0 | 0 | 0 | 16 | 8 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| The Menocht Loop | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+
+| World | EV1 | EV2 | EV3 | EV4 | EV5 | EV6 |
+|---|---:|---:|---:|---:|---:|---:|
+| Azarinth Healer | 0 | 0 | 0 | 0 | 0 | 38 |
+| Beneath the Dragoneye Moons | 0 | 0 | 0 | 1 | 0 | 7 |
+| He Who Fights with Monsters | 0 | 0 | 0 | 0 | 0 | 1 |
+| The Wandering Inn | 0 | 0 | 0 | 0 | 0 | 2 |
+| The Primal Hunter | 0 | 0 | 3 | 4 | 0 | 51 |
+| Dungeon Crawler Carl | 0 | 0 | 0 | 0 | 0 | 0 |
+| Chrysalis | 0 | 0 | 0 | 14 | 0 | 6 |
+| Tree of Aeons | 0 | 0 | 0 | 0 | 0 | 1 |
+| Randidly Ghosthound | 0 | 0 | 0 | 0 | 2 | 1 |
+| The Path of Ascension | 0 | 0 | 0 | 0 | 1 | 0 |
+| Millennial Mage | 0 | 0 | 0 | 0 | 0 | 0 |
+| Threadbare | 0 | 0 | 0 | 0 | 0 | 0 |
+| Cinnamon Bun | 0 | 0 | 0 | 0 | 1 | 10 |
+| The Menocht Loop | 0 | 0 | 0 | 0 | 0 | 0 |
+
+| World | Mechanism | Located matches | Example record and chapter |
+|---|---|---:|---|
+| Azarinth Healer | SM1 | 25 | `az.other.stat-allocation` · en b2 c58 p51 |
+| Azarinth Healer | SM2 | 6 | `az.law.kingsguard-bonus-experience` · en b3 c81 p23 |
+| Azarinth Healer | SM4 | 19 | `az.ability.mana-intrusion` · en b2 c5 p33 |
+| Azarinth Healer | SM5 | 5 | `az.ability.faen-valkyrie` · en b5 c34 p75 |
+| Azarinth Healer | EV6 | 38 | `az.ability.azarinth-first-hunter` · en b2 c1 p6 |
+| Beneath the Dragoneye Moons | SM1 | 10 | `bdm.other.stat-allocation` · en b3 c5 p54 |
+| Beneath the Dragoneye Moons | SM4 | 20 | `bdm.other.constellation-of-the-healer` · en b2 c2 p7 |
+| Beneath the Dragoneye Moons | SM5 | 18 | `bdm.ability.moonlight` · en b2 c31 p8 |
+| Beneath the Dragoneye Moons | SM7 | 1 | `bdm.institution.school-combat-team` · en b8 c26 p45 |
+| Beneath the Dragoneye Moons | EV4 | 1 | `bdm.ability.meta-skill-fusion` · en b8 c43 p78 |
+| Beneath the Dragoneye Moons | EV6 | 7 | `bdm.custom.fire-advanced-forms` · en b2 c20 p51 |
+| He Who Fights with Monsters | SM7 | 1 | `hwfwm.institution.gold-ranker-patron` · en b12 c59 p8 |
+| He Who Fights with Monsters | SM9 | 8 | `hwfwm.law.essence-single-confluence` · en b11 c84 p97 |
+| He Who Fights with Monsters | EV6 | 1 | `hwfwm.other.transfiguration` · en b3 c41 p89 |
+| The Wandering Inn | SM4 | 8 | `twi.other.dual-class-leveling` · en b11 c11 p24 |
+| The Wandering Inn | EV6 | 2 | `twi.ability.bartender-class` · en b15 c6 p65 |
+| The Primal Hunter | SM1 | 99 | `ph.other.level-up-free-points` · en b10 c13 p67 |
+| The Primal Hunter | SM2 | 17 | `ph.other.kill-bonus-experience` · en b10 c29 p43 |
+| The Primal Hunter | SM4 | 4 | `ph.other.perfect-evolution` · en b12 c66 p51 |
+| The Primal Hunter | SM7 | 5 | `ph.ability.divine-bargain` · en b14 c53 p37 |
+| The Primal Hunter | EV3 | 3 | `ph.craft.storybook-page-upgrade` · en b11 c55 p39 |
+| The Primal Hunter | EV4 | 4 | `ph.ability.skill-fusion-cultivate-toxin` · en b10 c68 p42 |
+| The Primal Hunter | EV6 | 51 | `ph.other.skill-selection-grades` · en b13 c35 p8 |
+| Dungeon Crawler Carl | SM1 | 5 | `dcc.other.stat-points` · en b1 c4 p41 |
+| Dungeon Crawler Carl | SM3 | 2 | `dcc.other.party` · en b1 c4 p102 |
+| Dungeon Crawler Carl | SM7 | 7 | `dcc.custom.patron-boxes` · en b1 c4 p68 |
+| Chrysalis | SM1 | 2 | `chry.ability.superior-hatchling-evolution` · en b3 c7 p119 |
+| Chrysalis | SM4 | 1 | `chry.other.skill-class-fusion` · en b3 c1 p392 |
+| Chrysalis | EV4 | 14 | `chry.ability.bite-chomp-fusion` · en b3 c7 p70 |
+| Chrysalis | EV6 | 6 | `chry.ability.antspeaker` · en b6 c115 p8 |
+| Tree of Aeons | SM4 | 4 | `toa.rule.class-merge-plateau` · en b2 c11 p88 |
+| Tree of Aeons | SM5 | 1 | `toa.ability.dream-tutor` · en b1 c82 p86 |
+| Tree of Aeons | SM7 | 1 | `toa.craft.two-stage-crystal-bomb` · en b4 c3 p61 |
+| Tree of Aeons | EV6 | 1 | `toa.rule.guild-skill-limit-evolution` · en b5 c48 p7 |
+| Randidly Ghosthound | SM1 | 17 | `rg.rule.newbie-path-stat` · en b1 c1 p74 |
+| Randidly Ghosthound | SM3 | 2 | `rg.other.party-experience-share` · en b5 c9 p11 |
+| Randidly Ghosthound | SM4 | 1 | `rg.institution.city-classes` · en b5 c82 p25 |
+| Randidly Ghosthound | SM5 | 5 | `rg.ability.leadership` · en b1 c39 p78 |
+| Randidly Ghosthound | EV5 | 2 | `rg.system.skill-consolidation` · en b4 c90 p35 |
+| Randidly Ghosthound | EV6 | 1 | `rg.rule.class-inheritance` · en b1 c42 p11 |
+| The Path of Ascension | SM4 | 1 | `poa.institution.class-schedule` · en b1 c6 p15 |
+| The Path of Ascension | SM5 | 3 | `poa.ability.flaming-strike` · en b6 c19 p11 |
+| The Path of Ascension | SM7 | 5 | `poa.custom.path-completion-rewards` · en b10 c29 p44 |
+| The Path of Ascension | EV5 | 1 | `poa.rule.skill-consolidate-fragments` · en b10 c35 p175 |
+| Cinnamon Bun | SM4 | 16 | `cbun.ability.jumping` · en b1 c52 p53 |
+| Cinnamon Bun | SM5 | 8 | `cbun.other.class-level-up` · en b1 c37 p19 |
+| Cinnamon Bun | EV5 | 1 | `cbun.custom.skill-merge` · en b6 c58 p41 |
+| Cinnamon Bun | EV6 | 10 | `cbun.ability.class-evolution` · en b1 c55 p65 |
+
+Unlisted world and mechanism pairs have zero matches.
+
+### Next foundation slices
+
+Ranked by the number of contributing worlds, then by mean matches per 1,000 located records across the covered worlds. Systems with an exercised OOPS receipt in the Atlas are excluded. A recommendation calls for checking existing partial implementations before adding a law.
+
+| Rank | Mechanism | Worlds | Matches | Mean per 1,000 |
+|---:|---|---:|---:|---:|
+| 1 | SM4 · Concurrent class and profession tracks | 9 | 74 | 1.92 |
+| 2 | SM7 · An outside patron grants aid | 6 | 20 | 0.33 |
+| 3 | SM2 · Reward depends on the level gap | 2 | 23 | 0.28 |
+| 4 | SM3 · Shared defeat credit | 2 | 4 | 0.08 |
+| 5 | SM9 · Several essence types determine a confluence | 1 | 8 | 0.10 |

@@ -42,6 +42,8 @@ A5 O7: Character Stats shows a life title from decaying activity scores. Counter
 
 A5 O8: Fast travel > Walking map records actual stops, replays one leg on each idle tick and lets you forget the route. An encounter, rain on an outdoor leg or a closed destination interrupts replay. Older saves have no route. [Proof](representations/evidence/protolike-pulls-2026-11-27/o8/proof.json)
 
+U2. Systems compares located campaign rules by world and mechanism. [Census](audits/LITRPG_SYSTEM_CENSUS_2026-11-27.md) · [Atlas proof](representations/evidence/readings-use-2026-11-27/u2/proof.json)
+
 <a id="future-rpg-view-with-a-map"></a>
 
 ## Future RPG view with a map (consideration)

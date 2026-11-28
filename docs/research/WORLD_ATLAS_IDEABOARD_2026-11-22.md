@@ -410,3 +410,5 @@ For future reader handoffs, a source link and precise page, panel, strip date or
 ### Find a record from a name or rule
 
 The November 25 desktop UI request concerns the route from a remembered term to the underlying entry. Target 1366×768 and 1920×1080. Exercise global search from the home page, narrow by record type/world, inspect the detail and go Back with the query intact. Include a failed search and recovery. For the cheat shelf, preserve its own family/search on Back and let an exact catalogue ID open a reading view with the two decisions, evidence and implementation details. CTC21 and CTC64 have explicit native-results links. The mobile layout and additional source acquisition are outside this desktop check. Design references: DSG3, UR9, AD36.
+
+Systems comparison rows now show the number of located campaign matches per world and one source citation. The campaign census lists the selection criteria, coverage gaps and precision review.

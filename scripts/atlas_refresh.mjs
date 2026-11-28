@@ -4,6 +4,8 @@ import {existsSync,mkdirSync,mkdtempSync,readFileSync,realpathSync,renameSync,rm
 import {dirname,join,relative,resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
+import {censusWorlds,censusDirectory} from '../prototypes/world-atlas/census-worlds.mjs';
+
 const root=fileURLToPath(new URL('../',import.meta.url));
 const privateDir=/^docs\/research\/novels\/[\w-]+\/private\/lead-run-[\w-]+$/;
 // Collected outputs, migration headers and qualification markers. Prepared
@@ -96,6 +98,7 @@ function run(args){
     const {dry,rebuild}=chooseArgs(args);
     const local=join(root,'.local/atlas-refresh'), live=join(root,'work/atlas-snapshot');
     const dirs=new Set(json(join(root,registry)).books.map(book=>book.dir).filter(dir=>privateDir.test(dir)));
+    for(const slug of Object.keys(censusWorlds))dirs.add(censusDirectory(slug));
     const timings={}, start=performance.now();
     const timed=(key,fn)=>{const since=performance.now();try{return fn();}finally{timings[key]=Math.round(performance.now()-since);}};
     let lock;
@@ -130,10 +133,14 @@ function run(args){
             }
             // Validate every received file before installing any. Transfers are
             // additive; absent remote files never remove local readings.
+            if(changed.length){
+                const paths=changed.map(row=>row.path).join('\0')+'\0';
+                const ignored=execFileSync('git',['check-ignore','-z','--stdin'],{cwd:root,input:paths,encoding:'utf8',maxBuffer:16e6,windowsHide:true});
+                if(ignored!==paths)throw Error('A private reader destination is outside Git ignore rules');
+            }
             for(const row of changed){
                 const file=join(incoming,row.path), body=readFileSync(file);
                 if(body.length!==row.size||digest(body)!==row.hash)throw Error('Private transfer did not match the manifest');
-                execFileSync('git',['check-ignore','-q','--',row.path],{cwd:root,windowsHide:true});
                 const target=join(root,row.path);
                 mkdirSync(dirname(target),{recursive:true});
                 const real=relative(realpathSync(root),realpathSync(dirname(target))).replaceAll('\\','/');
@@ -159,6 +166,7 @@ function run(args){
         writeFileSync(join(stage,'refresh-input.json'),JSON.stringify({input}));
         const previous=resolve(dirname(live),'atlas-snapshot-before-'+runDir.split(/[/\\]/).at(-1));
         timed('adopt',()=>adopt(stage,live,previous));
+        result.census=timed('census',()=>node('scripts/build_reading_census.mjs'));
         result.previous=relative(root,previous).replaceAll('\\','/');
         return {...result,totalMs:Math.round(performance.now()-start)};
     }finally{if(lock)rmdirSync(lock);}

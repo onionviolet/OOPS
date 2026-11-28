@@ -17,7 +17,9 @@ test('census and evolution articles preserve evidence qualification and expose a
         assert.ok(row.cases.every(cell=>cell.source&&cell.cite),row.id);
     }
     const growth=articles.find(row=>row.id==='SM1');
-    assert.equal(growth.cases.find(row=>row.id==='DCbg1').confidence,'bg');
+    const crawler=growth.cases.find(row=>row.id==='DCbg1');
+    assert.equal(crawler.confidence,'stated');
+    assert.match(crawler.source,/dcc\.other\.stat-points.*en b1 c4 p41/);
     assert.equal(growth.cases.find(row=>row.id==='PH3').confidence,'secondary');
     assert.equal(articles.find(row=>row.id==='EV2').playStatus,'Playable');
     assert.equal(articles.find(row=>row.id==='EV6').playStatus,'Partial');
